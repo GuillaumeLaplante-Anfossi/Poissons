@@ -1,0 +1,235 @@
+% ----------------------------------------------------------------
+% AMS-LaTeX Paper ************************************************
+% **** -----------------------------------------------------------
+\documentclass[11pt]{amsart}
+\usepackage{graphicx, mathabx, amssymb,amsfonts,amsmath,amsthm,newlfont,mathtools}
+\usepackage{epsfig,url}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumerate}
+\usepackage[colorlinks=true,linkcolor=red,citecolor=blue]{hyperref}
+\usepackage{color}
+
+
+%Clever ref
+\usepackage[noabbrev,capitalize]{cleveref}
+\usepackage[all,2cell]{xy} \UseAllTwocells \SilentMatrices
+
+%MARGINS
+
+\setlength{\textwidth}{\paperwidth}
+\addtolength{\textwidth}{-2.5in}
+\calclayout
+
+
+% ----------------------------------------------------------------
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+\hfuzz2pt % Don't report over-full h-boxes if over-edge is small
+% THEOREMS -------------------------------------------------------
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{corollary}[thm]{Corollary}
+\newtheorem{lemmma}[thm]{Lemma}
+\newtheorem{proposition}[thm]{Proposition}
+\newtheorem{Questions}[thm]{Questions}
+\theoremstyle{definition}
+\newtheorem{definition}[thm]{Definition}
+
+\newtheorem{conjectue}{Conjecture} 
+\newtheorem{QQ}{Question} 
+\newtheorem{prob}{Problem}
+\newtheorem{ex}[thm]{Examples}
+\newtheorem{example}[thm]{Example}
+\newtheorem{policy}{Policy}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{caveat}[thm]{Caveat}
+\numberwithin{equation}{section}
+% MATH -----------------------------------------------------------
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+
+\newcommand{\To}{\longrightarrow}
+\newcommand*{\Longhookrightarrow}{\ensuremath{\lhook\joinrel\relbar\joinrel\rightarrow}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Ok}{\mathcal O}
+\newcommand{\ai}{\mathfrak{a}}
+\newcommand{\bi}{\mathfrak{b}}
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\AM}{A}
+\newcommand{\xx}{\mathsf{x}}
+\newcommand{\eqv}{\mathrm{ev}}
+\font \rus= wncyr10
+\newcommand{\sha}{\, \hbox{\rus x} \,}
+
+\newcommand{\Lie}{\mathrm{Lie}}
+
+\newcommand{\GC}{\mathcal{GC}}
+\newcommand{\q}{/\!/}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\id}{\mathrm{id}}
+
+\newcommand{\can}{\mathrm{can}}
+
+\newcommand{\mm}{\mathfrak{m}}
+
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\LP}{L}
+\newcommand{\FL}{F\!L}
+\newcommand{\mc}{\mu}
+
+
+\newcommand{\0}{\color{blue}{\mathsf{0}}}
+
+
+
+\DeclareMathOperator{\Ima}{Im} %Image d'une fonction
+
+%Drapeau européen
+
+\usepackage{graphicx,calc}
+\newlength\myheight
+\newlength\mydepth
+\settototalheight\myheight{Xygp}
+\settodepth\mydepth{Xygp}
+\setlength\fboxsep{0pt}
+\newcommand*\inlinegraphics[1]{%
+  \settototalheight\myheight{Xygp}%
+  \settodepth\mydepth{Xygp}%
+  \raisebox{-\mydepth}{\includegraphics[height=\myheight]{#1}}%
+}
+
+%Dessins
+
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\tikzset{math3d/.style=
+    {x= {(-0.353cm,-0.353cm)}, z={(0cm,1cm)},y={(1cm,0cm)}}}
+\tikzset{JLL3d/.style=
+    {x= {(0.4cm,-0.2cm)}, z={(0cm,1cm)},y={(-1cm,0cm)}}}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes,shapes.geometric,fit,positioning,calc,matrix}
+\tikzset{
+  optree/.style={scale=.5,thick,grow'=up,level distance=10mm,inner sep=1pt},
+  comp/.style={draw=none,circle,fill,line width=0,inner sep=0pt},
+  dot/.style={draw,circle,fill,inner sep=0pt,minimum width=3pt},
+  circ/.style={draw,circle,inner sep=1pt,minimum width=4mm},
+  emptycirc/.style={draw,circle,inner sep=1pt,minimum width=2mm},
+  root/.style={level distance=10mm,inner sep=1pt},
+  leaf/.style={draw=none,circle,fill,line width=0,inner sep=0pt},
+  nodot/.style={draw,circle,inner sep=1pt},
+}
+
+\pgfplotsset{compat=1.12}
+
+% ----------------------------------------------------------------
+
+\def\abovespace{\vspace{12pt}}
+\def\belowspace{\vspace{8pt}}
+
+
+
+\addtolength{\hoffset}{-0.0in} \addtolength{\textwidth}{0in}
+\addtolength{\voffset}{-0.0in} \addtolength{\textheight}{0.0in}
+
+
+% -----------------------------------------------------------------
+
+\title{Poissons}
+
+\author{B\'er\'enice Delcroix-Oger}
+\address{}
+\email{}
+
+\author{Matthieu Josuat-Verg\`es}
+\address{}
+\email{}
+
+\author{Guillaume Laplante-Anfossi}
+\address{Universit\'e Sorbonne Paris Nord, Laboratoire Analyse, G\'eom\'etrie et Applications, CNRS, UMR 7539, F-93430 Villetaneuse, France.}
+\email{laplante-anfossi@math.univ-paris13.fr}
+
+
+
+\date{\today}
+
+\subjclass[2010]{Primary [...]; Secondary 18M70} 
+
+\keywords{Polytopes [...]}
+
+
+\thanks{G. L.-A. was supported by the European Union's Horizon 2020 research and innovation program under the Marie Sklodowska-Curie grant agreement No 754362 \inlinegraphics{EU.png}, by the Natural Sciences and Engineering Research Council of Canada (NSERC) and by the ANR-20-CE40-0016 Higher Algebra, Geometry and Topology.}
+
+\begin{document}
+
+
+\begin{abstract}
+The purpose of this note is to provide a new combinatorial description 
+\end{abstract}
+
+
+\maketitle
+
+\section{Introduction}
+
+TBC
+
+\subsection{Conventions}
+We use the notations of \cite{LodayVallette12} for operads.
+
+\section{Poissons}
+
+Let us recall the combinatorial formula for the cellular approximation of the diagonal of the permutahedra from \cite{LA21}.
+
+Let $n\geq 1$, and let us write \[ D(n) \coloneqq \{(I,J) \ | \ I,J\subset\{1,\ldots,n\}, |I|=|J|, I\cap J=\emptyset, \min(I\cup J)\in I \}. \] 
+
+We have
+\begin{eqnarray*}
+    (\sigma_1,\sigma_2)\in \Ima\triangle_{(P,\vec v)} 
+    & \iff & \forall (I,J) \in D(n), \exists l , 
+    \left| \left(\bigcup_{1\leq k \leq l} \sigma_1^{k} \right)\cap I \right|
+    >
+    \left| \left(\bigcup_{1\leq k \leq l} \sigma_1^{k} \right)\cap J \right| \text{ or } \\
+    && \exists l' , 
+    \left| \left(\bigcup_{1\leq k \leq l'} \sigma_1^{k} \right)\cap I \right|
+    <
+    \left| \left(\bigcup_{1\leq k \leq l'} \sigma_1^{k} \right)\cap J \right|  \ .
+\end{eqnarray*}
+
+We prove the following equivalent description. 
+
+\begin{thm} There exists $(I,J) \in D(n)$ such that $\forall k, |\sigma_1^1\cdots\sigma_1^k \cap I| \leq |\sigma_1^1\cdots\sigma_1^k \cap J|$ and $\forall l, |\sigma_1^1\cdots\sigma_1^l \cap I| \geq |\sigma_1^1\cdots\sigma_1^l \cap J|$ if and only if $\exists (I',J')=(\{i_1,\ldots,i_m\},\{j_1,\ldots,j_m\}) \in D(m)$, $m\leq n$, such that \[\sigma_1 \cap (I'\cup J')=j_1 i_1 j_2 i_2 \cdots j_n i_n \] and \[ \sigma_2 \cap (I'\cup J') = i_2 j_1 i_3 j_2 \cdots i_1 j_n \ , \] where $i_1 = \min (I' \cup J')$. 
+\end{thm}
+
+\begin{proof}
+    We choose $(I,J)$ minimal such that [...] 
+\begin{enumerate}
+    \item $\tilde I =\tilde J \coloneqq \emptyset$. 
+    We set $i_{*}\coloneqq$ the leftmost $i$ in $\sigma_1 \setminus \tilde I$, $j_{*}\coloneqq$ the leftmost $j$ in $\sigma_2 \setminus \tilde J$.
+    Claim: we have $i_{*}=i_1=\min(I)$.
+    Proof: If not, $(I\setminus i_{*}, J \setminus j_{*})$ contradict the minimality assumption. 
+    \item We set $\tilde I = \{i_1\}, \tilde J = \emptyset$. 
+    Claim: we have $\sigma_1 = j_{*}i_1 \cdots$.
+    Proof: Idem
+    \item We set $\tilde I = \{i_1\}, \tilde J = \{j_1\}$. 
+\end{enumerate}
+\end{proof}
+
+\emph{Acknowledgements.}    
+
+
+\bibliographystyle{amsalpha}
+
+\bibliography{Poissons}
+
+
+
+\end{document}
+
+
+
