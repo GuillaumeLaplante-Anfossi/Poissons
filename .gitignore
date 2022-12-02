@@ -1,0 +1,7 @@
+# The following file types will be ignored by github.
+# Feel free to edit/remove if overkill.
+#*.pdf
+*.synctex.*
+*.log
+*.out
+*.aux
