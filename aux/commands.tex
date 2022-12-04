@@ -1,0 +1,144 @@
+% !TEX root = ../Poissons.tex
+
+
+
+
+%Clever ref
+\usepackage[noabbrev,capitalize]{cleveref}
+\usepackage[all,2cell]{xy} \UseAllTwocells \SilentMatrices
+
+%MARGINS
+
+\setlength{\textwidth}{\paperwidth}
+\addtolength{\textwidth}{-2.5in}
+\calclayout
+
+
+% ----------------------------------------------------------------
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+\hfuzz2pt % Don't report over-full h-boxes if over-edge is small
+% THEOREMS -------------------------------------------------------
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{corollary}[thm]{Corollary}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{construction}[thm]{Construction}
+\newtheorem{proposition}[thm]{Proposition}
+\newtheorem{Questions}[thm]{Questions}
+\theoremstyle{definition}
+\newtheorem{definition}[thm]{Definition}
+
+\newtheorem{conjectue}{Conjecture} 
+\newtheorem{QQ}{Question} 
+\newtheorem{prob}{Problem}
+\newtheorem{ex}[thm]{Examples}
+\newtheorem{example}[thm]{Example}
+\newtheorem{policy}{Policy}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{caveat}[thm]{Caveat}
+\numberwithin{equation}{section}
+% MATH -----------------------------------------------------------
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+
+\newcommand{\To}{\longrightarrow}
+\newcommand*{\Longhookrightarrow}{\ensuremath{\lhook\joinrel\relbar\joinrel\rightarrow}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Ok}{\mathcal O}
+\newcommand{\ai}{\mathfrak{a}}
+\newcommand{\bi}{\mathfrak{b}}
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\AM}{A}
+\newcommand{\xx}{\mathsf{x}}
+\newcommand{\eqv}{\mathrm{ev}}
+\font \rus= wncyr10
+\newcommand{\sha}{\, \hbox{\rus x} \,}
+
+\newcommand{\Lie}{\mathrm{Lie}}
+
+\newcommand{\GC}{\mathcal{GC}}
+\newcommand{\q}{/\!/}
+
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\id}{\mathrm{id}}
+
+\newcommand{\can}{\mathrm{can}}
+
+\newcommand{\mm}{\mathfrak{m}}
+
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\LP}{L}
+\newcommand{\FL}{F\!L}
+\newcommand{\mc}{\mu}
+
+%Important sets 
+\newcommand{\EC}{\mathcal{E}} %essential complimentary partitions
+\newcommand{\OP}{\triangle} %ordered partitions
+\newcommand{\BT}{\mathcal{B}} %bipartite trees
+
+
+\newcommand{\0}{\color{blue}{\mathsf{0}}}
+
+%OEIS
+\newcommand{\OEIS}[1]{{\rm \href{http://oeis.org/#1}{\texttt{#1}}}}
+
+%Commentaires 
+
+\newcommand{\Guillaume}[1]{\textcolor{magenta}{\underline{Guillaume}: #1}}
+\newcommand{\Kurt}[1]{\textcolor{blue}{\underline{Kurt}: #1}}
+
+\DeclareMathOperator{\Ima}{Im} %Image d'une fonction
+
+%Drapeau européen
+
+\usepackage{graphicx,calc}
+\newlength\myheight
+\newlength\mydepth
+\settototalheight\myheight{Xygp}
+\settodepth\mydepth{Xygp}
+\setlength\fboxsep{0pt}
+\newcommand*\inlinegraphics[1]{%
+  \settototalheight\myheight{Xygp}%
+  \settodepth\mydepth{Xygp}%
+  \raisebox{-\mydepth}{\includegraphics[height=\myheight]{#1}}%
+}
+
+%Dessins
+
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\tikzset{math3d/.style=
+    {x= {(-0.353cm,-0.353cm)}, z={(0cm,1cm)},y={(1cm,0cm)}}}
+\tikzset{JLL3d/.style=
+    {x= {(0.4cm,-0.2cm)}, z={(0cm,1cm)},y={(-1cm,0cm)}}}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes,shapes.geometric,fit,positioning,calc,matrix}
+\tikzset{
+  optree/.style={scale=.5,thick,grow'=up,level distance=10mm,inner sep=1pt},
+  comp/.style={draw=none,circle,fill,line width=0,inner sep=0pt},
+  dot/.style={draw,circle,fill,inner sep=0pt,minimum width=3pt},
+  circ/.style={draw,circle,inner sep=1pt,minimum width=4mm},
+  emptycirc/.style={draw,circle,inner sep=1pt,minimum width=2mm},
+  root/.style={level distance=10mm,inner sep=1pt},
+  leaf/.style={draw=none,circle,fill,line width=0,inner sep=0pt},
+  nodot/.style={draw,circle,inner sep=1pt},
+}
+
+\pgfplotsset{compat=1.12}
+
+% ----------------------------------------------------------------
+
+\def\abovespace{\vspace{12pt}}
+\def\belowspace{\vspace{8pt}}
+
+
+
+\addtolength{\hoffset}{-0.0in} \addtolength{\textwidth}{0in}
+\addtolength{\voffset}{-0.0in} \addtolength{\textheight}{0.0in}
+

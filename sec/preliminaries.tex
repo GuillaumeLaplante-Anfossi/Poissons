@@ -1,0 +1,71 @@
+% !TEX root = ../Poissons.tex
+
+\section{Preliminaries}
+\label{s:prelim}
+
+\subsection{Original description of the diagonal}
+
+Let us first set up some notations that will be of use throughout the paper. 
+A set $\sigma_I = \bigcup_{i\in I} \sigma_i$ is a \emph{partition} of $[n]:=\{1,\ldots,n\}$ if $\bigcup_{i\in I} \sigma_i = [n]$ and $\sigma_i \cap \sigma_j = \emptyset$ for $i \neq j$.
+We denote by $|\sigma|:=|I|$ the size of the partition (its number of blocks).
+A partition is \emph{ordered} if the indexed set $I$ is equipped with a total order; in what follows we shall use $I=[k]$ for $k \in \N$. 
+
+Let us recall the combinatorial formula for the cellular approximation of the diagonal of the permutahedra from \cite[Theorem 3.16]{LA21}.
+Let $n\geq 1$, and let us write \[ D(n) \coloneqq \{(I,J) \ | \ I,J\subset\{1,\ldots,n\}, |I|=|J|, I\cap J=\emptyset, \min(I\cup J)\in I \}. \] 
+Let $\vec v \in R^n$ be such that $\forall (I,J) \in D(n)$, we have $\sum_{i \in I} v_i > \sum_{j \in J} v_j$, and let $P\subset \R^n$ denote the standard $(n-1)$-dimensional permutahedron.
+For any pair $(\sigma^1,\sigma^2)$ of ordered partitions of $[n]$, we have
+\begin{eqnarray*}
+    (\sigma^1,\sigma^2)\in \Ima\triangle_{(P,\vec v)} 
+    & \iff & \forall (I,J) \in D(n), \exists l , 
+    \left| \left(\bigcup_{1\leq k \leq l} \sigma^1_{k} \right)\cap I \right|
+    >
+    \left| \left(\bigcup_{1\leq k \leq l} \sigma^2_{k} \right)\cap J \right| \text{ or } \\
+    && \exists l' , 
+    \left| \left(\bigcup_{1\leq k \leq l'} \sigma^1_{k} \right)\cap I \right|
+    <
+    \left| \left(\bigcup_{1\leq k \leq l'} \sigma^2_{k} \right)\cap J \right|  \ . 
+\end{eqnarray*}
+We shall denote by $\OP$ the set of pairs of ordered partitions of $[n]$ which satisfy the above condition. 
+
+There is an equivalent description of $\OP$ which has the following form: 
+\begin{proposition}[{\cite{LA21}}]
+\label{p:minimal}
+For a two ordered partitions $\sigma^1, \sigma^2 \subset [n]$, we have
+\begin{eqnarray*}
+    (\sigma^1,\sigma^2)\in \OP 
+    & \iff & \forall (I,J) \in D(\sigma^1,\sigma^2), \exists l , 
+    \left| \left(\bigcup_{1\leq k \leq l} \sigma^1_{k} \right)\cap I \right|
+    >
+    \left| \left(\bigcup_{1\leq k \leq l} \sigma^2_{k} \right)\cap J \right| \text{ or } \\
+    && \exists l' , 
+    \left| \left(\bigcup_{1\leq k \leq l'} \sigma^1_{k} \right)\cap I \right|
+    <
+    \left| \left(\bigcup_{1\leq k \leq l'} \sigma^2_{k} \right)\cap J \right|  \ . 
+\end{eqnarray*}
+\end{proposition}
+Here, $D(\sigma^1,\sigma^2) \subset D(n)$ is a proper subset of $D(n)$ which depends on the choice of $(\sigma^1,\sigma^2)$, and comes from the geometry of the situation, see \cite[Theorem 1.26]{LA21} for more details.
+For our present purposes, it will be enough to restrict our attention to facets of $\OP$, that is pairs $(\sigma^1,\sigma^2)$ which satisfy $|\sigma^1| + |\sigma^2|=n+1$.
+In this case, $D(\sigma^1,\sigma^2)$ has $n-1$ elements, and admits the following description. 
+
+For any subset $\sigma_i \subset [n]$, let $\vec \sigma_i \in \R^n$ denote the boolean vector whose coordinates are $1$ in position $j$ if $j \in \sigma_i$ and $0$ otherwise. 
+Given a facet $(\sigma^1,\sigma^2)$ of $\OP$, one can consider the system of equations $\langle \vec \sigma^1_i , x \rangle=0$, $\langle \vec \sigma^2_j , x \rangle=0$ given by the blocks of both partitions.
+For geometric reasons (see the proof of \cite[Theorem 1.26]{LA21}), the solution of this system is $x=0$. 
+Now we will be interested in the solutions of the systems associated to the pairs $(\rho^1,\sigma^2)$ and $(\sigma^1,\rho^2)$ where $\rho^1$ (resp. $\rho^2$) has been obtained from $\sigma^1$ (resp. $\sigma^2$) by merging two adjacent blocks.
+
+\begin{proposition}
+\label{p:minimal-IJ-pairs}
+    There is a bijection between the set $D(\sigma^1,\sigma^2)$ and the solutions to the systems of equations of the form $(\rho^1,\sigma^2)$ and $(\sigma^1,\rho^2)$. 
+\end{proposition}
+
+\begin{proof}
+    For any $z \in (\mathring \sigma^1+ \mathring \sigma^2)/2$, the face $\sigma^2 \cap \rho_z \sigma^1$ of $P \cap \rho_z P$ is a vertex of the polytope $P \cap \rho_z P$.
+    The faces of the form $\sigma^2 \cap \rho_z \rho^1$ and $\rho^2 \cap \rho_z \sigma^1$ are the edges of $P\cap \rho_z P$ which are adjacent to the vertex $\sigma^2 \cap \rho_z \sigma^1$. 
+    By definition $D(\sigma^1, \sigma^2)$ describes the directions of these edges, and the translation is made as follows: for a given $(I,J)$, define the corresponding direction $\vec d$ by $d_i:=1$ if $i \in I$, $d_j:=-1$ if $j \in J$, and $d_k:=0$ otherwise.  
+    We refer to \cite[Section 1.5]{LA21} for more details.
+\end{proof}
+
+\Guillaume{To be rewritten in a self-contained way, and with precise references}
+
+We will sometimes refer to the elements of $D(\sigma^1,\sigma^2)$ the minimal $(I,J)$-pairs.
+
+
