@@ -184,7 +184,7 @@ The ordering function $o$ is the inverse to $u$ as it returns the sole ordering 
 
 \subsection{Combinatorial formula for facets of the diagonal}
 
-From Theorem \cref{thm:facets}}, we can deduce a formula for the number of facets of the diagonal:
+From Theorem \cref{thm:facets}, we can deduce a formula for the number of facets of the diagonal:
 
 \begin{proposition}
 The number of pairs of ordered partitions of dimension $(k,n-k)$ which correspond to facets of the diagonal is given by: 
@@ -194,18 +194,55 @@ The number of pairs of ordered partitions of dimension $(k,n-k)$ which correspon
 \end{proposition}
 
 \begin{proof}
-According to Theorem \cref{thm:facets}}, pairs of ordered partitions of dimension $(k,n-k)$ which correspond to facets of the diagonal are in one-to-one correspondence with bipartite trees with $k+1$ black vertices, $n-k+1$ white vertices and $n+1$ edges labeled bijectively by $1, \ldots, n+1$.
+According to Theorem \cref{thm:facets}, pairs of ordered partitions of dimension $(k,n-k)$ which correspond to facets of the diagonal are in one-to-one correspondence with bipartite trees with $k+1$ black vertices, $n-k+1$ white vertices and $n+1$ edges labeled from $1$ to $n+1$.
 
-We do not prove exactly here the proposition but a slightly modified version: that bipartite trees with $k+1$ black vertices, $n-k+1$ white vertices and $n+1$ edges labeled bijectively by $1, \ldots, n+1$ \emph{rooted in a black vertices} are counted by:
+We do not prove exactly here the proposition but a slightly modified version: 
+Rooted bipartite trees with $k+1$ black vertices and $n-k+1$ white vertices such that:
+\begin{itemize}
+\item a black vertex is distinguished and called \emph{the root}
+\item the $n+1$ non-root vertices are labeled,
+\item every label between $1$ and $n+1$ is used exactly once.
+\end{itemize}
+are counted by:
 \begin{equation}
 \binom{n+1}{k}(k+1)^{n-k}(n+1-k)^{k}.
 \end{equation}
 
 Let us construct such a bipartite tree. 
+
+First, there are $\binom{n+1}{k}$ ways to  choose the labels for black vertices (white vertices being labeled by the non-chosen labels). 
+We denote by $\mathcal{B}$ this set of labels.
+
+Moreover, the labeled black vertices are different from the root, hence they should have a white parent : there are $n+1-k$ ways to choose the parent of any labeled black vertex. 
+We thus have  $(n+1-k)^{k}$ ways to build corollas with labeled black leaves and a white root, called bi-colored corollas in the sequel.
+
+Finally, we arrange bi-colored corollas in a rooted bipartite tree by adapting the algorithm which convert a Prüfer code to a tree. 
+Here what is called \emph{Prüfer code} is a word of length $n-k$ over the alphabet $\mathcal{B} \cup \{\bullet\}$, where $\bullet$ stands for the non-labeled black vertex. 
+Let us start with a word $c=c_1 \ldots c_{n-k} \bullet$ of length $n-k+1$ and the set $\mathcal{T}=\mathcal{S} \cup \{\bullet\}$ of $n-k+2$ bi-colored corollas augmented with the unlabeled black vertex. 
+We apply Algorithm \ref{PruferWtoT}. Let us first prove it termination and correctness. The equality 
+$\operatorname{length}(c)=\operatorname{Card}(\mathcal{T})-1$ is a loop invariant for the While loop: indeed at each iteration of the loop, the length of $c$ and the number of elements in $\mathcal{T}$ decrease exactly by one. It ensures the termination of the loop and the fact that $\mathcal{T}$ contains a unique element when exiting the loop. Moreover, the set of trees $\mathcal{T}$ contains at each steps exactly one unlabeled black vertex, $k$ labeled black vertices and $n-k+1$ white vertices. Finally, when adding an edge between two trees, one can only get a tree. Moreover, as the edge is added between a white root and the label of a black vertex, the obtained tree is indeed bipartite.
+
+\begin{algorithm}[!ht]
+\DontPrintSemicolon
+  
+  \KwInput{a word $c=c_1 \ldots c_{i}$ and a set $\mathcal{T}$ of $i$ bi-colored trees with white root, except one bi-colored tree with an unlabeled black root}
+  \KwOutput{a bipartite rooted tree}
+  \While{$\operatorname{length}(c)>0$}{
+      \tcc{loop invariant: $\operatorname{length}(c)=\operatorname{Card}(\mathcal{T})-1$, at each iteration, the length of $c$ decreases by $1$}
+      t $\leftarrow \min\{a \in \mathcal{T} |$ none of the $c_i$ is a label in $a\}$ \tcp*{Here the order is given by the order on the labels of the root (as the tree with a black root does not satisfy the condition)}
+      p $\leftarrow$ tree of $\mathcal{T}$ to which belongs the first letter of $c$ \tcp*{Note that it cannot be t itself}
+      Remove t and p from $\mathcal{T}$ \tcp*{Decrease the cardinality of $\mathcal{T}$ by two}
+      Add an edge between the root of $t$ and the first letter of $c$ and add the obtained tree to $\mathcal{T}$ \tcp*{Increase the cardinality of $\mathcal{T}$ by one}
+      Remove the first letter of $c$ \tcp*{Decrease the length of $c$ by one}
+  }
+  {Return the unique element of $\mathcal{T}$}
+  \caption{Prüfer algorithm : from a word to a tree \label{PruferWtoT}}
+\end{algorithm}
+
+To prove that this algorithm defines a bijection between the pairs of Prüfer code and set of corollas and bipartite rooted trees, let us give the algorithm which convert a rooted bipartite tree in such a pair.
+
+
 \BDO{(note to myself) Reprendre ici la rédaction}
-Choice of labels of black vertices $\binom{n+1}{k}$
-Construction of corollas with black leaves and white root $(n+1-k)^{k}$
-Shape of the tree from corollas $(k+1)^{n-k}$
 \end{proof}
 
 
