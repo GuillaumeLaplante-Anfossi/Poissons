@@ -4,7 +4,7 @@
 \label{s:facets}
 
 In this section we establish a bijection between the facets of $\triangle$ and a family of pairs of unordered partitions introduced and enumerated in a series of 3 papers \cite{chen1969computer,chen1971tables,kajitani1982number}. An intermediary bijection to a type of bipartite tree is of particular importance and provides [...].
-In particular, we obtain that the number of facets in $\triangle_n$ is $2(n+1)^{n-2}$ (\OEIS{A007334}), and more precisely that the pairs of dimension $(k,n-k)$ are counted by the formula $\binom{n}{k+1}(k+1)^{n-k-1}(n-k)^{k-1}$.
+In particular, we obtain that the number of facets in $\triangle_n$ is $2(n+1)^{n-2}$ (\OEIS{A007334}), and more precisely that the pairs of dimension $(k,n-k)$ are counted by the formula $\frac{1}{k+1}\binom{n+1}{k}(k+1)^{n-k}(n+1-k)^{k}$. \BDO{formula corrected to match the "real" dimension}
 
 \Guillaume{Notations to be uniformized...}
 
@@ -180,6 +180,32 @@ To complete the proof of \cref{thm:facets}, it remains to show that both $u:\OP 
 \begin{proof}[{Proof of \cref{thm:facets}}]
 The forgetful function $u$ is clearly the inverse to $o$ as forgetting any assigned order will clearly return the original essential complimentary partition pair. 
 The ordering function $o$ is the inverse to $u$ as it returns the sole ordering of the sub-partitions which is compatible with the $D(n)$ conditions.
+\end{proof}
+
+\subsection{Combinatorial formula for facets of the diagonal}
+
+From Theorem \cref{thm:facets}}, we can deduce a formula for the number of facets of the diagonal:
+
+\begin{proposition}
+The number of pairs of ordered partitions of dimension $(k,n-k)$ which correspond to facets of the diagonal is given by: 
+\begin{equation}
+\frac{1}{k+1}\binom{n+1}{k}(k+1)^{n-k}(n+1-k)^{k}.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+According to Theorem \cref{thm:facets}}, pairs of ordered partitions of dimension $(k,n-k)$ which correspond to facets of the diagonal are in one-to-one correspondence with bipartite trees with $k+1$ black vertices, $n-k+1$ white vertices and $n+1$ edges labeled bijectively by $1, \ldots, n+1$.
+
+We do not prove exactly here the proposition but a slightly modified version: that bipartite trees with $k+1$ black vertices, $n-k+1$ white vertices and $n+1$ edges labeled bijectively by $1, \ldots, n+1$ \emph{rooted in a black vertices} are counted by:
+\begin{equation}
+\binom{n+1}{k}(k+1)^{n-k}(n+1-k)^{k}.
+\end{equation}
+
+Let us construct such a bipartite tree. 
+\BDO{(note to myself) Reprendre ici la rédaction}
+Choice of labels of black vertices $\binom{n+1}{k}$
+Construction of corollas with black leaves and white root $(n+1-k)^{k}$
+Shape of the tree from corollas $(k+1)^{n-k}$
 \end{proof}
 
 
