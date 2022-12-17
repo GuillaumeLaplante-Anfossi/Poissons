@@ -214,7 +214,7 @@ First, there are $\binom{n+1}{k}$ ways to  choose the labels for black vertices 
 We denote by $\mathcal{B}$ this set of labels.
 
 Moreover, the labeled black vertices are different from the root, hence they should have a white parent : there are $n+1-k$ ways to choose the parent of any labeled black vertex. 
-We thus have  $(n+1-k)^{k}$ ways to build corollas with labeled black leaves and a white root, called bi-colored corollas in the sequel.
+We thus have  $(n+1-k)^{k}$ ways to build corollas with labeled black leaves and a white root, called bi-colored corollas (or sometimes just corollas) in the sequel.
 
 Finally, we arrange bi-colored corollas in a rooted bipartite tree by adapting the algorithm which convert a Prüfer code to a tree. 
 Here what is called \emph{Prüfer code} is a word of length $n-k$ over the alphabet $\mathcal{B} \cup \{\bullet\}$, where $\bullet$ stands for the non-labeled black vertex. 
@@ -225,7 +225,7 @@ $\operatorname{length}(c)=\operatorname{Card}(\mathcal{T})-1$ is a loop invarian
 \begin{algorithm}[!ht]
 \DontPrintSemicolon
   
-  \KwInput{a word $c=c_1 \ldots c_{i}$ and a set $\mathcal{T}$ of $i$ bi-colored trees with white root, except one bi-colored tree with an unlabeled black root}
+  \KwInput{a word $c=c_1 \ldots c_{i}$ and a set $\mathcal{T}$ of $i$ bi-colored trees with white root and one bi-colored tree with an unlabeled black root}
   \KwOutput{a bipartite rooted tree}
   \While{$\operatorname{length}(c)>0$}{
       \tcc{loop invariant: $\operatorname{length}(c)=\operatorname{Card}(\mathcal{T})-1$, at each iteration, the length of $c$ decreases by $1$}
@@ -239,11 +239,33 @@ $\operatorname{length}(c)=\operatorname{Card}(\mathcal{T})-1$ is a loop invarian
   \caption{Prüfer algorithm : from a word to a tree \label{PruferWtoT}}
 \end{algorithm}
 
-To prove that this algorithm defines a bijection between the pairs of Prüfer code and set of corollas and bipartite rooted trees, let us give the algorithm which convert a rooted bipartite tree in such a pair.
+To prove that this algorithm defines a bijection between the pairs of Prüfer code and set of bipartite rooted trees, let us give the algorithm which convert a rooted bipartite tree in such a pair in Algorithm \label{PruferTtoW}.
 
 
-\BDO{(note to myself) Reprendre ici la rédaction}
+\begin{algorithm}[!ht]
+\DontPrintSemicolon
+  
+  \KwInput{a bipartite rooted tree $A$}
+  \KwOutput{a word $c=c_1 \ldots c_{i}$ and a set $\mathcal{T}$ of $i$ bi-colored trees with white root, except one bi-colored tree with an unlabeled black root}
+  $c \leftarrow$ empty word \tcp*{}
+  $\mathcal{T} \leftarrow$ empty set \tcp*{Initialization}
+  \While{$A$ has more than one vertex}{
+      \tcc{At each iteration, the number of white vertices decreases by $1$}
+      t $\leftarrow \min\{w \in \mathcal{T} | w$ is a white vertex whose children are leaves $\}$ \tcp*{Here the order is the one on white labels}
+      $c \leftarrow c$ concatenated with label of the parent of t \tcp*{This label is a black vertex}
+      Remove the edge between t and its parent: the root part goes in $A$ and the corolla in $\mathcal{T}$ \tcp*{Increase the cardinality of $\mathcal{T}$ by one}}
+  {  Return the pair $(c,\mathcal{T} \cup A)$}
+  \caption{Prüfer algorithm : from a tree to a word \label{PruferTtoW}}
+\end{algorithm}
+
+This second algorithm terminates as the number of white vertices decreases strictly by one at each iterations. Moreover, every letter added to $c$ is the label of a black vertices, and every tree added to $\mathcal{T}$ is a bi-colored corolla or $\bullet$ (the tree with only the non-labeled black root). Finally, the cardinality of the set of bipartite trees is one more than the length of $c$. As this algorithm is the classical reverse algorithm of the first one, it ends the proof.
+\BDO{Do I need to add more details ?}
 \end{proof}
 
-
+\begin{example}
+\begin{figure}[!h]
+\includegraphics[scale=0.5]{Images/ExplePrufer.pdf}
+\end{figure}
+\BDO{Prüfer algorithm applied on an example : TO DO}
+\end{example}
 
