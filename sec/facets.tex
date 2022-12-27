@@ -72,7 +72,7 @@ Facets of the diagonal and essential complimentary partitions are in bijection t
 We shall prove this theorem by establishing the necessary total order, showing that the functions are well defined, and then showing that they are injective.
 
 \begin{lemma} 
-\label{u well defined}
+\label{l:u-well-defined}
 The function $u:\OP \to \EC$ that forgets the order in a pair of partitions is well defined.
 \end{lemma}
 \begin{proof}
@@ -184,7 +184,7 @@ The ordering function $o$ is the inverse to $u$ as it returns the sole ordering 
 
 \subsection{Combinatorial formula for facets of the diagonal}
 
-From Theorem \cref{thm:facets}, we can deduce a formula for the number of facets of the diagonal:
+From \cref{thm:facets}, we can deduce a formula for the number of facets of the diagonal:
 
 \begin{proposition}
 The number of pairs of ordered partitions of dimension $(k,n-k)$ which correspond to facets of the diagonal is given by: 
@@ -269,3 +269,135 @@ This second algorithm terminates as the number of white vertices decreases stric
 \BDO{Prüfer algorithm applied on an example : TO DO}
 \end{example}
 
+\Guillaume{New section?}
+
+\subsection{The Saneblidze--Umble description}
+
+Here we prove that the diagonal $\OP$ admits a combinatorial description completely analogous to that of the Saneblidze--Umble diagonal \cite{SaneblidzeUmble04}. 
+A direct corollary is that the two diagonals are isomorphic, and moreover that the SU diagonal can be obtained from a certain choice of chambers in the fundamental hyperplane arrangements of the permutahedra, resolving a conjecture made in \cite{LA21}.
+In particular, this provides an alternative proof that all known diagonals on the associahedra agree \cite{saneblidzeComparingDiagonalsAssociahedra2022}.
+
+Given any permutation, one can canonically produce a facet of the diagonal in the following way. 
+
+\begin{definition}
+    A pair of ordered partitions $(\sigma,\tau)$ is called \emph{strong complementary} if $\sigma$ (resp. $\tau$) is obtained from a partition $p$ by merging adjacent elements which are descreasing (resp. increasing).
+\end{definition}
+
+The same argument as in \cref{l:u-well-defined} shows that the underlying pair of partitions is an essential complementary pair. 
+Moreover we see directly that any path between adjacent vertices has length $2$, and that its minimum is always traversed from left to right, hence all strong complementary pairs are in $\OP$. 
+
+\begin{figure}[h!]
+    \label{f:strong-complementary}
+    \caption{A strong complementary pair and its associated tree.}
+\end{figure}
+
+There is a natural partial order on the facets of $\OP$. 
+We say that the set ${x,y}$, for $x,y \in [n], x<y$ is an \emph{inversion} of a facet $(\sigma,\tau)$ if $x$ and $y$ appear in $\sigma$ (resp. in $\tau$) from left to right (resp. from right to left) in separated blocks. 
+%Visually, they appear as $\cdots | \cdots x \cdots | \cdots | \cdots y \cdots | \cdots$ in $\sigma$ and as $\cdots | \cdots y \cdots | \cdots | \cdots x \cdots | \cdots$ in $\tau$. 
+
+\begin{definition}
+    We say that $(\sigma,\tau) \leq (\sigma',\tau')$ if the set of inversions of $(\sigma,\tau)$ is contained in the set of inversions of $(\sigma',\tau')$.
+\end{definition}
+
+It is immediate to see that this defines a poset, and even a lattice if a maximal element is added. 
+Visually, the inversions are given by the crossings of the edges in the bipartite tree. 
+In particular, the trees associated to strong complementary pairs have no crossings, as shown in \cref{f:strong-complementary}.
+These are the minimal elements in the poset. 
+
+\begin{proposition}
+    \label{p:crossings}
+    There is a bijection between partitions and facets of the diagonal with no crossings.
+    Thus, the facets with no crossings are precisely the strong complementary pairs. 
+    More generally, crossings are in bijection with inversions. 
+    Thus, stong complementary pairs are minimal elements in the poset. 
+\end{proposition}
+
+\begin{proof}
+    From the associated tree, which is non-crossing, just read the partition from the edges, from top to bottom.
+    The second part of the statement follows from the $|I|=|J|=1$ condition. [...]
+\end{proof}
+
+
+We now characterize the cover relations of this poset. 
+Let $\sigma$ be an ordered partition.
+We say that a pair of adjacent blocks $\sigma_i | \sigma_{i+1}$ of $\sigma$ is \emph{admissible} if there is an element $\rho \in (\sigma_{i+1} \setminus \max\sigma_{i+1})$ with $\rho < \min \sigma_{i}$. 
+Such an element $\rho$ is said to be \emph{critical}. 
+Let us define the \emph{left shift operator} $L$, which takes an admissible pair $\sigma_i | \sigma_{i+1}$ in $\sigma$ and creates a new ordered partition $L(\sigma)$ where the critical element $\rho$ is shifted one block to the left: we have $L(\sigma)_i := \sigma_i \cup \rho$, $L(\sigma)_{i+1} := \sigma_{i+1} \setminus \ \rho$, and $L(\sigma)_{j}:=\sigma_j$ for all $j\neq i, i+1$. 
+
+In the same fashion, the \emph{right shift operator} $R$ sends an element $\rho \in (\sigma_{i} \setminus \max\sigma_{i})$ with $\rho < \min \sigma_{i+1}$ one block to the right; the resulting ordered partition $R(\sigma)$ is such that $R(\sigma)_i := \sigma_i \setminus \rho$ and $R(\sigma)_{i+1} := \sigma_{i+1} \cup \ \rho$.
+
+\begin{thm}
+    \label{t:cover-relations}
+    The cover relations of the poset of facets are precisely the pairs of the form $(\sigma,\tau) \prec (L(\sigma),\tau)$ and $(\sigma,\tau) \prec (\sigma,R(\tau))$ for some $L$ and $R$. 
+\end{thm}
+
+\begin{proof}
+First observe that we consider only the action of $L$ on the first term of the pair $(\sigma,\tau)$ and the action of $R$ on the second term. 
+Thus, we will prove the statement for $L$, the one for $R$ is similar. 
+
+Let us first we prove that the set $\OP$ is stable under $L$, i.e. that if $(\sigma,\tau) \in \OP$, then $(L(\sigma),\tau) \in \OP$. 
+We first show that for any admissible pair $\sigma_i | \sigma_{i+1}$ and critical element $\rho$, the unique path $\gamma$ between $\sigma_i$ and $\sigma_{i+1}$ is such that $\rho < \min \gamma$. 
+Indeed, the situation where $\rho > \max \gamma$ is impossible, since by hypothesis $\rho < \min \sigma_i$; and if $\rho$ was in $\gamma$, it would be traversed from right to left, contradicting the fact that $(\sigma,\tau) \in \OP$. 
+Thus, we must have $\rho < \min \gamma$. 
+With this result in hand, we observe that the paths in $(L(\sigma), \tau)$ are precisely the following: either they do not contain $\rho$, in which case they are paths of $(\sigma, \tau)$; or they do contain $\rho$, in which case they are obtained from paths in $(\sigma,\tau)$ by inserting at some place the unique path $\gamma$ between $\sigma_i$ and $\sigma_{i+1}$, or its inverse. 
+Since $\rho < \min \gamma$, adding the path $\gamma$ does not change the minima of the paths in $(L(\sigma), \tau)$, with respect to the ones in $(\sigma, \tau)$.
+Thus, all minima of paths in $(L(\sigma), \tau)$ are traversed from left to right, and we have $(L(\sigma), \tau) \in \OP$.
+
+Now we show that the left shift operator creates inversions, that is, for any $(\sigma, \tau) \in \OP$, we have that $(\sigma,\tau) \leq (L(\sigma),\tau)$. 
+First observe that shifting a critical element to the left in $\sigma$ cannot delete any inversion: if $x<y$ and $x$ precedes $y$ in $\sigma$, then $x$ must precedes $y$ also in $L(\sigma)$. 
+Now, we show that for $x<y$, if either $y$ comes before $x$ in $\sigma$, or both $x$ and $y$ are in the same block of $\sigma$, then $y$ must come before $x$ in $\tau$. 
+This follows immediately from the $(I,J)$-condition defining $\OP$ for $I=\{x\}$ and $J=\{y\}$. 
+The result then follows, since $\rho$ and $\max \sigma_{i+1}$ are in the same block of $\sigma$; thus $\max \sigma_{i+1}$ comes before $\rho$ in $\tau$ and the pair $(\rho,\max \sigma_{i+1})$ is an inversion of $(L(\sigma),\tau)$, which is not an inversion of $(\sigma,\tau)$. 
+
+From the preceding discussion, it is clear that if $(\sigma,\tau) \leq (\sigma',\tau) \leq (L(\sigma),\tau)$, then we have either $\sigma=\sigma'$ or $\sigma'=L(\sigma)$. 
+Indeed, if there is an inversion $(x,y)$ of $(L(\sigma),\tau)$ which is not an inversion of $(\sigma,\tau)$, then it must be that $x=\rho$. 
+In the contrary, we have $\sigma=\sigma'$, which completes the proof. 
+\end{proof}
+
+\begin{proposition}
+\label{p:iso-with-SU}
+The diagonal $\OP$ is isomorphic to the Saneblidze--Umble diagonal.
+In particular, they have the same number of facets. 
+\end{proposition}
+
+\Guillaume{Geometrically, this isomorphism is given by the symmetry...}
+
+\begin{proof}
+The poset described in \cref{t:cover-relations} is obtained from the definition of the SU diagonal by replacing "$\max$" with "$\min$" and the symbol "$>$" by "$<$" (see the description following Example $1$ in \cite{saneblidzeComparingDiagonalsAssociahedra2022}).
+It is thus clearly isomorphic to it. 
+Let us call it the dual SU diagonal. 
+The first part of the proof of \cref{t:cover-relations} shows that every pair in the dual SU diagonal is in $\OP$. 
+To establish the reverse inclusion, we show that every facet of $\OP$ is comparable to a strong complementary pair.
+Let $(\sigma,\tau)$ be a pair in $\OP$ and suppose that it satisfies the following property: for all pairs of consecutive blocks $\sigma_i | \sigma_{i+1}$ in $\sigma$, if $\min \sigma_i < \max \sigma_{i+1}$, then the unique path between $\sigma_i$ and $\sigma_{i+1}$ is given by $\{\min \sigma_i, \max \sigma_{i+1}\}$. 
+We claim that $(\sigma,\tau)$ must be a strong complementary pair. 
+To see this, suppose that $(\sigma,\tau)$ is \emph{not} a strong complementary pair; therefore by \cref{p:crossings} there exists an edge crossing. 
+This implies that there is a minimal crossing, i.e. a crossing between edges adjacent to two consecutive blocks $\sigma_i | \sigma_{i+1}$. 
+Since edges that are incident to a block are always in increasing order from bottom to top (this is a direct consequence of the $(I,J)$-conditions for $|I|=|J|=1$), there is a crossing between $\min \sigma_i$ and $\max \sigma_{i+1}$, which contradicts the property assumed above. 
+So, there is no crossing in $(\sigma,\tau)$ and according to \cref{p:crossings}, we have that $(\sigma,\tau)$ is a strong complementary pair. 
+\end{proof}
+
+This allows us to prove a conjecture made in \cite[Remark 3.19]{LA21}.
+
+\begin{corollary}
+    The Saneblidze--Umble diagonal is given by the following choice of chambers in the fundamental hyperplane arrangement of the permutahedron: any vector $\vec v$ with strictly decreasing coordinates and which satisfy $\sum_{i \in I} v_i > \sum_{j \in J} v_j$ for all $I,J \subset \{1, \ldots, n\}$ such that $I \cap J = \emptyset, |I|=|J| \geq 2$ and $\max(I \cup J) \in I$ induces the Saneblidze--Umble diagonal on the $(n-1)$-dimensional standard permutahedron. 
+\end{corollary}
+
+\begin{proof}
+    These orientation vectors are obtained precisely from the ones defining $\OP$ (see \cref{s:prelim}) via the symmetry described in \cref{p:iso-with-SU} above [...]. 
+\end{proof}
+
+This gives a geometric, alternative proof of the fact that all known diagonals of the associahedra agree \cite{saneblidzeComparingDiagonalsAssociahedra2022}.
+
+\Guillaume{Thus, $(I,J)$-description for the SU diagonal...}
+
+\Guillaume{Now we have matrix representation for free!}
+
+
+
+\subsection{Comultiplicativity}
+
+\Guillaume{Conjectural}
+
+Here we show that $\OP$ and the $SU$ diagonal are isomorphic, and that they are the only two comultiplicative diagonals on the permutahedra that respect the weak Bruhat order on the vertices. (??)
+
+The isomorphism of \cref{p:iso-with-SU} is a comultiplicative isomorphism.
