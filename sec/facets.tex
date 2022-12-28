@@ -4,27 +4,26 @@
 \label{s:facets}
 
 In this section we establish a bijection between the facets of $\triangle$ and a family of pairs of unordered partitions introduced and enumerated in a series of 3 papers \cite{chen1969computer,chen1971tables,kajitani1982number}. An intermediary bijection to a type of bipartite tree is of particular importance and provides [...].
-In particular, we obtain that the number of facets in $\triangle_n$ is $2(n+1)^{n-2}$ (\OEIS{A007334}), and more precisely that the pairs of dimension $(k,n-k)$ are counted by the formula $\frac{1}{k+1}\binom{n+1}{k}(k+1)^{n-k}(n+1-k)^{k}$. 
+In particular, we obtain that the number of facets in the image of the diagonal $\triangle_n$ of the $n$-dimensional permutahedron is $2(n+1)^{n-2}$ (\OEIS{A007334}), and more precisely that the pairs of dimensions $(k,n-k)$ are counted by the formula $\frac{1}{k+1}\binom{n+1}{k}(k+1)^{n-k}(n+1-k)^{k}$. 
+\Guillaume{OEIS ref?}
 
-\Guillaume{Notations to be uniformized...}
 
 \subsection{Essential complementary partitions and bipartite trees}
 Let us recall some basic definitions and results from the series of papers \cite{chen1969computer,chen1971tables,kajitani1982number}.
 
 \begin{definition}
-A set of \emph{distinct representatives} of a partition is a set $R\subset [n]$ such that $\forall i \in I,|P_i \cap R| = 1$.
+A set of \emph{distinct representatives} of a partition $\sigma_I$ is a set $R\subset [n]$ such that $\forall i \in I,|\sigma_i \cap R| = 1$.
 \end{definition}
 
 \begin{definition}
-A pair of partitions $P=(P_L,P_R):=(\cup_{l\in L} P_l , \cup_{r\in R} P_r)$ is
-\begin{itemize}
-    \item \emph{complementary} if there exists $I\subset [n]$ and $p \in I$ such that $I$ and $(V\setminus I) \cup \{p\}$ are distinct representatives of $P_L$ and $P_R$, respectively.
-    \item \emph{essential} if there does not exists proper subsets $K \subset [n], L'\subset L$ and $R'\subset R$ such that $P':=(P_{L'},P_{R'})$ is a complementary partition of $K$.
-\end{itemize}
+A pair of partitions $(\sigma_I,\tau_J)$ is said to be \emph{complementary} if there exists $R\subset [n]$ and $r \in R$ such that $R$ and $([n]\setminus R) \cup \{r\}$ are distinct representatives of $\sigma_I$ and $\tau_J$, respectively.
+It is furthermore \emph{essential} if there does not exist proper subsets $ I'\subset I$, $J'\subset J$ and $K \subset [n]$ such that $(\sigma_{I'},\tau_{J'})$ is a complementary partition of $K$.
 \end{definition}
 
 We shall denote the set of all essential complementary pairs of partitions by $\EC$.
 Let us emphasize that the pairs of partitions of $\EC$ are \emph{unordered}.
+
+\Guillaume{Notations to be uniformized from here}
 
 \begin{example}
 n=2, n=3
