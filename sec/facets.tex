@@ -339,18 +339,29 @@ Moreover, the set of facets with no crossings is the set of strong complementary
 
 
 We aim now at characterizing the cover relations of this poset. 
-Let $\sigma$ be an ordered partition.
-We say that a pair of adjacent blocks $\sigma_i | \sigma_{i+1}$ of $\sigma$ is \emph{admissible} if there is an element $\rho \in (\sigma_{i+1} \setminus \max\sigma_{i+1})$ with $\rho < \min \sigma_{i}$. 
+Let $(\sigma,\tau)$ be a facet of $\OP$.
+We say that a pair of adjacent blocks $\sigma_i | \sigma_{i+1}$ of $\sigma$ is \emph{admissible} if there is an element $\rho \in (\sigma_{i+1} \setminus \max\sigma_{i+1})$ such that $\rho < \min \sigma_{i}$ and $\rho < \min \gamma$ for $\gamma$ the unique path between $\sigma_i$ and $\sigma_{i+1}$. 
 Such an element $\rho$ is said to be \emph{critical}. 
 Let us define the \emph{left shift operator} $L$, which takes an admissible pair $\sigma_i | \sigma_{i+1}$ in $\sigma$ and creates a new ordered partition $L(\sigma)$ where the critical element $\rho$ is shifted one block to the left: we have $L(\sigma)_i := \sigma_i \cup \rho$, $L(\sigma)_{i+1} := \sigma_{i+1} \setminus \ \rho$, and $L(\sigma)_{j}:=\sigma_j$ for all $j\neq i, i+1$. 
 
-In the same fashion, the \emph{right shift operator} $R$ sends an element $\rho \in (\sigma_{i} \setminus \max\sigma_{i})$ with $\rho < \min \sigma_{i+1}$ one block to the right; the resulting ordered partition $R(\sigma)$ is such that $R(\sigma)_i := \sigma_i \setminus \rho$ and $R(\sigma)_{i+1} := \sigma_{i+1} \cup \ \rho$.
+In the same fashion, the \emph{right shift operator} $R$ sends an element $\rho \in (\tau_{i} \setminus \max\tau_{i})$ with $\rho < \min \tau_{i+1}$ and $\rho < \min \gamma$ one block to the right; the resulting ordered partition $R(\tau)$ is such that $R(\tau)_i := \tau_i \setminus \rho$ and $R(\tau)_{i+1} := \tau_{i+1} \cup \ \rho$.
 
 \begin{definition}
     The facets of the \emph{dual SU diagonal} are the pairs or ordered partitions that can be obtained from an strong complementary pair $(\sigma,\tau)$ by iterated applications of the left shift operator $L$ on the first term $\sigma$, and iterated applications of the right shift operator $R$ on the second term $\tau$. 
 \end{definition}
 
-As its name suggests, the dual SU diagonal is obtained from the definition of the SU diagonal \cite{SaneblidzeUmble04} by replacing "$\max$" with "$\min$" and the symbol "$>$" by the symbol "$<$", see the description following Example $1$ in \cite{saneblidzeComparingDiagonalsAssociahedra2022}.
+We shall show shortly that this definition recovers a dual of the SU diagonal on the permutahedra \cite{SaneblidzeUmble04}.
+
+\begin{lemma}
+\label{l:minima-invariance}
+    Applying the left or right shift to a pair $(\sigma,\tau) \in \OP$ does not change the minima of the paths between adjacent vertices. 
+\end{lemma}
+
+\begin{proof}
+We give the argument for the left shift, the one for the right one is similar. 
+We observe that the paths in $(L(\sigma), \tau)$ are precisely the following: either they do not contain $\rho$, in which case they are paths of $(\sigma, \tau)$; or they do contain $\rho$, in which case they are obtained from paths in $(\sigma,\tau)$ by inserting at some place the unique path $\gamma$ between $\sigma_i$ and $\sigma_{i+1}$, or its inverse. 
+Since $\rho < \min \gamma$, adding the path $\gamma$ does not change the minima of the paths in $(L(\sigma), \tau)$, with respect to the ones in $(\sigma, \tau)$.
+\end{proof}
 
 \begin{thm}
 \label{t:iso-with-SU}
@@ -361,40 +372,21 @@ As its name suggests, the dual SU diagonal is obtained from the definition of th
 Since we consider only the action of $L$ on the first term of the pair $(\sigma,\tau)$ and the action of $R$ on the second term, we will prove statements for $L$, the ones for $R$ are similar.
 
 First we show that every facet of $\OP$ is a facet of the dual SU diagonal. 
-Let $(\sigma,\tau)$ be a pair in $\OP$ and suppose that it satisfies the following property: for all pairs of consecutive blocks $\sigma_i | \sigma_{i+1}$ in $\sigma$, if $\min \sigma_i < \max \sigma_{i+1}$, then the unique path between $\sigma_i$ and $\sigma_{i+1}$ is given by $\{\min \sigma_i, \max \sigma_{i+1}\}$. 
+Let $(\sigma,\tau)$ be a pair in $\OP$ and suppose that it satisfies the following property: for all pairs of consecutive blocks $\sigma_i | \sigma_{i+1}$ in $\sigma$, if $\min \sigma_i < \max \sigma_{i+1}$, then the unique path $\gamma$ between $\sigma_i$ and $\sigma_{i+1}$ has length $2$ and is given by $\{\min \sigma_i, \max \sigma_{i+1}\}$. 
+In particular, we have $\min \sigma_i \geq \min \gamma$. 
 We claim that $(\sigma,\tau)$ must be a strong complementary pair. 
 To see this, suppose that $(\sigma,\tau)$ is \emph{not} a strong complementary pair; therefore by \cref{p:crossings} there exists an edge crossing. 
 This implies that there is a minimal crossing, i.e. a crossing between edges adjacent to two consecutive blocks $\sigma_i | \sigma_{i+1}$. 
 Since edges that are incident to a block are always in increasing order from bottom to top (this is a direct consequence of the $(I,J)$-conditions for $|I|=|J|=1$), there is a crossing between $\min \sigma_i$ and $\max \sigma_{i+1}$, which contradicts the property assumed above. 
 So, there is no crossing in $(\sigma,\tau)$ and according to \cref{p:crossings}, we have that $(\sigma,\tau)$ is a strong complementary pair. 
-The proof of the inclusion is now complete: if we are given a pair of facets $(\sigma,\tau)$ in $\OP$ which has at least one crossing, then there is at least one possible application of the inverse operators $L^{-1}$ or $R^{-1}$, and by induction we obtain a facet of the dual SU diagonal. 
+The proof of the inclusion is now complete: if we are given a pair of facets $(\sigma,\tau)$ in $\OP$ which has at least one crossing, then there is a pair of consecutive blocks $\sigma_i | \sigma_{i+1}$ such that $\min \sigma_i < \max \sigma_{i+1}$ and $\min \sigma_i < \min \gamma$, and one can apply the inverse operator $L^{-1}$ shifting $\min \sigma_i$ to the right; and by induction we obtain a facet of the dual SU diagonal. 
 
 Second, we show that every facet of the dual SU diagonal is in $\OP$. 
 We already know that strong complementary pairs are in $\OP$. 
 Thus, it suffices to prove that if a dual SU pair $(\sigma,\tau)$ is in $\OP$, then $(L(\sigma),\tau)$ is also in $\OP$. 
-We first show that for any admissible pair $\sigma_i | \sigma_{i+1}$ and critical element $\rho$, the unique path $\gamma$ between $\sigma_i$ and $\sigma_{i+1}$ is such that $\rho < \min \gamma$. 
-We use induction on the number of applications of $L$. 
-The statement is clearly true for strong complementary pairs. 
-Suppose that it holds for $(\sigma,\tau)$. 
-We observe that the paths in $(L(\sigma), \tau)$ are precisely the following: either they do not contain $\rho$, in which case they are paths of $(\sigma, \tau)$; or they do contain $\rho$, in which case they are obtained from paths in $(\sigma,\tau)$ by inserting at some place the unique path $\gamma$ between $\sigma_i$ and $\sigma_{i+1}$, or its inverse. 
-Since $\rho < \min \gamma$, adding the path $\gamma$ does not change the minima of the paths in $(L(\sigma), \tau)$, with respect to the ones in $(\sigma, \tau)$.
-Now, the only element of $(L(\sigma),\tau)$ which might be critical and that was not already critical in $(\sigma,\tau)$ is the element $\rho$ that has just been shifted by $L$.
-Thus, any critical element of $(L(\sigma),\tau)$ which is different from $\rho$ satisfies the desired property. 
-If $\rho$ itself is critical in $(L(\sigma),\tau)$, we need to consider two cases. 
-
-If $\rho$ is in the unique path $\gamma'$ between $L(\sigma)_{i-1}=\sigma_{i-1}$ and $L(\sigma)_i=\sigma_i \cup \rho$, then 
-
-If $\rho$ is not in  $\gamma'$, then we must have $\rho < \min \gamma'$ since $\rho < \min (\sigma_{i-1} \cup \sigma_i)$.
-
-
-Thus, we must have $\rho < \min \gamma'$. 
-
-With this result in hand, 
-
+\cref{l:minima-invariance} shows that the minima of paths between consecutive vertices in $(L(\sigma),\tau)$ are the same as the ones in $(\sigma,\tau)$. 
 Thus, all minima of paths in $(L(\sigma), \tau)$ are traversed from left to right, and we have $(L(\sigma), \tau) \in \OP$.
 \end{proof}
-
-
 
 \begin{proposition}
     \label{p:cover-relations}
@@ -415,7 +407,52 @@ Indeed, if there is an inversion $(x,y)$ of $(L(\sigma),\tau)$ which is not an i
 To the contrary, we have $\sigma=\sigma'$, which completes the proof. 
 \end{proof}
 
-One can thus interpret the left and right shift operators introduced by Saneblidze--Umble as generators of the poset of facets of the diagonal, with minimal elements the strong complementary pairs.
+Now we give the definition of the Saneblidze--Umble diagonal \cite{SaneblidzeUmble04}, following the description below Example $1$ in \cite{saneblidzeComparingDiagonalsAssociahedra2022}, and replace "$\max$" with "$\min$" and the symbol "$>$" with the symbol "$<$".
+
+Let $(\sigma,\tau)$ be a pair of ordered partitions.
+We say that a pair of adjacent blocks $\sigma_i | \sigma_{i+1}$ of $\sigma$ is \emph{SU admissible} if there is a non-empty subset $\rho \subset (\sigma_{i+1} \setminus \max\sigma_{i+1})$ such that $\max \rho < \min \sigma_{i}$. 
+Let us define the \emph{subset left shift operator} $L^i$, which takes an SU admissible pair $\sigma_i | \sigma_{i+1}$ in $\sigma$ and creates a new ordered partition $L^i(\sigma)$ where the subset $\rho$ is shifted one block to the left: we have $L^i(\sigma)_i := \sigma_i \cup \rho$, $L^i(\sigma)_{i+1} := \sigma_{i+1} \setminus \ \rho$, and $L^i(\sigma)_{j}:=\sigma_j$ for all $j\neq i, i+1$. 
+In the same fashion, the \emph{subset right shift operator} $R^i$ sends a subset $\rho \subset (\tau_{i} \setminus \max\tau_{i})$ with $\max \rho < \min \tau_{i+1}$ one block to the right; the resulting ordered partition $R^i(\tau)$ is such that $R^i(\tau)_i := \tau_i \setminus \rho$ and $R^i(\tau)_{i+1} := \tau_{i+1} \cup \ \rho$.
+
+
+\begin{definition}[Dual SU diagonal, second definition]
+    The facets of the dual SU diagonal are the pairs of ordered partitions of the form $(L^{i_k}\cdots L^{i_1}(\sigma), R^{j_l}\cdots R^{j_1}(\tau))$ obtained from a strong complementary pair $(\sigma,\tau)$ by iterated application of subset left and right shifts operators, where moreover $i_1 > \cdots > i_k$ is decreasing and $j_1 < \cdots < j_l$ is increasing. 
+\end{definition}
+
+\begin{lemma}
+\label{l:minima-invariance-subset}
+    Applying the subset left or right shift to a pair $(\sigma,\tau)$ in the dual SU diagonal does not change the minima of the paths between adjacent vertices. 
+\end{lemma}
+
+\begin{proof}
+    We analyse the left shift operator, the case of the right shift is similar. 
+    First, we observe that any critical subset $\rho \subset L^{i_k}\cdots L^{i_1}(\sigma)_j, j \leq i_k$ satisfies $\max \rho < \min \gamma$, where $\gamma$ is the unique path between $L^{i_k}\cdots L^{i_1}(\sigma)_{j-1}=\sigma_{j-1}$ and $L^{i_k}\cdots L^{i_1}(\sigma)_j$. 
+    Indeed, the path $\gamma$ is the same as the path between $\sigma_{j-1}$ and $\sigma_{j}$ in $(\sigma,\tau)$, and is equal to $\{\min \sigma_{j-1}, \max \sigma_j\}$; but since $\rho$ is critical we must have $\max \rho < \min \sigma_{j-1}=\min \gamma$. 
+    The rest of the proof is the same as for \cref{l:minima-invariance}, with $\rho$ replaced by $\max \rho$. 
+\end{proof}
+
+\begin{proposition}
+    The two definitions of the dual SU diagonal coincide. 
+\end{proposition}
+
+\begin{proof}
+    We analyse the left shift operator, the case of the right shift is similar. 
+    First, we observe that any subset left shift $L^{i}(\sigma)$ can be decomposed in a series of left shifts: since $\max \rho < \min \gamma$ by the proof of \cref{l:minima-invariance-subset}, we can first shift $\max \rho$ to the left, then $\max (\rho \setminus \max \rho)$, and so on until the entire subset $\rho$ has been shifted to the left. 
+    This shows that any facet in the second definition of the dual SU diagonal is also a facet in the first definition. 
+
+    For the reverse inclusion, we show by induction on the number of left shifts that a pair $(\sigma',\tau)$ where $\sigma'$ has been obtained by iterated left shifts can also be obtained by iterated subset left shifts, that is, can be written in the form $(L^{i_k}\cdots L^{i_1}(\sigma), \tau)$.
+    The base case of a strong complementary pair is trivial. 
+    Suppose that we are given a pair $(\sigma',\tau)$ where $\sigma'$ has been obtained by a sequence of $l+1$ left shifts. 
+    By the induction hypothesis, the first $l$ left shifts can be rewritten as a sequence of subset left shifts, i.e. in the form $L^{i_k}\cdots L^{i_1}(\sigma)$ where $i_1 > \cdots > i_k$ are descreasing.
+    Now suppose that the $(l+1)$-th left shift occurs between $L^{i_k}\cdots L^{i_1}(\sigma)_j$ and $L^{i_k}\cdots L^{i_1}(\sigma)_{j+1}$, with $j> i_k$ (otherwise, we are done!). 
+    Let us denote by $\gamma$ the unique path between $L^{i_k}\cdots L^{i_1}(\sigma)_j$ and $L^{i_k}\cdots L^{i_1}(\sigma)_{j+1}$.
+    By definition, we have that the critical element $\rho$ satisfies $\rho < \min \gamma$.  
+    But by \cref{l:minima-invariance-subset}, this minimum is the same as the minimum of the path between $\sigma_j$ and $\sigma_{j+1}$, which is just $\min \sigma_j$. 
+    Thus we have $\rho < \min \sigma_j$ (as well as $\rho < \min L^{i_k}\cdots L^{i_1}(\sigma)_j$, by criticality), and so $\rho$ can be integrated in a new or an existing subset left shift of the family $L^{i_k}\cdots L^{i_1}$, which completes the proof. 
+    %also: maximum elements of each vertex never changes! so rho \neq max of its vertex
+\end{proof}
+
+One can thus interpret the left and right shift operators for singletons introduced by Saneblidze--Umble as generators of the poset of facets of the diagonal, with minimal elements the strong complementary pairs.
 
 Now, we end with two important consequences of the preceding results. 
 Consider the symmetry $s$ of the $(n-1)$-dimensional permutahedron, which consists in the reflection with respect to the hyperplane $x_1 + x_n = x_2 + x_{n-1}$. 
