@@ -79,7 +79,7 @@ The number of essential complementary partitions is $|\EC_n| = 2(n+1)^{n-2}$.
 
 \subsection{Bijection with the facets of the diagonal}
 
-In this section we denote by $\OP$ be the set of pairs of ordered partitions of $[n]$ labeling \emph{facets} of the diagonal $\triangle$.
+In this section we denote by $\OP$ be the set of pairs of ordered partitions of $[n]$ labeling \emph{facets} of the diagonal $\triangle$. \BDO{We should perhaps change the notation for $\OP$. What about $\triangle_f$ or $\triangle_M$ ?}
 
 \begin{thm}
 \label{thm:facets}
@@ -312,7 +312,7 @@ $\operatorname{length}(c)=\operatorname{Card}(\mathcal{T})-1$ is a loop invarian
   \caption{Pr\"ufer algorithm : from a word to a tree \label{PruferWtoT}}
 \end{algorithm}
 
-To prove that this algorithm defines a bijection between the pairs of Pr\"ufer code and set of bipartite rooted trees, let us give the algorithm which convert a rooted bipartite tree in such a pair in Algorithm \label{PruferTtoW}.
+To prove that this algorithm defines a bijection between the pairs of Pr\"ufer code and set of bipartite rooted trees, let us give the algorithm which convert a rooted bipartite tree in such a pair in Algorithm \ref{PruferTtoW}.
 
 
 \begin{algorithm}[!ht]
@@ -335,14 +335,98 @@ This second algorithm terminates as the number of white vertices decreases stric
 \BDO{Do I need to add more details ?}
 \end{proof}
 
-\begin{example}
-\begin{figure}[!h]
-\includegraphics[scale=0.5]{Images/ExplePrufer.pdf}
-\end{figure}
-\BDO{Pr\"ufer algorithm applied on an example : TO DO}
+\begin{example} Let us apply Pr\"ufer algorithm on an example. Consider the following rooted bipartite tree on the left below, with a red root, and a redrawing of it on the right:
+\begin{center}
+\begin{tikzpicture}
+\coordinate (6) at (0,1);
+\coordinate (2) at (0,-1);
+\coordinate (1) at (2,1);
+\coordinate (5) at (1,0);
+\coordinate (8) at (3,1);
+\coordinate (4) at (4,1);
+\coordinate (3) at (3,-1);
+\coordinate (7) at (4,-1);
+\coordinate (9) at (5,-2);
+\coordinate (10) at (5,0);
+\coordinate (r) at (2,-1);
+\draw (6)--(5) node[midway, above]{6};
+\draw (2)--(5) node[midway, above]{2};
+\draw (1)--(5) node[midway, above]{1};
+\draw (r)--(5) node[midway, above]{5};
+\draw (r)--(3) node[midway, above]{3};
+\draw (3)--(7) node[midway, above]{7};
+\draw (7)--(9) node[midway, above]{9};
+\draw (7)--(10) node[near end, below]{10};
+\draw (1)--(8) node[midway, above]{8};
+\draw (8)--(4) node[midway, above]{4};
+\fill (6) circle(0.1);
+\fill (2) circle(0.1);
+\fill (1) circle(0.1);
+\fill[red] (r) circle(0.1);
+\fill (4) circle(0.1);
+\fill (7) circle(0.1);
+\fill[draw,fill=white] (5) circle(0.1);
+\fill[draw,fill=white] (3) circle(0.1);
+\fill[draw,fill=white] (8) circle(0.1);
+\fill[draw,fill=white] (9) circle(0.1);
+\fill[draw,fill=white] (10) circle(0.1);
+\end{tikzpicture}
+\hspace{1cm}
+\begin{tikzpicture}[grow=up, scale=0.7,  level 1/.style={sibling distance=3cm},
+    level 2/.style={sibling distance=1.5cm}]
+\node[draw, circle, fill=black]{}
+   child{node[draw, circle]{3}
+      child{node[draw, circle, fill=black, text=white]{7}
+         child{node[draw, circle]{10}
+         }
+         child{node[draw, circle]{9}}
+      }   
+   }
+   child{node[draw, circle]{5}
+      child{node[draw, circle, fill=black, text=white]{6}
+      }   
+      child{node[draw, circle, fill=black, text=white]{2}
+      }   
+      child{node[draw, circle, fill=black, text=white]{1}
+         child{node[draw, circle]{8}
+            child{node[draw, circle, fill=black, text=white]{4}}         
+         }
+      }   
+   };
+\end{tikzpicture}
+\end{center}
+Separating corollas with a Prüfer algorithm, we get the word $1 \bullet 7 7$ and the following set of corollas:
+\begin{equation*}
+\left \lbrace 
+\begin{tikzpicture}[grow=up, scale=0.7, baseline=10]
+\node[draw, circle]{3}
+      child{node[draw, circle, fill=black, text=white]{7}};
+ \end{tikzpicture},
+\begin{tikzpicture}[grow=up, scale=0.7, baseline=10]
+\node[draw, circle]{5}
+      child{node[draw, circle, fill=black, text=white]{6}
+      }   
+      child{node[draw, circle, fill=black, text=white]{2}
+      }   
+      child{node[draw, circle, fill=black, text=white]{1}
+      }   ;
+ \end{tikzpicture}, 
+\begin{tikzpicture}[grow=up, scale=0.7, baseline=10]
+\node[draw, circle]{8}
+            child{node[draw, circle, fill=black, text=white]{4}} ;
+ \end{tikzpicture},
+ \begin{tikzpicture}[grow=up, scale=0.7, baseline=10]
+\node[draw, circle]{9};
+ \end{tikzpicture},
+  \begin{tikzpicture}[grow=up, scale=0.7, baseline=10]
+\node[draw, circle]{10};
+ \end{tikzpicture}
+  \right \rbrace
+\end{equation*}
+This set of corollas can be viewed as a function $f$ from the set of labelled black vertices $\{1,2,4,6,7\}$ to the set of white vertices $\{3,5,8,9,10\}$ satisfying $f(1)=f(2)=f(6)=5$, $f(7)=3$ and $f(4)=8$.
 \end{example}
 
-\Guillaume{New section?}
+\Guillaume{New section?} \BDO{I think it would be better}
 
 \subsection{The Saneblidze--Umble description}
 
