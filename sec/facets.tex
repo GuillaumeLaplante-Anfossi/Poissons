@@ -42,20 +42,21 @@ For $n=3$, there are five partitions:
 \item $\{3\}\{1,2\}$, which admits two sets of distinct representatives $\{1,3\}$ and $\{2,3\}$,
 \item $\{1,2,3\}$, which admits three sets of distinct representatives $\{1\}$, $\{2\}$ and $\{3\}$.
 \end{itemize}
-There are eight essential complementary partitions among the $25$ pairs of partitions:
-\begin{itemize}
-\item $(\{1\}\{2\}\{3\}
-\item 
-\item 
-\item 
-\item 
-\item 
-\item 
-\item 
-\end{itemize}
-The pairs $(\{1\}\{2\}\{3\},\{1\}\{2\}\{3\})$ are not complementary
+There are eight essential complementary partitions among the $25$ pairs of partitions (separated below by semi-colon to avoid confusions): 
+$(\{1\}\{2\}\{3\},$ $\{1,2,3\})$ ; 
+$(\{1,2,3\},$ $\{1\}\{2\}\{3\})$ ; 
+$(\{1\}\{2,3\},$ $\{2\}\{1,3\})$ ; 
+$(\{2\}\{1,3\},$ $\{1\}\{2,3\})$ ; 
+$(\{1\}\{2,3\},$ $\{3\}\{1,2\})$ ; 
+$(\{3\}\{1,2\},$ $\{1\}\{2,3\})$ ; 
+$(\{2\}\{1,3\},$ $\{3\}\{1,2\})$ ; 
+$(\{3\}\{1,2\},$ $\{2\}\{1,3\})$.
+
+The pairs $(\{1\}\{2\}\{3\},\{1\}\{2\}\{3\})$ are not complementary.
+The pair $(\{1\}\{2,3\}, \{1\}\{2,3\})$ is an example of complementary partitions which is not essential. 
+Indeed, it admits the pair of sets of distinct representatives $(\{1,2\}, \{1,3\}=\{1,2,3\} \setminus \{1,2\} \cup \{1\})$ and the partitions $(\{1\}, \{1\})$ are essential complementary partitions.
 \end{example}
-\Kurt{To do} \BDO{In progress. Is there too many details ? Don't hesitate to modify / correct the formulation}
+\Kurt{To do} \BDO{Done. Is there too many details ? Don't hesitate to modify / correct the formulation}
 
 A \emph{tree} is a simply connected graph with no cycles. 
 A \emph{bipartite graph} is a graph whose vertices are partitioned into two sets such that vertices in one set are only adjacent to vertices in the other, we say it is \emph{ordered} if one of the sets is considered smaller than the other and we denote the partition $(V_L,V_R)$. 
