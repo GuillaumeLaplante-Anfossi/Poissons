@@ -20,7 +20,7 @@ A pair of partitions $(\sigma_I,\tau_J)$ is said to be \emph{complementary} if t
 It is furthermore \emph{essential} if there does not exist proper subsets $ I'\subset I$, $J'\subset J$ and $K \subset [n]$ such that $(\sigma_{I'},\tau_{J'})$ is a complementary partition of $K$.
 \end{definition}
 
-We shall denote the set of all essential complementary pairs of partitions by $\EC$.
+We shall denote the set of all essential complementary pairs of partitions of $[n]$ by $\EC$.
 Let us emphasize that the pairs of partitions of $\EC$ are \emph{unordered}.
 
 \Guillaume{Notations to be uniformized from here}
@@ -57,11 +57,12 @@ The pair $(\{1\}\{2,3\}, \{1\}\{2,3\})$ is an example of complementary partition
 Indeed, it admits the pair of sets of distinct representatives $(\{1,2\}, \{1,3\}=\{1,2,3\} \setminus \{1,2\} \cup \{1\})$ and the partitions $(\{1\}, \{1\})$ are essential complementary partitions.
 \end{example}
 \Kurt{To do} \BDO{Done. Is there too many details ? Don't hesitate to modify / correct the formulation}
+\Guillaume{I think one bigger example would be enough}
 
 A \emph{tree} is a simply connected graph with no cycles. 
 A \emph{bipartite graph} is a graph whose vertices are partitioned into two sets such that vertices in one set are only adjacent to vertices in the other, we say it is \emph{ordered} if one of the sets is considered smaller than the other and we denote the partition $(V_L,V_R)$. 
 We say a graph with $n$ edges is \emph{edge labelled} if there exists a bijection between the edges and $\{1,\dots,n\}$.
-Let $\BT$ denote the set of edge labelled ordered bipartite trees.
+Let $\BT$ denote the set of edge labelled ordered bipartite trees on $[n]$.
 
 \begin{proposition} [{\cite[Theorem 3]{kajitani1982number}}] 
 \label{EC Graph Bijection}
@@ -74,12 +75,13 @@ Essential complementary partitions and labelled bipartite trees are in bijection
 \Guillaume{Consider changing notation for functions vs sets}
 
 \begin{corollary}[\cite{kajitani1982number}]
-The number of essential complementary partitions is $|\EC_n| = 2(n+1)^{n-2}$.
+The number of essential complementary partitions is $|\EC| = 2(n+1)^{n-2}$.
 \end{corollary}
 
 \subsection{Bijection with the facets of the diagonal}
 
 In this section we denote by $\OP$ be the set of pairs of ordered partitions of $[n]$ labeling \emph{facets} of the diagonal $\triangle$. \BDO{We should perhaps change the notation for $\OP$. What about $\triangle_f$ or $\triangle_M$ ?}
+\Guillaume{I would keep the indices to the minimum}
 
 \begin{thm}
 \label{thm:facets}
@@ -395,7 +397,7 @@ This second algorithm terminates as the number of white vertices decreases stric
    };
 \end{tikzpicture}
 \end{center}
-Separating corollas with a Prüfer algorithm, we get the word $1 \bullet 7 7$ and the following set of corollas:
+Separating corollas with a Pr\"ufer algorithm, we get the word $1 \bullet 7 7$ and the following set of corollas:
 \begin{equation*}
 \left \lbrace 
 \begin{tikzpicture}[grow=up, scale=0.7, baseline=10]
