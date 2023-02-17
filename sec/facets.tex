@@ -12,53 +12,45 @@ In particular, we obtain that the number of facets in the image of the diagonal 
 Let us recall some basic definitions and results from the series of papers \cite{chen1969computer,chen1971tables,kajitani1982number}.
 
 \begin{definition}
-A set of \emph{distinct representatives} of a partition $\sigma_I$ is a set $R\subset [n]$ such that $\forall i \in I,|\sigma_i \cap R| = 1$.
+A set of \emph{distinct representatives} of a partition $\sigma_I$ is a set $M\subset [n]$ such that $\forall i \in I,|\sigma_i \cap M| = 1$.
 \end{definition}
 
 \begin{definition}
-A pair of partitions $(\sigma_I,\tau_J)$ is said to be \emph{complementary} if there exists $R\subset [n]$ and $r \in R$ such that $R$ and $([n]\setminus R) \cup \{r\}$ are distinct representatives of $\sigma_I$ and $\tau_J$, respectively.
-It is furthermore \emph{essential} if there does not exist proper subsets $ I'\subset I$, $J'\subset J$ and $K \subset [n]$ such that $(\sigma_{I'},\tau_{J'})$ is a complementary partition of $K$.
+A pair of partitions $(\sigma_L,\tau_R)$ is said to be \emph{complementary} if there exists $M\subset [n]$ and $m \in M$ such that $M$ and $([n]\setminus M) \cup \{m\}$ are distinct representatives of $\sigma_L$ and $\tau_R$, respectively.
+It is furthermore \emph{essential} if there does not exist proper subsets $ L'\subset L$, $R'\subset R$ and $N' \subset [n]$ such that $(\sigma_{L'},\tau_{R'})$ is a complementary partition of $N'$.
 \end{definition}
+\begin{definition}
+A pair of partitions $(\sigma_L,\tau_R)$ is said to be 
+\begin{enumerate}
+	\item \emph{complimentary}, if $\forall l\in L, r\in R$ we have that $|\sigma_l \cap \tau_r| \leq 1$
+	\item \emph{essential}, if there are no proper subsets of $L'\subset L,R'\subset R$ such that $\cup_{l \in L} \sigma_l = \cup_{r \in R'} \tau_r$
+\end{enumerate}	
 
+\end{definition}\Kurt{Maybe can immediately switch to  Vincent's variant of def?}
+
+In cases where there is no ambiguity we will drop the subscripts $L,R$.
 We shall denote the set of all essential complementary pairs of partitions of $[n]$ by $\EC$.
 Let us emphasize that the pairs of partitions of $\EC$ are \emph{unordered}.
 
 \Guillaume{Notations to be uniformized from here}
 
-\begin{example} 
-For $n=2$, there are two partitions: 
-\begin{itemize}
-\item $\{1\}\{2\}$, whose unique set of distinct representatives is $\{1,2\}$,
-\item and $\{1,2\}$, which admits two sets of distinct representatives $\{1\}$ and $\{2\}$.
-\end{itemize}
-There are two essential complementary partitions among the four pairs of partitions: $(\{1\}\{2\}, \{1, 2\})$ and $(\{1, 2\}, \{1\}\{2\})$, with pairs of distinct representatives respectively $(\{1,2\}, \{1\})$ (or equivalently $(\{1,2\}, \{2\})$) and $(\{1\}, \{1,2\})$ (or equivalently $(\{2\}, \{1,2\})$). 
-The pairs $(\{1,2\}, \{1,2\})$ and $(\{1\}\{2\},\{1\}\{2\})$ are not complementary.
-
-For $n=3$, there are five partitions:
-\begin{itemize}
-\item $\{1\}\{2\}\{3\}$, whose unique set of distinct representatives is $\{1,2,3\}$,
-\item $\{1\}\{2,3\}$, which admits two sets of distinct representatives $\{1,2\}$ and $\{1,3\}$,
-\item $\{2\}\{1,3\}$, which admits two sets of distinct representatives $\{1,2\}$ and $\{2,3\}$,
-\item $\{3\}\{1,2\}$, which admits two sets of distinct representatives $\{1,3\}$ and $\{2,3\}$,
-\item $\{1,2,3\}$, which admits three sets of distinct representatives $\{1\}$, $\{2\}$ and $\{3\}$.
-\end{itemize}
-There are eight essential complementary partitions among the $25$ pairs of partitions (separated below by semi-colon to avoid confusions): 
-$(\{1\}\{2\}\{3\},$ $\{1,2,3\})$ ; 
-$(\{1,2,3\},$ $\{1\}\{2\}\{3\})$ ; 
-$(\{1\}\{2,3\},$ $\{2\}\{1,3\})$ ; 
-$(\{2\}\{1,3\},$ $\{1\}\{2,3\})$ ; 
-$(\{1\}\{2,3\},$ $\{3\}\{1,2\})$ ; 
-$(\{3\}\{1,2\},$ $\{1\}\{2,3\})$ ; 
-$(\{2\}\{1,3\},$ $\{3\}\{1,2\})$ ; 
-$(\{3\}\{1,2\},$ $\{2\}\{1,3\})$.
-
-The pairs $(\{1\}\{2\}\{3\},\{1\}\{2\}\{3\})$ are not complementary.
-The pair $(\{1\}\{2,3\}, \{1\}\{2,3\})$ is an example of complementary partitions which is not essential. 
-Indeed, it admits the pair of sets of distinct representatives $(\{1,2\}, \{1,3\}=\{1,2,3\} \setminus \{1,2\} \cup \{1\})$ and the partitions $(\{1\}, \{1\})$ are essential complementary partitions.
+\begin{example}
+For $n=2$, the two essential complementary partitions are $1|2 \times 12$ and $12 \times 1|2$. For $n=3$, the eight essential complementary partitions are
+\begin{align*}
+	1|2|3 \times 123,\quad 
+	123 \times 1|2|3,\quad 
+	1|23 \times 13|2,\quad 
+	13|2 \times 1|23\\
+	1|23 \times 12|3,\quad 
+	12|3 \times 1|23,\quad 
+	13|2 \times 12|3,\quad 
+	12|3 \times 13|2
+\end{align*}
+For a larger example see \cref{ex:ECbijection}. 
 \end{example}
-\Kurt{To do} \BDO{Done. Is there too many details ? Don't hesitate to modify / correct the formulation}
-\Guillaume{I think one bigger example would be enough}
 
+The reader will have observed from this example, that many pairs of partitions are not essential and complementary.
+This can be checked directly from the definition, however, a graphical connection which we now introduce provides a simpler interpretation.
 A \emph{tree} is a simply connected graph with no cycles. 
 A \emph{bipartite graph} is a graph whose vertices are partitioned into two sets such that vertices in one set are only adjacent to vertices in the other, we say it is \emph{ordered} if one of the sets is considered smaller than the other and we denote the partition $(V_L,V_R)$. 
 We say a graph with $n$ edges is \emph{edge labelled} if there exists a bijection between the edges and $\{1,\dots,n\}$.
@@ -66,17 +58,12 @@ Let $\BT$ denote the set of edge labelled ordered bipartite trees on $[n]$.
 
 \begin{proposition} [{\cite[Theorem 3]{kajitani1982number}}] 
 \label{EC Graph Bijection}
-Essential complementary partitions and labelled bipartite trees are in bijection through $G:\EC \to \BT$ and $P:\BT \to \EC$, where
-\begin{itemize}
-    \item $G$ takes a pair $(P_L,P_R)$ and constructs partitioned vertices $(V_L,V_R)$. For each $i \in  \{1,\dots,n\}$ an edge is added between $v_l$ and $v_r$ if $i\in P_l$ and $i \in P_r$. 
-    \item $P$ takes a tree from $\BT$ and labels the vertices $(V_L,V_R)$ by the edges which are adjacent to them. The labels of the vertices can then be interpreted as a pair of partitions.
-\end{itemize}
+The sets of essential complementary partitions $\EC$ and edge labelled bipartite trees $\BT$ are in bijection.
 \end{proposition}
-\Guillaume{Consider changing notation for functions vs sets}
-
-\begin{corollary}[\cite{kajitani1982number}]
-The number of essential complementary partitions is $|\EC| = 2(n+1)^{n-2}$.
-\end{corollary}
+\begin{proof}
+Informally, given a partition pair $(\sigma,\tau)$, the corresponding graph $G((\sigma,\tau))$ has the subpartitions of each partition as its vertices, and two vertices are connected by an edge if the subpartitions share a common element.
+For an example of this bijection see \cref{ex:ECbijection}.
+\end{proof}
 
 \subsection{Bijection with the facets of the diagonal}
 
@@ -91,6 +78,8 @@ Facets of the diagonal and essential complementary partitions are in bijection t
     \item The function $o$ uniquely orders an essential complementary partition pair via the minimal $(I,J)$-pairs defining the diagonal. 
 \end{enumerate}
 \end{thm}
+An immediate corollary of this theorem, and an enumeration of labelled bipartite trees first done in \cite{kajitani1982number}, is that there are $2(n+1)^{n-2}$ facets $\OP_n$.
+ This enumeration will be refined in the next section.
 We shall prove this theorem by establishing the necessary total order, showing that the functions are well defined, and then showing that they are injective.
 
 \begin{lemma} 
@@ -106,7 +95,7 @@ While there is a vertex of degree $1$ in $G'$ delete it and add the sole edge of
 As $G'$ is a tree this process can continue until there is a single edge connecting two vertices of degree $1$. 
 This edge specifies the element $p$ of the distinct representatives.
 \end{proof}
-
+\Kurt{ notation wise sigmaL,tauR or PL PR or other?}
 \begin{construction} 
 \label{Order Lemma}
 For $P=(P_L,P_R) \in \EC$ an essential complementary pair, we construct total orders on $P_L$ and $P_R$ in three steps:
@@ -269,7 +258,7 @@ The number of pairs of ordered partitions of dimension $(k,n-k)$ which correspon
 \end{proposition}
 
 \begin{proof}
-According to Theorem \cref{thm:facets}, pairs of ordered partitions of dimension $(k,n-k)$ which correspond to facets of the diagonal are in one-to-one correspondence with bipartite trees with $k+1$ black vertices, $n-k+1$ white vertices and $n+1$ edges labeled from $1$ to $n+1$.
+According to \cref{thm:facets}, pairs of ordered partitions of dimension $(k,n-k)$ which correspond to facets of the diagonal are in one-to-one correspondence with bipartite trees with $k+1$ black vertices, $n-k+1$ white vertices and $n+1$ edges labeled from $1$ to $n+1$.
 
 We do not prove exactly here the proposition but a slightly modified version: 
 Rooted bipartite trees with $k+1$ black vertices and $n-k+1$ white vertices such that:
@@ -664,7 +653,7 @@ The possible right shifts are simply
 \end{tikzcd}
 \end{center}
 As the left and right shifts can be performed independently we could combine these diagrams.
-No other shifts are possible, observe for instance that we cannot perform the left shift $15|7|234|6 \times 57|46|13|2 \xrightarrow{p=2} 15|27|34|6 \times 57|46|13|2$ as the minimal path connecting $234$ and $7$ contains $1$ which is smaller than $2$ (see example \ref{ex:ECbijection}). The unique way of producing $15|7|234|6 \times 57|146|3|2$ by the second definition of the SU diagonal is given by
+No other shifts are possible, observe for instance that we cannot perform the left shift $15|7|234|6 \times 57|46|13|2 \xrightarrow{p=2} 15|27|34|6 \times 57|46|13|2$ as the minimal path connecting $234$ and $7$ contains $1$ which is smaller than $2$ (see \cref{ex:ECbijection}). The unique way of producing $15|7|234|6 \times 57|146|3|2$ by the second definition of the SU diagonal is given by
 \begin{center}
 \begin{tikzcd}
 5|17|4|236 \times 57|146|3|2 \arrow[r,"{p=\{2,3\}}"] & 5|17|234|6 \times 57|146|3|2 \arrow[r,"{p=\{1\}}"] & 15|7|234|6 \times 57|146|3|2
@@ -685,7 +674,7 @@ This is a set of unordered pairs, and we can define total orders on all pairs of
     \item $\OP : \min(I\cup J) = \min I$
     \item $SU : \max(I\cup J) = \max I $
 \end{itemize}
-We have refer to the orders in this fashion due to \cite[Theorem 3.16]{LA21} and Corollary \ref{SU from hyperplane arrangement}.
+We have refer to the orders in this fashion due to \cite[Theorem 3.16]{LA21} and \cref{SU from hyperplane arrangement}.
 We will also use $-^{op}$ to refer to the dual of these orders. We say an $\{I,J\}$ pair is of order $k$ if $|I| = |J|=k$. 
 \end{definition}
 
@@ -737,18 +726,18 @@ These are,
 \end{enumerate}
 More specifically, we must order the sole reduced $D(n)$ pair of order $1$, $\{\{1\},\{2\}\}$.
 Then once we have ordered this pair, the sole reduced $D(n)$ pair of order $2$ which must be ordered is $\{\{1,4\},\{2,3\} \}$.
-There are clearly $4$ ways to order these two pairs, and we can identify these $I,J$ pairs as cases of Lemma \ref{admissible lemma}.
+There are clearly $4$ ways to order these two pairs, and we can identify these $I,J$ pairs as cases of \cref{admissible lemma}.
 \\\\
 We now show that once we have committed to one of these four orders we must follow through with it.
 We will show this through induction for the $\OP$ order, the $SU$ order proceeds similarly, and the dual orders by duality.
 \\\\
 Let $l\geq 2$ and suppose that $\forall k\leq l$ that $\{1,k+2,k+3,\dots,2k-1,2k\} < \{2,3,\dots,k+1\} $.
-Then from Lemma \ref{admissible lemma} we know that the only $\{I,J\}$ pair of order $l+1$ that will not decompose (and hence be specified by admissibility) is 
+Then from \cref{admissible lemma} we know that the only $\{I,J\}$ pair of order $l+1$ that will not decompose (and hence be specified by admissibility) is 
 $$\{\{1,(l+1)+2,(l+1)+3,\dots,(l+1)k-1,2(l+1)\}, \{2,3,\dots,(l+1)+1\}\}$$
 As such, the only way we can vary from $\OP$ is to order this element in the opposite direction i.e.
 $$\{2,3,\dots,(l+1)+1\} < \{1,(l+1)+2,(l+1)+3,\dots,(l+1)k-1,2(l+1)\} $$
 However, if we make this choice than this leads to contradictions in the ordering of the $\{I,J\}$ pairs of order $l+2$.
-The following contradiction is a generalisation of Example \ref{Non-admissible order contradiction example}.
+The following contradiction is a generalisation of \cref{ex:Non-admissible order contradiction}.
 Let $m = l+2$ then the pair
 $$\{I,J\}:= \{ \{1,3,m+3,m+4,\dots,2m-1,2m\}, \{2,4,5,\dots,m+2\} \}$$
 can be oriented in both directions.
@@ -764,7 +753,7 @@ The second decomposition,
 makes use of the (non-reversed) order $l$ and $2$ cases.
 \end{proof}
 
-\begin{example} \label{Non-admissible order contradiction example}
+\begin{example} \label{ex:Non-admissible order contradiction}
 Suppose the $\OP$ order holds for $D(n)$ of order $k\leq 2$ and in order $3$ it is reversed, i.e.
 \begin{align*}
     \{1\}<\{2\},\quad \{1,4\}< \{2,3\}, \quad \{2, 3, 4\} < \{1, 5, 6 \}
