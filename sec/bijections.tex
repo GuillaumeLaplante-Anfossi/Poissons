@@ -1,14 +1,134 @@
 % !TEX root = ../Poissons.tex
 
-\section{Facets of the diagonal} 
-\label{s:facets}
+
+\section{Bijective results for operadic diagonals}
+\label{s:vertices}
+
+\subsection{Operadic diagonals}
+
+
+\Kurt{Happy to change any and all notation, or make other alterations!}
+
+\begin{definition}
+Let $D(n) := \{ \{I,J\}:I,J \subset \{1,\dots,n\}, |I|= |J|, I\cap J = \emptyset \}$.
+This is a set of unordered pairs, and we can define total orders on all pairs of the same size as follows. We say $I<J \equiv (I,J)$ if,
+\begin{itemize}
+    \item $\OP : \min(I\cup J) = \min I$
+    \item $SU : \max(I\cup J) = \max I $
+\end{itemize}
+We have refer to the orders in this fashion due to \cite[Theorem 3.16]{LA21} and \cref{SU from hyperplane arrangement}.
+We will also use $-^{op}$ to refer to the dual of these orders. We say an $\{I,J\}$ pair is of order $k$ if $|I| = |J|=k$. 
+\end{definition}
+
+\begin{definition}
+We say an ordering of $D(n)$ is \textbf{admissible} (with respect to union) if for all ordered $(I,J)$ pairs 
+\begin{align*}
+    (I,J) = (\cup_{a\in A} I_a, \cup_{a \in A} J_a) \iff \forall a \in A, r((I_a, J_a))
+\end{align*}
+where $r$ is the reduction function e.g. $r( (\{5,9,10\},\{6,8,12\})) = (\{1,4,5\},\{2,3,6\})$.
+\end{definition}
+
+\begin{lemma} \label{admissible lemma}
+The $\OP$ and $SU$ orderings are admissible, and are admissible extensions of the following $(I,J)$ pairs
+\begin{itemize}
+    \item ${\OP} :$ for all $k\geq 1$  $(\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\})$
+    \item ${SU} :$ for all $k\geq 1$  $(\{1,2,3,\dots,k-1,2k\}, \{k+1,k+2,\dots,2k-1\})$
+\end{itemize}
+The dual orders $\OP^{op}$ and $SU^{op}$ are also admissible, and admissible extensions of the dual pairs.
+\end{lemma}
+\begin{proof}
+We present the proof for ${\OP}$, the proof for ${SU}$ proceeds similarly, and the dual proofs are obtained from duality.
+Let $o_k:= (I_k,J_k):= (\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\})$. It is apparent that $o_k$ is not a union of other $I,J$ pairs as $1$ is the only element of $I_k$ which is smaller than other elements of $J_k$.
+As such, if we tried to decompose it as a union we could pick out one pair $(I_1,J_1)$ such that $\min ( I_1\cup J_1) = \min I_1 = 1$, but the next possible pair must satisfy $\min ( I_2\cup J_2) = \min J_2$ and hence would violate the $\OP$ order.
+\\\\
+For any other $(I,J)$ pair of order $k$ which does not reduce to $o_k$, there exists $i_2 \in I\setminus \min I$ such that $i_2 < \max J$.
+This means every other pair can be decomposed as a union. In particular if our pair is such that $r(I,J)=(\{i_1,\dots,i_k\},\{j_1,\dots,j_k\})$ (each set ordered smallest to largest), then it must be the case that $1=i_1<i_2<j_k$.
+In which case, $(\{i_2\},\{j_k\})$ and $(\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\})$ are both smaller $(I,J)$ pairs.
+If the pair $(I,J)$ decomposes in another way (i.e. $(I,J) = (\cup_{a\in A} I_a, \cup_{a \in A} J_a)$ in some more complicated union), then the ${\OP}$ order is such that $\forall a \in A, r((I_a, J_a))$, which orders the pair $(I,J)$ in the same fashion.
+\\\\
+Finally, we show that ${\OP}$ is an admissible extension of the $o_k$.
+Observe that in the decomposition of $(\{i_1,\dots,i_k\},\{j_1,\dots,j_k\})$ into $(\{i_2\},\{j_k\})$ and $(\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\})$, it must be the case that $r((\{i_2\},\{j_k\})) = (\{1\},\{2\})$ and $r((\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\}))$ is either $o_{k-1}$ or we can repeat this decomposition.
+This repeated decomposition must eventually terminate with the RHS reducing to $o_{j}$ for $1\leq j \leq k-1$.
+As such we can order all $\{I,J\}\in D(n)$ by simply ordering all $o_k$ pairs.
+\end{proof}
+
+
+\begin{lemma}
+The only admissible orderings of $D(n)$ are $\OP,SU,\OP^{op}$ and $SU^{op}$.
+\end{lemma}
+
+\begin{proof}
+We first observe that there are precisely $4$ ways to order the $D(n)$ pairs of size $k\leq 2$ such that the admissible extension of these orders do not collide.
+These are,
+\begin{enumerate}
+    \item $(\{1\},\{2\})$ and $(\{1,4\},\{2,3\})$ which corresponds to $\OP$ i.e. $\min(I\cup J) = \min I$
+    \item $(\{2\},\{1\})$ and $(\{1,4\},\{2,3\})$ which corresponds to $SU$ i.e. $\max(I\cup J) = \max I$
+    \item $(\{2\},\{1\})$ and $(\{2,3\},\{1,4\})$ which corresponds to $\OP^{op}$ i.e. $\min(I\cup J) = \min J$
+    \item $(\{1\},\{2\})$ and $(\{2,3\},\{1,4\})$ which corresponds to $SU^{op}$ i.e. $\max(I\cup J) = \max J$
+\end{enumerate}
+More specifically, we must order the sole reduced $D(n)$ pair of order $1$, $\{\{1\},\{2\}\}$.
+Then once we have ordered this pair, the sole reduced $D(n)$ pair of order $2$ which must be ordered is $\{\{1,4\},\{2,3\} \}$.
+There are clearly $4$ ways to order these two pairs, and we can identify these $I,J$ pairs as cases of \cref{admissible lemma}.
+\\\\
+We now show that once we have committed to one of these four orders we must follow through with it.
+We will show this through induction for the $\OP$ order, the $SU$ order proceeds similarly, and the dual orders by duality.
+\\\\
+Let $l\geq 2$ and suppose that $\forall k\leq l$ that $\{1,k+2,k+3,\dots,2k-1,2k\} < \{2,3,\dots,k+1\} $.
+Then from \cref{admissible lemma} we know that the only $\{I,J\}$ pair of order $l+1$ that will not decompose (and hence be specified by admissibility) is 
+$$\{\{1,(l+1)+2,(l+1)+3,\dots,(l+1)k-1,2(l+1)\}, \{2,3,\dots,(l+1)+1\}\}$$
+As such, the only way we can vary from $\OP$ is to order this element in the opposite direction i.e.
+$$\{2,3,\dots,(l+1)+1\} < \{1,(l+1)+2,(l+1)+3,\dots,(l+1)k-1,2(l+1)\} $$
+However, if we make this choice than this leads to contradictions in the ordering of the $\{I,J\}$ pairs of order $l+2$.
+The following contradiction is a generalisation of \cref{ex:Non-admissible order contradiction}.
+Let $m = l+2$ then the pair
+$$\{I,J\}:= \{ \{1,3,m+3,m+4,\dots,2m-1,2m\}, \{2,4,5,\dots,m+2\} \}$$
+can be oriented in both directions.
+In particular $\{I,J\} = \{I_1 \cup I_2, J_1 \cup J_2\} = \{I'_1 \cup I'_2, J'_1 \cup J'_2\}$ where
+\begin{align*}
+    I_1:= \{1,m+3,\dots,2m\} > J_1:= \{4,5,\dots,m+2\} \text{ and } I_2:=\{3\} > J_2:= \{2\}
+\end{align*}
+this decomposition makes use of the (reversed) order $l+1$ case and the (non-reversed) order $1$ case.
+The second decomposition,
+\begin{align*}
+    I'_2:= \{1,m+3,\dots,  2m-1\} < J'_1:= \{2,5,\dots,m+1\} \text{ and } I'_2:=\{3, 2m\} < J'_2:= \{4, m+2\}
+\end{align*}
+makes use of the (non-reversed) order $l$ and $2$ cases.
+\end{proof}
+
+\begin{example} \label{ex:Non-admissible order contradiction}
+Suppose the $\OP$ order holds for $D(n)$ of order $k\leq 2$ and in order $3$ it is reversed, i.e.
+\begin{align*}
+    \{1\}<\{2\},\quad \{1,4\}< \{2,3\}, \quad \{2, 3, 4\} < \{1, 5, 6 \}
+\end{align*}
+Then $\{I,J\}=\{\{1, 3, 7, 8\}, \{2, 4, 5, 6\}\}$ admits two different orientations.
+In particular, 
+\begin{align*}
+    \{1, 7, 8\} > \{ 4, 5, 6 \} \text{ and } \{3\} > \{2\} &\implies \{1, 3, 7, 8\} >\{2, 4, 5, 6\}\\
+    \{1, 7\}< \{2, 5\} \text{ and } \{3, 8\}< \{4, 6\} &\implies \{1, 3, 7, 8\} <\{2, 4, 5, 6\}
+\end{align*}
+
+\end{example}
+
+\begin{corollary}
+The $\OP$ and $SU$ diagonals (and $\OP^{op}$ and $SU^{op}$) are the only co-multiplicative diagonals on the permutahedra.
+\end{corollary}
+\Kurt{or is the weak Bruhat assumption also needed?}
+\Kurt{probably a bit of extra work to show an isomorphism...}
+
+\Guillaume{Conjectural}
+
+Here we show that $\OP$ and the $SU$ diagonal are isomorphic, and that they are the only two comultiplicative diagonals on the permutahedra that respect the weak Bruhat order on the vertices. (??)
+
+The isomorphism of \cref{c:iso-with-SU} is a comultiplicative isomorphism.
+
+\subsection{Facets}
 
 In this section we establish a bijection between the facets of $\triangle$ and a family of pairs of unordered partitions introduced and enumerated in a series of 3 papers \cite{chen1969computer,chen1971tables,kajitani1982number}. An intermediary bijection to a type of bipartite tree is of particular importance and provides [...].
 In particular, we obtain that the number of facets in the image of the diagonal $\triangle_n$ of the $n$-dimensional permutahedron is $2(n+1)^{n-2}$ (\OEIS{A007334}), and more precisely that the pairs of dimensions $(k,n-k)$ are counted by the formula $\frac{1}{k+1}\binom{n+1}{k}(k+1)^{n-k}(n+1-k)^{k}$. 
 \Guillaume{OEIS ref?}
 
 
-\subsection{Essential complementary partitions and bipartite trees}
+\subsubsection{Essential complementary partitions and bipartite trees}
 Let us recall some basic definitions and results from the series of papers \cite{chen1969computer,chen1971tables,kajitani1982number}.
 
 \begin{definition}
@@ -65,7 +185,7 @@ Informally, given a partition pair $(\sigma,\tau)$, the corresponding graph $G((
 For an example of this bijection see \cref{ex:ECbijection}.
 \end{proof}
 
-\subsection{Bijection with the facets of the diagonal}
+\subsubsection{Bijection with the facets of the diagonal}
 
 In this section we denote by $\OP$ be the set of pairs of ordered partitions of $[n]$ labeling \emph{facets} of the diagonal $\triangle$. \BDO{We should perhaps change the notation for $\OP$. What about $\triangle_f$ or $\triangle_M$ ?}
 \Guillaume{I would keep the indices to the minimum}
@@ -246,180 +366,7 @@ The forgetful function $u$ is clearly the inverse to $o$ as forgetting any assig
 The ordering function $o$ is the inverse to $u$ as it returns the sole ordering of the sub-partitions which is compatible with the $D(n)$ conditions.
 \end{proof}
 
-\subsection{Combinatorial formula for facets of the diagonal}
-
-From \cref{thm:facets}, we can deduce a formula for the number of facets of the diagonal:
-
-\begin{proposition}
-The number of pairs of ordered partitions of dimension $(k,n-k)$ which correspond to facets of the diagonal is given by: 
-\begin{equation}
-\frac{1}{k+1}\binom{n+1}{k}(k+1)^{n-k}(n+1-k)^{k}.
-\end{equation}
-\end{proposition}
-
-\begin{proof}
-According to \cref{thm:facets}, pairs of ordered partitions of dimension $(k,n-k)$ which correspond to facets of the diagonal are in one-to-one correspondence with bipartite trees with $k+1$ black vertices, $n-k+1$ white vertices and $n+1$ edges labeled from $1$ to $n+1$.
-
-We do not prove exactly here the proposition but a slightly modified version: 
-Rooted bipartite trees with $k+1$ black vertices and $n-k+1$ white vertices such that:
-\begin{itemize}
-\item a black vertex is distinguished and called \emph{the root}
-\item the $n+1$ non-root vertices are labeled,
-\item every label between $1$ and $n+1$ is used exactly once.
-\end{itemize}
-are counted by:
-\begin{equation}
-\binom{n+1}{k}(k+1)^{n-k}(n+1-k)^{k}.
-\end{equation}
-
-Let us construct such a bipartite tree. 
-
-First, there are $\binom{n+1}{k}$ ways to  choose the labels for black vertices (white vertices being labeled by the non-chosen labels). 
-We denote by $\mathcal{B}$ this set of labels.
-
-Moreover, the labeled black vertices are different from the root, hence they should have a white parent : there are $n+1-k$ ways to choose the parent of any labeled black vertex. 
-We thus have  $(n+1-k)^{k}$ ways to build corollas with labeled black leaves and a white root, called bi-colored corollas (or sometimes just corollas) in the sequel.
-
-Finally, we arrange bi-colored corollas in a rooted bipartite tree by adapting the algorithm which convert a Pr\"ufer code to a tree. 
-Here what is called \emph{Pr\"ufer code} is a word of length $n-k$ over the alphabet $\mathcal{B} \cup \{\bullet\}$, where $\bullet$ stands for the non-labeled black vertex. 
-Let us start with a word $c=c_1 \ldots c_{n-k} \bullet$ of length $n-k+1$ and the set $\mathcal{T}=\mathcal{S} \cup \{\bullet\}$ of $n-k+2$ bi-colored corollas augmented with the unlabeled black vertex. 
-We apply Algorithm \ref{PruferWtoT}. Let us first prove it termination and correctness. The equality 
-$\operatorname{length}(c)=\operatorname{Card}(\mathcal{T})-1$ is a loop invariant for the While loop: indeed at each iteration of the loop, the length of $c$ and the number of elements in $\mathcal{T}$ decrease exactly by one. It ensures the termination of the loop and the fact that $\mathcal{T}$ contains a unique element when exiting the loop. Moreover, the set of trees $\mathcal{T}$ contains at each steps exactly one unlabeled black vertex, $k$ labeled black vertices and $n-k+1$ white vertices. Finally, when adding an edge between two trees, one can only get a tree. Moreover, as the edge is added between a white root and the label of a black vertex, the obtained tree is indeed bipartite.
-
-\begin{algorithm}[!ht]
-\DontPrintSemicolon
-  
-  \KwInput{a word $c=c_1 \ldots c_{i}$ and a set $\mathcal{T}$ of $i$ bi-colored trees with white root and one bi-colored tree with an unlabeled black root}
-  \KwOutput{a bipartite rooted tree}
-  \While{$\operatorname{length}(c)>0$}{
-      \tcc{loop invariant: $\operatorname{length}(c)=\operatorname{Card}(\mathcal{T})-1$, at each iteration, the length of $c$ decreases by $1$}
-      t $\leftarrow \min\{a \in \mathcal{T} |$ none of the $c_i$ is a label in $a\}$ \tcp*{Here the order is given by the order on the labels of the root (as the tree with a black root does not satisfy the condition)}
-      p $\leftarrow$ tree of $\mathcal{T}$ to which belongs the first letter of $c$ \tcp*{Note that it cannot be t itself}
-      Remove t and p from $\mathcal{T}$ \tcp*{Decrease the cardinality of $\mathcal{T}$ by two}
-      Add an edge between the root of $t$ and the first letter of $c$ and add the obtained tree to $\mathcal{T}$ \tcp*{Increase the cardinality of $\mathcal{T}$ by one}
-      Remove the first letter of $c$ \tcp*{Decrease the length of $c$ by one}
-  }
-  {Return the unique element of $\mathcal{T}$}
-  \caption{Pr\"ufer algorithm : from a word to a tree \label{PruferWtoT}}
-\end{algorithm}
-
-To prove that this algorithm defines a bijection between the pairs of Pr\"ufer code and set of bipartite rooted trees, let us give the algorithm which convert a rooted bipartite tree in such a pair in Algorithm \ref{PruferTtoW}.
-
-
-\begin{algorithm}[!ht]
-\DontPrintSemicolon
-  
-  \KwInput{a bipartite rooted tree $A$}
-  \KwOutput{a word $c=c_1 \ldots c_{i}$ and a set $\mathcal{T}$ of $i$ bi-colored trees with white root, except one bi-colored tree with an unlabeled black root}
-  $c \leftarrow$ empty word \tcp*{}
-  $\mathcal{T} \leftarrow$ empty set \tcp*{Initialization}
-  \While{$A$ has more than one vertex}{
-      \tcc{At each iteration, the number of white vertices decreases by $1$}
-      t $\leftarrow \min\{w \in \mathcal{T} | w$ is a white vertex whose children are leaves $\}$ \tcp*{Here the order is the one on white labels}
-      $c \leftarrow c$ concatenated with label of the parent of t \tcp*{This label is a black vertex}
-      Remove the edge between t and its parent: the root part goes in $A$ and the corolla in $\mathcal{T}$ \tcp*{Increase the cardinality of $\mathcal{T}$ by one}}
-  {  Return the pair $(c,\mathcal{T} \cup A)$}
-  \caption{Pr\"ufer algorithm : from a tree to a word \label{PruferTtoW}}
-\end{algorithm}
-
-This second algorithm terminates as the number of white vertices decreases strictly by one at each iterations. Moreover, every letter added to $c$ is the label of a black vertices, and every tree added to $\mathcal{T}$ is a bi-colored corolla or $\bullet$ (the tree with only the non-labeled black root). Finally, the cardinality of the set of bipartite trees is one more than the length of $c$. As this algorithm is the classical reverse algorithm of the first one, it ends the proof.
-\BDO{Do I need to add more details ?}
-\end{proof}
-
-\begin{example} Let us apply Pr\"ufer algorithm on an example. Consider the following rooted bipartite tree on the left below, with a red root, and a redrawing of it on the right:
-\begin{center}
-\begin{tikzpicture}
-\coordinate (6) at (0,1);
-\coordinate (2) at (0,-1);
-\coordinate (1) at (2,1);
-\coordinate (5) at (1,0);
-\coordinate (8) at (3,1);
-\coordinate (4) at (4,1);
-\coordinate (3) at (3,-1);
-\coordinate (7) at (4,-1);
-\coordinate (9) at (5,-2);
-\coordinate (10) at (5,0);
-\coordinate (r) at (2,-1);
-\draw (6)--(5) node[midway, above]{6};
-\draw (2)--(5) node[midway, above]{2};
-\draw (1)--(5) node[midway, above]{1};
-\draw (r)--(5) node[midway, above]{5};
-\draw (r)--(3) node[midway, above]{3};
-\draw (3)--(7) node[midway, above]{7};
-\draw (7)--(9) node[midway, above]{9};
-\draw (7)--(10) node[near end, below]{10};
-\draw (1)--(8) node[midway, above]{8};
-\draw (8)--(4) node[midway, above]{4};
-\fill (6) circle(0.1);
-\fill (2) circle(0.1);
-\fill (1) circle(0.1);
-\fill[red] (r) circle(0.1);
-\fill (4) circle(0.1);
-\fill (7) circle(0.1);
-\fill[draw,fill=white] (5) circle(0.1);
-\fill[draw,fill=white] (3) circle(0.1);
-\fill[draw,fill=white] (8) circle(0.1);
-\fill[draw,fill=white] (9) circle(0.1);
-\fill[draw,fill=white] (10) circle(0.1);
-\end{tikzpicture}
-\hspace{1cm}
-\begin{tikzpicture}[grow=up, scale=0.7,  level 1/.style={sibling distance=3cm},
-    level 2/.style={sibling distance=1.5cm}]
-\node[draw, circle, fill=black]{}
-   child{node[draw, circle]{3}
-      child{node[draw, circle, fill=black, text=white]{7}
-         child{node[draw, circle]{10}
-         }
-         child{node[draw, circle]{9}}
-      }   
-   }
-   child{node[draw, circle]{5}
-      child{node[draw, circle, fill=black, text=white]{6}
-      }   
-      child{node[draw, circle, fill=black, text=white]{2}
-      }   
-      child{node[draw, circle, fill=black, text=white]{1}
-         child{node[draw, circle]{8}
-            child{node[draw, circle, fill=black, text=white]{4}}         
-         }
-      }   
-   };
-\end{tikzpicture}
-\end{center}
-Separating corollas with a Pr\"ufer algorithm, we get the word $1 \bullet 7 7$ and the following set of corollas:
-\begin{equation*}
-\left \lbrace 
-\begin{tikzpicture}[grow=up, scale=0.7, baseline=10]
-\node[draw, circle]{3}
-      child{node[draw, circle, fill=black, text=white]{7}};
- \end{tikzpicture},
-\begin{tikzpicture}[grow=up, scale=0.7, baseline=10]
-\node[draw, circle]{5}
-      child{node[draw, circle, fill=black, text=white]{6}
-      }   
-      child{node[draw, circle, fill=black, text=white]{2}
-      }   
-      child{node[draw, circle, fill=black, text=white]{1}
-      }   ;
- \end{tikzpicture}, 
-\begin{tikzpicture}[grow=up, scale=0.7, baseline=10]
-\node[draw, circle]{8}
-            child{node[draw, circle, fill=black, text=white]{4}} ;
- \end{tikzpicture},
- \begin{tikzpicture}[grow=up, scale=0.7, baseline=10]
-\node[draw, circle]{9};
- \end{tikzpicture},
-  \begin{tikzpicture}[grow=up, scale=0.7, baseline=10]
-\node[draw, circle]{10};
- \end{tikzpicture}
-  \right \rbrace
-\end{equation*}
-This set of corollas can be viewed as a function $f$ from the set of labelled black vertices $\{1,2,4,6,7\}$ to the set of white vertices $\{3,5,8,9,10\}$ satisfying $f(1)=f(2)=f(6)=5$, $f(7)=3$ and $f(4)=8$.
-\end{example}
-
-\Guillaume{New section?} \BDO{I think it would be better}
-
-\subsection{The Saneblidze--Umble description}
+\subsubsection{The Saneblidze--Umble description}
 
 Here we prove that the diagonal $\OP$ admits a combinatorial description completely analogous to that of the Saneblidze--Umble diagonal \cite{SaneblidzeUmble04}. 
 A direct corollary is that the two diagonals are in bijection, and moreover that the SU diagonal can be obtained from a certain choice of chambers in the fundamental hyperplane arrangements of the permutahedra, resolving a conjecture made in \cite{LA21}.
@@ -663,118 +610,58 @@ This corresponds to combining the top two arrows in the leftmost arrows of the d
 \end{example}
 
 
-\subsection{Comultiplicativity}
 
-\Kurt{Happy to change any and all notation, or make other alterations!}
+\subsection{Vertices}
 
-\begin{definition}
-Let $D(n) := \{ \{I,J\}:I,J \subset \{1,\dots,n\}, |I|= |J|, I\cap J = \emptyset \}$.
-This is a set of unordered pairs, and we can define total orders on all pairs of the same size as follows. We say $I<J \equiv (I,J)$ if,
-\begin{itemize}
-    \item $\OP : \min(I\cup J) = \min I$
-    \item $SU : \max(I\cup J) = \max I $
-\end{itemize}
-We have refer to the orders in this fashion due to \cite[Theorem 3.16]{LA21} and \cref{SU from hyperplane arrangement}.
-We will also use $-^{op}$ to refer to the dual of these orders. We say an $\{I,J\}$ pair is of order $k$ if $|I| = |J|=k$. 
-\end{definition}
+We are now interested in characterizing the pairs of vertices that occur in the diagonal, that is pairs of permutations $(\sigma_1,\sigma_2) \in \triangle$. 
 
-\begin{definition}
-We say an ordering of $D(n)$ is \textbf{admissible} (with respect to union) if for all ordered $(I,J)$ pairs 
-\begin{align*}
-    (I,J) = (\cup_{a\in A} I_a, \cup_{a \in A} J_a) \iff \forall a \in A, r((I_a, J_a))
-\end{align*}
-where $r$ is the reduction function e.g. $r( (\{5,9,10\},\{6,8,12\})) = (\{1,4,5\},\{2,3,6\})$.
-\end{definition}
-
-\begin{lemma} \label{admissible lemma}
-The $\OP$ and $SU$ orderings are admissible, and are admissible extensions of the following $(I,J)$ pairs
-\begin{itemize}
-    \item ${\OP} :$ for all $k\geq 1$  $(\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\})$
-    \item ${SU} :$ for all $k\geq 1$  $(\{1,2,3,\dots,k-1,2k\}, \{k+1,k+2,\dots,2k-1\})$
-\end{itemize}
-The dual orders $\OP^{op}$ and $SU^{op}$ are also admissible, and admissible extensions of the dual pairs.
-\end{lemma}
-\begin{proof}
-We present the proof for ${\OP}$, the proof for ${SU}$ proceeds similarly, and the dual proofs are obtained from duality.
-Let $o_k:= (I_k,J_k):= (\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\})$. It is apparent that $o_k$ is not a union of other $I,J$ pairs as $1$ is the only element of $I_k$ which is smaller than other elements of $J_k$.
-As such, if we tried to decompose it as a union we could pick out one pair $(I_1,J_1)$ such that $\min ( I_1\cup J_1) = \min I_1 = 1$, but the next possible pair must satisfy $\min ( I_2\cup J_2) = \min J_2$ and hence would violate the $\OP$ order.
-\\\\
-For any other $(I,J)$ pair of order $k$ which does not reduce to $o_k$, there exists $i_2 \in I\setminus \min I$ such that $i_2 < \max J$.
-This means every other pair can be decomposed as a union. In particular if our pair is such that $r(I,J)=(\{i_1,\dots,i_k\},\{j_1,\dots,j_k\})$ (each set ordered smallest to largest), then it must be the case that $1=i_1<i_2<j_k$.
-In which case, $(\{i_2\},\{j_k\})$ and $(\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\})$ are both smaller $(I,J)$ pairs.
-If the pair $(I,J)$ decomposes in another way (i.e. $(I,J) = (\cup_{a\in A} I_a, \cup_{a \in A} J_a)$ in some more complicated union), then the ${\OP}$ order is such that $\forall a \in A, r((I_a, J_a))$, which orders the pair $(I,J)$ in the same fashion.
-\\\\
-Finally, we show that ${\OP}$ is an admissible extension of the $o_k$.
-Observe that in the decomposition of $(\{i_1,\dots,i_k\},\{j_1,\dots,j_k\})$ into $(\{i_2\},\{j_k\})$ and $(\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\})$, it must be the case that $r((\{i_2\},\{j_k\})) = (\{1\},\{2\})$ and $r((\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\}))$ is either $o_{k-1}$ or we can repeat this decomposition.
-This repeated decomposition must eventually terminate with the RHS reducing to $o_{j}$ for $1\leq j \leq k-1$.
-As such we can order all $\{I,J\}\in D(n)$ by simply ordering all $o_k$ pairs.
-\end{proof}
-
-
-\begin{lemma}
-The only admissible orderings of $D(n)$ are $\OP,SU,\OP^{op}$ and $SU^{op}$.
-\end{lemma}
+\begin{thm} There exists $(I,J) \in D(n)$ such that $\forall k, |\sigma_1^1\cdots\sigma_1^k \cap I| \leq |\sigma_1^1\cdots\sigma_1^k \cap J|$ and $\forall l, |\sigma_1^1\cdots\sigma_1^l \cap I| \geq |\sigma_1^1\cdots\sigma_1^l \cap J|$ (diagonal condition) if and only if $\exists (I',J')=(\{i_1,\ldots,i_m\},\{j_1,\ldots,j_m\}) \in D(m)$, $m\leq n$, such that \[\sigma_1 \cap (I'\cup J')=j_1 i_1 j_2 i_2 \cdots j_n i_n \] and \[ \sigma_2 \cap (I'\cup J') = i_2 j_1 i_3 j_2 \cdots i_n j_{n-1} i_1 j_n \ , \] where $i_1 = \min (I' \cup J')$ (fish condition). 
+\end{thm}
 
 \begin{proof}
-We first observe that there are precisely $4$ ways to order the $D(n)$ pairs of size $k\leq 2$ such that the admissible extension of these orders do not collide.
-These are,
-\begin{enumerate}
-    \item $(\{1\},\{2\})$ and $(\{1,4\},\{2,3\})$ which corresponds to $\OP$ i.e. $\min(I\cup J) = \min I$
-    \item $(\{2\},\{1\})$ and $(\{1,4\},\{2,3\})$ which corresponds to $SU$ i.e. $\max(I\cup J) = \max I$
-    \item $(\{2\},\{1\})$ and $(\{2,3\},\{1,4\})$ which corresponds to $\OP^{op}$ i.e. $\min(I\cup J) = \min J$
-    \item $(\{1\},\{2\})$ and $(\{2,3\},\{1,4\})$ which corresponds to $SU^{op}$ i.e. $\max(I\cup J) = \max J$
-\end{enumerate}
-More specifically, we must order the sole reduced $D(n)$ pair of order $1$, $\{\{1\},\{2\}\}$.
-Then once we have ordered this pair, the sole reduced $D(n)$ pair of order $2$ which must be ordered is $\{\{1,4\},\{2,3\} \}$.
-There are clearly $4$ ways to order these two pairs, and we can identify these $I,J$ pairs as cases of \cref{admissible lemma}.
-\\\\
-We now show that once we have committed to one of these four orders we must follow through with it.
-We will show this through induction for the $\OP$ order, the $SU$ order proceeds similarly, and the dual orders by duality.
-\\\\
-Let $l\geq 2$ and suppose that $\forall k\leq l$ that $\{1,k+2,k+3,\dots,2k-1,2k\} < \{2,3,\dots,k+1\} $.
-Then from \cref{admissible lemma} we know that the only $\{I,J\}$ pair of order $l+1$ that will not decompose (and hence be specified by admissibility) is 
-$$\{\{1,(l+1)+2,(l+1)+3,\dots,(l+1)k-1,2(l+1)\}, \{2,3,\dots,(l+1)+1\}\}$$
-As such, the only way we can vary from $\OP$ is to order this element in the opposite direction i.e.
-$$\{2,3,\dots,(l+1)+1\} < \{1,(l+1)+2,(l+1)+3,\dots,(l+1)k-1,2(l+1)\} $$
-However, if we make this choice than this leads to contradictions in the ordering of the $\{I,J\}$ pairs of order $l+2$.
-The following contradiction is a generalisation of \cref{ex:Non-admissible order contradiction}.
-Let $m = l+2$ then the pair
-$$\{I,J\}:= \{ \{1,3,m+3,m+4,\dots,2m-1,2m\}, \{2,4,5,\dots,m+2\} \}$$
-can be oriented in both directions.
-In particular $\{I,J\} = \{I_1 \cup I_2, J_1 \cup J_2\} = \{I'_1 \cup I'_2, J'_1 \cup J'_2\}$ where
-\begin{align*}
-    I_1:= \{1,m+3,\dots,2m\} > J_1:= \{4,5,\dots,m+2\} \text{ and } I_2:=\{3\} > J_2:= \{2\}
-\end{align*}
-this decomposition makes use of the (reversed) order $l+1$ case and the (non-reversed) order $1$ case.
-The second decomposition,
-\begin{align*}
-    I'_2:= \{1,m+3,\dots,  2m-1\} < J'_1:= \{2,5,\dots,m+1\} \text{ and } I'_2:=\{3, 2m\} < J'_2:= \{4, m+2\}
-\end{align*}
-makes use of the (non-reversed) order $l$ and $2$ cases.
+\begin{itemize}
+\item If a pair of permutations $(\sigma_1, \sigma_2) \in   \mathfrak{S}_N^2$ satisfies the fish condition, then there exist two sets $I$ and $J$ of same cardinality such that $\min(I)<\min(J)$. Denoting $\sigma_1$ and $\sigma_2$ by two words of size $N$ $\sigma_1^1 \ldots \sigma_1^N$ and $\sigma_2^1 \ldots \sigma_2^N$, then the pair $((\sigma_1, \sigma_2), (I,J))$ satisfies that for any $k$ in $\llbracket 1;N\rrbracket$, $|\sigma_1^1 \ldots \sigma_1^k \cap J| \geq |\sigma_1^1 \ldots \sigma_1^k \cap I|$ and $|\sigma_2^1 \ldots \sigma_2^k \cap I| \geq |\sigma_2^1 \ldots \sigma_2^k \cap J|$, hence the diagonal condition.
+\item We will now prove the converse. Let us presume that $(\sigma_1, \sigma_2)$ is a pair of permutations satisfying the diagonal condition for a pair of sets $(I,J) \in D(n)$, minimal for the inclusion of sets.
+\begin{description}
+\item[Case $n=1$] 
+\end{description}
+If $|I|=|J|=1$, then it follows directly from the diagonal condition above that ${\sigma_1}_{| I \cup J}=j_1 i_1$ and ${\sigma_1}_{|I \cup J}=i_1 j_1$, hence the fish condition is satisfied.
+\begin{description}
+\item[Case $n>1$] 
+\end{description}
+In this case, the proof is made by absurdum 
+by considering the number of "well-placed" elements of $I$ and $J$ in $\sigma_1$ and $\sigma_2$. In what follows, for any set $E$, $\sigma^{E}_i$ will stands for $(\sigma_i)_{|E}$. We write also $n_{i,k}^E$ for the number of elements of $E$ in the $k$ first letters of $\sigma_i$. The main argument in each of the small proofs below is the same: if the permutations do not satisfy the pattern described above, then it is possible to find an appropriate pair of elements $(i,j)\in I \times J$ such that $(I-i,J-j)$ satisfies the diagonal condition, hence  contradicting the minimality of $(I,J)$.
+
+We first prove that the leftmost element of $\sigma^{I}_1$ is $i_1$. Indeed, if it is not the case, we consider $i$, the leftmost element in $\sigma^{I}_1$ and $j$ the leftmost element in $\sigma^{J}_2$. The pair $(I-i,J-j)$ is in $D(n-1)$, as $i$ is different from $i_1$. Moreover, it is clear that the diagonal condition still holds for $((\sigma_1, \sigma_2), (I,J))$. As this would contradict the minimality of $(I,J)$, the leftmost element of $\sigma^{I}_1$ is $i_1$.
+
+We then prove that $\sigma^{I \cup J}_1$ starts by $j_1 i_1$ and that this $j_1$ is exactly the leftmost element in  $\sigma^{J}_2$. On that purpose, we suppose that either  $i_1$ is preceeded by several elements of $J$ or that the unique element of $J$ is not the leftmost one in $\sigma^{J}_2$. We then adapt the previous argument by choosing $i$ to be the leftmost element in $\sigma^{I-\{i_1\}}_1$ and $j$ the leftmost element in $\sigma^{J}_2$. The pair $(I-i,J-j)$ is in $D(n-1)$. Let us briefly explain while  the diagonal condition would still be fulfilled in this case. If $j$ is after $i_1$ in $\sigma_1$, then the difference $n_{1,k}^{J-j}-n_{1,k}^{I-i}$ is greater than $n_{1,k}^{J}-n_{1,k}^{I}$ for any $k$, hence is non negative. If $j$ is before $i_1$ in $\sigma_1$, then by hypothesis, the difference $n_{1,k}^{J-j}-n_{1,k}^{I-i}$ is:
+\begin{itemize}
+\item strictly positive before $i_1$ an greater than $1$ just before $i_1$
+\item non negative after $i_1$
+\item increase between $i_1$ and $i$
+\item is equal to $n_{1,k}^{J}-n_{1,k}^{I}$ after $i$,
+\end{itemize} 
+hence is always non negative.
+Moreover, if $i$ is after $j$ in $\sigma_2$, the diagonal condition is clearly satisfied. If $i$ is before $j$, then the difference $n_{2,k}^{I-i}-n_{1,k}^{J-j}$ is:
+\begin{itemize}
+\item strictly positive before $j$ an greater than $1$ just before $j$
+\item is equal to $n_{2,k}^{I}-n_{1,k}^{J}$ after $j$,
+\end{itemize} 
+hence is always non negative. In short, if $i_1$ is preceeded by several elements of $J$ or the unique element of $J$ is not the leftmost one in $\sigma^{J}_2$, we obtain a contradiction with the minimality of $(I,J)$.
+
+Let us now consider the biggest $k\geq 1$ such that $\sigma^{I \cup J}_1$ begins with $j_1 i_1 j_2 i_2 \ldots j_k i_k$ and $\sigma^{I \cup J}_2$ begins with $i_2 j_1 i_3 j_2\ldots i_k j_{k-1} w j_k$, where $w$ is a word with letters in $I$. We want to show that $k=n$. Let us first remark that if $k=n$, $w=i_1$. If $1\leq k<n$, then the sets $\tilde{I}=I-\{i_1, \ldots, i_k\}$ and $\tilde{J}=J-\{j_1, \ldots, j_k\}$ are non empty. Let us choose $i_{k+1}$ to be the leftmost element in $\sigma^{\tilde{I}}_1$ and $j_{k+1}$ the leftmost element in $\sigma^{\tilde{J}}_2$. We thus have $\sigma^{I \cup J}_1=j_1 i_1 j_2 i_2 \ldots j_k i_k w' i_{k+1}\ldots$, where $w'$ is in $J$ and $\sigma^{I \cup J}_2= i_2 j_1 i_3 j_2\ldots i_k j_{k-1} w j_k w'' j_{k+1}\ldots $, where $w$ and $w'$ are words with letters in $I$. The pair $(I-i_{k+1},J-j_{k+1})$ is in $D(n-1)$. Following the study as in the previous case, $\sigma_1$ always satisfies the diagonal condition for $(I-i_{k+1},J-j_{k+1})$ and $\sigma_2$ satisfies it if and only if $w \neq i$. By minimality of $(I,J)$, we then have $w=i_{k+1}$. If $k+1=n$, we are done as the only possible word in $J$ is $j_{k+1}$, hence $w'=j_{k+1}$. Otherwise, we can choose $i_{k+2}$ to be the leftmost element in $\sigma_1^{\tilde{I}-i_{k+1}}$. Using the same reasoning as above, we show that $((\sigma_1, \sigma_2),(I-i_{k+2},J-j_{k+1}))$ satisfies the diagonal condition if and only if $w'\neq j_{k+1}$. To sum up, the only possibility for $(I,J)$ to be minimal is to have $k=n$, which implies the fish condition.
+\end{itemize}
 \end{proof}
 
-\begin{example} \label{ex:Non-admissible order contradiction}
-Suppose the $\OP$ order holds for $D(n)$ of order $k\leq 2$ and in order $3$ it is reversed, i.e.
-\begin{align*}
-    \{1\}<\{2\},\quad \{1,4\}< \{2,3\}, \quad \{2, 3, 4\} < \{1, 5, 6 \}
-\end{align*}
-Then $\{I,J\}=\{\{1, 3, 7, 8\}, \{2, 4, 5, 6\}\}$ admits two different orientations.
-In particular, 
-\begin{align*}
-    \{1, 7, 8\} > \{ 4, 5, 6 \} \text{ and } \{3\} > \{2\} &\implies \{1, 3, 7, 8\} >\{2, 4, 5, 6\}\\
-    \{1, 7\}< \{2, 5\} \text{ and } \{3, 8\}< \{4, 6\} &\implies \{1, 3, 7, 8\} <\{2, 4, 5, 6\}
-\end{align*}
-
-\end{example}
-
-\begin{corollary}
-The $\OP$ and $SU$ diagonals (and $\OP^{op}$ and $SU^{op}$) are the only co-multiplicative diagonals on the permutahedra.
+\begin{corollary} For any pair of permutations $(\sigma_1, \sigma_2$, there exists $(I,J) \in D(n)$ such that $((\sigma_1, \sigma_2),(I,J))$ satisfies the diagonal condition if and only if there exists $(I',J') \in E(m)$, $m<n$ such that $((\sigma_1, \sigma_2),(I',J'))$ satisfies the fish condition, with 
+\begin{multline}
+E(m)=\{(I,J)\in D(m)| \min(J)<\min(I-\min(I)), |\llbracket 1; k \rrbracket \cap J| > |\llbracket 1; k \rrbracket \cap I| \\ \text{ if } |\llbracket 1; k \rrbracket \cap J| \geq 2 \text{ and } I \subsetneq \llbracket 1; k \rrbracket \}
+\end{multline}
 \end{corollary}
-\Kurt{or is the weak Bruhat assumption also needed?}
-\Kurt{probably a bit of extra work to show an isomorphism...}
 
-\Guillaume{Conjectural}
+\begin{proof}
+It follows directly from the fish condition: if the fish condition is satisfied, as inversions of $\sigma_1$ are included in inversions of $\sigma_2$, we get $j_{k-1},j_k<i_k$ for any $k>1$.
+\end{proof}
 
-Here we show that $\OP$ and the $SU$ diagonal are isomorphic, and that they are the only two comultiplicative diagonals on the permutahedra that respect the weak Bruhat order on the vertices. (??)
 
-The isomorphism of \cref{c:iso-with-SU} is a comultiplicative isomorphism.
+

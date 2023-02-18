@@ -29,6 +29,11 @@
 \address{School of Mathematics and Statistics, University of Melbourne, Victoria, Australia}
 \email{guillaume.laplanteanfossi@unimelb.edu.au}
 
+\author{Vincent Pilaud}
+\address[Vincent Pilaud]{CNRS \& LIX, \'Ecole Polytechnique, Palaiseau}
+\email{vincent.pilaud@lix.polytechnique.fr}
+\urladdr{\url{http://www.lix.polytechnique.fr/~pilaud/}}
+
 \author[K. Stoeckl]{Kurt Stoeckl}
 \address{}
 \email{}
@@ -47,20 +52,24 @@
 %========================================
 
 \begin{abstract}
-The purpose of this note is to provide a new combinatorial description of a cellular approximation of the diagonal of the permutahedra. 
+The purpose of this article is to provide a systematic combinatorial-geometric study of cellular diagonals on the permutahedra. 
+First, we give general enumeration results for the faces of any geometric diagonal, using a theorem of Zavlasky on the M\"obius function of hyperplane arrangements.
+The numbers obtained involve covering trees of bipartite graphs and Catalan families. 
+Second, we prove that there are only two operadic families of diagonals on the permutahedra, and we give a bijection of their facets with planar bipartite trees and characterize their vertices as pattern-avoiding pairs of permutations.
+A corollary of our study is that the Saneblidze--Umble diagonal can be recovered by a choice of vectors in the fundamental hyperplane arrangements of the permutahedra, resolving a conjecture of the third-named author.  
 \end{abstract}
 
 
 \maketitle
 
 
-\setcounter{tocdepth}{1}
-%\tableofcontents
+\setcounter{tocdepth}{3}
+\tableofcontents
 
 \input{sec/introduction}
 \input{sec/preliminaries}
-\input{sec/facets}
-\input{sec/vertices}
+\input{sec/fvectors}
+\input{sec/bijections}
 \input{sec/tables}
 
 
@@ -69,6 +78,10 @@ The purpose of this note is to provide a new combinatorial description of a cell
 \bigskip 
 
 \emph{Acknowledgements.}    
+Hugh Thomas (everything started in Montr\'eal), Sylvie Corteel for hyperplane arrangements
+
+We would like to thank the Max Planck Institute for Mathematics in Bonn where part of this work was carried out. 
+The third author was supported by the Australian Research Council Future Fellowship FT210100256.
 
 \bibliographystyle{amsalpha}
 
