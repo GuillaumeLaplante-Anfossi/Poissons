@@ -21,44 +21,51 @@ We will also use $-^{op}$ to refer to the dual of these orders. We say an $\{I,J
 \end{definition}
 
 \begin{definition}
-We say an ordering of $D(n)$ is \textbf{admissible} (with respect to union) if for all ordered $(I,J)$ pairs 
+We say an ordering of $D(n)$ is \textbf{coherent} if for all ordered $(I,J)$ pairs 
 \begin{align*}
     (I,J) = (\cup_{a\in A} I_a, \cup_{a \in A} J_a) \iff \forall a \in A, r((I_a, J_a))
 \end{align*}
-where $r$ is the reduction function e.g. $r( (\{5,9,10\},\{6,8,12\})) = (\{1,4,5\},\{2,3,6\})$.
+where $r$ is the standardisation function e.g. $r( (\{5,9,10\},\{6,8,12\})) = (\{1,4,5\},\{2,3,6\})$.
 \end{definition}
 
-\begin{lemma} \label{admissible lemma}
-The $\OP$ and $SU$ orderings are admissible, and are admissible extensions of the following $(I,J)$ pairs
+\begin{lemma} \label{coherent lemma}
+The $\OP$ and $SU$ orderings are coherent, and are coherent extensions of the following $(I,J)$ pairs,
 \begin{itemize}
     \item ${\OP} :$ for all $k\geq 1$  $(\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\})$
-    \item ${SU} :$ for all $k\geq 1$  $(\{1,2,3,\dots,k-1,2k\}, \{k+1,k+2,\dots,2k-1\})$
+    \item ${SU} :$ for all $k\geq 1$  $(\{1,2,3,\dots,k-1,2k\}, \{k,k+1,\dots,2k-1\})$
 \end{itemize}
-The dual orders $\OP^{op}$ and $SU^{op}$ are also admissible, and admissible extensions of the dual pairs.
+The dual orders $\OP^{op}$ and $SU^{op}$ are also coherent, and coherent extensions of the dual pairs.
 \end{lemma}
+
 \begin{proof}
 We present the proof for ${\OP}$, the proof for ${SU}$ proceeds similarly, and the dual proofs are obtained from duality.
 Let $o_k:= (I_k,J_k):= (\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\})$. It is apparent that $o_k$ is not a union of other $I,J$ pairs as $1$ is the only element of $I_k$ which is smaller than other elements of $J_k$.
-As such, if we tried to decompose it as a union we could pick out one pair $(I_1,J_1)$ such that $\min ( I_1\cup J_1) = \min I_1 = 1$, but the next possible pair must satisfy $\min ( I_2\cup J_2) = \min J_2$ and hence would violate the $\OP$ order.
+As such, if we tried to decompose it as a union we could pick out one pair $(I_1,J_1)$ such that $\min ( I_1\cup J_1) = \min I_1 = 1$, but the next possible pair must satisfy $\min ( I_2\cup J_2) = \min J_2$, and hence would violate the $\OP$ order.
 \\\\
 For any other $(I,J)$ pair of order $k$ which does not reduce to $o_k$, there exists $i_2 \in I\setminus \min I$ such that $i_2 < \max J$.
-This means every other pair can be decomposed as a union. In particular if our pair is such that $r(I,J)=(\{i_1,\dots,i_k\},\{j_1,\dots,j_k\})$ (each set ordered smallest to largest), then it must be the case that $1=i_1<i_2<j_k$.
+This means every other pair can be decomposed as a union. In particular, if our pair is such that $r(I,J)=(\{i_1,\dots,i_k\},\{j_1,\dots,j_k\})$ (each set ordered smallest to largest), then it must be the case that $1=i_1<i_2<j_k$.
 In which case, $(\{i_2\},\{j_k\})$ and $(\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\})$ are both smaller $(I,J)$ pairs.
-If the pair $(I,J)$ decomposes in another way (i.e. $(I,J) = (\cup_{a\in A} I_a, \cup_{a \in A} J_a)$ in some more complicated union), then the ${\OP}$ order is such that $\forall a \in A, r((I_a, J_a))$, which orders the pair $(I,J)$ in the same fashion.
+We note that there are potentially other ways to decompose an $(I,J)$ pair. 
+However, if $(I,J) = (\cup_{a\in A} I_a, \cup_{a \in A} J_a)$, then the ${\OP}$ order is such that $\forall a \in A, r((I_a, J_a))$.
+As such all decompositions of a pair $(I,J)$ order it the same way.
 \\\\
-Finally, we show that ${\OP}$ is an admissible extension of the $o_k$.
-Observe that in the decomposition of $(\{i_1,\dots,i_k\},\{j_1,\dots,j_k\})$ into $(\{i_2\},\{j_k\})$ and $(\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\})$, it must be the case that $r((\{i_2\},\{j_k\})) = (\{1\},\{2\})$ and $r((\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\}))$ is either $o_{k-1}$ or we can repeat this decomposition.
-This repeated decomposition must eventually terminate with the RHS reducing to $o_{j}$ for $1\leq j \leq k-1$.
-As such we can order all $\{I,J\}\in D(n)$ by simply ordering all $o_k$ pairs.
+Finally, we show that $\OP$ is coherent extension of the $o_k$.
+Suppose we decompose $(I,J)$ into $(\{i_2\},\{j_k\})$ and $(\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\})$.
+Then it must be the case that $r((\{i_2\},\{j_k\})) = (\{1\},\{2\})$, and $r((\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\}))$ is either $o_{k-1}$ or we can repeat this decomposition.
+This repeated decomposition must eventually terminate with the RHS reducing to $o_{l}$ for $1 \leq l \leq k-1$.
+Consequently, any $(I,J) = (\{i_1,...,i_k], \{j_1,...,j_k\})$ decomposes as
+\begin{align*}
+	(I,J) = (\{i_2\},\{j_k\}) \cup (\{i_3\},\{j_{k-1}\}) \cup ... \cup (\{i_{l+1} \},\{j_{k-l-1} \}) \cup (I'_l,J'_l)
+\end{align*}
+where $r((I'_l,J'_l)) = o_l$, and $1\leq l \leq k$.
 \end{proof}
 
-
 \begin{lemma}
-The only admissible orderings of $D(n)$ are $\OP,SU,\OP^{op}$ and $SU^{op}$.
+The only coherent orderings of $D(n)$ are $\OP,SU,\OP^{op}$ and $SU^{op}$.
 \end{lemma}
 
 \begin{proof}
-We first observe that there are precisely $4$ ways to order the $D(n)$ pairs of size $k\leq 2$ such that the admissible extension of these orders do not collide.
+We first observe that there are precisely $4$ ways to order the $D(n)$ pairs of size $k\leq 2$ such that the coherent extension of these orders do not collide.
 These are,
 \begin{enumerate}
     \item $(\{1\},\{2\})$ and $(\{1,4\},\{2,3\})$ which corresponds to $\OP$ i.e. $\min(I\cup J) = \min I$
@@ -68,18 +75,18 @@ These are,
 \end{enumerate}
 More specifically, we must order the sole reduced $D(n)$ pair of order $1$, $\{\{1\},\{2\}\}$.
 Then once we have ordered this pair, the sole reduced $D(n)$ pair of order $2$ which must be ordered is $\{\{1,4\},\{2,3\} \}$.
-There are clearly $4$ ways to order these two pairs, and we can identify these $I,J$ pairs as cases of \cref{admissible lemma}.
+There are clearly $4$ ways to order these two pairs, and we can identify these $I,J$ pairs as cases of \cref{coherent lemma}.
 \\\\
 We now show that once we have committed to one of these four orders we must follow through with it.
 We will show this through induction for the $\OP$ order, the $SU$ order proceeds similarly, and the dual orders by duality.
 \\\\
 Let $l\geq 2$ and suppose that $\forall k\leq l$ that $\{1,k+2,k+3,\dots,2k-1,2k\} < \{2,3,\dots,k+1\} $.
-Then from \cref{admissible lemma} we know that the only $\{I,J\}$ pair of order $l+1$ that will not decompose (and hence be specified by admissibility) is 
+Then from \cref{coherent lemma} we know that the only $\{I,J\}$ pair of order $l+1$ that will not decompose (and hence be specified by admissibility) is 
 $$\{\{1,(l+1)+2,(l+1)+3,\dots,(l+1)k-1,2(l+1)\}, \{2,3,\dots,(l+1)+1\}\}$$
 As such, the only way we can vary from $\OP$ is to order this element in the opposite direction i.e.
 $$\{2,3,\dots,(l+1)+1\} < \{1,(l+1)+2,(l+1)+3,\dots,(l+1)k-1,2(l+1)\} $$
 However, if we make this choice than this leads to contradictions in the ordering of the $\{I,J\}$ pairs of order $l+2$.
-The following contradiction is a generalisation of \cref{ex:Non-admissible order contradiction}.
+The following contradiction is a generalisation of \cref{ex:Non-coherent order contradiction}.
 Let $m = l+2$ then the pair
 $$\{I,J\}:= \{ \{1,3,m+3,m+4,\dots,2m-1,2m\}, \{2,4,5,\dots,m+2\} \}$$
 can be oriented in both directions.
@@ -95,7 +102,7 @@ The second decomposition,
 makes use of the (non-reversed) order $l$ and $2$ cases.
 \end{proof}
 
-\begin{example} \label{ex:Non-admissible order contradiction}
+\begin{example} \label{ex:Non-coherent order contradiction}
 Suppose the $\OP$ order holds for $D(n)$ of order $k\leq 2$ and in order $3$ it is reversed, i.e.
 \begin{align*}
     \{1\}<\{2\},\quad \{1,4\}< \{2,3\}, \quad \{2, 3, 4\} < \{1, 5, 6 \}
@@ -109,11 +116,41 @@ In particular,
 
 \end{example}
 
-\begin{corollary}
-The $\OP$ and $SU$ diagonals (and $\OP^{op}$ and $SU^{op}$) are the only co-multiplicative diagonals on the permutahedra.
-\end{corollary}
-\Kurt{or is the weak Bruhat assumption also needed?}
-\Kurt{probably a bit of extra work to show an isomorphism...}
+
+As a consequence of these lemmas and Theorem 3.16 of \cite{LA21} it follows that,
+\begin{thm}
+There are only four comultiplicative diagonals of every operahedra, in particular, those induced by the $\OP, LA, \OP^{op}$ and $LA^{op}$ orders on $D(n)$.
+\end{thm}
+
+\begin{lemma}
+The $\OP$ and LA orders of $D(n)$ are \textbf{not} isomorphic (with respect to coherence). \Kurt{This seems a little strange, maybe I'm doing something off...}
+\end{lemma}
+
+\begin{proof}
+As each order is a coherent extension of one non-decomposable pair for each $k\geq 1$, the isomorphism must map these pairs to each other, and extend coherently everywhere else. 
+Such an isomorphism $\theta:\OP\to SU$ would operate on the non-decomposable pairs as follows. If $r((I,J)) = o_k$ then $\theta((I,J)) := (I',J')$, the unique pair which uses the same numbers as $I,J$ and is such that $r((I',J')) = o'_k$ the unique non-decomposable pair in the $SU$ order. For instance,
+\begin{align*}
+	o_3 = (\{1,5,6\},\{2,3,4\}) \land o'_3 = (\{1,2,6\},\{3,4,5\}) \implies
+	\theta( (\{1,7,8\}, \{4,5,6\} ) ) = (\{1,4,8\},\{5,6,7\})
+\end{align*}
+More generally we can extend $\theta$ to every other (decomposable) pair through 
+\begin{align*}
+	\theta((I,J)) = \theta((\{i_2\},\{j_k\})) \cup \theta((\{i_3\},\{j_{k-1}\})) \cup \theta((\{i_{l+1} \},\{j_{k-l-1} \})) \cup \theta((I'_l,J'_l))
+\end{align*}
+as each pair of singletons reduces to $o_1$, and $r((I'_l,J'_l)) = o_l$, this is well defined. However, in order for $\theta$ to be an isomorphism, it must be compatible with other decompositions, which it is not. Here is an explicit counter example.
+\begin{itemize}
+	\item $(1378, 2456) = (178,245) \cup (3,6) = (17,25)\cup (38,46)$
+	\item the first decomp implies that $\theta((1378, 2456)) = \theta(178,245) \cup \theta(3,6) = (128,457)\cup (6,3) $
+	\item the second decomp implies $\theta((1378, 2456)) = \theta (17,25)\cup \theta (38,46) = (17,25)\cup (38,46)$
+\end{itemize}
+a contradiction. 
+\end{proof}
+\Kurt{So if this counter example is true, then}
+\begin{itemize}
+	\item don't think we can operate just with the $D(n)$ conditions
+	\item need something more from the definition of the diagonal.
+	\item What explicitly is an isomorphism of comultiplicative diagonals?
+\end{itemize}
 
 \Guillaume{Conjectural}
 
