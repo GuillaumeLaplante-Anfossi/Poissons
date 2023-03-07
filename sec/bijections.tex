@@ -11,28 +11,28 @@
 
 \begin{definition}
 Let $D(n) := \{ \{I,J\}:I,J \subset \{1,\dots,n\}, |I|= |J|, I\cap J = \emptyset \}$.
-This is a set of unordered pairs, and we can define total orders on all pairs of the same size as follows. We say $I<J \equiv (I,J)$ if,
+This is a set of unordered pairs, however there are two clear ways to order these pairs. We say $I<J \equiv (I,J)$ if,
 \begin{itemize}
     \item $\OP : \min(I\cup J) = \min I$
-    \item $SU : \max(I\cup J) = \max I $
+    \item $SU : \max(I\cup J) = \max J $
 \end{itemize}
 We have refer to the orders in this fashion due to \cite[Theorem 3.16]{LA21} and \cref{SU from hyperplane arrangement}.
 We will also use $-^{op}$ to refer to the dual of these orders. We say an $\{I,J\}$ pair is of order $k$ if $|I| = |J|=k$. 
 \end{definition}
 
 \begin{definition}
-We say an ordering of $D(n)$ is \textbf{coherent} if for all ordered $(I,J)$ pairs 
+We say an ordering of $D(n)$ is \emph{coherent} if for all ordered $(I,J)$ pairs 
 \begin{align*}
-    (I,J) = (\cup_{a\in A} I_a, \cup_{a \in A} J_a) \iff \forall a \in A, r((I_a, J_a))
+    (I,J) = (\bigcup_{a\in A} I_a, \bigcup_{a \in A} J_a) \iff \forall a \in A, r((I_a, J_a))
 \end{align*}
-where $r$ is the standardisation function e.g. $r( (\{5,9,10\},\{6,8,12\})) = (\{1,4,5\},\{2,3,6\})$.
+where $A$ is some indexing set, each $(I_a,J_a)$ is an ordered pair of $D(n)$ and $r$ is the standardisation function e.g. $r( (\{5,9,10\},\{6,8,12\})) = (\{1,4,5\},\{2,3,6\})$.
 \end{definition}
 
 \begin{lemma} \label{coherent lemma}
 The $\OP$ and $SU$ orderings are coherent, and are coherent extensions of the following $(I,J)$ pairs,
 \begin{itemize}
     \item ${\OP} :$ for all $k\geq 1$  $(\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\})$
-    \item ${SU} :$ for all $k\geq 1$  $(\{1,2,3,\dots,k-1,2k\}, \{k,k+1,\dots,2k-1\})$
+    \item ${SU} :$ for all $k\geq 1$  $(\{k,k+1,\dots,2k-1\},\{1,2,3,\dots,k-1,2k\})$
 \end{itemize}
 The dual orders $\OP^{op}$ and $SU^{op}$ are also coherent, and coherent extensions of the dual pairs.
 \end{lemma}
@@ -49,7 +49,7 @@ We note that there are potentially other ways to decompose an $(I,J)$ pair.
 However, if $(I,J) = (\cup_{a\in A} I_a, \cup_{a \in A} J_a)$, then the ${\OP}$ order is such that $\forall a \in A, r((I_a, J_a))$.
 As such all decompositions of a pair $(I,J)$ order it the same way.
 \\\\
-Finally, we show that $\OP$ is coherent extension of the $o_k$.
+Finally, we show that $\OP$ is a coherent extension of the $o_k$.
 Suppose we decompose $(I,J)$ into $(\{i_2\},\{j_k\})$ and $(\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\})$.
 Then it must be the case that $r((\{i_2\},\{j_k\})) = (\{1\},\{2\})$, and $r((\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\}))$ is either $o_{k-1}$ or we can repeat this decomposition.
 This repeated decomposition must eventually terminate with the RHS reducing to $o_{l}$ for $1 \leq l \leq k-1$.
@@ -69,9 +69,9 @@ We first observe that there are precisely $4$ ways to order the $D(n)$ pairs of 
 These are,
 \begin{enumerate}
     \item $(\{1\},\{2\})$ and $(\{1,4\},\{2,3\})$ which corresponds to $\OP$ i.e. $\min(I\cup J) = \min I$
-    \item $(\{2\},\{1\})$ and $(\{1,4\},\{2,3\})$ which corresponds to $SU$ i.e. $\max(I\cup J) = \max I$
+    \item $(\{1\},\{2\})$ and $(\{2,3\},\{1,4\})$ which corresponds to $SU$ i.e. $\max(I\cup J) = \max J$
     \item $(\{2\},\{1\})$ and $(\{2,3\},\{1,4\})$ which corresponds to $\OP^{op}$ i.e. $\min(I\cup J) = \min J$
-    \item $(\{1\},\{2\})$ and $(\{2,3\},\{1,4\})$ which corresponds to $SU^{op}$ i.e. $\max(I\cup J) = \max J$
+    \item $(\{2\},\{1\})$ and $(\{1,4\},\{2,3\})$ which corresponds to $SU^{op}$ i.e. $\max(I\cup J) = \max I$
 \end{enumerate}
 More specifically, we must order the sole reduced $D(n)$ pair of order $1$, $\{\{1\},\{2\}\}$.
 Then once we have ordered this pair, the sole reduced $D(n)$ pair of order $2$ which must be ordered is $\{\{1,4\},\{2,3\} \}$.
@@ -87,7 +87,7 @@ As such, the only way we can vary from $\OP$ is to order this element in the opp
 $$\{2,3,\dots,(l+1)+1\} < \{1,(l+1)+2,(l+1)+3,\dots,(l+1)k-1,2(l+1)\} $$
 However, if we make this choice than this leads to contradictions in the ordering of the $\{I,J\}$ pairs of order $l+2$.
 The following contradiction is a generalisation of \cref{ex:Non-coherent order contradiction}.
-Let $m = l+2$ then the pair
+Let $m = l+2$, then the pair
 $$\{I,J\}:= \{ \{1,3,m+3,m+4,\dots,2m-1,2m\}, \{2,4,5,\dots,m+2\} \}$$
 can be oriented in both directions.
 In particular $\{I,J\} = \{I_1 \cup I_2, J_1 \cup J_2\} = \{I'_1 \cup I'_2, J'_1 \cup J'_2\}$ where
@@ -117,40 +117,32 @@ In particular,
 \end{example}
 
 
-As a consequence of these lemmas and Theorem 3.16 of \cite{LA21} it follows that,
+As a consequence of these lemmas and Theorem 3.16 of \cite{LA21} \Kurt{and tree substitution...}it follows that, 
 \begin{thm}
 There are only four comultiplicative diagonals of every operahedra, in particular, those induced by the $\OP, LA, \OP^{op}$ and $LA^{op}$ orders on $D(n)$.
 \end{thm}
 
 \begin{lemma}
-The $\OP$ and LA orders of $D(n)$ are \textbf{not} isomorphic (with respect to coherence). \Kurt{This seems a little strange, maybe I'm doing something off...}
+We have the following commutative square,
+\begin{center}
+\begin{tikzcd}
+LA \arrow[r,leftrightarrow] \arrow[d,leftrightarrow]&
+LA^{op}\arrow[d,leftrightarrow]\\
+SU^{op} \arrow[r,leftrightarrow] &
+SU
+\end{tikzcd}
+\end{center}
+These orders induce 
+\begin{enumerate}
+    \item Isomorphism of operads
+    \item Isomorphisms of the face poset of the diagonal
+\end{enumerate}
 \end{lemma}
-
 \begin{proof}
-As each order is a coherent extension of one non-decomposable pair for each $k\geq 1$, the isomorphism must map these pairs to each other, and extend coherently everywhere else. 
-Such an isomorphism $\theta:\OP\to SU$ would operate on the non-decomposable pairs as follows. If $r((I,J)) = o_k$ then $\theta((I,J)) := (I',J')$, the unique pair which uses the same numbers as $I,J$ and is such that $r((I',J')) = o'_k$ the unique non-decomposable pair in the $SU$ order. For instance,
-\begin{align*}
-	o_3 = (\{1,5,6\},\{2,3,4\}) \land o'_3 = (\{1,2,6\},\{3,4,5\}) \implies
-	\theta( (\{1,7,8\}, \{4,5,6\} ) ) = (\{1,4,8\},\{5,6,7\})
-\end{align*}
-More generally we can extend $\theta$ to every other (decomposable) pair through 
-\begin{align*}
-	\theta((I,J)) = \theta((\{i_2\},\{j_k\})) \cup \theta((\{i_3\},\{j_{k-1}\})) \cup \theta((\{i_{l+1} \},\{j_{k-l-1} \})) \cup \theta((I'_l,J'_l))
-\end{align*}
-as each pair of singletons reduces to $o_1$, and $r((I'_l,J'_l)) = o_l$, this is well defined. However, in order for $\theta$ to be an isomorphism, it must be compatible with other decompositions, which it is not. Here is an explicit counter example.
-\begin{itemize}
-	\item $(1378, 2456) = (178,245) \cup (3,6) = (17,25)\cup (38,46)$
-	\item the first decomp implies that $\theta((1378, 2456)) = \theta(178,245) \cup \theta(3,6) = (128,457)\cup (6,3) $
-	\item the second decomp implies $\theta((1378, 2456)) = \theta (17,25)\cup \theta (38,46) = (17,25)\cup (38,46)$
-\end{itemize}
-a contradiction. 
+...
 \end{proof}
-\Kurt{So if this counter example is true, then}
-\begin{itemize}
-	\item don't think we can operate just with the $D(n)$ conditions
-	\item need something more from the definition of the diagonal.
-	\item What explicitly is an isomorphism of comultiplicative diagonals?
-\end{itemize}
+
+
 
 \Guillaume{Conjectural}
 
@@ -209,16 +201,16 @@ For a larger example see \cref{ex:ECbijection}.
 The reader will have observed from this example, that many pairs of partitions are not essential and complementary.
 This can be checked directly from the definition, however, a graphical connection which we now introduce provides a simpler interpretation.
 A \emph{tree} is a simply connected graph with no cycles. 
-A \emph{bipartite graph} is a graph whose vertices are partitioned into two sets such that vertices in one set are only adjacent to vertices in the other, we say it is \emph{ordered} if one of the sets is considered smaller than the other and we denote the partition $(V_L,V_R)$. 
+A \emph{bipartite graph} is a graph whose vertices are partitioned into two sets such that vertices in one set are only adjacent to vertices in the other.
+We say a bipartite graph is \emph{ordered} if one of the sets is considered smaller than the other and we denote the partition $(V_L,V_R)$. 
 We say a graph with $n$ edges is \emph{edge labelled} if there exists a bijection between the edges and $\{1,\dots,n\}$.
-Let $\BT$ denote the set of edge labelled ordered bipartite trees on $[n]$.
 
 \begin{proposition} [{\cite[Theorem 3]{kajitani1982number}}] 
 \label{EC Graph Bijection}
-The sets of essential complementary partitions $\EC$ and edge labelled bipartite trees $\BT$ are in bijection.
+The set of essential complementary partitions $\EC$ and the set edge labelled bipartite trees $\BT$ are in bijection.
 \end{proposition}
 \begin{proof}
-Informally, given a partition pair $(\sigma,\tau)$, the corresponding graph $G((\sigma,\tau))$ has the subpartitions of each partition as its vertices, and two vertices are connected by an edge if the subpartitions share a common element.
+Informally, given a partition pair $(\sigma,\tau)$, the corresponding graph $G((\sigma,\tau))$ has the subpartitions of each partition as its vertices, and two vertices are connected by an edge if the subpartitions share a common element. By convention we place the vertices of 
 For an example of this bijection see \cref{ex:ECbijection}.
 \end{proof}
 
@@ -252,14 +244,15 @@ While there is a vertex of degree $1$ in $G'$ delete it and add the sole edge of
 As $G'$ is a tree this process can continue until there is a single edge connecting two vertices of degree $1$. 
 This edge specifies the element $p$ of the distinct representatives.
 \end{proof}
-\Kurt{ notation wise sigmaL,tauR or PL PR or other?}
+
 \begin{construction} 
 \label{Order Lemma}
-For $P=(P_L,P_R) \in \EC$ an essential complementary pair, we construct total orders on $P_L$ and $P_R$ in three steps:
+For $P=(\sigma,\tau) = (\bigcup_{l\in L}\sigma_l,\bigcup_{r\in R} \tau_r) \in \EC$ an essential complementary pair, we construct total orders on the blocks of $\sigma$ and $\tau$ in three steps:
 \begin{enumerate}
-    \item For $l,l' \in L$ there exists a unique minimal set of edges $p_{l,l'}$ of even cardinality connecting $V(P_l)$ and $V(P_{l'})$ in $G(P)$ (similar for $R$). We partition this set of edges as $I\cup J$ where $I$ and $J$ are each pairwise non-adjacent, and $I$ contains the minimal edge.
-    \item Orient each path so that $I$ points left to right, and $J$ points right to left (same orientation for $P_L$ and $P_R$). 
-    \item We say $P_l< P_{l'}$ (or $P_r < P_{r'}$) if the constructed path points from $V(P_l) \to V(P_{l'})$ ($V(P_r) \to V(P_{r'})$.
+    \item For $\sigma_l,\sigma_{l'} \in \sigma$ considered as vertices in $G(P)$, there exists a unique minimal path of even cardinality $p_{l,l'}$ connecting them.
+    We partition $p_{l,l'}=I\cup J$ where $I$ contains the minimal edge, and the path alternates between elements of $I,J$. Likewise, for $\tau_r,\tau_{r'}\in \tau$ there exists a path and decomposition $p_{r,r'} = I\cup J$.
+    \item Direct each path so that all $I$ point left to right, and all $J$ point right to left.
+    \item We say $\sigma_l< \sigma_{l'}$ (or $\tau_r < \tau_{r'}$) if the path is directed as $\sigma_l \to \sigma_{l'}$ ($\tau_r \to \tau_{r'}$).
 \end{enumerate}
 \end{construction}
 
@@ -267,11 +260,10 @@ For $P=(P_L,P_R) \in \EC$ an essential complementary pair, we construct total or
 We first show our binary relation is well defined before verifying that it defines a total order on $G(P)$ and hence $P$ via the bijection of \cref{EC Graph Bijection}.
 
 As $G(P)$ is a bipartite tree, every vertex is connected, and every path connecting two vertices on the same side must be of even length. 
-As $I$ and $J$ are each pairwise non-adjacent, they must partition the path in an alternating fashion i.e. $p=(I_{i_1},J_{j_1},I_{i_2},J_{j_2},..., )$, hence we can orient the path by forcing $I$ to point left and $J$ to point right.
-
+As $I$ and $J$ partition the path in an alternating fashion i.e. $p=(i_1,j_1,i_2,j_2,..., )$, we can orient the path by forcing $I$ to point left and $J$ to point right. 
 This order is clearly total, reflexive (by convention) and anti-symmetric, what remains to be checked is its transitivity. 
 
-Let $p_{ab}$ denote the unique maximal path between two vertices $a$ and $b$ on the left of $G(P)$, that is two blocks of $P_L$. 
+Let $p_{ab}$ denote the unique maximal path between two vertices $a$ and $b$ on the left of $G(P)$, that is two blocks of $\sigma$. 
 Let $I_{ab}$ denote the set of left-to-right edges in this path, and let $J_{ab}$ denote its complement. 
 Then, we have 
 \begin{equation}
@@ -279,8 +271,8 @@ Then, we have
     a < b \iff \min(I_{ab}\cup J_{ab})=\min(I_{ab}) \ . 
 \end{equation}
 Suppose now that $a < b$ and $b < c$.
-Since $p_{ac}= (p_{ab} \cup p_{bc}) \setminus (p_{ab} \cap p_{bc})$, we have $$ I_{ac}=(I_{ab}\cup I_{bc}) \setminus (J_{ab} \cup J_{bc}) \text{ and } J_{ac}=(J_{ab}\cup J_{bc}) \setminus (I_{ab} \cup I_{bc}) \ , $$ and from the condition (\ref{eq:order}) above it is clear that $\min(I_{ac}\cup J_{ac})=\min(I_{ac})$, which completes the proof of the transitivity for the total order on $P_L$. 
-The proof for $P_R$ is similar. 
+Since $p_{ac}= (p_{ab} \cup p_{bc}) \setminus (p_{ab} \cap p_{bc})$, we have $$ I_{ac}=(I_{ab}\cup I_{bc}) \setminus (J_{ab} \cup J_{bc}) \text{ and } J_{ac}=(J_{ab}\cup J_{bc}) \setminus (I_{ab} \cup I_{bc}) \ , $$ and from the condition (\ref{eq:order}) above it is clear that $\min(I_{ac}\cup J_{ac})=\min(I_{ac})$, which completes the proof of the transitivity for the total order on $\sigma$. 
+The proof for $\tau$ is similar. 
 \end{proof}
 
 \begin{example}\label{ex:ECbijection}
@@ -338,7 +330,7 @@ Here are two examples paths providing order information.
 
 This order far from being arbitrary provides the unique way to order an essential complementary partition pair into an ordered partition pair of $\triangle$, as we shall demonstrate next.
 
-First we need a geometrical lemma. 
+First we need a geometrical lemma. \Kurt{notation clash...}
 \begin{proposition}
     The paths between adjacents vertices of $P_L$ or $P_R$ are in bijection with the minimal $(I,J)$-pairs.
 \end{proposition}
@@ -361,35 +353,35 @@ The function $o:\EC \to \OP$ that orders an essential complementary pair is well
 \end{lemma}
 
 \begin{proof}
-Let $P=(P_L,P_R) \in \EC$ and consider $o(P)$. 
+Let $P=(\sigma,\tau) = (\bigcup_{l\in L}\sigma_l,\bigcup_{r\in R} \tau_r) \in \EC$ and consider $o(P)$. 
 We first show that every $(I,J)$-condition, for $(I,J) \in D(n)$, which corresponds to a path between vertices is satisfied. 
 In particular, this statement will be true for minimal $(I,J)$-pairs, which will be enough in virtue of \cref{p:minimal}. 
 Suppose $I,J$ corresponds to a path between two vertices on the left, i.e.
 \begin{align*}
-    V(P_l) = V_{L_1} \xrightarrow{i_1} V_{R_1}\xrightarrow{j_1} V_{L_2} \xrightarrow{i_2}... \xrightarrow{i_{k}} V_{R_{k-1}} \xrightarrow{j_k} V_{L_k}=V(P_{l'})
+    \sigma_l = \sigma_{l_1} \xrightarrow{i_1} \tau_{r_1}\xrightarrow{j_1} \sigma_{l_2} \xrightarrow{i_2}... \xrightarrow{i_{k}} \tau_{r_{k-1}} \xrightarrow{j_k} \sigma_{l_k}= \sigma_{l'}
 \end{align*}
 By construction we have that $I = \{i_1,...,i_k\},J=\{j_1,...,j_k\} \in D(n)$ (note we are ordering $I$ and $J$ by the path, so it is not necessarily the case that $\min I = i_1$). 
-Furthermore, each sub partition of $P_R$ either contains a single element of $I$ and a single element of $J$, or it contains no elements of $I$ and no elements of $J$. 
-As such for any ordering of the sub-partitions of $P_R$ we have that 
+Furthermore, each sub partition of $\tau$ either contains a single element of $I$ and a single element of $J$, or it contains no elements of $I$ and no elements of $J$. 
+As such for any ordering of the sub-partitions of $\tau$ we have that \Kurt{Could use [-] notation, but feels clearer to write out?}
 \begin{align*}
-    \forall m, \bigg|\bigcup_{1\leq k \leq m} P_{R,k} \cap I \bigg| = \bigg|\bigcup_{1\leq k \leq m} P_{R,k} \cap J \bigg|
+    \forall m, \bigg|\bigcup_{1\leq k \leq m} \tau_{k} \cap I \bigg| = \bigg|\bigcup_{1\leq k \leq m} \tau_{k} \cap J \bigg|
 \end{align*}
-Hence in order for this $D(n)$ condition to be satisfied it must be the case that for some ordering of the sub-partitions of $P_L$ we have
+Hence in order for this $D(n)$ condition to be satisfied it must be the case that for some ordering of the sub-partitions of $\sigma$ we have
 \begin{align*}
-    \exists m, \bigg| \bigcup_{1\leq k \leq m} P_{L,k} \cap I \bigg| > \bigg|\bigcup_{1\leq k \leq m} P_{L,k} \cap J \bigg|
+    \exists m, \bigg| \bigcup_{1\leq k \leq m} \sigma_k \cap I \bigg| > \bigg|\bigcup_{1\leq k \leq m} \sigma_k \cap J \bigg|
 \end{align*}
-Every sub-partition of $P_L$ excluding the $l$th and $l'$th either contains no elements of both $I$ and $J$, or it contains a single element of $I$ and a single element of $J$. 
-So the only way for the condition to be satisfied is for $P_l$ to come before $P_{l'}$, which is precisely what is required by the total order.
+Every sub-partition of $\sigma$ excluding $\sigma_l$ and $\sigma_{l'}$ either contains no elements of both $I$ and $J$, or it contains a single element of $I$ and a single element of $J$. 
+So the only way for the condition to be satisfied is for $\sigma_l$ to come before $\sigma_{l'}$, which is precisely what is required by the total order.
 
 If $I,J$ correspond to a path between two vertices on the right,
 \begin{align*}
-    V(P_r) = V_{R_1} \xrightarrow{j_1} V_{L_1}\xrightarrow{i_1} V_{L_2} \xrightarrow{j_2}... \xrightarrow{j_{k}} V_{L_{k-1}} \xrightarrow{1_k} V_{R_k}=V(P_{r'})
+    \tau_r = \tau_{r_1} \xrightarrow{j_1} \sigma_{l_1}\xrightarrow{i_1} \tau_{r_2} \xrightarrow{j_2}... \xrightarrow{j_{k}} \sigma_{l_{k-1}} \xrightarrow{1_k} \tau_{r_k}=\tau_{r'}
 \end{align*}
-then a similar chain of logic implies we must have an ordering of the sub-partitions of $P_R$ such that
+then a similar chain of logic implies we must have an ordering of the sub-partitions of $\tau$ such that
 \begin{align*}
-    \exists m, |\bigcup_{1\leq k \leq m} P_{R,k} \cap I| < |\bigcup_{1\leq k \leq m} P_{R,k} \cap J|
+    \exists m, |\bigcup_{1\leq k \leq m}\tau_k \cap I| < |\bigcup_{1\leq k \leq m} \tau_k \cap J|
 \end{align*}
-and this can only happen if $P_r$ comes before $P_{r'}$.
+and this can only happen if $\tau_r$ comes before $\tau_{r'}$.
 \end{proof}
 
 \begin{rem}
@@ -548,7 +540,7 @@ Let us define the \emph{subset left shift operator} $L^i$, which takes an SU adm
 In the same fashion, the \emph{subset right shift operator} $R^i$ sends a subset $\rho \subset (\tau_{i} \setminus \max\tau_{i})$ with $\max \rho < \min \tau_{i+1}$ one block to the right; the resulting ordered partition $R^i(\tau)$ is such that $R^i(\tau)_i := \tau_i \setminus \rho$ and $R^i(\tau)_{i+1} := \tau_{i+1} \cup \ \rho$.
 
 
-\begin{definition}[Dual SU diagonal, second definition]
+\begin{definition}[Dual SU diagonal, second definition]\label{def: Dual SU diagonal, second definition}
     The facets of the dual SU diagonal are the pairs of ordered partitions of the form $(L^{i_k}\cdots L^{i_1}(\sigma), R^{j_l}\cdots R^{j_1}(\tau))$ obtained from a strong complementary pair $(\sigma,\tau)$ by iterated application of subset left and right shifts operators, where moreover $i_1 > \cdots > i_k$ is decreasing and $j_1 < \cdots < j_l$ is increasing. 
 \end{definition}
 
@@ -590,10 +582,10 @@ One can thus interpret the left and right shift operators for singletons introdu
 Now, we end with two important consequences of the preceding results. 
 Consider the symmetry $s$ of the $(n-1)$-dimensional permutahedron, which consists in the reflection with respect to the hyperplane $x_1 + x_n = x_2 + x_{n-1}$. 
 It sends an ordered partition $\sigma:=\sigma_1 | \ldots | \sigma_k$ to the ordered partition $s\sigma:=n-\sigma_{k}+1 | \ldots | n-\sigma_{1}+1$, where $n-\sigma_i+1$ is the set $\{n-j+1 \ | \ j \in \sigma_i\}$. 
-
+\Kurt{This is what the next two corollaries should be i.e. altered to put max IJ =max J. Should probably combine with above.}
 \begin{corollary}
 \label{c:iso-with-SU}
-The diagonal action of the symmetry $s$ of the permutahedron, sending a pair $(\sigma,\tau)$ to the pair $(s\sigma,s\tau)$, defines a bijection between the terms of the diagonal $\OP$ and the terms of the Saneblidze--Umble diagonal.
+The terms of the diagonal $\OP$ and the terms of the Saneblidze--Umble diagonal are in bijection through $(\sigma,\tau) \mapsto (s\tau,s\sigma)$
 \end{corollary}
 
 \begin{proof}
@@ -603,7 +595,7 @@ According to \cref{t:iso-with-SU}, it suffices to show that the symmetry $s$ sen
 This allows us to prove a conjecture made in \cite[Remark 3.19]{LA21}.
 
 \begin{corollary} \label{SU from hyperplane arrangement}
-    The Saneblidze--Umble diagonal is given by the following choice of chambers in the fundamental hyperplane arrangement of the permutahedron: any vector $\vec v$ with strictly decreasing coordinates and which satisfy $\sum_{i \in I} v_i > \sum_{j \in J} v_j$ for all $I,J \subset \{1, \ldots, n\}$ such that $I \cap J = \emptyset, |I|=|J| \geq 2$ and $\max(I \cup J) \in I$ induces the Saneblidze--Umble diagonal on the $(n-1)$-dimensional standard permutahedron. 
+    The Saneblidze--Umble diagonal is given by the following choice of chambers in the fundamental hyperplane arrangement of the permutahedron: any vector $\vec v$ with strictly decreasing coordinates and which satisfy $\sum_{i \in I} v_i > \sum_{j \in J} v_j$ for all $I,J \subset \{1, \ldots, n\}$ such that $I \cap J = \emptyset, |I|=|J| \geq 2$ and $\max(I \cup J) \in J$ induces the Saneblidze--Umble diagonal on the $(n-1)$-dimensional standard permutahedron. 
 \end{corollary}
 
 \begin{proof}
@@ -637,7 +629,7 @@ The possible right shifts are simply
 \end{tikzcd}
 \end{center}
 As the left and right shifts can be performed independently we could combine these diagrams.
-No other shifts are possible, observe for instance that we cannot perform the left shift $15|7|234|6 \times 57|46|13|2 \xrightarrow{p=2} 15|27|34|6 \times 57|46|13|2$ as the minimal path connecting $234$ and $7$ contains $1$ which is smaller than $2$ (see \cref{ex:ECbijection}). The unique way of producing $15|7|234|6 \times 57|146|3|2$ by the second definition of the SU diagonal is given by
+No other shifts are possible, observe for instance that we cannot perform the left shift $15|7|234|6 \times 57|46|13|2 \xrightarrow{p=2} 15|27|34|6 \times 57|46|13|2$ as the minimal path connecting $234$ and $7$ contains $1$ which is smaller than $2$ (see \cref{ex:ECbijection}). The unique way of producing $15|7|234|6 \times 57|146|3|2$ by the second definition of the SU diagonal \cref{def: Dual SU diagonal, second definition} is given by
 \begin{center}
 \begin{tikzcd}
 5|17|4|236 \times 57|146|3|2 \arrow[r,"{p=\{2,3\}}"] & 5|17|234|6 \times 57|146|3|2 \arrow[r,"{p=\{1\}}"] & 15|7|234|6 \times 57|146|3|2
