@@ -4,52 +4,50 @@
 \section{Bijective results for operadic diagonals}
 \label{s:vertices}
 
-\subsection{Operadic diagonals}
-
-
-\Kurt{Happy to change any and all notation, or make other alterations!}
+\subsection{The Diagonals}
 
 \begin{definition}
 Let $D(n) := \{ \{I,J\}:I,J \subset \{1,\dots,n\}, |I|= |J|, I\cap J = \emptyset \}$.
 This is a set of unordered pairs, however there are two clear ways to order these pairs. We say $I<J \equiv (I,J)$ if,
 \begin{itemize}
-    \item $\OP : \min(I\cup J) = \min I$
+    \item $LA : \min(I\cup J) = \min I$
     \item $SU : \max(I\cup J) = \max J $
 \end{itemize}
-We have refer to the orders in this fashion due to \cite[Theorem 3.16]{LA21} and \cref{SU from hyperplane arrangement}.
+and we will denote $D(n)$ ordered in one of these two fashions as $LA(n)$ and $SU(n)$.
+Our naming convention arises as the $LA$ order induces the $\OP^{LA}$ diagonal (through \cite[Theorem 3.16]{LA21}) and we will show in ... that the $SU$ order induces the $\OP^{SU}$ diagonal.
 We will also use $-^{op}$ to refer to the dual of these orders. We say an $\{I,J\}$ pair is of order $k$ if $|I| = |J|=k$. 
 \end{definition}
 
 \begin{definition}
 We say an ordering of $D(n)$ is \emph{coherent} if for all ordered $(I,J)$ pairs 
 \begin{align*}
-    (I,J) = (\bigcup_{a\in A} I_a, \bigcup_{a \in A} J_a) \iff \forall a \in A, r((I_a, J_a))
+    (I,J) = (\bigsqcup_{a\in A} I_a, \bigsqcup_{a \in A} J_a) \iff \forall a \in A, r((I_a, J_a))
 \end{align*}
-where $A$ is some indexing set, each $(I_a,J_a)$ is an ordered pair of $D(n)$ and $r$ is the standardisation function e.g. $r( (\{5,9,10\},\{6,8,12\})) = (\{1,4,5\},\{2,3,6\})$.
+where $\bigsqcup_{a\in A} I_a$ and $\bigsqcup_{a \in A} J_a$ are partitions of $I,J$ using a common indexing set $A$. Each $(I_a,J_a)$ is an ordered pair of $D(n)$, and $r$ is the standardisation function e.g. $r( (\{5,9,10\},\{6,8,12\})) = (\{1,4,5\},\{2,3,6\})$.
 \end{definition}
 
 \begin{lemma} \label{coherent lemma}
-The $\OP$ and $SU$ orderings are coherent, and are coherent extensions of the following $(I,J)$ pairs,
+The $LA$ and $SU$ orderings are coherent, and are coherent extensions of the following $(I,J)$ pairs,
 \begin{itemize}
-    \item ${\OP} :$ for all $k\geq 1$  $(\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\})$
+    \item ${LA} :$ for all $k\geq 1$  $(\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\})$
     \item ${SU} :$ for all $k\geq 1$  $(\{k,k+1,\dots,2k-1\},\{1,2,3,\dots,k-1,2k\})$
 \end{itemize}
-The dual orders $\OP^{op}$ and $SU^{op}$ are also coherent, and coherent extensions of the dual pairs.
+The dual orders $LA^{op}$ and $SU^{op}$ are also coherent, and coherent extensions of the dual pairs.
 \end{lemma}
 
 \begin{proof}
-We present the proof for ${\OP}$, the proof for ${SU}$ proceeds similarly, and the dual proofs are obtained from duality.
+We present the proof for ${LA}$, the proof for ${SU}$ proceeds similarly, and the dual proofs are obtained from duality.
 Let $o_k:= (I_k,J_k):= (\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\})$. It is apparent that $o_k$ is not a union of other $I,J$ pairs as $1$ is the only element of $I_k$ which is smaller than other elements of $J_k$.
-As such, if we tried to decompose it as a union we could pick out one pair $(I_1,J_1)$ such that $\min ( I_1\cup J_1) = \min I_1 = 1$, but the next possible pair must satisfy $\min ( I_2\cup J_2) = \min J_2$, and hence would violate the $\OP$ order.
+As such, if we tried to decompose it as a union we could pick out one pair $(I_1,J_1)$ such that $\min ( I_1\cup J_1) = \min I_1 = 1$, but the next possible pair must satisfy $\min ( I_2\cup J_2) = \min J_2$, and hence would violate the $LA$ order.
 \\\\
 For any other $(I,J)$ pair of order $k$ which does not reduce to $o_k$, there exists $i_2 \in I\setminus \min I$ such that $i_2 < \max J$.
 This means every other pair can be decomposed as a union. In particular, if our pair is such that $r(I,J)=(\{i_1,\dots,i_k\},\{j_1,\dots,j_k\})$ (each set ordered smallest to largest), then it must be the case that $1=i_1<i_2<j_k$.
 In which case, $(\{i_2\},\{j_k\})$ and $(\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\})$ are both smaller $(I,J)$ pairs.
 We note that there are potentially other ways to decompose an $(I,J)$ pair. 
-However, if $(I,J) = (\cup_{a\in A} I_a, \cup_{a \in A} J_a)$, then the ${\OP}$ order is such that $\forall a \in A, r((I_a, J_a))$.
+However, if $(I,J) = (\sqcup_{a\in A} I_a, \sqcup_{a \in A} J_a)$, then the ${LA}$ order is such that $\forall a \in A, r((I_a, J_a))$.
 As such all decompositions of a pair $(I,J)$ order it the same way.
 \\\\
-Finally, we show that $\OP$ is a coherent extension of the $o_k$.
+Finally, we show that $LA$ is a coherent extension of the $o_k$.
 Suppose we decompose $(I,J)$ into $(\{i_2\},\{j_k\})$ and $(\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\})$.
 Then it must be the case that $r((\{i_2\},\{j_k\})) = (\{1\},\{2\})$, and $r((\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\}))$ is either $o_{k-1}$ or we can repeat this decomposition.
 This repeated decomposition must eventually terminate with the RHS reducing to $o_{l}$ for $1 \leq l \leq k-1$.
@@ -61,7 +59,7 @@ where $r((I'_l,J'_l)) = o_l$, and $1\leq l \leq k$.
 \end{proof}
 
 \begin{lemma}
-The only coherent orderings of $D(n)$ are $\OP,SU,\OP^{op}$ and $SU^{op}$.
+The only coherent orderings of $D(n)$ are $LA,SU,LA^{op}$ and $SU^{op}$.
 \end{lemma}
 
 \begin{proof}
@@ -78,12 +76,12 @@ Then once we have ordered this pair, the sole reduced $D(n)$ pair of order $2$ w
 There are clearly $4$ ways to order these two pairs, and we can identify these $I,J$ pairs as cases of \cref{coherent lemma}.
 \\\\
 We now show that once we have committed to one of these four orders we must follow through with it.
-We will show this through induction for the $\OP$ order, the $SU$ order proceeds similarly, and the dual orders by duality.
+We will show this through induction for the $LA$ order, the $SU$ order proceeds similarly, and the dual orders by duality.
 \\\\
 Let $l\geq 2$ and suppose that $\forall k\leq l$ that $\{1,k+2,k+3,\dots,2k-1,2k\} < \{2,3,\dots,k+1\} $.
 Then from \cref{coherent lemma} we know that the only $\{I,J\}$ pair of order $l+1$ that will not decompose (and hence be specified by admissibility) is 
 $$\{\{1,(l+1)+2,(l+1)+3,\dots,(l+1)k-1,2(l+1)\}, \{2,3,\dots,(l+1)+1\}\}$$
-As such, the only way we can vary from $\OP$ is to order this element in the opposite direction i.e.
+As such, the only way we can vary from $LA$ is to order this element in the opposite direction i.e.
 $$\{2,3,\dots,(l+1)+1\} < \{1,(l+1)+2,(l+1)+3,\dots,(l+1)k-1,2(l+1)\} $$
 However, if we make this choice than this leads to contradictions in the ordering of the $\{I,J\}$ pairs of order $l+2$.
 The following contradiction is a generalisation of \cref{ex:Non-coherent order contradiction}.
@@ -103,7 +101,7 @@ makes use of the (non-reversed) order $l$ and $2$ cases.
 \end{proof}
 
 \begin{example} \label{ex:Non-coherent order contradiction}
-Suppose the $\OP$ order holds for $D(n)$ of order $k\leq 2$ and in order $3$ it is reversed, i.e.
+Suppose the $LA$ order holds for $D(n)$ of order $k\leq 2$ and in order $3$ it is reversed, i.e.
 \begin{align*}
     \{1\}<\{2\},\quad \{1,4\}< \{2,3\}, \quad \{2, 3, 4\} < \{1, 5, 6 \}
 \end{align*}
@@ -116,39 +114,95 @@ In particular,
 
 \end{example}
 
-
 As a consequence of these lemmas and Theorem 3.16 of \cite{LA21} \Kurt{and tree substitution...}it follows that, 
 \begin{thm}
-There are only four comultiplicative diagonals of every operahedra, in particular, those induced by the $\OP, LA, \OP^{op}$ and $LA^{op}$ orders on $D(n)$.
+There are only four comultiplicative diagonals of every operahedra, in particular, those induced by the $LA, SU, LA^{op}$ and $SU^{op}$ orders on $D(n)$.
 \end{thm}
 
-\begin{lemma}
-We have the following commutative square,
+There are four clear bijective maps between these four orders of $D(n)$
 \begin{center}
 \begin{tikzcd}
-LA \arrow[r,leftrightarrow] \arrow[d,leftrightarrow]&
-LA^{op}\arrow[d,leftrightarrow]\\
-SU^{op} \arrow[r,leftrightarrow] &
+\OP \arrow[r,"s"] \arrow[d,"i"]&
+\OP^{op}\arrow[d,"i"]\\
+SU^{op} \arrow[r,"s"] &
 SU
 \end{tikzcd}
 \end{center}
-These orders induce 
-\begin{enumerate}
-    \item Isomorphism of operads
-    \item Isomorphisms of the face poset of the diagonal
-\end{enumerate}
+where $s(I,J):=(J,I)$ and $i$ inverts the order on an $(I,J)$ pair, mapping the smallest element to the largest element, then the next smallest to next largest and so on, e.g. 
+\begin{align*}
+    i(\{1, 7, 8\} , \{ 4, 5, 6 \}) = (\{8,2,1\},\{7,6,5\}) = (\{1,2,8\},\{5,6,7\})
+\end{align*}
+These bijections in orders induce a bijection between the diagonals. 
+\begin{proposition}
+There is a bijection between diagonals $\theta:\OP^{LA} \to \OP^{SU}$.
+\end{proposition}
+\begin{proof}
+For any pair $(\sigma,\tau)$ of ordered partitions of $[n]$, we have
+\begin{align*}
+    (\sigma,\tau)\in \OP^{LA}
+    \iff  \forall (I,J) \in LA(n), &\exists k, \bigg| \bigcup_{i=1}^k \sigma_i \cap I \bigg| > \bigg|\bigcup_{1=1}^k \sigma_i \cap J \bigg|
+    \\
+    \text{ or } 
+    &\exists l, \bigg| \bigcup_{i=1}^l \tau_k \cap I \bigg| < \bigg|\bigcup_{i=1}^l \tau_l \cap J \bigg|
+\end{align*}
+and \Kurt{Here negative indexing is indexing in reverse. This really cleans up notation. }
+\begin{align*}
+    (\sigma,\tau)\in \OP^{SU}
+    \iff  \forall (I,J) \in SU(n),
+    &\exists k, \bigg| \bigcup_{i=1}^{k} \tau_{-i} \cap J \bigg| > \bigg|\bigcup_{i=1}^{k}\tau_{-i} \cap I \bigg|
+    \\
+    \text{ or } 
+    &\exists l, \bigg| \bigcup_{i=1}^{l} \sigma_{-i} \cap J \bigg| < \bigg|\bigcup_{i=1}^{l} \sigma_{-i} \cap I \bigg|    
+\end{align*}
+Let $\theta ((\sigma,\tau)) := (\overline{\tau},\overline{\sigma})$, where an ordered $[n]$ partition $\sigma_1|...|\sigma_k$ is mapped to $\overline{\sigma}:=\overline{\sigma_{k}} | \ldots | \overline{\sigma_{1}}$, where $\overline{\sigma_i}$ is the set $\{n-j+1 \ | \ j \in \sigma_i\}$. In words, the $\overline{\sigma}$ reverses the order of the blocks of $\sigma$, and reverses the order of its constituents i.e. $1\mapsto n,2 \mapsto n-1,...,n\mapsto 1$. To see that $\theta$ is well defined, observe that under the bijection between $LA(n)$ and $SU(n)$ that $(I,J) \in LA(n)$ is mapped to $(J',I'):=(i(J),i(I)) \in SU(n)$. As such,
+\begin{align*}
+    (\sigma,\tau)\in \OP^{LA}
+    \iff  \forall (J',I') \in SU(n), 
+    &\exists k, \bigg| \bigcup_{i=1}^{k} \sigma'_{-i} \cap I' \bigg| > \bigg|\bigcup_{i=1}^{k} \sigma'_{-i} \cap J' \bigg|
+    \\
+    \text{ or } 
+    &\exists l, \bigg| \bigcup_{i=1}^{l} \tau'_{-i} \cap I' \bigg| < \bigg|\bigcup_{i=1}^{l} \tau'_{-i} \cap J' \bigg|
+\end{align*}
+i.e. we translate the the $\OP^{LA}$ conditions imposed on $(\sigma,\tau)$ through $\theta$. Hence, by definition $(\tau',\sigma')\in \OP^{LA}$. From here, it is immediate that $\theta$ and its clear inverse are both injective, so we have a bijection.
+\end{proof}
+
+Furthermore, this bijection is a face poset isomorphism.  
+\begin{lemma}
+Given two faces $(\sigma,\tau),(\sigma',\tau') \in \triangle$, then $(\sigma',\tau')$ is a face of $(\sigma,\tau) $ iff $\mathcal{N}(\sigma,\tau) \subset \mathcal{N}(\sigma',\tau')$. Furthermore, $(\sigma',\tau')$ is a facet of $(\sigma,\tau) $ iff $\mathcal{N}(\sigma,\tau) \subset \mathcal{N}(\sigma',\tau')$ and $|\mathcal{N}(\sigma',\tau')| = |\mathcal{N}(\sigma,\tau)|+1$.
 \end{lemma}
 \begin{proof}
 ...
 \end{proof}
+The bijection between ordered partition (pairs) and (pairs of) nestings may be used to translate this lemma as follows. \Kurt{What is the shortest path to this corollary that uses the least amount of nesting theory?}
+\begin{corollary}
+Given two faces $(\sigma,\tau),(\sigma',\tau') \in \triangle$ (either $\OP^{LA}$ or $\OP^{SU}$), then
+$(\sigma',\tau')$ is a facet of $(\sigma,\tau)$ iff 
+\begin{center}
+$\sigma = \sigma'$ and $\tau' = ref_{A,B}(\tau)$ or $\tau = \tau'$ and $\sigma' = ref_{A,B}(\sigma)$
+\end{center}
+where if $\sigma = b_1|...|b_k$ and $b_i$ is partitioned by $A,B$ then
+\begin{align*}
+    ref_{A,B}(\sigma) &= b_1|...|b_{i-1}|A|B|b_{i+1}|...|b_k
+\end{align*}
+\end{corollary}
 
-
-
-\Guillaume{Conjectural}
-
-Here we show that $\OP$ and the $SU$ diagonal are isomorphic, and that they are the only two comultiplicative diagonals on the permutahedra that respect the weak Bruhat order on the vertices. (??)
-
-The isomorphism of \cref{c:iso-with-SU} is a comultiplicative isomorphism.
+\begin{lemma}
+Given two faces $(\sigma,\tau),(\sigma',\tau') \in \OP^{LA}$,
+$(\sigma',\tau')$ is a facet of $(\sigma,\tau)$ iff $\theta((\sigma',\tau'))$ is a facet of $\theta((\sigma,\tau))$.
+\end{lemma}
+\begin{proof}
+We prove the case when $\sigma = \sigma'$ and $\tau' = ref_{A,B}(\tau)$, the other case is similar. We directly compute,
+\begin{align*}
+    \theta( (\sigma,\tau)) &= (\overline{\tau},\overline{\sigma}) = (\overline{b_k}|...|\overline{b_{i+1}}|\overline{b_i}|\overline{b_{i-1}}|...|\overline{b_1},\overline{\sigma})\\
+    \theta( (\sigma',\tau')) &= (\overline{\tau'},\overline{\sigma'}) = (\overline{b_k}|...|\overline{b_{i+1}}|\overline{B}|\overline{A}|\overline{b_{i-1}}|...|\overline{b_1},\overline{\sigma})
+\end{align*}
+and as $\overline{B}\cup\overline{A}=\overline{b_i}$ it follows that $\theta((\sigma',\tau'))$ is a facet of $\theta((\sigma,\tau))$.
+\end{proof}
+As a face of face can be identified through a chain of facets, an immediate corollary of this lemma is that $\theta$ is an isomorphism of face posets, i.e,
+\begin{corollary}
+Given two faces $(\sigma,\tau),(\sigma',\tau') \in \OP^{LA}$,
+$(\sigma',\tau')$ is a face of $(\sigma,\tau)$ iff $\theta((\sigma',\tau'))$ is a face of $\theta((\sigma,\tau))$. 
+\end{corollary}
 
 \subsection{Facets}
 
@@ -394,6 +448,8 @@ To complete the proof of \cref{thm:facets}, it remains to show that both $u:\OP 
 The forgetful function $u$ is clearly the inverse to $o$ as forgetting any assigned order will clearly return the original essential complementary partition pair. 
 The ordering function $o$ is the inverse to $u$ as it returns the sole ordering of the sub-partitions which is compatible with the $D(n)$ conditions.
 \end{proof}
+
+\Kurt{Quick Corollary of the ordering of SU and an example bijection of facets. Show how paths translate.}
 
 \subsubsection{The Saneblidze--Umble description}
 
