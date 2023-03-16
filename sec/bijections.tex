@@ -5,25 +5,31 @@
 
 \subsubsection{Operadic diagonals}
 
-\begin{definition}
 Let $D(n) := \{ \{I,J\}:I,J \subset \{1,\dots,n\}, |I|= |J|, I\cap J = \emptyset \}$.
-This is a set of unordered pairs, however there are two clear ways to order these pairs. We say $I<J \equiv (I,J)$ if,
-\begin{itemize}
-    \item $LA : \min(I\cup J) = \min I$
-    \item $SU : \max(I\cup J) = \max J $
-\end{itemize}
-and we will denote $D(n)$ ordered in one of these two fashions as $LA(n)$ and $SU(n)$.
-Our naming convention arises as the $LA$ order induces the $\OP^{LA}$ diagonal (through \cite[Theorem 3.16]{LA21}) and we will show in ... that the $SU$ order induces the $\OP^{SU}$ diagonal.
-We will also use $-^{op}$ to refer to the dual of these orders. We say an $\{I,J\}$ pair is of order $k$ if $|I| = |J|=k$. 
-\end{definition}
+This is a set of unordered pairs, which we will order as follows. 
 
 \begin{definition}
-We say an ordering of $D(n)$ is \emph{coherent} if for all ordered $(I,J)$ pairs 
-\begin{align*}
-    (I,J) = (\bigsqcup_{a\in A} I_a, \bigsqcup_{a \in A} J_a) \iff \forall a \in A, r((I_a, J_a))
-\end{align*}
-where $\bigsqcup_{a\in A} I_a$ and $\bigsqcup_{a \in A} J_a$ are partitions of $I,J$ using a common indexing set $A$. Each $(I_a,J_a)$ is an ordered pair of $D(n)$, and $r$ is the standardisation function e.g. $r( (\{5,9,10\},\{6,8,12\})) = (\{1,4,5\},\{2,3,6\})$.
+We denote by 
+\begin{itemize}
+    \item $\LA(n):=\{(I,J) \ | \ \{I,J\} \in D(n), \ \min(I\cup J) = \min I\}$, and by 
+    \item $\SU(n):=\{(I,J) \ | \ \{I,J\} \in D(n), \ \max(I\cup J) = \max J\}$.
+\end{itemize}
 \end{definition}
+
+As we have seen in the preceding Section, the $\LA$ order defines the diagonal $\LAD$. 
+Similarly, we will show in \Guillaume{Corollary X} that the $\SU$ order defines the Saneblidze--Umble diagonal $\SUD$ \cite{SaneblidzeUmble04}.
+Both of these diagonals have opposites $(\LAD)^{\op}$ and $(\SUD)^{\op}$, obtained by permuting the factors in every term; at the level of orderings they are obtained by permuting $I$ and $J$ in the definitions of $\LA(n)$ and $\SU(n)$. 
+Geometrically, these opposite versions are given by taking $-\vec v$ instead of $\vec v$ as an orientation vector. 
+
+In what follows, we will be interested in a \emph{coherent} choice of orderings of $D(n)$, for all $n \geq 1$.
+That is, a family of sets $\{O(n)\}_{n\geq 1}$ where each $O(n)$ has as elements ordered pairs $(I,J)$ or $(J,I)$, for each $\{I,J\} \in D(n)$.
+For an ordered pair $(I,J)$ in $O(n)$, we denote by $\std(I,J)$ the standardisation function, e.g. $\std(\{5,9,10\},\{6,8,12\}) = (\{1,4,5\},\{2,3,6\})$.
+
+\begin{definition}
+A choice of orderings $O:=\{O(n)\}_{n \geq 1}$ for $\{D(n)\}_{n\geq 1}$ is \emph{operadic} if for all $(I,J) \in O$, we have that $(I',J') \subsetneq (I,J) \implies \std(I',J') \in O(|I'|)$. 
+\end{definition}
+
+\Guillaume{To myself: rework from here}
 
 \begin{lemma} \label{coherent lemma}
 The $LA$ and $SU$ orderings are coherent, and are coherent extensions of the following $(I,J)$ pairs,

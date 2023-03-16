@@ -45,9 +45,9 @@ For the purpose of studying this $f$-vector, one can study the dual of the polyt
     This follows from \cite[Proposition 1.3]{LA21}; \cite[Corollary 1.4]{LA21} describes precisely the intersection poset of this hyperplane arrangement.
 \end{proof}
  
-This justifies a posteriori the study of the preceding Section. 
+The first part of the paper provides explicit formulas for this $f$-vector. 
 
-\subsubsection{The LA diagonal on the permutahedra}
+\subsubsection{The $\LA$ diagonal on the permutahedra}
 
 Let us first set up some notations that will be of use throughout the paper. 
 A set $\sigma_I := \bigcup_{i\in I} \sigma_i$ is a \emph{partition} of $[n]:=\{1,\ldots,n\}$ if $\bigcup_{i\in I} \sigma_i = [n]$ and $\sigma_i \cap \sigma_j = \emptyset$ for $i \neq j$.
@@ -57,8 +57,8 @@ A partition is \emph{ordered} if the indexing set $I$ is equipped with a total o
 We use the shorthand $14|23$ to denote both the unordered  partition $\{\{1,4\},\{2,3\}\}$, and also the ordered partition $(\{1,4\},\{2,3\})$ (when the order is clear from context). \Kurt{Maybe?}
 
 Let us recall the combinatorial formula for the cellular approximation of the diagonal of the permutahedra from \cite[Theorem 3.16]{LA21}.
-Let $n\geq 1$, and let us write \[ D(n) \coloneqq \{(I,J) \ | \ I,J\subset\{1,\ldots,n\}, |I|=|J|, I\cap J=\emptyset, \min(I\cup J)\in I \}. \] 
-Let $\vec v \in \R^n$ be such that $\forall (I,J) \in D(n)$, we have $\sum_{i \in I} v_i > \sum_{j \in J} v_j$, and let $P\subset \R^n$ denote the standard $(n-1)$-dimensional permutahedron.
+Let $n\geq 1$, and let us write \[ \LA(n) \coloneqq \{(I,J) \ | \ I,J\subset\{1,\ldots,n\}, |I|=|J|, I\cap J=\emptyset, \min(I\cup J)\in I \}. \] 
+Let $\vec v \in \R^n$ be such that $\forall (I,J) \in \LA(n)$, we have $\sum_{i \in I} v_i > \sum_{j \in J} v_j$, and let $P\subset \R^n$ denote the standard $(n-1)$-dimensional permutahedron.
 For any pair $(\sigma,\tau)$ of ordered partitions of $[n]$, we have
 \begin{eqnarray*}
     (\sigma,\tau)\in \Ima\triangle_{(P,\vec v)} 
@@ -71,15 +71,14 @@ For any pair $(\sigma,\tau)$ of ordered partitions of $[n]$, we have
     <
     \left| \tau_{[l]} \cap J \right|  \ . 
 \end{eqnarray*}
-We shall denote by $\OP$ the set of pairs of ordered partitions of $[n]$ which satisfy the above condition. 
-
-There is an equivalent description of $\OP$ which has the following form: 
-\begin{proposition}[{\cite{LA21}}]
+We shall denote by $\LAD$ the set of pairs of ordered partitions of $[n]$ which satisfy the above condition. 
+There is an equivalent description of $\LAD$ which has the following form: 
+\begin{proposition}
 \label{p:minimal}
 For a two ordered partitions $\sigma, \tau \subset [n]$, we have
 \begin{eqnarray*}
-    (\sigma,\tau)\in \OP 
-    & \iff & \forall (I,J) \in D(\sigma,\tau), \exists k \in [n] , 
+    (\sigma,\tau)\in \LAD 
+    & \iff & \forall (I,J) \in \LA(\sigma,\tau), \exists k \in [n] , 
     \left| \sigma_{[k]} \cap I \right|
     >
     \left| \sigma_{[k]} \cap J \right| \text{ or } \\
@@ -89,18 +88,18 @@ For a two ordered partitions $\sigma, \tau \subset [n]$, we have
     \left| \tau_{[l]} \cap J \right|  \ . 
 \end{eqnarray*}
 \end{proposition}
-Here, $D(\sigma,\tau) \subset D(n)$ is a proper subset of $D(n)$ which depends on the choice of $(\sigma,\tau)$, and comes from the geometry of the situation, see \cite[Theorem 1.26]{LA21} for more details.
-For our present purposes, it will be enough to restrict our attention to facets of $\OP$, that is pairs $(\sigma,\tau)$ which satisfy $|\sigma| + |\tau|=n+1$.
-In this case, $D(\sigma,\tau)$ has $n-1$ elements, and admits the following description. 
+Here, $\LA(\sigma,\tau) \subset \LA(n)$ is a proper subset of $\LA(n)$ which depends on the choice of~$(\sigma,\tau)$, and comes from the geometry of the situation, see \cite[Theorem 1.26]{LA21} for more details.
+For our present purposes, it will be enough to restrict our attention to facets of $\LA$, that is pairs $(\sigma,\tau)$ which satisfy $|\sigma| + |\tau|=n+1$.
+In this case, $\LA(\sigma,\tau)$ has $n-1$ elements, and admits the following description. 
 
 For any subset $\sigma_i \subset [n]$, let $\vec \sigma_i \in \R^n$ denote the boolean vector whose coordinates are given by $1$ in position $j$ if $j \in \sigma_i$ and $0$ otherwise. 
-Given a facet $(\sigma,\tau)$ of $\OP$, one can consider the system of equations $\langle \vec \sigma_i , x \rangle=0$, $\langle \vec \tau_j , x \rangle=0$ given by the blocks of both partitions.
+Given a facet $(\sigma,\tau)$ of $\LAD$, one can consider the system of equations $\langle \vec \sigma_i , x \rangle=0$, $\langle \vec \tau_j , x \rangle=0$ given by the blocks of both partitions.
 For geometric reasons (see the proof of \cite[Theorem 1.26]{LA21}), the solution of this system is $x=0$. 
 Now we will be interested in the solutions of the systems associated to the pairs $(\sigma',\tau)$ and $(\sigma,\tau')$ where $\sigma'$ (resp. $\tau'$) has been obtained from $\sigma$ (resp. $\tau$) by merging two adjacent blocks.
 
 \begin{proposition}
 \label{p:minimal-IJ-pairs}
-    There is a bijection between the set $D(\sigma,\tau)$ and the solutions to the systems of equations of the form $(\sigma',\tau)$ and $(\sigma,\tau')$. 
+    There is a bijection between the set $\LA(\sigma,\tau)$ and the solutions to the systems of equations of the form $(\sigma',\tau)$ and $(\sigma,\tau')$. 
 \end{proposition}
 
 \begin{proof}
@@ -110,8 +109,7 @@ Now we will be interested in the solutions of the systems associated to the pair
     We refer to \cite[Section 1.5]{LA21} for more details.
 \end{proof}
 
-We will sometimes refer to the elements of $D(\sigma,\tau)$ as the \emph{minimal $(I,J)$-pairs}.
+We will sometimes refer to the elements of $\LA(\sigma,\tau)$ as the \emph{minimal $(I,J)$-pairs}.
 
-\Guillaume{Need to be rewritten in a more self-contained way, with more precise references?}
 
 
