@@ -1,7 +1,14 @@
 % !TEX root = ../Poissons.tex
 
-\section{Preliminaries}
-\label{s:prelim}
+\section{Higher Algebra}
+
+\subsection{Operadic diagonals}
+
+We study the $f$-vector of generically translated copies of the braid arrangement... 
+We use Zaslavsky's Theorem...
+
+
+\subsubsection{Cellular diagonals}
 
 The usual \emph{thin diagonal} of a topological space $X$ is the map $\Delta : X \to X \times X$ defined by $\Delta(x):=(x,x)$ for all $x \in X$.
 
@@ -12,15 +19,31 @@ The usual \emph{thin diagonal} of a topological space $X$ is the map $\Delta : X
         \item it agrees with the thin diagonal on the vertices of $P$, and
         \item it is homotopic to the thin diagonal, relative to the image of the vertices. 
     \end{enumerate}
+    A cellular diagonal is said to be \emph{face-coherent} if its restriction to a face of $P$ is itself a cellular diagonal for that face. 
 \end{definition}
 
-A powerful geometric technique to define cellular diagonals on polytopes first appeared in \cite{fultonIntersectionTheoryToric1997a}, was presented in \cite{masudaDiagonalAssociahedra2021}, and was fully developed in \cite{LA21}.
-\Guillaume{PLUS!...}
+A powerful geometric technique to define face-coherent cellular diagonals on polytopes first appeared in \cite{fultonIntersectionTheoryToric1997a}, was presented in \cite{masudaDiagonalAssociahedra2021}, and was fully developed in \cite{LA21}.
+The key idea is the following: any vector $\vec v$ in generic position with respect to $P$ defines a cellular diagonal $\triangle_{(P,\vec v)}$, via the following formula
+\begin{align*}
+    \begin{array}{rlcl}
+    \triangle_{(P,\vec v)}\  : & P &\to  &P\times P\\
+    &z & \mapsto& 
+    \bigl(\min_{\vec v}(P\cap \rho_z P),\,  \max_{\vec v}(P\cap \rho_z P)\bigr) \ .
+    \end{array}
+\end{align*}
+Here, $\rho_z P := 2z-P$ denotes the reflection of $P$ with respect to the point $z$, and $\min_{\vec v}(P)$ denotes the unique vertex of $P$ which minimizes the scalar product with $\vec v$. 
+The diagonal $\triangle_{(P,\vec v)}$ defines a canonical polytopal subdivision of $P$: it is by construction a tight coherent section of the projection $\pi : P \times P \to (P+P)/2$, and one just needs to draw the polytopes $(F+G)/2$, for all pairs of faces $(F,G) \in \Ima \triangle_{(P,\vec v)}$.
+
+\begin{definition}
+    The \emph{$f$-vector} of the diagonal $\triangle_{(P,\vec v)}$ is the number of faces of $P\times P$ of given total dimension in its cellular image.
+    Alternatively, it is the $f$-vector of the polytopal complex~$\pi (\triangle_{(P,\vec v)})$.
+\end{definition}
+
 
  
 
 
-\subsection{Original description of the diagonal}
+\subsubsection{The LA diagonal on the permutahedra}
 
 Let us first set up some notations that will be of use throughout the paper. 
 A set $\sigma_I := \bigcup_{i\in I} \sigma_i$ is a \emph{partition} of $[n]:=\{1,\ldots,n\}$ if $\bigcup_{i\in I} \sigma_i = [n]$ and $\sigma_i \cap \sigma_j = \emptyset$ for $i \neq j$.
