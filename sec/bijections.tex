@@ -5,14 +5,14 @@
 
 \subsubsection{Operadic diagonals}
 
-Let $D(n) := \{ \{I,J\}:I,J \subset \{1,\dots,n\}, |I|= |J|, I\cap J = \emptyset \}$.
+Let $U(n) := \{ \{I,J\}:I,J \subset \{1,\dots,n\}, |I|= |J|, I\cap J = \emptyset \}$.
 This is a set of unordered pairs, which we will order as follows. 
 
 \begin{definition}
 We denote by 
 \begin{itemize}
-    \item $\LA(n):=\{(I,J) \ | \ \{I,J\} \in D(n), \ \min(I\cup J) = \min I\}$, and by 
-    \item $\SU(n):=\{(I,J) \ | \ \{I,J\} \in D(n), \ \max(I\cup J) = \max J\}$.
+    \item $\LA(n):=\{(I,J) \ | \ \{I,J\} \in U(n), \ \min(I\cup J) = \min I\}$, and by 
+    \item $\SU(n):=\{(I,J) \ | \ \{I,J\} \in U(n), \ \max(I\cup J) = \max J\}$.
 \end{itemize}
 \end{definition}
 
@@ -21,103 +21,90 @@ Similarly, we will show in \Guillaume{Corollary X} that the $\SU$ order defines 
 Both of these diagonals have opposites $(\LAD)^{\op}$ and $(\SUD)^{\op}$, obtained by permuting the factors in every term; at the level of orderings they are obtained by permuting $I$ and $J$ in the definitions of $\LA(n)$ and $\SU(n)$. 
 Geometrically, these opposite versions are given by taking $-\vec v$ instead of $\vec v$ as an orientation vector. 
 
-In what follows, we will be interested in a \emph{coherent} choice of orderings of $D(n)$, for all $n \geq 1$.
-That is, a family of sets $\{O(n)\}_{n\geq 1}$ where each $O(n)$ has as elements ordered pairs $(I,J)$ or $(J,I)$, for each $\{I,J\} \in D(n)$.
+In what follows, we will be interested in a \emph{coherent} choice of orderings of $U(n)$, for all $n \geq 1$.
+That is, a family of sets $\{O(n)\}_{n\geq 1}$ where each $O(n)$ has as elements ordered pairs $(I,J)$ or $(J,I)$, for each $\{I,J\} \in U(n)$.
 For an ordered pair $(I,J)$ in $O(n)$, we denote by $\std(I,J)$ the standardisation function, e.g. $\std(\{5,9,10\},\{6,8,12\}) = (\{1,4,5\},\{2,3,6\})$.
 
 \begin{definition}
-A choice of orderings $O:=\{O(n)\}_{n \geq 1}$ for $\{D(n)\}_{n\geq 1}$ is \emph{operadic} if for all $(I,J) \in O$, we have that $(I',J') \subsetneq (I,J) \implies \std(I',J') \in O(|I'|)$. 
+An ordering $O:=\{O(n)\}_{n \geq 1}$ of $U:=\{U(n)\}_{n\geq 1}$ is \emph{operadic} if for all $(I,J) \in O$, we have that $(I',J') \subsetneq (I,J) \implies \std(I',J') \in O$. 
 \end{definition}
 
-\Guillaume{To myself: rework from here}
-
-\begin{lemma} \label{coherent lemma}
-The $LA$ and $SU$ orderings are coherent, and are coherent extensions of the following $(I,J)$ pairs,
+\begin{lemma} \label{lem:operadic-ordering}
+The $\LA$ and $\SU$ orderings are operadic, and are extensions of the following $(I,J)$ pairs,
 \begin{itemize}
-    \item ${LA} :$ for all $k\geq 1$  $(\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\})$
-    \item ${SU} :$ for all $k\geq 1$  $(\{k,k+1,\dots,2k-1\},\{1,2,3,\dots,k-1,2k\})$
+    \item $\LA :$ for all $k\geq 1$  $(\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\})$, and 
+    \item $\SU :$ for all $k\geq 1$  $(\{k,k+1,\dots,2k-1\},\{1,2,3,\dots,k-1,2k\})$. 
 \end{itemize}
-The dual orders $LA^{op}$ and $SU^{op}$ are also coherent, and coherent extensions of the dual pairs.
+The dual orders $\LA^{op}$ and $\SU^{op}$ are also operadic, and extensions of the opposite pairs.
 \end{lemma}
 
 \begin{proof}
-We present the proof for ${LA}$, the proof for ${SU}$ proceeds similarly, and the dual proofs are obtained from duality.
-Let $o_k:= (I_k,J_k):= (\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\})$. It is apparent that $o_k$ is not a union of other $I,J$ pairs as $1$ is the only element of $I_k$ which is smaller than other elements of $J_k$.
-As such, if we tried to decompose it as a union we could pick out one pair $(I_1,J_1)$ such that $\min ( I_1\cup J_1) = \min I_1 = 1$, but the next possible pair must satisfy $\min ( I_2\cup J_2) = \min J_2$, and hence would violate the $LA$ order.
-\\\\
-For any other $(I,J)$ pair of order $k$ which does not reduce to $o_k$, there exists $i_2 \in I\setminus \min I$ such that $i_2 < \max J$.
-This means every other pair can be decomposed as a union. In particular, if our pair is such that $r(I,J)=(\{i_1,\dots,i_k\},\{j_1,\dots,j_k\})$ (each set ordered smallest to largest), then it must be the case that $1=i_1<i_2<j_k$.
-In which case, $(\{i_2\},\{j_k\})$ and $(\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\})$ are both smaller $(I,J)$ pairs.
-We note that there are potentially other ways to decompose an $(I,J)$ pair. 
-However, if $(I,J) = (\sqcup_{a\in A} I_a, \sqcup_{a \in A} J_a)$, then the ${LA}$ order is such that $\forall a \in A, r((I_a, J_a))$.
-As such all decompositions of a pair $(I,J)$ order it the same way.
-\\\\
-Finally, we show that $LA$ is a coherent extension of the $o_k$.
-Suppose we decompose $(I,J)$ into $(\{i_2\},\{j_k\})$ and $(\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\})$.
-Then it must be the case that $r((\{i_2\},\{j_k\})) = (\{1\},\{2\})$, and $r((\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\}))$ is either $o_{k-1}$ or we can repeat this decomposition.
-This repeated decomposition must eventually terminate with the RHS reducing to $o_{l}$ for $1 \leq l \leq k-1$.
-Consequently, any $(I,J) = (\{i_1,...,i_k], \{j_1,...,j_k\})$ decomposes as
+We present the proof for the $\LA$ ordering, the proofs for the $\SU$ and opposite orders are similar.
+First, observe that if an ordered pair $(I,J)$ can be written as $(I_a \sqcup I_b, J_a \sqcup J_b)$ with $(I_a,J_a)$ and $(I_b,J_b)$ in $\LA(|I|)$, then $(I,J)$ is itself in $\LA$.
+Second, it is apparent that $(I_k,J_k)$ is not a union of other $\LA$ pairs as $1$ is the only element of $I_k$ which is smaller than other elements of $J_k$.
+As such, if we try to decompose $(I_k,J_k)$ as a non-trivial union, there is always one pair $(I,J)$ in this union for which $1 \notin I$, so we have $\min ( I \cup J) = \min J$, which implies that $(I,J) \notin \LA$.
+Third, we show that any pair $(I,J)$ in $\LA$ which is not of the form $(I_k,J_k):=(\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\})$ can be decomposed as a union of such pairs. 
+In combination with the two previous observations, this will prove the Lemma. 
+
+Let $(I,J)$ be in $\LA(k)$ and suppose that $(I,J) \neq (I_k,J_k)$, then there exists $i_2 \in I\setminus \min I$ such that $i_2 < \max J$.
+This means that $(I,J)$ can be decomposed as a union: if we write it as $(\{i_1,\dots,i_k\},\{j_1,\dots,j_k\})$, where each set ordered smallest to largest, then we must have $1=i_1<i_2<j_k$, in which case $(\{i_2\},\{j_k\})$ and $(\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\})$ are both smaller $\LA$ pairs.
+Then it must be the case that $\std((\{i_2\},\{j_k\})) = (\{1\},\{2\})$, and $\std((\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\}))$ is either $(I_{k-1},J_{k-1})$, or we can repeat this decomposition.
+This process must eventually terminate with the right-hand side reducing to $(I_l,J_l)$ for some $1 \leq l \leq k-1$.
+In other words, any $(I,J) = (\{i_1,...,i_k\}, \{j_1,...,j_k\})$ decomposes as
 \begin{align*}
-	(I,J) = (\{i_2\},\{j_k\}) \cup (\{i_3\},\{j_{k-1}\}) \cup ... \cup (\{i_{l+1} \},\{j_{k-l-1} \}) \cup (I'_l,J'_l)
+	(I,J) = (\{i_2\},\{j_k\}) \sqcup (\{i_3\},\{j_{k-1}\}) \sqcup ... \sqcup (\{i_{l+1} \},\{j_{k-l-1} \}) \sqcup (I',J')
 \end{align*}
-where $r((I'_l,J'_l)) = o_l$, and $1\leq l \leq k$.
+where $\std((I',J')) = (I_l,J_l)$, and $1\leq l \leq k$.
 \end{proof}
 
-\begin{lemma}
-The only coherent orderings of $D(n)$ are $LA,SU,LA^{op}$ and $SU^{op}$.
-\end{lemma}
+We note that the decomposition in \cref{lem:operadic-ordering} is one of potentially many different decompositions of the pair $(I,J)$. 
+However, by definition of the $\LA$ order, for any decomposition $(I,J) = (\sqcup_{a\in A} I_a, \sqcup_{a \in A} J_a)$, we have that $\forall a \in A, \std(I_a, J_a) \in \LA$.
+As such all decompositions of a pair $(I,J)$ order it the same way.
+
+\begin{proposition}
+The only operadic orderings of $U=\{U(n)\}_{n\geq 1}$ are the $\LA,\SU,\LA^{\op}$ and $\SU^{\op}$ orderings.
+\end{proposition}
 
 \begin{proof}
-We first observe that there are precisely $4$ ways to order the $D(n)$ pairs of size $k\leq 2$ such that the coherent extension of these orders do not collide.
+We first observe that there are precisely four ways to order the $U(n)$ pairs of size $k\leq 2$ such that the coherent extension of these orders do not collide.
 These are,
-\begin{enumerate}
-    \item $(\{1\},\{2\})$ and $(\{1,4\},\{2,3\})$ which corresponds to $\OP$ i.e. $\min(I\cup J) = \min I$
-    \item $(\{1\},\{2\})$ and $(\{2,3\},\{1,4\})$ which corresponds to $SU$ i.e. $\max(I\cup J) = \max J$
-    \item $(\{2\},\{1\})$ and $(\{2,3\},\{1,4\})$ which corresponds to $\OP^{op}$ i.e. $\min(I\cup J) = \min J$
-    \item $(\{2\},\{1\})$ and $(\{1,4\},\{2,3\})$ which corresponds to $SU^{op}$ i.e. $\max(I\cup J) = \max I$
-\end{enumerate}
-More specifically, we must order the sole reduced $D(n)$ pair of order $1$, $\{\{1\},\{2\}\}$.
-Then once we have ordered this pair, the sole reduced $D(n)$ pair of order $2$ which must be ordered is $\{\{1,4\},\{2,3\} \}$.
-There are clearly $4$ ways to order these two pairs, and we can identify these $I,J$ pairs as cases of \cref{coherent lemma}.
-\\\\
+\begin{itemize} 
+    \item $(\{1\},\{2\})$ and $(\{1,4\},\{2,3\})$ which corresponds to $\LA$ i.e. $\min(I\cup J) = \min I$;
+    \item $(\{1\},\{2\})$ and $(\{2,3\},\{1,4\})$ which corresponds to $\SU$ i.e. $\max(I\cup J) = \max J$;
+    \item $(\{2\},\{1\})$ and $(\{2,3\},\{1,4\})$ which corresponds to $\LA^{op}$ i.e. $\min(I\cup J) = \min J$;
+    \item $(\{2\},\{1\})$ and $(\{1,4\},\{2,3\})$ which corresponds to $SU^{op}$ i.e. $\max(I\cup J) = \max I$.
+\end{itemize}
+More specifically, we must first order the sole reduced pair $\{\{1\},\{2\}\}$ of $U(1)$.
+Then, the sole reduced pair of $U(2)$ which must be ordered is $\{\{1,4\},\{2,3\} \}$.
+There are clearly four ways to order these two pairs, and we can identify these $(I,J)$ pairs as cases of \cref{lem:operadic-ordering}.
+
 We now show that once we have committed to one of these four orders we must follow through with it.
-We will show this through induction for the $LA$ order, the $SU$ order proceeds similarly, and the dual orders by duality.
-\\\\
-Let $l\geq 2$ and suppose that $\forall k\leq l$ that $\{1,k+2,k+3,\dots,2k-1,2k\} < \{2,3,\dots,k+1\} $.
-Then from \cref{coherent lemma} we know that the only $\{I,J\}$ pair of order $l+1$ that will not decompose (and hence be specified by admissibility) is 
-$$\{\{1,(l+1)+2,(l+1)+3,\dots,(l+1)k-1,2(l+1)\}, \{2,3,\dots,(l+1)+1\}\}$$
-As such, the only way we can vary from $LA$ is to order this element in the opposite direction i.e.
-$$\{2,3,\dots,(l+1)+1\} < \{1,(l+1)+2,(l+1)+3,\dots,(l+1)k-1,2(l+1)\} $$
-However, if we make this choice than this leads to contradictions in the ordering of the $\{I,J\}$ pairs of order $l+2$.
-The following contradiction is a generalisation of \cref{ex:Non-coherent order contradiction}.
-Let $m = l+2$, then the pair
-$$\{I,J\}:= \{ \{1,3,m+3,m+4,\dots,2m-1,2m\}, \{2,4,5,\dots,m+2\} \}$$
-can be oriented in both directions.
-In particular $\{I,J\} = \{I_1 \cup I_2, J_1 \cup J_2\} = \{I'_1 \cup I'_2, J'_1 \cup J'_2\}$ where
-\begin{align*}
-    I_1:= \{1,m+3,\dots,2m\} > J_1:= \{4,5,\dots,m+2\} \text{ and } I_2:=\{3\} > J_2:= \{2\}
-\end{align*}
-this decomposition makes use of the (reversed) order $l+1$ case and the (non-reversed) order $1$ case.
-The second decomposition,
-\begin{align*}
-    I'_2:= \{1,m+3,\dots,  2m-1\} < J'_1:= \{2,5,\dots,m+1\} \text{ and } I'_2:=\{3, 2m\} < J'_2:= \{4, m+2\}
-\end{align*}
-makes use of the (non-reversed) order $l$ and $2$ cases.
+We will show this through induction for the $LA$ order, the $SU$ and opposite orders proceeds similarly.
+Let $l\geq 2$ and suppose that for all $k\leq l$, we have ordered $I_k=\{1,k+2,k+3,\dots,2k-1,2k\} < J_k=\{2,3,\dots,k+1\}$.
+Then from \cref{lem:operadic-ordering} we know that the only $\{I,J\}$ pair of order $l+1$ that will not decompose (and hence be specified by the already chosen conditions) is $\{I_{l+1},J_{l+1}\}$.
+As such, the only way we can vary from $\LA$ is to order this element in the opposite direction i.e. choose $(J_{l+1},I_{l+1})$.
+However, this choice leads to contradictions in the ordering of the $\{I,J\}$ pairs of order $|I|=|J|=l+2$.
+The following is a generalisation of \cref{ex:Non-coherent order contradiction}.
+For $m = l+2$, the pair $\{I_m,J_m\}$ can be oriented in both directions.
+On the one side, we can write $\{I_m,J_m\} = \{I_a \cup I_b, J_a \cup J_b\}$ with $I_a:= \{1,m+3,\dots,2m\} > J_a:= \{4,5,\dots,m+2\}$  and $I_b:=\{3\} > J_b:= \{2\}$, which imply that $I_m > J_m$ by the first remark in the proof of \cref{lem:operadic-ordering}. 
+This decomposition makes use of the (reversed) order $J_{l+1} > I_{l+1}$ and the (non-reversed) order $I_1 < J_1$.
+On the other side, we can write $\{I_m,J_m\} = \{I_c \cup I_d, J_c \cup J_d\}$, where $I_c:= \{1,m+3,\dots,  2m-1\} < J_c:= \{2,5,\dots,m+1\}$ and $I_d:=\{3, 2m\} < J_d:= \{4, m+2\}$, which imply that $I_m < J_m$ via the (non-reversed) orders $I_l < J_l$ and $I_2 < J_2$, a contradiction.
 \end{proof}
 
 \begin{example} \label{ex:Non-coherent order contradiction}
-Suppose the $LA$ order holds for $D(n)$ of order $k\leq 2$ and in order $3$ it is reversed, i.e.
+Suppose that the $\LA$ order holds for pairs of order $1$ and $2$, but is reversed for pairs of order $3$, i.e. we have 
 \begin{align*}
-    \{1\}<\{2\},\quad \{1,4\}< \{2,3\}, \quad \{2, 3, 4\} < \{1, 5, 6 \}
+    \{1\}<\{2\},\quad \{1,4\}< \{2,3\}, \text{ and } \{1, 5, 6 \} > \{2, 3, 4\} \ .
 \end{align*}
 Then $\{I,J\}=\{\{1, 3, 7, 8\}, \{2, 4, 5, 6\}\}$ admits two different orientations.
 In particular, 
 \begin{align*}
-    \{1, 7, 8\} > \{ 4, 5, 6 \} \text{ and } \{3\} > \{2\} &\implies \{1, 3, 7, 8\} >\{2, 4, 5, 6\}\\
-    \{1, 7\}< \{2, 5\} \text{ and } \{3, 8\}< \{4, 6\} &\implies \{1, 3, 7, 8\} <\{2, 4, 5, 6\}
+    \{1, 7, 8\} > \{ 4, 5, 6 \} \text{ and } \{3\} > \{2\} &\implies \{1, 3, 7, 8\} >\{2, 4, 5, 6\} \ \text{and} \\
+    \{1, 7\}< \{2, 5\} \text{ and } \{3, 8\}< \{4, 6\} &\implies \{1, 3, 7, 8\} <\{2, 4, 5, 6\} \ .
 \end{align*}
-
 \end{example}
+
+\Guillaume{Rework from here}
 
 As a consequence of these lemmas and Theorem 3.16 of \cite{LA21} \Kurt{and tree substitution...}it follows that, 
 \begin{thm}
