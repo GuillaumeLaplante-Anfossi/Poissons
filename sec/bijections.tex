@@ -22,7 +22,7 @@ Both of these diagonals have opposites $(\LAD)^{\op}$ and $(\SUD)^{\op}$, obtain
 Geometrically, these opposite versions are given by taking $-\vec v$ instead of $\vec v$ as an orientation vector. 
 
 In what follows, we will be interested in a \emph{coherent} choice of orderings of $U(n)$, for all $n \geq 1$.
-That is, a family of sets $\{O(n)\}_{n\geq 1}$ where each $O(n)$ has as elements ordered pairs $(I,J)$ or $(J,I)$, for each $\{I,J\} \in U(n)$.
+That is, a family of sets $\{O(n)\}_{n\geq 1}$ where each $O(n)$ has as elements ordered pairs $(I,J)$ or $(J,I)$, for each $\{I,J\} \in U(n)$.\Kurt{I'm fine with operadic instead of coherent, but this def of coherent should be total.}
 For an ordered pair $(I,J)$ in $O(n)$, we denote by $\std(I,J)$ the standardisation function, e.g. $\std(\{5,9,10\},\{6,8,12\}) = (\{1,4,5\},\{2,3,6\})$.
 
 \begin{definition}
@@ -41,9 +41,9 @@ The dual orders $\LA^{op}$ and $\SU^{op}$ are also operadic, and extensions of t
 \begin{proof}
 We present the proof for the $\LA$ ordering, the proofs for the $\SU$ and opposite orders are similar.
 First, observe that if an ordered pair $(I,J)$ can be written as $(I_a \sqcup I_b, J_a \sqcup J_b)$ with $(I_a,J_a)$ and $(I_b,J_b)$ in $\LA(|I|)$, then $(I,J)$ is itself in $\LA$.
-Second, it is apparent that $(I_k,J_k)$ is not a union of other $\LA$ pairs as $1$ is the only element of $I_k$ which is smaller than other elements of $J_k$.
+Second, it is apparent that $(I_k,J_k):=(\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\})$ is not a union of other $\LA$ pairs as $1$ is the only element of $I_k$ which is smaller than other elements of $J_k$.
 As such, if we try to decompose $(I_k,J_k)$ as a non-trivial union, there is always one pair $(I,J)$ in this union for which $1 \notin I$, so we have $\min ( I \cup J) = \min J$, which implies that $(I,J) \notin \LA$.
-Third, we show that any pair $(I,J)$ in $\LA$ which is not of the form $(I_k,J_k):=(\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\})$ can be decomposed as a union of such pairs. 
+Third, we show that any pair $(I,J)$ in $\LA$ which is not of the form $(I_k,J_k)$ can be decomposed as a union of such pairs. 
 In combination with the two previous observations, this will prove the Lemma. 
 
 Let $(I,J)$ be in $\LA(k)$ and suppose that $(I,J) \neq (I_k,J_k)$, then there exists $i_2 \in I\setminus \min I$ such that $i_2 < \max J$.
@@ -72,14 +72,14 @@ These are,
     \item $(\{1\},\{2\})$ and $(\{1,4\},\{2,3\})$ which corresponds to $\LA$ i.e. $\min(I\cup J) = \min I$;
     \item $(\{1\},\{2\})$ and $(\{2,3\},\{1,4\})$ which corresponds to $\SU$ i.e. $\max(I\cup J) = \max J$;
     \item $(\{2\},\{1\})$ and $(\{2,3\},\{1,4\})$ which corresponds to $\LA^{op}$ i.e. $\min(I\cup J) = \min J$;
-    \item $(\{2\},\{1\})$ and $(\{1,4\},\{2,3\})$ which corresponds to $SU^{op}$ i.e. $\max(I\cup J) = \max I$.
+    \item $(\{2\},\{1\})$ and $(\{1,4\},\{2,3\})$ which corresponds to $\SU^{op}$ i.e. $\max(I\cup J) = \max I$.
 \end{itemize}
 More specifically, we must first order the sole reduced pair $\{\{1\},\{2\}\}$ of $U(1)$.
 Then, the sole reduced pair of $U(2)$ which must be ordered is $\{\{1,4\},\{2,3\} \}$.
 There are clearly four ways to order these two pairs, and we can identify these $(I,J)$ pairs as cases of \cref{lem:operadic-ordering}.
 
 We now show that once we have committed to one of these four orders we must follow through with it.
-We will show this through induction for the $LA$ order, the $SU$ and opposite orders proceeds similarly.
+We will show this through induction for the $LA$ order, the $\SU$ and opposite orders proceeds similarly.
 Let $l\geq 2$ and suppose that for all $k\leq l$, we have ordered $I_k=\{1,k+2,k+3,\dots,2k-1,2k\} < J_k=\{2,3,\dots,k+1\}$.
 Then from \cref{lem:operadic-ordering} we know that the only $\{I,J\}$ pair of order $l+1$ that will not decompose (and hence be specified by the already chosen conditions) is $\{I_{l+1},J_{l+1}\}$.
 As such, the only way we can vary from $\LA$ is to order this element in the opposite direction i.e. choose $(J_{l+1},I_{l+1})$.
