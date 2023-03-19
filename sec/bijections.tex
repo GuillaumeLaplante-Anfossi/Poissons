@@ -131,33 +131,34 @@ There is a bijection between diagonals $\theta:\OP^{LA} \to \OP^{SU}$.
 \begin{proof}
 For any pair $(\sigma,\tau)$ of ordered partitions of $[n]$, we have
 \begin{align*}
-    (\sigma,\tau)\in \OP^{LA}
-    \iff  \forall (I,J) \in LA(n), &\exists k, \bigg| \bigcup_{i=1}^k \sigma_i \cap I \bigg| > \bigg|\bigcup_{1=1}^k \sigma_i \cap J \bigg|
+    (\sigma,\tau)\in \LAD
+    \iff  \forall (I,J) \in \LA(n), &\exists k, \bigg| \bigcup_{i=1}^k \sigma_i \cap I \bigg| > \bigg|\bigcup_{1=1}^k \sigma_i \cap J \bigg|
     \\
     \text{ or } 
     &\exists l, \bigg| \bigcup_{i=1}^l \tau_k \cap I \bigg| < \bigg|\bigcup_{i=1}^l \tau_l \cap J \bigg|
 \end{align*}
-and \Kurt{Here negative indexing is indexing in reverse. This really cleans up notation. }
+and \Kurt{Note the change! (not reversing each perm)}
 \begin{align*}
-    (\sigma,\tau)\in \OP^{SU}
-    \iff  \forall (I,J) \in SU(n),
-    &\exists k, \bigg| \bigcup_{i=1}^{k} \tau_{-i} \cap J \bigg| > \bigg|\bigcup_{i=1}^{k}\tau_{-i} \cap I \bigg|
+    (\sigma,\tau)\in \SUD
+    \iff  \forall (I,J) \in \SU(n),
+    &\exists k, \bigg| \bigcup_{i=1}^{k} \tau_{i} \cap J \bigg| > \bigg|\bigcup_{i=1}^{k}\tau_{i} \cap I \bigg|
     \\
     \text{ or } 
-    &\exists l, \bigg| \bigcup_{i=1}^{l} \sigma_{-i} \cap J \bigg| < \bigg|\bigcup_{i=1}^{l} \sigma_{-i} \cap I \bigg|    
+    &\exists l, \bigg| \bigcup_{i=1}^{l} \sigma_{i} \cap J \bigg| < \bigg|\bigcup_{i=1}^{l} \sigma_{i} \cap I \bigg|    
 \end{align*}
-Let $\theta ((\sigma,\tau)) := (\overline{\tau},\overline{\sigma})$, where an ordered $[n]$ partition $\sigma_1|...|\sigma_k$ is mapped to $\overline{\sigma}:=\overline{\sigma_{k}} | \ldots | \overline{\sigma_{1}}$, where $\overline{\sigma_i}$ is the set $\{n-j+1 \ | \ j \in \sigma_i\}$. In words, the $\overline{\sigma}$ reverses the order of the blocks of $\sigma$, and reverses the order of its constituents i.e. $1\mapsto n,2 \mapsto n-1,...,n\mapsto 1$. To see that $\theta$ is well defined, observe that under the bijection between $LA(n)$ and $SU(n)$ that $(I,J) \in LA(n)$ is mapped to $(J',I'):=(i(J),i(I)) \in SU(n)$. As such,
+Let $\theta ((\sigma,\tau)) := (\overline{\tau},\overline{\sigma})$, where an ordered $[n]$ partition $\sigma_1|...|\sigma_k$ is mapped to $\overline{\sigma}:=\overline{\sigma_{1}} | \ldots | \overline{\sigma_{k}}$, where $\overline{\sigma_i}$ is the set $\{n-j+1 \ | \ j \in \sigma_i\}$. In words, the $\overline{\sigma}$ reverses the order of the blocks of $\sigma$, and reverses the order of its constituents i.e. $1\mapsto n,2 \mapsto n-1,...,n\mapsto 1$. To see that $\theta$ is well defined, observe that under the bijection between $LA(n)$ and $SU(n)$ that $(I,J) \in LA(n)$ is mapped to $(J',I'):=(i(J),i(I)) \in SU(n)$. As such,
 \begin{align*}
     (\sigma,\tau)\in \OP^{LA}
     \iff  \forall (J',I') \in SU(n), 
-    &\exists k, \bigg| \bigcup_{i=1}^{k} \sigma'_{-i} \cap I' \bigg| > \bigg|\bigcup_{i=1}^{k} \sigma'_{-i} \cap J' \bigg|
+    &\exists k, \bigg| \bigcup_{i=1}^{k} \sigma'_{i} \cap I' \bigg| > \bigg|\bigcup_{i=1}^{k} \sigma'_{i} \cap J' \bigg|
     \\
     \text{ or } 
-    &\exists l, \bigg| \bigcup_{i=1}^{l} \tau'_{-i} \cap I' \bigg| < \bigg|\bigcup_{i=1}^{l} \tau'_{-i} \cap J' \bigg|
+    &\exists l, \bigg| \bigcup_{i=1}^{l} \tau'_{i} \cap I' \bigg| < \bigg|\bigcup_{i=1}^{l} \tau'_{i} \cap J' \bigg|
 \end{align*}
 i.e. we translate the the $\OP^{LA}$ conditions imposed on $(\sigma,\tau)$ through $\theta$. Hence, by definition $(\tau',\sigma')\in \OP^{LA}$. From here, it is immediate that $\theta$ and its clear inverse are both injective, so we have a bijection.
 \end{proof}
-
+As a quick example $\theta(15|7|234|6\times 57|46|13|2)=13|24|57|6\times 37|1|456|2$, see \cref{ex:theta and path translation} for a combinatorial interpretation of the change in the underlying $I,J$ conditions for this particular example.
+\\\\
 Furthermore, this bijection is a face poset isomorphism.  
 \begin{lemma}
 Given two faces $(\sigma,\tau),(\sigma',\tau') \in \triangle$, then $(\sigma',\tau')$ is a face of $(\sigma,\tau) $ iff $\mathcal{N}(\sigma,\tau) \subset \mathcal{N}(\sigma',\tau')$. Furthermore, $(\sigma',\tau')$ is a facet of $(\sigma,\tau) $ iff $\mathcal{N}(\sigma,\tau) \subset \mathcal{N}(\sigma',\tau')$ and $|\mathcal{N}(\sigma',\tau')| = |\mathcal{N}(\sigma,\tau)|+1$.
@@ -444,7 +445,7 @@ The forgetful function $u$ is clearly the inverse to $o$ as forgetting any assig
 The ordering function $o$ is the inverse to $u$ as it returns the sole ordering of the sub-partitions which is compatible with the $D(n)$ conditions.
 \end{proof}
 
-Given the bijection of \cref{p:IJ level bijection} Essential complementary partitions are also in bijection with elements of $\SUD$. The bijective ordering function $o':\EC\to \SUD$ is identical to \cref{const:total order on blocks of EC}, but orients each path so that the maximal element points left to right. We illustrate this order by example,
+Given the bijection of \cref{p:IJ level bijection} Essential complementary partitions are also in bijection with elements of $\SUD$. The bijective ordering function $o':\EC\to \SUD$ is identical to \cref{const:total order on blocks of EC}, but orients each path so that the maximal element points right to left. We illustrate this order by example,
 \begin{example}\label{ex:theta and path translation}
 We apply the bijection $\theta:\LAD\to \SUD$ to a previously encountered element of $\LAD$, \cref{ex:ECbijection}.
 \begin{center}
@@ -472,35 +473,35 @@ $
 \xrightarrow{\theta}
 $
 \begin{tikzpicture}[scale=.7]  
-\node (1) at (-1.5, -1) {$6$};
-\node (2) at (-1.5, -2) {$57$};
-\node (3) at (-1.5, -3) {$24$};
-\node (4) at (-1.5, -4) {$13$};
+\node (1) at (-1.5, -1) {$13$};
+\node (2) at (-1.5, -2) {$24$};
+\node (3) at (-1.5, -3) {$57$};
+\node (4) at (-1.5, -4) {$6$};
 %
-\node (5) at (1.5, -1) {$2$};
-\node (6) at (1.5, -2) {$456$};
-\node (7) at (1.5, -3) {$1$};
-\node (8) at (1.5, -4) {$37$};
+\node (5) at (1.5, -1) {$37$};
+\node (6) at (1.5, -2) {$1$};
+\node (7) at (1.5, -3) {$456$};
+\node (8) at (1.5, -4) {$2$};
 %
-\draw[-] (1)--(6);
-\draw[-] (2)--(6); 
+\draw[-] (1)--(5);
+\draw[-] (1)--(6); 
+\draw[-] (2)--(7);
 \draw[-] (2)--(8);
 \draw[-] (3)--(5); 
-\draw[-] (3)--(6);
+\draw[-] (3)--(7);
 \draw[-] (4)--(7);
-\draw[-] (4)--(8);
 %
 \end{tikzpicture}
 \end{center}
-Observe that the paths witnessing order in $\LAD$, such as 
+Observe that the $\LA(n)$ conditions corresponding to paths, such as $( \{1,4,\},\{3,5\}) \in \LA(n)$
 \begin{align*}
-	7 <_L 234 \text{ as } 7 \xrightarrow{7} 57 \xrightarrow{5} 15 \xrightarrow{1=I_*} 13 \xrightarrow{3} 234
+    57 <_R 46 \text{ as } 7 \xrightarrow{5} 15 \xrightarrow{1=I_*} 13 \xrightarrow{3} 234 \xrightarrow{4} 46
 \end{align*}
-translate into paths witnessing order in $\SUD$ through the bijection $\theta$. For instance the prior path becomes,
+are mapped to $\SU(n)$ conditions corresponding to paths, e.g. the prior maps to $( \{3,5 \},\{4,7\}) \in \SU(n)$.
 \begin{align*}
-	456 <_R 1 \text{ as } 5 \xrightarrow{7} 57 \xrightarrow{7=J^*} 37 \xrightarrow{3} 13 \xrightarrow{1} 1
+    13 <_L 24 \text{ as } 13 \xrightarrow{3} 37 \xrightarrow{7=J^*} 57 \xrightarrow{5} 456 \xrightarrow{4} 24
 \end{align*}
-We emphasise that the $\LAD$ path is oriented by $15 \xrightarrow{1=I_*} 13$, and the image of this portion of the path under $\theta$, $37 \xleftarrow{1=J^*} 57$, is what is orienting the $\SUD$ path.
+
 \end{example}
 Note that $\theta$ is not equal to the composite $\LAD \xrightarrow{f} \EC \xrightarrow{o'} \SUD$.
 
@@ -802,6 +803,45 @@ This corresponds to combining the top two arrows in the leftmost arrows of the d
 \end{example}
 
 
+
+
+\subsection{The Saneblidze--Umble diagonal (Version 2)}
+
+\Kurt{Starting to rewrite as discussed, making whole extra section now so we can check and compare for errors}
+
+In this section we show that the $I,J$ description of $\SUD$ is equivalent to the original description of Saneblidze--Umble diagonal \cite{SaneblidzeUmble04}. Hence, with the prior bijection $\theta:\LAD\to \SUD$  \cref{p:IJ level bijection} this completes the proof that the two diagonals are in bijection. We first recall the construction of the $\SU$ diagonal from shifts of strong complementary partitions, using the definitions of \cite{saneblidzeComparingDiagonalsAssociahedra2022}.
+\begin{definition}
+    A pair of ordered partitions $(\sigma,\tau)$ is called \emph{strong complementary} if $\sigma$ is obtained from a permutation by merging the adjacent elements which are decreasing, and $\tau$ is obtained from the same permutation by merging the adjacent elements which are increasing.
+\end{definition}
+
+An example is shown in \cref{fig:strong-complementary}. The same argument as in \cref{l:u-well-defined} shows that the underlying pair of partitions is an essential complementary pair. 
+Moreover we see directly that any path between adjacent vertices has length $2$, and that its maxima is always traversed from left to right, hence all strong complementary pairs are in $\SU$. 
+
+\begin{figure}[h!]
+\begin{tikzpicture}[scale=.7]  
+\node (p) at (0, 0) {$2|5|37|146 \times 257|36|4|1$};
+\node (1) at (-1.5, -1) {$2$};
+\node (2) at (-1.5, -2) {$5$};
+\node (3) at (-1.5, -3) {$37$};
+\node (4) at (-1.5, -4) {$146$};
+%
+\node (5) at (1.5, -1) {$257$};
+\node (6) at (1.5, -2) {$36$};
+\node (7) at (1.5, -3) {$4$};
+\node (8) at (1.5, -4) {$1$};
+%
+\draw[-] (1)--(5); 
+\draw[-] (2)--(5); 
+\draw[-] (3)--(5); 
+\draw[-] (3)--(6); 
+\draw[-] (4)--(6); 
+\draw[-] (4)--(7); 
+\draw[-] (4)--(8);
+%
+\end{tikzpicture}
+\caption{The strong complementary pair associated to the partition $2|5|7|3|6|4|1$.}
+\label{fig:strong-complementary}
+\end{figure}
 
 \subsection{Higher algebraic consequences}
 
