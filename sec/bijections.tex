@@ -9,8 +9,8 @@ Let $U(n) := \{ \{I,J\}:I,J \subset \{1,\dots,n\}, |I|= |J|, I\cap J = \emptyset
 This is a set of unordered pairs, which we will order as follows. 
 
 \begin{definition}
-We denote by 
-\begin{itemize}
+We denote 
+\begin{itemize} 
     \item $\LA(n):=\{(I,J) \ | \ \{I,J\} \in U(n), \ \min(I\cup J) = \min I\}$, and by 
     \item $\SU(n):=\{(I,J) \ | \ \{I,J\} \in U(n), \ \max(I\cup J) = \max J\}$.
 \end{itemize}
@@ -125,7 +125,7 @@ where $s(I,J):=(J,I)$ and $i$ inverts the order on an $(I,J)$ pair, mapping the 
     i(\{1, 7, 8\} , \{ 4, 5, 6 \}) = (\{8,2,1\},\{7,6,5\}) = (\{1,2,8\},\{5,6,7\})
 \end{align*}
 These bijections in orders induce a bijection between the diagonals. 
-\begin{proposition}
+\begin{proposition}\label{p:IJ level bijection}
 There is a bijection between diagonals $\theta:\OP^{LA} \to \OP^{SU}$.
 \end{proposition}
 \begin{proof}
@@ -295,7 +295,7 @@ This edge specifies the element $p$ of the distinct representatives.
 \end{proof}
 
 \begin{construction} 
-\label{Order Lemma}
+\label{const:total order on blocks of EC}
 For $P=(\sigma,\tau) = (\bigcup_{l\in L}\sigma_l,\bigcup_{r\in R} \tau_r) \in \EC$ an essential complementary pair, we construct total orders on the blocks of $\sigma$ and $\tau$ in three steps:
 \begin{enumerate}
     \item For $\sigma_l,\sigma_{l'} \in \sigma$ considered as vertices in $G(P)$, there exists a unique minimal path of even cardinality $p_{l,l'}$ connecting them.
@@ -444,7 +444,66 @@ The forgetful function $u$ is clearly the inverse to $o$ as forgetting any assig
 The ordering function $o$ is the inverse to $u$ as it returns the sole ordering of the sub-partitions which is compatible with the $D(n)$ conditions.
 \end{proof}
 
-\Kurt{Quick Corollary of the ordering of SU and an example bijection of facets. Show how paths translate.}
+Given the bijection of \cref{p:IJ level bijection} Essential complementary partitions are also in bijection with elements of $\SUD$. The bijective ordering function $o':\EC\to \SUD$ is identical to \cref{const:total order on blocks of EC}, but orients each path so that the maximal element points left to right. We illustrate this order by example,
+\begin{example}\label{ex:theta and path translation}
+We apply the bijection $\theta:\LAD\to \SUD$ to a previously encountered element of $\LAD$, \cref{ex:ECbijection}.
+\begin{center}
+\begin{tikzpicture}[scale=.7]  
+\node (1) at (-1.5, -1) {$15$};
+\node (2) at (-1.5, -2) {$7$};
+\node (3) at (-1.5, -3) {$234$};
+\node (4) at (-1.5, -4) {$6$};
+%
+\node (5) at (1.5, -1) {$57$};
+\node (6) at (1.5, -2) {$46$};
+\node (7) at (1.5, -3) {$13$};
+\node (8) at (1.5, -4) {$2$};
+%
+\draw[-] (1)--(5); 
+\draw[-] (1)--(7);
+\draw[-] (2)--(5); 
+\draw[-] (3)--(6); 
+\draw[-] (3)--(7); 
+\draw[-] (3)--(8); 
+\draw[-] (4)--(6);
+%
+\end{tikzpicture}
+$
+\xrightarrow{\theta}
+$
+\begin{tikzpicture}[scale=.7]  
+\node (1) at (-1.5, -1) {$6$};
+\node (2) at (-1.5, -2) {$57$};
+\node (3) at (-1.5, -3) {$24$};
+\node (4) at (-1.5, -4) {$13$};
+%
+\node (5) at (1.5, -1) {$2$};
+\node (6) at (1.5, -2) {$456$};
+\node (7) at (1.5, -3) {$1$};
+\node (8) at (1.5, -4) {$37$};
+%
+\draw[-] (1)--(6);
+\draw[-] (2)--(6); 
+\draw[-] (2)--(8);
+\draw[-] (3)--(5); 
+\draw[-] (3)--(6);
+\draw[-] (4)--(7);
+\draw[-] (4)--(8);
+%
+\end{tikzpicture}
+\end{center}
+Observe that the paths witnessing order in $\LAD$, such as 
+\begin{align*}
+	7 <_L 234 \text{ as } 7 \xrightarrow{7} 57 \xrightarrow{5} 15 \xrightarrow{1=I_*} 13 \xrightarrow{3} 234
+\end{align*}
+translate into paths witnessing order in $\SUD$ through the bijection $\theta$. For instance the prior path becomes,
+\begin{align*}
+	456 <_R 1 \text{ as } 5 \xrightarrow{7} 57 \xrightarrow{7=J^*} 37 \xrightarrow{3} 13 \xrightarrow{1} 1
+\end{align*}
+We emphasise that the $\LAD$ path is oriented by $15 \xrightarrow{1=I_*} 13$, and the image of this portion of the path under $\theta$, $37 \xleftarrow{1=J^*} 57$, is what is orienting the $\SUD$ path.
+\end{example}
+Note that $\theta$ is not equal to the composite $\LAD \xrightarrow{f} \EC \xrightarrow{o'} \SUD$.
+
 
 \subsubsection{Vertices}
 
