@@ -436,6 +436,7 @@ and this can only happen if $\tau_r$ comes before $\tau_{r'}$.
 
 \begin{rem}
     It would be interesting to know if there is a geometrical interpretation of the paths that are not between adjacent vertices. 
+    
 \end{rem}
 
 To complete the proof of \cref{thm:facets}, it remains to show that both $u:\OP \to \EC$ and $o:\EC\to \OP$ are injective, with the other function being their inverse.
@@ -445,7 +446,16 @@ The forgetful function $u$ is clearly the inverse to $o$ as forgetting any assig
 The ordering function $o$ is the inverse to $u$ as it returns the sole ordering of the sub-partitions which is compatible with the $D(n)$ conditions.
 \end{proof}
 
-Given the bijection of \cref{p:IJ level bijection} Essential complementary partitions are also in bijection with elements of $\SUD$. The bijective ordering function $o':\EC\to \SUD$ is identical to \cref{const:total order on blocks of EC}, but orients each path so that the maximal element points right to left. We illustrate this order by example,
+So the results of this section provide us with the follow characterisation of facets of the $\LAD$ diagonal.
+\begin{proposition}
+The facets of the $\LAD$ diagonal are ordered essential complementary partitions in which the minimal element of each path is traversed left to right.
+\end{proposition}
+
+The bijection $\theta:\SUD \to \LAD$ may be used to characterise the facets of $\SUD$ as being ordered essential complementary partitions. The bijective ordering function $o':\EC\to \SUD$ is identical to \cref{const:total order on blocks of EC}, but orients each path so that the maximal element points right to left, i.e. 
+\begin{proposition}\label{prop:SUD are ordered EC}
+The facets of the $\SUD$ diagonal are ordered essential complementary partitions in which the maximal element of each path is traversed right to left.
+\end{proposition}
+We illustrate by example how the bijection $\theta$ immediately induces this result, and note that the result can also be obtained by simply altering the constructions of the section in the obvious manner for the $\SUD$ diagonal.
 \begin{example}\label{ex:theta and path translation}
 We apply the bijection $\theta:\LAD\to \SUD$ to a previously encountered element of $\LAD$, \cref{ex:ECbijection}.
 \begin{center}
@@ -495,9 +505,9 @@ $
 \end{center}
 Observe that the $\LA(n)$ conditions corresponding to paths, such as $( \{1,4,\},\{3,5\}) \in \LA(n)$
 \begin{align*}
-    57 <_R 46 \text{ as } 7 \xrightarrow{5} 15 \xrightarrow{1=I_*} 13 \xrightarrow{3} 234 \xrightarrow{4} 46
+    57 <_R 46 \text{ as } 57 \xrightarrow{5} 15 \xrightarrow{1=I_*} 13 \xrightarrow{3} 234 \xrightarrow{4} 46
 \end{align*}
-are mapped to $\SU(n)$ conditions corresponding to paths, e.g. the prior maps to $( \{3,5 \},\{4,7\}) \in \SU(n)$.
+are mapped to $\SU(n)$ conditions corresponding to paths, e.g. the prior $I,J$ condition maps to $( \{3,5 \},\{4,7\}) \in \SU(n)$, and
 \begin{align*}
     13 <_L 24 \text{ as } 13 \xrightarrow{3} 37 \xrightarrow{7=J^*} 57 \xrightarrow{5} 456 \xrightarrow{4} 24
 \end{align*}
@@ -802,18 +812,12 @@ No other shifts are possible, observe for instance that we cannot perform the le
 This corresponds to combining the top two arrows in the leftmost arrows of the diagram.
 \end{example}
 
-
-
-
-\subsection{The Saneblidze--Umble diagonal (Version 2)}
-
-\Kurt{Starting to rewrite as discussed, making whole extra section now so we can check and compare for errors}
-
-\Kurt{Want to check everything works first then will clean up notation}
+\subsection{The Saneblidze-Umble diagonal (Version 2)}
 
 \Kurt{What do we want subscripts? superscripts? indices and/or sets?}
 
-In this section we show that the $I,J$ description of $\SUD$, referred to as $\SUD$, is equivalent to the original description of Saneblidze-Umble diagonal \cite{SaneblidzeUmble04}, referred to as subset shift $\SUD$. We fully detail the two bijections of the top row of the following commutative diagram, (\cref{prop:subset shift to shift bijection} and ...)
+In this section we show that the $I,J$ description of $\SUD$, referred to as $\SUD$, is equivalent to the original description of Saneblidze-Umble diagonal \cite{SaneblidzeUmble04}, referred to as subset shift $\SUD$.
+We fully detail the equalities of the top row of the following commutative diagram, (Propositions \ref{prop:subset shift to shift bijection} and \ref{prop: shift SUD and SUD are equal})
 \begin{center}
 \begin{tikzcd}
 \text{Subset Shift $\SUD$} \arrow[r,leftrightarrow]&
@@ -824,10 +828,11 @@ In this section we show that the $I,J$ description of $\SUD$, referred to as $\S
 \LAD \arrow[u,leftrightarrow]
 \end{tikzcd}
 \end{center}
-, and together with the vertical arrow $\theta:\LAD \to \SUD$ (\cref{p:IJ level bijection}) this proves the equivalence of the only two diagonals.
+, and together with the bijection $\theta:\LAD \to \SUD$ (\cref{p:IJ level bijection}) which corresponds to the vertical arrow, this proves the equivalence of the only two diagonals.
 Furthermore, by duality we induce the dotted arrows of the diagram, which provides shift descriptions of the $\LAD$ diagonal ... .
 \\\\
-We first recall the necessary theory to describe the subset shift $\SUD$, which generates all facets by performing shifts on strong complementary partitions. We use similar notation to the recent paper \cite{saneblidzeComparingDiagonalsAssociahedra2022}.
+We first recall the necessary theory to describe the subset shift $\SUD$, which generates all facets by performing shifts on strong complementary partitions.
+We use similar notation to the recent paper \cite{saneblidzeComparingDiagonalsAssociahedra2022}.
 \begin{definition}
 A pair of ordered partitions $(\sigma,\tau)$ is called \emph{strong complementary} if $\sigma$ is obtained from a permutation by merging the adjacent elements which are decreasing, and $\tau$ is obtained from the same permutation by merging the adjacent elements which are increasing.
 Let $SCP$ denote the set of all strong complementary pairs.
@@ -861,7 +866,8 @@ The SCP associated to the permutation $2573641$ is,
 Observe that the permutation can be read off the graph of the SCP by a vertical down slice through the edges of the graph.
 \end{example}
 
-We make the following observations about SCPs. Firstly, the same argument as in \cref{l:u-well-defined} shows that the underlying pair of partitions is an essential complementary pair.
+We make the following observations about SCPs.
+Firstly, the same argument as in \cref{l:u-well-defined} shows that the underlying pair of partitions is an essential complementary pair.
 Moreover, for $(\sigma,\tau)\in SCP$ we observe that 
 \begin{enumerate}
     \item The unique path $\gamma$ between $\sigma_i|\sigma_{i+1}$ is $( \min \sigma_i, \max \sigma_{i+1} )$, and $\min \sigma_i< \max \sigma_{i+1}$.
@@ -870,16 +876,19 @@ Moreover, for $(\sigma,\tau)\in SCP$ we observe that
 From this observation and the ordering function $o':\EC\to \SUD$ (explored in \cref{ex:theta and path translation}) it is immediate that $SCP\subset\SUD$, i.e. the maximal elements are being traversed right to left.
 
 \begin{definition} \label{def:subset shifts}
-Let $(\sigma,\tau) = (\sigma_1|...|\sigma_k,\tau_1|...|\tau_l)$ be an ordered partition pair, and let $M_i\subset (\sigma_{i}\setminus \min \sigma_{i})$ be a non-empty subset such that $\min M_i> \max \sigma_{i+1}$. For this set we define the \emph{subset right shift operator} by
+Let $(\sigma,\tau) = (\sigma_1|...|\sigma_k,\tau_1|...|\tau_l)$ be an ordered partition pair, and let $M_i\subset (\sigma_{i}\setminus \min \sigma_{i})$ be a non-empty subset such that $\min M_i> \max \sigma_{i+1}$.
+For this set we define the \emph{subset right shift operator} by
 \begin{align*}
     R_{M_i}(\sigma):= \sigma_1|...|\sigma_i \setminus M_i|\sigma_i \sqcup M_i|...|\sigma_k
 \end{align*}
-Dually, let $M_{i+1}\subset (\tau_{i+1}\setminus \min \tau_{i+1})$  be a non-empty subset such that $\min M_{i+1}> \max \tau_{i}$. For this set we define the \emph{subset left shift operator} by
+Dually, let $M_{i+1}\subset (\tau_{i+1}\setminus \min \tau_{i+1})$  be a non-empty subset such that $\min M_{i+1}> \max \tau_{i}$.
+For this set we define the \emph{subset left shift operator} by
 \begin{align*}
     L_{M_{i+1}}(\tau):= \tau_1|...|\tau_i \sqcup M_{i+1}|\tau_i \setminus M_{i+1}|...|\tau_l
 \end{align*}
 For $l\geq 1$, let $\textbf{M} = (M_{i_1},...,M_{i_l}) \in [n]^{l}$, be such that $1\leq i_1 < i_2 ... < i_l\leq k-1$, and each of the iterated compositions $R_\mathbf{M}(\sigma) := R_{M_{i_l}}...R_{M_{i_1}}(\sigma)$ are well-defined.
-Similarly, for $m\geq 1$ let $\textbf{N} = (N_{i_m},...,N_{i_1}) \in [n]^{m}$ be such that $2\leq i_1 < i_2 ... < i_m\leq k$, and each of the iterated compositions  $L_\mathbf{N}(\tau) := L_{N_{i_1}}...L_{N_{i_m}}(\tau)$ are well-defined. We define the case $R_{\emptyset}\sigma := \sigma$ and $L_{\emptyset}\tau := \tau$. Then we denote,
+Similarly, for $m\geq 1$ let $\textbf{N} = (N_{i_m},...,N_{i_1}) \in [n]^{m}$ be such that $2\leq i_1 < i_2 ... < i_m\leq k$, and each of the iterated compositions  $L_\mathbf{N}(\tau) := L_{N_{i_1}}...L_{N_{i_m}}(\tau)$ are well-defined.
+We define the case $R_{\emptyset}\sigma := \sigma$ and $L_{\emptyset}\tau := \tau$. Then we denote,
 \begin{align*}
     A_{\sigma}\times B_\tau:= \bigsqcup_{\mathbf{M},\mathbf{N}} \{R_\mathbf{M}(\sigma)\times L_\mathbf{N}(\tau) \}
 \end{align*}
@@ -887,7 +896,11 @@ where the union is over all valid $\textbf{M},\textbf{N}$ such that the iterated
 \end{definition}
 
 See ... for an example.
-Observe that the left shift operator moves elements to the left, but acts on the right ordered partition. Dually, the right shift operator moves elements to the right but acts on the left ordered partition. We have departed from the notation of \cite{saneblidzeComparingDiagonalsAssociahedra2022} in two ways. Firstly we have reversed the indexing of the left shift operator, and secondly we have omitted the case $M=\emptyset$ whose corresponding operator was the identity. As we have omitted the case $M=\emptyset$, we have altered our indexing set from $\{1,2,...,d\}$ to the increasing sequence $i_1<...<i_d$. \Kurt{better...}
+Observe that the left shift operator moves elements to the left, but acts on the right ordered partition.
+Dually, the right shift operator moves elements to the right but acts on the left ordered partition.
+We have departed from the notation of \cite{saneblidzeComparingDiagonalsAssociahedra2022} in two ways.
+Firstly we have reversed the indexing of the left shift operator, and secondly we have omitted the case $M=\emptyset$ whose corresponding operator was the identity. 
+As we have omitted the case $M=\emptyset$, we have altered our indexing set from $\{1,2,...,d\}$ to the increasing sequence $i_1<...<i_d$. \Kurt{better...}
 \begin{proposition}[Theorem \cite{SaneblidzeUmble04}, Restated in \cite{saneblidzeComparingDiagonalsAssociahedra2022}]
 The subset-shift $SU$ diagonal is generated by all valid subset-shifts of SCPs,
 \begin{align*}
@@ -899,7 +912,9 @@ The subset-shift $SU$ diagonal is generated by all valid subset-shifts of SCPs,
 
 We now make an interesting observation, whose proof is key to an equivalent definition of the $\SUD$ diagonal. 
 \begin{lemma} \label{lem:SU subset conserves maximal element of paths}
-The $\SU$ subset shift operators conserve the maximal element of paths. In particular, given an SCP $(\sigma,\tau)$ and a valid shift of it $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$. Let $\gamma_{i,j}$ denote the unique path between blocks $\sigma_i,\sigma_j$ (similarly $\tau_i,\tau_j$) and let $\gamma'_{i,j}$ denote the unique path between blocks $R_{\mathbf{M}}(\sigma)_i,R_{\mathbf{M}}(\sigma)_j$ (similarly $L_{\mathbf{N}}(\tau)_i ,L_{\mathbf{N}}(\tau)_j$), then $\max \gamma_{i,j} = \max \gamma'_{i,j} $.
+The $\SU$ subset shift operators conserve the maximal element of paths.
+In particular, given an $SCP$ $(\sigma,\tau)$ and a valid shift of it $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$.
+Let $\gamma_{i,j}$ denote the unique path between blocks $\sigma_i,\sigma_j$ (similarly $\tau_i,\tau_j$) and let $\gamma'_{i,j}$ denote the unique path between blocks $R_{\mathbf{M}}(\sigma)_i,R_{\mathbf{M}}(\sigma)_j$ (similarly $L_{\mathbf{N}}(\tau)_i ,L_{\mathbf{N}}(\tau)_j$), then $\max \gamma_{i,j} = \max \gamma'_{i,j} $.
 \end{lemma}
 
 \begin{proof}
@@ -913,44 +928,55 @@ So combining these we know,
     \min M_k > \max R_{\mathbf{M}}(\sigma)_{k+1} = \max \sigma_{k+1} = \max \delta_{k,k+1}
 \end{align}
 With this observation in hand, we explore how the shift operator $R_{M_k}$ effects paths. 
-Let $\gamma$ be a path between two blocks on one side of $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$, i.e. $R_{\mathbf{M}}(\sigma)_i \xrightarrow{\gamma} R_{\mathbf{M}}(\sigma)_j$ or $L_{\mathbf{N}}(\tau)_i \xrightarrow{\gamma} L_{\mathbf{N}}(\tau)_j$, and consider the path $\gamma'$ between the same blocks, by indices, in $(R_{M_k}R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$. For now, we assume the path $\gamma$ is not to/from either (or both) of the blocks $R_{\mathbf{M}}(\sigma)_k, R_{\mathbf{M}}(\sigma)_{k+1}$. There are four cases to consider. 
+Let $\gamma$ be a path between two blocks on one side of $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$, i.e. $R_{\mathbf{M}}(\sigma)_i \xrightarrow{\gamma} R_{\mathbf{M}}(\sigma)_j$ or $L_{\mathbf{N}}(\tau)_i \xrightarrow{\gamma} L_{\mathbf{N}}(\tau)_j$, and consider the path $\gamma'$ between the same blocks, by indices, in $(R_{M_k}R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$.
+For now, we assume the path $\gamma$ is not to/from either (or both) of the blocks $R_{\mathbf{M}}(\sigma)_k, R_{\mathbf{M}}(\sigma)_{k+1}$.
+There are four cases to consider. 
 \begin{enumerate}
-    \item $\gamma$ does not contain an element of $M_k$. It is thus unaffected by the shift, so $\gamma' = \gamma$.
-    \item $\gamma$ contains one element $m\in M_k$, i.e. $\gamma = \alpha m \beta$. Then there are two cases to consider
+    \item $\gamma$ does not contain an element of $M_k$.
+    It is thus unaffected by the shift, so $\gamma' = \gamma$.
+    \item $\gamma$ contains one element $m\in M_k$, i.e. $\gamma = \alpha m \beta$.
+    Then there are two cases to consider
     \begin{enumerate}
         \item $\beta$ does not use any steps of $\delta_{k+1,k}$, in which case $\gamma' = \alpha m \delta_{k+1,k} \beta$.
         This is a path in the tree of $(R_{M_k}R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$ with no repeated steps, as such it must be the unique minimal path. 
         (There cannot be another path as this would induce a cycle on the tree.)
-        \item $\beta$ uses steps of $\delta_{k+1,k}$, in which case $\gamma' = \alpha m (\delta_{k+1,k}\setminus \beta)(\beta \setminus \delta_{k+1,k})$. This follows, as we know that $\beta$ must follow the path $\delta_{k,k+1}$ for some time before diverging ($\beta$ could also be a subset of $\delta_{k,k+1}$, in which case it will never diverge). As such, the path $(\delta_{k+1,k}\setminus \beta)$ reaches the point of divergence from $R_{\mathbf{M}}(\sigma)_{k+1}$ instead of $R_{\mathbf{M}}(\sigma)_{k}$, then the path $(\beta \setminus \delta_{k+1,k})$ completes the rest of the route unchanged.
+        \item $\beta$ uses steps of $\delta_{k+1,k}$, in which case $\gamma' = \alpha m (\delta_{k+1,k}\setminus \beta)(\beta \setminus \delta_{k+1,k})$.
+        This follows, as we know that $\beta$ must follow the path $\delta_{k,k+1}$ for some time before diverging ($\beta$ could also be a subset of $\delta_{k,k+1}$, in which case it will never diverge).
+        As such, the path $(\delta_{k+1,k}\setminus \beta)$ reaches the point of divergence from $R_{\mathbf{M}}(\sigma)_{k+1}$ instead of $R_{\mathbf{M}}(\sigma)_{k}$, then the path $(\beta \setminus \delta_{k+1,k})$ completes the rest of the route unchanged.
     \end{enumerate}
     \item $\gamma$ contains two elements of $M_k$. In which case we still have $\gamma'=\gamma$ (in path elements) but $\gamma'$ will step through the $(k+1)$th block instead of $\gamma$ stepping through the $k$th block.
     
     \item $\gamma$ contains more than two elements of $M_k$. This is impossible, as $\gamma$ would not be a minimal path on a tree.
 \end{enumerate}
-We now consider the cases where $\gamma$ is a path to/from at least one of $(R_{\mathbf{M}}(\sigma))_k,(R_{\mathbf{M}}(\sigma))_{k+1}$. We will use $j$ to denote any other arbitrary index. We assume that $\gamma$ contains a single element $m\in M_k$ (as all other cases lead to contradictions or are trivially affected by the shift in similar logic to the prior). Then $\gamma$ is altered by the shift to $\gamma'$ as follows,
+We now consider the cases where $\gamma$ is a path to/from at least one of $(R_{\mathbf{M}}(\sigma))_k,(R_{\mathbf{M}}(\sigma))_{k+1}$.
+We will use $j$ to denote any other arbitrary index.
+We assume that $\gamma$ contains a single element $m\in M_k$ (as all other cases lead to contradictions or are trivially affected by the shift in similar logic to the prior).
+Then $\gamma$ is altered by the shift to $\gamma'$ as follows,
 \begin{itemize}
     \item if $\gamma$ connects $R_{\mathbf{M}}(\sigma)_j$ and $R_{\mathbf{M}}(\sigma)_k$, then $\gamma = \alpha m \mapsto \gamma' = \alpha m \delta_{k+1,k} $
     \item if $\gamma$ connects $R_{\mathbf{M}}(\sigma)_j$ and $R_{\mathbf{M}}(\sigma)_{k+1}$, then $\gamma = \alpha m \delta_{k,k+1} \mapsto \gamma' = \alpha m $
     \item if $\gamma$ connects $R_{\mathbf{M}}(\sigma)_k$ and $R_{\mathbf{M}}(\sigma)_{k+1}$, then $\gamma = \delta_{k,k+1}$ so this implies that $m\in \delta_{k,k+1}$, which is a contradiction as $m> \max \delta_{k,k+1}$.
 \end{itemize}
-Observe all (non-trivial or non-contradictory) paths $\gamma'$ contain $m>\min M_k$ and either some addition or deletion by $\delta_{k,k+1}$. It thus follows from \cref{eq:shift subset dominates adj path} that $\max \gamma' = \max \gamma$, in each case, the maximal element will either be $m$ or in $\alpha,\beta$.
+Observe all (non-trivial or non-contradictory) paths $\gamma'$ contain $m>\min M_k$ and either some addition or deletion by $\delta_{k,k+1}$.
+It thus follows from \cref{eq:shift subset dominates adj path} that $\max \gamma' = \max \gamma$, in each case, the maximal element will either be $m$ or in $\alpha,\beta$.
 \end{proof}
-The key result of the inductive proof was the chain of inequalities \cref{eq:shift subset dominates adj path}. It turns out, if we assume the inequality holds, we can drop the assumption that $k$ is greater than the maximal index used by $\mathbf{M}$. and the assumption that $\min M_k > \max R_{\mathbf{M}}(\sigma)_{k+1}$. 
+The key result of the inductive proof was the chain of inequalities \cref{eq:shift subset dominates adj path}.
+It turns out, if we assume the inequality holds, we can drop the assumption that $k$ is greater than the maximal index used by $\mathbf{M}$, and the assumption that $\min M_k > \max R_{\mathbf{M}}(\sigma)_{k+1}$. 
 Furthermore, once we have dropped the assumption that we need to perform shifts in an increasing order, we can generate all subset shifts by chains of singleton set shifts. This motivates the following definition.
 \begin{definition} \label{def:critical SU shift}
-Let $(\sigma,\tau)$ be a pair of ordered partitions, and let $\rho \in (\sigma_i \setminus \min \sigma_i)$ such that $\rho>\max \delta_{i,i+1}$, where $\delta_{i,i+1}$ is the unique path between $\sigma_i$ and $\sigma_{i+1}$. Such an element $\rho$ is said to be \emph{critical}. 
-We similarly define the critical elements of $\tau$ to be, $\rho \in (\tau_{i+1} \setminus \min\tau_{i+1})$ such that $\rho > \max \delta_{i,i+1}$. 
+Let $(\sigma,\tau)$ be a pair of ordered partitions, and let $\rho \in (\sigma_i \setminus \min \sigma_i)$ such that $\rho>\max \sigma_{i,i+1}$, where $\sigma_{i,i+1}$ is the unique path between $\sigma_i$ and $\sigma_{i+1}$. Such an element $\rho$ is said to be \emph{critical}. 
+We similarly define the critical elements of $\tau$ to be, $\rho \in (\tau_{i+1} \setminus \min\tau_{i+1})$ such that $\rho > \max \tau_{i,i+1}$. 
 The right and left shift operators are defined on singleton sets, and we will denote these shift operators being applied to critical elements as $R_{\rho}$ and $L_{\rho}$.
 \end{definition}
 
 As we have assumed the necessary feature of the proof of \cref{lem:SU subset conserves maximal element of paths}, we have the immediate corollary.
 
-\begin{corollary}
+\begin{corollary} \label{cor: SU shift conserves maximal element of paths}
 The critical left and right shift operators conserve the maximal element of paths.
 \end{corollary}
-The observation that the maximal element of the path $\sigma_i$ to $\sigma_{i+1}$ in the SCP $(\sigma,\tau)$ is $\sigma_{i+1}$ then yields the following result.
+The observation that for an SCP $(\sigma,\tau)$ that $\max \sigma_{i,i+1} = \max \sigma_{i+1}$ (and $\max \tau_{i,i+1} = \max \tau_{i}$) then yields the following result.
 \begin{corollary} \label{cor:the maximal element of shifts of SCPS}
-Let $(\sigma',\tau')$ be generated from critical shifts of an SCP $(\sigma,\tau)$, then $\max \delta_{i,i+1} = \max \sigma_{i+1}$.
+Let $(\sigma',\tau')$ be generated from critical shifts of an SCP $(\sigma,\tau)$, then $\max \sigma'_{i,i+1} = \max \sigma_{i+1}$ (and $\max \tau'_{i,i+1} = \max \tau_{i}$).
 \end{corollary}
 
 \begin{definition}
@@ -975,12 +1001,163 @@ For the reverse inclusion, we proceed by induction. We are required to show that
 for some $j\in [d]$. If $i_j < l$, then $R_{\rho}R_{\mathbf{M}}(\sigma) = R_{M_{i_d}}...R_{\{\rho\}_{l}}R_{M_{i_j}}...R_{M_{i_1}}(\sigma)$, and we are done.
 Otherwise, if $i_j = l$, let $M'_{i_j} = M_{i_j} \cup \{\rho \}$. It is clear that $R_{\rho}R_{\mathbf{M}}(\sigma) = R_{M_{i_d}}...R_{M'_{i_j}}...R_{M_{i_1}}(\sigma)$, however, we need to check that $R_{M'_{i_j}}$ is a well-defined subset operator. 
 We know the subset shift operators will never move the minimal element, so $\rho > \min R_{\mathbf{M}}(\sigma)_{i_j}= \min (R_{M_{i_{j-1}}}...R_{M_{i_1}}(\sigma))_{i_j}$.
-Then from \cref{cor:the maximal element of shifts of SCPS}, we know that $\rho>\max \sigma_{j+1} = \max (R_{M_{i_{j-1}}}...R_{M_{i_1}}(\sigma))_{i_j + 1}$, where the equality follows as $i_1<...<i_{j-1}<i_j$. This that proves $R_{M'_{i_j}}$ is well-defined, completing the inductive proof.
+Then from \cref{cor:the maximal element of shifts of SCPS}, we know that $\rho>\max \sigma_{i_j+1} = \max (R_{M_{i_{j-1}}}...R_{M_{i_1}}(\sigma))_{i_j + 1}$, where the equality follows as $i_1<...<i_{j-1}<i_j$. This proves that $R_{M'_{i_j}}$ is well-defined, completing the inductive proof.
 \end{proof}
 
 \Kurt{Example!}
 
-\Kurt{From here onwards}
+\begin{proposition} \label{prop: shift SUD and SUD are equal}
+The facets of shift $\SUD$ and $\SUD$ are equal.
+\end{proposition}
+\begin{proof}
+Once again, we prove our statements by considering solely the action of the right operator, the alterations for the left operator are similar. 
+Firstly, we show that every facet of shift $\SUD$ is in  $\SUD$.
+We already observed that all $SCP$s are in $\SUD$. Thus, it suffices to prove that if a $\SUD$ shift facet $(\sigma,\tau)$ is in $\SUD$, then $(R_{\rho}(\sigma),\tau)$ is also in $\SUD$. 
+\cref{cor: SU shift conserves maximal element of paths} shows that the maxima of paths between consecutive vertices in $(R_{\rho}(\sigma),\tau)$ are the same as the ones in $(\sigma,\tau)$. 
+Thus, all maxima of paths in $(R_{\rho}(\sigma),\tau)$ are traversed from right to left, and hence by \cref{prop:SUD are ordered EC}, we have that $(R_{\rho}(\sigma),\tau) \in \SUD$.
+\\\\
+Conversely, we now show that every facet of $\SUD$ is in shift $\SUD$. We know that every $SCP$ is an element of shift $\SUD$...\Kurt{From here onwards}
+\\\\\\\\
+Let $(\sigma,\tau)$ be a pair in $\OP$ and suppose that it satisfies the following property: for all pairs of consecutive blocks $\sigma_i | \sigma_{i+1}$ in $\sigma$, if $\min \sigma_i < \max \sigma_{i+1}$, then the unique path $\gamma$ between $\sigma_i$ and $\sigma_{i+1}$ has length $2$ and is given by $\{\min \sigma_i, \max \sigma_{i+1}\}$. 
+In particular, we have $\min \sigma_i \geq \min \gamma$. 
+We claim that $(\sigma,\tau)$ must be a strong complementary pair. 
+To see this, suppose that $(\sigma,\tau)$ is \emph{not} a strong complementary pair; therefore by \cref{p:crossings} there exists an edge crossing. 
+This implies that there is a minimal crossing, i.e. a crossing between edges adjacent to two consecutive blocks $\sigma_i | \sigma_{i+1}$. 
+Since edges that are incident to a block are always in increasing order from bottom to top (this is a direct consequence of the $(I,J)$-conditions for $|I|=|J|=1$), there is a crossing between $\min \sigma_i$ and $\max \sigma_{i+1}$, which contradicts the property assumed above. 
+So, there is no crossing in $(\sigma,\tau)$ and according to \cref{p:crossings}, we have that $(\sigma,\tau)$ is a strong complementary pair. 
+The proof of the inclusion is now complete: if we are given a pair of facets $(\sigma,\tau)$ in $\OP$ which has at least one crossing, then there is a pair of consecutive blocks $\sigma_i | \sigma_{i+1}$ such that $\min \sigma_i < \max \sigma_{i+1}$ and $\min \sigma_i < \min \gamma$, and one can apply the inverse operator $L^{-1}$ shifting $\min \sigma_i$ to the right; and by induction we obtain a facet of the dual SU diagonal. 
+
+\end{proof}
+
+\begin{definition}
+Let $(\sigma,\tau)$ be a pair of ordered partitions $[n]$, we say that $(i,j)$ where $i<j$ is a crossing if $i<_\sigma j$ and $j>_\tau i$.
+\end{definition}
+When we represent pairs of ordered partitions as bipartite graphs, then crossing produce 'crossings of edges' hence the name.
+
+\begin{lemma}
+For $(\sigma,\tau) \in \SUD$, it is an $SCP$ $\iff$ its bipartite graph has no crossings $\iff$ its adjacent blocks are connected by paths of length $2$.
+\end{lemma}
+\begin{proof}
+From the fact that the permutation of a $SCP$ can be read off a downwards vertical slice (see \cref{ex:strong-complementary}), it is straightforward to verify that a $SCP$ satisfies both properties. We now verify that if $(\sigma,\tau)$ is not a $SCP$ then both these results are false.
+\end{proof}
+
+We now state the analogous shift definitions of $\LAD$.
+These definitions are directly induced by the face poset isomorphism $\theta:\LAD \to \SUD$, and the fact that the critical shift operator steps through a facet of a facet to an adjacent facet. \Kurt{Maybe flesh this out into corollary and proof} See \cref{ex:shift translation by theta} to see the direct translation of the shift operators, but first, here are the definitions. 
+\begin{definition}
+subset def. \Kurt{maybe omit this one? a bit long...}
+\end{definition}
+\begin{definition} \label{def:critical LA shift}
+Let $(\sigma,\tau)$ be a pair of ordered partitions, and let $\rho \in (\sigma_{i+1} \setminus \max \sigma_{i+1})$ such that $\rho< \min \sigma_{i,i+1}$, where $\sigma_{i,i+1}$ is the unique path between $\sigma_i$ and $\sigma_{i+1}$. Such an element $\rho$ is said to be \emph{critical}. 
+We similarly define the critical elements of $\tau$ to be, $\rho \in (\tau_{i} \setminus \max\tau_{i})$ such that $\rho < \min \tau_{i,i+1}$. 
+The right and left shift operators are defined on singleton sets, and we will denote these shift operators being applied to critical elements as $L_{\rho}$ and $R_{\rho}$
+\end{definition}
+We note the left shift operator now acts on the left ordered partition, a distinct notational improvement.
+To illustrate how the $\LAD$ shift structure is induced by the bijection $\theta$, we provide the following example.
+
+\begin{example} \label{ex:shift translation by theta}
+The $SCP$s $(\sigma,\tau) := 5|17|4|236 \times 57|146|3|2$, and $(\sigma',\tau') := 13|247|5|6 \times 3|17|4|156$, are in bijection through $\theta$. Graphically this bijection has a clear symmetry,
+\begin{center}
+\begin{tikzpicture}[scale=.7]  
+\node (1) at (-1.5, -1) {$5$};
+\node (2) at (-1.5, -2) {$17$};
+\node (3) at (-1.5, -3) {$4$};
+\node (4) at (-1.5, -4) {$236$};
+%
+\node (5) at (1.5, -1) {$57$};
+\node (6) at (1.5, -2) {$146$};
+\node (7) at (1.5, -3) {$3$};
+\node (8) at (1.5, -4) {$2$};
+%
+\draw[-] (1)--(5); 
+\draw[-] (2)--(5); 
+\draw[-] (2)--(6); 
+\draw[-] (3)--(6); 
+\draw[-] (4)--(6); 
+\draw[-] (4)--(7); 
+\draw[-] (4)--(8);
+%
+\end{tikzpicture}
+$\xrightarrow{\theta}$
+\begin{tikzpicture}[scale=.7]  
+\node (1) at (-1.5, -1) {$13$};
+\node (2) at (-1.5, -2) {$247$};
+\node (3) at (-1.5, -3) {$5$};
+\node (4) at (-1.5, -4) {$6$};
+%
+\node (5) at (1.5, -1) {$3$};
+\node (6) at (1.5, -2) {$17$};
+\node (7) at (1.5, -3) {$4$};
+\node (8) at (1.5, -4) {$256$};
+%
+\draw[-] (1)--(5); 
+\draw[-] (1)--(6); 
+\draw[-] (2)--(6); 
+\draw[-] (2)--(7);
+\draw[-] (2)--(8); 
+\draw[-] (3)--(8); 
+\draw[-] (4)--(8);
+%
+\end{tikzpicture}
+\end{center}
+We now illustrate all possible $LA$ shifts of the left $SCP$ and all possible $SU$ shifts of the right $SCP$. We first display how the $LA$ left shifts act on $\sigma$, and the $SU$ left shifts act on $\tau'$. We indicate shifts by their corresponding critical element, drawing them to avoid crossings, and so they align with their dual shift under $\theta$.
+\begin{center}
+{\small
+\begin{tikzcd}
+& 5|17|4|236 \arrow[ld,"p=3"] \arrow[d,"p=1"] \arrow[rd,"p=2"]\\
+5|17|34|26 \arrow[rd,"p=1"] \arrow[d,"p=2"]&
+15|7|4|236  \arrow[rd,"p=2"] \arrow[d,"p=3"]&
+5|17|24|36 \arrow[d,"p=1"]\\
+5|17|234|6 \arrow[d,"p=1"]&
+15|7|34|26  \arrow[dl,"p=2"]&
+15|7|24|36  \\
+15|7|234|6 
+\end{tikzcd}
+\begin{tikzcd}
+& 3|17|4|256 \arrow[ld,red,"p=5"] \arrow[d,"p=7"] \arrow[rd,"p=6"]\\
+3|17|45|26 \arrow[rd,"p=7"] \arrow[d,red,"p=6"]&
+37|1|4|256 \arrow[rd,"p=6"] \arrow[d,"p=5"]&
+ 3|17|46|25 \arrow[d,"p=7"]\\
+3|17|456|2 \arrow[d,"p=7"]&
+37|1|56|24 \arrow[dl,"p=6"]&
+37|1|46|25 \\
+37|1|456|2
+\end{tikzcd}
+}
+\end{center}
+The possible $\LAD$ right shifts (acting on $\tau$)  are simply
+\begin{center}
+\begin{tikzcd}
+\sigma \times 57|146|3|2 \arrow[r,"p=1"] & \sigma \times 57|46|13|2 \arrow[r,"p=1"] & 57|46|3|12
+\end{tikzcd}
+\end{center}
+The possible $\SUD$ left shifts (acting on $\sigma'$) are 
+\begin{center}
+\begin{tikzcd}
+13|247|5|6 \times \tau' \arrow[r,"p=7"] & \sigma \times 13|24|57|6 \arrow[r,"p=7"] & 13|24|5|67
+\end{tikzcd}
+\end{center}
+We note that as the left and right shifts (for both diagonals) can be performed independently, we could combine these lattices into a product of lattices. \Kurt{check product correct}
+No other shifts are possible, observe for instance that we cannot perform the left shift $15|7|234|6 \times 57|46|13|2 \xrightarrow{p=2} 15|27|34|6 \times 57|46|13|2$ as the minimal path connecting $234$ and $7$ contains $1$ which is smaller than $2$ (see \cref{ex:ECbijection}).
+As an example of subset and critical shift bijection (\cref{prop:subset shift to shift bijection}), we observe that the unique way of producing $13|247|5|6 \times 37|1|456|2$ from subset shifts is given by
+\begin{center}
+\begin{tikzcd}
+13|247|5|6 \times 3|17|4|256 \arrow[r,"{R_{\{5,6\}}}"] & 13|247|5|6 \times 3|17|456|2 \arrow[r,"{R_{\{7\}}}"] & 13|247|5|6 \times 37|1|456|2
+\end{tikzcd}
+\end{center}
+This corresponds to combining the critical right shift operators of the $\SUD$ diagonal which have been indicated in red. 
+\end{example}
+
+\Kurt{Mention the LAD and SUD shifts generate the (same) facets of the hexagon in two different ways.}
+
+We have the following equivalent characterisations of the $\LAD$ and $\SUD$ diagonals. \Kurt{Probaly in the intro somehere}
+\begin{itemize}
+    \item $I,J$ conditions
+    \item As orderings of essential complementary partitions
+    \item Subset shift
+    \item Critical element shift
+    \item Matrix
+    \item Cubical?
+\end{itemize}
 
 \subsection{Higher algebraic consequences}
 
