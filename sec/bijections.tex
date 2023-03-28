@@ -5,14 +5,14 @@
 
 \subsubsection{Operadic diagonals}
 
-Let $U(n) := \{ \{I,J\}:I,J \subset \{1,\dots,n\}, |I|= |J|, I\cap J = \emptyset \}$.
+Let $U(n)  \eqdef  \set{\{I,J\}}{I,J \subset [n], |I|= |J|, I\cap J = \emptyset}$.
 This is a set of unordered pairs, which we will order as follows. 
 
 \begin{definition}
 We denote 
 \begin{itemize} 
-    \item $\LA(n):=\{(I,J) \ | \ \{I,J\} \in U(n), \ \min(I\cup J) = \min I\}$, and by 
-    \item $\SU(n):=\{(I,J) \ | \ \{I,J\} \in U(n), \ \max(I\cup J) = \max J\}$.
+    \item $\LA(n) \eqdef \set{(I,J)}{\{I,J\} \in U(n), \ \min(I\cup J) = \min I}$, and by 
+    \item $\SU(n) \eqdef \set{(I,J)}{\{I,J\} \in U(n), \ \max(I\cup J) = \max J}$.
 \end{itemize}
 \end{definition}
 
@@ -26,7 +26,7 @@ That is, a family of sets $\{O(n)\}_{n\geq 1}$ where each $O(n)$ has as elements
 For an ordered pair $(I,J)$ in $O(n)$, we denote by $\std(I,J)$ the standardisation function, e.g. $\std(\{5,9,10\},\{6,8,12\}) = (\{1,4,5\},\{2,3,6\})$.
 
 \begin{definition}
-An ordering $O:=\{O(n)\}_{n \geq 1}$ of $U:=\{U(n)\}_{n\geq 1}$ is \emph{operadic} if for all $(I,J) \in O$, we have that $(I',J') \subsetneq (I,J) \implies \std(I',J') \in O$. 
+An ordering $O \eqdef \{O(n)\}_{n \geq 1}$ of $U \eqdef \{U(n)\}_{n\geq 1}$ is \emph{operadic} if for all $(I,J) \in O$, we have that $(I',J') \subsetneq (I,J) \implies \std(I',J') \in O$. 
 \end{definition}
 
 \begin{lemma} \label{lem:operadic-ordering}
@@ -41,18 +41,18 @@ The dual orders $\LA^{op}$ and $\SU^{op}$ are also operadic, and extensions of t
 \begin{proof}
 We present the proof for the $\LA$ ordering, the proofs for the $\SU$ and opposite orders are similar.
 First, observe that if an ordered pair $(I,J)$ can be written as $(I_a \sqcup I_b, J_a \sqcup J_b)$ with $(I_a,J_a)$ and $(I_b,J_b)$ in $\LA(|I|)$, then $(I,J)$ is itself in $\LA$.
-Second, it is apparent that $(I_k,J_k):=(\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\})$ is not a union of other $\LA$ pairs as $1$ is the only element of $I_k$ which is smaller than other elements of $J_k$.
+Second, it is apparent that $(I_k,J_k) \eqdef (\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\})$ is not a union of other $\LA$ pairs as $1$ is the only element of $I_k$ which is smaller than other elements of $J_k$.
 As such, if we try to decompose $(I_k,J_k)$ as a non-trivial union, there is always one pair $(I,J)$ in this union for which $1 \notin I$, so we have $\min ( I \cup J) = \min J$, which implies that $(I,J) \notin \LA$.
 Third, we show that any pair $(I,J)$ in $\LA$ which is not of the form $(I_k,J_k)$ can be decomposed as a union of such pairs. 
 In combination with the two previous observations, this will prove the Lemma. 
 
-Let $(I,J)$ be in $\LA(k)$ and suppose that $(I,J) \neq (I_k,J_k)$, then there exists $i_2 \in I\setminus \min I$ such that $i_2 < \max J$.
+Let $(I,J)$ be in $\LA(k)$ and suppose that $(I,J) \neq (I_k,J_k)$, then there exists $i_2 \in I\ssm \min I$ such that $i_2 < \max J$.
 This means that $(I,J)$ can be decomposed as a union: if we write it as $(\{i_1,\dots,i_k\},\{j_1,\dots,j_k\})$, where each set ordered smallest to largest, then we must have $1=i_1<i_2<j_k$, in which case $(\{i_2\},\{j_k\})$ and $(\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\})$ are both smaller $\LA$ pairs.
 Then it must be the case that $\std((\{i_2\},\{j_k\})) = (\{1\},\{2\})$, and $\std((\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\}))$ is either $(I_{k-1},J_{k-1})$, or we can repeat this decomposition.
 This process must eventually terminate with the right-hand side reducing to $(I_l,J_l)$ for some $1 \leq l \leq k-1$.
-In other words, any $(I,J) = (\{i_1,...,i_k\}, \{j_1,...,j_k\})$ decomposes as
+In other words, any $(I,J) = (\{i_1,\dots,i_k\}, \{j_1,\dots,j_k\})$ decomposes as
 \begin{align*}
-	(I,J) = (\{i_2\},\{j_k\}) \sqcup (\{i_3\},\{j_{k-1}\}) \sqcup ... \sqcup (\{i_{l+1} \},\{j_{k-l-1} \}) \sqcup (I',J')
+	(I,J) = (\{i_2\},\{j_k\}) \sqcup (\{i_3\},\{j_{k-1}\}) \sqcup \dots \sqcup (\{i_{l+1} \},\{j_{k-l-1} \}) \sqcup (I',J')
 \end{align*}
 where $\std((I',J')) = (I_l,J_l)$, and $1\leq l \leq k$.
 \end{proof}
@@ -86,9 +86,9 @@ As such, the only way we can vary from $\LA$ is to order this element in the opp
 However, this choice leads to contradictions in the ordering of the $\{I,J\}$ pairs of order $|I|=|J|=l+2$.
 The following is a generalisation of \cref{ex:Non-coherent order contradiction}.
 For $m = l+2$, the pair $\{I_m,J_m\}$ can be oriented in both directions.
-On the one side, we can write $\{I_m,J_m\} = \{I_a \cup I_b, J_a \cup J_b\}$ with $I_a:= \{1,m+3,\dots,2m\} > J_a:= \{4,5,\dots,m+2\}$  and $I_b:=\{3\} > J_b:= \{2\}$, which imply that $I_m > J_m$ by the first remark in the proof of \cref{lem:operadic-ordering}. 
+On the one side, we can write $\{I_m,J_m\} = \{I_a \cup I_b, J_a \cup J_b\}$ with $I_a \eqdef  \{1,m+3,\dots,2m\} > J_a \eqdef  \{4,5,\dots,m+2\}$  and $I_b \eqdef \{3\} > J_b \eqdef  \{2\}$, which imply that $I_m > J_m$ by the first remark in the proof of \cref{lem:operadic-ordering}. 
 This decomposition makes use of the (reversed) order $J_{l+1} > I_{l+1}$ and the (non-reversed) order $I_1 < J_1$.
-On the other side, we can write $\{I_m,J_m\} = \{I_c \cup I_d, J_c \cup J_d\}$, where $I_c:= \{1,m+3,\dots,  2m-1\} < J_c:= \{2,5,\dots,m+1\}$ and $I_d:=\{3, 2m\} < J_d:= \{4, m+2\}$, which imply that $I_m < J_m$ via the (non-reversed) orders $I_l < J_l$ and $I_2 < J_2$, a contradiction.
+On the other side, we can write $\{I_m,J_m\} = \{I_c \cup I_d, J_c \cup J_d\}$, where $I_c \eqdef  \{1,m+3,\dots,  2m-1\} < J_c \eqdef  \{2,5,\dots,m+1\}$ and $I_d \eqdef \{3, 2m\} < J_d \eqdef  \{4, m+2\}$, which imply that $I_m < J_m$ via the (non-reversed) orders $I_l < J_l$ and $I_2 < J_2$, a contradiction.
 \end{proof}
 
 \begin{example} \label{ex:Non-coherent order contradiction}
@@ -107,9 +107,9 @@ In particular,
 \Guillaume{Rework from here}
 
 As a consequence of these lemmas and Theorem 3.16 of \cite{LA21} \Kurt{and tree substitution...}it follows that, 
-\begin{thm}
+\begin{theorem}
 There are only four comultiplicative diagonals of every operahedra, in particular, those induced by the $LA, SU, LA^{op}$ and $SU^{op}$ orders on $D(n)$.
-\end{thm}
+\end{theorem}
 
 There are four clear bijective maps between these four orders of $D(n)$
 \begin{center}
@@ -120,7 +120,7 @@ SU^{op} \arrow[r,"s"] &
 SU
 \end{tikzcd}
 \end{center}
-where $s(I,J):=(J,I)$ and $i$ inverts the order on an $(I,J)$ pair, mapping the smallest element to the largest element, then the next smallest to next largest and so on, e.g. 
+where $s(I,J) \eqdef (J,I)$ and $i$ inverts the order on an $(I,J)$ pair, mapping the smallest element to the largest element, then the next smallest to next largest and so on, e.g. 
 \begin{align*}
     i(\{1, 7, 8\} , \{ 4, 5, 6 \}) = (\{8,2,1\},\{7,6,5\}) = (\{1,2,8\},\{5,6,7\})
 \end{align*}
@@ -146,7 +146,7 @@ and \Kurt{Note the change! (not reversing each perm)}
     \text{ or } 
     &\exists l, \bigg| \bigcup_{i=1}^{l} \sigma_{i} \cap J \bigg| < \bigg|\bigcup_{i=1}^{l} \sigma_{i} \cap I \bigg|    
 \end{align*}
-Let $\theta ((\sigma,\tau)) := (\overline{\tau},\overline{\sigma})$, where an ordered $[n]$ partition $\sigma_1|...|\sigma_k$ is mapped to $\overline{\sigma}:=\overline{\sigma_{1}} | \ldots | \overline{\sigma_{k}}$, where $\overline{\sigma_i}$ is the set $\{n-j+1 \ | \ j \in \sigma_i\}$. In words, the $\overline{\sigma}$ reverses the order of the blocks of $\sigma$, and reverses the order of its constituents i.e. $1\mapsto n,2 \mapsto n-1,...,n\mapsto 1$. To see that $\theta$ is well defined, observe that under the bijection between $LA(n)$ and $SU(n)$ that $(I,J) \in LA(n)$ is mapped to $(J',I'):=(i(J),i(I)) \in SU(n)$. As such,
+Let $\theta ((\sigma,\tau))  \eqdef  (\overline{\tau},\overline{\sigma})$, where an ordered $[n]$ partition $\sigma_1|\dots|\sigma_k$ is mapped to $\overline{\sigma} \eqdef \overline{\sigma_{1}} | \ldots | \overline{\sigma_{k}}$, where $\overline{\sigma_i}$ is the set $\set{n-j+1}{j \in \sigma_i}$. In words, the $\overline{\sigma}$ reverses the order of the blocks of $\sigma$, and reverses the order of its constituents i.e. $1\mapsto n,2 \mapsto n-1,\dots,n\mapsto 1$. To see that $\theta$ is well defined, observe that under the bijection between $LA(n)$ and $SU(n)$ that $(I,J) \in LA(n)$ is mapped to $(J',I') \eqdef (i(J),i(I)) \in SU(n)$. As such,
 \begin{align*}
     (\sigma,\tau)\in \OP^{LA}
     \iff  \forall (J',I') \in SU(n), 
@@ -173,9 +173,9 @@ $(\sigma',\tau')$ is a facet of $(\sigma,\tau)$ iff
 \begin{center}
 $\sigma = \sigma'$ and $\tau' = ref_{A,B}(\tau)$ or $\tau = \tau'$ and $\sigma' = ref_{A,B}(\sigma)$
 \end{center}
-where if $\sigma = b_1|...|b_k$ and $b_i$ is partitioned by $A,B$ then
+where if $\sigma = b_1|\dots|b_k$ and $b_i$ is partitioned by $A,B$ then
 \begin{align*}
-    ref_{A,B}(\sigma) &= b_1|...|b_{i-1}|A|B|b_{i+1}|...|b_k
+    ref_{A,B}(\sigma) &= b_1|\dots|b_{i-1}|A|B|b_{i+1}|\dots|b_k
 \end{align*}
 \end{corollary}
 
@@ -186,8 +186,8 @@ $(\sigma',\tau')$ is a facet of $(\sigma,\tau)$ iff $\theta((\sigma',\tau'))$ is
 \begin{proof}
 We prove the case when $\sigma = \sigma'$ and $\tau' = ref_{A,B}(\tau)$, the other case is similar. We directly compute,
 \begin{align*}
-    \theta( (\sigma,\tau)) &= (\overline{\tau},\overline{\sigma}) = (\overline{b_k}|...|\overline{b_{i+1}}|\overline{b_i}|\overline{b_{i-1}}|...|\overline{b_1},\overline{\sigma})\\
-    \theta( (\sigma',\tau')) &= (\overline{\tau'},\overline{\sigma'}) = (\overline{b_k}|...|\overline{b_{i+1}}|\overline{B}|\overline{A}|\overline{b_{i-1}}|...|\overline{b_1},\overline{\sigma})
+    \theta( (\sigma,\tau)) &= (\overline{\tau},\overline{\sigma}) = (\overline{b_k}|\dots|\overline{b_{i+1}}|\overline{b_i}|\overline{b_{i-1}}|\dots|\overline{b_1},\overline{\sigma})\\
+    \theta( (\sigma',\tau')) &= (\overline{\tau'},\overline{\sigma'}) = (\overline{b_k}|\dots|\overline{b_{i+1}}|\overline{B}|\overline{A}|\overline{b_{i-1}}|\dots|\overline{b_1},\overline{\sigma})
 \end{align*}
 and as $\overline{B}\cup\overline{A}=\overline{b_i}$ it follows that $\theta((\sigma',\tau'))$ is a facet of $\theta((\sigma,\tau))$.
 \end{proof}
@@ -215,7 +215,7 @@ A set of \emph{distinct representatives} of a partition $\sigma_I$ is a set $M\s
 \end{definition}
 
 \begin{definition}
-A pair of partitions $(\sigma_L,\tau_R)$ is said to be \emph{complementary} if there exists $M\subset [n]$ and $m \in M$ such that $M$ and $([n]\setminus M) \cup \{m\}$ are distinct representatives of $\sigma_L$ and $\tau_R$, respectively.
+A pair of partitions $(\sigma_L,\tau_R)$ is said to be \emph{complementary} if there exists $M\subset [n]$ and $m \in M$ such that $M$ and $([n]\ssm M) \cup \{m\}$ are distinct representatives of $\sigma_L$ and $\tau_R$, respectively.
 It is furthermore \emph{essential} if there does not exist proper subsets $ L'\subset L$, $R'\subset R$ and $N' \subset [n]$ such that $(\sigma_{L'},\tau_{R'})$ is a complementary partition of $N'$.
 \end{definition}
 \begin{definition}
@@ -269,14 +269,14 @@ For an example of this bijection see \cref{ex:ECbijection}.
 In this section we denote by $\OP$ be the set of pairs of ordered partitions of $[n]$ labeling \emph{facets} of the diagonal $\triangle$. \BDO{We should perhaps change the notation for $\OP$. What about $\triangle_f$ or $\triangle_M$ ?}
 \Guillaume{I would keep the indices to the minimum}
 
-\begin{thm}
+\begin{theorem}
 \label{thm:facets}
 Facets of the diagonal and essential complementary partitions are in bijection through the inverse functions $u:\OP \to \EC$ and $o:\EC\to \OP$, where
 \begin{enumerate}
     \item The function $u$ forgets the order of the ordered partition pair.
     \item The function $o$ uniquely orders an essential complementary partition pair via the minimal $(I,J)$-pairs defining the diagonal. 
 \end{enumerate}
-\end{thm}
+\end{theorem}
 An immediate corollary of this theorem, and an enumeration of labelled bipartite trees first done in \cite{kajitani1982number}, is that there are $2(n+1)^{n-2}$ facets $\OP_n$.
  This enumeration will be refined in the next section.
 We shall prove this theorem by establishing the necessary total order, showing that the functions are well defined, and then showing that they are injective.
@@ -310,7 +310,7 @@ For $P=(\sigma,\tau) = (\bigcup_{l\in L}\sigma_l,\bigcup_{r\in R} \tau_r) \in \E
 We first show our binary relation is well defined before verifying that it defines a total order on $G(P)$ and hence $P$ via the bijection of \cref{EC Graph Bijection}.
 
 As $G(P)$ is a bipartite tree, every vertex is connected, and every path connecting two vertices on the same side must be of even length. 
-As $I$ and $J$ partition the path in an alternating fashion i.e. $p=(i_1,j_1,i_2,j_2,..., )$, we can orient the path by forcing $I$ to point left and $J$ to point right. 
+As $I$ and $J$ partition the path in an alternating fashion i.e. $p=(i_1,j_1,i_2,j_2,\dots, )$, we can orient the path by forcing $I$ to point left and $J$ to point right. 
 This order is clearly total, reflexive (by convention) and anti-symmetric, what remains to be checked is its transitivity. 
 
 Let $p_{ab}$ denote the unique maximal path between two vertices $a$ and $b$ on the left of $G(P)$, that is two blocks of $\sigma$. 
@@ -321,7 +321,7 @@ Then, we have
     a < b \iff \min(I_{ab}\cup J_{ab})=\min(I_{ab}) \ . 
 \end{equation}
 Suppose now that $a < b$ and $b < c$.
-Since $p_{ac}= (p_{ab} \cup p_{bc}) \setminus (p_{ab} \cap p_{bc})$, we have $$ I_{ac}=(I_{ab}\cup I_{bc}) \setminus (J_{ab} \cup J_{bc}) \text{ and } J_{ac}=(J_{ab}\cup J_{bc}) \setminus (I_{ab} \cup I_{bc}) \ , $$ and from the condition (\ref{eq:order}) above it is clear that $\min(I_{ac}\cup J_{ac})=\min(I_{ac})$, which completes the proof of the transitivity for the total order on $\sigma$. 
+Since $p_{ac}= (p_{ab} \cup p_{bc}) \ssm (p_{ab} \cap p_{bc})$, we have $$ I_{ac}=(I_{ab}\cup I_{bc}) \ssm (J_{ab} \cup J_{bc}) \text{ and } J_{ac}=(J_{ab}\cup J_{bc}) \ssm (I_{ab} \cup I_{bc}) \ , $$ and from the condition (\ref{eq:order}) above it is clear that $\min(I_{ac}\cup J_{ac})=\min(I_{ac})$, which completes the proof of the transitivity for the total order on $\sigma$. 
 The proof for $\tau$ is similar. 
 \end{proof}
 
@@ -391,7 +391,7 @@ First we need a geometrical lemma. \Kurt{notation clash...}
     Suppose that $\rho$ is obtained from $\sigma$ by merging the two blocks $\sigma_a$ and $\sigma_b$. 
     The two equations $\langle \vec \sigma_a, x \rangle =0$ and $\langle \vec \sigma_b, x \rangle =0$ now become $\langle \vec \sigma_a + \vec \sigma_b, x \rangle =0$; nothing else changes in the system. 
     Since the solution to the system $(\sigma^1,\sigma^2)$ was $x=0$, now the solution is of dimension $1$, and it is given precisely by the path between $a$ and $b$ in $G(P)$.
-    Such a path is given by an alternating sequence of vertices and edges $\sigma_1:=\sigma_a, e_1, \sigma_2, e_2, \ldots, e_{k-1}, \sigma_k:=\sigma_b$. 
+    Such a path is given by an alternating sequence of vertices and edges $\sigma_1 \eqdef \sigma_a, e_1, \sigma_2, e_2, \ldots, e_{k-1}, \sigma_k \eqdef \sigma_b$. 
     Every edge $e_i \in \{1,\ldots, n\}$ is by definition the intersection $\sigma_{i} \cap \sigma_{i+1}$; thus it is the only common non-zero coordinate between $\vec \sigma_{i}$ and $\vec \sigma_{i+1}$.
     Thus the path encodes the series of equations $x_{e_1}+x_{e_{k-1}}=0$, $x_{e_1}+x_{e_2}=0$, $x_{e_2}+x_{e_3}=0$, $\ldots$, $x_{e_{k-2}}+x_{e_{k-1}}=0$. 
     Thus, $x_{e_1}=1$, $x_{e_2}=-1$, $x_{e_3}=1$, $\ldots$, $x_{e_{k-2}}=1$, $x_{e_{k-1}}=-1$ is a basis of one-dimensional space of solutions, and it gives the corresponding minimal $(I,J)$-pair. 
@@ -408,9 +408,9 @@ We first show that every $(I,J)$-condition, for $(I,J) \in D(n)$, which correspo
 In particular, this statement will be true for minimal $(I,J)$-pairs, which will be enough in virtue of \cref{p:minimal}. 
 Suppose $I,J$ corresponds to a path between two vertices on the left, i.e.
 \begin{align*}
-    \sigma_l = \sigma_{l_1} \xrightarrow{i_1} \tau_{r_1}\xrightarrow{j_1} \sigma_{l_2} \xrightarrow{i_2}... \xrightarrow{i_{k}} \tau_{r_{k-1}} \xrightarrow{j_k} \sigma_{l_k}= \sigma_{l'}
+    \sigma_l = \sigma_{l_1} \xrightarrow{i_1} \tau_{r_1}\xrightarrow{j_1} \sigma_{l_2} \xrightarrow{i_2}\dots \xrightarrow{i_{k}} \tau_{r_{k-1}} \xrightarrow{j_k} \sigma_{l_k}= \sigma_{l'}
 \end{align*}
-By construction we have that $I = \{i_1,...,i_k\},J=\{j_1,...,j_k\} \in D(n)$ (note we are ordering $I$ and $J$ by the path, so it is not necessarily the case that $\min I = i_1$). 
+By construction we have that $I = \{i_1,\dots,i_k\},J=\{j_1,\dots,j_k\} \in D(n)$ (note we are ordering $I$ and $J$ by the path, so it is not necessarily the case that $\min I = i_1$). 
 Furthermore, each sub partition of $\tau$ either contains a single element of $I$ and a single element of $J$, or it contains no elements of $I$ and no elements of $J$. 
 As such for any ordering of the sub-partitions of $\tau$ we have that \Kurt{Could use [-] notation, but feels clearer to write out?}
 \begin{align*}
@@ -425,7 +425,7 @@ So the only way for the condition to be satisfied is for $\sigma_l$ to come befo
 
 If $I,J$ correspond to a path between two vertices on the right,
 \begin{align*}
-    \tau_r = \tau_{r_1} \xrightarrow{j_1} \sigma_{l_1}\xrightarrow{i_1} \tau_{r_2} \xrightarrow{j_2}... \xrightarrow{j_{k}} \sigma_{l_{k-1}} \xrightarrow{1_k} \tau_{r_k}=\tau_{r'}
+    \tau_r = \tau_{r_1} \xrightarrow{j_1} \sigma_{l_1}\xrightarrow{i_1} \tau_{r_2} \xrightarrow{j_2}\dots \xrightarrow{j_{k}} \sigma_{l_{k-1}} \xrightarrow{1_k} \tau_{r_k}=\tau_{r'}
 \end{align*}
 then a similar chain of logic implies we must have an ordering of the sub-partitions of $\tau$ such that
 \begin{align*}
@@ -434,10 +434,10 @@ then a similar chain of logic implies we must have an ordering of the sub-partit
 and this can only happen if $\tau_r$ comes before $\tau_{r'}$.
 \end{proof}
 
-\begin{rem}
+\begin{remark}
     It would be interesting to know if there is a geometrical interpretation of the paths that are not between adjacent vertices. 
     
-\end{rem}
+\end{remark}
 
 To complete the proof of \cref{thm:facets}, it remains to show that both $u:\OP \to \EC$ and $o:\EC\to \OP$ are injective, with the other function being their inverse.
 
@@ -520,8 +520,8 @@ Note the composite $\LAD \xrightarrow{f} \EC \xrightarrow{o'} \SUD$ provides ano
 
 We are now interested in characterizing the pairs of vertices that occur in the diagonal, that is pairs of permutations $(\sigma_1,\sigma_2) \in \triangle$. 
 
-\begin{thm} There exists $(I,J) \in D(n)$ such that $\forall k, |\sigma_1^1\cdots\sigma_1^k \cap I| \leq |\sigma_1^1\cdots\sigma_1^k \cap J|$ and $\forall l, |\sigma_1^1\cdots\sigma_1^l \cap I| \geq |\sigma_1^1\cdots\sigma_1^l \cap J|$ (diagonal condition) if and only if $\exists (I',J')=(\{i_1,\ldots,i_m\},\{j_1,\ldots,j_m\}) \in D(m)$, $m\leq n$, such that \[\sigma_1 \cap (I'\cup J')=j_1 i_1 j_2 i_2 \cdots j_n i_n \] and \[ \sigma_2 \cap (I'\cup J') = i_2 j_1 i_3 j_2 \cdots i_n j_{n-1} i_1 j_n \ , \] where $i_1 = \min (I' \cup J')$ (fish condition). 
-\end{thm}
+\begin{theorem} There exists $(I,J) \in D(n)$ such that $\forall k, |\sigma_1^1\cdots\sigma_1^k \cap I| \leq |\sigma_1^1\cdots\sigma_1^k \cap J|$ and $\forall l, |\sigma_1^1\cdots\sigma_1^l \cap I| \geq |\sigma_1^1\cdots\sigma_1^l \cap J|$ (diagonal condition) if and only if $\exists (I',J')=(\{i_1,\ldots,i_m\},\{j_1,\ldots,j_m\}) \in D(m)$, $m\leq n$, such that \[\sigma_1 \cap (I'\cup J')=j_1 i_1 j_2 i_2 \cdots j_n i_n \] and \[ \sigma_2 \cap (I'\cup J') = i_2 j_1 i_3 j_2 \cdots i_n j_{n-1} i_1 j_n \ , \] where $i_1 = \min (I' \cup J')$ (fish condition). 
+\end{theorem}
 
 \begin{proof}
 \begin{itemize}
@@ -559,9 +559,9 @@ Let us now consider the biggest $k\geq 1$ such that $\sigma^{I \cup J}_1$ begins
 \end{proof}
 
 \begin{corollary} For any pair of permutations $(\sigma_1, \sigma_2$, there exists $(I,J) \in D(n)$ such that $((\sigma_1, \sigma_2),(I,J))$ satisfies the diagonal condition if and only if there exists $(I',J') \in E(m)$, $m<n$ such that $((\sigma_1, \sigma_2),(I',J'))$ satisfies the fish condition, with 
-\begin{multline}
-E(m)=\{(I,J)\in D(m)| \min(J)<\min(I-\min(I)), |\llbracket 1; k \rrbracket \cap J| > |\llbracket 1; k \rrbracket \cap I| \\ \text{ if } |\llbracket 1; k \rrbracket \cap J| \geq 2 \text{ and } I \subsetneq \llbracket 1; k \rrbracket \}
-\end{multline}
+\[
+E(m)=\set{(I,J)\in D(m)}{\begin{array}{l} \min(J)<\min(I-\min(I)), \\ |\llbracket 1; k \rrbracket \cap J| > |\llbracket 1; k \rrbracket \cap I| \\ \text{if } |\llbracket 1; k \rrbracket \cap J| \geq 2 \text{ and } I \subsetneq \llbracket 1; k \rrbracket \end{array}}
+\]
 \end{corollary}
 
 \begin{proof}
@@ -639,11 +639,11 @@ Moreover, the set of facets with no crossings is the set of strong complementary
 
 We aim now at characterizing the cover relations of this poset. 
 Let $(\sigma,\tau)$ be a facet of $\OP$.
-We say that a pair of adjacent blocks $\sigma_i | \sigma_{i+1}$ of $\sigma$ is \emph{admissible} if there is an element $\rho \in (\sigma_{i+1} \setminus \max\sigma_{i+1})$ such that $\rho < \min \sigma_{i}$ and $\rho < \min \gamma$ for $\gamma$ the unique path between $\sigma_i$ and $\sigma_{i+1}$. 
+We say that a pair of adjacent blocks $\sigma_i | \sigma_{i+1}$ of $\sigma$ is \emph{admissible} if there is an element $\rho \in (\sigma_{i+1} \ssm \max\sigma_{i+1})$ such that $\rho < \min \sigma_{i}$ and $\rho < \min \gamma$ for $\gamma$ the unique path between $\sigma_i$ and $\sigma_{i+1}$. 
 Such an element $\rho$ is said to be \emph{critical}. 
-Let us define the \emph{left shift operator} $L$, which takes an admissible pair $\sigma_i | \sigma_{i+1}$ in $\sigma$ and creates a new ordered partition $L(\sigma)$ where the critical element $\rho$ is shifted one block to the left: we have $L(\sigma)_i := \sigma_i \cup \rho$, $L(\sigma)_{i+1} := \sigma_{i+1} \setminus \ \rho$, and $L(\sigma)_{j}:=\sigma_j$ for all $j\neq i, i+1$. 
+Let us define the \emph{left shift operator} $L$, which takes an admissible pair $\sigma_i | \sigma_{i+1}$ in $\sigma$ and creates a new ordered partition $L(\sigma)$ where the critical element $\rho$ is shifted one block to the left: we have $L(\sigma)_i  \eqdef  \sigma_i \cup \rho$, $L(\sigma)_{i+1}  \eqdef  \sigma_{i+1} \ssm \ \rho$, and $L(\sigma)_{j} \eqdef \sigma_j$ for all $j\neq i, i+1$. 
 
-In the same fashion, the \emph{right shift operator} $R$ sends an element $\rho \in (\tau_{i} \setminus \max\tau_{i})$ with $\rho < \min \tau_{i+1}$ and $\rho < \min \gamma$ one block to the right; the resulting ordered partition $R(\tau)$ is such that $R(\tau)_i := \tau_i \setminus \rho$ and $R(\tau)_{i+1} := \tau_{i+1} \cup \ \rho$.
+In the same fashion, the \emph{right shift operator} $R$ sends an element $\rho \in (\tau_{i} \ssm \max\tau_{i})$ with $\rho < \min \tau_{i+1}$ and $\rho < \min \gamma$ one block to the right; the resulting ordered partition $R(\tau)$ is such that $R(\tau)_i  \eqdef  \tau_i \ssm \rho$ and $R(\tau)_{i+1}  \eqdef  \tau_{i+1} \cup \ \rho$.
 
 \begin{definition}
     The facets of the \emph{dual SU diagonal} are the pairs or ordered partitions that can be obtained from an strong complementary pair $(\sigma,\tau)$ by iterated applications of the left shift operator $L$ on the first term $\sigma$, and iterated applications of the right shift operator $R$ on the second term $\tau$. 
@@ -662,10 +662,10 @@ We observe that the paths in $(L(\sigma), \tau)$ are precisely the following: ei
 Since $\rho < \min \gamma$, adding the path $\gamma$ does not change the minima of the paths in $(L(\sigma), \tau)$, with respect to the ones in $(\sigma, \tau)$.
 \end{proof}
 
-\begin{thm}
+\begin{theorem}
 \label{t:iso-with-SU}
     The facets of the diagonal $\OP$ and the facets of the dual SU diagonal are equal. 
-\end{thm}
+\end{theorem}
 
 \begin{proof}
 Since we consider only the action of $L$ on the first term of the pair $(\sigma,\tau)$ and the action of $R$ on the second term, we will prove statements for $L$, the ones for $R$ are similar.
@@ -709,9 +709,9 @@ To the contrary, we have $\sigma=\sigma'$, which completes the proof.
 Now we give the definition of the Saneblidze--Umble diagonal \cite{SaneblidzeUmble04}, following the description below Example $1$ in \cite{saneblidzeComparingDiagonalsAssociahedra2022}, and replace "$\max$" with "$\min$" and the symbol "$>$" with the symbol "$<$".
 
 Let $(\sigma,\tau)$ be a pair of ordered partitions.
-We say that a pair of adjacent blocks $\sigma_i | \sigma_{i+1}$ of $\sigma$ is \emph{SU admissible} if there is a non-empty subset $\rho \subset (\sigma_{i+1} \setminus \max\sigma_{i+1})$ such that $\max \rho < \min \sigma_{i}$. 
-Let us define the \emph{subset left shift operator} $L^i$, which takes an SU admissible pair $\sigma_i | \sigma_{i+1}$ in $\sigma$ and creates a new ordered partition $L^i(\sigma)$ where the subset $\rho$ is shifted one block to the left: we have $L^i(\sigma)_i := \sigma_i \cup \rho$, $L^i(\sigma)_{i+1} := \sigma_{i+1} \setminus \ \rho$, and $L^i(\sigma)_{j}:=\sigma_j$ for all $j\neq i, i+1$. 
-In the same fashion, the \emph{subset right shift operator} $R^i$ sends a subset $\rho \subset (\tau_{i} \setminus \max\tau_{i})$ with $\max \rho < \min \tau_{i+1}$ one block to the right; the resulting ordered partition $R^i(\tau)$ is such that $R^i(\tau)_i := \tau_i \setminus \rho$ and $R^i(\tau)_{i+1} := \tau_{i+1} \cup \ \rho$.
+We say that a pair of adjacent blocks $\sigma_i | \sigma_{i+1}$ of $\sigma$ is \emph{SU admissible} if there is a non-empty subset $\rho \subset (\sigma_{i+1} \ssm \max\sigma_{i+1})$ such that $\max \rho < \min \sigma_{i}$. 
+Let us define the \emph{subset left shift operator} $L^i$, which takes an SU admissible pair $\sigma_i | \sigma_{i+1}$ in $\sigma$ and creates a new ordered partition $L^i(\sigma)$ where the subset $\rho$ is shifted one block to the left: we have $L^i(\sigma)_i  \eqdef  \sigma_i \cup \rho$, $L^i(\sigma)_{i+1}  \eqdef  \sigma_{i+1} \ssm \ \rho$, and $L^i(\sigma)_{j} \eqdef \sigma_j$ for all $j\neq i, i+1$. 
+In the same fashion, the \emph{subset right shift operator} $R^i$ sends a subset $\rho \subset (\tau_{i} \ssm \max\tau_{i})$ with $\max \rho < \min \tau_{i+1}$ one block to the right; the resulting ordered partition $R^i(\tau)$ is such that $R^i(\tau)_i  \eqdef  \tau_i \ssm \rho$ and $R^i(\tau)_{i+1}  \eqdef  \tau_{i+1} \cup \ \rho$.
 
 
 \begin{definition}[Dual SU diagonal, second definition]\label{def: Dual SU diagonal, second definition}
@@ -736,7 +736,7 @@ In the same fashion, the \emph{subset right shift operator} $R^i$ sends a subset
 
 \begin{proof}
     We analyse the left shift operator, the case of the right shift is similar. 
-    First, we observe that any subset left shift $L^{i}(\sigma)$ can be decomposed in a series of left shifts: since $\max \rho < \min \gamma$ by the proof of \cref{l:minima-invariance-subset}, we can first shift $\max \rho$ to the left, then $\max (\rho \setminus \max \rho)$, and so on until the entire subset $\rho$ has been shifted to the left. 
+    First, we observe that any subset left shift $L^{i}(\sigma)$ can be decomposed in a series of left shifts: since $\max \rho < \min \gamma$ by the proof of \cref{l:minima-invariance-subset}, we can first shift $\max \rho$ to the left, then $\max (\rho \ssm \max \rho)$, and so on until the entire subset $\rho$ has been shifted to the left. 
     This shows that any facet in the second definition of the dual SU diagonal is also a facet in the first definition. 
 
     For the reverse inclusion, we show by induction on the number of left shifts that a pair $(\sigma',\tau)$ where $\sigma'$ has been obtained by iterated left shifts can also be obtained by iterated subset left shifts, that is, can be written in the form $(L^{i_k}\cdots L^{i_1}(\sigma), \tau)$.
@@ -755,7 +755,7 @@ One can thus interpret the left and right shift operators for singletons introdu
 
 Now, we end with two important consequences of the preceding results. 
 Consider the symmetry $s$ of the $(n-1)$-dimensional permutahedron, which consists in the reflection with respect to the hyperplane $x_1 + x_n = x_2 + x_{n-1}$. 
-It sends an ordered partition $\sigma:=\sigma_1 | \ldots | \sigma_k$ to the ordered partition $s\sigma:=n-\sigma_{k}+1 | \ldots | n-\sigma_{1}+1$, where $n-\sigma_i+1$ is the set $\{n-j+1 \ | \ j \in \sigma_i\}$. 
+It sends an ordered partition $\sigma \eqdef \sigma_1 | \ldots | \sigma_k$ to the ordered partition $s\sigma \eqdef n-\sigma_{k}+1 | \ldots | n-\sigma_{1}+1$, where $n-\sigma_i+1$ is the set $\set{n-j+1}{j \in \sigma_i}$. 
 \Kurt{This is what the next two corollaries should be i.e. altered to put max IJ =max J. Should probably combine with above.}
 \begin{corollary}
 \label{c:iso-with-SU}
@@ -783,7 +783,7 @@ This gives a geometric, alternative proof of the fact that all known diagonals o
 \Guillaume{Now we have matrix representation for free!}
 
 \begin{example} \label{ex:shifts}
-The permutation $5714632$ corresponds to the strong complementary pair $(\sigma,\tau) := 5|17|4|236 \times 57|146|3|2$. We now illustrate all possible shifts of this strong complimentary pair. The possible left shifts (indicated by their corresponding critical element, and drawn to avoid crossings) are
+The permutation $5714632$ corresponds to the strong complementary pair $(\sigma,\tau)  \eqdef  5|17|4|236 \times 57|146|3|2$. We now illustrate all possible shifts of this strong complimentary pair. The possible left shifts (indicated by their corresponding critical element, and drawn to avoid crossings) are
 \begin{center}
 \begin{tikzcd}
 & 5|17|4|236 \times \tau \arrow[ld,"p=3"] \arrow[d,"p=1"] \arrow[rd,"p=2"]\\
@@ -880,21 +880,21 @@ The path description of $(\sigma,\tau)$ is a straightforward observation. The mi
 \Kurt{better presentation of subset diagonal...}
 
 \begin{definition} \label{def:subset shifts}
-Let $(\sigma,\tau) = (\sigma_1|...|\sigma_k,\tau_1|...|\tau_l)$ be an ordered partition pair, and let $M_i\subset (\sigma_{i}\setminus \min \sigma_{i})$ be a non-empty subset such that $\min M_i> \max \sigma_{i+1}$.
+Let $(\sigma,\tau) = (\sigma_1|\dots|\sigma_k,\tau_1|\dots|\tau_l)$ be an ordered partition pair, and let $M_i\subset (\sigma_{i}\ssm \min \sigma_{i})$ be a non-empty subset such that $\min M_i> \max \sigma_{i+1}$.
 For this set we define the \emph{subset right shift operator} by
 \begin{align*}
-    R_{M_i}(\sigma):= \sigma_1|...|\sigma_i \setminus M_i|\sigma_i \sqcup M_i|...|\sigma_k
+    R_{M_i}(\sigma) \eqdef  \sigma_1|\dots|\sigma_i \ssm M_i|\sigma_i \sqcup M_i|\dots|\sigma_k
 \end{align*}
-Dually, let $M_{i+1}\subset (\tau_{i+1}\setminus \min \tau_{i+1})$  be a non-empty subset such that $\min M_{i+1}> \max \tau_{i}$.
+Dually, let $M_{i+1}\subset (\tau_{i+1}\ssm \min \tau_{i+1})$  be a non-empty subset such that $\min M_{i+1}> \max \tau_{i}$.
 For this set we define the \emph{subset left shift operator} by
 \begin{align*}
-    L_{M_{i+1}}(\tau):= \tau_1|...|\tau_i \sqcup M_{i+1}|\tau_i \setminus M_{i+1}|...|\tau_l
+    L_{M_{i+1}}(\tau) \eqdef  \tau_1|\dots|\tau_i \sqcup M_{i+1}|\tau_i \ssm M_{i+1}|\dots|\tau_l
 \end{align*}
-For $l\geq 1$, let $\textbf{M} = (M_{i_1},...,M_{i_l}) \in [n]^{l}$, be such that $1\leq i_1 < i_2 ... < i_l\leq k-1$, and each of the iterated compositions $R_\mathbf{M}(\sigma) := R_{M_{i_l}}...R_{M_{i_1}}(\sigma)$ are well-defined.
-Similarly, for $m\geq 1$ let $\textbf{N} = (N_{i_m},...,N_{i_1}) \in [n]^{m}$ be such that $2\leq i_1 < i_2 ... < i_m\leq k$, and each of the iterated compositions  $L_\mathbf{N}(\tau) := L_{N_{i_1}}...L_{N_{i_m}}(\tau)$ are well-defined.
-We define the case $R_{\emptyset}\sigma := \sigma$ and $L_{\emptyset}\tau := \tau$. Then we denote,
+For $l\geq 1$, let $\textbf{M} = (M_{i_1},\dots,M_{i_l}) \in [n]^{l}$, be such that $1\leq i_1 < i_2 \dots < i_l\leq k-1$, and each of the iterated compositions $R_\mathbf{M}(\sigma)  \eqdef  R_{M_{i_l}}\dots R_{M_{i_1}}(\sigma)$ are well-defined.
+Similarly, for $m\geq 1$ let $\textbf{N} = (N_{i_m},\dots,N_{i_1}) \in [n]^{m}$ be such that $2\leq i_1 < i_2 \dots < i_m\leq k$, and each of the iterated compositions  $L_\mathbf{N}(\tau)  \eqdef  L_{N_{i_1}}\dots L_{N_{i_m}}(\tau)$ are well-defined.
+We define the case $R_{\emptyset}\sigma  \eqdef  \sigma$ and $L_{\emptyset}\tau  \eqdef  \tau$. Then we denote,
 \begin{align*}
-    A_{\sigma}\times B_\tau:= \bigsqcup_{\mathbf{M},\mathbf{N}} \{R_\mathbf{M}(\sigma)\times L_\mathbf{N}(\tau) \}
+    A_{\sigma}\times B_\tau \eqdef  \bigsqcup_{\mathbf{M},\mathbf{N}} \{R_\mathbf{M}(\sigma)\times L_\mathbf{N}(\tau) \}
 \end{align*}
 where the union is over all valid $\textbf{M},\textbf{N}$ such that the iterated operators are well-defined.
 \end{definition}
@@ -904,7 +904,7 @@ Observe that the left shift operator moves elements to the left, but acts on the
 Dually, the right shift operator moves elements to the right but acts on the left ordered partition.
 We have departed from the notation of \cite{saneblidzeComparingDiagonalsAssociahedra2022} in two ways.
 Firstly we have reversed the indexing of the left shift operator, and secondly we have omitted the case $M=\emptyset$ whose corresponding operator was the identity. 
-As we have omitted the case $M=\emptyset$, we have altered our indexing set from $\{1,2,...,d\}$ to the increasing sequence $i_1<...<i_d$. 
+As we have omitted the case $M=\emptyset$, we have altered our indexing set from $\{1,2,\dots,d\}$ to the increasing sequence $i_1<\dots<i_d$. 
 \begin{proposition}[Theorem \cite{SaneblidzeUmble04}, Restated in \cite{saneblidzeComparingDiagonalsAssociahedra2022}]
 The subset-shift $SU$ diagonal is generated by all valid subset-shifts of SCPs,
 \begin{align*}
@@ -941,7 +941,7 @@ So combining these we know,
 A key consequence of this inequality is that the corresponding graph of $(R_{M_k}R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$ is a bipartite tree conditional on $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$ being a bipartite tree (the shift will not disconnect the graph as none of the shifted elements are in the path $R_{\mathbf{M}}(\sigma)_{k,k+1}$). So, it is well-defined to speak of unique paths between blocks. 
 We now explicitly explore how the shift operator $R_{M_k}$ alters paths. 
 Throughout the rest of this proof, we use the following shorthand. 
-Let $\delta_{k,k+1}:= R_{\mathbf{M}}(\sigma)_{k,k+1}$ (i.e. the path between the adjacent blocks in $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$ ), and let $\delta_{k+1,k}$ be the same path reversed.
+Let $\delta_{k,k+1} \eqdef  R_{\mathbf{M}}(\sigma)_{k,k+1}$ (i.e. the path between the adjacent blocks in $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$ ), and let $\delta_{k+1,k}$ be the same path reversed.
 Let $\gamma$ be a path between two blocks on one side of $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$, and $\gamma'$ the path between the same blocks, by indices, in $(R_{M_k}R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$. 
 We assume for now that the start and end of the path $\gamma$ are distinct from those of $\delta_k$.
 There are four cases to consider. 
@@ -954,9 +954,9 @@ There are four cases to consider.
         \item $\beta$ does not use any steps of $\delta_{k,k+1}$, in which case $\gamma' = \alpha m \delta_{k+1,k} \beta$.
         This is a path in the tree of $(R_{M_k}R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$ with no repeated steps, as such it must be the unique minimal path. 
         (There cannot be another path as this would induce a cycle on the tree.)
-        \item $\beta$ uses steps of $\delta_{k,k+1}$, in which case $\gamma' = \alpha m (\delta_{k+1,k}\setminus \beta)(\beta \setminus \delta_{k+1,k})$.
+        \item $\beta$ uses steps of $\delta_{k,k+1}$, in which case $\gamma' = \alpha m (\delta_{k+1,k}\ssm \beta)(\beta \ssm \delta_{k+1,k})$.
         This follows, as we know that $\beta$ must follow the path $\delta_{k,k+1}$ for some time before diverging ($\beta$ could also be a subset of $\delta_{k,k+1}$, in which case it will never diverge).
-        As such, the path $(\delta_{k+1,k}\setminus \beta)$ reaches the point of divergence from $R_{\mathbf{M}}(\sigma)_{k+1}$ instead of $R_{\mathbf{M}}(\sigma)_{k}$, then the path $(\beta \setminus \delta_{k+1,k})$ completes the rest of the route unchanged.
+        As such, the path $(\delta_{k+1,k}\ssm \beta)$ reaches the point of divergence from $R_{\mathbf{M}}(\sigma)_{k+1}$ instead of $R_{\mathbf{M}}(\sigma)_{k}$, then the path $(\beta \ssm \delta_{k+1,k})$ completes the rest of the route unchanged.
     \end{enumerate}
     \item $\gamma$ contains two elements of $M_k$. In which case we still have $\gamma'=\gamma$ (in path elements) but $\gamma'$ will step through the $(k+1)$th block instead of $\gamma$ stepping through the $k$th block.
     
@@ -978,9 +978,9 @@ The key result of the inductive proof was the chain of inequalities which yielde
 It turns out, if we assume the inequality holds, we can drop the assumption that $k$ is greater than the maximal index used by $\mathbf{M}$, and the assumption that $\min M_k > \max R_{\mathbf{M}}(\sigma)_{k+1}$. 
 Furthermore, once we have dropped the assumption that we need to perform shifts in an increasing order, we can generate all subset shifts by chains of singleton set shifts. This motivates the following definition. 
 \begin{definition} \label{def:critical SU shift}
-Let $(\sigma,\tau)$ be a pair of ordered partitions, and let $\rho \in (\sigma_i \setminus \min \sigma_i)$ such that $\rho>\max \sigma_{i,i+1}$.
+Let $(\sigma,\tau)$ be a pair of ordered partitions, and let $\rho \in (\sigma_i \ssm \min \sigma_i)$ such that $\rho>\max \sigma_{i,i+1}$.
 Such an element $\rho$ is said to be \emph{critical}. 
-We similarly define the critical elements of $\tau$ to be, $\rho \in (\tau_{i+1} \setminus \min\tau_{i+1})$ such that $\rho > \max \tau_{i,i+1}$. 
+We similarly define the critical elements of $\tau$ to be, $\rho \in (\tau_{i+1} \ssm \min\tau_{i+1})$ such that $\rho > \max \tau_{i,i+1}$. 
 The right and left shift operators are defined on singleton sets, and we will denote these shift operators being applied to critical elements as $R_{\rho}$ and $L_{\rho}$.
 \end{definition}
 
@@ -1005,17 +1005,17 @@ The subset shift, and shift definitions of the $\SUD$ diagonal coincide.
 
 \begin{proof}
 We analyse the right shift operator, the case of the left shift is similar. 
-First, we observe that any subset right shift $R_{M_k}(\sigma)$ can be decomposed in a series of right shifts: since $\min M_k > \max \sigma_{k,k+1}$ by the proof of \cref{lem:SU subset conserves maximal element of paths}, we can first shift $\min M_k$ to the right, then $\min (M_k \setminus \min M_k)$, and so on until the entire subset $M_k$ has been shifted to the right. 
+First, we observe that any subset right shift $R_{M_k}(\sigma)$ can be decomposed in a series of right shifts: since $\min M_k > \max \sigma_{k,k+1}$ by the proof of \cref{lem:SU subset conserves maximal element of paths}, we can first shift $\min M_k$ to the right, then $\min (M_k \ssm \min M_k)$, and so on until the entire subset $M_k$ has been shifted to the right. 
 This shows that any facet of the subset shift $\SUD$ diagonal is also a facet in the shift $\SUD$ diagonal
 \\\\
 For the reverse inclusion, we proceed by induction. We are required to show that if we apply a critical right shift to $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$, say $(R_{\rho}R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$, then this can be re-expressed as a well-defined subset shift operation i.e. $(R_{\mathbf{M'}}(\sigma),L_{\mathbf{N}}(\tau))$. Suppose that prior to the critical shift that $\rho$ lives in block $l$, then we must have
 \begin{align*}
-    1 \leq i_1 < ... < i_j \leq l < i_{j+1} <...< i_d \leq k-1
+    1 \leq i_1 < \dots < i_j \leq l < i_{j+1} <\dots< i_d \leq k-1
 \end{align*}
-for some $j\in [d]$. If $i_j < l$, then $R_{\rho}R_{\mathbf{M}}(\sigma) = R_{M_{i_d}}...R_{\{\rho\}_{l}}R_{M_{i_j}}...R_{M_{i_1}}(\sigma)$, and we are done.
-Otherwise, if $i_j = l$, let $M'_{i_j} = M_{i_j} \cup \{\rho \}$. It is clear that $R_{\rho}R_{\mathbf{M}}(\sigma) = R_{M_{i_d}}...R_{M'_{i_j}}...R_{M_{i_1}}(\sigma)$, however, we need to check that $R_{M'_{i_j}}$ is a well-defined subset operator. 
-We know the subset shift operators will never move the minimal element, so $\rho > \min R_{\mathbf{M}}(\sigma)_{i_j}= \min (R_{M_{i_{j-1}}}...R_{M_{i_1}}(\sigma))_{i_j}$.
-Then from \cref{cor: SU shift conserves maximal element of paths}, we know that $\rho>\max \sigma_{i_j+1} = \max (R_{M_{i_{j-1}}}...R_{M_{i_1}}(\sigma))_{i_j + 1}$, where the equality follows as $i_1<...<i_{j-1}<i_j$. This proves that $R_{M'_{i_j}}$ is well-defined, completing the inductive proof.
+for some $j\in [d]$. If $i_j < l$, then $R_{\rho}R_{\mathbf{M}}(\sigma) = R_{M_{i_d}}\dots R_{\{\rho\}_{l}}R_{M_{i_j}}\dots R_{M_{i_1}}(\sigma)$, and we are done.
+Otherwise, if $i_j = l$, let $M'_{i_j} = M_{i_j} \cup \{\rho \}$. It is clear that $R_{\rho}R_{\mathbf{M}}(\sigma) = R_{M_{i_d}}\dots R_{M'_{i_j}}\dots R_{M_{i_1}}(\sigma)$, however, we need to check that $R_{M'_{i_j}}$ is a well-defined subset operator. 
+We know the subset shift operators will never move the minimal element, so $\rho > \min R_{\mathbf{M}}(\sigma)_{i_j}= \min (R_{M_{i_{j-1}}}\dots R_{M_{i_1}}(\sigma))_{i_j}$.
+Then from \cref{cor: SU shift conserves maximal element of paths}, we know that $\rho>\max \sigma_{i_j+1} = \max (R_{M_{i_{j-1}}}\dots R_{M_{i_1}}(\sigma))_{i_j + 1}$, where the equality follows as $i_1<\dots<i_{j-1}<i_j$. This proves that $R_{M'_{i_j}}$ is well-defined, completing the inductive proof.
 \end{proof}
 
 The remainder of this section is devoted to the proof that the shift $\SUD$ diagonal is equal to the $\SUD$ diagonal. 
@@ -1115,14 +1115,14 @@ We now need to show that every facet which is not a $SCP$ admits an inverse shif
 The critical left and right shift operators send a facet of $\SUD$ to an adjacent facet of $\SUD$. This can be interpreted as stepping through a shared facet of the facets.
 \end{lemma}
 \begin{proof}
-Let $(\sigma_1|...|\sigma_k,\tau) \in \SUD$, and let $\rho \in \sigma_{i}$ be a critical element. Then, the shift operator $R_{\rho}$ steps from the facet $(\sigma_1|...|\sigma_i |\sigma_{i+1} |...|\sigma_k, \tau)$, to the facet $(\sigma_1|...|\sigma_i \setminus \{\rho\}|\sigma_{i+1} \sqcup \{\rho\}|...|\sigma_k,\tau)$, through the facets of facets $(\sigma_1|...|\sigma_i \setminus \{\rho\}|\rho|\sigma_{i+1}|...|\sigma_k, \tau)$.
+Let $(\sigma_1|\dots|\sigma_k,\tau) \in \SUD$, and let $\rho \in \sigma_{i}$ be a critical element. Then, the shift operator $R_{\rho}$ steps from the facet $(\sigma_1|\dots|\sigma_i |\sigma_{i+1} |\dots|\sigma_k, \tau)$, to the facet $(\sigma_1|\dots|\sigma_i \ssm \{\rho\}|\sigma_{i+1} \sqcup \{\rho\}|\dots|\sigma_k,\tau)$, through the facets of facets $(\sigma_1|\dots|\sigma_i \ssm \{\rho\}|\rho|\sigma_{i+1}|\dots|\sigma_k, \tau)$.
 \end{proof}
 
 As such, an immediate corollary of $\theta:\LAD \to \SUD$ being a face poset isomorphism is that their are analogous critical shift definitions of $\LAD$ induced by $\theta^{-1}$. 
 We now explicitly state the critical shift $\LAD$ definition.
 \begin{definition} \label{def:critical LA shift}
-Let $(\sigma,\tau)$ be a pair of ordered partitions, and let $\rho \in (\sigma_{i+1} \setminus \max \sigma_{i+1})$ such that $\rho< \min \sigma_{i,i+1}$. Such an element $\rho$ is said to be \emph{critical}. 
-We similarly define the critical elements of $\tau$ to be, $\rho \in (\tau_{i} \setminus \max\tau_{i})$ such that $\rho < \min \tau_{i,i+1}$. 
+Let $(\sigma,\tau)$ be a pair of ordered partitions, and let $\rho \in (\sigma_{i+1} \ssm \max \sigma_{i+1})$ such that $\rho< \min \sigma_{i,i+1}$. Such an element $\rho$ is said to be \emph{critical}. 
+We similarly define the critical elements of $\tau$ to be, $\rho \in (\tau_{i} \ssm \max\tau_{i})$ such that $\rho < \min \tau_{i,i+1}$. 
 We define the left shift operator $L_{\rho}$ to act on $\sigma$, and the right shift $R_{\rho}$ operator to act on $\tau$.
 \end{definition}
 We note that compared to shift $\SUD$, the left shift operator now acts on the left ordered partition, and the right shift operator on the right ordered partition, a distinct notational improvement.
@@ -1131,7 +1131,7 @@ There is also a clear translation of the subset shift operator, which we will no
 We now explore in example how the $\LAD$ shift structure is induced by $\theta$.
 
 \begin{example} \label{ex:shift translation by theta}
-The $SCP$s $(\sigma,\tau) := 5|17|4|236 \times 57|146|3|2$, and $(\sigma',\tau') := 13|247|5|6 \times 3|17|4|156$, are in bijection through $\theta$. Graphically this bijection has a clear symmetry,
+The $SCP$s $(\sigma,\tau)  \eqdef  5|17|4|236 \times 57|146|3|2$, and $(\sigma',\tau')  \eqdef  13|247|5|6 \times 3|17|4|156$, are in bijection through $\theta$. Graphically this bijection has a clear symmetry,
 \begin{center}
 \begin{tikzpicture}[scale=.7]  
 \node (1) at (-1.5, -1) {$5$};

@@ -27,29 +27,30 @@
 \vfuzz2pt % Don't report over-full v-boxes if over-edge is small
 \hfuzz2pt % Don't report over-full h-boxes if over-edge is small
 % THEOREMS -------------------------------------------------------
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{corollary}[thm]{Corollary}
-\newtheorem{lemma}[thm]{Lemma}
-\newtheorem{construction}[thm]{Construction}
-\newtheorem{proposition}[thm]{Proposition}
-\newtheorem{Questions}[thm]{Questions}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{question}{Question} 
+\newtheorem{questions}[theorem]{Questions}
 \theoremstyle{definition}
-\newtheorem{definition}[thm]{Definition}
+\newtheorem{definition}[theorem]{Definition}
 
 \newtheorem{conjectue}{Conjecture} 
-\newtheorem{QQ}{Question} 
-\newtheorem{prob}{Problem}
-\newtheorem{ex}[thm]{Examples}
-\newtheorem{example}[thm]{Example}
+\newtheorem{problem}{Problem}
+\newtheorem{ex}[theorem]{Examples}
+\newtheorem{example}[theorem]{Example}
 \newtheorem{policy}{Policy}
 \theoremstyle{remark}
-\newtheorem{rem}[thm]{Remark}
-\newtheorem{caveat}[thm]{Caveat}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{caveat}[theorem]{Caveat}
 \numberwithin{equation}{section}
+
 % MATH -----------------------------------------------------------
 \newcommand{\norm}[1]{\left\Vert#1\right\Vert}
 \newcommand{\abs}[1]{\left\vert#1\right\vert}
-\newcommand{\set}[1]{\left\{#1\right\}}
+%\newcommand{\set}[1]{\left\{#1\right\}}
 
 \newcommand{\To}{\longrightarrow}
 \newcommand*{\Longhookrightarrow}{\ensuremath{\lhook\joinrel\relbar\joinrel\rightarrow}}
@@ -100,9 +101,12 @@
 \newcommand{\OP}{\triangle} %ordered partitions
 \newcommand{\BT}{\mathcal{B}} %bipartite trees
 
+%Hyperplane arrangements
+\newcommand{\intersectionPoset}{\mathsf{IP}} % intersection poset
+\newcommand{\facePoset}{\mathsf{FP}} % face poset
 
+%Colors
 \newcommand{\0}{\color{blue}{\mathsf{0}}}
-
 \definecolor{darkblue}{rgb}{0,0,0.7} % darkblue color
 \definecolor{green}{RGB}{57,181,74} % green color
 \definecolor{violet}{RGB}{147,39,143} % violet color
@@ -173,3 +177,8 @@
 \addtolength{\hoffset}{-0.0in} \addtolength{\textwidth}{0in}
 \addtolength{\voffset}{-0.0in} \addtolength{\textheight}{0.0in}
 
+
+\newcommand{\set}[2]{\left\{ #1 \;\middle|\; #2 \right\}} % set notation
+\newcommand{\eqdef}{\mbox{\,\raisebox{0.2ex}{\scriptsize\ensuremath{\mathrm:}}\ensuremath{=}\,}} % :=
+\newcommand{\defn}[1]{\textsl{\darkblue #1}} % emphasis of a definition
+\newcommand{\ssm}{\smallsetminus} % small set minus
