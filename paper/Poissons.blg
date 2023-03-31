@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Poissons.aux
+The style file: amsalpha.bst
+Database file #1: Poissons.bib
+Warning--missing journal name in OEIS
+Warning--missing journal, volume, and year in OEIS
+You've used 13 entries,
+            2624 wiz_defined-function locations,
+            649 strings with 6571 characters,
+and the built_in function-call counts, 5267 in all, are:
+= -- 498
+> -- 203
+< -- 6
++ -- 69
+- -- 65
+* -- 469
+:= -- 823
+add.period$ -- 13
+call.type$ -- 13
+change.case$ -- 76
+chr.to.int$ -- 13
+cite$ -- 15
+duplicate$ -- 189
+empty$ -- 436
+format.name$ -- 83
+if$ -- 1059
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 25
+newline$ -- 49
+num.names$ -- 38
+pop$ -- 90
+preamble$ -- 1
+purify$ -- 89
+quote$ -- 0
+skip$ -- 135
+stack$ -- 0
+substring$ -- 471
+swap$ -- 17
+text.length$ -- 6
+text.prefix$ -- 5
+top$ -- 0
+type$ -- 100
+warning$ -- 2
+while$ -- 50
+width$ -- 15
+write$ -- 143
+(There were 2 warnings)

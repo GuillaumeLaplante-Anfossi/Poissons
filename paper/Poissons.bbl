@@ -1,0 +1,68 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{MTTV21}
+
+\bibitem[Bau80]{bauesGeometryLoopSpaces1980}
+H.~J. Baues, \emph{Geometry of loop spaces and the cobar construction}, Memoirs
+  of the {{American Mathematical Society}}, vol.~25, {American Mathematical
+  Society}, 1980.
+
+\bibitem[CG71]{chen1971tables}
+Wai-Kai Chen and I~Goyal, \emph{Tables of essential complementary partitions},
+  IEEE Transactions on Circuit Theory \textbf{18} (1971), no.~5, 562--563.
+
+\bibitem[Che69]{chen1969computer}
+Wai-Kai Chen, \emph{Computer generation of trees and co-trees in a cascade of
+  multiterminal networks}, IEEE Transactions on Circuit Theory \textbf{16}
+  (1969), no.~4, 518--526.
+
+\bibitem[FS97]{fultonIntersectionTheoryToric1997a}
+William Fulton and Bernd Sturmfels, \emph{Intersection theory on toric
+  varieties}, Topology \textbf{36} (1997), no.~2, 335--353.
+
+\bibitem[KUC82]{kajitani1982number}
+YOJI Kajitani, S~Ueno, and Wai-Kai Chen, \emph{On the number of essential
+  complementary partitions}, IEEE Transactions on Circuits and Systems
+  \textbf{29} (1982), no.~8, 572--574.
+
+\bibitem[LAM23]{MazuirLA22}
+Guillaume Laplante-Anfossi and Thibaut Mazuir, \emph{The diagonal of the
+  multiplihedra and the tensor product of {A}-infinity morphisms}, Journal de
+  l'{\'E}cole polytechnique (2023), to appear.
+
+\bibitem[{Lap}22]{LA21}
+Guillaume {Laplante-Anfossi}, \emph{The diagonal of the operahedra}, Advances
+  in Mathematics \textbf{405} (2022), 108494.
+
+\bibitem[LM00]{losevNewModuliSpaces2000}
+A.~Losev and Y.~Manin, \emph{New moduli spaces of pointed curves and pencils of
+  flat connections.}, Michigan Mathematical Journal \textbf{48} (2000), no.~1,
+  443--472.
+
+\bibitem[MTTV21]{masudaDiagonalAssociahedra2021}
+Naruki Masuda, Hugh Thomas, Andy Tonks, and Bruno Vallette, \emph{The diagonal
+  of the associahedra}, Journal de l'\'Ecole polytechnique \textemdash{}
+  Math\'ematiques \textbf{8} (2021), 121--146.
+
+\bibitem[OEI22]{OEIS}
+OEIS, \emph{The on-line encyclopedia of integer sequences}, Published
+  electronically at \texttt{http://oeis.org}.
+
+\bibitem[SU04]{SaneblidzeUmble04}
+Samson Saneblidze and Ronald Umble, \emph{Diagonals on the permutahedra,
+  multiplihedra and associahedra}, Homology, Homotopy and Applications
+  \textbf{6} (2004), no.~1, 363--411.
+
+\bibitem[SU22]{saneblidzeComparingDiagonalsAssociahedra2022}
+\bysame, \emph{Comparing {{Diagonals}} on the {{Associahedra}}}, August 2022.
+
+\bibitem[{Vej}07]{vejdemo-johanssonEnumeratingSaneblidzeUmbleDiagonal2007}
+Mikael {Vejdemo-Johansson}, \emph{Enumerating the {{Saneblidze-Umble}} diagonal
+  terms}, July 2007.
+
+\end{thebibliography}
