@@ -6,23 +6,23 @@
 \contentsline {subsection}{\tocsubsection {}{1.1}{Combinatorics of generically translated copies of the braid arrangement}}{3}{subsection.1.1}%
 \contentsline {subsubsection}{\tocsubsubsection {}{1.1.1}{Recollection on hyperplane arrangements}}{3}{subsubsection.1.1.1}%
 \contentsline {subsubsection}{\tocsubsubsection {}{1.1.2}{The $(\ell ,n)$-braid arrrangement}}{4}{subsubsection.1.1.2}%
-\contentsline {subsection}{\tocsubsection {}{1.2}{Enumerative results for any diagonal}}{5}{subsection.1.2}%
+\contentsline {subsection}{\tocsubsection {}{1.2}{Enumerative results for any diagonal}}{6}{subsection.1.2}%
 \contentsline {section}{\tocsection {}{2}{Higher Algebra}}{6}{section.2}%
 \contentsline {subsection}{\tocsubsection {}{2.1}{Operadic diagonals}}{6}{subsection.2.1}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.1.1}{Cellular diagonals}}{6}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.1.1}{Cellular diagonals}}{7}{subsubsection.2.1.1}%
 \contentsline {subsubsection}{\tocsubsubsection {}{2.1.2}{The $\mathrm {LA}$ diagonal on the permutahedra}}{7}{subsubsection.2.1.2}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.1.3}{Operadic diagonals}}{8}{subsubsection.2.1.3}%
-\contentsline {subsection}{\tocsubsection {}{2.2}{Bijective results for operadic diagonals}}{12}{subsection.2.2}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.2.1}{Facets}}{12}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.2.2}{Essential complementary partitions and bipartite trees}}{12}{subsubsection.2.2.2}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.2.3}{Bijection with the facets of the diagonal}}{13}{subsubsection.2.2.3}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.2.4}{Vertices}}{17}{subsubsection.2.2.4}%
-\contentsline {subsection}{\tocsubsection {}{2.3}{The Saneblidze--Umble diagonal}}{19}{subsection.2.3}%
-\contentsline {subsection}{\tocsubsection {}{2.4}{The Saneblidze-Umble diagonal (Version 2)}}{24}{subsection.2.4}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.4.1}{Shifts Under the Face Poset Isomorphism}}{30}{subsubsection.2.4.1}%
-\contentsline {subsection}{\tocsubsection {}{2.5}{Higher algebraic consequences}}{32}{subsection.2.5}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.5.1}{Shuffle trees}}{32}{subsubsection.2.5.1}%
-\contentsline {subsection}{\tocsubsection {}{2.6}{Topological enhancement}}{32}{subsection.2.6}%
-\contentsline {section}{\tocsection {}{3}{Tables}}{32}{section.3}%
-\contentsline {subsubsection}{\tocsubsubsection {}{3.0.1}{Combinatorial formula for facets of the diagonal}}{33}{subsubsection.3.0.1}%
-\contentsline {section}{\tocsection {}{}{References}}{36}{section*.7}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.1.3}{Operadic diagonals}}{9}{subsubsection.2.1.3}%
+\contentsline {subsection}{\tocsubsection {}{2.2}{Bijective results for operadic diagonals}}{13}{subsection.2.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.2.1}{Facets}}{13}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.2.2}{Essential complementary partitions and bipartite trees}}{13}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.2.3}{Bijection with the facets of the diagonal}}{14}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.2.4}{Vertices}}{18}{subsubsection.2.2.4}%
+\contentsline {subsection}{\tocsubsection {}{2.3}{The Saneblidze--Umble diagonal}}{20}{subsection.2.3}%
+\contentsline {subsection}{\tocsubsection {}{2.4}{The Saneblidze-Umble diagonal (Version 2)}}{25}{subsection.2.4}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.4.1}{Shifts Under the Face Poset Isomorphism}}{31}{subsubsection.2.4.1}%
+\contentsline {subsection}{\tocsubsection {}{2.5}{Higher algebraic consequences}}{33}{subsection.2.5}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.5.1}{Shuffle trees}}{33}{subsubsection.2.5.1}%
+\contentsline {subsection}{\tocsubsection {}{2.6}{Topological enhancement}}{33}{subsection.2.6}%
+\contentsline {section}{\tocsection {}{3}{Tables}}{33}{section.3}%
+\contentsline {subsubsection}{\tocsubsubsection {}{3.0.1}{Combinatorial formula for facets of the diagonal}}{34}{subsubsection.3.0.1}%
+\contentsline {section}{\tocsection {}{}{References}}{37}{section*.7}%

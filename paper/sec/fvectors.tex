@@ -56,9 +56,9 @@ for all~$F, G, H \in \flatPoset$.
 \begin{theorem}[{\cite[Thm.~A]{Zaslavsky}}]
 The $f$-polynomial, the $b$-polynomial, and the M\"obius polynomial of an arrangement~$\arrangement$ are related by
 \[
-\fPol = (-1)^{\rank} \mobPol[-x][-1]
+\fPol = (-1)^{\rank} \mobPol[\arrangement][-x][-1]
 \qquad\text{and}\qquad
-\bPol = (-1)^{\rank} \mobPol[-x][1].
+\bPol = (-1)^{\rank} \mobPol[\arrangement][-x][1].
 \]
 \end{theorem}
 
@@ -197,7 +197,8 @@ We now focus on the following specific hyperplane arrangements, illustrated in \
 		$\ell = 1$ & $\ell = 2$ & $\ell = 3$ & $\ell = 4$
 	\end{tabular}
 	}
-	\caption{The face numbers (top) and the bounded face numbers (bottom) of the $(\ell,n)$-braid arrangements for~$\ell \in [4]$.}
+	\vspace{.3cm}
+	\caption{The face numbers (top) and the bounded face numbers (bottom) of the $(\ell,n)$-braid arrangements for~$\ell, n \in [4]$.}
 	\label{table:fvectorlBraidArrangements}
 \end{table}
 
@@ -209,13 +210,21 @@ For any integer~$\ell 1$, the \defn{$(\ell,n)$-braid arrangement}~$\lBraidArrang
 \end{definition}
 
 \begin{remark}[Combinatorics of the braid arrangement]
+\vincent{TODO. Partitions, refinement poset on partitions, M\"obius function given by~$(-1)^{p-1} (p-1)!$.}
 \end{remark}
 
 \begin{definition}
-The \defn{intersection hypergraph}~$I(F_1, \dots, F_\ell)$ of a $\ell$-tuple of partitions of~$[n]$ is...
-A \defn{$(\ell,n)$-forest} is a $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of partitions of~$[n]$ whose intersection hypergraph is a forest.
+The \defn{intersection hypergraph}~$I(F_1, \dots, F_\ell)$ of a $\ell$-tuple of partitions of~$[n]$ is the $\ell$-regular $\ell$-partite hypergraph on all parts of all the partitions~$F_i$, with an hyperedge for all~$i \in [n]$ connecting the parts containing~$i$.
+A \defn{$(\ell,n)$-forest} (resp.~\defn{$(\ell,n)$-tree}) is a $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of partitions of~$[n]$ whose intersection hypergraph is a hyperforest (resp.~hypertree).
+See \cref{fig:forests}.
 The \defn{$(\ell,n)$-forest poset} is the poset~$\forestPoset$ on $(\ell,n)$-forests ordered by componentwise refinement.
 In other words, $\forestPoset$ is the subposet of the $\ell$th Cartesian power of the partition poset induced by $(\ell,n)$-forests.
+%
+\begin{figure}
+	\centerline{\includegraphics[scale=1]{forests}}
+	\caption{A $(3,6)$-forest with its intersection hypergraph (left) and a $(3,6)$-tree with its intersection hypergraph (right).}
+	\label{fig:forests}
+\end{figure}
 \end{definition}
 
 \begin{theorem}
@@ -232,10 +241,10 @@ Observe that for~$\b{F} = (F_1, \dots, F_\ell)$ and~$\b{G} = (G_1, \dots, G_\ell
 \[
 [\b{F}, \b{G}] = \prod_{i \in [\ell]} [F_i, G_i] \simeq \prod_{i \in [\ell]} \prod_{p \in G_i} \partitionPoset[{\#F_i[p]}].
 \]
-As the M\"obius function is multiplicative
-\[
-\mu_{P \times Q} \big( (p,q), (p’,q’) \big) = \mu_P(p,p’) \cdot \mu_Q(q,q’)
-\]
+As the M\"obius function is multiplicative, that is,
+\(
+\mu_{P \times Q} \big( (p,q), (p’,q’) \big) = \mu_P(p,p’) \cdot \mu_Q(q,q’),
+\)
 we obtain that
 \[
 \mu_{\forestPoset}(\b{F}, \b{G}) = \prod_{i \in [\ell]} \prod_{p \in G_i} (-1)^{\#F_i[p]-1} (\# F_i[p]-1)!
@@ -252,18 +261,49 @@ Hence
 
 \begin{corollary}
 The $f$- and $b$-polynomials of the $(\ell,n)$-braid arrangement~$\lBraidArrangement$ are given by
-\[
-\fPol[\lBraidArrangement] = ...
-\qquad\text{and}\qquad
-\bPol[\lBraidArrangement] = ...
-\]
+\begin{align*}
+\fPol[\lBraidArrangement] & = \sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i-1} \prod_{p \in G_i} (\# F_i[p]-1)!\\
+\text{and}\qquad
+\bPol[\lBraidArrangement] & = (-1)^\ell \sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i-1} \prod_{p \in G_i} -(\# F_i[p]-1)!
+\end{align*}
 \end{corollary}
 
+The face numbers and bounded face numbers of~$\lBraidArrangement$ for~$\ell, n \in [4]$ are gathered in \cref{table:fvectorlBraidArrangements}.
+
 \begin{example}[$n \le 3$]
+For~$n = 1$, we have
+\[
+\mobPol[{\lBraidArrangement[1][\ell]}] = \fPol[{\lBraidArrangement[1][\ell]}] = \bPol[{\lBraidArrangement[1][\ell]}] = 1.
+\]
+For~$n = 2$, we have
+\[
+\mobPol[{\lBraidArrangement[2][\ell]}] = xy-\ell x+\ell,
+\quad
+\fPol[{\lBraidArrangement[2][\ell]}] = (\ell+1)x+\ell
+\quad\text{and}\quad
+\bPol[{\lBraidArrangement[2][\ell]}] = (\ell-1)x+\ell.
+\]
+The case~$n = 3$ is already more interesting.
+\vincent{Explain here the $(\ell,3)$-forests.}
+Hence, we have
+\begin{align*}
+\mobPol[{\lBraidArrangement[3][\ell]}] & = x^2 y^2 - 3 \ell x^2 y + \ell (3 \ell - 1) x^2 + 3 \ell x y - 3 \ell (2 \ell - 1) x + \ell (3 \ell - 2) , \\
+\fPol[{\lBraidArrangement[3][\ell]}] & = (3 \ell^2 + 2 \ell + 1) x^2 + 6 \ell^2 x + \ell (3 \ell - 2) \\
+\text{and}\qquad
+\bPol[{\lBraidArrangement[3][\ell]}] & = (3 \ell^2 - 4 \ell + 1) x^2 + 6 \ell (\ell - 1) x + \ell (3 \ell - 2).
+\end{align*}
+Note that~$3 \ell^2 + 2 \ell + 1$ is~\OEIS{A056109}, that~$\ell (3 \ell - 2)$ is~\OEIS{A000567}, and that~$3 \ell^2 - 4 \ell + 1$ is~\OEIS{A045944}.
+\vincent{There is a weird connection between the first and the last. Namely, $3 \ell^2 - 4 \ell + 1 = 3 (\ell - 1)^2 + 2 (\ell - 1)$. Is there a bijective explanation on the arrangements?}
 \end{example}
 
+\begin{theorem}
+Number of vertices.
+\vincent{Berenice, the floor is yours...}
+\end{theorem}
 
 \subsection{Enumerative results for any diagonal} 
 \label{s:facets}
 
-\Guillaume{Vincent, c'est \`a toi de jouer!}
+We now specialize the results of the previous section to the case~$\ell = 2$ to derive enumerative results on the diagonal of the permutahedron.
+\vincent{TODO}
+
