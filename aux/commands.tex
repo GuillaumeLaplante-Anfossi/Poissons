@@ -15,6 +15,7 @@
 \SetKwInput{KwInput}{Input}                % Set the Input
 \SetKwInput{KwOutput}{Output}              % set the Output
 
+\usepackage{overpic}
 
 %MARGINS
 
@@ -102,8 +103,16 @@
 \newcommand{\BT}{\mathcal{B}} %bipartite trees
 
 %Hyperplane arrangements
-\newcommand{\intersectionPoset}{\mathsf{IP}} % intersection poset
-\newcommand{\facePoset}{\mathsf{FP}} % face poset
+\renewcommand{\b}[1]{\boldsymbol{#1}} % bold
+\newcommandx{\arrangement}[1][1 = A]{\mathcal{#1}} % arrangement
+\newcommandx{\braidArrangement}[1][1 = n]{\arrangement_{#1}} % braid arrangement
+\newcommandx{\rank}[1][1 = \arrangement]{\operatorname{rk}(#1)} % rank
+\newcommandx{\facePoset}[1][1 = \arrangement]{\mathsf{Fa}(#1)} % face poset
+\newcommandx{\fPol}[2][1 = \arrangement, 2 = x]{\b{f}_{#1}(#2)} % face polynomial
+\newcommandx{\bPol}[2][1 = \arrangement, 2 = x]{\b{b}_{#1}(#2)} % bounded face polynomial
+\newcommandx{\flatPoset}[1][1 = \arrangement]{\mathsf{Fl}(#1)} % intersection poset
+\newcommandx{\charPol}[2][1 = y, 2 = \arrangement]{\b{\chi}_{#2}(#1)} % characteristic polynomial
+\newcommandx{\mobPol}[3][1 = x, 2 = y, 3 = \arrangement]{\b{\mu}_{#3}(#1, #2)} % Mobius polynomial
 
 %Colors
 \newcommand{\0}{\color{blue}{\mathsf{0}}}
@@ -124,7 +133,7 @@
 \newcommand{\Guillaume}[1]{\textcolor{magenta}{\underline{Guillaume}: #1}}
 \newcommand{\Kurt}[1]{\textcolor{blue}{\underline{Kurt}: #1}}
 \newcommand{\BDO}[1]{\textcolor{ForestGreen}{\underline{B\'er\'enice}: #1}}
-\newcommand{\Vincent}[1]{\textcolor{orange}{\underline{Vincent}: #1}}
+\newcommand{\vincent}[1]{\textcolor{orange}{\underline{Vincent}: #1}}
 
 \DeclareMathOperator{\Ima}{Im} %Image d'une fonction
 

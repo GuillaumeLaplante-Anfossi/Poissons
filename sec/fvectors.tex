@@ -1,7 +1,5 @@
 % !TEX root = ../Poissons.tex
 
-\newcommandx{\arrangement}[1][1 = A]{\mathcal{#1}} % arrangement
-
 \section{Combinatorics}
 
 \subsection{Combinatorics of generically translated copies of the braid arrangement}
@@ -13,22 +11,84 @@
 We first briefly recall classical results on the combinatorics of affine hyperplane arrangements, in particular the enumerative connection between their intersection posets and their face lattices due to T.~Zaslavsky~\cite{Zaslavsky}.
 
 \begin{definition}
-A (finite affine) \defn{hyperplane arrangement} is a finite set~$\arrangement$ of affine hyperplanes in~$\R^d$.
-A \defn{flat} of~$\arrangement$ is a non-empty affine subspace of~$\R^d$ that can be obtained as the intersection of some hyperplanes of~$\arrangement$.
-The \defn{intersection poset} of~$\arrangement$ is poset~$\intersectionPoset$ of flats of~$\arrangement$ ordered by reverse inclusion.
+A (finite affine real) \defn{hyperplane arrangement} is a finite set~$\arrangement$ of affine hyperplanes in~$\R^d$.
+\end{definition}
+
+\begin{definition}
 A \defn{region} of~$\arrangement$ is a connected component of~$\R^d \ssm \bigcup_{H \in \arrangement} H$.
 A \defn{face} of~$\arrangement$ is the intersection of the closure of a region of~$\arrangement$ with an hyperplane of~$\arrangement$.
 The \defn{face poset} of~$\arrangement$ is the poset~$\facePoset$ of faces of~$\arrangement$ ordered by inclusion.
+The \defn{$f$-polynomial}~$\fPol$ and \defn{$b$-polynomial}~$\bPol$ of~$\arrangement$ are the polynomial
+\[
+\fPol \eqdef \sum_{k = 0}^d f_k(\arrangement) \, x^k
+\qquad\text{and}\qquad
+\bPol \eqdef \sum_{k = 0}^d b_k(\arrangement) \, x^k
+\]
+where~$f_k(\arrangement)$ denotes the number of $k$-dimensional faces of~$\arrangement$, while~$b_k(\arrangement)$ denotes the number of bounded $k$-dimensional faces of~$\arrangement$.
 \end{definition}
 
-\begin{theorem}
-The number~$f_k(\arrangement)$ of $k$-dimensional faces of~$\arrangement$ is given by
+\begin{definition}
+A \defn{flat} of~$\arrangement$ is a non-empty affine subspace of~$\R^d$ that can be obtained as the intersection of some hyperplanes of~$\arrangement$.
+The \defn{flat poset} of~$\arrangement$ is poset~$\flatPoset$ of flats of~$\arrangement$ ordered by reverse inclusion.
+\end{definition}
+
+\begin{definition}
+%The \defn{characteristic polynomial}~$\chi_{\arrangement}(y)$ and the \defn{M\"obius polynomial}~$\mu_{\arrangement}(x,y)$ are the polynomials respectively defined by
+%\[
+%\charPol \eqdef \sum_{G \in \flatPoset} \mu_{\flatPoset}(\R^d, G) \, y^{\dim(G)}
+%\quad\text{and}\quad
+%\mobPol \eqdef \sum_{F \le G \in \flatPoset} \mu_{\flatPoset}(F,G) \, x^{\dim(F)} \, y^{\dim(G)}
+%\]
+The \defn{M\"obius polynomial}~$\mu_{\arrangement}(x,y)$ is the polynomials defined by
 \[
-f_k(\arrangement) = \sum_{\substack{X \le Y \text{ in } \intersectionPoset \\ \dim(X) = k}} |\mu(X,Y)|.
+\mobPol \eqdef \sum_{F \le G \in \flatPoset} \mu_{\flatPoset}(F,G) \, x^{\dim(F)} \, y^{\dim(G)}
 \]
+where~$\mu_{\flatPoset}(F,G)$ denotes the \defn{M\"obius function} on the flat poset~$\flatPoset$ defined as usual by
+\[
+\mu_{\flatPoset}(F, F) = 1
+\qquad\text{and}\qquad
+\sum_{F \le G \le H} \mu_{\flatPoset}(F,G) = 0
+\]
+for all~$F, G, H \in \flatPoset$.
+\vincent{Whitney-number polynomial.}
+\end{definition}
+
+\begin{theorem}[{\cite[Thm.~A]{Zaslavsky}}]
+The $f$-polynomial, the $b$-polynomial, and the M\"obius polynomial of an arrangement~$\arrangement$ are related by
+\[
+\fPol = (-1)^{\rank} \mobPol[-x][-1]
+\qquad\text{and}\qquad
+\bPol = (-1)^{\rank} \mobPol[-x][1].
+\]
+\vincent{Not sure of the powers of $-1$ here.}
 \end{theorem}
 
-In this section, we consider the arrangement
+\vincent{Whitney's theorem}
+
+\begin{figure}
+	\begin{overpic}[scale=1.5]{intersectionPoset}
+		\put(453, -15){$1$}
+		\put(310, 60){$-1$}
+		\put(377, 60){$-1$}
+		\put(444, 60){$-1$}
+		\put(511, 60){$-1$}
+		\put(578, 60){$-1$}
+		\put(322, 195){$2$}
+		\put(408, 195){$1$}
+		\put(496, 195){$1$}
+		\put(583, 195){$2$}
+	\end{overpic}
+	\caption{A hyperplane arrangement (left) and its intersection poset with its M\"obius function (right).}
+\end{figure}
+
+\subsubsection{The $(\ell,n)$-braid arrrangement}
+\label{subsec:lnBraidArrangement}
+
+\begin{definition}
+For any integer~$\ell 1$, the \defn{braid arrangement}~$\braidArrangement$ is the arrangement of the hyperplanes~$\set{\b{x} \in \R^n}{x_i = x_j}$ for all~$1 \le i < j \le n$.
+For any integer~$\ell 1$, the \defn{$(\ell,n)$-braid arrangement} is the arrangement obtained as the union of $\ell$ generically translated copies of the braid arrangement.
+\end{definition}
+
 
 \subsection{Enumerative results for any diagonal} 
 \label{s:facets}
