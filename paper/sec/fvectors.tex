@@ -52,15 +52,16 @@ where~$F \le G$ ranges over all intervals of the flat poset~$\flatPoset$, and~$\
 for all~$F, G, H \in \flatPoset$.
 \vincent{Characteristic polynomial = coefficient of~$x^d$ in~$\mobPol$.}
 \vincent{Whitney-number polynomial.}
-\vincent{Note that this is not exactly the M\"obius polynomial defined by Zaslavsky. I decided to take the dimension instead of the codimension.}
+\vincent{Note that this is not exactly the M\"obius polynomial defined by Zaslavsky. I decided to take the dimension instead of the codimension. This explains the unusual absence of $(-1)^{\rank}$ below.}
 \end{definition}
 
 \begin{theorem}[{\cite[Thm.~A]{Zaslavsky}}]
+\label{thm:Zaslavsky}
 The $f$-polynomial, the $b$-polynomial, and the M\"obius polynomial of an arrangement~$\arrangement$ are related by
 \[
-\fPol = (-1)^{\rank} \mobPol[\arrangement][-x][-1]
+\fPol = \mobPol[\arrangement][-x][-1]
 \qquad\text{and}\qquad
-\bPol = (-1)^{\rank} \mobPol[\arrangement][-x][1].
+\bPol = \mobPol[\arrangement][-x][1].
 \]
 \end{theorem}
 
@@ -73,9 +74,9 @@ For the arrangement~$\arrangement$ of $5$ hyperplanes of \cref{fig:arrangement},
 \]
 so that
 \begin{align*}
-\fPol & = \mobPol(-x,-1) = 12 \, x^2 + 15 \, x + 4 \\
+\fPol & = \mobPol[\arrangement][-x][-1] = 12 \, x^2 + 15 \, x + 4 \\
 \text{and}\qquad
-\bPol & = \mobPol(-x,1) = 2 \, x^2 + 5 \, x + 4.
+\bPol & = \mobPol[\arrangement][-x][1] = 2 \, x^2 + 5 \, x + 4.
 \end{align*}
 %
 \begin{figure}
@@ -325,8 +326,8 @@ Note that
 \mobPol[{\lBraidArrangement[1][2]}] & = 1 \\
 \mobPol[{\lBraidArrangement[2][2]}] & = x y - 2 x + 2 \\
 \mobPol[{\lBraidArrangement[3][2]}] & = x^2 y^2 - 6 x^2 y + 10 x^2 + 6 x y - 18 x + 8 \\
-\mobPol[{\lBraidArrangement[4][2]}] & = x^3 y^3 - 12 x^3 y^2 + 52 x^3 y + 12 x^2 y^2 - 84 x^3 - 96 x^2 y + 216 x^2 + 44 x y - 182 x + 50 \\
-\mobPol[{\lBraidArrangement[5][2]}] & = x^4 y^4 - 20 x^4 y^3 + 160 x^4 y^2 + 20 x^3 y^3 - 620 x^4 y - 300 x^3 y^2 + 1008 x^4 + 1640 x^3 y \\ & \quad+ 140 x^2 y^2 - 3360 x^3 - 1430 x^2 y + 4130 x^2 + 410 x y - 2210 x + 432
+\mobPol[{\lBraidArrangement[4][2]}] & = x^3 y^3 - 12 x^3 y^2 + 52 x^3 y - 84 x^3 + 12 x^2 y^2 - 96 x^2 y + 216 x^2 + 44 x y - 182 x + 50 \\
+\mobPol[{\lBraidArrangement[5][2]}] & = x^4 y^4 - 20 x^4 y^3 + 160 x^4 y^2 - 620 x^4 y + 1008 x^4 + 20 x^3 y^3 - 300 x^3 y^2 + 1640 x^3 y - 3360 x^3 \\ & \quad+ 140 x^2 y^2 - 1430 x^2 y + 4130 x^2 + 410 x y - 2210 x + 432
 \end{align*}
 which can be seen on matrices as
 \[
@@ -423,23 +424,46 @@ See \cref{fig:tree}.
 \end{proof}
 
 \begin{theorem}
+\label{thm:facets2BraidArrangement}
 The coefficient of~$x^{n-1}$ in the M\"obius polynomial~$\mobPol[{\lBraidArrangement[n][2]}]$ of the $(2,n)$-braid arrangement~$\lBraidArrangement[n][2]$ is given by
 \[
-[x^{n-1}] \, \mobPol[{\lBraidArrangement[n][2]}] = \frac{(n+1)!}{y} \, [z^{n+1}] \, \exp \big( \sum_{m \ge 1} \frac{- y \, z^m}{m(m+1)} \binom{2m}{m} \big).
+[x^{n-1}] \, \mobPol[{\lBraidArrangement[n][2]}] = \frac{(-1)^n n!}{y} \, [z^n] \, \exp \bigg( \sum_{m \ge 1} \frac{- C_m \, y \, z^m}{m} \bigg).
 \]
+where~$\displaystyle C_m \eqdef \frac{1}{m+1} \binom{2m}{m}$ denotes the $m$th Catalan number.
 \end{theorem}
 
 \begin{proof}
 We prove that the exponential generating function of the coefficient of~$x^{n-1}$ in the M\"obius polynomial~$\mobPol[{\lBraidArrangement[n][2]}]$ is given by
 \[
-1 + \sum_{n \ge 1} \frac{[x^{n-1}] \, \mobPol[{\lBraidArrangement[n][2]}] \, y \, z^{n+1}}{(n+1)!} = \exp \left( \sum_{m \ge 1} \frac{- y \, z^m}{m(m+1)} \binom{2m}{m} \right).
+1 + \sum_{n \ge 1} \frac{[x^{n-1}] \, \mobPol[{\lBraidArrangement[n][2]}] \, y \, z^n}{(n+1)!} = \exp \bigg( \sum_{m \ge 1} \frac{(-1)^{m-1} C_m \, y \, z^m}{m} \bigg).
 \]
+\vincent{TODO}
 \end{proof}
 
 \begin{corollary}
-The exponential generating functions of the number of regions and of bounded regions of the $(2,n)$-braid arrangement~$\lBraidArrangement[n][2]$ are given by
-\[
-\sum_{n \ge 1} 
-\]
+The numbers of regions and of bounded regions of the $(2,n)$-braid arrangement~$\lBraidArrangement[n][2]$ are given by
+\begin{align*}
+f_{n-1}(\lBraidArrangement[n][2]) 
+& = n! \, [z^n] \exp \bigg( \sum_{m \ge 1} \frac{C_m \, z^m}{m} \bigg) \\
+\text{and}\qquad
+b_{n-1}(\lBraidArrangement[n][2]) 
+% & = - (n+1)! \, [z^{n+1}] \exp \left( - \sum_{m \ge 1} \frac{z^m}{m(m+1)} \binom{2m}{m} \right) 
+& = (n-1)! \, [z^{n-1}] \exp \bigg( \sum_{m \ge 1} C_m \, z^m \bigg).
+\end{align*}
 \end{corollary}
+
+\begin{proof}
+As $\fPol[{\lBraidArrangement[n][2]}] = \mobPol[{\lBraidArrangement[n][2]}][-x][-1]$ and $\bPol[{\lBraidArrangement[n][2]}] = \mobPol[{\lBraidArrangement[n][2]}][-x][1]$ by \cref{thm:facets2BraidArrangement}, we obtain from \cref{thm:facets2BraidArrangement} that
+\begin{align*}
+f_{n-1}(\lBraidArrangement[n][2]) & = [x^{n-1}] \, \fPol[{\lBraidArrangement[n][2]}] = (-1)^{n-1} \, [x^{n-1}] \mobPol[{\lBraidArrangement[n][2]}][-x][-1] = n! \, [z^n]  \, \exp \bigg( \sum_{m \ge 1} \frac{C_m \, z^m}{m} \bigg), \\
+% \text{and}\qquad
+b_{n-1}(\lBraidArrangement[n][2]) & = [x^{n-1}] \, \bPol[{\lBraidArrangement[n][2]}] = (-1)^{n-1} \, [x^{n-1}] \mobPol[{\lBraidArrangement[n][2]}][-x][1] = - n! \, [z^n]  \, \exp \bigg( \sum_{m \ge 1} \frac{- C_m \, z^m}{m} \bigg).
+\end{align*}
+We then observe that
+\[
+\frac{\partial}{\partial z} \exp \bigg( \sum_{m \ge 1} \frac{- C_m \, z^m}{m} \bigg) = - \exp \bigg( \sum_{m \ge 1} C_m \, z^m \bigg).
+\]
+\vincent{TODO: proof}
+\vincent{Can we make a bijective proof of the last equality?}
+\end{proof}
 
