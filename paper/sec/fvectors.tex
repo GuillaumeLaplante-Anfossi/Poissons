@@ -222,6 +222,7 @@ A \defn{$(\ell,n)$-forest} (resp.~\defn{$(\ell,n)$-tree}) is a $\ell$-tuple~$\b{
 See \cref{fig:forests}.
 The \defn{$(\ell,n)$-forest poset} is the poset~$\forestPoset$ on $(\ell,n)$-forests ordered by componentwise refinement.
 In other words, $\forestPoset$ is the subposet of the $\ell$th Cartesian power of the partition poset induced by $(\ell,n)$-forests.
+Note that the maximal elements of~$\forestPoset$ are the $(\ell, n)$-trees.
 %
 \begin{figure}
 	\centerline{\includegraphics[scale=1]{forests}}
@@ -273,7 +274,7 @@ The $f$- and $b$-polynomials of the $(\ell,n)$-braid arrangement~$\lBraidArrange
 
 The face numbers and bounded face numbers of~$\lBraidArrangement$ for~$\ell, n \in [4]$ are gathered in \cref{table:fvectorlBraidArrangements}.
 
-\begin{example}[$n \le 3$]
+\begin{example}
 For~$n = 1$, we have
 \[
 \mobPol[{\lBraidArrangement[1][\ell]}] = \fPol[{\lBraidArrangement[1][\ell]}] = \bPol[{\lBraidArrangement[1][\ell]}] = 1.
@@ -287,7 +288,32 @@ For~$n = 2$, we have
 \bPol[{\lBraidArrangement[2][\ell]}] = (\ell-1)x+\ell.
 \]
 The case~$n = 3$ is already more interesting.
-\vincent{Explain here the $(\ell,3)$-forests.}
+Consider the partitions~$P \eqdef \big\{ \{1\}, \{2\}, \{3\} \big\}$, $Q_i \eqdef \big\{ \{i\}, [3] \ssm \{i\} \big\}$, and~$R \eqdef \big\{ [3] \big\}$.
+Observe that the $(\ell,3)$-forests are all of the form
+\begin{gather*}
+\b{F} \eqdef P^\ell,
+\quad
+\b{G}_i^p \eqdef P^p Q_i P^{\ell-p-1}, % \text{ for } p \le \ell-1 \text{ and } i \in [3],
+\quad
+\b{H}_{i,j}^{p,q} \eqdef P^p Q_i P^{\ell-p-q-2} Q_j P^q \;\text{($i \ne j$)} % \text{ for } p + q \le \ell-2 \text{ and } i \ne j \in [3]
+\quad\text{or}\quad
+\b{K}^p \eqdef P^p R P^{\ell-p-1}. % \text{ for } p \le \ell-1.
+\end{gather*}
+(where we write a tuple of partitions of~$[3]$ as a word on~$\{P, Q_i, R\}$, and $p$ and $q$ are such that the total length is~$\ell$).
+%\begin{gather*}
+%\b{F} \eqdef (\underbrace{P, \dots, P}_\ell), \\
+%\b{G}_i^p \eqdef (\underbrace{P, \dots, P}_p, Q_i, \underbrace{P, \dots, P}_{\ell-p-1}) \text{ for } p \le \ell-1 \text{ and } i \in [3],
+%\\
+%\b{H}_{i,j}^{p,q} \eqdef (\underbrace{P, \dots, P}_p, Q_i, \underbrace{P, \dots, P}_{\ell-p-q-2}, Q_j, \underbrace{P, \dots, P}_q) \text{ for } p + q \le \ell-2 \text{ and } i \ne j \in [3],
+%\\
+%\text{or}\quad
+%\b{K}^p \eqdef (\underbrace{P, \dots, P}_p, R, \underbrace{P, \dots, P}_{\ell-p-1}) \text{ for } p \le \ell-1.
+%\end{gather*}
+Moreover, the cover relations in the $(\ell,3)$-forest poset are precisely the relations
+\[
+\b{F} \le \b{G}_i^p \begin{array}{c@{\hspace{-.3cm}}c@{\hspace{-.3cm}}c} & \b{H}_{i,j}^{p,q} & \\ \rotatebox[origin=c]{45}{$\le$} & & \rotatebox[origin=c]{-45}{$\le$} \\[.3cm] \rotatebox[origin=c]{-45}{$\le$} & & \rotatebox[origin=c]{45}{$\le$} \\ & \b{H}_{j,i}^{\ell-q-1, \ell-p-1} & \end{array} \b{K}^p
+\]
+for~$i \ne j$ and~$p, q$ such that~$p + q \le \ell-2$.
 Hence, we have
 \begin{align*}
 \mobPol[{\lBraidArrangement[3][\ell]}] & = x^2 y^2 - 3 \ell x^2 y + \ell (3 \ell - 1) x^2 + 3 \ell x y - 3 \ell (2 \ell - 1) x + \ell (3 \ell - 2) , \\
@@ -299,16 +325,21 @@ Note that~$3 \ell^2 + 2 \ell + 1$ is~\OEIS{A056109}, that~$\ell (3 \ell - 2)$ is
 \vincent{There is a weird connection between the first and the last. Namely, $3 \ell^2 - 4 \ell + 1 = 3 (\ell - 1)^2 + 2 (\ell - 1)$. Is there a bijective explanation on the arrangements?}
 \end{example}
 
-\begin{theorem}[Number of vertices]
-\vincent{Berenice, the floor is yours...}
+\begin{theorem}
+\label{thm:verticeslnBraidArrangement}
+The number of vertices of the $(\ell,n)$-braid arrangement~$\lBraidArrangement$ (or equivalently of $(\ell,n)$-trees) is
+\[
+f_0(\lBraidArrangement) = \ell \big( (\ell-1) n + 1)^{n-2}.
+\]
 \end{theorem}
 
 \begin{proof}
-\vincent{TODO}
+\vincent{Berenice, the floor is yours...}
 \end{proof}
 
 \begin{theorem}[Number of vertices refined]
-\vincent{TODO}
+\label{thm:verticesRefinedlnBraidArrangement}
+\vincent{TODO: We have no formula for the moment}
 \end{theorem}
 
 \begin{proof}
@@ -392,6 +423,7 @@ which can be seen on matrices as
 \]
 
 \begin{theorem}
+\label{thm:vertices2nBraidArrangement}
 There are bijections between
 \begin{itemize}
 \item the vertices of the $(2,n)$-braid arrangement~$\lBraidArrangement[n][2]$,
@@ -400,11 +432,13 @@ There are bijections between
 \end{itemize}
 These sets are counted by
 \[
-2 (n + 1)^{n-2}.
+f_0(\lBraidArrangement[n][2]) = 2 (n + 1)^{n-2}.
 \]
 \end{theorem}
 
 \begin{proof}
+Note that the formula follows from \cref{thm:verticeslnBraidArrangement}.
+We give an alternative simple proof.
 \vincent{TODO}
 See \cref{fig:tree}.
 %
@@ -415,8 +449,9 @@ See \cref{fig:tree}.
 \end{figure}
 \end{proof}
 
-\begin{theorem}[Number of vertices refined]
-\vincent{TODO}
+\begin{theorem}
+\label{thm:verticesRefinedlnBraidArrangement}
+\vincent{TODO: Number of vertices refined}
 \end{theorem}
 
 \begin{proof}
@@ -424,7 +459,7 @@ See \cref{fig:tree}.
 \end{proof}
 
 \begin{theorem}
-\label{thm:facets2BraidArrangement}
+\label{thm:facets2nBraidArrangement}
 The coefficient of~$x^{n-1}$ in the M\"obius polynomial~$\mobPol[{\lBraidArrangement[n][2]}]$ of the $(2,n)$-braid arrangement~$\lBraidArrangement[n][2]$ is given by
 \[
 [x^{n-1}] \, \mobPol[{\lBraidArrangement[n][2]}] = \frac{(-1)^n n!}{y} \, [z^n] \, \exp \bigg( \sum_{m \ge 1} \frac{- C_m \, y \, z^m}{m} \bigg).
