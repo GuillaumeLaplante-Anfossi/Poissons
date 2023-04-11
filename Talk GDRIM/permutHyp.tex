@@ -1,0 +1,38 @@
+%author : berenice delcroix-oger
+
+\documentclass[border=2pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning, fit, shapes, arrows, calc}
+
+\pgfdeclarelayer{bg}    % declare background layer
+\pgfsetlayers{bg,main}  % set the order of the layers (main is the standard layer)
+
+\newcommand{\coula}{0785F2}
+\newcommand{\coulb}{F29F05}
+\newcommand{\coulc}{F21313}
+\newcommand{\could}{E6F21F}
+
+
+
+\definecolor{part1}{HTML}{\coula}
+\definecolor{part2}{HTML}{\coulb}
+\definecolor{part3}{HTML}{\coulc}
+\definecolor{part4}{HTML}{\could}
+
+\begin{document}
+\begin{tikzpicture}
+\coordinate (A) at (30:1);
+\coordinate (B) at (90:1);
+\coordinate (C) at (150:1);
+\coordinate (D) at (-150:1);
+\coordinate (E) at (-90:1);
+\coordinate (F) at (-30:1);
+\coordinate (G) at (0,0);
+\draw (A)--(B)--(C)--(D)--(E)--(F)--cycle;
+\draw[part2, very thick]  ($1*(A)+1*(B)$)--(G)--($1*(D)+1*(E)$);
+\draw[part4, very thick]  ($1*(B)+1*(C)$)--(G)--($1*(E)+1*(F)$);
+\draw[part1, very thick]  ($1*(C)+1*(D)$)--(G)--($1*(F)+1*(A)$);
+
+\end{tikzpicture}
+
+\end{document}

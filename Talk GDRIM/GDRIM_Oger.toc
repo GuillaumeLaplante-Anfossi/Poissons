@@ -1,0 +1,4 @@
+\babel@toc {french}{}\relax 
+\beamer@sectionintoc {1}{The weak order and the permutohedron}{7}{0}{1}
+\beamer@sectionintoc {2}{How can we count regions of an hyperplane arrangement ?}{38}{0}{2}
+\beamer@sectionintoc {3}{The section for which you can wake up if you love graphs but hate algebra}{55}{0}{3}
