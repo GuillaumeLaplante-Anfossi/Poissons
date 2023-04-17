@@ -29,6 +29,15 @@ The key idea is the following: any vector $\vec v$ in generic position with resp
 \end{align*}
 Here, $\rho_z P := 2z-P$ denotes the reflection of $P$ with respect to the point $z$, and $\min_{\vec v}(P)$ denotes the unique vertex of $P$ which minimizes the scalar product with $\vec v$. 
 The diagonal $\triangle_{(P,\vec v)}$ defines a canonical polytopal subdivision of $P$: it is by construction a tight coherent section of the projection $\pi : P \times P \to (P+P)/2$, and one just needs to draw the polytopes $(F+G)/2$, for all pairs of faces $(F,G) \in \Ima \triangle_{(P,\vec v)}$.
+For the rest of the paper, every time we will speak about a diagonal, \emph{we will always mean such a map}. 
+
+\begin{definition}
+    \label{def:diagonal}
+    A \emph{cellular diagonal} or simply a \emph{diagonal} $\triangle_{(P,\vec v)}$ of the permutahedron~$P$ is a tight coherent section of the projection $P \times P \to P, (x,y) \mapsto (x+y)/2$.
+\end{definition}
+
+Such a map can be seen as a topological map, or sometimes as a map of lattices; we shall not change notation and the context should make clear which 
+We will sometimes denote a diagonal of the $n$-permutahedron by $\triangle_n$. 
 
 \begin{definition}
     The \emph{$f$-vector} of the diagonal $\triangle_{(P,\vec v)}$ is the number of faces of $P\times P$ of given total dimension in its cellular image.
@@ -62,7 +71,7 @@ Let $\vec v \in \R^n$ be such that $\forall (I,J) \in \LA(n)$, we have $\sum_{i 
 For any pair $(\sigma,\tau)$ of ordered partitions of $[n]$, we have
 \begin{eqnarray*}
     (\sigma,\tau)\in \Ima\triangle_{(P,\vec v)} 
-    & \iff & \forall (I,J) \in D(n), \exists k \in [n] , 
+    & \iff & \forall (I,J) \in \LA(n), \exists k \in [n] , 
     \left| \sigma_{[k]} \cap I \right|
     >
     \left| \sigma_{[k]} \cap J \right| \text{ or } \\
@@ -101,6 +110,8 @@ Now we will be interested in the solutions of the systems associated to the pair
 \label{p:minimal-IJ-pairs}
     There is a bijection between the set $\LA(\sigma,\tau)$ and the solutions to the systems of equations of the form $(\sigma',\tau)$ and $(\sigma,\tau')$. 
 \end{proposition}
+
+\Guillaume{A revoir!! Il faut utiliser le fait que ce sont des facettes!!}
 
 \begin{proof}
     For any $z \in (\mathring \sigma+ \mathring \tau)/2$, the face $\tau \cap \rho_z \sigma$ of $P \cap \rho_z P$ is a vertex of the polytope $P \cap \rho_z P$.

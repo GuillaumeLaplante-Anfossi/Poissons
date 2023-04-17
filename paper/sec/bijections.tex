@@ -3,7 +3,7 @@
 
 
 
-\subsubsection{Operadic diagonals}
+\subsubsection{Operadic diagonals on the permutahedra}
 
 Let $U(n)  \eqdef  \set{\{I,J\}}{I,J \subset [n], |I|= |J|, I\cap J = \emptyset}$.
 This is a set of unordered pairs, which we will order as follows. 
@@ -21,13 +21,15 @@ Similarly, we will show in \Guillaume{Corollary X} that the $\SU$ order defines 
 Both of these diagonals have opposites $(\LAD)^{\op}$ and $(\SUD)^{\op}$, obtained by permuting the factors in every term; at the level of orderings they are obtained by permuting $I$ and $J$ in the definitions of $\LA(n)$ and $\SU(n)$. 
 Geometrically, these opposite versions are given by taking $-\vec v$ instead of $\vec v$ as an orientation vector. 
 
-In what follows, we will be interested in a \emph{coherent} choice of orderings of $U(n)$, for all $n \geq 1$.
-That is, a family of sets $\{O(n)\}_{n\geq 1}$ where each $O(n)$ has as elements ordered pairs $(I,J)$ or $(J,I)$, for each $\{I,J\} \in U(n)$.\Kurt{I'm fine with operadic instead of coherent, but this def of coherent should be total.}
+An \emph{ordering} $O$ of $U$ is a family of sets $\{O(n)\}_{n\geq 1}$ where each $O(n)$ has as elements ordered pairs $(I,J)$ or $(J,I)$, for each $\{I,J\} \in U(n)$.
 For an ordered pair $(I,J)$ in $O(n)$, we denote by $\std(I,J)$ the standardisation function, e.g. $\std(\{5,9,10\},\{6,8,12\}) = (\{1,4,5\},\{2,3,6\})$.
 
 \begin{definition}
+    \label{def:operadic-ordering}
 An ordering $O \eqdef \{O(n)\}_{n \geq 1}$ of $U \eqdef \{U(n)\}_{n\geq 1}$ is \emph{operadic} if for all $(I,J) \in O$, we have that $(I',J') \subsetneq (I,J) \implies \std(I',J') \in O$. 
 \end{definition}
+
+We will see \Guillaume{in prop X} that these choice of orderings induce operadic structure on the operahedra, multiplihedra and associahedra.
 
 \begin{lemma} \label{lem:operadic-ordering}
 The $\LA$ and $\SU$ orderings are operadic, and are extensions of the following $(I,J)$ pairs,
@@ -62,6 +64,7 @@ However, by definition of the $\LA$ order, for any decomposition $(I,J) = (\sqcu
 As such all decompositions of a pair $(I,J)$ order it the same way.
 
 \begin{proposition}
+    \label{prop:operadic-ordering}
 The only operadic orderings of $U=\{U(n)\}_{n\geq 1}$ are the $\LA,\SU,\LA^{\op}$ and $\SU^{\op}$ orderings.
 \end{proposition}
 
@@ -71,8 +74,8 @@ These are,
 \begin{itemize} 
     \item $(\{1\},\{2\})$ and $(\{1,4\},\{2,3\})$ which corresponds to $\LA$ i.e. $\min(I\cup J) = \min I$;
     \item $(\{1\},\{2\})$ and $(\{2,3\},\{1,4\})$ which corresponds to $\SU$ i.e. $\max(I\cup J) = \max J$;
-    \item $(\{2\},\{1\})$ and $(\{2,3\},\{1,4\})$ which corresponds to $\LA^{op}$ i.e. $\min(I\cup J) = \min J$;
-    \item $(\{2\},\{1\})$ and $(\{1,4\},\{2,3\})$ which corresponds to $\SU^{op}$ i.e. $\max(I\cup J) = \max I$.
+    \item $(\{2\},\{1\})$ and $(\{2,3\},\{1,4\})$ which corresponds to $\LA^{\op}$ i.e. $\min(I\cup J) = \min J$;
+    \item $(\{2\},\{1\})$ and $(\{1,4\},\{2,3\})$ which corresponds to $\SU^{\op}$ i.e. $\max(I\cup J) = \max I$.
 \end{itemize}
 More specifically, we must first order the sole reduced pair $\{\{1\},\{2\}\}$ of $U(1)$.
 Then, the sole reduced pair of $U(2)$ which must be ordered is $\{\{1,4\},\{2,3\} \}$.
@@ -104,30 +107,49 @@ In particular,
 \end{align*}
 \end{example}
 
-\Guillaume{Rework from here}
+A \emph{diagonal $\triangle:=\{\triangle_n\}$ of the permutahedra} is a family of diagonals $\triangle_n : P_n \to P_n \times P_n$, for each $n$-permutahedron $P_n$, $ n \geq 1$. 
 
-As a consequence of these lemmas and Theorem 3.16 of \cite{LA21} \Kurt{and tree substitution...}it follows that, 
+\begin{definition}
+    A diagonal $\triangle$ of the permutahedra is \emph{operadic} if for every $n \geq 1$ and every face $A_1 | \ldots | A_k$ of the permutahedron $P_n$ we have a poset isomorphism \[ \triangle(A_1 | \ldots | A_k) \cong \triangle(A_1) \times \ldots \times \triangle(A_k) \ . \]
+\end{definition}
+
+This property is also called comultiplicativity in the literature \cite{SaneblidzeUmble04}.
+In the definition, we make use of the fact that every face of the permutahedron $P_n$ is isomorphic to a product of lower dimensional permutahedra, via the isomorphism $\Theta$ of Point (5) in \cite[Proposition 2.3]{LA21} which permutes the coordinates. 
+
 \begin{theorem}
-There are only four comultiplicative diagonals of every operahedra, in particular, those induced by the $LA, SU, LA^{op}$ and $SU^{op}$ orders on $D(n)$.
+There are exactly four operadic diagonals on the permutahedra. 
 \end{theorem}
 
-There are four clear bijective maps between these four orders of $D(n)$
+\begin{proof}
+    First, by \cite[Theorem 3.9]{LA21} any diagonal in the sense of \cref{def:diagonal} is given by a choice of ordering of $U$.
+    Second, every operadic diagonal satisfies \cite[Proposition 4.14]{LA21}, which amounts precisely to an operadic ordering of $U$ in the sense of \cref{def:operadic-ordering}.
+    We conclude with \cref{prop:operadic-ordering}.
+    \Guillaume{More details?}
+\end{proof}
+
+\Guillaume{Rework from here}
+
+There are four clear bijective maps between these four orders of $U(n)$, related by the following diagram
 \begin{center}
 \begin{tikzcd}
-\OP \arrow[r,"s"] \arrow[d,"i"]&
-\OP^{op}\arrow[d,"i"]\\
-SU^{op} \arrow[r,"s"] &
-SU
+\LA \arrow[r,"t"] \arrow[d,"r"]&
+\LA^{\op}\arrow[d,"r"]\\
+\SU^{\op} \arrow[r,"t"] &
+\SU
 \end{tikzcd}
 \end{center}
-where $s(I,J) \eqdef (J,I)$ and $i$ inverts the order on an $(I,J)$ pair, mapping the smallest element to the largest element, then the next smallest to next largest and so on, e.g. 
+where $t(I,J) \eqdef (J,I)$ is the transposition of the factors and $r$ inverts the order on an $(I,J)$ pair, mapping the smallest element to the largest element, then the next smallest to next largest and so on, e.g. 
 \begin{align*}
     i(\{1, 7, 8\} , \{ 4, 5, 6 \}) = (\{8,2,1\},\{7,6,5\}) = (\{1,2,8\},\{5,6,7\})
 \end{align*}
+
 These bijections in orders induce a bijection between the diagonals. 
-\begin{proposition}\label{p:IJ level bijection}
+
+\begin{proposition}
+    \label{p:IJ level bijection}
 There is a bijection between diagonals $\theta:\OP^{LA} \to \OP^{SU}$.
 \end{proposition}
+
 \begin{proof}
 For any pair $(\sigma,\tau)$ of ordered partitions of $[n]$, we have
 \begin{align*}
