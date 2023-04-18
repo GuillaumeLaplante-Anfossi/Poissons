@@ -5,11 +5,10 @@
 
 \subsubsection{Operadic diagonals on the permutahedra}
 
-Let $U(n)  \eqdef  \set{\{I,J\}}{I,J \subset [n], |I|= |J|, I\cap J = \emptyset}$.
-This is a set of unordered pairs, which we will order as follows. 
+We consider the unordered sets $$U(n)  \eqdef  \set{\{I,J\}}{I,J \subset [n], |I|= |J|, I\cap J = \emptyset} \ . $$
 
 \begin{definition}
-We denote 
+The $\LA$ and $\SU$ orders on $U=\{U(n)\}$ are defined by 
 \begin{itemize} 
     \item $\LA(n) \eqdef \set{(I,J)}{\{I,J\} \in U(n), \ \min(I\cup J) = \min I}$, and by 
     \item $\SU(n) \eqdef \set{(I,J)}{\{I,J\} \in U(n), \ \max(I\cup J) = \max J}$.
@@ -17,11 +16,11 @@ We denote
 \end{definition}
 
 As we have seen in the preceding Section, the $\LA$ order defines the diagonal $\LAD$. 
-Similarly, we will show in \Guillaume{Corollary X} that the $\SU$ order defines the Saneblidze--Umble diagonal $\SUD$ \cite{SaneblidzeUmble04}.
+Similarly, we will show in \Guillaume{Corollary X} that the $\SU$ order defines the Saneblidze--Umble diagonal from $\SUD$ \cite{SaneblidzeUmble04}.
 Both of these diagonals have opposites $(\LAD)^{\op}$ and $(\SUD)^{\op}$, obtained by permuting the factors in every term; at the level of orderings they are obtained by permuting $I$ and $J$ in the definitions of $\LA(n)$ and $\SU(n)$. 
 Geometrically, these opposite versions are given by taking $-\vec v$ instead of $\vec v$ as an orientation vector. 
 
-An \emph{ordering} $O$ of $U$ is a family of sets $\{O(n)\}_{n\geq 1}$ where each $O(n)$ has as elements ordered pairs $(I,J)$ or $(J,I)$, for each $\{I,J\} \in U(n)$.
+In general, an \emph{ordering} $O$ of $U$ is a family of sets $\{O(n)\}_{n\geq 1}$ where each $O(n)$ has as elements ordered pairs $(I,J)$ or $(J,I)$, for each $\{I,J\} \in U(n)$.
 For an ordered pair $(I,J)$ in $O(n)$, we denote by $\std(I,J)$ the standardisation function, e.g. $\std(\{5,9,10\},\{6,8,12\}) = (\{1,4,5\},\{2,3,6\})$.
 
 \begin{definition}
@@ -94,7 +93,8 @@ This decomposition makes use of the (reversed) order $J_{l+1} > I_{l+1}$ and the
 On the other side, we can write $\{I_m,J_m\} = \{I_c \cup I_d, J_c \cup J_d\}$, where $I_c \eqdef  \{1,m+3,\dots,  2m-1\} < J_c \eqdef  \{2,5,\dots,m+1\}$ and $I_d \eqdef \{3, 2m\} < J_d \eqdef  \{4, m+2\}$, which imply that $I_m < J_m$ via the (non-reversed) orders $I_l < J_l$ and $I_2 < J_2$, a contradiction.
 \end{proof}
 
-\begin{example} \label{ex:Non-coherent order contradiction}
+\begin{example} 
+\label{ex:Non-coherent order contradiction}
 Suppose that the $\LA$ order holds for pairs of order $1$ and $2$, but is reversed for pairs of order $3$, i.e. we have 
 \begin{align*}
     \{1\}<\{2\},\quad \{1,4\}< \{2,3\}, \text{ and } \{1, 5, 6 \} > \{2, 3, 4\} \ .
@@ -107,29 +107,112 @@ In particular,
 \end{align*}
 \end{example}
 
-A \emph{diagonal $\triangle:=\{\triangle_n\}$ of the permutahedra} is a family of diagonals $\triangle_n : P_n \to P_n \times P_n$, for each $n$-permutahedron $P_n$, $ n \geq 1$. 
+Now recall that each face $A_1 | \ldots | A_k$ of the permutahedron $P_{|A_1|+\cdots + |A_k|-1}$ is isomorphic to the product $P_{|A_1|-1} \times \cdots \times P_{|A_k|-1}$ of lower dimensional permutahedra, via the isomorphism
+\begin{equation*}
+    \begin{matrix}
+        \Theta & : & \R^{|A_1|} \times \cdots \times \R^{|A_k|} & \overset{\cong}{\longrightarrow} & \R^{|A_1|+\cdots+|A_k|} \\
+         & & (x_1,\ldots,x_{|A_1|}) \times \cdots \times (x_{|A_1|+\cdots +|A_{k-1}|+1}, \ldots, x_{|A_1|+\cdots +|A_k|})  & \mapsto & (x_{\sigma^{-1}(1)},\ldots,x_{\sigma^{-1}(|A_1|+\cdots +|A_k|)})
+    \end{matrix}
+\end{equation*}
+where $\sigma$ is the $(|A_1|,\ldots,|A_k|)$-shuffle sending the increasingly ordered elements of~$A_1 \cup \ldots \cup A_k$ to the block by block increasingly ordered elements of $A_1 | \ldots | A_k$.
+Note that this map is a particular instance of the eponym map introduced in Point (5) of \cite[Prop. 2.3]{LA21}.
+
+\begin{remark}
+    This fact underlies a \emph{permutadic} structure \cite{LodayRonco11,MARKL2020105277}.
+\end{remark}
+
+A \emph{diagonal of the permutahedra} $\triangle:=\{\triangle_n\}$ is a family of diagonals $\triangle_n : P_n \to P_n \times P_n$, for each $n$-permutahedron $P_n$, $ n \geq 1$. 
 
 \begin{definition}
-    A diagonal $\triangle$ of the permutahedra is \emph{operadic} if for every $n \geq 1$ and every face $A_1 | \ldots | A_k$ of the permutahedron $P_n$ we have a poset isomorphism \[ \triangle(A_1 | \ldots | A_k) \cong \triangle(A_1) \times \ldots \times \triangle(A_k) \ . \]
+    A diagonal of the permutahedra $\triangle$ is \emph{operadic} if for every face $A_1 | \ldots | A_k$ of the permutahedron $P_{|A_1|+\cdots + |A_k|-1}$, the map $\Theta$ induces a topological cellular isomorphism \[  \triangle(A_1) \times \ldots \times \triangle(A_k) \cong \triangle(A_1 | \ldots | A_k) \ . \]
 \end{definition}
+In other words, we require that the diagonal $\triangle$ commutes with the map $\Theta$, see \cite[Section 4.2]{LA21}.
+At the algebraic level, this property is called ``comultiplicativity" in \cite{SaneblidzeUmble04}.
+Note that in particular such an isomorphism respects the poset structures. 
 
-This property is also called comultiplicativity in the literature \cite{SaneblidzeUmble04}.
-In the definition, we make use of the fact that every face of the permutahedron $P_n$ is isomorphic to a product of lower dimensional permutahedra, via the isomorphism $\Theta$ of Point (5) in \cite[Proposition 2.3]{LA21} which permutes the coordinates. 
-
-\begin{theorem}
+\begin{proposition}
+\label{prop:unique-operad}
 There are exactly four operadic diagonals on the permutahedra. 
-\end{theorem}
+\end{proposition}
 
 \begin{proof}
     First, by \cite[Theorem 3.9]{LA21} any diagonal in the sense of \cref{def:diagonal} is given by a choice of ordering of $U$.
     Second, every operadic diagonal satisfies \cite[Proposition 4.14]{LA21}, which amounts precisely to an operadic ordering of $U$ in the sense of \cref{def:operadic-ordering}.
     We conclude with \cref{prop:operadic-ordering}.
-    \Guillaume{More details?}
 \end{proof}
 
-\Guillaume{Rework from here}
+The orientation vectors $\vec v=(v_1,\ldots,v_{n}) \in \R^n$ inducing each of these four diagonals are given by the conditions \[ \sum_{i \in I} v_i > \sum_{j \in J} v_j \ , \ \forall (I,J) \in O(n) \ , \]
+where $O(n)$ stands for either $\LA(n), \LA(n)^\op, \SU(n)$ or $\SU(n)^\op$.
 
-There are four clear bijective maps between these four orders of $U(n)$, related by the following diagram
+\begin{remark}
+    This answers by the negative a conjecture regarding unicity of diagonals on the permutahedra, raised at the beginning of \cite[Section 3]{SaneblidzeUmble04}, and could be seen as a ``corrected" version of it. \Guillaume{See the next section where we prove that SU diagonal is SU diagonal}
+\end{remark}
+
+The permutahedra are part of a more general family of polytopes called Loday realizations of the \emph{operahedra} \cite[Def. 2.9]{LA21} which encodes the notion of homotopy operad \cite[Def. 4.11]{LA21}.
+For every planar tree $t$, there is a corresponding polytope $P_t$ whose codimension $k$ faces are in bijection with nestings of $t$ with $k$ non-trivial nests.
+Since the operahedra are generalized permutahedra \cite[Cor. 2.16]{LA21}, a choice of diagonal for the permuthedra induces a choice of diagonal for every operahedron \cite[Cor. 1.31]{LA21}.
+Every face of an operahedron is isomorphic to a product of lower-dimensional operahedra, via an isomorphism $\Theta$ which generalizes the one above, see Point (5) of \cite[Prop. 2.3]{LA21}.
+
+\begin{definition}
+    An \emph{operadic diagonal} for the operahedra is a choice of diagonal $\triangle_t$ for each operahedron~$P_t$, such that $\triangle:=\{\triangle_t\}$ commutes with the map $\Theta$, i.e. it satisfies \cite[Prop. 4.14]{LA21}.
+\end{definition}
+
+\begin{theorem}[Operadic structures on the operahedra] 
+    \label{thm:operahedra}
+There are exactly 
+\begin{enumerate}
+    \item four operadic diagonals of the Loday operahedra, therefore exactly
+    \item four colored topological cellular operad structures on the Loday operahedra, and incidentally exactly
+    \item four universal tensor products of homotopy operads,
+\end{enumerate}
+two of which (the $\LA$ and $\SU$ diagonals) agree with the generalized Tamari order on fully nested trees. 
+\end{theorem}
+
+\begin{proof}
+    Let us first examine Point (1).
+    By \cref{prop:unique-operad}, we know that if one of the four choices $\LAD, (\LAD)^\op, \SUD, (\SUD)^\op$ is made on an operahedron $P_t$, one has to make the same choice on every lower-dimensional operahedron appearing in the decomposition $P_{t_1} \times \cdots \times P_{t_k} \cong F \subset P_t$ of a face $F$ of $P_t$. 
+    Now suppose that one makes two distinct choices for two operahedra $P_t$ and $P_{t'}$.
+    It is easy to find a bigger tree $t''$ of which both $t$ and $t'$ are subtrees.
+    Therefore, $P_t$ and $P_{t'}$ appear as facets of $P_{t''}$ and by the preceding remark, any choice of diagonal for $P_{t''}$ will then contradict our initial two choices. 
+    Thus, these had to be the same from the start, which concludes the proof. 
+
+    Point (2) then follows from fact that a choice of diagonal for the Loday realizations of the operahedra \emph{forces} a unique topological cellular colored operad structure on them, see \cite[Theorem 4.18]{LA21}.
+    Since universal tensor products of homotopy operads are induced by a colored operad structure on the operahedra \cite[Cor. 4.24]{LA21}, we obtain Point~(3).
+    Finally, since only vectors with strictly descreasing coordinates induce the generalized Tamari order on the $1$-skeleton of the operahedra \cite[Prop. 3.11]{LA21}, we get the last part of the statement. 
+\end{proof}
+
+This answers the first question in \cite[Remark 3.14]{LA21}.
+
+\Guillaume{To be worked from here}
+
+\begin{samepage}
+\begin{theorem}[Operadic structures on the multiplihedra]
+There are exactly 
+\begin{itemize}
+    \item four operadic diagonals of the Forcey--Loday multiplihedra, therefore exactly
+    \item four topological cellular operadic bimodule structures (over the Loday associahedra) on the Forcey--Loday multiplihedra, and incidentally exactly
+    \item four compatible universal tensor products of $\Ainf$-algebras and $\Ainf$-morphisms,
+\end{itemize}
+two of which (the $\LA$ and $\SU$ diagonals) agree with the Tamari(-type) order on ($2$-colored) planar trees. 
+\end{theorem}
+\end{samepage}
+
+\begin{proof}
+    The proof is similar to the one of \cref{thm:operahedra}, using the results of \cite{MazuirLA22}.
+\end{proof}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsection{Relating operadic diagonals}
+
+In this section we show that the four diagonals are isomorphic, and that this induces an isomorphism of the corresponding operadic structures on the operahedra, multiplihedra and associahedra.
+
+\Guillaume{faire direct l'iso topologique, puis traduire?}
+
+These isomorphisms can be seen at the combinatorial level, as ismorphisms between the different orderings of $U$
 \begin{center}
 \begin{tikzcd}
 \LA \arrow[r,"t"] \arrow[d,"r"]&
@@ -147,7 +230,7 @@ These bijections in orders induce a bijection between the diagonals.
 
 \begin{proposition}
     \label{p:IJ level bijection}
-There is a bijection between diagonals $\theta:\OP^{LA} \to \OP^{SU}$.
+There is a bijection between diagonals $\theta:\LAD \to \SUD$.
 \end{proposition}
 
 \begin{proof}
