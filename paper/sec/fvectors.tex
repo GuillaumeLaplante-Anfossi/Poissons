@@ -657,7 +657,7 @@ Note that the maximal elements of~$\forestPoset$ are the $(\ell, n)$-trees.
 %
 \begin{figure}
 	\centerline{\includegraphics[scale=1]{forests}}
-	\caption{A $(3,6)$-forest with its intersection hypergraph (left) and a $(3,6)$-tree with its intersection hypertree \BDO{Changed : hypergraph to hypertree} (right).}
+	\caption{A $(3,6)$-forest with its intersection hypergraph (left) and a $(3,6)$-tree with its intersection hypertree (right).}
 	\label{fig:forests}
 \end{figure}
 \end{definition}
@@ -694,7 +694,10 @@ Hence
 \end{align*}
 \end{proof}
 
+We thus obtain the following statament from \cref{thm:MobiusPolynomial,thm:Zaslavsky}.
+
 \begin{corollary}
+\label{coro:fbvectorslBraidArrangement}
 The $f$- and $b$-polynomials of the $(\ell,n)$-braid arrangement~$\lBraidArrangement$ are given by
 \begin{align*}
 \fPol[\lBraidArrangement] & = \sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i-1} \prod_{p \in G_i} (\# F_i[p]-1)!\\
@@ -748,7 +751,7 @@ for~$i \ne j$ and~$p, q$ such that~$p + q \le \ell-2$.
 Hence, we have
 \begin{align*}
 \mobPol[{\lBraidArrangement[3][\ell]}] & = x^2 y^2 - 3 \ell x^2 y + \ell (3 \ell - 1) x^2 + 3 \ell x y - 3 \ell (2 \ell - 1) x + \ell (3 \ell - 2) , \\
-\fPol[{\lBraidArrangement[3][\ell]}] & = (3 \ell^2 + 2 \ell + 1) x^2 + 6 \ell^2 x + \ell (3 \ell - 2) \\
+\fPol[{\lBraidArrangement[3][\ell]}] & = (3 \ell^2 + 2 \ell + 1) x^2 + 6 \ell^2 x + \ell (3 \ell - 2), \\
 \text{and}\qquad
 \bPol[{\lBraidArrangement[3][\ell]}] & = (3 \ell^2 - 4 \ell + 1) x^2 + 6 \ell (\ell - 1) x + \ell (3 \ell - 2).
 \end{align*}
@@ -775,13 +778,14 @@ We adapt the proof from \cite{CKSS04}. By rooting in the part of colour $1$ cont
  There are $(\ell+(n-1)(\ell-1))^{n-2} \times \ell$ such words, hence the result.
 \end{proof}
 
-\begin{theorem}[Number of vertices refined]
+\begin{theorem}
 \label{thm:verticesRefinedlnBraidArrangement}
-\begin{equation}
-f_{k_1, \ldots, k_\ell}(\lBraidArrangement) = n^{\ell-1}  \binom{n-1}{k_1, ..., k_l} \prod_{i=1}^l (n-k_i)^{k_i-1}, 
-\end{equation}
-where $\sum_{i=1}^\ell k_i = n-1$.
+For any~$\b{k}  = (k_1, \dots, k_\ell)$ such that~$0 \le k_i \le n-1$ for all~$i \in [\ell]$ and~$\sum_{i=1}^\ell k_i = n-1$, the number of vertices~$v$ of the $(\ell,n)$-braid arrangement~$\lBraidArrangement$ such that the smallest flat of the $i$th copy of~$\braidArrangement$ containing~$v$ has dimension~$k_i$ is given by
+\[
+f_{\b{k}}(\lBraidArrangement) = n^{\ell-1}  \binom{n-1}{k_1, ..., k_l} \prod_{i=1}^\ell (n-k_i)^{k_i-1}.
+\]
 \BDO{Warning : $k_i$ is the number of edges of colours i in the tree ! It has to be adapted to the dimension.}
+\vincent{I hope I made it right.}
 \end{theorem}
 
 \begin{proof}
@@ -881,27 +885,51 @@ f_0(\lBraidArrangement[n][2]) = 2 (n + 1)^{n-2}.
 \begin{proof}
 Note that the formula follows from \cref{thm:verticeslnBraidArrangement}.
 We give an alternative simple proof.
-\vincent{TODO}
+The first two sets are in bijection by \cref{coro:fbvectorslBraidArrangement}.
+Consider now a $(2,n)$-tree~$\b{F} \eqdef (F_1,F_2)$ (hence~$\# F_1 + \# F_2 = n + 1$).
+Consider the intersection tree~$T$ of~$\b{F}$ with vertices labeled by the parts of~$F_1$ and of~$F_2$ and edges labeled by~$[n]$, root~$T$ at the part of~$F_1$ containing vertex~$1$, forget the vertex labels of~$T$, and send each edge label of~$T$ to the next vertex away from the root, and label the root by~$0$.
 See \cref{fig:tree}.
+The result is a spanning tree of the complete graph~$K_{n+1}$ on~$\{0, \dots, n\}$ which must contain the edge~$(0,1)$ (because we have chosen the root to be the part of~$F_1$ containing~$1$).
 %
 \begin{figure}
 	\centerline{\includegraphics[scale=1]{tree}}
 	\caption{The bijection from rooted $(\ell,n)$-trees (left) to spanning trees of~$K_{n+1}$ containing the edge~$(0,1)$ (right).}
 	\label{fig:tree}
 \end{figure}
+%
+Finally, by double counting the pairs~$(T,e)$ where $T$ is a spanning tree of~$K_{n+1}$ and $e$ is an edge of~$T$, we see that $n$ times the number of spanning trees of~$K_{n+1}$ equals $\binom{n+1}{2}$ times the number of spanning trees of~$K_{n+1}$ containing~$(0,1)$.
+Hence, by Cayley's formula for spanning trees of~$K_{n+1}$, we obtain that
+\[
+f_0(\lBraidArrangement[n][2]) = \frac{2n}{n(n+1)} (n+1)^{n-1} = 2 (n + 1)^{n-2}.
+\qedhere
+\]
 \end{proof}
 
 \begin{theorem}
-\label{thm:verticesRefinedlnBraidArrangement}
-\vincent{TODO: Number of vertices refined}
+\label{thm:verticesRefined2BraidArrangement}
+For any~$0 \le k_1, k_2 \le n-1$ with~$k_1 + k_2 = n-1$, the number of vertices~$v$ of the $(2,n)$-braid arrangement~$\lBraidArrangement[n][2]$ obtained as the intersection of a $k_1$-flat of the first copy of the braid arrangement with a $k_2$-flat of the second copy of the braid arrangement is
+\[
+f_{k_1, k_2}(\lBraidArrangement[n][2]) = n \binom{n-1}{k_1} (n-k_1)^{k_1-1} (n-k_2)^{k_2-1}.
+\]
 \end{theorem}
 
 \begin{proof}
-\vincent{TODO}
+Note that the formula follows from \cref{thm:verticesRefinedlnBraidArrangement}.
+We give an alternative simple proof.
+By \cref{coro:fbvectorslBraidArrangement}, we want to count the number of $(2,n)$-trees~$\b{F} \eqdef (F_1,F_2)$ where~$F_1$ has $k_1+1$ parts while $F_2$ has $k_2+1$ parts.
+Consider the intersection tree~$T$ of~$\b{F}$ with vertices labeled by the parts of~$F_1$ and of~$F_2$ and edges labeled by~$[n]$, root~$T$ at an arbitrary part of~$F_1$, forget the vertex labels of~$T$, and send each edge label of~$T$ to the next vertex away from the root.
+See \cref{fig:tree}.
+Note here that in contrast to the proof of \cref{thm:vertices2nBraidArrangement}, we have rooted~$T$ here at an arbitrary part of~$F_1$ to have more symmetry.
+The result is a spanning tree of the complete bipartite graph~$K_{k_1+1, k_2+1}$ together with a choice of which of the labels are on each part of this graph.
+Since the number of spanning trees of~$K_{k_1+1, k_2+1}$ is known to be~$(k_1+1)^{k_2} (k_2+1)^{k_1}$, we obtain that
+\[
+f_{k_1, k_2}(\lBraidArrangement[n][2]) = \underbrace{\frac{1}{k_1+1}  \phantom{\!\!\!\!\bigg)}}_{\text{root}} \underbrace{\binom{n}{k_1}}_{\text{labels}} \underbrace{(k_1+1)^{k_2} (k_2+1)^{k_1} \phantom{\!\!\!\!\bigg)}}_{\# \text{ spanning trees }} = n \binom{n-1}{k_1} (n-k_1)^{k_1-1} (n-k_2)^{k_2-1}.
+\qedhere
+\]
 \end{proof}
 
 \begin{theorem}
-\label{thm:facets2nBraidArrangement}
+\label{thm:facets2BraidArrangement}
 The coefficient of~$x^{n-1}$ in the M\"obius polynomial~$\mobPol[{\lBraidArrangement[n][2]}]$ of the $(2,n)$-braid arrangement~$\lBraidArrangement[n][2]$ is given by
 \[
 [x^{n-1}] \, \mobPol[{\lBraidArrangement[n][2]}] = \frac{(-1)^n n!}{y} \, [z^n] \, \exp \bigg( \sum_{m \ge 1} \frac{- C_m \, y \, z^m}{m} \bigg).
@@ -930,17 +958,55 @@ b_{n-1}(\lBraidArrangement[n][2])
 \end{corollary}
 
 \begin{proof}
-As $\fPol[{\lBraidArrangement[n][2]}] = \mobPol[{\lBraidArrangement[n][2]}][-x][-1]$ and $\bPol[{\lBraidArrangement[n][2]}] = \mobPol[{\lBraidArrangement[n][2]}][-x][1]$ by \cref{thm:facets2BraidArrangement}, we obtain from \cref{thm:facets2BraidArrangement} that
+As $\fPol[{\lBraidArrangement[n][2]}] = \mobPol[{\lBraidArrangement[n][2]}][-x][-1]$ and $\bPol[{\lBraidArrangement[n][2]}] = \mobPol[{\lBraidArrangement[n][2]}][-x][1]$ by \cref{thm:Zaslavsky}, we obtain from \cref{thm:facets2BraidArrangement} that
 \begin{align*}
-f_{n-1}(\lBraidArrangement[n][2]) & = [x^{n-1}] \, \fPol[{\lBraidArrangement[n][2]}] = (-1)^{n-1} \, [x^{n-1}] \mobPol[{\lBraidArrangement[n][2]}][-x][-1] = n! \, [z^n]  \, \exp \bigg( \sum_{m \ge 1} \frac{C_m \, z^m}{m} \bigg), \\
+f_{n-1}(\lBraidArrangement[n][2]) & = [x^{n-1}] \, \fPol[{\lBraidArrangement[n][2]}] = (-1)^{n-1} \, [x^{n-1}] \, \mobPol[{\lBraidArrangement[n][2]}][-x][-1] = n! \, [z^n]  \, \exp \bigg( \sum_{m \ge 1} \frac{C_m \, z^m}{m} \bigg), \\
 % \text{and}\qquad
-b_{n-1}(\lBraidArrangement[n][2]) & = [x^{n-1}] \, \bPol[{\lBraidArrangement[n][2]}] = (-1)^{n-1} \, [x^{n-1}] \mobPol[{\lBraidArrangement[n][2]}][-x][1] = - n! \, [z^n]  \, \exp \bigg( \sum_{m \ge 1} \frac{- C_m \, z^m}{m} \bigg).
+b_{n-1}(\lBraidArrangement[n][2]) & = [x^{n-1}] \, \bPol[{\lBraidArrangement[n][2]}] = (-1)^{n-1} \, [x^{n-1}] \, \mobPol[{\lBraidArrangement[n][2]}][-x][1] = - n! \, [z^n]  \, \exp \bigg( \sum_{m \ge 1} \frac{- C_m \, z^m}{m} \bigg).
 \end{align*}
-We then observe that
+To conclude, we thus just need to observe that
+\(
+F(z) = \frac{\partial}{\partial z} G(z)
+\)
+where
 \[
-\frac{\partial}{\partial z} \exp \bigg( \sum_{m \ge 1} \frac{- C_m \, z^m}{m} \bigg) = - \exp \bigg( \sum_{m \ge 1} C_m \, z^m \bigg).
+F(z) \eqdef \exp \bigg( \sum_{m \ge 1} C_m \, z^m \bigg)
+\qquad\text{and}\qquad
+G(z) \eqdef - \exp \bigg( \sum_{m \ge 1} \frac{- C_m \, z^m}{m} \bigg).
 \]
-\vincent{TODO: proof}
+For this, consider the generating functions
+\[
+C(z) \eqdef \sum_{m \ge 0} C_m \, z^m
+\qquad\text{and}\qquad
+D(z) \eqdef \sum_{m \ge 1} \frac{C_m \, z^m}{m}.
+\]
+Recall that~$C(z)$ satisfies the functional equation~$C(z) = 1 + z \, C(z)^2$.
+We thus obtain that~$C'(z) \big( 1 - 2 \, z \, C(z) \big) = C(z)^2$ and $C(z) \big( 1 - 2 \, z \, C(z) \big) = 2 - C(z)$.
+Combining these two equations, we get
+\begin{equation}
+\label{eq:diff}
+C(z)^3 = C'(z) \big( 1 - C(z) \big).
+\end{equation}
+Observe now that $z \, D'(z) = C(z) - 1 = z \, C(z)^2$, so that~$D''(z) = 2 \, C(z) \, C'(z)$.
+Hence
+\[
+F(z) = \exp \big( C(z) - 1 \big) = \exp \big( z \, D’(z) \big)
+\]
+and
+\[
+\frac{\partial}{\partial z} G(z) = \frac{\partial}{\partial z}  - \exp \big( -D(z) \big) = D'(z) \exp \big( -D(z) \big)
+\]
+Consider the function
+\[
+H(z) = G'(z) / F(z) = D'(z) \exp \big( -D(z) - z \, D'(z) \big).
+\]
+Clearly, $H(0) = 1$ and its derivative is
+\begin{align*}
+H'(z)
+& = \Big( D''(z) \big(1 - z \, D'(z) \big) - 2 D'(z)^2 \Big) \exp \big( -D(z) - z \, D'(z) \big) \\
+& = 2 \, C(z) \Big( C'(z) \big( 2 - C(z) \big) - C(z)^3 \Big) \exp \big( - D(z) - z \, D'(z) \big),
+\end{align*}
+which vanishes by~\eqref{eq:diff}.
 \vincent{Can we make a bijective proof of the last equality?}
 \end{proof}
 

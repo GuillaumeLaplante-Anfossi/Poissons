@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2021)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Poissons.aux
 The style file: amsalpha.bst
@@ -6,45 +6,45 @@ Database file #1: Poissons.bib
 Warning--I didn't find a database entry for "Zaslavsky"
 Warning--missing journal name in OEIS
 Warning--missing journal, volume, and year in OEIS
-You've used 14 entries,
+You've used 16 entries,
             2624 wiz_defined-function locations,
-            659 strings with 6772 characters,
-and the built_in function-call counts, 5871 in all, are:
-= -- 555
-> -- 234
-< -- 6
-+ -- 81
-- -- 77
-* -- 533
-:= -- 918
-add.period$ -- 14
-call.type$ -- 14
-change.case$ -- 84
-chr.to.int$ -- 14
-cite$ -- 16
-duplicate$ -- 203
-empty$ -- 481
-format.name$ -- 96
-if$ -- 1179
+            675 strings with 7041 characters,
+and the built_in function-call counts, 6604 in all, are:
+= -- 625
+> -- 261
+< -- 7
++ -- 89
+- -- 85
+* -- 599
+:= -- 1035
+add.period$ -- 16
+call.type$ -- 16
+change.case$ -- 95
+chr.to.int$ -- 16
+cite$ -- 18
+duplicate$ -- 232
+empty$ -- 542
+format.name$ -- 107
+if$ -- 1327
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 27
-newline$ -- 52
-num.names$ -- 41
-pop$ -- 97
+missing$ -- 31
+newline$ -- 58
+num.names$ -- 47
+pop$ -- 108
 preamble$ -- 1
-purify$ -- 98
+purify$ -- 111
 quote$ -- 0
-skip$ -- 145
+skip$ -- 165
 stack$ -- 0
-substring$ -- 541
-swap$ -- 18
-text.length$ -- 6
-text.prefix$ -- 5
+substring$ -- 598
+swap$ -- 20
+text.length$ -- 7
+text.prefix$ -- 6
 top$ -- 0
-type$ -- 108
+type$ -- 124
 warning$ -- 2
-while$ -- 54
-width$ -- 16
-write$ -- 154
+while$ -- 62
+width$ -- 18
+write$ -- 175
 (There were 3 warnings)
