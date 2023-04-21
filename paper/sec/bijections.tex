@@ -208,9 +208,62 @@ We shall see now that these different operadic structures are related to one ano
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsection{Relating operadic diagonals}
+\subsection{Relating operadic diagonals} 
+
 
 %In this section we show that the four diagonals are isomorphic, and that this induces an isomorphism of the corresponding operadic structures on the operahedra, multiplihedra and associahedra.
+
+Recall that the topological cellular operad structure on the operahedra \cite[Def. 4.17]{LA21} is given by a family of partial composition maps 
+\[
+\vcenter{\hbox{
+\begin{tikzcd}[column sep=1cm]
+\circ_i^{\LA}\ : \ P_{t'}\times P_{t''}
+\arrow[r,  "\tr\times \id"]
+& P_{(t',\omega)}\times P_{t''}
+ \arrow[r,hookrightarrow, "\Theta"]
+&
+P_t \ .
+\end{tikzcd}
+}}  \]
+Here, the map $\tr$ is the \emph{unique} topological cellular map which commutes with the diagonal~$\LAD$ \cite[Prop. 7]{masudaDiagonalAssociahedra2021}. 
+This partial composition $\circ_i^\LA$ is an isomorphism (in the category $\PolySub$ \cite[Def. 4.13]{LA21}) between the product $P_{t'}\times P_{t''}$ and the facet $t' \circ_i t''$ of $P_t$.
+Using the $\SU$ diagonal $\SUD$, one can define similarly a topological operad structure via the same formula, but with a different transition map $\tr$, which commutes with $\SUD$.
+
+\begin{definition}
+    For any operahedron $P_t$, the map $\Psi_t : P_t \to P_t$ is defined on the face $t'\circ_i t''$ of~$P_t$ by the composition of the two isomorphisms \[ \Psi_{t'\circ_i t''} := \circ_i^\SU (\circ_i^\LA)^{-1} \ . \] 
+\end{definition}
+
+\Guillaume{Well-defined?}
+
+\begin{proposition}
+    The map $\Psi:=\{\Psi_t\}$ is an isomorphism of topological cellular colored operad in the category $\PolySub$.
+\end{proposition}
+
+\begin{proof}
+    By definition, we have that $\Psi$ is an isomorphism in the category $\PolySub$. 
+    It remains to show that it preserves the operad structures, i.e. that the following diagram commutes
+    \[
+    \vcenter{\hbox{
+    \begin{tikzcd}[column sep=2.2cm, row sep=1.3cm]
+    P_{t'}\times P_{t''}
+    \arrow[r,  "\circ_i^\LA"] 
+    \arrow[d,  "\Psi_{t'}\times\Psi_{t''}"]
+    & P_{t} \arrow[d,  "\Psi_t"] \\
+    P_{t'}\times P_{t''}  
+    \arrow[r,  "\circ_i^\SU"]
+    & P_{t}\ .
+    \end{tikzcd}
+    }}\]
+    The composition $\Psi_t \ \circ_i^\LA = \Psi_{t' \circ_i t''} \ \circ_i^\LA$ is equal to $\circ_i^\SU$. 
+\end{proof}
+
+
+
+\begin{example}
+    This isomorphism is a highly non-trivial map. 
+    For instance, it is not the one you would expect... 
+\end{example}
+
 
 \Guillaume{faire direct l'iso topologique, puis traduire?}
 
