@@ -23,5 +23,5 @@
 \contentsline {subsubsection}{\tocsubsubsection {}{2.5.1}{Shifts Under the Face Poset Isomorphism}}{39}{subsubsection.2.5.1}%
 \contentsline {subsection}{\tocsubsection {}{2.6}{Shuffle trees}}{41}{subsection.2.6}%
 \contentsline {section}{\tocsection {}{3}{Tables}}{41}{section.3}%
-\contentsline {subsubsection}{\tocsubsubsection {}{3.0.1}{Combinatorial formula for facets of the diagonal}}{41}{subsubsection.3.0.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{3.0.1}{Combinatorial formula for facets of the diagonal}}{42}{subsubsection.3.0.1}%
 \contentsline {section}{\tocsection {}{}{References}}{45}{section*.7}%
