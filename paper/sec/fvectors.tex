@@ -142,24 +142,6 @@ We now focus on the following specific hyperplane arrangements, illustrated in \
 			$3$ & $17$ & $24$ & $8$ && $49$ \\
 			$4$ & $149$ & $324$ & $226$ & $50$ & $749$
 		\end{tabular}
-		&
-		\begin{tabular}[t]{c|cccc|c}
-			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
-			\hline
-			$1$ & $1$ &&&& $1$ \\
-			$2$ & $4$ & $3$ &&& $7$ \\
-			$3$ & $34$ & $54$ & $21$ && $109$ \\
-			$4$ & $472$ & $1152$ & $924$ & $243$ & $2791$
-		\end{tabular}
-		&
-		\begin{tabular}[t]{c|cccc|c}
-			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
-			\hline
-			$1$ & $1$ &&&& $1$ \\
-			$2$ & $5$ & $4$ &&& $9$ \\
-			$3$ & $57$ & $96$ & $40$ && $193$ \\
-			$4$ & $1089$ & $2808$ & $2396$ & $676$ & $6969$
-		\end{tabular}
 		\\[2cm]
 		\begin{tabular}[t]{c|cccc|c}
 			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
@@ -178,7 +160,25 @@ We now focus on the following specific hyperplane arrangements, illustrated in \
 			$3$ & $5$ & $12$ & $8$ && $25$ \\
 			$4$ & $43$ & $132$ & $138$ & $50$ & $363$
 		\end{tabular}
+		\\[2cm]
+		$\ell = 1$ & $\ell = 2$ \\
+\begin{tabular}[t]{c|cccc|c}
+			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+			\hline
+			$1$ & $1$ &&&& $1$ \\
+			$2$ & $4$ & $3$ &&& $7$ \\
+			$3$ & $34$ & $54$ & $21$ && $109$ \\
+			$4$ & $472$ & $1152$ & $924$ & $243$ & $2791$
+		\end{tabular}
 		&
+		\begin{tabular}[t]{c|cccc|c}
+			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+			\hline
+			$1$ & $1$ &&&& $1$ \\
+			$2$ & $5$ & $4$ &&& $9$ \\
+			$3$ & $57$ & $96$ & $40$ && $193$ \\
+			$4$ & $1089$ & $2808$ & $2396$ & $676$ & $6969$
+		\end{tabular} \\[2cm]	
 		\begin{tabular}[t]{c|cccc|c}
 			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
 			\hline
@@ -196,8 +196,8 @@ We now focus on the following specific hyperplane arrangements, illustrated in \
 			$3$ & $33$ & $72$ & $40$ && $145$ \\
 			$4$ & $639$ & $1944$ & $1980$ & $676$ & $5239$
 		\end{tabular}
-		\\[2cm]
-		$\ell = 1$ & $\ell = 2$ & $\ell = 3$ & $\ell = 4$
+		\\[2cm]	
+		 $\ell = 3$ & $\ell = 4$
 	\end{tabular}
 	}
 	\vspace{.3cm}
@@ -205,7 +205,7 @@ We now focus on the following specific hyperplane arrangements, illustrated in \
 	\label{table:fvectorlBraidArrangements}
 \end{table}
 
-\vincent{I still have to decide what I do with this big \cref{table:fvectorlBraidArrangements}.} \BDO{Put it in annexe ?}
+\vincent{I still have to decide what I do with this big \cref{table:fvectorlBraidArrangements}.} \BDO{Put it in annexe? No ?}
 
 \begin{definition}
 For any integer~$n \geq 1$, the \defn{braid arrangement}~$\braidArrangement$ is the arrangement of the hyperplanes~$\set{\b{x} \in \R^n}{x_i = x_j}$ for all~$1 \le i < j \le n$.
@@ -213,438 +213,39 @@ For any integers~$\ell,n \geq 1$, the \defn{$(\ell,n)$-braid arrangement}~$\lBra
 \end{definition}
 
 \begin{remark}[Combinatorics of the braid arrangement]
+The intersection poset of the braid arrangement $\braidArrangement$ is the poset of partitions of a set of size $n$, ordered by refinement: a partition $\pi$ is smaller than a partition $\pi'$ if the parts of $\pi$ are contained in parts of $\pi'$. It is well-known \cite{Birkhoff, Rota} that the Möbius number of the poset of partitions of size $p$ is given by:
+\begin{equation*}
+(-1)^{p-1} (p-1)!
+\end{equation*}
 
+ 
 \vincent{TODO. Partitions, refinement poset on partitions, M\"obius function given by~$(-1)^{p-1} (p-1)!$.}
+\BDO{C'est Ok ? Je n'ai pas rappelé la définition d'une partition d'ensemble parce que ça m'a l'air quand même assez générique}
+We represent on Figure \ref{fig:B3} the braid arrangement and its associated intersection poset.
+\end{remark}
+
+\begin{figure}
+\centering
+\includegraphics{figures/B3.pdf}
+\includegraphics{figures/PosetB3.pdf}
+\caption{The braid arrangement $\braidArrangement[3]$ and its associated intersection poset. \label{fig:B3}}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{figures/B23.pdf}
+\includegraphics[width=8cm]{figures/PosetB23.pdf}
+\caption{The braid arrangement $\lBraidArrangement[3][2]$ and its associated intersection poset. \label{fig:B23}}
+\end{figure}
 
 \begin{figure}
 
 \centering
-\begin{tikzpicture}[scale=0.7]
-\coordinate (A) at (0:2);
-\coordinate (B) at (60:2);
-\coordinate (C) at (120:2);
-\coordinate (D) at (180:2);
-\coordinate (E) at (240:2);
-\coordinate (F) at (300:2);
-\draw[part1, very thick]  (A)--(D);
-\draw[part2, very thick]  (B)--(E);
-\draw[part4, very thick]  (C)--(F);
-\end{tikzpicture}
-\begin{tikzpicture}
-\node (min) at (0,0){};
-\node[above=1cm of min] (2) {
-\begin{tikzpicture}[scale=0.3]
-\coordinate (A) at (0:2);
-\coordinate (B) at (60:2);
-\coordinate (C) at (120:2);
-\coordinate (D) at (180:2);
-\coordinate (E) at (240:2);
-\coordinate (F) at (300:2);
-%\draw[part1, very thick]  (A)--(D);
-\draw[part2, very thick]  (B)--(E);
-%\draw[part4, very thick]  (C)--(F);
-\end{tikzpicture}
-};
-\node[left=1cm of 2] (1) {
-\begin{tikzpicture}[scale=0.3]
-\coordinate (A) at (0:2);
-\coordinate (B) at (60:2);
-\coordinate (C) at (120:2);
-\coordinate (D) at (180:2);
-\coordinate (E) at (240:2);
-\coordinate (F) at (300:2);
-\draw[part1, very thick]  (A)--(D);
-%\draw[part2, very thick]  (B)--(E);
-%\draw[part4, very thick]  (C)--(F);
-\end{tikzpicture}};
-\node[right=1cm of 2] (3) {
-\begin{tikzpicture}[scale=0.3]
-\coordinate (A) at (0:2);
-\coordinate (B) at (60:2);
-\coordinate (C) at (120:2);
-\coordinate (D) at (180:2);
-\coordinate (E) at (240:2);
-\coordinate (F) at (300:2);
-%\draw[part1, very thick]  (A)--(D);
-%\draw[part2, very thick]  (B)--(E);
-\draw[part4, very thick]  (C)--(F);
-\end{tikzpicture}};
-\node[above=1cm of 2] (max) {
-\begin{tikzpicture}[scale=0.3]
-\coordinate (A) at (0:2);
-\coordinate (B) at (60:2);
-\coordinate (C) at (120:2);
-\coordinate (D) at (180:2);
-\coordinate (E) at (240:2);
-\coordinate (F) at (300:2);
-\draw[part1, very thick]  (A)--(D);
-\draw[part2, very thick]  (B)--(E);
-\draw[part4, very thick]  (C)--(F);
-\end{tikzpicture}};
-\draw (min)--(1);
-\draw (min)--(2);
-\draw (min)--(3);
-\draw (max)--(1);
-\draw (max)--(2);
-\draw (max)--(3);
-\end{tikzpicture}
-
-\begin{tikzpicture}[very thick, scale=0.7]
-\coordinate (C) at (180:1);
-\coordinate (D) at (90:1);
-\coordinate (E) at (-90:1);
-\coordinate (F) at (0:1);
-\coordinate (A) at ($2*(C)+(D)$); % bleu-orange
-\coordinate (Ag1) at ($(A)+(C)+(D)$);
-\coordinate (Ag2) at ($(A)+(C)$);
-\coordinate (B) at ($2*(C)+(E)$); % teal-rouge
-\coordinate (Bg1) at ($(C)+(B)$);
-\coordinate (Bg2) at ($(C)+(B)+(E)$);
-\coordinate (G) at ($2*(F)+(D)$);
-\coordinate (Gg1) at ($(G)+(F)$);
-\coordinate (Gg2) at ($(G)+(F)+(D)$);
-\coordinate (H) at ($2*(F)+(E)$);
-\coordinate (Hg1) at ($(H)+(F)+(E)$);
-\coordinate (Hg2) at ($(H)+(F)$);
-\coordinate (F1) at ($3*(E)+2*(C)$);
-\coordinate (F2) at ($3*(E)+2*(F)$);
-\coordinate (F3) at ($3*(D)+2*(C)$);
-\coordinate (F4) at ($3*(D)+2*(F)$);
-\coordinate (midb) at ($(C)+(F)+(D)$);
-\draw[blue]  (Ag2)--(Gg1);
-\draw[red]  (Bg1)--(Hg2);
-\draw[teal]  (Bg2)--(F4);
-\draw[magenta]  (F1)--(Gg2);
-\draw[orange]  (Ag1)--(F2);
-\draw[green]  (F3)--(Hg1);
-\end{tikzpicture}
-\resizebox{8cm}{!}{
-\begin{tikzpicture}
-\node (min) at (0,0){};
-\node[above left=1cm of min.north] (3) {
-\begin{tikzpicture}[scale=0.3]
-\coordinate (A) at (0:2);
-\coordinate (B) at (60:2);
-\coordinate (C) at (120:2);
-\coordinate (D) at (180:2);
-\coordinate (E) at (240:2);
-\coordinate (F) at (300:2);
-%\draw[blue, very thick]  (A)--(D);
-\draw[teal, very thick]  (B)--(E);
-%\draw[part4, very thick]  (C)--(F);
-\end{tikzpicture}};
-\node[above right=1cm of min.north] (4) {
-\begin{tikzpicture}[scale=0.3]
-\coordinate (A) at (0:2);
-\coordinate (B) at (60:2);
-\coordinate (C) at (120:2);
-\coordinate (D) at (180:2);
-\coordinate (E) at (240:2);
-\coordinate (F) at (300:2);
-\draw[white, very thick]  (B)--(E);
-\draw[white, very thick]  (C)--(F);
-\draw[red, very thick]  (A)--(D);
-\end{tikzpicture}};
-\node[left=0.5cm of 3] (2) {
-\begin{tikzpicture}[scale=0.3]
-\coordinate (A) at (0:2);
-\coordinate (B) at (60:2);
-\coordinate (C) at (120:2);
-\coordinate (D) at (180:2);
-\coordinate (E) at (240:2);
-\coordinate (F) at (300:2);
-\draw[white, very thick]  (A)--(D);
-\draw[white, very thick]  (B)--(E);
-\draw[green, very thick]  (C)--(F);
-\end{tikzpicture}};
-\node[left=0.5cm of 2] (1) {
-\begin{tikzpicture}[scale=0.3]
-\coordinate (A) at (0:2);
-\coordinate (B) at (60:2);
-\coordinate (C) at (120:2);
-\coordinate (D) at (180:2);
-\coordinate (E) at (240:2);
-\coordinate (F) at (300:2);
-\draw[white, very thick]  (B)--(E);
-\draw[white, very thick]  (C)--(F);
-\draw[blue, very thick]  (A)--(D);
-\end{tikzpicture}};
-\node[right=0.5cm of 4] (5) {
-\begin{tikzpicture}[scale=0.3]
-\coordinate (A) at (0:2);
-\coordinate (B) at (60:2);
-\coordinate (C) at (120:2);
-\coordinate (D) at (180:2);
-\coordinate (E) at (240:2);
-\coordinate (F) at (300:2);
-\draw[white, very thick]  (A)--(D);
-\draw[white, very thick]  (B)--(E);
-\draw[orange, very thick]  (C)--(F);
-\end{tikzpicture}};
-\node[right=0.5cm of 5] (6) {
-\begin{tikzpicture}[scale=0.3]
-\coordinate (A) at (0:2);
-\coordinate (B) at (60:2);
-\coordinate (C) at (120:2);
-\coordinate (D) at (180:2);
-\coordinate (E) at (240:2);
-\coordinate (F) at (300:2);
-\draw[white, very thick]  (A)--(D);
-\draw[white, very thick]  (C)--(F);
-\draw[magenta, very thick]  (B)--(E);
-\end{tikzpicture}};
-\node[above=2cm of 1] (15) {
-\begin{tikzpicture}[scale=0.3]
-\coordinate (A) at (0:2);
-\coordinate (B) at (60:2);
-\coordinate (C) at (120:2);
-\coordinate (D) at (180:2);
-\coordinate (E) at (240:2);
-\coordinate (F) at (300:2);
-\draw[blue, very thick]  (A)--(D);
-%\draw[part2, very thick]  (B)--(E);
-\draw[orange, very thick]  (C)--(F);
-\end{tikzpicture}};
-\node[left=0.5cm of 15] (123) {
-\begin{tikzpicture}[scale=0.3]
-\coordinate (A) at (0:2);
-\coordinate (B) at (60:2);
-\coordinate (C) at (120:2);
-\coordinate (D) at (180:2);
-\coordinate (E) at (240:2);
-\coordinate (F) at (300:2);
-\draw[blue, very thick]  (A)--(D);
-\draw[teal, very thick]  (B)--(E);
-\draw[green, very thick]  (C)--(F);
-\end{tikzpicture}
-};
-\node[right=0.5cm of 15] (26) {
-\begin{tikzpicture}[scale=0.3]
-\coordinate (A) at (0:2);
-\coordinate (B) at (60:2);
-\coordinate (C) at (120:2);
-\coordinate (D) at (180:2);
-\coordinate (E) at (240:2);
-\coordinate (F) at (300:2);
-%\draw[blue, very thick]  (A)--(D);
-\draw[magenta, very thick]  (B)--(E);
-\draw[green, very thick]  (C)--(F);
-\end{tikzpicture}};
-\node[right=0.5cm of 26] (34) {
-\begin{tikzpicture}[scale=0.3]
-\coordinate (A) at (0:2);
-\coordinate (B) at (60:2);
-\coordinate (C) at (120:2);
-\coordinate (D) at (180:2);
-\coordinate (E) at (240:2);
-\coordinate (F) at (300:2);
-\draw[red, very thick]  (A)--(D);
-\draw[teal, very thick]  (B)--(E);
-%\draw[part4, very thick]  (C)--(F);
-\end{tikzpicture}};
-\node[right=0.5cm of 34] (24) {
-\begin{tikzpicture}[scale=0.3]
-\coordinate (A) at (0:2);
-\coordinate (B) at (60:2);
-\coordinate (C) at (120:2);
-\coordinate (D) at (180:2);
-\coordinate (E) at (240:2);
-\coordinate (F) at (300:2);
-\draw[red, very thick]  (A)--(D);
-%\draw[part2, very thick]  (B)--(E);
-\draw[green, very thick]  (C)--(F);
-\end{tikzpicture}};
-\node[right=0.5cm of 24] (35) {
-\begin{tikzpicture}[scale=0.3]
-\coordinate (A) at (0:2);
-\coordinate (B) at (60:2);
-\coordinate (C) at (120:2);
-\coordinate (D) at (180:2);
-\coordinate (E) at (240:2);
-\coordinate (F) at (300:2);
-%\draw[blue, very thick]  (A)--(D);
-\draw[teal, very thick]  (B)--(E);
-\draw[orange, very thick]  (C)--(F);
-\end{tikzpicture}};
-\node[right=0.5cm of 35] (16) {
-\begin{tikzpicture}[scale=0.3]
-\coordinate (A) at (0:2);
-\coordinate (B) at (60:2);
-\coordinate (C) at (120:2);
-\coordinate (D) at (180:2);
-\coordinate (E) at (240:2);
-\coordinate (F) at (300:2);
-\draw[blue, very thick]  (A)--(D);
-\draw[magenta, very thick]  (B)--(E);
-%\draw[part4, very thick]  (C)--(F);
-\end{tikzpicture}};
-\node[right=0.5cm of 16] (456) {
-\begin{tikzpicture}[scale=0.3]
-\coordinate (A) at (0:2);
-\coordinate (B) at (60:2);
-\coordinate (C) at (120:2);
-\coordinate (D) at (180:2);
-\coordinate (E) at (240:2);
-\coordinate (F) at (300:2);
-\draw[red, very thick]  (A)--(D);
-\draw[magenta, very thick]  (B)--(E);
-\draw[orange, very thick]  (C)--(F);
-\end{tikzpicture}};
-\draw (min)--(1);
-\draw (min)--(2);
-\draw (min)--(3);
-\draw (min)--(4);
-\draw (min)--(5);
-\draw (min)--(6);
-\draw (123.south)--(1.north);
-\draw (123.south)--(2.north);
-\draw (123.south)--(3.north);
-\draw (456.south)--(4.north);
-\draw (456.south)--(5.north);
-\draw (456.south)--(6.north);
-\draw (2.north)--(26.south)--(6.north);
-\draw (2.north)--(24.south)--(4.north);
-\draw (1.north)--(15.south)--(5.north);
-\draw (1.north)--(16.south)--(6.north);
-\draw (3.north)--(34.south)--(4.north);
-\draw (3.north)--(35.south)--(5.north);
-\end{tikzpicture}}
 \resizebox{0.8\textwidth}{!}{
-\begin{tikzpicture}
-\node (min) at (0,0){
-\begin{tikzpicture}[scale=0.3, inner sep=1pt]
-\node[draw, circle] (1p){1};
-\node[draw, circle, right=5pt of 1p](3p){2};
-\node[draw, circle, right=5pt of 3p](2p){3};
-\end{tikzpicture}};
-\node[above left=1cm of min.north] (3) {
-\begin{tikzpicture}[scale=0.3, inner sep=1pt]
-\node[draw, circle] (1p){2};
-\node[draw, circle, above=5pt of 1p](3p){3};
-\node[draw, circle, right=5pt of 1p](2p){1};
-\draw[very thick, blue] (1p)--(3p);
-\end{tikzpicture}};
-\node[above right=1cm of min.north] (4) {
-\begin{tikzpicture}[scale=0.3, inner sep=1pt]
-\node[draw, circle] (1p){1};
-\node[draw, circle, above=5pt of 1p](3p){3};
-\node[draw, circle, right=5pt of 1p](2p){2};
-\draw[very thick, red] (1p)--(3p);
-\end{tikzpicture}};
-\node[left=0.5cm of 3] (2) {
-\begin{tikzpicture}[scale=0.3, inner sep=1pt]
-\node[draw, circle] (1p){1};
-\node[draw, circle, above=5pt of 1p](3p){2};
-\node[draw, circle, right=5pt of 1p](2p){3};
-\draw[very thick, blue] (1p)--(3p);
-\end{tikzpicture}};
-\node[left=0.5cm of 2] (1) {
-\begin{tikzpicture}[scale=0.3, inner sep=1pt]
-\node[draw, circle] (1p){1};
-\node[draw, circle, above=5pt of 1p](3p){3};
-\node[draw, circle, right=5pt of 1p](2p){2};
-\draw[very thick, blue] (1p)--(3p);
-\end{tikzpicture}};
-\node[right=0.5cm of 4] (5) {
-\begin{tikzpicture}[scale=0.3, inner sep=1pt]
-\node[draw, circle] (1p){1};
-\node[draw, circle, above=5pt of 1p](3p){2};
-\node[draw, circle, right=5pt of 1p](2p){3};
-\draw[very thick, red] (1p)--(3p);
-\end{tikzpicture}};
-\node[right=0.5cm of 5] (6) {
-\begin{tikzpicture}[scale=0.3, inner sep=1pt]
-\node[draw, circle] (1p){2};
-\node[draw, circle, above=5pt of 1p](3p){3};
-\node[draw, circle, right=5pt of 1p](2p){1};
-\draw[very thick, red] (1p)--(3p);
-\end{tikzpicture}};
-\node[above=2cm of 1] (15) {
-\begin{tikzpicture}[scale=0.3, inner sep=1pt]
-\node[draw, circle] (1p){1};
-\node[draw, circle, above left=5pt of 1p.north](2p){2};
-\node[draw, circle, above right=5pt of 1p.north](3p){3};
-\draw[very thick, blue] (1p)--(3p);
-\draw[very thick, red] (1p)--(2p);
-\end{tikzpicture}};
-\node[left=0.5cm of 15] (123) {
-\begin{tikzpicture}[scale=0.3, inner sep=1pt]
-\node[draw, circle] (1p){1};
-\node[draw, circle, above left=5pt of 1p.north](2p){2};
-\node[draw, circle, above right=5pt of 1p.north](3p){3};
-\draw[very thick, blue] (1p)--(3p);
-\draw[very thick, blue] (1p)--(2p);
-\end{tikzpicture}};
-\node[right=0.5cm of 15] (26) {
-\begin{tikzpicture}[scale=0.3, inner sep=1pt]
-\node[draw, circle] (1p){1};
-\node[draw, circle, above=5pt of 1p.north](2p){2};
-\node[draw, circle, above=5pt of 2p.north](3p){3};
-\draw[very thick, red] (2p)--(3p);
-\draw[very thick, blue] (1p)--(2p);
-\end{tikzpicture}};
-\node[right=0.5cm of 26] (34) {
-\begin{tikzpicture}[scale=0.3, inner sep=1pt]
-\node[draw, circle] (1p){1};
-\node[draw, circle, above=5pt of 1p.north](2p){3};
-\node[draw, circle, above=5pt of 2p.north](3p){2};
-\draw[very thick, blue] (2p)--(3p);
-\draw[very thick, red] (1p)--(2p);
-\end{tikzpicture}};
-\node[right=0.5cm of 34] (24) {
-\begin{tikzpicture}[scale=0.3, inner sep=1pt]
-\node[draw, circle] (1p){1};
-\node[draw, circle, above left=5pt of 1p.north](2p){2};
-\node[draw, circle, above right=5pt of 1p.north](3p){3};
-\draw[very thick, red] (1p)--(3p);
-\draw[very thick, blue] (1p)--(2p);
-\end{tikzpicture}};
-\node[right=0.5cm of 24] (35) {
-\begin{tikzpicture}[scale=0.3, inner sep=1pt]
-\node[draw, circle] (1p){1};
-\node[draw, circle, above=5pt of 1p.north](2p){2};
-\node[draw, circle, above=5pt of 2p.north](3p){3};
-\draw[very thick, blue] (2p)--(3p);
-\draw[very thick, red] (1p)--(2p);
-\end{tikzpicture}};
-\node[right=0.5cm of 35] (16) {
-\begin{tikzpicture}[scale=0.3, inner sep=1pt]
-\node[draw, circle] (1p){1};
-\node[draw, circle, above=5pt of 1p.north](2p){3};
-\node[draw, circle, above=5pt of 2p.north](3p){2};
-\draw[very thick, red] (2p)--(3p);
-\draw[very thick, blue] (1p)--(2p);
-\end{tikzpicture}};
-\node[right=0.5cm of 16] (456) {
-\begin{tikzpicture}[scale=0.3, inner sep=1pt]
-\node[draw, circle] (1p){1};
-\node[draw, circle, above left=5pt of 1p.north](2p){2};
-\node[draw, circle, above right=5pt of 1p.north](3p){3};
-\draw[very thick, red] (1p)--(3p);
-\draw[very thick, red] (1p)--(2p);
-\end{tikzpicture}};
-\draw (min)--(1);
-\draw (min)--(2);
-\draw (min)--(3);
-\draw (min)--(4);
-\draw (min)--(5);
-\draw (min)--(6);
-\draw (123.south)--(1.north);
-\draw (123.south)--(2.north);
-\draw (123.south)--(3.north);
-\draw (456.south)--(4.north);
-\draw (456.south)--(5.north);
-\draw (456.south)--(6.north);
-\draw (2.north)--(26.south)--(6.north);
-\draw (2.north)--(24.south)--(4.north);
-\draw (1.north)--(15.south)--(5.north);
-\draw (1.north)--(16.south)--(6.north);
-\draw (3.north)--(34.south)--(4.north);
-\draw (3.north)--(35.south)--(5.north);
-\end{tikzpicture}}
-\caption{Above : The braid arrangement $\braidArrangement[3]$ and its associated intersection poset. Middle : The braid arrangement $\lBraidArrangement[3][2]$ and its associated intersection poset. Below : The intersection poset of $\lBraidArrangement[3][2]$ in terms of forests. \BDO{I put the tikz-code in the latex : do I need to compile it separately ?}}
+\includegraphics{figures/IntPosB23.pdf}}
+\caption{The intersection poset of $\lBraidArrangement[3][2]$ in terms of forests. \label{IntPosB23}}
 \end{figure}
-\end{remark}
+
 
 \begin{definition}
 The \defn{intersection hypergraph}~$I(F_1, \dots, F_\ell)$ of a $\ell$-tuple of partitions of~$[n]$ is the $\ell$-regular $\ell$-partite hypergraph on all parts of all the partitions~$F_i$, with an hyperedge for all~$i \in [n]$ connecting the parts containing~$i$.
