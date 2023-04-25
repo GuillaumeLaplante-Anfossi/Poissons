@@ -226,17 +226,30 @@ P_t \ .
 \end{tikzcd}
 }}  \]
 Here, the map $\tr$ is the \emph{unique} topological cellular map which commutes with the diagonal~$\LAD$ \cite[Prop. 7]{masudaDiagonalAssociahedra2021}. 
-This partial composition $\circ_i^\LA$ is an isomorphism (in the category $\PolySub$ \cite[Def. 4.13]{LA21}) between the product $P_{t'}\times P_{t''}$ and the facet $t' \circ_i t''$ of $P_t$.
+This partial composition $\circ_i^\LA$ is an isomorphism (in the category $\PolySub$ \cite[Def. 4.13]{LA21}) between the product $P_{t'}\times P_{t''}$ and the facet $t' \circ_i^\LA t''$ of~$P_t$.
 Using the $\SU$ diagonal $\SUD$, one can define similarly a topological operad structure via the same formula, but with a different transition map $\tr$, which commutes with $\SUD$.
 
+Recall that a face $F$ of $P_t$ is represented by a nested tree $(t,\mathcal{N})$, which can be written uniquely as a sequence of substitution of trivially nested trees 
+$(t,\mathcal{N})=t_1\circ_{i_1} t_2 \circ_{i_2} t_3 \cdots \circ_{i_k} t_{k+1}$.
+Note that we do not need to specify a parenthesization of this sequence of $\circ_i$ operations since these form an operad \cite[Def. 4.7]{LA21}.
+At the geometric level, we have an isomorphism
+\[\circ_{i_1}^\LA \circ_{i_2}^\LA \cdots \circ_{i_k}^\LA: P_{t_1} \times P_{t_2} \times \cdots \times P_{t_{k+1}} \overset{\cong}{\longrightarrow} F \subset P_t \]
+between a uniquely determined product of lower dimensional operahedra, and the face $F=(t,\mathcal{N})$ of~$P_t$.
+Note that we can omit the parentheses in the sequence of $\circ_i^\LA$ operations since they define an operad structure \cite[Thm 4.18]{LA21}.
+The same holds when taking the~$\circ_i^\SU$ operations instead of the $\circ_i^\LA$. 
+
 \begin{definition}
-    For any operahedron $P_t$, the map $\Psi_t : P_t \to P_t$ is defined on the face $t'\circ_i t''$ of~$P_t$ by the composition of the two isomorphisms \[ \Psi_{t'\circ_i t''} := \circ_i^\SU (\circ_i^\LA)^{-1} \ . \] 
+    For any operahedron $P_t$, the map $\Psi_t : P_t \to P_t$ is defined 
+    \begin{itemize}
+        \item on the interior of the top face by the identity $\id : \mathring P_t \to \mathring P_t$, and 
+        \item on the interior of the face $F=t_1 \circ_{i_1} t_2 \circ_{i_2} \cdots \circ_{i_k} t_{k+1}$ of~$P_t$ by the composition of the isomorphisms
+        \[ 
+        (\circ_{i_1}^\SU \circ_{i_2}^\SU \cdots \circ_{i_k}^\SU) (\circ_{i_1}^\LA \circ_{i_2}^\LA \cdots \circ_{i_k}^\LA)^{-1}: F \to F \ . \] 
+    \end{itemize}
 \end{definition}
 
-\Guillaume{Well-defined?}
-
 \begin{proposition}
-    The map $\Psi:=\{\Psi_t\}$ is an isomorphism of topological cellular colored operad in the category $\PolySub$.
+    The map $\Psi:=\{\Psi_t\}$ is an isomorphism of topological cellular symmetric colored operad in the category $\PolySub$.
 \end{proposition}
 
 \begin{proof}
@@ -254,14 +267,17 @@ Using the $\SU$ diagonal $\SUD$, one can define similarly a topological operad s
     & P_{t}\ .
     \end{tikzcd}
     }}\]
-    The composition $\Psi_t \ \circ_i^\LA = \Psi_{t' \circ_i t''} \ \circ_i^\LA$ is equal to $\circ_i^\SU$. 
+    For two interior points $(x,y) \in \mathring P_{t'}\times \mathring P_{t''}$, the diagram clearly commutes by definition, since $\Psi_{t'}$ $\Psi_{t''}$ are the identity in that case. 
+    If $x$ is in a face $F=t_1 \circ_{i_1} t_2 \circ_{i_2} \cdots \circ_{i_k} t_{k+1}$ of the boundary of $P_{t'}$, then the lower composite is equal to $\circ_i^\SU (\circ_{i_1}^\SU \circ_{i_2}^\SU \cdots \circ_{i_k}^\SU \times \id)(\circ_{i_1}^\LA \circ_{i_2}^\LA \cdots \circ_{i_k}^\LA \times \id)^{-1}$, and so is the upper composite since $\Psi_t$ starts with the inverse $(\circ_i^\LA)^{-1}$ and the decomposition of $F$ unto $P_{t_1} \times \cdots P_{t_{k+1}} \times P_{t''}$ is unique.
+    The case when $y$ is in the boundary of $P_{t''}$ is similar.  
+    Finally, the compatibility of $\Psi$ with units and the symmetric group actions are straightfoward to check, see \cite[Def. 4.17 and Thm 4.18]{LA21}.
 \end{proof}
 
-
+\Guillaume{Unpack what this isomorphism is at the cellular level!!}
 
 \begin{example}
     This isomorphism is a highly non-trivial map. 
-    For instance, it is not the one you would expect... 
+    For instance, it is not the one you would expect...  [compare with the general symmetries]
 \end{example}
 
 
