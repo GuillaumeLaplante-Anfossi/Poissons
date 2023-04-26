@@ -259,8 +259,8 @@ Note that the maximal elements of~$\forestPoset$ are the $(\ell, n)$-trees.
 %
 \begin{figure}
 	\centerline{\includegraphics[scale=1]{forests}}
+	\includegraphics{forest2}\hspace{2cm}
 	\includegraphics{forest1}
-	\includegraphics{forest2}
 	\caption{A $(3,6)$-forest with its intersection hypergraph (left) and a $(3,6)$-tree with its intersection hypertree (right). \BDO{@Vincent : j'aimerais mettre mes figures avec les tiennes, pourrais-tu juste scinder "forests.pdf" en deux stp?}}
 	\label{fig:forests}
 \end{figure}
@@ -268,7 +268,7 @@ Note that the maximal elements of~$\forestPoset$ are the $(\ell, n)$-trees.
 
 \begin{remark}
 Note that by rooting each connected component of the $(\ell,n)$ forest in its smallest label and splitting hyperedges in edges between each vertex of the hyperedge and the closest vertex from the root one get the following alternative definitions for  $(\ell,n)$-forests and  $(\ell,n)$-trees:
-A \defn{$(\ell,n)$-forest} (resp.~\defn{$(\ell,n)$-tree}) is a forest (resp. tree) in which:
+A {$(\ell,n)$-forest} (resp.~{$(\ell,n)$-tree}) is a forest (resp. tree) in which:
 \begin{itemize}
 \item each root is the smallest in its connected component 
 \item edges are colored by $\{1, \ldots, \ell\}$ 
@@ -401,7 +401,7 @@ We adapt the proof from \cite{CKSS04}. By rooting in the part of colour $1$ cont
  There are $(\ell+(n-1)(\ell-1))^{n-2} \times \ell$ such words, hence the result.
 \end{proof}
 
-\begin{theorem}
+\begin{conjecture}
 \label{thm:verticesRefinedlnBraidArrangement}
 For any~$\b{k} \eqdef (k_1, \dots, k_\ell)$ such that~$0 \le k_i \le n-1$ for all~$i \in [\ell]$ and~$\sum_{i=1}^\ell k_i = n-1$, the number of vertices~$v$ of the $(\ell,n)$-braid arrangement~$\lBraidArrangement$ such that the smallest flat of the $i$th copy of~$\braidArrangement$ containing~$v$ has dimension~$k_i$ is given by
 \[
@@ -409,11 +409,12 @@ f_{\b{k}}(\lBraidArrangement) = n^{\ell-1}  \binom{n-1}{k_1, ..., k_l} \prod_{i=
 \]
 \BDO{Warning : $k_i$ is the number of edges of colours i in the tree ! It has to be adapted to the dimension.}
 \vincent{I hope I made it right.}
-\end{theorem}
+\BDO{Isn't there rather a shift in $k_i$? Like a partition with $k$ parts has dimension $k-1$. What about the following formula ?}
+\begin{equation}
+f_{\b{k}}(\lBraidArrangement) = (n+1)^{\ell-1}  \binom{n}{k_1+1, ..., k_l+1} \prod_{i=1}^\ell (n-k_i)^{k_i}.
+\end{equation}
+\end{conjecture}
 
-\begin{proof}
-\BDO{TODO}
-\end{proof}
 
 \vincent{TODO: Check whether we can say something on the facets as well. I guess not, but I want to be sure.}
 
