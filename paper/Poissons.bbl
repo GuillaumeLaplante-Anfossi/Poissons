@@ -12,6 +12,11 @@ H.~J. Baues, \emph{Geometry of loop spaces and the cobar construction}, Memoirs
   of the {{American Mathematical Society}}, vol.~25, {American Mathematical
   Society}, 1980.
 
+\bibitem[Bir95]{Birkhoff}
+Garrett Birkhoff, \emph{Lattices and their applications}, Lattice theory and
+  its applications. In celebration of Garrett Birkhoff's 80th birthday, Lemgo:
+  Heldermann Verlag, 1995, pp.~7--25 (English).
+
 \bibitem[CG71]{chen1971tables}
 Wai-Kai Chen and I~Goyal, \emph{Tables of essential complementary partitions},
   IEEE Transactions on Circuit Theory \textbf{18} (1971), no.~5, 562--563.
@@ -66,6 +71,11 @@ Naruki Masuda, Hugh Thomas, Andy Tonks, and Bruno Vallette, \emph{The diagonal
 \bibitem[OEI22]{OEIS}
 OEIS, \emph{The on-line encyclopedia of integer sequences}, Published
   electronically at \texttt{http://oeis.org}.
+
+\bibitem[Rot64]{Rota}
+Gian-Carlo Rota, \emph{On the foundations of combinatorial theory. {I}:
+  {Theory} of {M{\"o}bius} functions}, Z. Wahrscheinlichkeitstheor. Verw. Geb.
+  \textbf{2} (1964), 340--368 (English).
 
 \bibitem[SU04]{SaneblidzeUmble04}
 Samson Saneblidze and Ronald Umble, \emph{Diagonals on the permutahedra,

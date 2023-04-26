@@ -50,7 +50,7 @@ where~$F \le G$ ranges over all intervals of the flat poset~$\flatPoset$, and~$\
 \sum_{F \le G \le H} \mu_{\flatPoset}(F,G) = 0
 \]
 for all~$F, G, H \in \flatPoset$.
-\vincent{Characteristic polynomial = coefficient of~$x^d$ in~$\mobPol$.}
+\vincent{Characteristic polynomial = coefficient of~$x^d$ in~$\mobPol$.} 
 \vincent{Whitney-number polynomial.}
 \vincent{Note that this is not exactly the M\"obius polynomial defined by Zaslavsky. I decided to take the dimension instead of the codimension. This explains the unusual absence of $(-1)^{\rank}$ below.}
 \end{definition}
@@ -205,7 +205,7 @@ We now focus on the following specific hyperplane arrangements, illustrated in \
 	\label{table:fvectorlBraidArrangements}
 \end{table}
 
-\vincent{I still have to decide what I do with this big \cref{table:fvectorlBraidArrangements}.} \BDO{Put it in annexe? No ?}
+\vincent{I still have to decide what I do with this big \cref{table:fvectorlBraidArrangements}.} \BDO{Put it in annexe? No ? I split it so that it fits in the width of the page}
 
 \begin{definition}
 For any integer~$n \geq 1$, the \defn{braid arrangement}~$\braidArrangement$ is the arrangement of the hyperplanes~$\set{\b{x} \in \R^n}{x_i = x_j}$ for all~$1 \le i < j \le n$.
@@ -213,15 +213,25 @@ For any integers~$\ell,n \geq 1$, the \defn{$(\ell,n)$-braid arrangement}~$\lBra
 \end{definition}
 
 \begin{remark}[Combinatorics of the braid arrangement]
-The intersection poset of the braid arrangement $\braidArrangement$ is the poset of partitions of a set of size $n$, ordered by refinement: a partition $\pi$ is smaller than a partition $\pi'$ if the parts of $\pi$ are contained in parts of $\pi'$. It is well-known \cite{Birkhoff, Rota} that the Möbius number of the poset of partitions of size $p$ is given by:
+The intersection poset of the braid arrangement $\braidArrangement$ is the poset of partitions of (a set of) size $n$, ordered by refinement.
+A partition $\pi$ is smaller than a partition $\pi'$ if the parts of $\pi$ are contained in parts of $\pi'$. 
+It is well-known (see for instance \cite{Birkhoff, Rota}) that the Möbius number of the poset of partitions of size $p$ is given by:
 \begin{equation*}
 (-1)^{p-1} (p-1)!
 \end{equation*}
-
- 
-\vincent{TODO. Partitions, refinement poset on partitions, M\"obius function given by~$(-1)^{p-1} (p-1)!$.}
-\BDO{C'est Ok ? Je n'ai pas rappelé la définition d'une partition d'ensemble parce que ça m'a l'air quand même assez générique}
-We represent on Figure \ref{fig:B3} the braid arrangement and its associated intersection poset.
+The Möbius polynomial of the braid arrangement is then given by:
+\begin{equation}
+\mu_{\braidArrangement}(x,y) = \sum_{\pi \leq \pi'} \mu(\pi, \pi') x^{|\pi|-1} y^{|\pi'|-1},
+\end{equation}
+where the sum runs over all the pair of comparable partitions and $|\pi|$ denotes the number of parts in the partition $\pi$.
+\begin{equation}
+\mu_{\braidArrangement}(x,y) = \frac{1}{xy}\sum_{1\leq k \leq n} \sum_{\ell_1, \ldots, \ell_k \geq 1} S(n,\ell) \frac{(\ell-1)!}{\prod_{i=2}^{k} \left(\sum_{j=i}^k \ell_j \right)} (-x)^{\ell} (-y)^{k},
+\end{equation}
+% k = nb of part of \pi'
+% l_i=nb de parts de \pi fusionné en la ième part de \pi'
+where $\ell=\sum_{i=1}^k \ell_i$.
+\BDO{Nicer formula ?}
+We represent on Figure \ref{fig:B3} the braid arrangement and its associated intersection poset. We generalize in this section results to $\ell$ copies of braid arrangements ; on figure \ref{IntPosB23} is represented the $(2,3)$-braid arrangement $\lBraidArrangement[3][2]$ and its associated intersection poset. 
 \end{remark}
 
 \begin{figure}
@@ -235,15 +245,7 @@ We represent on Figure \ref{fig:B3} the braid arrangement and its associated int
 \centering
 \includegraphics{figures/B23.pdf}
 \includegraphics[width=8cm]{figures/PosetB23.pdf}
-\caption{The braid arrangement $\lBraidArrangement[3][2]$ and its associated intersection poset. \label{fig:B23}}
-\end{figure}
-
-\begin{figure}
-
-\centering
-\resizebox{0.8\textwidth}{!}{
-\includegraphics{figures/IntPosB23.pdf}}
-\caption{The intersection poset of $\lBraidArrangement[3][2]$ in terms of forests. \label{IntPosB23}}
+\caption{The $(2,3)$-braid arrangement $\lBraidArrangement[3][2]$ and its associated intersection poset. \label{fig:B23}}
 \end{figure}
 
 
@@ -257,10 +259,32 @@ Note that the maximal elements of~$\forestPoset$ are the $(\ell, n)$-trees.
 %
 \begin{figure}
 	\centerline{\includegraphics[scale=1]{forests}}
-	\caption{A $(3,6)$-forest with its intersection hypergraph (left) and a $(3,6)$-tree with its intersection hypertree (right).}
+	\includegraphics{forest1}
+	\includegraphics{forest2}
+	\caption{A $(3,6)$-forest with its intersection hypergraph (left) and a $(3,6)$-tree with its intersection hypertree (right). \BDO{@Vincent : j'aimerais mettre mes figures avec les tiennes, pourrais-tu juste scinder "forests.pdf" en deux stp?}}
 	\label{fig:forests}
 \end{figure}
 \end{definition}
+
+\begin{remark}
+Note that by rooting each connected component of the $(\ell,n)$ forest in its smallest label and splitting hyperedges in edges between each vertex of the hyperedge and the closest vertex from the root one get the following alternative definitions for  $(\ell,n)$-forests and  $(\ell,n)$-trees:
+A \defn{$(\ell,n)$-forest} (resp.~\defn{$(\ell,n)$-tree}) is a forest (resp. tree) in which:
+\begin{itemize}
+\item each root is the smallest in its connected component 
+\item edges are colored by $\{1, \ldots, \ell\}$ 
+\item if a vertex $v$ is not a root, the unique path from $v$ to the root starts with an edge $e$ of color $c$: $e$ is then the only edge adjacent to $v$ of this color. 
+\end{itemize}
+We represent this interpretation of $(\ell,n)$-forests on Figure \ref{fig:forests} and the according intersection poset of $\lBraidArrangement[3][2]$ on Figure \ref{IntPosB23}. 
+\end{remark}
+
+\begin{figure}
+
+\centering
+\resizebox{0.8\textwidth}{!}{
+\includegraphics{figures/IntPosB23.pdf}}
+\caption{The intersection poset of $\lBraidArrangement[3][2]$ in terms of forests. \label{IntPosB23}}
+\end{figure}
+
 
 \begin{theorem}
 \label{thm:MobiusPolynomial}

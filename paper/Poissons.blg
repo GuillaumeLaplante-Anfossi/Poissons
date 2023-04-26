@@ -5,45 +5,45 @@ The style file: amsalpha.bst
 Database file #1: Poissons.bib
 Warning--missing journal name in OEIS
 Warning--missing journal, volume, and year in OEIS
-You've used 17 entries,
+You've used 19 entries,
             2624 wiz_defined-function locations,
-            681 strings with 7222 characters,
-and the built_in function-call counts, 6883 in all, are:
-= -- 645
-> -- 269
-< -- 9
-+ -- 91
-- -- 87
-* -- 622
-:= -- 1081
-add.period$ -- 17
-call.type$ -- 17
-change.case$ -- 100
-chr.to.int$ -- 17
-cite$ -- 19
-duplicate$ -- 249
-empty$ -- 569
-format.name$ -- 111
-if$ -- 1383
+            696 strings with 7564 characters,
+and the built_in function-call counts, 7630 in all, are:
+= -- 718
+> -- 285
+< -- 11
++ -- 95
+- -- 91
+* -- 680
+:= -- 1191
+add.period$ -- 19
+call.type$ -- 19
+change.case$ -- 110
+chr.to.int$ -- 19
+cite$ -- 21
+duplicate$ -- 287
+empty$ -- 639
+format.name$ -- 119
+if$ -- 1543
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 34
-newline$ -- 61
-num.names$ -- 50
-pop$ -- 116
+missing$ -- 38
+newline$ -- 67
+num.names$ -- 56
+pop$ -- 130
 preamble$ -- 1
-purify$ -- 117
+purify$ -- 129
 quote$ -- 0
-skip$ -- 173
+skip$ -- 200
 stack$ -- 0
-substring$ -- 605
-swap$ -- 23
-text.length$ -- 9
-text.prefix$ -- 7
+substring$ -- 663
+swap$ -- 29
+text.length$ -- 11
+text.prefix$ -- 9
 top$ -- 0
-type$ -- 128
+type$ -- 144
 warning$ -- 2
-while$ -- 64
-width$ -- 20
-write$ -- 186
+while$ -- 73
+width$ -- 22
+write$ -- 208
 (There were 2 warnings)
