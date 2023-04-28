@@ -9,9 +9,9 @@
 \contentsline {subsection}{\tocsubsection {}{1.2}{Enumerative results for any diagonal}}{11}{subsection.1.2}%
 \contentsline {section}{\tocsection {}{2}{Higher Algebra}}{14}{section.2}%
 \contentsline {subsection}{\tocsubsection {}{2.1}{Operadic diagonals}}{14}{subsection.2.1}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.1.1}{Cellular diagonals}}{14}{subsubsection.2.1.1}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.1.2}{The $\mathrm {LA}$ diagonal on the permutahedra}}{15}{subsubsection.2.1.2}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.1.3}{Operadic diagonals on the permutahedra}}{16}{subsubsection.2.1.3}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.1.1}{Cellular diagonals}}{15}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.1.2}{The $\mathrm {LA}$ diagonal on the permutahedra}}{16}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.1.3}{Operadic diagonals on the permutahedra}}{17}{subsubsection.2.1.3}%
 \contentsline {subsection}{\tocsubsection {}{2.2}{Relating operadic diagonals}}{21}{subsection.2.2}%
 \contentsline {subsection}{\tocsubsection {}{2.3}{Bijective results for operadic diagonals}}{24}{subsection.2.3}%
 \contentsline {subsubsection}{\tocsubsubsection {}{2.3.1}{Facets}}{24}{subsubsection.2.3.1}%
