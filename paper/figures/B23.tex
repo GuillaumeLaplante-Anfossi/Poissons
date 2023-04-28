@@ -1,0 +1,52 @@
+%author : berenice delcroix-oger
+
+\documentclass[border=2pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning, fit, shapes, arrows, calc}
+
+\pgfdeclarelayer{bg}    % declare background layer
+\pgfsetlayers{bg,main}  % set the order of the layers (main is the standard layer)
+
+\newcommand{\coula}{0785F2}
+\newcommand{\coulb}{F29F05}
+\newcommand{\coulc}{F21313}
+\newcommand{\could}{E6F21F}
+
+
+
+\definecolor{part1}{HTML}{\coula}
+\definecolor{part2}{HTML}{\coulb}
+\definecolor{part3}{HTML}{\coulc}
+\definecolor{part4}{HTML}{\could}
+
+\begin{document}
+\begin{tikzpicture}[very thick, scale=0.7]
+\coordinate (C) at (180:1);
+\coordinate (D) at (90:1);
+\coordinate (E) at (-90:1);
+\coordinate (F) at (0:1);
+\coordinate (A) at ($2*(C)+(D)$); % bleu-orange
+\coordinate (Ag1) at ($(A)+(C)+(D)$);
+\coordinate (Ag2) at ($(A)+(C)$);
+\coordinate (B) at ($2*(C)+(E)$); % teal-rouge
+\coordinate (Bg1) at ($(C)+(B)$);
+\coordinate (Bg2) at ($(C)+(B)+(E)$);
+\coordinate (G) at ($2*(F)+(D)$);
+\coordinate (Gg1) at ($(G)+(F)$);
+\coordinate (Gg2) at ($(G)+(F)+(D)$);
+\coordinate (H) at ($2*(F)+(E)$);
+\coordinate (Hg1) at ($(H)+(F)+(E)$);
+\coordinate (Hg2) at ($(H)+(F)$);
+\coordinate (F1) at ($3*(E)+2*(C)$);
+\coordinate (F2) at ($3*(E)+2*(F)$);
+\coordinate (F3) at ($3*(D)+2*(C)$);
+\coordinate (F4) at ($3*(D)+2*(F)$);
+\coordinate (midb) at ($(C)+(F)+(D)$);
+\draw[blue]  (Ag2)--(Gg1);
+\draw[red]  (Bg1)--(Hg2);
+\draw[teal]  (Bg2)--(F4);
+\draw[magenta]  (F1)--(Gg2);
+\draw[orange]  (Ag1)--(F2);
+\draw[green]  (F3)--(Hg1);
+\end{tikzpicture}
+\end{document}
