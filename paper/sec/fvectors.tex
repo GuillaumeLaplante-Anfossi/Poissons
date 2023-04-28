@@ -33,6 +33,7 @@ The \defn{flat poset} of~$\arrangement$ is poset~$\flatPoset$ of flats of~$\arra
 \end{definition}
 
 \begin{definition}
+\label{def:MobiusPolynomial}
 %The \defn{characteristic polynomial}~$\chi_{\arrangement}(y)$ and the \defn{M\"obius polynomial}~$\mu_{\arrangement}(x,y)$ are the polynomials respectively defined by
 %\[
 %\charPol \eqdef \sum_{G \in \flatPoset} \mu_{\flatPoset}(\R^d, G) \, y^{\dim(G)}
@@ -50,10 +51,18 @@ where~$F \le G$ ranges over all intervals of the flat poset~$\flatPoset$, and~$\
 \sum_{F \le G \le H} \mu_{\flatPoset}(F,G) = 0
 \]
 for all~$F, G, H \in \flatPoset$.
-\vincent{Characteristic polynomial = coefficient of~$x^d$ in~$\mobPol$.}
-\vincent{Whitney-number polynomial.}
-\vincent{Note that this is not exactly the M\"obius polynomial defined by Zaslavsky. I decided to take the dimension instead of the codimension. This explains the unusual absence of $(-1)^{\rank}$ below.}
 \end{definition}
+
+\begin{remark}
+Two observations on \cref{def:MobiusPolynomial}:
+\begin{itemize}
+\item The coefficient of~$x^d$ in the M\"obius polynomial~$\mobPol$ gives the more classical \defn{characteristic polynomial}
+\[
+\charPol \eqdef [x^d] \, \mobPol = \sum_G \mu_{\flatPoset}(\R^d,G) \, y^{\dim(G)}.
+\]
+\item Our definition of the M\"obius polynomial slightly differs from that of \cite{Zaslavsky} as we use the dimension of~$F$ instead of its codimension, in order for the next statement to be slightly simpler.
+\end{itemize}
+\end{remark}
 
 \begin{theorem}[{\cite[Thm.~A]{Zaslavsky}}]
 \label{thm:Zaslavsky}
@@ -64,8 +73,6 @@ The $f$-polynomial, the $b$-polynomial, and the M\"obius polynomial of an arrang
 \bPol = \mobPol[\arrangement][-x][1].
 \]
 \end{theorem}
-
-\vincent{Whitney's theorem?}
 
 \begin{example}
 For the arrangement~$\arrangement$ of $5$ hyperplanes of \cref{fig:arrangement}, we have
@@ -124,7 +131,7 @@ We now focus on the following specific hyperplane arrangements, illustrated in \
 
 \begin{table}
 \centerline{
-	\begin{tabular}{c@{\hspace{.7cm}}c@{\hspace{.7cm}}c@{\hspace{.7cm}}c}
+	\begin{tabular}{c@{\hspace{.7cm}}c}
 		\begin{tabular}[t]{c|cccc|c}
 			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
 			\hline
@@ -142,7 +149,27 @@ We now focus on the following specific hyperplane arrangements, illustrated in \
 			$3$ & $17$ & $24$ & $8$ && $49$ \\
 			$4$ & $149$ & $324$ & $226$ & $50$ & $749$
 		\end{tabular}
+		\\[2cm]
+		\begin{tabular}[t]{c|cccc|c}
+			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+			\hline
+			$1$ & $1$ &&&& $1$ \\
+			$2$ & $0$ & $1$ &&& $1$ \\
+			$3$ & $0$ & $0$ & $1$ && $1$ \\
+			$4$ & $0$ & $0$ & $0$ & $1$ & $1$
+		\end{tabular}
 		&
+		\begin{tabular}[t]{c|cccc|c}
+			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+			\hline
+			$1$ & $1$ &&&& $1$ \\
+			$2$ & $1$ & $2$ &&& $3$ \\
+			$3$ & $5$ & $12$ & $8$ && $25$ \\
+			$4$ & $43$ & $132$ & $138$ & $50$ & $363$
+		\end{tabular}
+		\\[2cm]
+		$\ell = 1$ & $\ell = 2$
+		\\[.8cm]
 		\begin{tabular}[t]{c|cccc|c}
 			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
 			\hline
@@ -165,24 +192,6 @@ We now focus on the following specific hyperplane arrangements, illustrated in \
 			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
 			\hline
 			$1$ & $1$ &&&& $1$ \\
-			$2$ & $0$ & $1$ &&& $1$ \\
-			$3$ & $0$ & $0$ & $1$ && $1$ \\
-			$4$ & $0$ & $0$ & $0$ & $1$ & $1$
-		\end{tabular}
-		&
-		\begin{tabular}[t]{c|cccc|c}
-			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
-			\hline
-			$1$ & $1$ &&&& $1$ \\
-			$2$ & $1$ & $2$ &&& $3$ \\
-			$3$ & $5$ & $12$ & $8$ && $25$ \\
-			$4$ & $43$ & $132$ & $138$ & $50$ & $363$
-		\end{tabular}
-		&
-		\begin{tabular}[t]{c|cccc|c}
-			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
-			\hline
-			$1$ & $1$ &&&& $1$ \\
 			$2$ & $2$ & $3$ &&& $5$ \\
 			$3$ & $16$ & $36$ & $21$ && $73$ \\
 			$4$ & $224$ & $684$ & $702$ & $243$ & $1853$
@@ -197,7 +206,7 @@ We now focus on the following specific hyperplane arrangements, illustrated in \
 			$4$ & $639$ & $1944$ & $1980$ & $676$ & $5239$
 		\end{tabular}
 		\\[2cm]
-		$\ell = 1$ & $\ell = 2$ & $\ell = 3$ & $\ell = 4$
+		$\ell = 3$ & $\ell = 4$
 	\end{tabular}
 	}
 	\vspace{.3cm}
@@ -205,17 +214,35 @@ We now focus on the following specific hyperplane arrangements, illustrated in \
 	\label{table:fvectorlBraidArrangements}
 \end{table}
 
-\vincent{I still have to decide what I do with this big \cref{table:fvectorlBraidArrangements}.} \BDO{Put it in annexe ?}
-
 \begin{definition}
-For any integer~$n \geq 1$, the \defn{braid arrangement}~$\braidArrangement$ is the arrangement of the hyperplanes~$\set{\b{x} \in \R^n}{x_i = x_j}$ for all~$1 \le i < j \le n$.
+Denote by~$\HH$ the hyperplane of~$\R^n$ defined by~$\sum_{i = 1}^n x_i = 0$.
+For any integer~$n \geq 1$, the \defn{braid arrangement}~$\braidArrangement$ is the arrangement of the hyperplanes~$\set{\b{x} \in \HH}{x_i = x_j}$ for all~$1 \le i < j \le n$.
 For any integers~$\ell,n \geq 1$, the \defn{$(\ell,n)$-braid arrangement}~$\lBraidArrangement$ is the arrangement obtained as the union of $\ell$ generically translated copies of the braid arrangement.
+\vincent{We have to take a decision here: do we work in~$\R^n$ or in $\HH$. At the moment, I work in~$\HH$. Working in~$\R^n$ changes vertices to rays, and multiplies all M\"obius polynomials by a factor~$xy$.}
 \end{definition}
 
-\begin{remark}[Combinatorics of the braid arrangement]
-
-\vincent{TODO. Partitions, refinement poset on partitions, M\"obius function given by~$(-1)^{p-1} (p-1)!$.}
-
+\begin{remark}
+The combinatorics of the braid arrangement~$\braidArrangement$ is well-known.
+It has a $k$-dimensional flat~$\set{\b{x} \in \R^n}{x_i = x_j \text{ for all } i, j \in p \in \pi}$ for each partition~$\pi$ of~$[n]$ into $k+1$ parts.
+The flat poset~$\flatPoset[\braidArrangement]$ is thus the refinement poset~$\partitionPoset$ on partitions of~$[n]$.
+Its M\"obius function is given by
+\[
+\mu_{\partitionPoset}(\pi, \omega) = \prod_{p \in \omega} (-1)^{\#\pi[p]-1}(\#\pi[p]-1)!
+\]
+where~$\pi[p]$ denotes the restriction of the partition~$\pi$ to the part~$p$ of the partition~$\omega$.
+The M\"obius polynomial of the braid arrangement~$\braidArrangement$ is given by
+\[
+\mobPol[\braidArrangement] = \sum_{k \in [n]} x^{k-1} P(n,k) \prod_{i \in [k-1]} (y-i)
+\]
+where~$P(n,k)$ denotes the Stirling number of second kind, \ie the number of partitions of~$n$ into~$k$ parts.
+For instance
+\begin{align*}
+\mobPol[{\braidArrangement[1]}] & = 1 \\
+\mobPol[{\braidArrangement[2]}] & = x y - x + 1 = x (y - 1) + 1 \\
+\mobPol[{\braidArrangement[3]}] & = x^2 y^2 - 3 x^2 y + 2 x^2 + 3 x y - 3 x + 1 = x^2 (y - 1) (y - 2) + 3 x (y - 1) + 1\\
+\mobPol[{\braidArrangement[4]}] & = x^3 y^3 - 6 x^3 y^2 + 11 x^3 y - 6 x^3 + 6 x^2 y^2 - 18 x^2 y + 12 x^2 + 7 x y - 7 x + 1 \\
+& = x^3 (y - 1) (y - 2) (y - 3) + 6 x^2 (y - 1) (y - 2) + 7 x (y - 1) + 1.
+\end{align*}
 \begin{figure}
 
 \centering
@@ -651,7 +678,7 @@ The \defn{intersection hypergraph}~$I(F_1, \dots, F_\ell)$ of a $\ell$-tuple of 
 A \defn{$(\ell,n)$-forest} (resp.~\defn{$(\ell,n)$-tree}) is a $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of partitions of~$[n]$ whose intersection hypergraph is a hyperforest (resp.~hypertree).
 See \cref{fig:forests}.
 The \defn{$(\ell,n)$-forest poset} is the poset~$\forestPoset$ on $(\ell,n)$-forests ordered by componentwise refinement.
-In other words, $\forestPoset$ is the subposet of the $\ell$th Cartesian power of the partition poset induced by $(\ell,n)$-forests.
+In other words, $\forestPoset$ is the subposet of the $\ell$th Cartesian power of the partition poset~$\partitionPoset$ induced by $(\ell,n)$-forests.
 Note that the maximal elements of~$\forestPoset$ are the $(\ell, n)$-trees.
 %
 \begin{figure}
@@ -665,7 +692,7 @@ Note that the maximal elements of~$\forestPoset$ are the $(\ell, n)$-trees.
 \label{thm:MobiusPolynomial}
 The M\"obius polynomial of the $(\ell,n)$-braid arrangement~$\lBraidArrangement$ is given by
 \[
-\mobPol[\lBraidArrangement] = \sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i-1} y^{\#G_i-1} \prod_{p \in G_i} (-1)^{\#F_i[p]-1} (\# F_i[p]-1)! \; ,
+\mobPol[\lBraidArrangement] = x^{n-1-\ell n} y^{n-1-\ell n} \sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i} y^{\#G_i} \prod_{p \in G_i} (-1)^{\#F_i[p]-1} (\# F_i[p]-1)! \; ,
 \]
 where~$\b{F} \le \b{G}$ ranges over all intervals of the $(\ell,n)$-forest poset~$\forestPoset$, and~$F_i[p]$ denotes the restriction of the partition~$F_i$ to the part~$p$ of~$G_i$.
 \end{theorem}
@@ -687,8 +714,7 @@ Hence
 \begin{align*}
 \mobPol[\lBraidArrangement] 
 & = \sum_{\b{F} \le \b{G}} \mu_{\forestPoset}(\b{F}, \b{G}) \, x^{\dim(\b{F})} \, y^{\dim(\b{G})} \\
-% & = \sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i-1} y^{\#G_i-1} \\
-& = \sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i-1} y^{\#G_i-1} \prod_{p \in G_i} (-1)^{\#F_i[p]-1} (\# F_i[p]-1)!.
+& = x^{n-1-\ell n} y^{n-1-\ell n} \sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i} y^{\#G_i} \prod_{p \in G_i} (-1)^{\#F_i[p]-1} (\# F_i[p]-1)!.
 \qedhere
 \end{align*}
 \end{proof}
@@ -699,9 +725,9 @@ We thus obtain the following statament from \cref{thm:MobiusPolynomial,thm:Zasla
 \label{coro:fbvectorslBraidArrangement}
 The $f$- and $b$-polynomials of the $(\ell,n)$-braid arrangement~$\lBraidArrangement$ are given by
 \begin{align*}
-\fPol[\lBraidArrangement] & = \sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i-1} \prod_{p \in G_i} (\# F_i[p]-1)!\\
+\fPol[\lBraidArrangement] & = x^{n-1-\ell n}\sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i} \prod_{p \in G_i} (\# F_i[p]-1)!\\
 \text{and}\qquad
-\bPol[\lBraidArrangement] & = (-1)^\ell \sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i-1} \prod_{p \in G_i} -(\# F_i[p]-1)!
+\bPol[\lBraidArrangement] & = (-1)^\ell x^{n-1-\ell n} \sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i} \prod_{p \in G_i} -(\# F_i[p]-1)!
 \end{align*}
 \end{corollary}
 
@@ -743,8 +769,11 @@ Observe that the $(\ell,3)$-forests are all of the form
 %\b{K}^p \eqdef (\underbrace{P, \dots, P}_p, R, \underbrace{P, \dots, P}_{\ell-p-1}) \text{ for } p \le \ell-1.
 %\end{gather*}
 Moreover, the cover relations in the $(\ell,3)$-forest poset are precisely the relations
+%\[
+%\b{F} \le \b{G}_i^p \begin{array}{c@{\hspace{-.3cm}}c@{\hspace{-.3cm}}c} & \b{H}_{i,j}^{p,q} & \\ \rotatebox[origin=c]{45}{$\le$} & & \rotatebox[origin=c]{-45}{$\le$} \\[.3cm] \rotatebox[origin=c]{-45}{$\le$} & & \rotatebox[origin=c]{45}{$\le$} \\ & \b{H}_{j,i}^{\ell-q-1, \ell-p-1} & \end{array} \b{K}^p
+%\]
 \[
-\b{F} \le \b{G}_i^p \begin{array}{c@{\hspace{-.3cm}}c@{\hspace{-.3cm}}c} & \b{H}_{i,j}^{p,q} & \\ \rotatebox[origin=c]{45}{$\le$} & & \rotatebox[origin=c]{-45}{$\le$} \\[.3cm] \rotatebox[origin=c]{-45}{$\le$} & & \rotatebox[origin=c]{45}{$\le$} \\ & \b{H}_{j,i}^{\ell-q-1, \ell-p-1} & \end{array} \b{K}^p
+\b{F} \le \b{G}_i^p \hspace{-.4cm} \begin{array}{l} \rotatebox[origin=c]{45}{$\le$} \raisebox{.2cm}{$\b{H}_{i,j}^{p,q}$} \\[.1cm] \quad \le \b{K}^p \\[.1cm] \rotatebox[origin=c]{-45}{$\le$} \raisebox{-.2cm}{$\b{H}_{j,i}^{\ell-q-1, \ell-p-1}$} \end{array}
 \]
 for~$i \ne j$ and~$p, q$ such that~$p + q \le \ell-2$.
 Hence, we have
