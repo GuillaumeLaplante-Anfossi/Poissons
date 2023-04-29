@@ -306,7 +306,7 @@ The proof for $\tau$ is similar.
 
 \begin{example}
 \label{ex:ECbijection}
-We now illustrate the ordering (right) of the pair of essential complementary partitions $15|234|6|7 \times 13|2|46|57$ (left).
+We now illustrate the ordering (right) of the pair of essential complementary partitions $\{15,234,6,7\} \times \{13,2,46,57\}$ (left).
 \begin{center}
 \begin{tikzpicture}[scale=.7]  
 \node (1) at (-1.5, -1) {$15$};
@@ -350,10 +350,10 @@ $\quad$
 %
 \end{tikzpicture}
 \end{center}
-Here are two examples paths providing order information:
+Here are two examples of paths providing order information, with $(I,J)=(\{1,7\},\{3,5\})$ and $(I,J)=(\{1,4\},\{3,5\})$
 \begin{align*}
-	7 <_L 234 \text{ as } 7 \xrightarrow{7} 57 \xrightarrow{5} 15 \xrightarrow{1=I_*} 13 \xrightarrow{3} 234 \ , \\
-	57 <_R 46 \text{ as } 57 \xrightarrow{5} 15 \xrightarrow{1=I_*} 13 \xrightarrow{3} 234 \xrightarrow{4} 46 \ .
+	7 <_L 234 \text{ as } 7 \xrightarrow{7} 57 \xrightarrow{5} 15 \xrightarrow{1=\min(I\cup J)} 13 \xrightarrow{3} 234 \ , \\
+	57 <_R 46 \text{ as } 57 \xrightarrow{5} 15 \xrightarrow{1=\min(I\cup J)} 13 \xrightarrow{3} 234 \xrightarrow{4} 46 \ .
 \end{align*}
 \end{example}
 
