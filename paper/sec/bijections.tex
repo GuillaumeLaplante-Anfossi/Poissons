@@ -1,9 +1,7 @@
 % !TEX root = ../Poissons.tex
 
 
-
-
-\subsubsection{Operadic diagonals on the permutahedra}
+\subsection{Operadic diagonals for the permutahedra}
 
 We consider the unordered sets $$U(n)  \eqdef  \set{\{I,J\}}{I,J \subset [n], |I|= |J|, I\cap J = \emptyset} \ . $$
 
@@ -128,12 +126,13 @@ A \emph{diagonal of the permutahedra} $\triangle:=\{\triangle_n\}$ is a family o
 \end{definition}
 In other words, we require that the diagonal $\triangle$ commutes with the map $\Theta$, see \cite[Section 4.2]{LA21}.
 At the algebraic level, this property is called ``comultiplicativity" in \cite{SaneblidzeUmble04}.
+\Guillaume{Our choice of terminology comes from the results in Section X}
 Note that in particular such an isomorphism respects the poset structures. 
 
-\begin{proposition}
+\begin{theorem}
 \label{prop:unique-operad}
 There are exactly four operadic diagonals on the permutahedra. 
-\end{proposition}
+\end{theorem}
 
 \begin{proof}
     First, by \cite[Theorem 3.9]{LA21} any diagonal in the sense of \cref{def:diagonal} is given by a choice of ordering of $U$.
@@ -148,152 +147,33 @@ where $O(n)$ stands for either $\LA(n), \LA(n)^\op, \SU(n)$ or $\SU(n)^\op$.
     This answers by the negative a conjecture regarding unicity of diagonals on the permutahedra, raised at the beginning of \cite[Section 3]{SaneblidzeUmble04}, and could be seen as a ``corrected" version of it. \Guillaume{See the next section where we prove that SU diagonal is SU diagonal}
 \end{remark}
 
-The permutahedra are part of a more general family of polytopes called Loday realizations of the \emph{operahedra} \cite[Def. 2.9]{LA21} which encodes the notion of homotopy operad \cite[Def. 4.11]{LA21}.
-For every planar tree $t$, there is a corresponding polytope $P_t$ whose codimension $k$ faces are in bijection with nestings of $t$ with $k$ non-trivial nests.
-Since the operahedra are generalized permutahedra \cite[Cor. 2.16]{LA21}, a choice of diagonal for the permuthedra induces a choice of diagonal for every operahedron \cite[Cor. 1.31]{LA21}.
-Every face of an operahedron is isomorphic to a product of lower-dimensional operahedra, via an isomorphism $\Theta$ which generalizes the one above, see Point (5) of \cite[Prop. 2.3]{LA21}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{definition}
-    An \emph{operadic diagonal} for the operahedra is a choice of diagonal $\triangle_t$ for each operahedron~$P_t$, such that $\triangle:=\{\triangle_t\}$ commutes with the map $\Theta$, i.e. it satisfies \cite[Prop. 4.14]{LA21}.
-\end{definition}
+\subsection{Isomorphisms between permutahedral operadic diagonals}
 
-\begin{theorem}[Operadic structures on the operahedra] 
-    \label{thm:operahedra}
-There are exactly 
-\begin{enumerate}
-    \item four operadic diagonals of the Loday operahedra, therefore exactly
-    \item four colored topological cellular operad structures on the Loday operahedra, and incidentally exactly
-    \item four universal tensor products of homotopy operads,
-\end{enumerate}
-two of which (the $\LA$ and $\SU$ diagonals) agree with the generalized Tamari order on fully nested trees. 
+Let $P$ be a centrally symmetric polytope, and let $s : P \to P$ be its involution, given by taking a point $p \in P$ to its reflection $s(p)$ with respect to the center of symmetry of $P$. 
+Note that this map is cellular, and induces an involution on the face lattice of $P$. 
+For $P$ the permutahedron, this face poset involution is given by the assignment $A_1 | \cdots | A_k \mapsto A_k | \cdots | A_1$.  
+
+In addition, as we have already remarked \Guillaume{in Rem X}, the polytope of diagonals of $P$ is always centrally symmetric, and the involution $t : P \times P \to P \times P$ sending $(x,y)$ to~$(y,x)$ takes a cellular diagonal to another cellular diagonal. 
+
+\begin{theorem}
+    For $P$ the permutahedron, the involutions $t$ and $s \times s$ are cellular isomorphisms between the four operadic diagonals, through the following commutative diagram: 
+    \begin{center}
+        \begin{tikzcd}
+        \LAD \arrow[r,"t"] \arrow[d,"s \times s"]&
+        (\LAD)^{\op}\arrow[d,"s \times s"]\\
+        (\SUD)^{\op} \arrow[r,"t"] &
+        \SUD
+        \end{tikzcd}
+        \end{center}
+    Moreover, they induce poset isomorphisms at the level of the face lattices. 
 \end{theorem}
 
 \begin{proof}
-    Let us first examine Point (1).
-    By \cref{prop:unique-operad}, we know that if one of the four choices $\LAD, (\LAD)^\op, \SUD, (\SUD)^\op$ is made on an operahedron $P_t$, one has to make the same choice on every lower-dimensional operahedron appearing in the decomposition $P_{t_1} \times \cdots \times P_{t_k} \cong F \subset P_t$ of a face $F$ of $P_t$. 
-    Now suppose that one makes two distinct choices for two operahedra $P_t$ and $P_{t'}$.
-    It is easy to find a bigger tree $t''$ of which both $t$ and $t'$ are subtrees.
-    Therefore, $P_t$ and $P_{t'}$ appear as facets of $P_{t''}$ and by the preceding remark, any choice of diagonal for $P_{t''}$ will then contradict our initial two choices. 
-    Thus, these had to be the same from the start, which concludes the proof. 
-
-    Point (2) then follows from fact that a choice of diagonal for the Loday realizations of the operahedra \emph{forces} a unique topological cellular colored operad structure on them, see \cite[Theorem 4.18]{LA21}.
-    Since universal tensor products of homotopy operads are induced by a colored operad structure on the operahedra \cite[Cor. 4.24]{LA21}, we obtain Point~(3).
-    Finally, since only vectors with strictly descreasing coordinates induce the generalized Tamari order on the $1$-skeleton of the operahedra \cite[Prop. 3.11]{LA21}, we get the last part of the statement. 
+    
 \end{proof}
 
-This answers the first question in \cite[Remark 3.14]{LA21}.
-
-Two other important families of generalized permutahedra are the \emph{Loday associahedra} and \emph{Forcey--Loday multiplihedra}, which encode respectively $\Ainf$-algebras and $\Ainf$-morphisms \cite[Prop. 4.9]{MazuirLA22}, as well as $\Ainf$-categories and $\Ainf$-functors \cite[Section 4.3]{MazuirLA22}.
-Using the same techniques as in the case of the operahedra, they were endowed with diagonals and compatible operad and operadic bimodule structures in \cite[Theorem~1]{MazuirLA22}.
-An analogous notion of \emph{operadic diagonal} is available for these polytopes, see \cite[Proposition 2.14]{MazuirLA22}.
-
-\begin{samepage}
-\begin{theorem}[Operadic structures on the multiplihedra]
-There are exactly 
-\begin{itemize}
-    \item four operadic diagonals of the Forcey--Loday multiplihedra, therefore exactly
-    \item four topological cellular operadic bimodule structures (over the Loday associahedra) on the Forcey--Loday multiplihedra, and incidentally exactly
-    \item four compatible universal tensor products of $\Ainf$-algebras and $\Ainf$-morphisms,
-\end{itemize}
-two of which (the $\LA$ and $\SU$ diagonals) agree with the Tamari(-type) order on ($2$-colored) planar trees. 
-\end{theorem}
-\end{samepage}
-
-\begin{proof}
-    The proof is similar to the one of \cref{thm:operahedra}, using the results of \cite{MazuirLA22}.
-\end{proof}
-
-We shall see now that these different operadic structures are related to one another in the strongest possible sense: they are all isomorphic as topological cellular operadic structures.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\subsection{Relating operadic diagonals} 
-
-
-%In this section we show that the four diagonals are isomorphic, and that this induces an isomorphism of the corresponding operadic structures on the operahedra, multiplihedra and associahedra.
-
-Recall that the topological cellular operad structure on the operahedra \cite[Def. 4.17]{LA21} is given by a family of partial composition maps 
-\[
-\vcenter{\hbox{
-\begin{tikzcd}[column sep=1cm]
-\circ_i^{\LA}\ : \ P_{t'}\times P_{t''}
-\arrow[r,  "\tr\times \id"]
-& P_{(t',\omega)}\times P_{t''}
- \arrow[r,hookrightarrow, "\Theta"]
-&
-P_t \ .
-\end{tikzcd}
-}}  \]
-Here, the map $\tr$ is the \emph{unique} topological cellular map which commutes with the diagonal~$\LAD$ \cite[Prop. 7]{masudaDiagonalAssociahedra2021}. 
-This partial composition $\circ_i^\LA$ is an isomorphism (in the category $\PolySub$ \cite[Def. 4.13]{LA21}) between the product $P_{t'}\times P_{t''}$ and the facet $t' \circ_i^\LA t''$ of~$P_t$.
-Using the $\SU$ diagonal $\SUD$, one can define similarly a topological operad structure via the same formula, but with a different transition map $\tr$, which commutes with $\SUD$.
-
-Recall that a face $F$ of $P_t$ is represented by a nested tree $(t,\mathcal{N})$, which can be written uniquely as a sequence of substitution of trivially nested trees 
-$(t,\mathcal{N})=t_1\circ_{i_1} t_2 \circ_{i_2} t_3 \cdots \circ_{i_k} t_{k+1}$.
-Note that we do not need to specify a parenthesization of this sequence of $\circ_i$ operations since these form an operad \cite[Def. 4.7]{LA21}.
-At the geometric level, we have an isomorphism
-\[\circ_{i_1}^\LA \circ_{i_2}^\LA \cdots \circ_{i_k}^\LA: P_{t_1} \times P_{t_2} \times \cdots \times P_{t_{k+1}} \overset{\cong}{\longrightarrow} F \subset P_t \]
-between a uniquely determined product of lower dimensional operahedra, and the face $F=(t,\mathcal{N})$ of~$P_t$.
-Note that we can omit the parentheses in the sequence of $\circ_i^\LA$ operations since they define an operad structure \cite[Thm 4.18]{LA21}.
-The same holds when taking the~$\circ_i^\SU$ operations instead of the $\circ_i^\LA$. 
-
-\begin{definition}
-    For any operahedron $P_t$, the map $\Psi_t : P_t \to P_t$ is defined 
-    \begin{itemize}
-        \item on the interior of the top face by the identity $\id : \mathring P_t \to \mathring P_t$, and 
-        \item on the interior of the face $F=t_1 \circ_{i_1} t_2 \circ_{i_2} \cdots \circ_{i_k} t_{k+1}$ of~$P_t$ by the composition of the isomorphisms
-        \[ 
-        (\circ_{i_1}^\SU \circ_{i_2}^\SU \cdots \circ_{i_k}^\SU) (\circ_{i_1}^\LA \circ_{i_2}^\LA \cdots \circ_{i_k}^\LA)^{-1}: F \to F \ . \] 
-    \end{itemize}
-\end{definition}
-
-\begin{proposition}
-    \label{thm:top-iso}
-    The map $\Psi:=\{\Psi_t\}$ is an isomorphism of topological cellular symmetric colored operad in the category $\PolySub$.
-\end{proposition}
-
-\begin{proof}
-    By definition, we have that $\Psi$ is an isomorphism in the category $\PolySub$. 
-    It remains to show that it preserves the operad structures, i.e. that the following diagram commutes
-    \[
-    \vcenter{\hbox{
-    \begin{tikzcd}[column sep=2.2cm, row sep=1.3cm]
-    P_{t'}\times P_{t''}
-    \arrow[r,  "\circ_i^\LA"] 
-    \arrow[d,  "\Psi_{t'}\times\Psi_{t''}"]
-    & P_{t} \arrow[d,  "\Psi_t"] \\
-    P_{t'}\times P_{t''}  
-    \arrow[r,  "\circ_i^\SU"]
-    & P_{t}\ .
-    \end{tikzcd}
-    }}\]
-    For two interior points $(x,y) \in \mathring P_{t'}\times \mathring P_{t''}$, the diagram clearly commutes by definition, since $\Psi_{t'}$ $\Psi_{t''}$ are the identity in that case. 
-    If $x$ is in a face $F=t_1 \circ_{i_1} t_2 \circ_{i_2} \cdots \circ_{i_k} t_{k+1}$ of the boundary of $P_{t'}$, then the lower composite is equal to $\circ_i^\SU (\circ_{i_1}^\SU \circ_{i_2}^\SU \cdots \circ_{i_k}^\SU \times \id)(\circ_{i_1}^\LA \circ_{i_2}^\LA \cdots \circ_{i_k}^\LA \times \id)^{-1}$, and so is the upper composite since $\Psi_t$ starts with the inverse $(\circ_i^\LA)^{-1}$ and the decomposition of $F$ unto $P_{t_1} \times \cdots \times P_{t_{k+1}} \times P_{t''}$ is unique.
-    The case when $y$ is in the boundary of $P_{t''}$ is similar.  
-    Finally, the compatibility of $\Psi$ with units and the symmetric group actions are straightfoward to check, see \cite[Def. 4.17 and Thm 4.18]{LA21}.
-\end{proof}
-
-Note that $\Psi$ is \emph{not} a morphism of ``Hopf" operads, i.e. it does not commute with the respective diagonals $\LAD$ and $\SUD$. 
-\Guillaume{Give explicit counterexample}
-
-\begin{corollary}
-    The four topological operad structures on the operahedra are all isomorphic. 
-\end{corollary}
-
-\begin{proof}
-    It is clear that the proof of \cref{thm:top-iso} does not depend on the specific choices of diagonals $\LAD$ and $\SUD$, it can therefore be applied to any pair of diagonals among $\LA, \LA^\op, \SU$ and $\SU^\op$. 
-\end{proof}
-
-\Guillaume{Find an iso which commutes??}
-
-\begin{example}
-    This isomorphism is a highly non-trivial map. 
-    For instance, it is not the one you would expect...  [compare with the general symmetries]
-\end{example}
-
-
-\Guillaume{faire direct l'iso topologique, puis traduire?}
 
 These isomorphisms can be seen at the combinatorial level, as ismorphisms between the different orderings of $U$
 \begin{center}
@@ -385,10 +265,9 @@ Given two faces $(\sigma,\tau),(\sigma',\tau') \in \OP^{LA}$,
 $(\sigma',\tau')$ is a face of $(\sigma,\tau)$ iff $\theta((\sigma',\tau'))$ is a face of $\theta((\sigma,\tau))$. 
 \end{corollary}
 
-\subsection{Bijective results for operadic diagonals}
-\label{s:vertices}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{Facets}
+\subsection{Facets of operadic diagonals}
 
 In this section we establish a bijection between the facets of $\triangle$ and a family of pairs of unordered partitions introduced and enumerated in a series of 3 papers \cite{chen1969computer,chen1971tables,kajitani1982number}. An intermediary bijection to a type of bipartite tree is of particular importance and provides [...].
 In particular, we obtain that the number of facets in the image of the diagonal $\triangle_n$ of the $n$-dimensional permutahedron is $2(n+1)^{n-2}$ (\OEIS{A007334}), and more precisely that the pairs of dimensions $(k,n-k)$ are counted by the formula $\frac{1}{k+1}\binom{n+1}{k}(k+1)^{n-k}(n+1-k)^{k}$. 
@@ -703,8 +582,9 @@ are mapped to $\SU(n)$ conditions corresponding to paths, e.g. the prior $I,J$ c
 \end{example}
 Note the composite $\LAD \xrightarrow{f} \EC \xrightarrow{o'} \SUD$ provides another bijection of facets, however this map is not equal to $\theta$ and is not defined on the other faces.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{Vertices}
+\subsection{Vertices of operadic diagonals}
 
 We are now interested in characterizing the pairs of vertices that occur in the diagonal, that is pairs of permutations $(\sigma_1,\sigma_2) \in \triangle$. 
 
@@ -756,8 +636,9 @@ E(m)=\set{(I,J)\in D(m)}{\begin{array}{l} \min(J)<\min(I-\min(I)), \\ |\llbracke
 It follows directly from the fish condition: if the fish condition is satisfied, as inversions of $\sigma_1$ are included in inversions of $\sigma_2$, we get $j_{k-1},j_k<i_k$ for any $k>1$.
 \end{proof}
 
-\subsection{The Saneblidze--Umble diagonal}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsection{The Saneblidze--Umble diagonal}
 
 Here we prove that the diagonal $\OP$ admits a combinatorial description completely analogous to that of the Saneblidze--Umble diagonal \cite{SaneblidzeUmble04}. 
 A direct corollary is that the two diagonals are in bijection, and moreover that the SU diagonal can be obtained from a certain choice of chambers in the fundamental hyperplane arrangements of the permutahedra, resolving a conjecture made in \cite{LA21}.
@@ -1174,7 +1055,8 @@ The right and left shift operators are defined on singleton sets, and we will de
 
 As we have assumed the necessary feature of the proof of \cref{lem:SU subset conserves maximal element of paths}, we have the immediate corollary.
 
-\begin{corollary} \label{cor: SU shift conserves maximal element of paths}
+\begin{corollary} 
+    \label{cor: SU shift conserves maximal element of paths}
 The critical left and right shift operators conserve the maximal element of paths, and if $(\sigma',\tau')$ is generated from critical shifts of $(\sigma,\tau) \in SCP$ then,
 \begin{align*}
     \max \sigma'_{i,i+1} = \max \sigma_{i+1} \text{ and } \max \tau'_{i,i+1} = \max \tau_{i}
@@ -1210,7 +1092,8 @@ The remainder of this section is devoted to the proof that the shift $\SUD$ diag
 We present the proof before explicitly unpacking the needed lemmas and definitions.
 \Kurt{maybe after is cleaner, had to decompose the second half too much}
 
-\begin{proposition} \label{prop: shift SUD and SUD are equal}
+\begin{proposition} 
+    \label{prop: shift SUD and SUD are equal}
 The facets of shift $\SUD$ and $\SUD$ are equal.
 \end{proposition}
 \begin{proof}
@@ -1425,11 +1308,166 @@ We have the following equivalent characterisations of the $\LAD$ and $\SUD$ diag
 \end{itemize}
 
 
-\subsection{Shuffle trees}
 
 
 
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section{Topological operadic structures}
+
+\subsection{Operadic diagonals on the operahedra and multiplihedra}
+
+The permutahedra are part of a more general family of polytopes called Loday realizations of the \emph{operahedra} \cite[Def. 2.9]{LA21} which encodes the notion of homotopy operad \cite[Def. 4.11]{LA21}.
+For every planar tree $t$, there is a corresponding polytope $P_t$ whose codimension $k$ faces are in bijection with nestings of $t$ with $k$ non-trivial nests.
+Since the operahedra are generalized permutahedra \cite[Cor. 2.16]{LA21}, a choice of diagonal for the permuthedra induces a choice of diagonal for every operahedron \cite[Cor. 1.31]{LA21}.
+Every face of an operahedron is isomorphic to a product of lower-dimensional operahedra, via an isomorphism $\Theta$ which generalizes the one above, see Point (5) of \cite[Prop. 2.3]{LA21}.
+
+\begin{definition}
+    An \emph{operadic diagonal} for the operahedra is a choice of diagonal $\triangle_t$ for each operahedron~$P_t$, such that $\triangle:=\{\triangle_t\}$ commutes with the map $\Theta$, i.e. it satisfies \cite[Prop. 4.14]{LA21}.
+\end{definition}
+
+\begin{theorem}[Operadic structures on the operahedra] 
+    \label{thm:operahedra}
+There are exactly 
+\begin{enumerate}
+    \item four operadic diagonals of the Loday operahedra, therefore exactly
+    \item four colored topological cellular operad structures on the Loday operahedra, and incidentally exactly
+    \item four universal tensor products of homotopy operads,
+\end{enumerate}
+two of which (the $\LA$ and $\SU$ diagonals) agree with the generalized Tamari order on fully nested trees. 
+\end{theorem}
+
+\begin{proof}
+    Let us first examine Point (1).
+    By \cref{prop:unique-operad}, we know that if one of the four choices $\LAD, (\LAD)^\op, \SUD, (\SUD)^\op$ is made on an operahedron $P_t$, one has to make the same choice on every lower-dimensional operahedron appearing in the decomposition $P_{t_1} \times \cdots \times P_{t_k} \cong F \subset P_t$ of a face $F$ of $P_t$. 
+    Now suppose that one makes two distinct choices for two operahedra $P_t$ and $P_{t'}$.
+    It is easy to find a bigger tree $t''$ of which both $t$ and $t'$ are subtrees.
+    Therefore, $P_t$ and $P_{t'}$ appear as facets of $P_{t''}$ and by the preceding remark, any choice of diagonal for $P_{t''}$ will then contradict our initial two choices. 
+    Thus, these had to be the same from the start, which concludes the proof. 
+
+    Point (2) then follows from fact that a choice of diagonal for the Loday realizations of the operahedra \emph{forces} a unique topological cellular colored operad structure on them, see \cite[Theorem 4.18]{LA21}.
+    Since universal tensor products of homotopy operads are induced by a colored operad structure on the operahedra \cite[Cor. 4.24]{LA21}, we obtain Point~(3).
+    Finally, since only vectors with strictly descreasing coordinates induce the generalized Tamari order on the $1$-skeleton of the operahedra \cite[Prop. 3.11]{LA21}, we get the last part of the statement. 
+\end{proof}
+
+This answers the first question in \cite[Remark 3.14]{LA21}.
+
+Two other important families of generalized permutahedra are the \emph{Loday associahedra} and \emph{Forcey--Loday multiplihedra}, which encode respectively $\Ainf$-algebras and $\Ainf$-morphisms \cite[Prop. 4.9]{MazuirLA22}, as well as $\Ainf$-categories and $\Ainf$-functors \cite[Section 4.3]{MazuirLA22}.
+Using the same techniques as in the case of the operahedra, they were endowed with diagonals and compatible operad and operadic bimodule structures in \cite[Theorem~1]{MazuirLA22}.
+An analogous notion of \emph{operadic diagonal} is available for these polytopes, see \cite[Proposition 2.14]{MazuirLA22}.
+
+\begin{samepage}
+\begin{theorem}[Operadic structures on the multiplihedra]
+There are exactly 
+\begin{itemize}
+    \item four operadic diagonals of the Forcey--Loday multiplihedra, therefore exactly
+    \item four topological cellular operadic bimodule structures (over the Loday associahedra) on the Forcey--Loday multiplihedra, and incidentally exactly
+    \item four compatible universal tensor products of $\Ainf$-algebras and $\Ainf$-morphisms,
+\end{itemize}
+two of which (the $\LA$ and $\SU$ diagonals) agree with the Tamari(-type) order on ($2$-colored) planar trees. 
+\end{theorem}
+\end{samepage}
+
+\begin{proof}
+    The proof is similar to the one of \cref{thm:operahedra}, using the results of \cite{MazuirLA22}.
+\end{proof}
+
+We shall see now that these different operadic structures are related to one another in the strongest possible sense: they are all isomorphic as topological cellular operadic structures.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsection{Relating operadic diagonals} 
+
+
+%In this section we show that the four diagonals are isomorphic, and that this induces an isomorphism of the corresponding operadic structures on the operahedra, multiplihedra and associahedra.
+
+Recall that the topological cellular operad structure on the operahedra \cite[Def. 4.17]{LA21} is given by a family of partial composition maps 
+\[
+\vcenter{\hbox{
+\begin{tikzcd}[column sep=1cm]
+\circ_i^{\LA}\ : \ P_{t'}\times P_{t''}
+\arrow[r,  "\tr\times \id"]
+& P_{(t',\omega)}\times P_{t''}
+ \arrow[r,hookrightarrow, "\Theta"]
+&
+P_t \ .
+\end{tikzcd}
+}}  \]
+Here, the map $\tr$ is the \emph{unique} topological cellular map which commutes with the diagonal~$\LAD$ \cite[Prop. 7]{masudaDiagonalAssociahedra2021}. 
+This partial composition $\circ_i^\LA$ is an isomorphism (in the category $\PolySub$ \cite[Def. 4.13]{LA21}) between the product $P_{t'}\times P_{t''}$ and the facet $t' \circ_i^\LA t''$ of~$P_t$.
+Using the $\SU$ diagonal $\SUD$, one can define similarly a topological operad structure via the same formula, but with a different transition map $\tr$, which commutes with $\SUD$.
+
+Recall that a face $F$ of $P_t$ is represented by a nested tree $(t,\mathcal{N})$, which can be written uniquely as a sequence of substitution of trivially nested trees 
+$(t,\mathcal{N})=t_1\circ_{i_1} t_2 \circ_{i_2} t_3 \cdots \circ_{i_k} t_{k+1}$.
+Note that we do not need to specify a parenthesization of this sequence of $\circ_i$ operations since these form an operad \cite[Def. 4.7]{LA21}.
+At the geometric level, we have an isomorphism
+\[\circ_{i_1}^\LA \circ_{i_2}^\LA \cdots \circ_{i_k}^\LA: P_{t_1} \times P_{t_2} \times \cdots \times P_{t_{k+1}} \overset{\cong}{\longrightarrow} F \subset P_t \]
+between a uniquely determined product of lower dimensional operahedra, and the face $F=(t,\mathcal{N})$ of~$P_t$.
+Note that we can omit the parentheses in the sequence of $\circ_i^\LA$ operations since they define an operad structure \cite[Thm 4.18]{LA21}.
+The same holds when taking the~$\circ_i^\SU$ operations instead of the $\circ_i^\LA$. 
+
+\begin{definition}
+    For any operahedron $P_t$, the map $\Psi_t : P_t \to P_t$ is defined 
+    \begin{itemize}
+        \item on the interior of the top face by the identity $\id : \mathring P_t \to \mathring P_t$, and 
+        \item on the interior of the face $F=t_1 \circ_{i_1} t_2 \circ_{i_2} \cdots \circ_{i_k} t_{k+1}$ of~$P_t$ by the composition of the isomorphisms
+        \[ 
+        (\circ_{i_1}^\SU \circ_{i_2}^\SU \cdots \circ_{i_k}^\SU) (\circ_{i_1}^\LA \circ_{i_2}^\LA \cdots \circ_{i_k}^\LA)^{-1}: F \to F \ . \] 
+    \end{itemize}
+\end{definition}
+
+\begin{proposition}
+    \label{thm:top-iso}
+    The map $\Psi:=\{\Psi_t\}$ is an isomorphism of topological cellular symmetric colored operad in the category $\PolySub$.
+\end{proposition}
+
+\begin{proof}
+    By definition, we have that $\Psi$ is an isomorphism in the category $\PolySub$. 
+    It remains to show that it preserves the operad structures, i.e. that the following diagram commutes
+    \[
+    \vcenter{\hbox{
+    \begin{tikzcd}[column sep=2.2cm, row sep=1.3cm]
+    P_{t'}\times P_{t''}
+    \arrow[r,  "\circ_i^\LA"] 
+    \arrow[d,  "\Psi_{t'}\times\Psi_{t''}"]
+    & P_{t} \arrow[d,  "\Psi_t"] \\
+    P_{t'}\times P_{t''}  
+    \arrow[r,  "\circ_i^\SU"]
+    & P_{t}\ .
+    \end{tikzcd}
+    }}\]
+    For two interior points $(x,y) \in \mathring P_{t'}\times \mathring P_{t''}$, the diagram clearly commutes by definition, since $\Psi_{t'}$ $\Psi_{t''}$ are the identity in that case. 
+    If $x$ is in a face $F=t_1 \circ_{i_1} t_2 \circ_{i_2} \cdots \circ_{i_k} t_{k+1}$ of the boundary of $P_{t'}$, then the lower composite is equal to $\circ_i^\SU (\circ_{i_1}^\SU \circ_{i_2}^\SU \cdots \circ_{i_k}^\SU \times \id)(\circ_{i_1}^\LA \circ_{i_2}^\LA \cdots \circ_{i_k}^\LA \times \id)^{-1}$, and so is the upper composite since $\Psi_t$ starts with the inverse $(\circ_i^\LA)^{-1}$ and the decomposition of $F$ unto $P_{t_1} \times \cdots \times P_{t_{k+1}} \times P_{t''}$ is unique.
+    The case when $y$ is in the boundary of $P_{t''}$ is similar.  
+    Finally, the compatibility of $\Psi$ with units and the symmetric group actions are straightfoward to check, see \cite[Def. 4.17 and Thm 4.18]{LA21}.
+\end{proof}
+
+Note that $\Psi$ is \emph{not} a morphism of ``Hopf" operads, i.e. it does not commute with the respective diagonals $\LAD$ and $\SUD$. 
+\Guillaume{Give explicit counterexample}
+
+\begin{corollary}
+    The four topological operad structures on the operahedra are all isomorphic. 
+\end{corollary}
+
+\begin{proof}
+    It is clear that the proof of \cref{thm:top-iso} does not depend on the specific choices of diagonals $\LAD$ and $\SUD$, it can therefore be applied to any pair of diagonals among $\LA, \LA^\op, \SU$ and $\SU^\op$. 
+\end{proof}
+
+\Guillaume{Find an iso which commutes??}
+
+\begin{example}
+    This isomorphism is a highly non-trivial map. 
+    For instance, it is not the one you would expect...  [compare with the general symmetries]
+\end{example}
+
+
+\Guillaume{faire direct l'iso topologique, puis traduire?}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Appendix: Shuffle trees}
