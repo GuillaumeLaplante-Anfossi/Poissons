@@ -153,117 +153,40 @@ where $O(n)$ stands for either $\LA(n), \LA(n)^\op, \SU(n)$ or $\SU(n)^\op$.
 
 Let $P$ be a centrally symmetric polytope, and let $s : P \to P$ be its involution, given by taking a point $p \in P$ to its reflection $s(p)$ with respect to the center of symmetry of $P$. 
 Note that this map is cellular, and induces an involution on the face lattice of $P$. 
-For $P$ the permutahedron, this face poset involution is given by the assignment $A_1 | \cdots | A_k \mapsto A_k | \cdots | A_1$.  
+For $P$ the permutahedron, this face poset involution is given by the assignment $A_1 | \cdots | A_k \mapsto A_k | \cdots | A_1$. 
 
-In addition, as we have already remarked \Guillaume{in Rem X}, the polytope of diagonals of $P$ is always centrally symmetric, and the involution $t : P \times P \to P \times P$ sending $(x,y)$ to~$(y,x)$ takes a cellular diagonal to another cellular diagonal. 
+The permutahedron possesses another symmetry: the cellular involution $r : P \to P$ which sends a point $p \in P$ to its reflection with respect to the hyperplane of equation \[ \sum_{i=1}^{\lfloor n/2 \rfloor}x_i = \sum_{i=1}^{\lfloor n/2 \rfloor}x_{n-i+1} \ . \]
+This involution also respects the face poset structure. 
+In terms of ordered partitions, it replaces each block $A_j$ in $A_1 | \cdots | A_k$ by the block $r(A_j):=\{n-i+1 \ | \ i \in A_j\}$.
+
+As we have already remarked \Guillaume{in Rem X}, the polytope of diagonals of $P$ is always centrally symmetric, and the involution $t : P \times P \to P \times P$ sending $(x,y)$ to~$(y,x)$ takes a cellular diagonal to another cellular diagonal.
+In the case of the permutahedron it sends $\LAD$ to $(\LAD)^\op$ and $\SUD$ to $(\SUD)^\op$.
 
 \begin{theorem}
-    For $P$ the permutahedron, the involutions $t$ and $s \times s$ are cellular isomorphisms between the four operadic diagonals, through the following commutative diagram: 
+    For $P$ the permutahedron, the involutions $t$ and $rs \times rs$ are cellular isomorphisms between the four operadic diagonals, through the following commutative diagram: 
     \begin{center}
         \begin{tikzcd}
-        \LAD \arrow[r,"t"] \arrow[d,"s \times s"]&
-        (\LAD)^{\op}\arrow[d,"s \times s"]\\
-        (\SUD)^{\op} \arrow[r,"t"] &
-        \SUD
+        \LAD \arrow[r,"t"] \arrow[d,"rs \times rs"]&
+        (\LAD)^{\op}\arrow[d,"rs \times rs"]\\
+        \SUD \arrow[r,"t"] &
+        (\SUD)^\op
         \end{tikzcd}
         \end{center}
     Moreover, they induce poset isomorphisms at the level of the face lattices. 
 \end{theorem}
 
 \begin{proof}
-    
+    The result for the transpositions $t$ and the commutativity of the diagram are straighforward, so we prove that $rs\times rs$ is a cellular isomorphism respecting the poset structure. 
+    First, we observe that the assignment $(I,J) \mapsto (r(J),r(I))$ defines a bijection between $\LA(n)$ and $\SU(n)$. 
+    Indeed, we have $r(\min(I\cup J))=\max(I\cup J)$; since $I \cap J = \emptyset$, $r$ is well-defined, and it is a bijection with inverse $r$ itself.  
+    Denoting by $N^c$ the complement of a subset $N \subset [n]$, we have that $|N \cap I| > |N\cap J| \iff |N^c \cap I|< |N^c \cap J|$.
+    Combining this with the fact that $|N \cap I| > |N\cap J| \iff |r(N) \cap r(I)| > |r(N) \cap r(J)|$, we obtain that 
+    \begin{eqnarray*}
+        |N \cap I| > |N\cap J| \iff |r(N)^c \cap r(I)| < |r(N)^c \cap r(J)| \ .
+    \end{eqnarray*}
+    Similarly, we have $|N' \cap I| < |N'\cap J| \iff |r(N')^c \cap r(I)| > |r(N')^c \cap r(J)|$, so that $(\sigma,\tau) \in \LAD$ if and only if $(rs(\sigma),rs(\tau)) \in \SUD$. 
+    Finally, since both $t,r$ and $s$ preserve the poset structures, so does their composition, which finishes the proof.
 \end{proof}
-
-
-These isomorphisms can be seen at the combinatorial level, as ismorphisms between the different orderings of $U$
-\begin{center}
-\begin{tikzcd}
-\LA \arrow[r,"t"] \arrow[d,"r"]&
-\LA^{\op}\arrow[d,"r"]\\
-\SU^{\op} \arrow[r,"t"] &
-\SU
-\end{tikzcd}
-\end{center}
-where $t(I,J) \eqdef (J,I)$ is the transposition of the factors and $r$ inverts the order on an $(I,J)$ pair, mapping the smallest element to the largest element, then the next smallest to next largest and so on, e.g. 
-\begin{align*}
-    i(\{1, 7, 8\} , \{ 4, 5, 6 \}) = (\{8,2,1\},\{7,6,5\}) = (\{1,2,8\},\{5,6,7\})
-\end{align*}
-
-These bijections in orders induce a bijection between the diagonals. 
-
-\begin{proposition}
-    \label{p:IJ level bijection}
-There is a bijection between diagonals $\theta:\LAD \to \SUD$.
-\end{proposition}
-
-\begin{proof}
-For any pair $(\sigma,\tau)$ of ordered partitions of $[n]$, we have
-\begin{align*}
-    (\sigma,\tau)\in \LAD
-    \iff  \forall (I,J) \in \LA(n), &\exists k, \bigg| \bigcup_{i=1}^k \sigma_i \cap I \bigg| > \bigg|\bigcup_{1=1}^k \sigma_i \cap J \bigg|
-    \\
-    \text{ or } 
-    &\exists l, \bigg| \bigcup_{i=1}^l \tau_k \cap I \bigg| < \bigg|\bigcup_{i=1}^l \tau_l \cap J \bigg|
-\end{align*}
-and \Kurt{Note the change! (not reversing each perm)}
-\begin{align*}
-    (\sigma,\tau)\in \SUD
-    \iff  \forall (I,J) \in \SU(n),
-    &\exists k, \bigg| \bigcup_{i=1}^{k} \tau_{i} \cap J \bigg| > \bigg|\bigcup_{i=1}^{k}\tau_{i} \cap I \bigg|
-    \\
-    \text{ or } 
-    &\exists l, \bigg| \bigcup_{i=1}^{l} \sigma_{i} \cap J \bigg| < \bigg|\bigcup_{i=1}^{l} \sigma_{i} \cap I \bigg|    
-\end{align*}
-Let $\theta ((\sigma,\tau))  \eqdef  (\overline{\tau},\overline{\sigma})$, where an ordered $[n]$ partition $\sigma_1|\dots|\sigma_k$ is mapped to $\overline{\sigma} \eqdef \overline{\sigma_{1}} | \ldots | \overline{\sigma_{k}}$, where $\overline{\sigma_i}$ is the set $\set{n-j+1}{j \in \sigma_i}$. In words, the $\overline{\sigma}$ reverses the order of the blocks of $\sigma$, and reverses the order of its constituents i.e. $1\mapsto n,2 \mapsto n-1,\dots,n\mapsto 1$. To see that $\theta$ is well defined, observe that under the bijection between $LA(n)$ and $SU(n)$ that $(I,J) \in LA(n)$ is mapped to $(J',I') \eqdef (i(J),i(I)) \in SU(n)$. As such,
-\begin{align*}
-    (\sigma,\tau)\in \OP^{LA}
-    \iff  \forall (J',I') \in SU(n), 
-    &\exists k, \bigg| \bigcup_{i=1}^{k} \sigma'_{i} \cap I' \bigg| > \bigg|\bigcup_{i=1}^{k} \sigma'_{i} \cap J' \bigg|
-    \\
-    \text{ or } 
-    &\exists l, \bigg| \bigcup_{i=1}^{l} \tau'_{i} \cap I' \bigg| < \bigg|\bigcup_{i=1}^{l} \tau'_{i} \cap J' \bigg|
-\end{align*}
-i.e. we translate the the $\OP^{LA}$ conditions imposed on $(\sigma,\tau)$ through $\theta$. Hence, by definition $(\tau',\sigma')\in \OP^{LA}$. From here, it is immediate that $\theta$ and its clear inverse are both injective, so we have a bijection.
-\end{proof}
-As a quick example $\theta(15|7|234|6\times 57|46|13|2)=13|24|57|6\times 37|1|456|2$, see \cref{ex:theta and path translation} for a combinatorial interpretation of the change in the underlying $I,J$ conditions for this particular example.
-\\\\
-Furthermore, this bijection is a face poset isomorphism.  
-\begin{lemma}
-Given two faces $(\sigma,\tau),(\sigma',\tau') \in \triangle$, then $(\sigma',\tau')$ is a face of $(\sigma,\tau) $ iff $\mathcal{N}(\sigma,\tau) \subset \mathcal{N}(\sigma',\tau')$. Furthermore, $(\sigma',\tau')$ is a facet of $(\sigma,\tau) $ iff $\mathcal{N}(\sigma,\tau) \subset \mathcal{N}(\sigma',\tau')$ and $|\mathcal{N}(\sigma',\tau')| = |\mathcal{N}(\sigma,\tau)|+1$.
-\end{lemma}
-\begin{proof}
-...
-\end{proof}
-The bijection between ordered partition (pairs) and (pairs of) nestings may be used to translate this lemma as follows. \Kurt{What is the shortest path to this corollary that uses the least amount of nesting theory?}
-\begin{corollary}
-Given two faces $(\sigma,\tau),(\sigma',\tau') \in \triangle$ (either $\OP^{LA}$ or $\OP^{SU}$), then
-$(\sigma',\tau')$ is a facet of $(\sigma,\tau)$ iff 
-\begin{center}
-$\sigma = \sigma'$ and $\tau' = ref_{A,B}(\tau)$ or $\tau = \tau'$ and $\sigma' = ref_{A,B}(\sigma)$
-\end{center}
-where if $\sigma = b_1|\dots|b_k$ and $b_i$ is partitioned by $A,B$ then
-\begin{align*}
-    ref_{A,B}(\sigma) &= b_1|\dots|b_{i-1}|A|B|b_{i+1}|\dots|b_k
-\end{align*}
-\end{corollary}
-
-\begin{lemma}
-Given two faces $(\sigma,\tau),(\sigma',\tau') \in \OP^{LA}$,
-$(\sigma',\tau')$ is a facet of $(\sigma,\tau)$ iff $\theta((\sigma',\tau'))$ is a facet of $\theta((\sigma,\tau))$.
-\end{lemma}
-\begin{proof}
-We prove the case when $\sigma = \sigma'$ and $\tau' = ref_{A,B}(\tau)$, the other case is similar. We directly compute,
-\begin{align*}
-    \theta( (\sigma,\tau)) &= (\overline{\tau},\overline{\sigma}) = (\overline{b_k}|\dots|\overline{b_{i+1}}|\overline{b_i}|\overline{b_{i-1}}|\dots|\overline{b_1},\overline{\sigma})\\
-    \theta( (\sigma',\tau')) &= (\overline{\tau'},\overline{\sigma'}) = (\overline{b_k}|\dots|\overline{b_{i+1}}|\overline{B}|\overline{A}|\overline{b_{i-1}}|\dots|\overline{b_1},\overline{\sigma})
-\end{align*}
-and as $\overline{B}\cup\overline{A}=\overline{b_i}$ it follows that $\theta((\sigma',\tau'))$ is a facet of $\theta((\sigma,\tau))$.
-\end{proof}
-As a face of face can be identified through a chain of facets, an immediate corollary of this lemma is that $\theta$ is an isomorphism of face posets, i.e,
-\begin{corollary}
-Given two faces $(\sigma,\tau),(\sigma',\tau') \in \OP^{LA}$,
-$(\sigma',\tau')$ is a face of $(\sigma,\tau)$ iff $\theta((\sigma',\tau'))$ is a face of $\theta((\sigma,\tau))$. 
-\end{corollary}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
