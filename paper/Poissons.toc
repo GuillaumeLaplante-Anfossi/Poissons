@@ -1,27 +1,30 @@
 \contentsline {section}{\tocsection {}{}{Introduction}}{2}{section*.2}%
-\contentsline {subsection}{\tocsubsection {}{}{Combinatorics}}{2}{section*.3}%
-\contentsline {subsection}{\tocsubsection {}{}{Higher Algebra}}{2}{section*.4}%
-\contentsline {subsection}{\tocsubsection {}{}{Conventions}}{3}{section*.5}%
-\contentsline {section}{\tocsection {}{1}{Combinatorics}}{3}{section.1}%
+\contentsline {subsection}{\tocsubsection {}{}{Motivation}}{2}{section*.3}%
+\contentsline {subsection}{\tocsubsection {}{}{Combinatorics}}{2}{section*.4}%
+\contentsline {subsection}{\tocsubsection {}{}{Higher Algebra}}{3}{section*.5}%
+\contentsline {subsection}{\tocsubsection {}{}{Conventions}}{3}{section*.6}%
+\contentsline {section}{\tocsection {}{1}{Combinatorics of iterated diagonals}}{3}{section.1}%
 \contentsline {subsection}{\tocsubsection {}{1.1}{Combinatorics of generically translated copies of the braid arrangement}}{3}{subsection.1.1}%
 \contentsline {subsubsection}{\tocsubsubsection {}{1.1.1}{Recollection on hyperplane arrangements}}{3}{subsubsection.1.1.1}%
 \contentsline {subsubsection}{\tocsubsubsection {}{1.1.2}{The $(\ell ,n)$-braid arrrangement}}{5}{subsubsection.1.1.2}%
 \contentsline {subsection}{\tocsubsection {}{1.2}{Enumerative results for any diagonal}}{11}{subsection.1.2}%
-\contentsline {section}{\tocsection {}{2}{Higher Algebra}}{14}{section.2}%
-\contentsline {subsection}{\tocsubsection {}{2.1}{Operadic diagonals}}{14}{subsection.2.1}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.1.1}{Cellular diagonals}}{14}{subsubsection.2.1.1}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.1.2}{The $\mathrm {LA}$ diagonal on the permutahedra}}{15}{subsubsection.2.1.2}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.1.3}{Operadic diagonals on the permutahedra}}{16}{subsubsection.2.1.3}%
-\contentsline {subsection}{\tocsubsection {}{2.2}{Relating operadic diagonals}}{20}{subsection.2.2}%
-\contentsline {subsection}{\tocsubsection {}{2.3}{Bijective results for operadic diagonals}}{23}{subsection.2.3}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.3.1}{Facets}}{24}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.3.2}{Essential complementary partitions and bipartite trees}}{24}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.3.3}{Bijection with the facets of the diagonal}}{25}{subsubsection.2.3.3}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.3.4}{Vertices}}{29}{subsubsection.2.3.4}%
-\contentsline {subsection}{\tocsubsection {}{2.4}{The Saneblidze--Umble diagonal}}{30}{subsection.2.4}%
-\contentsline {subsection}{\tocsubsection {}{2.5}{The Saneblidze-Umble diagonal (Version 2)}}{36}{subsection.2.5}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.5.1}{Shifts Under the Face Poset Isomorphism}}{42}{subsubsection.2.5.1}%
-\contentsline {subsection}{\tocsubsection {}{2.6}{Shuffle trees}}{43}{subsection.2.6}%
-\contentsline {section}{\tocsection {}{3}{Tables}}{44}{section.3}%
-\contentsline {subsubsection}{\tocsubsubsection {}{3.0.1}{Combinatorial formula for facets of the diagonal}}{44}{subsubsection.3.0.1}%
-\contentsline {section}{\tocsection {}{}{References}}{47}{section*.7}%
+\contentsline {section}{\tocsection {}{2}{Operadic diagonals}}{15}{section.2}%
+\contentsline {subsection}{\tocsubsection {}{2.1}{Cellular diagonals for polytopes}}{15}{subsection.2.1}%
+\contentsline {subsection}{\tocsubsection {}{2.2}{Cellular diagonals for the permutahedra}}{16}{subsection.2.2}%
+\contentsline {subsection}{\tocsubsection {}{2.3}{Operadic diagonals for the permutahedra}}{17}{subsection.2.3}%
+\contentsline {subsection}{\tocsubsection {}{2.4}{Isomorphisms between permutahedra's operadic diagonals}}{20}{subsection.2.4}%
+\contentsline {subsection}{\tocsubsection {}{2.5}{Facets of operadic diagonals}}{21}{subsection.2.5}%
+\contentsline {subsection}{\tocsubsection {}{2.6}{Vertices of operadic diagonals}}{25}{subsection.2.6}%
+\contentsline {subsection}{\tocsubsection {}{2.7}{The Saneblidze-Umble diagonal}}{27}{subsection.2.7}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.7.1}{Strong complementary pairs}}{27}{subsubsection.2.7.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.7.2}{Subset shift and shift diagonals}}{28}{subsubsection.2.7.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.7.3}{First isomorphism: subset shift and shift}}{30}{subsubsection.2.7.3}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.7.4}{Second isomorphism: shift and $(I,J)$ coincide}}{32}{subsubsection.2.7.4}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.7.5}{Some consequences}}{35}{subsubsection.2.7.5}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.7.6}{Shifts Under the Face Poset Isomorphism}}{36}{subsubsection.2.7.6}%
+\contentsline {section}{\tocsection {}{3}{Topological operadic structures}}{37}{section.3}%
+\contentsline {subsection}{\tocsubsection {}{3.1}{Operadic diagonals on the operahedra and multiplihedra}}{37}{subsection.3.1}%
+\contentsline {subsection}{\tocsubsection {}{3.2}{Relating operadic diagonals}}{39}{subsection.3.2}%
+\contentsline {section}{\tocsection {}{4}{Appendix: Shuffle trees}}{40}{section.4}%
+\contentsline {section}{\tocsection {}{5}{Tables}}{40}{section.5}%
+\contentsline {section}{\tocsection {}{}{References}}{41}{section*.8}%
