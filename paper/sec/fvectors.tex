@@ -463,7 +463,6 @@ F_\ell(z) = 1 + z \, F_\ell(z)^\ell.
 %See \cref{fig:forests}.
 %\end{definition}
 
-\begin{example}
 \vincent{TODO: examples rainbow trees.}
 \begin{table}
 	\centerline{
@@ -484,7 +483,6 @@ F_\ell(z) = 1 + z \, F_\ell(z)^\ell.
 	\vspace{.3cm}
 	\caption{The Fuss-Catalan numbers~$F_{\ell,m} = \frac{1}{(\ell-1)m+1} \binom{\ell m}{m}$ for~$\ell,m \in [9]$. See \OEIS{A062993}.}
 \end{table}
-\end{example}
 
 \begin{definition}
 A $(\ell,n)$-rainbow forest is \defn{well-labeled} if its nodes are bijectively labeled by~$[n]$ so that
@@ -492,8 +490,9 @@ A $(\ell,n)$-rainbow forest is \defn{well-labeled} if its nodes are bijectively 
 \item the label of each root is minimal in its tree,
 \item the labels of siblings with the same color are increasing from left to right.
 \end{enumerate}
-See \cref{fig:forests}.
 \end{definition}
+
+The following statement is illustrated in \cref{fig:forests}.
 
 \begin{proposition}
 \label{prop:bijectionForests}
@@ -516,6 +515,7 @@ Finally, $|\mu_{\forestPoset}(\hat 0, \b{F})| = \prod\limits_{i \in [\ell]} \pro
 \label{subsec:verticesFacetsMultiBraidArrangement}
 
 We now use our labeled $(\ell,n)$-rainbow forests of \cref{subsec:rainbowForests} to derive more explicit formulas for the number of vertices and regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
+We start with the number of vertices of~$\multiBraidArrangement$, whose first values are gathered in \cref{table:verticesMultiBraidArrangement}.
 
 \begin{theorem}
 \label{thm:verticesMultiBraidArrangement}
@@ -540,11 +540,28 @@ Hence, there are $\big( \ell+(n-1)(\ell-1) \big)^{n-2} \ell$ such words.
 Similar ideas where used in~\cite{Lewis}.
 \vincent{Improve citation}
 \end{proof}
-
-\begin{example}
-\vincent{TODO: examples + numbers.}
-\end{example}
-
+%
+\begin{table}
+	\centerline{
+		\begin{tabular}[t]{c|cccccccc}
+			$n \backslash \ell$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ \\ % & $9$ \\
+			\hline
+		$1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ \\ % & $1$ \\
+		$2$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ \\ % & $9$ \\
+		$3$ & $1$ & $8$ & $21$ & $40$ & $65$ & $96$ & $133$ & $176$ \\ % & $225$ \\
+		$4$ & $1$ & $50$ & $243$ & $676$ & $1445$ & $2646$ & $4375$ & $6728$ \\ % & $9801$ \\
+		$5$ & $1$ & $432$ & $3993$ & $16384$ & $46305$ & $105456$ & $208537$ & $373248$ \\ % & $620289$ \\
+		$6$ & $1$ & $4802$ & $85683$ & $521284$ & $1953125$ & $5541126$ & $13119127$ & $27350408$ \\ % & $51883209$ \\
+		$7$ & $1$ & $65536$ & $2278125$ & $20614528$ & $102555745$ & $362797056$ & $1029059101$ & $2500000000$ \\ % & $5415228513$ \\
+		$8$ & $1$ & $1062882$ & $72412707$ & $976562500$ & $6457339845$ & $28500625446$ & $96889010407$ & $274371577992$ \\ % & $678770015625$ \\
+%		$9$ & $1$ & $20000000$ & $2681615217$ & $53971714048$ & $474659385665$ & $2614905943296$ & $10657046640625$ & $35184372088832$ & $99426586671873$
+		\end{tabular}
+	}
+	\vspace{.3cm}
+	\caption{The numbers $f_0(\multiBraidArrangement) = \ell \big( (\ell-1) n + 1 \big)^{n-2}$ of vertices of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ for~$\ell,n \in [8]$.}
+	\label{table:verticesMultiBraidArrangement}
+\end{table}
+%
 \begin{theorem}
 \label{thm:verticesRefinedMultiBraidArrangement}
 For any~$k_1, \dots, k_\ell$ such that~$0 \le k_i \le n-1$ for all~$i \in [\ell]$ and~$\sum_{i=1}^\ell k_i = n-1$, the number of vertices~$v$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ such that the smallest flat of the $i$th copy of~$\braidArrangement$ containing~$v$ has dimension~$n-k_i-1$ is given by
