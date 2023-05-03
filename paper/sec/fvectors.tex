@@ -300,7 +300,7 @@ Note that the maximal elements of~$\forestPoset$ are the $(\ell, n)$-trees.
 %\end{figure}
 
 \begin{proposition}
-\label{prop:multiBraidArrangement}
+\label{prop:flatPosetMultiBraidArrangement}
 The flat poset of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is isomorphic to the $(\ell,n)$-partition forest poset.
 \end{proposition}
 
@@ -339,7 +339,7 @@ Hence
 \end{align*}
 \end{proof}
 
-We thus obtain the following statament from \cref{thm:MobiusPolynomial,thm:Zaslavsky}.
+We thus obtain the following statament from \cref{thm:MobiusPolynomialMultiBraidArrangement,thm:Zaslavsky}.
 
 \begin{corollary}
 \label{coro:fbvectorsMultiBraidArrangement}
@@ -472,6 +472,7 @@ See \cref{fig:forests}.
 \end{definition}
 
 \begin{proposition}
+\label{prop:bijectionForests}
 There is a bijection from $(\ell,n)$-partition forests to well-labeled $(\ell,n)$-rainbow forests, which sends the M\"obius function~$|\mu_{\forestPoset}(\hat 0, -)|$ to the weight~$\omega(-)$.
 \end{proposition}
 
@@ -496,16 +497,17 @@ f_0(\multiBraidArrangement) = \ell \big( (\ell-1) n + 1 \big)^{n-2}.
 \end{theorem}
 
 \begin{proof}
-By 
-
-\vincent{TODO: work this out again with the def change.}
-We adapt the proof from \cite{CKSS04}. By rooting in the part of colour $1$ containing $1$, the number of vertices of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is the same as the number of Cayley trees rooted in $1$ with an edge-coloring by $\{1, \ldots, \ell\}$ satisfying that the colour of an edge from a child is different from the colour of the edge between the parent and the child. A common reasoning for counting Cayley trees is the use of its Prüfer code defined by recursively pruning the smallest leaf and writing down the number of its parent. This bijection can be adapted to edge-coloured Cayley trees by writing down the number of the parent and the colour of the edge linking the leaf to its parent. We get a coloured word of length $n-1$. Their are two possibilities:
+By \cref{prop:flatPosetMultiBraidArrangement,prop:bijectionForests}, we just need to count the well-labeled $(\ell,n)$-rainbow trees.
+A common reasoning for counting Cayley trees is the use of its Prüfer code defined by recursively pruning the smallest leaf while writing down the label of its parent.
+This bijection can be adapted to colored Cayley trees by writing down the label of the parent colored by the color of the pruned leaf.
+We get a colored word of length $n-1$.
+Their are two possibilities:
 \begin{itemize}
-\item either the node we are removing is attached to the root labelled by $1$ and there are $\ell$ possible different colours for the edge ($\ell$)
-\item or it is attached to one of the $n-1$ other nodes and the edge can have $\ell-1$ different colours. ($(n-1)(\ell-1)$)
+\item either the pruned leaf is attached to the node~$1$ and it can have all $\ell$ colors,
+\item or it is attached to one of the $n-1$ other nodes and it can only have $\ell-1$ colors.
 \end{itemize}
- Note that the last letter in the Prüfer code (obtained by removing the last edge) is necessarily the root $1$, with $\ell$ possible different colours.
- There are $(\ell+(n-1)(\ell-1))^{n-2} \times \ell$ such words, hence the result.
+Note that the last letter in the Prüfer code (obtained by removing the last edge) is necessarily the root $1$, with $\ell$ possible different colors.
+Hence, there are $\big( \ell+(n-1)(\ell-1) \big)^{n-2} \ell$ such words.
 \end{proof}
 
 \begin{theorem}
