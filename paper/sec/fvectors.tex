@@ -1,11 +1,9 @@
 % !TEX root = ../Poissons.tex
 
 \section{Combinatorics of iterated diagonals}
+\label{sec:combinatorics}
 
-\subsection{Combinatorics of generically translated copies of the braid arrangement}
-\label{sec:kBraidArrangement}
-
-\subsubsection{Recollection on hyperplane arrangements}
+\subsection{Recollection on hyperplane arrangements}
 \label{subsec:arrangements}
 
 We first briefly recall classical results on the combinatorics of affine hyperplane arrangements, in particular the enumerative connection between their intersection posets and their face lattices due to T.~Zaslavsky~\cite{Zaslavsky}.
@@ -106,7 +104,7 @@ so that
 \end{figure}
 \end{example}
 
-\subsubsection{The $(\ell,n)$-braid arrrangement}
+\subsection{The $(\ell,n)$-braid arrrangement}
 \label{subsec:lnBraidArrangement}
 
 We now focus on the following specific hyperplane arrangements, illustrated in \cref{fig:lBraidArrangements}, and whose face numbers are given in \cref{table:fvectorlBraidArrangements}.
@@ -252,6 +250,9 @@ For instance
 	\caption{The braid arrangement $\braidArrangement[3]$ (left), its flat poset~$\flatPoset[{\braidArrangement[3]}]$ (middle), and its interpretation in terms of forests (right).}
 	\label{fig:braidArrangement31}
 \end{figure}
+
+\vincent{Add picture B4.}
+\vincent{Add partitions.}
 
 \begin{figure}
 	\centerline{\includegraphics[scale=.9]{figures/intersectionPosetBraidArrangement32Full}}
@@ -399,21 +400,76 @@ Note that~$3 \ell^2 + 2 \ell + 1$ is~\OEIS{A056109}, that~$\ell (3 \ell - 2)$ is
 \vincent{There is a weird connection between the first and the last. Namely, $3 \ell^2 - 4 \ell + 1 = 3 (\ell - 1)^2 + 2 (\ell - 1)$. Is there a bijective explanation on the arrangements?}
 \end{example}
 
-We will now provide more explicit formulas for the number of vertices and regions of the $(\ell,n)$-braid arrangement~$\lBraidArrangement$.
-For this, we first introduce another combinatorial model for $(\ell,n)$-forests and $(\ell,n)$-trees which is more adapted to their enumeration.
+\begin{remark}
+\vincent{TODO: Discuss generalizations to $\ell$ copies of an arbitrary arrangement, or a graphical arrangement.}
+\end{remark}
+
+\subsection{Colored trees and forests}
+\label{subsec:coloredTreesForests}
+
+In order to obtain more explicit formulas for the number of vertices and regions of the $(\ell,n)$-braid arrangement~$\lBraidArrangement$ (see \cref{subsec:verticesFacetslnBraidArrangement}), we now introduce another combinatorial model for $(\ell,n)$-forests which is more adapted to their enumeration.
 
 \begin{definition}
-A \defn{$(\ell,n)$-colored forest} (resp.~\defn{$(\ell,n)$-colored tree}) is a rooted forest whose nodes are labeled (bijectively) by~$[n]$ and properly (no monochromatic edge) colored by~$\{0,\dots,n\}$ such that the roots of the forest are precisely the nodes colored~$0$.
-See \cref{fig:forests}.
+A \defn{$\ell$-colored tree} (resp.~\defn{almost $\ell$-colored tree}) is a rooted plane tree whose nodes (resp.~non-root nodes) are properly colored by~$[\ell]$, \ie with no monochromatic edge.
 \end{definition}
 
 \begin{lemma}
-For any~$\ell,n \in \N$, the $(\ell,n)$-forests (resp.~trees) are in bijection with the $(\ell,n)$-colored forests (resp.~trees).
+The numbers~$s(\ell,m)$ of $\ell$-colored trees and $t(\ell,m)$ of almost $\ell$-colored trees with $m$ nodes are
+\[
+r(\ell,m) = \frac{1}{m+1} \binom{\ell (m+1)-2}{m}
+\qquad\text{and}\qquad
+s(\ell,m) = \frac{1}{(\ell-1)m+1} \binom{\ell m}{m}.
+%\qquad\text{and}\qquad
+%t(\ell,m) = \frac{(m-1)!}{(\ell-1)m+1} \binom{\ell m}{m}.
+\]
 \end{lemma}
+
+\begin{proof}
+\vincent{Not sure what the best way is.} \newline
+The corresponding generating functions~$S_\ell(z) \eqdef \sum_{m \ge 1} s(\ell,m) \, z^m$ and~$T_\ell(z) \eqdef \sum_{m \ge 1} t(\ell,m) \, z^m$ satisfy
+\[
+S_\ell(z) = \frac{z}{\big( 1-S_\ell(z) \big)^{\ell-1}}
+\qquad\text{and}\qquad
+T_\ell(z) = \frac{t}{\big( 1-S_\ell(z) \big)^\ell}.
+\]
+\end{proof}
+
+\begin{example}
+\vincent{TODO: numbers}
+\end{example}
+
+\begin{definition}
+An \defn{almost $\ell$-colored $n$-labeled forest} is a set of almost $\ell$-colored trees with~$n$ nodes in total bijectively labeled by~$[n]$ such that in each tree, the root receives the maximal label.
+\vincent{fix the pictures}
+See \cref{fig:forests}.
+\end{definition}
+
+\begin{proposition}
+For any~$\ell,n \in \N$, the $(\ell,n)$-forests (resp.~trees) are in bijection with the almost $\ell$-colored $n$-labeled forests (resp.~trees).
+\end{proposition}
 
 \begin{proof}
 \vincent{TODO}
 \end{proof}
+
+\begin{proposition}
+The exponential generating function~$F_\ell(y,z)$ of the numbers~$f_\ell(k,n)$ of almost $\ell$-colored $n$-labeled forests consisting in~$k$ trees is given by
+\[
+F_\ell(y,z) \eqdef \sum_{k,n \ge 1} \frac{f_\ell(k,n)}{n!} \, y^k \, z^n = \exp \Bigg( \sum_{m \ge 1} \frac{y \, z^m}{m \big( (\ell-1)m+1 \big)} \binom{\ell m}{m} \Bigg).
+\]
+\end{proposition}
+
+\begin{proof}
+\vincent{TODO}
+A forest is a set of trees.
+\end{proof}
+
+\begin{example}
+\vincent{TODO: numbers}
+\end{example}
+
+\subsection{Enumeration of vertices and regions of $\lBraidArrangement$}
+\label{subsec:verticesFacetslnBraidArrangement}
 
 \begin{theorem}
 \label{thm:verticeslnBraidArrangement}
@@ -424,6 +480,7 @@ f_0(\lBraidArrangement) = \ell \big( (\ell-1) n + 1)^{n-2}.
 \end{theorem}
 
 \begin{proof}
+\vincent{TODO: work this out again with the def change.}
 We adapt the proof from \cite{CKSS04}. By rooting in the part of colour $1$ containing $1$, the number of vertices of the $(\ell,n)$-braid arrangement~$\lBraidArrangement$ is the same as the number of Cayley trees rooted in $1$ with an edge-coloring by $\{1, \ldots, \ell\}$ satisfying that the colour of an edge from a child is different from the colour of the edge between the parent and the child. A common reasoning for counting Cayley trees is the use of its Prüfer code defined by recursively pruning the smallest leaf and writing down the number of its parent. This bijection can be adapted to edge-coloured Cayley trees by writing down the number of the parent and the colour of the edge linking the leaf to its parent. We get a coloured word of length $n-1$. Their are two possibilities:
 \begin{itemize}
 \item either the node we are removing is attached to the root labelled by $1$ and there are $\ell$ possible different colours for the edge ($\ell$)
@@ -449,7 +506,7 @@ n^{\ell-1}  \binom{n-1}{k_1, ..., k_\ell} \prod_{i=1}^\ell (n-k_i)^{k_i-1}.
 \label{thm:facetslnBraidArrangement}
 The coefficient of~$x^{n-1}$ in the M\"obius polynomial~$\mobPol[{\lBraidArrangement}]$ of the $(\ell,n)$-braid arrangement~$\lBraidArrangement$ is given by
 \[
-[x^{n-1}] \, \mobPol[{\lBraidArrangement}] = \frac{(-1)^n n!}{y} \, [z^n] \, \exp \Bigg( - \sum_{m \ge 1} \frac{y \, z^m}{m(m+1)} \binom{\ell (m+1)-2}{m} \Bigg).
+[x^{n-1}] \, \mobPol[{\lBraidArrangement}] = \frac{(-1)^n n!}{y} \, [z^n] \, \exp \Bigg( - \sum_{m \ge 1} \frac{y \, z^m}{m \big( (\ell-1)m+1 \big)} \binom{\ell m}{m} \Bigg).
 \]
 \end{theorem}
 
@@ -461,10 +518,10 @@ The coefficient of~$x^{n-1}$ in the M\"obius polynomial~$\mobPol[{\lBraidArrange
 The numbers of regions and of bounded regions of the $(\ell,n)$-braid arrangement~$\lBraidArrangement$ are given by
 \begin{align*}
 f_{n-1}(\lBraidArrangement) 
-& = n! \, [z^n] \exp \Bigg( \sum_{m \ge 1} \frac{z^m}{m(m+1)} \binom{\ell (m+1)-2}{m} \Bigg) \\
+& = n! \, [z^n] \exp \Bigg( \sum_{m \ge 1} \frac{z^m}{m \big( (\ell-1)m+1 \big)} \binom{\ell m}{m} \Bigg) \\
 \text{and}\qquad
 b_{n-1}(\lBraidArrangement)
-& = - n! \, [z^n] \exp \Bigg( - \sum_{m \ge 1} \frac{z^m}{m(m+1)} \binom{\ell (m+1)-2}{m} \Bigg) 
+& = - n! \, [z^n] \exp \Bigg( - \sum_{m \ge 1} \frac{z^m}{m \big( (\ell-1)m+1 \big)} \binom{\ell m}{m} \Bigg) 
 \end{align*}
 \end{corollary}
 
@@ -472,12 +529,11 @@ b_{n-1}(\lBraidArrangement)
 \vincent{TODO}
 \end{proof}
 
-\vincent{TODO: Discuss generalizations to $\ell$ copies of an arbitrary arrangement, or a graphical arrangement.}
-
-\subsection{Enumerative results for any diagonal} 
-\label{s:facets}
+\subsection{Back to the permutahedron diagonal} 
+\label{subsec:enumerationDiagonal}
 
 We now specialize the results of the previous section to the case~$\ell = 2$ to derive enumerative results on the diagonal of the permutahedron.
+\vincent{We can now delete a lot of things in this section.}
 
 Note that
 \begin{align*}
