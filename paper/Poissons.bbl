@@ -26,11 +26,6 @@ Wai-Kai Chen, \emph{Computer generation of trees and co-trees in a cascade of
   multiterminal networks}, IEEE Transactions on Circuit Theory \textbf{16}
   (1969), no.~4, 518--526.
 
-\bibitem[CKSS04]{CKSS04}
-Manwon Cho, Dongsu Kim, Seunghyun Seo, and Heesung Shin, \emph{Colored
-  {Pr{\"u}fer} codes for {{\(k\)}}-edge colored trees}, Electron. J. Comb.
-  \textbf{11} (2004), no.~1, research paper n10, 7 (English).
-
 \bibitem[FS97]{fultonIntersectionTheoryToric1997a}
 William Fulton and Bernd Sturmfels, \emph{Intersection theory on toric
   varieties}, Topology \textbf{36} (1997), no.~2, 335--353.
@@ -48,6 +43,11 @@ Guillaume Laplante-Anfossi and Thibaut Mazuir, \emph{The diagonal of the
 \bibitem[{Lap}22]{LA21}
 Guillaume {Laplante-Anfossi}, \emph{The diagonal of the operahedra}, Advances
   in Mathematics \textbf{405} (2022), 108494.
+
+\bibitem[Lew99]{Lewis}
+Richard~P. Lewis, \emph{The number of spanning trees of a complete multipartite
+  graph}, vol. 197/198, 1999, 16th British Combinatorial Conference (London,
+  1997), pp.~537--541.
 
 \bibitem[LM00]{losevNewModuliSpaces2000}
 A.~Losev and Y.~Manin, \emph{New moduli spaces of pointed curves and pencils of

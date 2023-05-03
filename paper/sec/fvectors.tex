@@ -444,14 +444,13 @@ We can transform a $\ell$-rainbow tree~$R$ to a $\ell$-ary tree~$T$: the parent 
 This classical map is a bijection from $\ell$-rainbow trees to a $\ell$-ary trees, which are counted by the Fuss-Catalan numbers.
 \end{proof}
 
-%\begin{remark}
-%The corresponding generating function~$F_\ell(z) \eqdef \sum_{m \ge 1} F_{\ell,m} \, z^m$ is given by
-%\[
-%F_\ell(z) = \frac{t}{\big( 1-G_\ell(z) \big)^\ell}
-%\qquad\text{where}\qquad
-%G_\ell(z) = \frac{z}{\big( 1-G_\ell(z) \big)^{\ell-1}}.
-%\]
-%\end{remark}
+\begin{remark}
+\label{rem:functionalEquationFussCatalan}
+Recall that the corresponding generating function~$F_\ell(z) \eqdef \sum_{m \ge 0} F_{\ell,m} \, z^m$ satisfies the functional equiation
+\[
+F_\ell(z) = 1 + z \, F_\ell(z)^\ell.
+\]
+\end{remark}
 
 %\begin{definition}
 %An \defn{$(\ell,n)$-rainbow forest} (resp.~\defn{tree}) is a rooted forest (resp.~tree) whose
@@ -461,6 +460,10 @@ This classical map is a bijection from $\ell$-rainbow trees to a $\ell$-ary tree
 %\end{enumerate}
 %See \cref{fig:forests}.
 %\end{definition}
+
+\begin{example}
+\vincent{TODO: examples + numbers.}
+\end{example}
 
 \begin{definition}
 A $(\ell,n)$-rainbow forest is \defn{well-labeled} if its nodes are bijectively labeled by~$[n]$ so that
@@ -508,27 +511,36 @@ Their are two possibilities:
 \end{itemize}
 Note that the last letter in the Prüfer code (obtained by removing the last edge) is necessarily the root $1$, with $\ell$ possible different colors.
 Hence, there are $\big( \ell+(n-1)(\ell-1) \big)^{n-2} \ell$ such words.
+Similar ideas where used in~\cite{Lewis}.
+\vincent{Improve citation}
 \end{proof}
+
+\begin{example}
+\vincent{TODO: examples + numbers.}
+\end{example}
 
 \begin{theorem}
 \label{thm:verticesRefinedMultiBraidArrangement}
 For any~$k_1, \dots, k_\ell$ such that~$0 \le k_i \le n-1$ for all~$i \in [\ell]$ and~$\sum_{i=1}^\ell k_i = n-1$, the number of vertices~$v$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ such that the smallest flat of the $i$th copy of~$\braidArrangement$ containing~$v$ has dimension~$n-k_i-1$ is given by
 \[
-n^{\ell-1}  \binom{n-1}{k_1, ..., k_\ell} \prod_{i=1}^\ell (n-k_i)^{k_i-1}.
+n^{\ell-1} \binom{n-1}{k_1, \dots, k_\ell} \prod_{i=1}^\ell (n-k_i)^{k_i-1}.
 \]
 \end{theorem}
 
 \begin{proof}
-\vincent{TODO}
+By \cref{prop:flatPosetMultiBraidArrangement,prop:bijectionForests}, we just need to count the well-labeled $(\ell,n)$-rainbow trees with~$k_i$ nodes colored by~$i$.
+Forgetting the labels, the $(\ell,n)$-rainbow trees with~$k_i$ nodes colored by~$i$ are precisely the spanning trees of the complete multipartite graph~$K_{k_1, \dots, k_\ell, 1}$ (where the last~$1$ stands for the uncolored root).
+Using a Pr\"ufer code similar to that of the proof of \cref{thm:verticesMultiBraidArrangement}, R.~Lewis proved in~\cite{Lewis} that the latter are counted by~${n^{\ell-1} \prod_{i=1}^\ell (n-k_i)^{k_i-1}}$.
+Finally, the possible labelings are counted by the multinomial coefficient~$\binom{n-1}{k_1, \dots, k_\ell}$.
 \end{proof}
 
 \begin{theorem}
-\label{thm:facetsMultiBraidArrangement}
+\label{thm:regionsMultiBraidArrangement}
 The coefficient of~$x^{n-1}$ in the M\"obius polynomial~$\mobPol[{\multiBraidArrangement}]$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is given by
 \[
 [x^{n-1}] \, \mobPol[{\multiBraidArrangement}] = \frac{(-1)^n n!}{y} \, [z^n] \, \exp \bigg( - \sum_{m \ge 1} \frac{F_{\ell,m} \, y \, z^m}{m} \bigg).
 \]
-where~$\displaystyle F_{\ell,m} \eqdef \frac{1}{(\ell-1)m+1} \binom{\ell m}{m}$ denotes the \defn{$(\ell,m)$-Fuss-Catalan number}.
+where~$\displaystyle F_{\ell,m} \eqdef \frac{1}{(\ell-1)m+1} \binom{\ell m}{m}$ is the Fuss-Catalan number.
 \end{theorem}
 
 \begin{proof}
@@ -536,19 +548,93 @@ where~$\displaystyle F_{\ell,m} \eqdef \frac{1}{(\ell-1)m+1} \binom{\ell m}{m}$ 
 \end{proof}
 
 \begin{corollary}
+\label{coro:regionsMultiBraidArrangement}
 The numbers of regions and of bounded regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ are given by
 \begin{align*}
 f_{n-1}(\multiBraidArrangement) 
 & = n! \, [z^n] \exp \Bigg( \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m} \Bigg) \\
 \text{and}\qquad
 b_{n-1}(\multiBraidArrangement)
-& = - n! \, [z^n] \exp \Bigg( - \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m} \Bigg) 
+%& = - n! \, [z^n] \exp \Bigg( - \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m} \Bigg) 
+& = (n-1)! \, [z^{n-1}] \exp \bigg( (\ell-1) \sum_{m \ge 1} F_{\ell,m} \, z^m \bigg).
 \end{align*}
+where~$\displaystyle F_{\ell,m} \eqdef \frac{1}{(\ell-1)m+1} \binom{\ell m}{m}$ is the Fuss-Catalan number.
 \end{corollary}
 
 \begin{proof}
-\vincent{TODO}
+As $\fPol[{\multiBraidArrangement}] = \mobPol[{\multiBraidArrangement}][-x][-1]$ and $\bPol[{\multiBraidArrangement}] = \mobPol[{\multiBraidArrangement}][-x][1]$ by \cref{thm:Zaslavsky}, we obtain from \cref{thm:regionsMultiBraidArrangement} that
+\begin{align*}
+f_{n-1}(\multiBraidArrangement) & = [x^{n-1}] \, \fPol[{\multiBraidArrangement}] = (-1)^{n-1} \, [x^{n-1}] \, \mobPol[{\multiBraidArrangement}][-x][-1] = n! \, [z^n]  \, \exp \bigg( \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m} \bigg), \\
+% \text{and}\qquad
+b_{n-1}(\multiBraidArrangement) & = [x^{n-1}] \, \bPol[{\multiBraidArrangement}] = (-1)^{n-1} \, [x^{n-1}] \, \mobPol[{\multiBraidArrangement}][-x][1] = - n! \, [z^n]  \, \exp \bigg( - \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m} \bigg).
+\end{align*}
+To conclude, we thus just need to observe that
+\(
+U_\ell(z) = \frac{\partial}{\partial z} V_\ell(z)
+\)
+where
+\[
+U_\ell(z) \eqdef \exp \bigg( (\ell-1) \sum_{m \ge 1} F_{\ell,m} \, z^m \bigg)
+\qquad\text{and}\qquad
+V_\ell(z) \eqdef - \exp \bigg( - \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m} \bigg).
+\]
+For this, consider the generating functions
+\[
+F_\ell(z) \eqdef \sum_{m \ge 0} F_{\ell,m} \, z^m
+\qquad\text{and}\qquad
+G_\ell(z) \eqdef \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m}.
+\]
+Recall from \cref{rem:functionalEquationFussCatalan} that~$F_\ell(z)$ satisfies the functional equation
+\[
+F_\ell(z) = 1 + z \, F_\ell(z)^\ell.
+\]
+We thus obtain that
+\[
+F_\ell'(z) \big( 1 - \ell \, z \, F_\ell(z)^{\ell-1} \big) = F_\ell(z)^\ell
+\quad\text{and}\quad
+F_\ell(z) \big( 1 - \ell \, z \, F_\ell(z)^{\ell-1} \big) = 1 - (\ell-1) \, z \, F_\ell(z)^\ell.
+\]
+Combining these two equations, we get
+\begin{equation}
+\label{eq:diff}
+F_\ell(z)^{\ell+1} = F_\ell'(z) \big( 1 - (\ell-1) \, z \, F_\ell(z)^\ell \big).
+\end{equation}
+Observe now that
+\begin{equation}
+\label{eq:GF}
+z \, G_\ell'(z) = F_\ell(z) - 1 = z \, F_\ell(z)^\ell
+\qquad\text{and}\qquad
+G_\ell''(z) = \ell \, F_\ell(z)^{\ell-1} \, F_\ell'(z).
+\end{equation}
+Hence
+\[
+U_\ell(z) = \exp \big( (\ell-1) \, (F_\ell(z) - 1) \big) = \exp \big( (\ell-1) \, z \, G_\ell’(z) \big)
+\]
+and
+\[
+V_\ell'(z) = \frac{\partial}{\partial z}  - \exp \big( \! - G_\ell(z) \big) = G_\ell'(z) \exp \big( -G_\ell(z) \big)
+\]
+Consider now the function
+\[
+W_\ell(z) = V_\ell'(z) / U_\ell(z) = G_\ell'(z) \exp \big( \! - G_\ell(z) - (\ell-1) \, z \, G_\ell'(z) \big).
+\]
+Clearly, $W_\ell(0) = 1$.
+Moreover, using~\eqref{eq:GF}, we obtain that its derivative is
+\begin{align*}
+W_\ell'(z)
+& = \Big( G_\ell''(z) \big(1 - (\ell-1) \, z \, G_\ell'(z) \big) - \ell \, G_\ell'(z)^2 \Big) \exp \big( \! - G_\ell(z) - (\ell-1) \, z \, G_\ell'(z) \big) \\
+& = \ell \, F_\ell(z)^{\ell-1} \Big( F_\ell'(z) \big( 1 - (\ell-1) \, z \, F_\ell(z)^\ell \big) - F_\ell(z)^{\ell+1} \Big) \exp \big( \! - G_\ell(z) - (\ell-1) \, z \, G_\ell'(z) \big),
+\end{align*}
+which vanishes by~\eqref{eq:diff}.
+
+\vincent{Can we make a bijective proof of the equality $U_\ell(z) = \frac{\partial}{\partial z} V_\ell(z)$?}
 \end{proof}
+
+\begin{example}
+The number of regions and bounded regions of~$\multiBraidArrangement$ are reported in \cref{table:regionsMultiBraidArrangement}.
+
+\vincent{TODO: examples + numbers.}
+\end{example}
 
 \subsection{Back to the permutahedron diagonal} 
 \label{subsec:enumerationDiagonal}
@@ -627,7 +713,7 @@ which can be seen on matrices as
 \]
 
 \begin{theorem}
-\label{thm:vertices2nBraidArrangement}
+\label{thm:verticesDoubleBraidArrangement}
 There are bijections between
 \begin{itemize}
 \item the vertices of the $(2,n)$-braid arrangement~$\multiBraidArrangement[n][2]$,
@@ -664,7 +750,7 @@ f_0(\multiBraidArrangement[n][2]) = \frac{2n}{n(n+1)} (n+1)^{n-1} = 2 (n + 1)^{n
 \end{proof}
 
 \begin{theorem}
-\label{thm:verticesRefined2BraidArrangement}
+\label{thm:verticesRefinedDoubleBraidArrangement}
 For any~$0 \le k_1, k_2 \le n-1$ with~$k_1 + k_2 = n-1$, the number of vertices~$v$ of the $(2,n)$-braid arrangement~$\multiBraidArrangement[n][2]$ obtained as the intersection of a $(n-k_1-1)$-flat of the first copy of the braid arrangement with a $(n-k_2-1)$-flat of the second copy of the braid arrangement is
 \[
 n \binom{n-1}{k_1} (n-k_1)^{k_1-1} (n-k_2)^{k_2-1}.
@@ -677,7 +763,7 @@ n \binom{n-1}{k_1} (n-k_1)^{k_1-1} (n-k_2)^{k_2-1}.
 By \cref{coro:fbvectorsMultiBraidArrangement}, we want to count the number~$t_{k_1,k_2}$ of $(2,n)$-trees~$\b{F} \eqdef (F_1,F_2)$ where~$F_1$ has $n-k_1$ parts while $F_2$ has $n-k_2$ parts.
 Consider the intersection tree~$T$ of~$\b{F}$ with vertices labeled by the parts of~$F_1$ and of~$F_2$ and edges labeled by~$[n]$, root~$T$ at an arbitrary part of~$F_1$, forget the vertex labels of~$T$, and send each edge label of~$T$ to the next vertex away from the root.
 See \cref{fig:tree}.
-Note here that in contrast to the proof of \cref{thm:vertices2nBraidArrangement}, we have rooted~$T$ here at an arbitrary part of~$F_1$ to have more symmetry.
+Note here that in contrast to the proof of \cref{thm:verticesDoubleBraidArrangement}, we have rooted~$T$ here at an arbitrary part of~$F_1$ to have more symmetry.
 The result is a spanning tree of the complete bipartite graph~$K_{n-k_1, n-k_2}$ together with a choice of which of the labels are on each part of this graph.
 Since the number of spanning trees of~$K_{n-k_1, n-k_2}$ is known to be~$(n-k_1)^{n-k_2-1} (n-k_2)^{n-k_1-1} = (n-k_1)^{k_1} (n-k_2)^{k_2}$, we obtain that the number~$t_{k_1,k_2}$ is given by
 \[
@@ -689,7 +775,7 @@ t_{k_1,k_2} = \underbrace{\frac{1}{n-k_1}  \phantom{\!\!\!\!\bigg)}}_{\text{root
 \vincent{Do we want to mention here the refinement counting spanning trees of~$K_{n+1}$ containing~$(0,1)$ according to their number of nodes at even distance from the root?}
 
 \begin{theorem}
-\label{thm:facets2BraidArrangement}
+\label{thm:regionsDoubleBraidArrangement}
 The coefficient of~$x^{n-1}$ in the M\"obius polynomial~$\mobPol[{\multiBraidArrangement[n][2]}]$ of the $(2,n)$-braid arrangement~$\multiBraidArrangement[n][2]$ is given by
 \[
 [x^{n-1}] \, \mobPol[{\multiBraidArrangement[n][2]}] = \frac{(-1)^n n!}{y} \, [z^n] \, \exp \bigg( \sum_{m \ge 1} \frac{- C_m \, y \, z^m}{m} \bigg).
@@ -731,7 +817,7 @@ The corresponding integer sequences are
 \end{corollary}
 
 \begin{proof}
-As $\fPol[{\multiBraidArrangement[n][2]}] = \mobPol[{\multiBraidArrangement[n][2]}][-x][-1]$ and $\bPol[{\multiBraidArrangement[n][2]}] = \mobPol[{\multiBraidArrangement[n][2]}][-x][1]$ by \cref{thm:Zaslavsky}, we obtain from \cref{thm:facets2BraidArrangement} that
+As $\fPol[{\multiBraidArrangement[n][2]}] = \mobPol[{\multiBraidArrangement[n][2]}][-x][-1]$ and $\bPol[{\multiBraidArrangement[n][2]}] = \mobPol[{\multiBraidArrangement[n][2]}][-x][1]$ by \cref{thm:Zaslavsky}, we obtain from \cref{thm:regionsDoubleBraidArrangement} that
 \begin{align*}
 f_{n-1}(\multiBraidArrangement[n][2]) & = [x^{n-1}] \, \fPol[{\multiBraidArrangement[n][2]}] = (-1)^{n-1} \, [x^{n-1}] \, \mobPol[{\multiBraidArrangement[n][2]}][-x][-1] = n! \, [z^n]  \, \exp \bigg( \sum_{m \ge 1} \frac{C_m \, z^m}{m} \bigg), \\
 % \text{and}\qquad
@@ -758,7 +844,7 @@ We thus obtain that~$C'(z) \big( 1 - 2 \, z \, C(z) \big) = C(z)^2$ and $C(z) \b
 Combining these two equations, we get
 \begin{equation}
 \label{eq:diff}
-C(z)^3 = C'(z) \big( 1 - C(z) \big).
+C(z)^3 = C'(z) \big( 2 - C(z) \big).
 \end{equation}
 Observe now that $z \, D'(z) = C(z) - 1 = z \, C(z)^2$, so that~$D''(z) = 2 \, C(z) \, C'(z)$.
 Hence

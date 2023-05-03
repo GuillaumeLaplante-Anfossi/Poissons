@@ -1,49 +1,51 @@
-This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2021)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Poissons.aux
 The style file: amsalpha.bst
 Database file #1: Poissons.bib
+Warning--missing booktitle in Lewis
+Warning--missing publisher in Lewis
 Warning--missing journal name in OEIS
 Warning--missing journal, volume, and year in OEIS
 You've used 19 entries,
             2624 wiz_defined-function locations,
-            696 strings with 7564 characters,
-and the built_in function-call counts, 7630 in all, are:
-= -- 718
-> -- 285
-< -- 11
-+ -- 95
-- -- 91
-* -- 680
-:= -- 1191
+            698 strings with 7561 characters,
+and the built_in function-call counts, 7508 in all, are:
+= -- 709
+> -- 262
+< -- 13
++ -- 86
+- -- 81
+* -- 651
+:= -- 1158
 add.period$ -- 19
 call.type$ -- 19
-change.case$ -- 110
+change.case$ -- 107
 chr.to.int$ -- 19
-cite$ -- 21
-duplicate$ -- 287
-empty$ -- 639
-format.name$ -- 119
-if$ -- 1543
+cite$ -- 23
+duplicate$ -- 301
+empty$ -- 637
+format.name$ -- 110
+if$ -- 1531
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 38
 newline$ -- 67
 num.names$ -- 56
-pop$ -- 130
+pop$ -- 131
 preamble$ -- 1
-purify$ -- 129
+purify$ -- 126
 quote$ -- 0
-skip$ -- 200
+skip$ -- 213
 stack$ -- 0
-substring$ -- 663
-swap$ -- 29
-text.length$ -- 11
-text.prefix$ -- 9
+substring$ -- 633
+swap$ -- 40
+text.length$ -- 13
+text.prefix$ -- 10
 top$ -- 0
 type$ -- 144
-warning$ -- 2
-while$ -- 73
+warning$ -- 4
+while$ -- 74
 width$ -- 22
-write$ -- 208
-(There were 2 warnings)
+write$ -- 209
+(There were 4 warnings)
