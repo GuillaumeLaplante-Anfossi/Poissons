@@ -1,6 +1,6 @@
 % !TEX root = ../Poissons.tex
 
-\section{Combinatorics of iterated diagonals}
+\section{Combinatorics of multiple braid arrangements}
 \label{sec:combinatorics}
 
 \subsection{Recollection on hyperplane arrangements}
@@ -130,6 +130,7 @@ The M\"obius polynomial of the braid arrangement~$\braidArrangement$ is given by
 \mobPol[\braidArrangement] = \sum_{k \in [n]} x^{k-1} S(n,k) \prod_{i \in [k-1]} (y-i)
 \]
 where~$S(n,k)$ denotes the Stirling number of second kind \OEIS{?}, \ie the number of partitions of~$n$ into~$k$ parts.
+\vincent{TODO: include OEIS sequence}
 For instance
 \begin{align*}
 \mobPol[{\braidArrangement[1]}] & = 1 \\
@@ -265,6 +266,8 @@ For any integers~$\ell,n \geq 1$, the \defn{$(\ell,n)$-braid arrangement}~$\mult
 	\caption{The $(2,3)$-braid arrangement $\multiBraidArrangement[3][2]$ (left), its flat poset~$\flatPoset[{\multiBraidArrangement[3][2]}]$ (top right), and its interpretation in terms of $(2,3)$-rainbow forests (bottom right).}
 	\label{fig:MultiBraidArrangement32}
 \end{figure}
+
+\vincent{TODO: separate pictures. Add picture partition forests.}
 
 \begin{definition}
 The \defn{intersection hypergraph}~$I(F_1, \dots, F_\ell)$ of a $\ell$-tuple of partitions of~$[n]$ is the $\ell$-regular $\ell$-partite hypergraph on all parts of all the partitions~$F_i$, with an hyperedge for all~$i \in [n]$ connecting the parts containing~$i$.
@@ -412,11 +415,10 @@ Note that~$3 \ell^2 + 2 \ell + 1$ is~\OEIS{A056109}, that~$\ell (3 \ell - 2)$ is
 \vincent{TODO: Discuss generalizations to $\ell$ copies of an arbitrary arrangement, or a graphical arrangement.}
 \end{remark}
 
-\subsection{Enumeration of vertices and regions of $\multiBraidArrangement$}
-\label{subsec:verticesFacetsMultiBraidArrangement}
+\subsection{Rainbow forests}
+\label{subsec:rainbowForests}
 
-We will now provide more explicit formulas for the number of vertices and regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
-To this end, we first introduce another combinatorial model for $(\ell,n)$-partition forests and $(\ell,n)$-partition trees which is more adapted to their enumeration.
+In order to obtain more explicit formulas for the number of vertices and regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ in \cref{subsec:verticesFacetsMultiBraidArrangement}, we now introduce another combinatorial model for $(\ell,n)$-partition forests which is more adapted to their enumeration.
 
 \begin{definition}
 A \defn{$\ell$-rainbow coloring} of a rooted plane forest~$F$ is an assignment of colors of~$[\ell]$ to the non-root nodes of~$F$ such that
@@ -462,7 +464,26 @@ F_\ell(z) = 1 + z \, F_\ell(z)^\ell.
 %\end{definition}
 
 \begin{example}
-\vincent{TODO: examples + numbers.}
+\vincent{TODO: examples rainbow trees.}
+\begin{table}
+	\centerline{
+		\begin{tabular}[t]{c|ccccccccc}
+			$m \backslash \ell$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ \\
+			\hline
+			$1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ \\
+			$2$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ \\
+			$3$ & $1$ & $5$ & $12$ & $22$ & $35$ & $51$ & $70$ & $92$ & $117$ \\
+			$4$ & $1$ & $14$ & $55$ & $140$ & $285$ & $506$ & $819$ & $1240$ & $1785$ \\
+			$5$ & $1$ & $42$ & $273$ & $969$ & $2530$ & $5481$ & $10472$ & $18278$ & $29799$ \\
+			$6$ & $1$ & $132$ & $1428$ & $7084$ & $23751$ & $62832$ & $141778$ & $285384$ & $527085$ \\
+			$7$ & $1$ & $429$ & $7752$ & $53820$ & $231880$ & $749398$ & $1997688$ & $4638348$ & $9706503$ \\
+			$8$ & $1$ & $1430$ & $43263$ & $420732$ & $2330445$ & $9203634$ & $28989675$ & $77652024$ & $184138713$ \\
+			$9$ & $1$ & $4862$ & $246675$ & $3362260$ & $23950355$ & $115607310$ & $430321633$ & $1329890705$ & $3573805950$
+		\end{tabular}
+	}
+	\vspace{.3cm}
+	\caption{The Fuss-Catalan numbers~$F_{\ell,m} = \frac{1}{(\ell-1)m+1} \binom{\ell m}{m}$ for~$\ell,m \in [9]$. See \OEIS{A062993}.}
+\end{table}
 \end{example}
 
 \begin{definition}
@@ -490,6 +511,11 @@ This defines a well-labeled $(\ell,n)$-rainbow forest~$F$.
 
 Finally, $|\mu_{\forestPoset}(\hat 0, \b{F})| = \prod\limits_{i \in [\ell]} \prod\limits_{p \in F_i} (\#p-1)$ is clearly sent to~$\omega(F) = \prod\limits_{i \in [\ell]} \prod\limits_{N \in F} \#C_i(N)!$.
 \end{proof}
+
+\subsection{Enumeration of vertices and regions of $\multiBraidArrangement$}
+\label{subsec:verticesFacetsMultiBraidArrangement}
+
+We now use our labeled $(\ell,n)$-rainbow forests of \cref{subsec:rainbowForests} to derive more explicit formulas for the number of vertices and regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
 
 \begin{theorem}
 \label{thm:verticesMultiBraidArrangement}
