@@ -104,27 +104,71 @@ so that
 \end{figure}
 \end{example}
 
-\subsection{The $(\ell,n)$-braid arrrangement}
-\label{subsec:lnBraidArrangement}
+\subsection{The braid arrrangement}
+\label{subsec:braidArrangement}
 
-We now focus on the following specific hyperplane arrangements, illustrated in \cref{fig:lBraidArrangements}, and whose face numbers are given in \cref{table:fvectorlBraidArrangements}.
+\vincent{TODO: short intro + refs}
+
+\begin{definition}
+Fix~$n \ge 1$ and denote by~$\HH$ the hyperplane of~$\R^n$ defined by~$\sum_{i = 1}^n x_i = 0$.
+The \defn{braid arrangement}~$\braidArrangement$ is the arrangement of the hyperplanes~$\set{\b{x} \in \HH}{x_i = x_j}$ for all~$1 \le i < j \le n$.
+\vincent{We have to take a decision here: do we work in~$\R^n$ or in $\HH$. At the moment, I work in~$\HH$. Working in~$\R^n$ changes vertices to rays, and multiplies all M\"obius polynomials by a factor~$xy$.}
+\end{definition}
+
+\cref{fig:braidArrangement3} illustrates the braid arrangement~$\braidArrangement[3]$ and its associated intersection poset. 
+The combinatorics of the braid arrangement~$\braidArrangement$ is well-known.
+It has a $k$-dimensional flat~$\set{\b{x} \in \R^n}{x_i = x_j \text{ for all } i, j \in p \in \pi}$ for each set partition~$\pi$ of~$[n]$ into $k+1$ parts.
+The flat poset~$\flatPoset[\braidArrangement]$ is thus the refinement poset~$\partitionPoset$ on partitions of~$[n]$ (where a partition~$\pi$ is smaller than a partition~$\omega$ if each part of~$\pi$ is contained in a part of~$\omega$).
+Its M\"obius function is given by
+\[
+\mu_{\partitionPoset}(\pi, \omega) = \prod_{p \in \omega} (-1)^{\#\pi[p]-1}(\#\pi[p]-1)!
+\]
+where~$\pi[p]$ denotes the restriction of the partition~$\pi$ to the part~$p$ of the partition~$\omega$.
+See for instance \cite{Birkhoff, Rota}.
+The M\"obius polynomial of the braid arrangement~$\braidArrangement$ is given by
+\[
+\mobPol[\braidArrangement] = \sum_{k \in [n]} x^{k-1} S(n,k) \prod_{i \in [k-1]} (y-i)
+\]
+where~$S(n,k)$ denotes the Stirling number of second kind \OEIS{?}, \ie the number of partitions of~$n$ into~$k$ parts.
+For instance
+\begin{align*}
+\mobPol[{\braidArrangement[1]}] & = 1 \\
+\mobPol[{\braidArrangement[2]}] & = x y - x + 1 = x (y - 1) + 1 \\
+\mobPol[{\braidArrangement[3]}] & = x^2 y^2 - 3 x^2 y + 2 x^2 + 3 x y - 3 x + 1 = x^2 (y - 1) (y - 2) + 3 x (y - 1) + 1\\
+\mobPol[{\braidArrangement[4]}] & = x^3 y^3 - 6 x^3 y^2 + 11 x^3 y - 6 x^3 + 6 x^2 y^2 - 18 x^2 y + 12 x^2 + 7 x y - 7 x + 1 \\
+& = x^3 (y - 1) (y - 2) (y - 3) + 6 x^2 (y - 1) (y - 2) + 7 x (y - 1) + 1.
+\end{align*}
+
+\begin{figure}
+	\centerline{\includegraphics[scale=.9]{figures/intersectionPosetBraidArrangement3Full}}
+	\caption{The braid arrangement $\braidArrangement[3]$ (left), its flat poset~$\flatPoset[{\braidArrangement[3]}]$ (middle), and its interpretation in terms of forests (right).}
+	\label{fig:braidArrangement3}
+\end{figure}
+
+\vincent{Add picture B4.}
+\vincent{Add partitions in pictures. Remove rainbow forests in these pictures as there is only one color.}
+
+\subsection{The $(\ell,n)$-braid arrrangement}
+\label{subsec:multiBraidArrangement}
+
+We now focus on the following specific hyperplane arrangements, illustrated in \cref{fig:multiBraidArrangements}, and whose face numbers are given in \cref{table:fvectorMultiBraidArrangements}.
 
 \begin{figure}
 	\centerline{
 	\begin{tabular}{c@{\hspace{.7cm}}c@{\hspace{.7cm}}c@{\hspace{.7cm}}c}
-		\includegraphics[scale=.4]{lBraidArrangement1}
+		\includegraphics[scale=.4]{multiBraidArrangement1}
 		&
-		\includegraphics[scale=.4]{lBraidArrangement2}
+		\includegraphics[scale=.4]{multiBraidArrangement2}
 		&
-		\includegraphics[scale=.4]{lBraidArrangement3}
+		\includegraphics[scale=.4]{multiBraidArrangement3}
 		&
-		\includegraphics[scale=.4]{lBraidArrangement4}
+		\includegraphics[scale=.4]{multiBraidArrangement4}
 		\\
 		$\ell = 1$ & $\ell = 2$ & $\ell = 3$ & $\ell = 4$
 	\end{tabular}
 	}
 	\caption{The $(\ell,3)$-braid arrangements for~$\ell \in [4]$.}
-	\label{fig:lBraidArrangements}
+	\label{fig:multiBraidArrangements}
 \end{figure}
 
 \begin{table}
@@ -209,68 +253,30 @@ We now focus on the following specific hyperplane arrangements, illustrated in \
 	}
 	\vspace{.3cm}
 	\caption{The face numbers (top) and the bounded face numbers (bottom) of the $(\ell,n)$-braid arrangements for~$\ell, n \in [4]$.}
-	\label{table:fvectorlBraidArrangements}
+	\label{table:fvectorMultiBraidArrangements}
 \end{table}
 
 \begin{definition}
-Denote by~$\HH$ the hyperplane of~$\R^n$ defined by~$\sum_{i = 1}^n x_i = 0$.
-For any integer~$n \geq 1$, the \defn{braid arrangement}~$\braidArrangement$ is the arrangement of the hyperplanes~$\set{\b{x} \in \HH}{x_i = x_j}$ for all~$1 \le i < j \le n$.
-For any integers~$\ell,n \geq 1$, the \defn{$(\ell,n)$-braid arrangement}~$\lBraidArrangement$ is the arrangement obtained as the union of $\ell$ generically translated copies of the braid arrangement.
-\vincent{We have to take a decision here: do we work in~$\R^n$ or in $\HH$. At the moment, I work in~$\HH$. Working in~$\R^n$ changes vertices to rays, and multiplies all M\"obius polynomials by a factor~$xy$.}
+For any integers~$\ell,n \geq 1$, the \defn{$(\ell,n)$-braid arrangement}~$\multiBraidArrangement$ is the arrangement obtained as the union of $\ell$ generically translated copies of the braid arrangement~$\braidArrangement$.
 \end{definition}
 
-\begin{remark}
-The combinatorics of the braid arrangement~$\braidArrangement$ is well-known.
-It has a $k$-dimensional flat~$\set{\b{x} \in \R^n}{x_i = x_j \text{ for all } i, j \in p \in \pi}$ for each set partition~$\pi$ of~$[n]$ into $k+1$ parts.
-The flat poset~$\flatPoset[\braidArrangement]$ is thus the refinement poset~$\partitionPoset$ on partitions of~$[n]$ (where a partition~$\pi$ is smaller than a partition~$\omega$ if each part of~$\pi$ is contained in a part of~$\omega$
-Its M\"obius function is given by
-\[
-\mu_{\partitionPoset}(\pi, \omega) = \prod_{p \in \omega} (-1)^{\#\pi[p]-1}(\#\pi[p]-1)!
-\]
-where~$\pi[p]$ denotes the restriction of the partition~$\pi$ to the part~$p$ of the partition~$\omega$.
-See for instance \cite{Birkhoff, Rota}.
-\cref{fig:braidArrangement31} illustrates the braid arrangement~$\braidArrangement[3]$ and its associated intersection poset. 
-The M\"obius polynomial of the braid arrangement~$\braidArrangement$ is given by
-\[
-\mobPol[\braidArrangement] = \sum_{k \in [n]} x^{k-1} S(n,k) \prod_{i \in [k-1]} (y-i)
-\]
-where~$S(n,k)$ denotes the Stirling number of second kind, \ie the number of partitions of~$n$ into~$k$ parts.
-For instance
-\begin{align*}
-\mobPol[{\braidArrangement[1]}] & = 1 \\
-\mobPol[{\braidArrangement[2]}] & = x y - x + 1 = x (y - 1) + 1 \\
-\mobPol[{\braidArrangement[3]}] & = x^2 y^2 - 3 x^2 y + 2 x^2 + 3 x y - 3 x + 1 = x^2 (y - 1) (y - 2) + 3 x (y - 1) + 1\\
-\mobPol[{\braidArrangement[4]}] & = x^3 y^3 - 6 x^3 y^2 + 11 x^3 y - 6 x^3 + 6 x^2 y^2 - 18 x^2 y + 12 x^2 + 7 x y - 7 x + 1 \\
-& = x^3 (y - 1) (y - 2) (y - 3) + 6 x^2 (y - 1) (y - 2) + 7 x (y - 1) + 1.
-\end{align*}
-\end{remark}
-
 \begin{figure}
-	\centerline{\includegraphics[scale=.9]{figures/intersectionPosetBraidArrangement31Full}}
-	\caption{The braid arrangement $\braidArrangement[3]$ (left), its flat poset~$\flatPoset[{\braidArrangement[3]}]$ (middle), and its interpretation in terms of forests (right).}
-	\label{fig:braidArrangement31}
-\end{figure}
-
-\vincent{Add picture B4.}
-\vincent{Add partitions.}
-
-\begin{figure}
-	\centerline{\includegraphics[scale=.9]{figures/intersectionPosetBraidArrangement32Full}}
-	\caption{The $(2,3)$-braid arrangement $\lBraidArrangement[3][2]$ (left), its flat poset~$\flatPoset[{\lBraidArrangement[3][2]}]$ (top right), and its interpretation in terms of $(2,3)$-colored forests (bottom right).}
-	\label{fig:braidArrangement32}
+	\centerline{\includegraphics[scale=.9]{figures/intersectionPosetMultiBraidArrangement32Full}}
+	\caption{The $(2,3)$-braid arrangement $\multiBraidArrangement[3][2]$ (left), its flat poset~$\flatPoset[{\multiBraidArrangement[3][2]}]$ (top right), and its interpretation in terms of $(2,3)$-rainbow forests (bottom right).}
+	\label{fig:MultiBraidArrangement32}
 \end{figure}
 
 \begin{definition}
 The \defn{intersection hypergraph}~$I(F_1, \dots, F_\ell)$ of a $\ell$-tuple of partitions of~$[n]$ is the $\ell$-regular $\ell$-partite hypergraph on all parts of all the partitions~$F_i$, with an hyperedge for all~$i \in [n]$ connecting the parts containing~$i$.
-A \defn{$(\ell,n)$-forest} (resp.~\defn{$(\ell,n)$-tree}) is a $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of partitions of~$[n]$ whose intersection hypergraph is a hyperforest (resp.~hypertree).
+A \defn{$(\ell,n)$-partition forest} (resp.~\defn{$(\ell,n)$-partition tree}) is a $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of partitions of~$[n]$ whose intersection hypergraph is a hyperforest (resp.~hypertree).
 See \cref{fig:forests}.
-The \defn{$(\ell,n)$-forest poset} is the poset~$\forestPoset$ on $(\ell,n)$-forests ordered by componentwise refinement.
-In other words, $\forestPoset$ is the subposet of the $\ell$th Cartesian power of the partition poset~$\partitionPoset$ induced by $(\ell,n)$-forests.
+The \defn{$(\ell,n)$-partition forest poset} is the poset~$\forestPoset$ on $(\ell,n)$-partition forests ordered by componentwise refinement.
+In other words, $\forestPoset$ is the subposet of the $\ell$th Cartesian power of the partition poset~$\partitionPoset$ induced by $(\ell,n)$-partition forests.
 Note that the maximal elements of~$\forestPoset$ are the $(\ell, n)$-trees.
 %
 \begin{figure}
 	\centerline{\includegraphics[scale=.9]{forests}}
-	\caption{A $(3,6)$-forest with its intersection hypergraph and the corresponding $(3,6)$-colored forest (top) and a $(3,6)$-tree with its intersection hypertree and the corresponding $(3,6)$-colored tree (bottom).}
+	\caption{A $(3,6)$-forest with its intersection hypergraph and the corresponding $(3,6)$-rainbow forest (top) and a $(3,6)$-tree with its intersection hypertree and the corresponding $(3,6)$-rainbow tree (bottom).}
 	\label{fig:forests}
 \end{figure}
 \end{definition}
@@ -283,18 +289,19 @@ Note that the maximal elements of~$\forestPoset$ are the $(\ell, n)$-trees.
 %\item edges are colored by $\{1, \ldots, \ell\}$ 
 %\item if a vertex $v$ is not a root, the unique path from $v$ to the root starts with an edge $e$ of color $c$: $e$ is then the only edge adjacent to $v$ of this color. 
 %\end{itemize}
-%We represent this interpretation of $(\ell,n)$-forests on Figure \ref{fig:forests} and the according intersection poset of $\lBraidArrangement[3][2]$ on Figure \ref{fig:braidArrangementTrees32}. 
+%We represent this interpretation of $(\ell,n)$-forests on Figure \ref{fig:forests} and the according intersection poset of $\multiBraidArrangement[3][2]$ on Figure \ref{fig:braidArrangementTrees32}. 
 %\vincent{Retravailler}
 %\end{remark}
 
 %\begin{figure}
 %	\centerline{\includegraphics[scale=.9]{figures/intersectionPosetBraidArrangementTrees32}}
-%	\caption{The flat poset of $\lBraidArrangement[3][2]$ in terms of forests. See also \cref{fig:braidArrangement32}.}
+%	\caption{The flat poset of $\multiBraidArrangement[3][2]$ in terms of forests. See also \cref{fig:MultiBraidArrangement32}.}
 %	\label{fig:braidArrangementTrees32}
 %\end{figure}
 
 \begin{proposition}
-The flat poset of the $(\ell,n)$-braid arrangement~$\lBraidArrangement$ is isomorphic to the $(\ell,n)$-forest poset.
+\label{prop:multiBraidArrangement}
+The flat poset of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is isomorphic to the $(\ell,n)$-partition forest poset.
 \end{proposition}
 
 \begin{proof}
@@ -302,12 +309,12 @@ The flat poset of the $(\ell,n)$-braid arrangement~$\lBraidArrangement$ is isomo
 \end{proof}
 
 \begin{theorem}
-\label{thm:MobiusPolynomial}
-The M\"obius polynomial of the $(\ell,n)$-braid arrangement~$\lBraidArrangement$ is given by
+\label{thm:MobiusPolynomialMultiBraidArrangement}
+The M\"obius polynomial of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is given by
 \[
-\mobPol[\lBraidArrangement] = x^{n-1-\ell n} y^{n-1-\ell n} \sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i} y^{\#G_i} \prod_{p \in G_i} (-1)^{\#F_i[p]-1} (\# F_i[p]-1)! \; ,
+\mobPol[\multiBraidArrangement] = x^{n-1-\ell n} y^{n-1-\ell n} \sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i} y^{\#G_i} \prod_{p \in G_i} (-1)^{\#F_i[p]-1} (\# F_i[p]-1)! \; ,
 \]
-where~$\b{F} \le \b{G}$ ranges over all intervals of the $(\ell,n)$-forest poset~$\forestPoset$, and~$F_i[p]$ denotes the restriction of the partition~$F_i$ to the part~$p$ of~$G_i$.
+where~$\b{F} \le \b{G}$ ranges over all intervals of the $(\ell,n)$-partition forest poset~$\forestPoset$, and~$F_i[p]$ denotes the restriction of the partition~$F_i$ to the part~$p$ of~$G_i$.
 \end{theorem}
 
 \begin{proof}
@@ -325,7 +332,7 @@ we obtain that
 \]
 Hence
 \begin{align*}
-\mobPol[\lBraidArrangement] 
+\mobPol[\multiBraidArrangement] 
 & = \sum_{\b{F} \le \b{G}} \mu_{\forestPoset}(\b{F}, \b{G}) \, x^{\dim(\b{F})} \, y^{\dim(\b{G})} \\
 & = x^{n-1-\ell n} y^{n-1-\ell n} \sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i} y^{\#G_i} \prod_{p \in G_i} (-1)^{\#F_i[p]-1} (\# F_i[p]-1)!.
 \qedhere
@@ -335,33 +342,34 @@ Hence
 We thus obtain the following statament from \cref{thm:MobiusPolynomial,thm:Zaslavsky}.
 
 \begin{corollary}
-\label{coro:fbvectorslBraidArrangement}
-The $f$- and $b$-polynomials of the $(\ell,n)$-braid arrangement~$\lBraidArrangement$ are given by
+\label{coro:fbvectorsMultiBraidArrangement}
+The $f$- and $b$-polynomials of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ are given by
 \begin{align*}
-\fPol[\lBraidArrangement] & = x^{n-1-\ell n}\sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i} \prod_{p \in G_i} (\# F_i[p]-1)!\\
+\fPol[\multiBraidArrangement] & = x^{n-1-\ell n}\sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i} \prod_{p \in G_i} (\# F_i[p]-1)!\\
 \text{and}\qquad
-\bPol[\lBraidArrangement] & = (-1)^\ell x^{n-1-\ell n} \sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i} \prod_{p \in G_i} -(\# F_i[p]-1)!
+\bPol[\multiBraidArrangement] & = (-1)^\ell x^{n-1-\ell n} \sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i} \prod_{p \in G_i} -(\# F_i[p]-1)!
 \end{align*}
+where~$\b{F} \le \b{G}$ ranges over all intervals of the $(\ell,n)$-partition forest poset~$\forestPoset$, and~$F_i[p]$ denotes the restriction of the partition~$F_i$ to the part~$p$ of~$G_i$.
 \end{corollary}
 
-The face numbers and bounded face numbers of~$\lBraidArrangement$ for~$\ell, n \in [4]$ are gathered in \cref{table:fvectorlBraidArrangements}.
+The face numbers and bounded face numbers of~$\multiBraidArrangement$ for~$\ell, n \in [4]$ are gathered in \cref{table:fvectorMultiBraidArrangements}.
 
 \begin{example}
 For~$n = 1$, we have
 \[
-\mobPol[{\lBraidArrangement[1][\ell]}] = \fPol[{\lBraidArrangement[1][\ell]}] = \bPol[{\lBraidArrangement[1][\ell]}] = 1.
+\mobPol[{\multiBraidArrangement[1][\ell]}] = \fPol[{\multiBraidArrangement[1][\ell]}] = \bPol[{\multiBraidArrangement[1][\ell]}] = 1.
 \]
 For~$n = 2$, we have
 \[
-\mobPol[{\lBraidArrangement[2][\ell]}] = xy-\ell x+\ell,
+\mobPol[{\multiBraidArrangement[2][\ell]}] = xy-\ell x+\ell,
 \quad
-\fPol[{\lBraidArrangement[2][\ell]}] = (\ell+1)x+\ell
+\fPol[{\multiBraidArrangement[2][\ell]}] = (\ell+1)x+\ell
 \quad\text{and}\quad
-\bPol[{\lBraidArrangement[2][\ell]}] = (\ell-1)x+\ell.
+\bPol[{\multiBraidArrangement[2][\ell]}] = (\ell-1)x+\ell.
 \]
 The case~$n = 3$ is already more interesting.
 Consider the partitions~$P \eqdef \big\{ \{1\}, \{2\}, \{3\} \big\}$, $Q_i \eqdef \big\{ \{i\}, [3] \ssm \{i\} \big\}$, and~$R \eqdef \big\{ [3] \big\}$.
-Observe that the $(\ell,3)$-forests are all of the form
+Observe that the $(\ell,3)$-partition forests are all of the form
 \begin{gather*}
 \b{F} \eqdef P^\ell,
 \quad
@@ -381,7 +389,7 @@ Observe that the $(\ell,3)$-forests are all of the form
 %\text{or}\quad
 %\b{K}^p \eqdef (\underbrace{P, \dots, P}_p, R, \underbrace{P, \dots, P}_{\ell-p-1}) \text{ for } p \le \ell-1.
 %\end{gather*}
-Moreover, the cover relations in the $(\ell,3)$-forest poset are precisely the relations
+Moreover, the cover relations in the $(\ell,3)$-partition forest poset are precisely the relations
 %\[
 %\b{F} \le \b{G}_i^p \begin{array}{c@{\hspace{-.3cm}}c@{\hspace{-.3cm}}c} & \b{H}_{i,j}^{p,q} & \\ \rotatebox[origin=c]{45}{$\le$} & & \rotatebox[origin=c]{-45}{$\le$} \\[.3cm] \rotatebox[origin=c]{-45}{$\le$} & & \rotatebox[origin=c]{45}{$\le$} \\ & \b{H}_{j,i}^{\ell-q-1, \ell-p-1} & \end{array} \b{K}^p
 %\]
@@ -391,10 +399,10 @@ Moreover, the cover relations in the $(\ell,3)$-forest poset are precisely the r
 for~$i \ne j$ and~$p, q$ such that~$p + q \le \ell-2$.
 Hence, we have
 \begin{align*}
-\mobPol[{\lBraidArrangement[3][\ell]}] & = x^2 y^2 - 3 \ell x^2 y + \ell (3 \ell - 1) x^2 + 3 \ell x y - 3 \ell (2 \ell - 1) x + \ell (3 \ell - 2) , \\
-\fPol[{\lBraidArrangement[3][\ell]}] & = (3 \ell^2 + 2 \ell + 1) x^2 + 6 \ell^2 x + \ell (3 \ell - 2), \\
+\mobPol[{\multiBraidArrangement[3][\ell]}] & = x^2 y^2 - 3 \ell x^2 y + \ell (3 \ell - 1) x^2 + 3 \ell x y - 3 \ell (2 \ell - 1) x + \ell (3 \ell - 2) , \\
+\fPol[{\multiBraidArrangement[3][\ell]}] & = (3 \ell^2 + 2 \ell + 1) x^2 + 6 \ell^2 x + \ell (3 \ell - 2), \\
 \text{and}\qquad
-\bPol[{\lBraidArrangement[3][\ell]}] & = (3 \ell^2 - 4 \ell + 1) x^2 + 6 \ell (\ell - 1) x + \ell (3 \ell - 2).
+\bPol[{\multiBraidArrangement[3][\ell]}] & = (3 \ell^2 - 4 \ell + 1) x^2 + 6 \ell (\ell - 1) x + \ell (3 \ell - 2).
 \end{align*}
 Note that~$3 \ell^2 + 2 \ell + 1$ is~\OEIS{A056109}, that~$\ell (3 \ell - 2)$ is~\OEIS{A000567}, and that~$3 \ell^2 - 4 \ell + 1$ is~\OEIS{A045944}.
 \vincent{There is a weird connection between the first and the last. Namely, $3 \ell^2 - 4 \ell + 1 = 3 (\ell - 1)^2 + 2 (\ell - 1)$. Is there a bijective explanation on the arrangements?}
@@ -404,84 +412,94 @@ Note that~$3 \ell^2 + 2 \ell + 1$ is~\OEIS{A056109}, that~$\ell (3 \ell - 2)$ is
 \vincent{TODO: Discuss generalizations to $\ell$ copies of an arbitrary arrangement, or a graphical arrangement.}
 \end{remark}
 
-\subsection{Colored trees and forests}
-\label{subsec:coloredTreesForests}
+\subsection{Enumeration of vertices and regions of $\multiBraidArrangement$}
+\label{subsec:verticesFacetsMultiBraidArrangement}
 
-In order to obtain more explicit formulas for the number of vertices and regions of the $(\ell,n)$-braid arrangement~$\lBraidArrangement$ (see \cref{subsec:verticesFacetslnBraidArrangement}), we now introduce another combinatorial model for $(\ell,n)$-forests which is more adapted to their enumeration.
+We will now provide more explicit formulas for the number of vertices and regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
+To this end, we first introduce another combinatorial model for $(\ell,n)$-partition forests and $(\ell,n)$-partition trees which is more adapted to their enumeration.
 
 \begin{definition}
-A \defn{$\ell$-colored tree} (resp.~\defn{almost $\ell$-colored tree}) is a rooted plane tree whose nodes (resp.~non-root nodes) are properly colored by~$[\ell]$, \ie with no monochromatic edge.
+A \defn{$\ell$-rainbow coloring} of a rooted plane forest~$F$ is an assignment of colors of~$[\ell]$ to the non-root nodes of~$F$ such that
+\begin{itemize}
+\item there is no monochromatic edge,
+\item the colors of siblings are increasing from left to right.
+\end{itemize}
+A \defn{$(\ell,n)$-rainbow forest} (resp.~\defn{tree}) is a $\ell$-rainbow colored forest (resp.~tree) with $n$ nodes.
+The \defn{weight} of a rainbow forest~$F$ is the product
+\[
+\omega(F) \eqdef \prod_{i \in [\ell]} \prod_{N \in F} \#C_i(N)!
+\]
+where~$N$ ranges over all nodes of~$F$ and~$C_i(N)$ denotes the children of~$N$ colored by~$i$.
 \end{definition}
 
 \begin{lemma}
-The numbers~$s(\ell,m)$ of $\ell$-colored trees and $t(\ell,m)$ of almost $\ell$-colored trees with $m$ nodes are
+The $(\ell,m)$-rainbow trees are counted by the \defn{Fuss-Catalan number}
 \[
-r(\ell,m) = \frac{1}{m+1} \binom{\ell (m+1)-2}{m}
-\qquad\text{and}\qquad
-s(\ell,m) = \frac{1}{(\ell-1)m+1} \binom{\ell m}{m}.
-%\qquad\text{and}\qquad
-%t(\ell,m) = \frac{(m-1)!}{(\ell-1)m+1} \binom{\ell m}{m}.
+F_{\ell,m} = \frac{1}{(\ell-1)m+1} \binom{\ell m}{m} \qquad \text{(\OEIS{A062993})}.
 \]
 \end{lemma}
 
 \begin{proof}
-\vincent{Not sure what the best way is.} \newline
-The corresponding generating functions~$S_\ell(z) \eqdef \sum_{m \ge 1} s(\ell,m) \, z^m$ and~$T_\ell(z) \eqdef \sum_{m \ge 1} t(\ell,m) \, z^m$ satisfy
-\[
-S_\ell(z) = \frac{z}{\big( 1-S_\ell(z) \big)^{\ell-1}}
-\qquad\text{and}\qquad
-T_\ell(z) = \frac{t}{\big( 1-S_\ell(z) \big)^\ell}.
-\]
+We can transform a $\ell$-rainbow tree~$R$ to a $\ell$-ary tree~$T$: the parent of a node~$N$ in~$T$ is the previous sibling colored as~$N$ in~$R$ if it exists, and the parent of~$N$ in~$R$ otherwise.
+This classical map is a bijection from $\ell$-rainbow trees to a $\ell$-ary trees, which are counted by the Fuss-Catalan numbers.
 \end{proof}
 
-\begin{example}
-\vincent{TODO: numbers}
-\end{example}
+%\begin{remark}
+%The corresponding generating function~$F_\ell(z) \eqdef \sum_{m \ge 1} F_{\ell,m} \, z^m$ is given by
+%\[
+%F_\ell(z) = \frac{t}{\big( 1-G_\ell(z) \big)^\ell}
+%\qquad\text{where}\qquad
+%G_\ell(z) = \frac{z}{\big( 1-G_\ell(z) \big)^{\ell-1}}.
+%\]
+%\end{remark}
+
+%\begin{definition}
+%An \defn{$(\ell,n)$-rainbow forest} (resp.~\defn{tree}) is a rooted forest (resp.~tree) whose
+%\begin{enumerate}[(i)]
+%\item nodes are bijectively labeled by~$[n]$ so that the label of each root is minimal in~its~tree,
+%\item non-root nodes are properly colored by~$[\ell]$, \ie with no monochromatic edge.
+%\end{enumerate}
+%See \cref{fig:forests}.
+%\end{definition}
 
 \begin{definition}
-An \defn{almost $\ell$-colored $n$-labeled forest} is a set of almost $\ell$-colored trees with~$n$ nodes in total bijectively labeled by~$[n]$ such that in each tree, the root receives the maximal label.
-\vincent{fix the pictures}
+A $(\ell,n)$-rainbow forest is \defn{well-labeled} if its nodes are bijectively labeled by~$[n]$ so that
+\begin{enumerate}[(i)]
+\item the label of each root is minimal in its tree,
+\item the labels of siblings with the same color are increasing from left to right.
+\end{enumerate}
 See \cref{fig:forests}.
 \end{definition}
 
 \begin{proposition}
-For any~$\ell,n \in \N$, the $(\ell,n)$-forests (resp.~trees) are in bijection with the almost $\ell$-colored $n$-labeled forests (resp.~trees).
+There is a bijection from $(\ell,n)$-partition forests to well-labeled $(\ell,n)$-rainbow forests, which sends the M\"obius function~$|\mu_{\forestPoset}(\hat 0, -)|$ to the weight~$\omega(-)$.
 \end{proposition}
 
 \begin{proof}
-\vincent{TODO}
+From a well-labeled $(\ell,n)$-rainbow forest~$F$, we construct a $(\ell,n)$-partition forest~$\b{F} \eqdef (F_1, \dots, F_\ell)$ whose $i$th partition~$F_i$ has a part~$\{N\} \cup C_i(N)$ for each node~$N$ of~$F$.
+
+Conversely, start from a $(\ell,n)$-partition forest~$\b{F} \eqdef (F_1, \dots, F_i)$.
+Consider the colored clique graph~$K_{\b{F}}$ on~$[n]$ obtained by replacing each part in~$F_i$ by a clique of edges colored by~$i$.
+For each~$1 < i \le n$, there is a unique shortest path in~$K_{\b{F}}$ to the vertex~$1$.
+Define the parent~$p$ of~$i$ to be the next vertex along this path, and color~$i$ by the color of the edge between~$i$ and~$p$.
+This defines a well-labeled $(\ell,n)$-rainbow forest~$F$.
+
+Finally, $|\mu_{\forestPoset}(\hat 0, \b{F})| = \prod\limits_{i \in [\ell]} \prod\limits_{p \in F_i} (\#p-1)$ is clearly sent to~$\omega(F) = \prod\limits_{i \in [\ell]} \prod\limits_{N \in F} \#C_i(N)!$.
 \end{proof}
-
-\begin{proposition}
-The exponential generating function~$F_\ell(y,z)$ of the numbers~$f_\ell(k,n)$ of almost $\ell$-colored $n$-labeled forests consisting in~$k$ trees is given by
-\[
-F_\ell(y,z) \eqdef \sum_{k,n \ge 1} \frac{f_\ell(k,n)}{n!} \, y^k \, z^n = \exp \Bigg( \sum_{m \ge 1} \frac{y \, z^m}{m \big( (\ell-1)m+1 \big)} \binom{\ell m}{m} \Bigg).
-\]
-\end{proposition}
-
-\begin{proof}
-\vincent{TODO}
-A forest is a set of trees.
-\end{proof}
-
-\begin{example}
-\vincent{TODO: numbers}
-\end{example}
-
-\subsection{Enumeration of vertices and regions of $\lBraidArrangement$}
-\label{subsec:verticesFacetslnBraidArrangement}
 
 \begin{theorem}
-\label{thm:verticeslnBraidArrangement}
-The number of vertices of the $(\ell,n)$-braid arrangement~$\lBraidArrangement$ (or equivalently of $(\ell,n)$-trees) is
+\label{thm:verticesMultiBraidArrangement}
+The number of vertices of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is
 \[
-f_0(\lBraidArrangement) = \ell \big( (\ell-1) n + 1)^{n-2}.
+f_0(\multiBraidArrangement) = \ell \big( (\ell-1) n + 1 \big)^{n-2}.
 \]
 \end{theorem}
 
 \begin{proof}
+By 
+
 \vincent{TODO: work this out again with the def change.}
-We adapt the proof from \cite{CKSS04}. By rooting in the part of colour $1$ containing $1$, the number of vertices of the $(\ell,n)$-braid arrangement~$\lBraidArrangement$ is the same as the number of Cayley trees rooted in $1$ with an edge-coloring by $\{1, \ldots, \ell\}$ satisfying that the colour of an edge from a child is different from the colour of the edge between the parent and the child. A common reasoning for counting Cayley trees is the use of its Prüfer code defined by recursively pruning the smallest leaf and writing down the number of its parent. This bijection can be adapted to edge-coloured Cayley trees by writing down the number of the parent and the colour of the edge linking the leaf to its parent. We get a coloured word of length $n-1$. Their are two possibilities:
+We adapt the proof from \cite{CKSS04}. By rooting in the part of colour $1$ containing $1$, the number of vertices of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is the same as the number of Cayley trees rooted in $1$ with an edge-coloring by $\{1, \ldots, \ell\}$ satisfying that the colour of an edge from a child is different from the colour of the edge between the parent and the child. A common reasoning for counting Cayley trees is the use of its Prüfer code defined by recursively pruning the smallest leaf and writing down the number of its parent. This bijection can be adapted to edge-coloured Cayley trees by writing down the number of the parent and the colour of the edge linking the leaf to its parent. We get a coloured word of length $n-1$. Their are two possibilities:
 \begin{itemize}
 \item either the node we are removing is attached to the root labelled by $1$ and there are $\ell$ possible different colours for the edge ($\ell$)
 \item or it is attached to one of the $n-1$ other nodes and the edge can have $\ell-1$ different colours. ($(n-1)(\ell-1)$)
@@ -491,8 +509,8 @@ We adapt the proof from \cite{CKSS04}. By rooting in the part of colour $1$ cont
 \end{proof}
 
 \begin{theorem}
-\label{thm:verticesRefinedlnBraidArrangement}
-For any~$k_1, \dots, k_\ell$ such that~$0 \le k_i \le n-1$ for all~$i \in [\ell]$ and~$\sum_{i=1}^\ell k_i = n-1$, the number of vertices~$v$ of the $(\ell,n)$-braid arrangement~$\lBraidArrangement$ such that the smallest flat of the $i$th copy of~$\braidArrangement$ containing~$v$ has dimension~$n-k_i-1$ is given by
+\label{thm:verticesRefinedMultiBraidArrangement}
+For any~$k_1, \dots, k_\ell$ such that~$0 \le k_i \le n-1$ for all~$i \in [\ell]$ and~$\sum_{i=1}^\ell k_i = n-1$, the number of vertices~$v$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ such that the smallest flat of the $i$th copy of~$\braidArrangement$ containing~$v$ has dimension~$n-k_i-1$ is given by
 \[
 n^{\ell-1}  \binom{n-1}{k_1, ..., k_\ell} \prod_{i=1}^\ell (n-k_i)^{k_i-1}.
 \]
@@ -503,11 +521,12 @@ n^{\ell-1}  \binom{n-1}{k_1, ..., k_\ell} \prod_{i=1}^\ell (n-k_i)^{k_i-1}.
 \end{proof}
 
 \begin{theorem}
-\label{thm:facetslnBraidArrangement}
-The coefficient of~$x^{n-1}$ in the M\"obius polynomial~$\mobPol[{\lBraidArrangement}]$ of the $(\ell,n)$-braid arrangement~$\lBraidArrangement$ is given by
+\label{thm:facetsMultiBraidArrangement}
+The coefficient of~$x^{n-1}$ in the M\"obius polynomial~$\mobPol[{\multiBraidArrangement}]$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is given by
 \[
-[x^{n-1}] \, \mobPol[{\lBraidArrangement}] = \frac{(-1)^n n!}{y} \, [z^n] \, \exp \Bigg( - \sum_{m \ge 1} \frac{y \, z^m}{m \big( (\ell-1)m+1 \big)} \binom{\ell m}{m} \Bigg).
+[x^{n-1}] \, \mobPol[{\multiBraidArrangement}] = \frac{(-1)^n n!}{y} \, [z^n] \, \exp \bigg( - \sum_{m \ge 1} \frac{F_{\ell,m} \, y \, z^m}{m} \bigg).
 \]
+where~$\displaystyle F_{\ell,m} \eqdef \frac{1}{(\ell-1)m+1} \binom{\ell m}{m}$ denotes the \defn{$(\ell,m)$-Fuss-Catalan number}.
 \end{theorem}
 
 \begin{proof}
@@ -515,13 +534,13 @@ The coefficient of~$x^{n-1}$ in the M\"obius polynomial~$\mobPol[{\lBraidArrange
 \end{proof}
 
 \begin{corollary}
-The numbers of regions and of bounded regions of the $(\ell,n)$-braid arrangement~$\lBraidArrangement$ are given by
+The numbers of regions and of bounded regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ are given by
 \begin{align*}
-f_{n-1}(\lBraidArrangement) 
-& = n! \, [z^n] \exp \Bigg( \sum_{m \ge 1} \frac{z^m}{m \big( (\ell-1)m+1 \big)} \binom{\ell m}{m} \Bigg) \\
+f_{n-1}(\multiBraidArrangement) 
+& = n! \, [z^n] \exp \Bigg( \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m} \Bigg) \\
 \text{and}\qquad
-b_{n-1}(\lBraidArrangement)
-& = - n! \, [z^n] \exp \Bigg( - \sum_{m \ge 1} \frac{z^m}{m \big( (\ell-1)m+1 \big)} \binom{\ell m}{m} \Bigg) 
+b_{n-1}(\multiBraidArrangement)
+& = - n! \, [z^n] \exp \Bigg( - \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m} \Bigg) 
 \end{align*}
 \end{corollary}
 
@@ -537,11 +556,11 @@ We now specialize the results of the previous section to the case~$\ell = 2$ to 
 
 Note that
 \begin{align*}
-\mobPol[{\lBraidArrangement[1][2]}] & = 1 \\
-\mobPol[{\lBraidArrangement[2][2]}] & = x y - 2 x + 2 \\
-\mobPol[{\lBraidArrangement[3][2]}] & = x^2 y^2 - 6 x^2 y + 10 x^2 + 6 x y - 18 x + 8 \\
-\mobPol[{\lBraidArrangement[4][2]}] & = x^3 y^3 - 12 x^3 y^2 + 52 x^3 y - 84 x^3 + 12 x^2 y^2 - 96 x^2 y + 216 x^2 + 44 x y - 182 x + 50 \\
-\mobPol[{\lBraidArrangement[5][2]}] & = x^4 y^4 - 20 x^4 y^3 + 160 x^4 y^2 - 620 x^4 y + 1008 x^4 + 20 x^3 y^3 - 300 x^3 y^2 + 1640 x^3 y - 3360 x^3 \\ & \quad+ 140 x^2 y^2 - 1430 x^2 y + 4130 x^2 + 410 x y - 2210 x + 432
+\mobPol[{\multiBraidArrangement[1][2]}] & = 1 \\
+\mobPol[{\multiBraidArrangement[2][2]}] & = x y - 2 x + 2 \\
+\mobPol[{\multiBraidArrangement[3][2]}] & = x^2 y^2 - 6 x^2 y + 10 x^2 + 6 x y - 18 x + 8 \\
+\mobPol[{\multiBraidArrangement[4][2]}] & = x^3 y^3 - 12 x^3 y^2 + 52 x^3 y - 84 x^3 + 12 x^2 y^2 - 96 x^2 y + 216 x^2 + 44 x y - 182 x + 50 \\
+\mobPol[{\multiBraidArrangement[5][2]}] & = x^4 y^4 - 20 x^4 y^3 + 160 x^4 y^2 - 620 x^4 y + 1008 x^4 + 20 x^3 y^3 - 300 x^3 y^2 + 1640 x^3 y - 3360 x^3 \\ & \quad+ 140 x^2 y^2 - 1430 x^2 y + 4130 x^2 + 410 x y - 2210 x + 432
 \end{align*}
 which can be seen on matrices as
 \[
@@ -609,20 +628,20 @@ which can be seen on matrices as
 \label{thm:vertices2nBraidArrangement}
 There are bijections between
 \begin{itemize}
-\item the vertices of the $(2,n)$-braid arrangement~$\lBraidArrangement[n][2]$,
+\item the vertices of the $(2,n)$-braid arrangement~$\multiBraidArrangement[n][2]$,
 \item the $(2,n)$-trees (\ie pairs of partitions whose intersection graph is a tree),
 \item the spanning trees of the complete graph~$K_{n+1}$ on~$\{0, \dots, n\}$ containing the edge~$(0,1)$.
 \end{itemize}
 These sets are counted by
 \[
-f_0(\lBraidArrangement[n][2]) = 2 (n + 1)^{n-2}.
+f_0(\multiBraidArrangement[n][2]) = 2 (n + 1)^{n-2}.
 \]
 \end{theorem}
 
 \begin{proof}
-Note that the formula follows from \cref{thm:verticeslnBraidArrangement}.
+Note that the formula follows from \cref{thm:verticesMultiBraidArrangement}.
 We give an alternative simple proof.
-The first two sets are in bijection by \cref{coro:fbvectorslBraidArrangement}.
+The first two sets are in bijection by \cref{coro:fbvectorsMultiBraidArrangement}.
 Consider now a $(2,n)$-tree~$\b{F} \eqdef (F_1,F_2)$ (hence~$\# F_1 + \# F_2 = n + 1$).
 Consider the intersection tree~$T$ of~$\b{F}$ with vertices labeled by the parts of~$F_1$ and of~$F_2$ and edges labeled by~$[n]$, root~$T$ at the part of~$F_1$ containing vertex~$1$, forget the vertex labels of~$T$, and send each edge label of~$T$ to the next vertex away from the root, and label the root by~$0$.
 See \cref{fig:tree}.
@@ -637,23 +656,23 @@ The result is a spanning tree of the complete graph~$K_{n+1}$ on~$\{0, \dots, n\
 Finally, by double counting the pairs~$(T,e)$ where $T$ is a spanning tree of~$K_{n+1}$ and $e$ is an edge of~$T$, we see that $n$ times the number of spanning trees of~$K_{n+1}$ equals $\binom{n+1}{2}$ times the number of spanning trees of~$K_{n+1}$ containing~$(0,1)$.
 Hence, by Cayley's formula for spanning trees of~$K_{n+1}$, we obtain that
 \[
-f_0(\lBraidArrangement[n][2]) = \frac{2n}{n(n+1)} (n+1)^{n-1} = 2 (n + 1)^{n-2}.
+f_0(\multiBraidArrangement[n][2]) = \frac{2n}{n(n+1)} (n+1)^{n-1} = 2 (n + 1)^{n-2}.
 \qedhere
 \]
 \end{proof}
 
 \begin{theorem}
 \label{thm:verticesRefined2BraidArrangement}
-For any~$0 \le k_1, k_2 \le n-1$ with~$k_1 + k_2 = n-1$, the number of vertices~$v$ of the $(2,n)$-braid arrangement~$\lBraidArrangement[n][2]$ obtained as the intersection of a $(n-k_1-1)$-flat of the first copy of the braid arrangement with a $(n-k_2-1)$-flat of the second copy of the braid arrangement is
+For any~$0 \le k_1, k_2 \le n-1$ with~$k_1 + k_2 = n-1$, the number of vertices~$v$ of the $(2,n)$-braid arrangement~$\multiBraidArrangement[n][2]$ obtained as the intersection of a $(n-k_1-1)$-flat of the first copy of the braid arrangement with a $(n-k_2-1)$-flat of the second copy of the braid arrangement is
 \[
 n \binom{n-1}{k_1} (n-k_1)^{k_1-1} (n-k_2)^{k_2-1}.
 \]
 \end{theorem}
 
 \begin{proof}
-%Note that the formula follows from \cref{thm:verticesRefinedlnBraidArrangement}.
+%Note that the formula follows from \cref{thm:verticesRefinedMultiBraidArrangement}.
 %We give an alternative simple proof.
-By \cref{coro:fbvectorslBraidArrangement}, we want to count the number~$t_{k_1,k_2}$ of $(2,n)$-trees~$\b{F} \eqdef (F_1,F_2)$ where~$F_1$ has $n-k_1$ parts while $F_2$ has $n-k_2$ parts.
+By \cref{coro:fbvectorsMultiBraidArrangement}, we want to count the number~$t_{k_1,k_2}$ of $(2,n)$-trees~$\b{F} \eqdef (F_1,F_2)$ where~$F_1$ has $n-k_1$ parts while $F_2$ has $n-k_2$ parts.
 Consider the intersection tree~$T$ of~$\b{F}$ with vertices labeled by the parts of~$F_1$ and of~$F_2$ and edges labeled by~$[n]$, root~$T$ at an arbitrary part of~$F_1$, forget the vertex labels of~$T$, and send each edge label of~$T$ to the next vertex away from the root.
 See \cref{fig:tree}.
 Note here that in contrast to the proof of \cref{thm:vertices2nBraidArrangement}, we have rooted~$T$ here at an arbitrary part of~$F_1$ to have more symmetry.
@@ -669,17 +688,17 @@ t_{k_1,k_2} = \underbrace{\frac{1}{n-k_1}  \phantom{\!\!\!\!\bigg)}}_{\text{root
 
 \begin{theorem}
 \label{thm:facets2BraidArrangement}
-The coefficient of~$x^{n-1}$ in the M\"obius polynomial~$\mobPol[{\lBraidArrangement[n][2]}]$ of the $(2,n)$-braid arrangement~$\lBraidArrangement[n][2]$ is given by
+The coefficient of~$x^{n-1}$ in the M\"obius polynomial~$\mobPol[{\multiBraidArrangement[n][2]}]$ of the $(2,n)$-braid arrangement~$\multiBraidArrangement[n][2]$ is given by
 \[
-[x^{n-1}] \, \mobPol[{\lBraidArrangement[n][2]}] = \frac{(-1)^n n!}{y} \, [z^n] \, \exp \bigg( \sum_{m \ge 1} \frac{- C_m \, y \, z^m}{m} \bigg).
+[x^{n-1}] \, \mobPol[{\multiBraidArrangement[n][2]}] = \frac{(-1)^n n!}{y} \, [z^n] \, \exp \bigg( \sum_{m \ge 1} \frac{- C_m \, y \, z^m}{m} \bigg).
 \]
 where~$\displaystyle C_m \eqdef \frac{1}{m+1} \binom{2m}{m}$ denotes the $m$th Catalan number.
 \end{theorem}
 
 \begin{proof}
-We prove that the exponential generating function of the coefficient of~$x^{n-1}$ in the M\"obius polynomial~$\mobPol[{\lBraidArrangement[n][2]}]$ is given by
+We prove that the exponential generating function of the coefficient of~$x^{n-1}$ in the M\"obius polynomial~$\mobPol[{\multiBraidArrangement[n][2]}]$ is given by
 \[
-1 + \sum_{n \ge 1} \frac{[x^{n-1}] \, \mobPol[{\lBraidArrangement[n][2]}] \, y \, z^n}{(n+1)!} = \exp \bigg( \sum_{m \ge 1} \frac{(-1)^{m-1} C_m \, y \, z^m}{m} \bigg).
+1 + \sum_{n \ge 1} \frac{[x^{n-1}] \, \mobPol[{\multiBraidArrangement[n][2]}] \, y \, z^n}{(n+1)!} = \exp \bigg( \sum_{m \ge 1} \frac{(-1)^{m-1} C_m \, y \, z^m}{m} \bigg).
 \]
 \vincent{TODO. The proof from my email is in the comments.}
 %Consider a forest of cliques F. Each connected component K is a tree of cliques. Consider the labeled intersection tree of this tree of cliques (whose nodes are the cliques and whose edges are the intersections of cliques, labeled by unique element in the intersection). As the clique corresponding to each node of this intersection tree is just formed by the labels of the edges incident to it, we can forget the cliques inside the nodes and just remember the labels on the edges. Now root K on the node corresponding to the clique of F_0 containing the smallest element of K, orient all edges towards this root, order the incoming edges at each node by their labels. You get a rooted planar tree, with some labels on the edges. Consequently, I can see a forest of cliques with c connected as a set of c rooted planar trees whose edges are labeled by [n] (each label appears only once, in only one of the trees), and such that
@@ -691,12 +710,12 @@ We prove that the exponential generating function of the coefficient of~$x^{n-1}
 \end{proof}
 
 \begin{corollary}
-The numbers of regions and of bounded regions of the $(2,n)$-braid arrangement~$\lBraidArrangement[n][2]$ are given by
+The numbers of regions and of bounded regions of the $(2,n)$-braid arrangement~$\multiBraidArrangement[n][2]$ are given by
 \begin{align*}
-f_{n-1}(\lBraidArrangement[n][2]) 
+f_{n-1}(\multiBraidArrangement[n][2]) 
 & = n! \, [z^n] \exp \bigg( \sum_{m \ge 1} \frac{C_m \, z^m}{m} \bigg) \\
 \text{and}\qquad
-b_{n-1}(\lBraidArrangement[n][2]) 
+b_{n-1}(\multiBraidArrangement[n][2]) 
 % & = - (n+1)! \, [z^{n+1}] \exp \left( - \sum_{m \ge 1} \frac{z^m}{m(m+1)} \binom{2m}{m} \right) 
 & = (n-1)! \, [z^{n-1}] \exp \bigg( \sum_{m \ge 1} C_m \, z^m \bigg).
 \end{align*}
@@ -710,11 +729,11 @@ The corresponding integer sequences are
 \end{corollary}
 
 \begin{proof}
-As $\fPol[{\lBraidArrangement[n][2]}] = \mobPol[{\lBraidArrangement[n][2]}][-x][-1]$ and $\bPol[{\lBraidArrangement[n][2]}] = \mobPol[{\lBraidArrangement[n][2]}][-x][1]$ by \cref{thm:Zaslavsky}, we obtain from \cref{thm:facets2BraidArrangement} that
+As $\fPol[{\multiBraidArrangement[n][2]}] = \mobPol[{\multiBraidArrangement[n][2]}][-x][-1]$ and $\bPol[{\multiBraidArrangement[n][2]}] = \mobPol[{\multiBraidArrangement[n][2]}][-x][1]$ by \cref{thm:Zaslavsky}, we obtain from \cref{thm:facets2BraidArrangement} that
 \begin{align*}
-f_{n-1}(\lBraidArrangement[n][2]) & = [x^{n-1}] \, \fPol[{\lBraidArrangement[n][2]}] = (-1)^{n-1} \, [x^{n-1}] \, \mobPol[{\lBraidArrangement[n][2]}][-x][-1] = n! \, [z^n]  \, \exp \bigg( \sum_{m \ge 1} \frac{C_m \, z^m}{m} \bigg), \\
+f_{n-1}(\multiBraidArrangement[n][2]) & = [x^{n-1}] \, \fPol[{\multiBraidArrangement[n][2]}] = (-1)^{n-1} \, [x^{n-1}] \, \mobPol[{\multiBraidArrangement[n][2]}][-x][-1] = n! \, [z^n]  \, \exp \bigg( \sum_{m \ge 1} \frac{C_m \, z^m}{m} \bigg), \\
 % \text{and}\qquad
-b_{n-1}(\lBraidArrangement[n][2]) & = [x^{n-1}] \, \bPol[{\lBraidArrangement[n][2]}] = (-1)^{n-1} \, [x^{n-1}] \, \mobPol[{\lBraidArrangement[n][2]}][-x][1] = - n! \, [z^n]  \, \exp \bigg( \sum_{m \ge 1} \frac{- C_m \, z^m}{m} \bigg).
+b_{n-1}(\multiBraidArrangement[n][2]) & = [x^{n-1}] \, \bPol[{\multiBraidArrangement[n][2]}] = (-1)^{n-1} \, [x^{n-1}] \, \mobPol[{\multiBraidArrangement[n][2]}][-x][1] = - n! \, [z^n]  \, \exp \bigg( \sum_{m \ge 1} \frac{- C_m \, z^m}{m} \bigg).
 \end{align*}
 To conclude, we thus just need to observe that
 \(
