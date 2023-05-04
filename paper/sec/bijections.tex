@@ -786,7 +786,8 @@ As $R_{M_k}$ is a valid operator, we know two things.
 Firstly $\min M_k > \max R_{\mathbf{M}}(\sigma)_{k+1}$.
 Secondly, as $k$ is greater than the maximal index used by $\mathbf{M}$, we have that $\max \sigma_{k+1} = \max R_{\mathbf{M}}(\sigma)_{k+1}$.
 So combining these we know that
-\begin{align}\label{eq:shift-subset-dominates}
+\begin{align}
+    \label{eq:shift-subset-dominates}
     \min M_k > \max R_{\mathbf{M}}(\sigma)_{k+1} = \max \sigma_{k+1} = \max R_{\mathbf{M}}(\sigma)_{k,k+1} \ . 
 \end{align}
 A key consequence of this inequality is that the corresponding graph of $(R_{M_k}R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$ is a bipartite tree conditional on $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$ being a bipartite tree: the shift will not disconnect the graph as none of the shifted elements are in the path $R_{\mathbf{M}}(\sigma)_{k,k+1}$. 
@@ -801,7 +802,7 @@ There are four cases to consider.
     It is thus unaffected by the shift, so $\gamma' = \gamma$.
 
     \item $\gamma$ contains one element $m\in M_k$, i.e. it is of the form $\gamma = \alpha m \beta$, with $\alpha$ or $\beta$ possibly empty.
-    Note that since $M_k$ defines a shift, $m$ is not in $\delta_{k,k+1}$, and $\delta_{k,k+1}$ is unaffected by the shift. 
+    Note that in virtue of \cref{eq:shift-subset-dominates}, $m$ is not in $\delta_{k,k+1}$, and $\delta_{k,k+1}$ is unaffected by the shift. 
     We assume that $m$ is incoming to $R_\mathbf{M}(\sigma)_{k}$, the case when it is outgoing is similar.
     We must have $\alpha \cap \delta_{k,k+1}=\emptyset$ since otherwise there would be an oriented loop from $R_\mathbf{M}(\sigma)_{k}$ to itself.
     For the same reason, $\beta \cap \delta_{k,k+1}$ must be connected and starting at $R_\mathbf{M}(\sigma)_{k}$.
@@ -815,7 +816,7 @@ There are four cases to consider.
         As such, the path $(\delta_{k+1,k}\ssm \beta)$ reaches the point of divergence from $R_{\mathbf{M}}(\sigma)_{k+1}$ instead of $R_{\mathbf{M}}(\sigma)_{k}$, then the path $(\beta \ssm \delta_{k+1,k})$ completes the rest of the route unchanged.
 
     \end{enumerate}
-    \item $\gamma$ contains two elements of $M_k$. In which case we still have $\gamma'=\gamma$ (in path elements) but $\gamma'$ will step through the $(k+1)$th block instead of $\gamma$ stepping through the $k$th block, which imples that $\max \gamma=\max \gamma'$.
+    \item $\gamma$ contains two elements of $M_k$. In which case we still have $\gamma'=\gamma$ (in path elements) but $\gamma'$ will step through the $(k+1)$th block instead of $\gamma$ stepping through the $k$th block.
     
     \item $\gamma$ contains more than two elements of $M_k$. 
     This is impossible, as $\gamma$ would not be a minimal path on a tree.
