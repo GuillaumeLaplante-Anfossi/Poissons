@@ -793,15 +793,14 @@ A key consequence of this inequality is that the corresponding graph of $(R_{M_k
 So, it is legitimate to speak of unique paths between blocks. 
 
 We now explicitly explore how the shift operator $R_{M_k}$ alters paths. 
-Throughout the rest of this proof, we use the following shorthand: we denote by $\delta_{k,k+1} \eqdef  R_{\mathbf{M}}(\sigma)_{k,k+1}$ the path between the adjacent blocks in $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$ ), and by $\delta_{k+1,k}$ the same path reversed.
-Let $\gamma$ be any path between two blocks on the same side of $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$, and $\gamma'$ the path between the same blocks, by indices, in $(R_{M_k}R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$. 
-We assume for now that the start and end of the path $\gamma$ are distinct from those of $\delta_{k,k+1}$.
+Throughout the rest of this proof, we use the following shorthand: we denote by $\delta_{k,k+1} \eqdef  R_{\mathbf{M}}(\sigma)_{k,k+1}$ the path between the adjacent blocks in $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$, and by $\delta_{k+1,k}$ the same path reversed.
+Let~$\gamma$ be any path between two blocks of $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$, and let~$\gamma'$ be the path between the same blocks, by indices, in $(R_{M_k}R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$. 
 There are four cases to consider. 
 \begin{enumerate}
     \item $\gamma$ does not contain an element of $M_k$.
     It is thus unaffected by the shift, so $\gamma' = \gamma$.
-    In particular, its maximal element stays the same. 
-    \item $\gamma$ contains one element $m\in M_k$, i.e. it is of the form $\gamma = \alpha m \beta$.
+
+    \item $\gamma$ contains one element $m\in M_k$, i.e. it is of the form $\gamma = \alpha m \beta$, with $\alpha$ or $\beta$ possibly empty.
     Note that since $M_k$ defines a shift, $m$ is not in $\delta_{k,k+1}$, and $\delta_{k,k+1}$ is unaffected by the shift. 
     We assume that $m$ is incoming to $R_\mathbf{M}(\sigma)_{k}$, the case when it is outgoing is similar.
     We must have $\alpha \cap \delta_{k,k+1}=\emptyset$ since otherwise there would be an oriented loop from $R_\mathbf{M}(\sigma)_{k}$ to itself.
@@ -810,28 +809,19 @@ There are four cases to consider.
     \begin{enumerate}
         \item $\beta$ does not use any steps of $\delta_{k,k+1}$, in which case $\gamma' = \alpha m \delta_{k+1,k} \beta$.
         This is a path in the tree of $(R_{M_k}R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$ with no repeated steps, as such it must be the unique minimal path. 
-        Since $\max \gamma \geq m$ and $m\geq \max \delta_{k,k+1}$, we deduce that $\max \gamma = \max \gamma'$.
         
         \item $\beta$ uses steps of $\delta_{k,k+1}$, in which case $\gamma' = \alpha m (\delta_{k+1,k}\ssm \beta)(\beta \ssm \delta_{k+1,k})$.
         This follows, as we know that $\beta$ must follow the path $\delta_{k,k+1}$ for some time before diverging ($\beta$ could also be a subset of $\delta_{k,k+1}$, in which case it will never diverge).
         As such, the path $(\delta_{k+1,k}\ssm \beta)$ reaches the point of divergence from $R_{\mathbf{M}}(\sigma)_{k+1}$ instead of $R_{\mathbf{M}}(\sigma)_{k}$, then the path $(\beta \ssm \delta_{k+1,k})$ completes the rest of the route unchanged.
-        For the same reasons as in case (a), we deduce that $\max \gamma = \max \gamma'$.
+
     \end{enumerate}
     \item $\gamma$ contains two elements of $M_k$. In which case we still have $\gamma'=\gamma$ (in path elements) but $\gamma'$ will step through the $(k+1)$th block instead of $\gamma$ stepping through the $k$th block, which imples that $\max \gamma=\max \gamma'$.
     
-    \item $\gamma$ contains more than two elements of $M_k$. This is impossible, as $\gamma$ would not be a minimal path on a tree.
+    \item $\gamma$ contains more than two elements of $M_k$. 
+    This is impossible, as $\gamma$ would not be a minimal path on a tree.
 \end{enumerate}
-We now consider the cases where $\gamma$ is a path to/from at least one of $(R_{\mathbf{M}}(\sigma))_k,(R_{\mathbf{M}}(\sigma))_{k+1}$.
-We will use $j$ to denote any other arbitrary index.
-We assume that $\gamma$ contains a single element $m\in M_k$ (as all other cases lead to contradictions or are trivially affected by the shift in similar logic to the prior).
-Then $\gamma$ is altered by the shift to $\gamma'$ as follows,
-\begin{itemize}
-    \item if $\gamma$ connects $R_{\mathbf{M}}(\sigma)_j$ and $R_{\mathbf{M}}(\sigma)_k$, then $\gamma = \alpha m \mapsto \gamma' = \alpha m \delta_{k+1,k} $
-    \item if $\gamma$ connects $R_{\mathbf{M}}(\sigma)_j$ and $R_{\mathbf{M}}(\sigma)_{k+1}$, then $\gamma = \alpha m \delta_{k,k+1} \mapsto \gamma' = \alpha m $
-    \item if $\gamma$ connects $R_{\mathbf{M}}(\sigma)_k$ and $R_{\mathbf{M}}(\sigma)_{k+1}$, then $\gamma = \delta_{k,k+1}$ so this implies that $m\in \delta_{k,k+1}$, which is a contradiction as $m> \max \delta_{k,k+1}$.
-\end{itemize}
 Observe all (non-trivial or non-contradictory) paths $\gamma'$ contain $m>\min M_k$ and either some addition or deletion by $\delta_{k,k+1}$.
-It thus follows from \cref{eq:shift-subset-dominates} that $\max \gamma' = \max \gamma$, in each case, the maximal element will either be $m$, or in $\alpha$, or in $\beta$.
+It thus follows from \cref{eq:shift-subset-dominates} that $\max \gamma' = \max \gamma$: in each case, the maximal element will either be $m$, or in $\alpha$, or in $\beta$.
 \end{proof}
 
 The key result of the inductive proof was the chain of inequalities which yielded $\min M_k > \max R_{\mathbf{M}}(\sigma)_{k,k+1}$ (\cref{eq:shift-subset-dominates}).
