@@ -527,13 +527,14 @@ We denote by~$\rainbowForests$ (resp.~$\rainbowTrees$) the set of $(\ell,n)$-rai
 \label{lem:FussCatalan}
 The $(\ell,m)$-rainbow trees are counted by the \defn{Fuss-Catalan number}
 \[
-\# \rainbowTrees[m][\ell] = F_{\ell,m} \eqdef \frac{1}{(\ell-1)m+1} \binom{\ell m}{m} \qquad \text{(\OEIS{A062993})}.
+\# \rainbowTrees[m][\ell] = F_{\ell,m} \eqdef \frac{1}{(\ell-1)m+1} \binom{\ell m}{m} \qquad \text{\OEIS{A062993}}.
 \]
 \end{lemma}
 
 \begin{proof}
 We can transform a $\ell$-rainbow tree~$R$ to a $\ell$-ary tree~$T$: the parent of a node~$N$ in~$T$ is the previous sibling colored as~$N$ in~$R$ if it exists, and the parent of~$N$ in~$R$ otherwise.
 This classical map is a bijection from $\ell$-rainbow trees to a $\ell$-ary trees, which are counted by the Fuss-Catalan numbers.
+\vincent{add refs}
 \end{proof}
 
 \begin{remark}
@@ -701,7 +702,7 @@ Finally, the possible labelings are counted by the multinomial coefficient~$\bin
 \end{proof}
 
 \begin{theorem}
-\label{thm:regionsMultiBraidArrangement}
+\label{thm:topCoefficientMobiusPolynomialMultiBraidArrangement}
 The coefficient of~$x^{n-1}$ in the M\"obius polynomial~$\mobPol[{\multiBraidArrangement}]$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is given by
 \[
 [x^{n-1}] \, \mobPol[{\multiBraidArrangement}] = \frac{(-1)^n n!}{y} \, [z^n] \, \exp \bigg( - \sum_{m \ge 1} \frac{F_{\ell,m} \, y \, z^m}{m} \bigg).
@@ -737,7 +738,7 @@ We conclude that
 \end{align*}
 \end{proof}
 
-From \cref{thm:regionsMultiBraidArrangement}, we obtain the number of regions and bounded regions of~$\multiBraidArrangement$, whose first values are gathered in \cref{table:regionsMultiBraidArrangement,table:boundedRegionsMultiBraidArrangement}.
+From \cref{thm:topCoefficientMobiusPolynomialMultiBraidArrangement}, we obtain the number of regions and bounded regions of~$\multiBraidArrangement$, whose first values are gathered in \cref{table:regionsMultiBraidArrangement,table:boundedRegionsMultiBraidArrangement}.
 
 \begin{table}
 	\centerline{\scalebox{.8}{
@@ -781,8 +782,8 @@ From \cref{thm:regionsMultiBraidArrangement}, we obtain the number of regions an
 	\label{table:boundedRegionsMultiBraidArrangement}
 \end{table}
 
-\begin{corollary}
-\label{coro:regionsMultiBraidArrangement}
+\begin{theorem}
+\label{thm:regionsMultiBraidArrangement}
 The numbers of regions and of bounded regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ are given by
 \begin{align*}
 f_{n-1}(\multiBraidArrangement) 
@@ -793,10 +794,10 @@ b_{n-1}(\multiBraidArrangement)
 & = (n-1)! \, [z^{n-1}] \exp \bigg( (\ell-1) \sum_{m \ge 1} F_{\ell,m} \, z^m \bigg).
 \end{align*}
 where~$\displaystyle F_{\ell,m} \eqdef \frac{1}{(\ell-1)m+1} \binom{\ell m}{m}$ is the Fuss-Catalan number.
-\end{corollary}
+\end{theorem}
 
 \begin{proof}
-As $\fPol[{\multiBraidArrangement}] = \mobPol[{\multiBraidArrangement}][-x][-1]$ and $\bPol[{\multiBraidArrangement}] = \mobPol[{\multiBraidArrangement}][-x][1]$ by \cref{thm:Zaslavsky}, we obtain from \cref{thm:regionsMultiBraidArrangement} that
+As $\fPol[{\multiBraidArrangement}] = \mobPol[{\multiBraidArrangement}][-x][-1]$ and $\bPol[{\multiBraidArrangement}] = \mobPol[{\multiBraidArrangement}][-x][1]$ by \cref{thm:Zaslavsky}, we obtain from \cref{thm:topCoefficientMobiusPolynomialMultiBraidArrangement} that
 \begin{align*}
 f_{n-1}(\multiBraidArrangement) & = [x^{n-1}] \, \fPol[{\multiBraidArrangement}] = (-1)^{n-1} \, [x^{n-1}] \, \mobPol[{\multiBraidArrangement}][-x][-1] = n! \, [z^n]  \, \exp \bigg( \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m} \bigg), \\
 % \text{and}\qquad
@@ -864,81 +865,147 @@ which vanishes by~\eqref{eq:diff}.
 \vincent{Can we make a bijective proof of the equality $U_\ell(z) = \frac{\partial}{\partial z} V_\ell(z)$?}
 \end{proof}
 
-\subsection{Back to the permutahedron diagonal} 
+\subsection{Back to the permutahedra diagonals} 
 \label{subsec:enumerationDiagonal}
 
-We now specialize the results of the previous section to the case~$\ell = 2$ to derive enumerative results on the diagonal of the permutahedron.
-\vincent{We can now delete a lot of things in this section.}
+We now specialize the results of the previous section to the case~$\ell = 2$ to derive enumerative results on the diagonals of the permutahedra.
+The duality between the $(2,n)$-braid arrangement~$\multiBraidArrangement[n][2]$ and the diagonal of the permutahedron~$\Perm$ is illustrated in \cref{fig:diagonalPermutahedron1}.
 
-Note that
+\begin{figure}
+	\includegraphics[scale=.9]{diagonalPermutahedron1}
+	\caption{The duality between the $(2,3)$-braid arrangement~$\multiBraidArrangement[3][2]$ (left) and the diagonal of the permutahedron~$\Perm[3]$ (right).}
+	\label{fig:diagonalPermutahedron1}
+\end{figure}
+
+
+Observe that one can easily compute the full M\"obius polynomials of the $(2,n)$-braid arrangements~$\multiBraidArrangement[n][2]$ from \cref{thm:MobiusPolynomialMultiBraidArrangement}:
 \begin{align*}
 \mobPol[{\multiBraidArrangement[1][2]}] & = 1 \\
 \mobPol[{\multiBraidArrangement[2][2]}] & = x y - 2 x + 2 \\
 \mobPol[{\multiBraidArrangement[3][2]}] & = x^2 y^2 - 6 x^2 y + 10 x^2 + 6 x y - 18 x + 8 \\
 \mobPol[{\multiBraidArrangement[4][2]}] & = x^3 y^3 - 12 x^3 y^2 + 52 x^3 y - 84 x^3 + 12 x^2 y^2 - 96 x^2 y + 216 x^2 + 44 x y - 182 x + 50 \\
-\mobPol[{\multiBraidArrangement[5][2]}] & = x^4 y^4 - 20 x^4 y^3 + 160 x^4 y^2 - 620 x^4 y + 1008 x^4 + 20 x^3 y^3 - 300 x^3 y^2 + 1640 x^3 y - 3360 x^3 \\ & \quad+ 140 x^2 y^2 - 1430 x^2 y + 4130 x^2 + 410 x y - 2210 x + 432
+\mobPol[{\multiBraidArrangement[5][2]}] & = x^4 y^4 - 20 x^4 y^3 + 160 x^4 y^2 - 620 x^4 y + 1008 x^4 \\ & \quad+ 20 x^3 y^3 - 300 x^3 y^2 + 1640 x^3 y - 3360 x^3 \\ & \quad+ 140 x^2 y^2 - 1430 x^2 y + 4130 x^2 + 410 x y - 2210 x + 432
 \end{align*}
-which can be seen on matrices as
-\[
-\left(\begin{array}{r}
-1
-\end{array}\right)
-\left(\begin{array}{rr}
-2 & -2 \\
-0 & 1
-\end{array}\right)
-\left(\begin{array}{rrr}
-8 & -18 & 10 \\
-0 & 6 & -6 \\
-0 & 0 & 1
-\end{array}\right)
-\left(\begin{array}{rrrr}
-50 & -182 & 216 & -84 \\
-0 & 44 & -96 & 52 \\
-0 & 0 & 12 & -12 \\
-0 & 0 & 0 & 1
-\end{array}\right)
-\left(\begin{array}{rrrrr}
-432 & -2210 & 4130 & -3360 & 1008 \\
-0 & 410 & -1430 & 1640 & -620 \\
-0 & 0 & 140 & -300 & 160 \\
-0 & 0 & 0 & 20 & -20 \\
-0 & 0 & 0 & 0 & 1
-\end{array}\right)
+%which can be encoded in matrices as
+%{\small
+%\[
 %\left(\begin{array}{r}
 %1
 %\end{array}\right)
 %\left(\begin{array}{rr}
-%2 & 0 \\
-%-2 & 1
+%2 & -2 \\
+%0 & 1
 %\end{array}\right)
 %\left(\begin{array}{rrr}
-%8 & 0 & 0 \\
-%-18 & 6 & 0 \\
-%10 & -6 & 1
+%8 & -18 & 10 \\
+%0 & 6 & -6 \\
+%0 & 0 & 1
 %\end{array}\right)
 %\left(\begin{array}{rrrr}
-%50 & 0 & 0 & 0 \\
-%-182 & 44 & 0 & 0 \\
-%216 & -96 & 12 & 0 \\
-%-84 & 52 & -12 & 1
+%50 & -182 & 216 & -84 \\
+%0 & 44 & -96 & 52 \\
+%0 & 0 & 12 & -12 \\
+%0 & 0 & 0 & 1
 %\end{array}\right)
 %\left(\begin{array}{rrrrr}
-%432 & 0 & 0 & 0 & 0 \\
-%-2210 & 410 & 0 & 0 & 0 \\
-%4130 & -1430 & 140 & 0 & 0 \\
-%-3360 & 1640 & -300 & 20 & 0 \\
-%1008 & -620 & 160 & -20 & 1
+%432 & -2210 & 4130 & -3360 & 1008 \\
+%0 & 410 & -1430 & 1640 & -620 \\
+%0 & 0 & 140 & -300 & 160 \\
+%0 & 0 & 0 & 20 & -20 \\
+%0 & 0 & 0 & 0 & 1
 %\end{array}\right)
-%\left(\begin{array}{rrrrrr}
-%4802 & 0 & 0 & 0 & 0 & 0 \\
-%-31922 & 4732 & 0 & 0 & 0 & 0 \\
-%82560 & -23100 & 1830 & 0 & 0 & 0 \\
-%-104400 & 41560 & -6210 & 340 & 0 & 0 \\
-%64800 & -32760 & 6960 & -720 & 30 & 0 \\
-%-15840 & 9568 & -2580 & 380 & -30 & 1
-%\end{array}\right)
+%%\left(\begin{array}{r}
+%%1
+%%\end{array}\right)
+%%\left(\begin{array}{rr}
+%%2 & 0 \\
+%%-2 & 1
+%%\end{array}\right)
+%%\left(\begin{array}{rrr}
+%%8 & 0 & 0 \\
+%%-18 & 6 & 0 \\
+%%10 & -6 & 1
+%%\end{array}\right)
+%%\left(\begin{array}{rrrr}
+%%50 & 0 & 0 & 0 \\
+%%-182 & 44 & 0 & 0 \\
+%%216 & -96 & 12 & 0 \\
+%%-84 & 52 & -12 & 1
+%%\end{array}\right)
+%%\left(\begin{array}{rrrrr}
+%%432 & 0 & 0 & 0 & 0 \\
+%%-2210 & 410 & 0 & 0 & 0 \\
+%%4130 & -1430 & 140 & 0 & 0 \\
+%%-3360 & 1640 & -300 & 20 & 0 \\
+%%1008 & -620 & 160 & -20 & 1
+%%\end{array}\right)
+%%\left(\begin{array}{rrrrrr}
+%%4802 & 0 & 0 & 0 & 0 & 0 \\
+%%-31922 & 4732 & 0 & 0 & 0 & 0 \\
+%%82560 & -23100 & 1830 & 0 & 0 & 0 \\
+%%-104400 & 41560 & -6210 & 340 & 0 & 0 \\
+%%64800 & -32760 & 6960 & -720 & 30 & 0 \\
+%%-15840 & 9568 & -2580 & 380 & -30 & 1
+%%\end{array}\right)
+%\]
+%}
+
+We now focus on the number of vertices, regions, and bounded regions of the $(2,n)$-braid arrangement~$\multiBraidArrangement[n][2]$, to obtain the number of facets, vertices, and internal vertices of the diagonal of the permutahedron~$\Perm$.
+The first few values are gathered in \cref{table:enumerationDiagonalPermutahedra}.
+
+\begin{table}
+	\centerline{\scalebox{1}{
+		\begin{tabular}[t]{c|ccccccccccc}
+			$n$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $\dots$ & OEIS \\
+			\hline
+			facets & $1$ & $2$ & $8$ & $50$ & $432$ & $4802$ & $65536$ & $1062882$ & $20000000$ & $\dots$ & \OEIS{A007334} \\
+			vertices & $1$ & $3$ & $17$ & $149$ & $1809$ & $28399$ & $550297$ & $12732873$ & $343231361$ & $\dots$ & \OEIS{A213507} \\
+			int. verts. & $1$ & $1$ & $5$ & $43$ & $529$ & $8501$ & $169021$ & $4010455$ & $110676833$ & $\dots$ & \OEIS{A251568}
+		\end{tabular}
+	}}
+	\vspace{.3cm}
+	\caption{The numbers of facets, vertices, and internal vertices of the diagonal of the permutahedron~$\Perm$ for~$n \in [9]$.}
+	\label{table:enumerationDiagonalPermutahedra}
+\end{table}
+
+\begin{corollary}
+\label{coro:enumerationDiagonalPermutahedra}
+The diagonal of the permutahedron~$\Perm$ has 
+\begin{itemize}
+\item $2 (n + 1)^{n-2}$ facets,
+\item $\displaystyle n! \, [z^n] \exp \bigg( \sum_{m \ge 1} \frac{C_m \, z^m}{m} \bigg)$ vertices,
+\item $\displaystyle (n-1)! \, [z^{n-1}] \exp \bigg( \sum_{m \ge 1} C_m \, z^m \bigg)$ internal vertices,
+\end{itemize}
+where~$\displaystyle C_m \eqdef \frac{1}{m+1} \binom{2m}{m}$ denotes the $m$th Catalan number.
+\end{corollary}
+
+\begin{proof}
+Use the duality between the $(2,n)$-braid arrangement~$\multiBraidArrangement[n][2]$ and the diagonal of the permutahedron~$\Perm$ (see \cref{fig:diagonalPermutahedron1}), and specialize \cref{thm:verticesMultiBraidArrangement,thm:regionsMultiBraidArrangement} to~$\ell = 2$.
+\end{proof}
+
+\begin{remark}
+For completeness, we provide an alternative simpler proof of the first point of \cref{coro:enumerationDiagonalPermutahedra}.
+By \cref{prop:flatPosetMultiBraidArrangement}, we just need to count the $(2,n)$-partition trees.
+Consider a $(2,n)$-partition tree~$\b{F} \eqdef (F_1,F_2)$ (hence~$\# F_1 + \# F_2 = n + 1$).
+Consider the intersection tree~$T$ of~$\b{F}$ with vertices labeled by the parts of~$F_1$ and of~$F_2$ and edges labeled by~$[n]$, root~$T$ at the part of~$F_1$ containing vertex~$1$, forget the vertex labels of~$T$, and send each edge label of~$T$ to the next vertex away from the root, and label the root by~$0$.
+See \cref{fig:tree}.
+The result is a spanning tree of the complete graph~$K_{n+1}$ on~$\{0, \dots, n\}$ which must contain the edge~$(0,1)$ (because we have chosen the root to be the part of~$F_1$ containing~$1$).
+%
+\begin{figure}
+	\centerline{\includegraphics[scale=1]{tree}}
+	\caption{The bijection from rooted $(\ell,n)$-trees (left) to spanning trees of~$K_{n+1}$ containing the edge~$(0,1)$ (right).}
+	\label{fig:tree}
+\end{figure}
+%
+Finally, by double counting the pairs~$(T,e)$ where $T$ is a spanning tree of~$K_{n+1}$ and $e$ is an edge of~$T$, we see that $n$ times the number of spanning trees of~$K_{n+1}$ equals $\binom{n+1}{2}$ times the number of spanning trees of~$K_{n+1}$ containing~$(0,1)$.
+Hence, by Cayley's formula for spanning trees of~$K_{n+1}$, we obtain that the number of $(2,n)$-partition trees is
+\[
+\frac{2n}{n(n+1)} (n+1)^{n-1} = 2 (n + 1)^{n-2}.
 \]
+\end{remark}
+
+\subsection{Old section on permutahedra diagonals} 
+\label{subsec:oldSection}
 
 \begin{theorem}
 \label{thm:verticesDoubleBraidArrangement}
