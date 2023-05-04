@@ -129,8 +129,7 @@ The M\"obius polynomial of the braid arrangement~$\braidArrangement$ is given by
 \[
 \mobPol[\braidArrangement] = \sum_{k \in [n]} x^{k-1} S(n,k) \prod_{i \in [k-1]} (y-i)
 \]
-where~$S(n,k)$ denotes the Stirling number of second kind \OEIS{?}, \ie the number of partitions of~$n$ into~$k$ parts.
-\vincent{TODO: include OEIS sequence}
+where~$S(n,k)$ denotes the Stirling number of second kind (\OEIS{A008277}), \ie the number of partitions of~$n$ into~$k$ parts.
 For instance
 \begin{align*}
 \mobPol[{\braidArrangement[1]}] & = 1 \\
@@ -172,9 +171,96 @@ We now focus on the following specific hyperplane arrangements, illustrated in \
 	\label{fig:multiBraidArrangements}
 \end{figure}
 
+%\begin{table}
+%\centerline{
+%	\begin{tabular}{c@{\hspace{.7cm}}c}
+%		\begin{tabular}[t]{c|cccc|c}
+%			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+%			\hline
+%			$1$ & $1$ &&&& $1$ \\
+%			$2$ & $2$ & $1$ &&& $3$ \\
+%			$3$ & $6$ & $6$ & $1$ && $13$ \\
+%			$4$ & $24$ & $36$ & $14$ & $1$ & $75$
+%		\end{tabular}
+%		&
+%		\begin{tabular}[t]{c|cccc|c}
+%			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+%			\hline
+%			$1$ & $1$ &&&& $1$ \\
+%			$2$ & $3$ & $2$ &&& $5$ \\
+%			$3$ & $17$ & $24$ & $8$ && $49$ \\
+%			$4$ & $149$ & $324$ & $226$ & $50$ & $749$
+%		\end{tabular}
+%		\\[2cm]
+%		\begin{tabular}[t]{c|cccc|c}
+%			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+%			\hline
+%			$1$ & $1$ &&&& $1$ \\
+%			$2$ & $0$ & $1$ &&& $1$ \\
+%			$3$ & $0$ & $0$ & $1$ && $1$ \\
+%			$4$ & $0$ & $0$ & $0$ & $1$ & $1$
+%		\end{tabular}
+%		&
+%		\begin{tabular}[t]{c|cccc|c}
+%			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+%			\hline
+%			$1$ & $1$ &&&& $1$ \\
+%			$2$ & $1$ & $2$ &&& $3$ \\
+%			$3$ & $5$ & $12$ & $8$ && $25$ \\
+%			$4$ & $43$ & $132$ & $138$ & $50$ & $363$
+%		\end{tabular}
+%		\\[2cm]
+%		$\ell = 1$ & $\ell = 2$
+%		\\[.8cm]
+%		\begin{tabular}[t]{c|cccc|c}
+%			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+%			\hline
+%			$1$ & $1$ &&&& $1$ \\
+%			$2$ & $4$ & $3$ &&& $7$ \\
+%			$3$ & $34$ & $54$ & $21$ && $109$ \\
+%			$4$ & $472$ & $1152$ & $924$ & $243$ & $2791$
+%		\end{tabular}
+%		&
+%		\begin{tabular}[t]{c|cccc|c}
+%			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+%			\hline
+%			$1$ & $1$ &&&& $1$ \\
+%			$2$ & $5$ & $4$ &&& $9$ \\
+%			$3$ & $57$ & $96$ & $40$ && $193$ \\
+%			$4$ & $1089$ & $2808$ & $2396$ & $676$ & $6969$
+%		\end{tabular}
+%		\\[2cm]
+%		\begin{tabular}[t]{c|cccc|c}
+%			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+%			\hline
+%			$1$ & $1$ &&&& $1$ \\
+%			$2$ & $2$ & $3$ &&& $5$ \\
+%			$3$ & $16$ & $36$ & $21$ && $73$ \\
+%			$4$ & $224$ & $684$ & $702$ & $243$ & $1853$
+%		\end{tabular}
+%		&
+%		\begin{tabular}[t]{c|cccc|c}
+%			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+%			\hline
+%			$1$ & $1$ &&&& $1$ \\
+%			$2$ & $3$ & $4$ &&& $7$ \\
+%			$3$ & $33$ & $72$ & $40$ && $145$ \\
+%			$4$ & $639$ & $1944$ & $1980$ & $676$ & $5239$
+%		\end{tabular}
+%		\\[2cm]
+%		$\ell = 3$ & $\ell = 4$
+%	\end{tabular}
+%	}
+%	\vspace{.3cm}
+%	\caption{The face numbers (top) and the bounded face numbers (bottom) of the $(\ell,n)$-braid arrangements for~$\ell, n \in [4]$.}
+%	\label{table:fvectorMultiBraidArrangements}
+%\end{table}
+
 \begin{table}
-\centerline{
-	\begin{tabular}{c@{\hspace{.7cm}}c}
+\centerline{\scalebox{.75}{
+	\begin{tabular}{c@{\hspace{.7cm}}c@{\hspace{.7cm}}c@{\hspace{.7cm}}c}
+		$\ell = 1$ & $\ell = 2$ & $\ell = 3$ & $\ell = 4$
+		\\[.2cm]
 		\begin{tabular}[t]{c|cccc|c}
 			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
 			\hline
@@ -192,27 +278,7 @@ We now focus on the following specific hyperplane arrangements, illustrated in \
 			$3$ & $17$ & $24$ & $8$ && $49$ \\
 			$4$ & $149$ & $324$ & $226$ & $50$ & $749$
 		\end{tabular}
-		\\[2cm]
-		\begin{tabular}[t]{c|cccc|c}
-			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
-			\hline
-			$1$ & $1$ &&&& $1$ \\
-			$2$ & $0$ & $1$ &&& $1$ \\
-			$3$ & $0$ & $0$ & $1$ && $1$ \\
-			$4$ & $0$ & $0$ & $0$ & $1$ & $1$
-		\end{tabular}
 		&
-		\begin{tabular}[t]{c|cccc|c}
-			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
-			\hline
-			$1$ & $1$ &&&& $1$ \\
-			$2$ & $1$ & $2$ &&& $3$ \\
-			$3$ & $5$ & $12$ & $8$ && $25$ \\
-			$4$ & $43$ & $132$ & $138$ & $50$ & $363$
-		\end{tabular}
-		\\[2cm]
-		$\ell = 1$ & $\ell = 2$
-		\\[.8cm]
 		\begin{tabular}[t]{c|cccc|c}
 			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
 			\hline
@@ -230,7 +296,25 @@ We now focus on the following specific hyperplane arrangements, illustrated in \
 			$3$ & $57$ & $96$ & $40$ && $193$ \\
 			$4$ & $1089$ & $2808$ & $2396$ & $676$ & $6969$
 		\end{tabular}
-		\\[2cm]
+		\\[2.3cm]
+		\begin{tabular}[t]{c|cccc|c}
+			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+			\hline
+			$1$ & $1$ &&&& $1$ \\
+			$2$ & $0$ & $1$ &&& $1$ \\
+			$3$ & $0$ & $0$ & $1$ && $1$ \\
+			$4$ & $0$ & $0$ & $0$ & $1$ & $1$
+		\end{tabular}
+		&
+		\begin{tabular}[t]{c|cccc|c}
+			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+			\hline
+			$1$ & $1$ &&&& $1$ \\
+			$2$ & $1$ & $2$ &&& $3$ \\
+			$3$ & $5$ & $12$ & $8$ && $25$ \\
+			$4$ & $43$ & $132$ & $138$ & $50$ & $363$
+		\end{tabular}
+		&
 		\begin{tabular}[t]{c|cccc|c}
 			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
 			\hline
@@ -248,10 +332,8 @@ We now focus on the following specific hyperplane arrangements, illustrated in \
 			$3$ & $33$ & $72$ & $40$ && $145$ \\
 			$4$ & $639$ & $1944$ & $1980$ & $676$ & $5239$
 		\end{tabular}
-		\\[2cm]
-		$\ell = 3$ & $\ell = 4$
 	\end{tabular}
-	}
+	}}
 	\vspace{.3cm}
 	\caption{The face numbers (top) and the bounded face numbers (bottom) of the $(\ell,n)$-braid arrangements for~$\ell, n \in [4]$.}
 	\label{table:fvectorMultiBraidArrangements}
@@ -272,6 +354,7 @@ For any integers~$\ell,n \geq 1$, the \defn{$(\ell,n)$-braid arrangement}~$\mult
 \begin{definition}
 The \defn{intersection hypergraph}~$I(F_1, \dots, F_\ell)$ of a $\ell$-tuple of partitions of~$[n]$ is the $\ell$-regular $\ell$-partite hypergraph on all parts of all the partitions~$F_i$, with an hyperedge for all~$i \in [n]$ connecting the parts containing~$i$.
 A \defn{$(\ell,n)$-partition forest} (resp.~\defn{$(\ell,n)$-partition tree}) is a $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of partitions of~$[n]$ whose intersection hypergraph is a hyperforest (resp.~hypertree).
+The \defn{dimension} of~$\b{F}$ is~$\dim(\b{F}) \eqdef n - 1 - \ell n + \sum_{i \in [\ell]} \#F_i$.
 See \cref{fig:forests}.
 The \defn{$(\ell,n)$-partition forest poset} is the poset~$\forestPoset$ on $(\ell,n)$-partition forests ordered by componentwise refinement.
 In other words, $\forestPoset$ is the subposet of the $\ell$th Cartesian power of the partition poset~$\partitionPoset$ induced by $(\ell,n)$-partition forests.
@@ -308,7 +391,7 @@ The flat poset of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is i
 \end{proposition}
 
 \begin{proof}
-\vincent{TODO}
+\vincent{TODO. Don't forget to say that it sends dimension to dimension.}
 \end{proof}
 
 \begin{theorem}
@@ -343,6 +426,7 @@ Hence
 \end{proof}
 
 We thus obtain the following statament from \cref{thm:MobiusPolynomialMultiBraidArrangement,thm:Zaslavsky}.
+The face numbers and bounded face numbers of~$\multiBraidArrangement$ for~$\ell, n \in [4]$ are gathered in \cref{table:fvectorMultiBraidArrangements}.
 
 \begin{corollary}
 \label{coro:fbvectorsMultiBraidArrangement}
@@ -354,8 +438,6 @@ The $f$- and $b$-polynomials of the $(\ell,n)$-braid arrangement~$\multiBraidArr
 \end{align*}
 where~$\b{F} \le \b{G}$ ranges over all intervals of the $(\ell,n)$-partition forest poset~$\forestPoset$, and~$F_i[p]$ denotes the restriction of the partition~$F_i$ to the part~$p$ of~$G_i$.
 \end{corollary}
-
-The face numbers and bounded face numbers of~$\multiBraidArrangement$ for~$\ell, n \in [4]$ are gathered in \cref{table:fvectorMultiBraidArrangements}.
 
 \begin{example}
 For~$n = 1$, we have
@@ -421,23 +503,22 @@ Note that~$3 \ell^2 + 2 \ell + 1$ is~\OEIS{A056109}, that~$\ell (3 \ell - 2)$ is
 In order to obtain more explicit formulas for the number of vertices and regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ in \cref{subsec:verticesFacetsMultiBraidArrangement}, we now introduce another combinatorial model for $(\ell,n)$-partition forests which is more adapted to their enumeration.
 
 \begin{definition}
+\label{def:rainbowForest}
 A \defn{$\ell$-rainbow coloring} of a rooted plane forest~$F$ is an assignment of colors of~$[\ell]$ to the non-root nodes of~$F$ such that
 \begin{itemize}
 \item there is no monochromatic edge,
 \item the colors of siblings are increasing from left to right.
 \end{itemize}
-A \defn{$(\ell,n)$-rainbow forest} (resp.~\defn{tree}) is a $\ell$-rainbow colored forest (resp.~tree) with $n$ nodes.
-The \defn{weight} of a rainbow forest~$F$ is the product
-\[
-\omega(F) \eqdef \prod_{i \in [\ell]} \prod_{N \in F} \#C_i(N)!
-\]
-where~$N$ ranges over all nodes of~$F$ and~$C_i(N)$ denotes the children of~$N$ colored by~$i$.
+We denote by~$|F| = n$ the number of nodes of~$F$ and by~$\#F$ the number of trees of the forest~$F$ (\ie its number of connected components).
+A \defn{$(\ell,n)$-rainbow forest} (resp.~\defn{tree}) is a $\ell$-rainbow colored forest (resp.~tree) with $|F| = n$ nodes.
+We denote by~$\rainbowForests$ (resp.~$\rainbowTrees$) the set of $(\ell,n)$-rainbow forests (resp.~trees), and set~$\rainbowForests[][\ell] \eqdef \bigsqcup_n \rainbowForests$ (resp.~$\rainbowTrees[][\ell] \eqdef \bigsqcup_n \rainbowTrees$).
 \end{definition}
 
 \begin{lemma}
+\label{lem:FussCatalan}
 The $(\ell,m)$-rainbow trees are counted by the \defn{Fuss-Catalan number}
 \[
-F_{\ell,m} = \frac{1}{(\ell-1)m+1} \binom{\ell m}{m} \qquad \text{(\OEIS{A062993})}.
+\# \rainbowTrees[m][\ell] = F_{\ell,m} \eqdef \frac{1}{(\ell-1)m+1} \binom{\ell m}{m} \qquad \text{(\OEIS{A062993})}.
 \]
 \end{lemma}
 
@@ -485,30 +566,63 @@ F_\ell(z) = 1 + z \, F_\ell(z)^\ell.
 \end{table}
 
 \begin{definition}
-A $(\ell,n)$-rainbow forest is \defn{well-labeled} if its nodes are bijectively labeled by~$[n]$ so that
+\label{def:labelingRainbowForest}
+A \defn{labeling} of a $(\ell,n)$-rainbow forest~$F$ is a bijective map between from the nodes of~$F$ to~$[n]$ such that
 \begin{enumerate}[(i)]
 \item the label of each root is minimal in its tree,
 \item the labels of siblings with the same color are increasing from left to right.
 \end{enumerate}
 \end{definition}
 
+\vincent{TODO: examples labeled rainbow trees.}
+
+\begin{definition}
+For a rainbow forest~$F$, we define
+\[
+\omega(F) \eqdef \prod_{i \in [\ell]} \prod_{N \in F} \#C_i(N)!
+\]
+where~$N$ ranges over all nodes of~$F$ and~$C_i(N)$ denotes the children of~$N$ colored by~$i$.
+\end{definition}
+
+\begin{lemma}
+\label{lem:labelingRainbowForest}
+The number~$\lambda(F)$ of labelings of a $(\ell,n)$-rainbow forest~$F$ is given by
+\[
+\lambda(F) = \frac{n!}{\omega(F) \prod\limits_{T \in F} |T|}.
+\]
+\end{lemma}
+
+\begin{proof}
+Out of all~$n!$ bijective maps from the nodes of~$F$ to~$n$, only~$1/\prod_{T \in F} |T|$ satisfy Condition~(i) of \cref{def:labelingRainbowForest}, and only $1/\prod_{i \in [\ell]} \prod_{N \in F} \#C_i(N)! = 1/\omega(F)$ satisfy Condition~(ii) of \cref{def:labelingRainbowForest}.
+\end{proof}
+
 The following statement is illustrated in \cref{fig:forests}.
 
 \begin{proposition}
 \label{prop:bijectionForests}
-There is a bijection from $(\ell,n)$-partition forests to well-labeled $(\ell,n)$-rainbow forests, which sends the M\"obius function~$|\mu_{\forestPoset}(\hat 0, -)|$ to the weight~$\omega(-)$.
+There is a bijection from $(\ell,n)$-partition forests to labeled $(\ell,n)$-rainbow forests, such that if~$\b{F}$ is sent to~$F$, then
+\[
+\dim(\b{F}) = \#F-1
+\qquad\text{and}\qquad
+\mu_{\forestPoset}(\hat 0, \b{F}) = (-1)^{n-\#F} \, \omega(F)
+\]
 \end{proposition}
 
 \begin{proof}
-From a well-labeled $(\ell,n)$-rainbow forest~$F$, we construct a $(\ell,n)$-partition forest~$\b{F} \eqdef (F_1, \dots, F_\ell)$ whose $i$th partition~$F_i$ has a part~$\{N\} \cup C_i(N)$ for each node~$N$ of~$F$.
+From a labeled $(\ell,n)$-rainbow forest~$F$, we construct a $(\ell,n)$-partition forest~$\b{F} \eqdef (F_1, \dots, F_\ell)$ whose $i$th partition~$F_i$ has a part~$\{N\} \cup C_i(N)$ for each node~$N$ of~$F$.
 
 Conversely, start from a $(\ell,n)$-partition forest~$\b{F} \eqdef (F_1, \dots, F_i)$.
 Consider the colored clique graph~$K_{\b{F}}$ on~$[n]$ obtained by replacing each part in~$F_i$ by a clique of edges colored by~$i$.
 For each~$1 < i \le n$, there is a unique shortest path in~$K_{\b{F}}$ to the vertex~$1$.
 Define the parent~$p$ of~$i$ to be the next vertex along this path, and color~$i$ by the color of the edge between~$i$ and~$p$.
-This defines a well-labeled $(\ell,n)$-rainbow forest~$F$.
+This defines a labeled $(\ell,n)$-rainbow forest~$F$.
 
-Finally, $|\mu_{\forestPoset}(\hat 0, \b{F})| = \prod\limits_{i \in [\ell]} \prod\limits_{p \in F_i} (\#p-1)$ is clearly sent to~$\omega(F) = \prod\limits_{i \in [\ell]} \prod\limits_{N \in F} \#C_i(N)!$.
+Finally, observe that
+\begin{gather*}
+\dim(\b{F}) = n - 1 - \ell n + \sum_{i \in [\ell]} \#F_i = \#F-1, \qquad\text{and} \\
+\mu_{\forestPoset}(\hat 0, \b{F}) = \prod\limits_{i \in [\ell]} \prod\limits_{p \in F_i} (-1)^{\#p-1} (\#p-1) = \prod\limits_{i \in [\ell]} \prod\limits_{N \in F} (-1)^{\#C_i(N)} \#C_i(N)! = (-1)^{n-\#F} \, \omega(F).
+\qedhere
+\end{gather*}
 \end{proof}
 
 \subsection{Enumeration of vertices and regions of $\multiBraidArrangement$}
@@ -517,30 +631,6 @@ Finally, $|\mu_{\forestPoset}(\hat 0, \b{F})| = \prod\limits_{i \in [\ell]} \pro
 We now use our labeled $(\ell,n)$-rainbow forests of \cref{subsec:rainbowForests} to derive more explicit formulas for the number of vertices and regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
 We start with the number of vertices of~$\multiBraidArrangement$, whose first values are gathered in \cref{table:verticesMultiBraidArrangement}.
 
-\begin{theorem}
-\label{thm:verticesMultiBraidArrangement}
-The number of vertices of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is
-\[
-f_0(\multiBraidArrangement) = \ell \big( (\ell-1) n + 1 \big)^{n-2}.
-\]
-\end{theorem}
-
-\begin{proof}
-By \cref{prop:flatPosetMultiBraidArrangement,prop:bijectionForests}, we just need to count the well-labeled $(\ell,n)$-rainbow trees.
-A common reasoning for counting Cayley trees is the use of its Prüfer code defined by recursively pruning the smallest leaf while writing down the label of its parent.
-This bijection can be adapted to colored Cayley trees by writing down the label of the parent colored by the color of the pruned leaf.
-We get a colored word of length $n-1$.
-Their are two possibilities:
-\begin{itemize}
-\item either the pruned leaf is attached to the node~$1$ and it can have all $\ell$ colors,
-\item or it is attached to one of the $n-1$ other nodes and it can only have $\ell-1$ colors.
-\end{itemize}
-Note that the last letter in the Prüfer code (obtained by removing the last edge) is necessarily the root $1$, with $\ell$ possible different colors.
-Hence, there are $\big( \ell+(n-1)(\ell-1) \big)^{n-2} \ell$ such words.
-Similar ideas where used in~\cite{Lewis}.
-\vincent{Improve citation}
-\end{proof}
-%
 \begin{table}
 	\centerline{
 		\begin{tabular}[t]{c|cccccccc}
@@ -558,20 +648,44 @@ Similar ideas where used in~\cite{Lewis}.
 		\end{tabular}
 	}
 	\vspace{.3cm}
-	\caption{The numbers $f_0(\multiBraidArrangement) = \ell \big( (\ell-1) n + 1 \big)^{n-2}$ of vertices of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ for~$\ell,n \in [8]$.}
+	\caption{The numbers $f_0(\multiBraidArrangement) = \ell \big( (\ell-1) n + 1 \big)^{n-2}$ of vertices of~$\multiBraidArrangement$ for~$\ell,n \in [8]$.}
 	\label{table:verticesMultiBraidArrangement}
 \end{table}
-%
+
+\begin{theorem}
+\label{thm:verticesMultiBraidArrangement}
+The number of vertices of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is
+\[
+f_0(\multiBraidArrangement) = \ell \big( (\ell-1) n + 1 \big)^{n-2}.
+\]
+\end{theorem}
+
+\begin{proof}
+By \cref{prop:flatPosetMultiBraidArrangement,prop:bijectionForests}, we just need to count the labeled $(\ell,n)$-rainbow trees.
+A common reasoning for counting Cayley trees is the use of its Prüfer code defined by recursively pruning the smallest leaf while writing down the label of its parent.
+This bijection can be adapted to colored Cayley trees by writing down the label of the parent colored by the color of the pruned leaf.
+We get a colored word of length $n-1$.
+Their are two possibilities:
+\begin{itemize}
+\item either the pruned leaf is attached to the node~$1$ and it can have all $\ell$ colors,
+\item or it is attached to one of the $n-1$ other nodes and it can only have $\ell-1$ colors.
+\end{itemize}
+Note that the last letter in the Prüfer code (obtained by removing the last edge) is necessarily the root $1$, with $\ell$ possible different colors.
+Hence, there are $\big( \ell+(n-1)(\ell-1) \big)^{n-2} \ell$ such words.
+Similar ideas where used in~\cite{Lewis}.
+\vincent{Improve citation}
+\end{proof}
+
 \begin{theorem}
 \label{thm:verticesRefinedMultiBraidArrangement}
-For any~$k_1, \dots, k_\ell$ such that~$0 \le k_i \le n-1$ for all~$i \in [\ell]$ and~$\sum_{i=1}^\ell k_i = n-1$, the number of vertices~$v$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ such that the smallest flat of the $i$th copy of~$\braidArrangement$ containing~$v$ has dimension~$n-k_i-1$ is given by
+For any~$k_1, \dots, k_\ell$ such that~$0 \le k_i \le n-1$ for~$i \in [\ell]$ and~${\sum_{i=1}^\ell k_i = n-1}$, the number of vertices~$v$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ such that the smallest flat of the $i$th copy of~$\braidArrangement$ containing~$v$ has dimension~$n-k_i-1$ is given by
 \[
 n^{\ell-1} \binom{n-1}{k_1, \dots, k_\ell} \prod_{i=1}^\ell (n-k_i)^{k_i-1}.
 \]
 \end{theorem}
 
 \begin{proof}
-By \cref{prop:flatPosetMultiBraidArrangement,prop:bijectionForests}, we just need to count the well-labeled $(\ell,n)$-rainbow trees with~$k_i$ nodes colored by~$i$.
+By \cref{prop:flatPosetMultiBraidArrangement,prop:bijectionForests}, we just need to count the labeled $(\ell,n)$-rainbow trees with~$k_i$ nodes colored by~$i$.
 Forgetting the labels, the $(\ell,n)$-rainbow trees with~$k_i$ nodes colored by~$i$ are precisely the spanning trees of the complete multipartite graph~$K_{k_1, \dots, k_\ell, 1}$ (where the last~$1$ stands for the uncolored root).
 Using a Pr\"ufer code similar to that of the proof of \cref{thm:verticesMultiBraidArrangement}, R.~Lewis proved in~\cite{Lewis} that the latter are counted by~${n^{\ell-1} \prod_{i=1}^\ell (n-k_i)^{k_i-1}}$.
 Finally, the possible labelings are counted by the multinomial coefficient~$\binom{n-1}{k_1, \dots, k_\ell}$.
@@ -587,8 +701,76 @@ where~$\displaystyle F_{\ell,m} \eqdef \frac{1}{(\ell-1)m+1} \binom{\ell m}{m}$ 
 \end{theorem}
 
 \begin{proof}
-\vincent{TODO}
+By \cref{thm:MobiusPolynomialMultiBraidArrangement,prop:bijectionForests}, the coefficient of~$x^{n-1}$ in the M\"obius polynomial~$\mobPol[{\multiBraidArrangement}]$ is given by
+\[
+[x^{n-1}] \, \mobPol[{\multiBraidArrangement}] = \sum_{\b{F} \in \forestPoset} \mu_{\forestPoset}(\hat 0, \b{F}) \, y^{\dim(\b{F})} = \sum_{F \in \rainbowForests} \lambda(F) \, (-1)^{n-\#F} \, \omega(F) \, y^{\#F-1}.
+\]
+From \cref{lem:labelingRainbowForest}, we observe that
+\[
+\frac{\lambda(F) \, \omega(F) \, (-y)^{\#F} \, z^{|F|}}{|F|!} = \prod_{T \in F} \frac{-y \, z^{|T|}}{|T|}
+\]
+where $T$ ranges over the trees of~$F$.
+Now using that rainbow forests are exactly sets of rainbow trees, we obtain that
+\[
+\sum_{F \in \rainbowForests[][\ell]} \frac{ \lambda(F) \, \omega(F) \, (-y)^{\#F} \, z^{|F|}}{|F|!} = \sum_{F \in \rainbowForests[][\ell]} \prod_{T \in F} \frac{-y \, z^{|T|}}{|T|} = \exp \bigg( \sum_{T \in \rainbowTrees[][\ell]} \frac{-y \, z^{|T|}}{|T|} \bigg).
+\]
+From \cref{lem:FussCatalan}, we obtain that
+\[
+\exp \bigg( \sum_{T \in \rainbowTrees[][\ell]} \frac{-y \, z^{|T|}}{|T|} \bigg) = \exp \bigg( - \sum_{m \ge 1} \frac{F_{\ell,m} \, y \, z^m}{m} \bigg).
+\]
+We conclude that
+\begin{align*}
+[x^{n-1}] \, \mobPol[{\multiBraidArrangement}] 
+& = \sum_{F \in \rainbowForests}  \lambda(F) \, (-1)^{n-\#F} \, \omega(F) \, y^{\#F-1} \\
+& = \frac{(-1)^n \, n!}{y} [z^n] \sum_{F \in \rainbowForests[][\ell]} \frac{ \lambda(F) \, \omega(F) \, (-y)^{\#F} \, z^{|F|}}{|F|!} \\
+& = \frac{(-1)^n n!}{y} \, [z^n] \, \exp \bigg( - \sum_{m \ge 1} \frac{F_{\ell,m} \, y \, z^m}{m} \bigg).
+\qedhere
+\end{align*}
 \end{proof}
+
+From \cref{thm:regionsMultiBraidArrangement}, we obtain the number of regions and bounded regions of~$\multiBraidArrangement$, whose first values are gathered in \cref{table:regionsMultiBraidArrangement,table:boundedRegionsMultiBraidArrangement}.
+
+\begin{table}
+	\centerline{
+		\begin{tabular}[t]{c|cccccccc}
+			$n \backslash \ell$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ \\ % & $9$ \\
+			\hline
+			$1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ \\ % & $1$ \\
+			$2$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ \\ % & $10$ \\
+			$3$ & $6$ & $17$ & $34$ & $57$ & $86$ & $121$ & $162$ & $209$ \\ % & $262$ \\
+			$4$ & $24$ & $149$ & $472$ & $1089$ & $2096$ & $3589$ & $5664$ & $8417$ \\ % & $11944$ \\
+			$5$ & $120$ & $1809$ & $9328$ & $29937$ & $73896$ & $154465$ & $287904$ & $493473$ \\ % & $793432$ \\
+			$6$ & $720$ & $28399$ & $241888$ & $1085157$ & $3442816$ & $8795635$ & $19376064$ & $38323753$ \\ % & $69841072$ \\
+			$7$ & $5040$ & $550297$ & $7806832$ & $49075065$ & $200320816$ & $625812385$ & $1629858672$ & $3720648337$ \\ % & $7686190000$ \\
+			$8$ & $40320$ & $12732873$ & $302346112$ & $2666534049$ & $14010892416$ & $53536186825$ & $164859458688$ & $434390214657$ \\ % & $1017282905344$ \\
+%			$9$ & $362880$ & $343231361$ & $13682809216$ & $169423639713$ & $1146173002496$ & $5357227099105$ & $19506923076096$ & $59328538244801$ & $157507267166848$
+		\end{tabular}
+	}
+	\vspace{.3cm}
+	\caption{The numbers $f_{n-1}(\multiBraidArrangement)$ of regions of~$\multiBraidArrangement$ for~$\ell,n \in [8]$.}
+	\label{table:regionsMultiBraidArrangement}
+\end{table}
+
+\begin{table}
+	\centerline{
+		\begin{tabular}[t]{c|cccccccc}
+			$n \backslash \ell$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ \\ % & $9$ \\
+			\hline
+			$1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ \\ % & $1$ \\
+			$2$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ \\ % & $8$ \\
+			$3$ & $0$ & $5$ & $16$ & $33$ & $56$ & $85$ & $120$ & $161$ \\ % & $208$ \\
+			$4$ & $0$ & $43$ & $224$ & $639$ & $1384$ & $2555$ & $4248$ & $6559$ \\ % & $9584$ \\
+			$5$ & $0$ & $529$ & $4528$ & $17937$ & $49696$ & $111745$ & $219024$ & $389473$ \\ % & $644032$ \\
+			$6$ & $0$ & $8501$ & $120272$ & $663363$ & $2354624$ & $6455225$ & $14926176$ & $30583847$ \\ % & $57255488$ \\
+			$7$ & $0$ & $169021$ & $3968704$ & $30533409$ & $138995776$ & $464913325$ & $1268796096$ & $2996735329$ \\ % & $6353133184$ \\
+			$8$ & $0$ & $4010455$ & $156745472$ & $1684352799$ & $9841053184$ & $40179437975$ & $129465630720$ & $352560518527$ \\ % & $846588258944$ \\
+%			$9$ & $0$ & $110676833$ & $7216242688$ & $108413745057$ & $813420601856$ & $4055310777025$ & $15431698810368$ & $48461340225473$ & $131823966149632$
+		\end{tabular}
+	}
+	\vspace{.3cm}
+	\caption{The numbers $b_{n-1}(\multiBraidArrangement)$ of bounded regions of~$\multiBraidArrangement$ for~$\ell,n \in [8]$.}
+	\label{table:boundedRegionsMultiBraidArrangement}
+\end{table}
 
 \begin{corollary}
 \label{coro:regionsMultiBraidArrangement}
@@ -672,12 +854,6 @@ which vanishes by~\eqref{eq:diff}.
 
 \vincent{Can we make a bijective proof of the equality $U_\ell(z) = \frac{\partial}{\partial z} V_\ell(z)$?}
 \end{proof}
-
-\begin{example}
-The number of regions and bounded regions of~$\multiBraidArrangement$ are reported in \cref{table:regionsMultiBraidArrangement}.
-
-\vincent{TODO: examples + numbers.}
-\end{example}
 
 \subsection{Back to the permutahedron diagonal} 
 \label{subsec:enumerationDiagonal}

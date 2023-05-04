@@ -123,6 +123,8 @@
 \newcommandx{\mobPol}[3][1 = \arrangement, 2 = x, 3 = y]{\b{\mu}_{#1}(#2, #3)} % Mobius polynomial
 \newcommandx{\partitionPoset}[1][1 = n]{\mathsf{Pa}_{#1}} % partition poset
 \newcommandx{\forestPoset}[2][1 = n, 2 = \ell]{\mathsf{Fo}_{#1}^{#2}} % forest poset
+\newcommandx{\rainbowForests}[2][1 = n, 2 = \ell]{\mathsf{RF}_{#1}^{#2}} % rainbow forests
+\newcommandx{\rainbowTrees}[2][1 = n, 2 = \ell]{\mathsf{RT}_{#1}^{#2}} % rainbow trees
 
 %Colors
 \newcommand{\0}{\color{blue}{\mathsf{0}}}
@@ -147,7 +149,7 @@
 \definecolor{part4}{HTML}{\could}
 
 %OEIS
-\newcommand{\OEIS}[1]{{\rm \href{http://oeis.org/#1}{\texttt{#1}}}}
+\newcommand{\OEIS}[1]{\cite[\href{http://oeis.org/#1}{\texttt{#1}}]{OEIS}}
 
 %Commentaires 
 
@@ -203,6 +205,7 @@
 \newcommand{\eg}{\textit{e.g.},~} % exempli gratia
 \newcommand{\set}[2]{\left\{ #1 \;\middle|\; #2 \right\}} % set notation
 \newcommand{\eqdef}{\mbox{\,\raisebox{0.2ex}{\scriptsize\ensuremath{\mathrm:}}\ensuremath{=}\,}} % :=
+\newcommand{\defeq}{\mbox{~\ensuremath{=}\raisebox{0.2ex}{\scriptsize\ensuremath{\mathrm:}} }} % =:
 \newcommand{\defn}[1]{\textsl{\darkblue #1}} % emphasis of a definition
 
 % ----------------------------------------------------------------
