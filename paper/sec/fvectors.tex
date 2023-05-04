@@ -367,32 +367,14 @@ The \defn{dimension} of~$\b{F}$ is~$\dim(\b{F}) \eqdef n - 1 - \ell n + \sum_{i 
 See \cref{fig:forests}.
 The \defn{$(\ell,n)$-partition forest poset} is the poset~$\forestPoset$ on $(\ell,n)$-partition forests ordered by componentwise refinement.
 In other words, $\forestPoset$ is the subposet of the $\ell$th Cartesian power of the partition poset~$\partitionPoset$ induced by $(\ell,n)$-partition forests.
-Note that the maximal elements of~$\forestPoset$ are the $(\ell, n)$-trees.
+Note that the maximal elements of~$\forestPoset$ are the $(\ell, n)$-partition trees.
 %
 \begin{figure}
 	\centerline{\includegraphics[scale=.9]{forests}}
-	\caption{A $(3,6)$-forest with its intersection hypergraph and the corresponding $(3,6)$-rainbow forest (top) and a $(3,6)$-tree with its intersection hypertree and the corresponding $(3,6)$-rainbow tree (bottom).}
+	\caption{A $(3,6)$-partition forest with its intersection hypergraph and the corresponding $(3,6)$-rainbow forest (top) and a $(3,6)$-partition tree with its intersection hypertree and the corresponding $(3,6)$-rainbow tree (bottom).}
 	\label{fig:forests}
 \end{figure}
 \end{definition}
-
-%\begin{remark}
-%Note that by rooting each connected component of the $(\ell,n)$ forest in its smallest label and splitting hyperedges in edges between each vertex of the hyperedge and the closest vertex from the root one get the following alternative definitions for  $(\ell,n)$-forests and  $(\ell,n)$-trees:
-%A {$(\ell,n)$-forest} (resp.~{$(\ell,n)$-tree}) is a forest (resp. tree) in which:
-%\begin{itemize}
-%\item each root is the smallest in its connected component 
-%\item edges are colored by $\{1, \ldots, \ell\}$ 
-%\item if a vertex $v$ is not a root, the unique path from $v$ to the root starts with an edge $e$ of color $c$: $e$ is then the only edge adjacent to $v$ of this color. 
-%\end{itemize}
-%We represent this interpretation of $(\ell,n)$-forests on Figure \ref{fig:forests} and the according intersection poset of $\multiBraidArrangement[3][2]$ on Figure \ref{fig:braidArrangementTrees32}. 
-%\vincent{Retravailler}
-%\end{remark}
-
-%\begin{figure}
-%	\centerline{\includegraphics[scale=.9]{figures/intersectionPosetBraidArrangementTrees32}}
-%	\caption{The flat poset of $\multiBraidArrangement[3][2]$ in terms of forests. See also \cref{fig:MultiBraidArrangement32}.}
-%	\label{fig:braidArrangementTrees32}
-%\end{figure}
 
 \begin{proposition}
 \label{prop:flatPosetMultiBraidArrangement}
@@ -993,7 +975,7 @@ The result is a spanning tree of the complete graph~$K_{n+1}$ on~$\{0, \dots, n\
 %
 \begin{figure}
 	\centerline{\includegraphics[scale=1]{tree}}
-	\caption{The bijection from rooted $(\ell,n)$-trees (left) to spanning trees of~$K_{n+1}$ containing the edge~$(0,1)$ (right).}
+	\caption{The bijection from rooted $(\ell,n)$-partition trees (left) to spanning trees of~$K_{n+1}$ containing the edge~$(0,1)$ (right).}
 	\label{fig:tree}
 \end{figure}
 %
