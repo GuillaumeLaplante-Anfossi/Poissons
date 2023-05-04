@@ -804,19 +804,20 @@ There are four cases to consider.
     \item $\gamma$ contains one element $m\in M_k$, i.e. it is of the form $\gamma = \alpha m \beta$.
     Note that since $M_k$ defines a shift, $m$ is not in $\delta_{k,k+1}$, and $\delta_{k,k+1}$ is unaffected by the shift. 
     We assume that $m$ is incoming to $R_\mathbf{M}(\sigma)_{k}$, the case when it is outgoing is similar.
-    We must have $\alpha \cap \delta_{k,k+1}=\emptyset$ (resp. $\beta \cap \delta_{k,k+1}=\emptyset$) since otherwise there would be an oriented loop from $R_\mathbf{M}(\sigma)_{k}$ to itself.
-    For the same reason, $\beta \cap \delta_{k,k+1}$ (resp. $\alpha \cap \delta_{k,k+1}$) must be connected and starting (resp. ending) at $R_\mathbf{M}(\sigma)_{k}$.
+    We must have $\alpha \cap \delta_{k,k+1}=\emptyset$ since otherwise there would be an oriented loop from $R_\mathbf{M}(\sigma)_{k}$ to itself.
+    For the same reason, $\beta \cap \delta_{k,k+1}$ must be connected and starting at $R_\mathbf{M}(\sigma)_{k}$.
     Then there are two cases to consider:
     \begin{enumerate}
-        \item $\beta$ (resp. $\alpha$) does not use any steps of $\delta_{k,k+1}$, in which case $\gamma' = \alpha m \delta_{k+1,k} \beta$ (resp. $\gamma'=\alpha\delta_{k,k+1}m\beta$).
+        \item $\beta$ does not use any steps of $\delta_{k,k+1}$, in which case $\gamma' = \alpha m \delta_{k+1,k} \beta$.
         This is a path in the tree of $(R_{M_k}R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$ with no repeated steps, as such it must be the unique minimal path. 
         Since $\max \gamma \geq m$ and $m\geq \max \delta_{k,k+1}$, we deduce that $\max \gamma = \max \gamma'$.
         
-        \item $\beta$ (resp. $\alpha$) uses steps of $\delta_{k,k+1}$, in which case $\gamma' = \alpha m (\delta_{k+1,k}\ssm \beta)(\beta \ssm \delta_{k+1,k})$ (resp. $\gamma' = (\alpha\ssm \delta_{k,k+1})(\delta_{k,k+1}\ssm\alpha) m \beta$).
-        This follows, as we know that $\beta$ (resp. $\alpha$) must follow the path $\delta_{k,k+1}$ for some time before diverging ($\beta$ -resp. $\alpha$- could also be a subset of $\delta_{k,k+1}$, in which case it will never diverge).
+        \item $\beta$ uses steps of $\delta_{k,k+1}$, in which case $\gamma' = \alpha m (\delta_{k+1,k}\ssm \beta)(\beta \ssm \delta_{k+1,k})$.
+        This follows, as we know that $\beta$ must follow the path $\delta_{k,k+1}$ for some time before diverging ($\beta$ could also be a subset of $\delta_{k,k+1}$, in which case it will never diverge).
         As such, the path $(\delta_{k+1,k}\ssm \beta)$ reaches the point of divergence from $R_{\mathbf{M}}(\sigma)_{k+1}$ instead of $R_{\mathbf{M}}(\sigma)_{k}$, then the path $(\beta \ssm \delta_{k+1,k})$ completes the rest of the route unchanged.
+        For the same reasons as in case (a), we deduce that $\max \gamma = \max \gamma'$.
     \end{enumerate}
-    \item $\gamma$ contains two elements of $M_k$. In which case we still have $\gamma'=\gamma$ (in path elements) but $\gamma'$ will step through the $(k+1)$th block instead of $\gamma$ stepping through the $k$th block.
+    \item $\gamma$ contains two elements of $M_k$. In which case we still have $\gamma'=\gamma$ (in path elements) but $\gamma'$ will step through the $(k+1)$th block instead of $\gamma$ stepping through the $k$th block, which imples that $\max \gamma=\max \gamma'$.
     
     \item $\gamma$ contains more than two elements of $M_k$. This is impossible, as $\gamma$ would not be a minimal path on a tree.
 \end{enumerate}
