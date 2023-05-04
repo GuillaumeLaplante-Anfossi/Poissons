@@ -637,20 +637,30 @@ Since the minima of these paths are traversed from left to right, and the maxima
 
 \begin{definition}[Subset shift operators]
 \label{def:subset shifts}
-Let $(\sigma,\tau) = (\sigma_1|\dots|\sigma_k,\tau_1|\dots|\tau_l)$ be an ordered partition pair, and let $M_i\subset (\sigma_{i} \ssm \min \sigma_{i})$ be a non-empty subset such that $\min M_i> \max \sigma_{i+1}$.
-For this set we define the \emph{subset right shift operator} by
+Let $\sigma=\sigma_1|\dots|\sigma_k$ be an ordered partition, and let 
+$M_i\subsetneq \sigma_{i}$ be a non-empty subset of the block $\sigma_i$.
+The \emph{subset right shift operator} moves $M_i$ one block to the right 
 \begin{align*}
     R_{M_i}(\sigma) \eqdef \sigma_1|\dots|\sigma_i \ssm M_i|\sigma_{i+1} \cup M_i|\dots|\sigma_k
 \end{align*}
-Dually, let $M_{i+1}\subset (\tau_{i+1}\ssm \min \tau_{i+1})$  be a non-empty subset such that $\min M_{i+1}> \max \tau_{i}$.
-For this set we define the \emph{subset left shift operator} by
+and its brother the \emph{subset left shift operator} moves it one block to the left 
 \begin{align*}
-    L_{M_{i+1}}(\tau) \eqdef \tau_1|\dots|\tau_i \cup M_{i+1}|\tau_{i+1} \ssm M_{i+1}|\dots|\tau_l \ .
+    L_{M_{i}}(\sigma) \eqdef \sigma_1|\dots|\sigma_{i-1} \cup M_{i}|\sigma_{i} \ssm M_{i}|\dots|\sigma_l \ .
 \end{align*}
 \end{definition}
 
+\begin{definition}[Movable subsets]
+    \label{def:movable-subsets}
+    Let $(\sigma,\tau) = (\sigma_1|\dots|\sigma_k,\tau_1|\dots|\tau_l)$ be a pair of ordered partitions.
+    A non-empty subset $M_i \subset \sigma_i$ (resp. $N_{i}\subset \tau_{i}$) is \emph{movable} if 
+    \begin{enumerate}
+        \item $\min \sigma_i \notin M_i$ (resp. $\min \tau_{i} \notin N_i$), and
+        \item $\min M_i> \max \sigma_{i+1}$ (resp. $\min N_{i}> \max \tau_{i-1}$).
+    \end{enumerate}
+\end{definition}
+
 \begin{example}
-Performing the subset shifts $R_7$ and $L_{5,6}$ on the $\SCP$ $(\sigma,\tau)$ of \cref{ex:strong-complementary}, one obtains the pair $R_{7}(\sigma) \times L_{5,6}(\tau)$.
+Performing the subset shifts $R_7$ and $L_{5,6}$ on movable subsets of the strong complementary pair~$(\sigma,\tau)$ of \cref{ex:strong-complementary}, one obtains the pair $R_{7}(\sigma) \times L_{5,6}(\tau)$.
 \begin{center}
 \begin{tikzpicture}[scale=.7]  
     \node (p) at (0, 0) {$13|247|5|6 \times 3|17|4|256$};
@@ -700,30 +710,42 @@ Performing the subset shifts $R_7$ and $L_{5,6}$ on the $\SCP$ $(\sigma,\tau)$ o
 \end{center}
 \end{example}
 
-Observe that the left shift operator moves elements to the left, but acts on the right ordered partition.
-Dually, the right shift operator moves elements to the right but acts on the left ordered partition.
+\begin{definition}[Admissible sequences of subset shifts]
+    Let $(\sigma,\tau)$ be a pair of ordered partitions. 
+    For $p\geq 1$, a sequence of right subset shifts $\textbf{M} = (M_{i_1},\dots,M_{i_p}) \in [n]^{p}$ is \emph{admissible} if 
+    \begin{enumerate}
+        \item we have $1\leq i_1 < i_2 < \dots < i_p \leq k-1$, and
+        \item each $M_{i_j}$ is a movable subset of $R_{M_{i_j-1}}\dots R_{M_{i_1}}(\sigma)_{i_j}$.
+    \end{enumerate}
+    We denote the resulting ordered partition by $R_\mathbf{M}(\sigma) \eqdef R_{M_{i_p}}\dots R_{M_{i_1}}(\sigma)$.
+    The result of an admissible sequence of left subset shifts $L_\mathbf{N}(\tau)  \eqdef  L_{N_{i_1}}\dots L_{N_{i_q}}(\tau)$ is defined similarly via the condition $2\leq i_1 < i_2 \dots < i_q \leq k$, with $q\geq 1$.
+\end{definition}
 
-\begin{remark}
-    In the analogous description for the diagonal $\LAD$ obtained at the end of the Section \Guillaume{[REF]}, left and right shift operators act on the left and right ordered partitions, respectively. 
-\end{remark}
-
-For $p\geq 1$, let $\textbf{M} = (M_{i_1},\dots,M_{i_p}) \in [n]^{p}$, be such that $1\leq i_1 < i_2 \dots < i_p \leq k-1$, and each of the iterated compositions $R_\mathbf{M}(\sigma)  \eqdef  R_{M_{i_p}}\dots R_{M_{i_1}}(\sigma)$ are well-defined.
-Similarly, for $q\geq 1$ let $\textbf{N} = (N_{i_q},\dots,N_{i_1}) \in [n]^{q}$ be such that $2\leq i_1 < i_2 \dots < i_q \leq k$, and each of the iterated compositions $L_\mathbf{N}(\tau)  \eqdef  L_{N_{i_1}}\dots L_{N_{i_q}}(\tau)$ are well-defined.
-By convention, we allow the empty sequence of subset shift operators, which acts by the identity, i.e. define $R_{\mathbf{\emptyset}}(\sigma)  \eqdef  \sigma$ and $L_{\mathbf{\emptyset}} (\tau) \eqdef  \tau$.
+By convention, we declare the empty sequence of subset shift operators to be admissible, and to act by the identity, i.e. we have $R_{\mathbf{\emptyset}}(\sigma)  \eqdef  \sigma$ and $L_{\mathbf{\emptyset}} (\tau) \eqdef  \tau$.
 
 \begin{definition}[Subset shift $\SU$ diagonal {\cite{SaneblidzeUmble04,saneblidzeComparingDiagonalsAssociahedra2022}}]
    The facets of the \emph{subset shift $\SU$ diagonal} are given by the formula
     \begin{align*}
         \SUD([n]) = \bigcup_{(\sigma,\tau)} \bigcup_{\mathbf{M}, \mathbf{N}} R_\mathbf{M}(\sigma)\times L_\mathbf{N}(\tau)
     \end{align*}
-    where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and on all well-defined sequences of shift operators $\textbf{M},\textbf{N}$.
+    where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and on all admissible sequences of shift operators $\textbf{M},\textbf{N}$.
 \end{definition}
+
+\begin{remark}
+    Observe that the left (resp. right) shift operator moves elements to the left (resp. right), but acts on the right (resp. left) ordered partition.
+    In the analogous description for the diagonal $\LAD$ obtained at the end of the Section \Guillaume{[REF]}, left and right shift operators act on the left and right ordered partitions, respectively. 
+\end{remark}
 
 Let us now introduce an alternative definition, which will be proven in \cref{prop:subset shift to shift bijection} to be equivalent to the preceding one, and in \cref{prop: shift SUD and SUD are equal} to $\SUD$ with its $(I,J)$-description. 
 
-\begin{definition}[Critical elements] \label{def:critical SU shift}
+\begin{definition}[Critical elements] 
+    \label{def:critical-elements}
     Let $(\sigma,\tau)$ be a pair of ordered partitions.
-    A \emph{critical element} is either an element $\rho \in (\sigma_i \ssm \min \sigma_i)$ such that $\rho>\max \sigma_{i,i+1}$, or an element $\rho \in (\tau_{i+1} \ssm \min\tau_{i+1})$ such that $\rho > \max \tau_{i,i+1}$. 
+    An element $\rho \in \sigma_i$ (resp. $\rho \in \tau_i$) is \emph{critical} if 
+    \begin{enumerate}
+        \item $\rho \neq \min \sigma_i$ (resp. $\rho \neq \min \tau_i$), and
+        \item $\rho>\max \sigma_{i,i+1}$ (resp. $\rho > \max \tau_{i,i-1}$).
+    \end{enumerate}
 \end{definition}
 
 Let us call \emph{critical} the right and left shift operators associated with the singleton sets given by critical elements, and denote them by $R_{\rho}$ and $L_{\rho}$.
@@ -735,6 +757,9 @@ Let us call \emph{critical} the right and left shift operators associated with t
     \end{align*}
     where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and on all well-defined sequences of critical shift operators $\textbf{M},\textbf{N}$.
 \end{definition}
+
+Note here the two important differences between the subset shift and shift diagonals: a critical element $\rho$ is not required to satisfy $\rho > \max\sigma_{i+1}$, and the numbers indexing a sequence of shifts are not required to be increasing.
+
 
 %\Guillaume{Do we keep the m-shifts?}
 
@@ -825,42 +850,46 @@ Observe all (non-trivial or non-contradictory) paths $\gamma'$ contain $m>\min M
 It thus follows from \cref{eq:shift-subset-dominates} that $\max \gamma' = \max \gamma$: in each case, the maximal element will either be $m$, or in $\alpha$, or in $\beta$.
 \end{proof}
 
-The key result of the inductive proof was the chain of inequalities which yielded $\min M_k > \max R_{\mathbf{M}}(\sigma)_{k,k+1}$ (\cref{eq:shift-subset-dominates}).
-It turns out, if we assume the inequality holds, we can drop the assumption that $k$ is greater than the maximal index used by $\mathbf{M}$, and the assumption that $\min M_k > \max R_{\mathbf{M}}(\sigma)_{k+1}$. 
-Furthermore, once we have dropped the assumption that we need to perform shifts in an increasing order, we can generate all subset shifts by chains of singleton set shifts. This motivated the definition \cref{def:critical SU shift}.
 
-As we have assumed the necessary feature of the proof of \cref{prop:SU-preserves-max}, we have the immediate corollary.
-
-\begin{corollary} \label{cor: SU shift conserves maximal element of paths}
-The critical left and right shift operators conserve the maximal element of paths, and if $(\sigma',\tau')$ is generated from critical shifts of $(\sigma,\tau) \in SCP$ then,
+\begin{corollary} 
+\label{cor:SU-shift-preserves-max}
+The critical left and right shift operators conserve the maximal element of paths.
+In particular, if $(\sigma',\tau')$ is generated from a $\SCP$ $(\sigma,\tau)$ by critical shifts, then we have
 \begin{align*}
-    \max \sigma'_{i,i+1} = \max \sigma_{i+1} \text{ and } \max \tau'_{i,i+1} = \max \tau_{i}
+    \max \sigma'_{i,i+1} = \max \sigma_{i+1} \text{ and } \max \tau'_{i,i+1} = \max \tau_{i} \ .
 \end{align*}
 \end{corollary}
 
-\begin{definition}
-The facets of the shift $\SUD$ are $\SCP$s, and their image under iterated applications of critical left and right shift operators.
-\end{definition}
+\begin{proof}
+    By definition of the critical shifts, \cref{eq:shift-subset-dominates} holds and we can run the proof of \cref{prop:SU-preserves-max} \emph{mutatis mutandis}.
+\end{proof}
 
-As one might suspect given the above corollaries.
+We have now dropped the assumption that $\min M_k > \max R_{\mathbf{M}}(\sigma)_{k+1}$, and the assumption that we need to perform shifts in an increasing order; once this is done, we can generate all subset shifts by chains of singleton set shifts.
 
-\begin{proposition}\label{prop:subset shift to shift bijection}
-The subset shift, and shift definitions of the $\SUD$ diagonal coincide.
+\begin{proposition}
+\label{prop:subset shift to shift bijection}
+The subset shift and shift definitions of the $\SUD$ diagonal coincide.
 \end{proposition}
 
 \begin{proof}
 We analyse the right shift operator, the case of the left shift is similar. 
-First, we observe that any subset right shift $R_{M_k}(\sigma)$ can be decomposed in a series of right shifts: since $\min M_k > \max \sigma_{k,k+1}$ by the proof of \cref{prop:SU-preserves-max}, we can first shift $\min M_k$ to the right, then $\min (M_k \ssm \min M_k)$, and so on until the entire subset $M_k$ has been shifted to the right. 
-This shows that any facet of the subset shift $\SUD$ diagonal is also a facet in the shift $\SUD$ diagonal
-\\\\
-For the reverse inclusion, we proceed by induction. We are required to show that if we apply a critical right shift to $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$, say $(R_{\rho}R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$, then this can be re-expressed as a well-defined subset shift operation i.e. $(R_{\mathbf{M'}}(\sigma),L_{\mathbf{N}}(\tau))$. Suppose that prior to the critical shift that $\rho$ lives in block $l$, then we must have
+First, we observe that any subset right shift $R_{M_k}(\sigma)$ can be decomposed into a series of critical elements right shifts: since $\min M_k > \max \sigma_{k,k+1}$ by the proof of \cref{prop:SU-preserves-max}, we can shift the elements of $M_k$ to the right one after the other (in any order!).
+This shows that any facet of the subset shift $\SUD$ diagonal is also a facet in the shift $\SUD$ diagonal.
+
+For the reverse inclusion, we proceed by induction. 
+We are required to show that if we apply a critical right shift to $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$, say $(R_{\rho}R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$, then this can be re-expressed as a well-defined subset shift operation $(R_{\mathbf{M'}}(\sigma),L_{\mathbf{N}}(\tau))$. Suppose that prior to the critical shift that $\rho$ lives in block $l$, then we must have
 \begin{align*}
-    1 \leq i_1 < \dots < i_j \leq l < i_{j+1} <\dots< i_d \leq k-1
+    1 \leq i_1 < \dots < i_j \leq l < i_{j+1} <\dots< i_p \leq k-1
 \end{align*}
-for some $j\in [d]$. If $i_j < l$, then $R_{\rho}R_{\mathbf{M}}(\sigma) = R_{M_{i_d}}\dots R_{\{\rho\}_{l}}R_{M_{i_j}}\dots R_{M_{i_1}}(\sigma)$, and we are done.
-Otherwise, if $i_j = l$, let $M'_{i_j} = M_{i_j} \cup \{\rho \}$. It is clear that $R_{\rho}R_{\mathbf{M}}(\sigma) = R_{M_{i_d}}\dots R_{M'_{i_j}}\dots R_{M_{i_1}}(\sigma)$, however, we need to check that $R_{M'_{i_j}}$ is a well-defined subset operator. 
-We know the subset shift operators will never move the minimal element, so $\rho > \min R_{\mathbf{M}}(\sigma)_{i_j}= \min (R_{M_{i_{j-1}}}\dots R_{M_{i_1}}(\sigma))_{i_j}$.
-Then from \cref{cor: SU shift conserves maximal element of paths}, we know that $\rho>\max \sigma_{i_j+1} = \max (R_{M_{i_{j-1}}}\dots R_{M_{i_1}}(\sigma))_{i_j + 1}$, where the equality follows as $i_1<\dots<i_{j-1}<i_j$. This proves that $R_{M'_{i_j}}$ is well-defined, completing the inductive proof.
+for some $j$. 
+If $i_j < l$, then $R_{\rho}R_{\mathbf{M}}(\sigma) = R_{M_{i_p}}\dots R_{\{\rho\}_{l}}R_{M_{i_j}}\dots R_{M_{i_1}}(\sigma)$, and we are done.
+Otherwise, if $i_j = l$, we set $M'_{i_j} = M_{i_j} \cup \{\rho \}$. 
+It is clear that we have $R_{\rho}R_{\mathbf{M}}(\sigma) = R_{M_{i_p}}\dots R_{M'_{i_j}}\dots R_{M_{i_1}}(\sigma)$, however, we need to check that $R_{M'_{i_j}}$ is a well-defined subset operator. 
+That is, we need to check that $\min M_{i_j}' > \max (R_{M_{i_{j-1}}}\dots R_{M_{i_1}}(\sigma))_{i_j+1}$.
+If~$\rho > \min M_{i_j}$, then we are done since in this case $\min M_{i_j}'=\min M_{i_j}$ and $R_{M_{i_j}}$ is a well-defined subset shift operator.
+Otherwise, we have $\rho=\min M_{i_j}'$. 
+Since by definition subset shift operators do not move the minimal element of a block, we have that $\rho > \min R_{\mathbf{M}}(\sigma)_{i_j}= \min (R_{M_{i_{j-1}}}\dots R_{M_{i_1}}(\sigma))_{i_j}$.
+Then from \cref{cor:SU-shift-preserves-max}, we know that $\rho>\max \sigma_{i_j+1} = \max (R_{M_{i_{j-1}}}\dots R_{M_{i_1}}(\sigma))_{i_j + 1}$, where the equality follows as $i_1<\dots<i_{j-1}<i_j$. This proves that $R_{M'_{i_j}}$ is well-defined, completing the inductive proof.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -875,7 +904,7 @@ Let $(\sigma,\tau)\in \SUD$, if we apply a critical shift operator to it, then w
 \end{lemma}
 \begin{proof}
 We consider just the right shift, and the left proceeds similarly. 
-\cref{cor: SU shift conserves maximal element of paths} shows that the maxima of paths between consecutive vertices in $(R_{\rho}(\sigma),\tau)$ are the same as the ones in $(\sigma,\tau)$. 
+\cref{cor:SU-shift-preserves-max} shows that the maxima of paths between consecutive vertices in $(R_{\rho}(\sigma),\tau)$ are the same as the ones in $(\sigma,\tau)$. 
 Thus, all maxima of paths in $(R_{\rho}(\sigma),\tau)$ are traversed from right to left, and hence by \cref{prop:SUD are ordered EC}, we have that $(R_{\rho}(\sigma),\tau) \in \SUD$.   
 \end{proof}
 
