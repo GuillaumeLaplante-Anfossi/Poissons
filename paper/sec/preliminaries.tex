@@ -66,6 +66,13 @@ We denote by $|\sigma|:=|I|$ the size of the partition (its number of blocks).
 A partition is \emph{ordered} if the indexing set $I$ is equipped with a total order; in what follows we shall use $I=[k]$ for $k \in \N$. 
 We use the shorthand $14|23$ to denote both the unordered  partition $\{\{1,4\},\{2,3\}\}$, and also the ordered partition $(\{1,4\},\{2,3\})$ (when the order is clear from context).
 
+\begin{figure}
+	\includegraphics[scale=.9]{diagonalPermutahedron2}
+	\caption{Labelings of the faces of the permutahedron~$\Perm[3]$ by ordered partitions of~$[3]$ (left) and of the faces of the LA diagonal  $\LAD$ of the permutahedron~$\Perm[3]$ by pairs of compatible ordered partitions of~$[3]$ (right).}
+	\label{fig:diagonalPermutahedron2}
+\end{figure}
+\vincent{I have included this picture here to be sure that we don't forget it. I should make one for the SU diagonal~$\SUD$ as well.}
+
 Let us recall the combinatorial formula for the cellular approximation of the diagonal of the permutahedra from \cite[Theorem 3.16]{LA21}.
 Let $n\geq 1$, and let us write \[ \LA(n) \coloneqq \{(I,J) \ | \ I,J\subset\{1,\ldots,n\}, |I|=|J|, I\cap J=\emptyset, \min(I\cup J)\in I \}. \] 
 Let $\vec v \in \R^n$ be such that $\forall (I,J) \in \LA(n)$, we have $\sum_{i \in I} v_i > \sum_{j \in J} v_j$, and let $P\subset \R^n$ denote the standard $(n-1)$-dimensional permutahedron.

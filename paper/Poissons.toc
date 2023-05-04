@@ -16,17 +16,17 @@
 \contentsline {subsection}{\tocsubsection {}{2.3}{Operadic diagonals for the permutahedra}}{20}{subsection.2.3}%
 \contentsline {subsection}{\tocsubsection {}{2.4}{Isomorphisms between permutahedra's operadic diagonals}}{23}{subsection.2.4}%
 \contentsline {subsection}{\tocsubsection {}{2.5}{Facets of operadic diagonals}}{24}{subsection.2.5}%
-\contentsline {subsection}{\tocsubsection {}{2.6}{Vertices of operadic diagonals}}{28}{subsection.2.6}%
+\contentsline {subsection}{\tocsubsection {}{2.6}{Vertices of operadic diagonals}}{29}{subsection.2.6}%
 \contentsline {subsection}{\tocsubsection {}{2.7}{The Saneblidze-Umble diagonal}}{30}{subsection.2.7}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.7.1}{Strong complementary pairs}}{30}{subsubsection.2.7.1}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.7.2}{Subset shift and shift diagonals}}{31}{subsubsection.2.7.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.7.1}{Strong complementary pairs}}{31}{subsubsection.2.7.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.7.2}{Subset shift and shift diagonals}}{32}{subsubsection.2.7.2}%
 \contentsline {subsubsection}{\tocsubsubsection {}{2.7.3}{First isomorphism: subset shift and shift}}{33}{subsubsection.2.7.3}%
 \contentsline {subsubsection}{\tocsubsubsection {}{2.7.4}{Second isomorphism: shift and $(I,J)$ coincide}}{35}{subsubsection.2.7.4}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.7.5}{Some consequences}}{38}{subsubsection.2.7.5}%
-\contentsline {subsubsection}{\tocsubsubsection {}{2.7.6}{Shifts Under the Face Poset Isomorphism}}{38}{subsubsection.2.7.6}%
-\contentsline {section}{\tocsection {}{3}{Topological operadic structures}}{40}{section.3}%
-\contentsline {subsection}{\tocsubsection {}{3.1}{Operadic diagonals on the operahedra and multiplihedra}}{40}{subsection.3.1}%
-\contentsline {subsection}{\tocsubsection {}{3.2}{Relating operadic diagonals}}{41}{subsection.3.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.7.5}{Some consequences}}{39}{subsubsection.2.7.5}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.7.6}{Shifts Under the Face Poset Isomorphism}}{39}{subsubsection.2.7.6}%
+\contentsline {section}{\tocsection {}{3}{Topological operadic structures}}{41}{section.3}%
+\contentsline {subsection}{\tocsubsection {}{3.1}{Operadic diagonals on the operahedra and multiplihedra}}{41}{subsection.3.1}%
+\contentsline {subsection}{\tocsubsection {}{3.2}{Relating operadic diagonals}}{42}{subsection.3.2}%
 \contentsline {section}{\tocsection {}{4}{Appendix: Shuffle trees}}{43}{section.4}%
 \contentsline {section}{\tocsection {}{5}{Tables}}{43}{section.5}%
 \contentsline {section}{\tocsection {}{}{References}}{44}{section*.10}%
