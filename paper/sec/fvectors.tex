@@ -3,6 +3,9 @@
 \section{Combinatorics of multiple braid arrangements}
 \label{sec:combinatorics}
 
+In this section, we study the combinatorics of hyperplane arrangements obtained as unions of generically translated copies of the braid arrangement.
+Specializing to two copies, we derive enumerative results on the diagonals of the permutahedra.
+
 \subsection{Recollection on hyperplane arrangements}
 \label{subsec:arrangements}
 
@@ -107,13 +110,19 @@ so that
 \subsection{The braid arrrangement}
 \label{subsec:braidArrangement}
 
-\vincent{TODO: short intro + refs}
+We now briefly recall the classical combinatorics of the braid arrangement.
+\vincent{add refs?}
 
 \begin{definition}
 Fix~$n \ge 1$ and denote by~$\HH$ the hyperplane of~$\R^n$ defined by~$\sum_{i = 1}^n x_i = 0$.
 The \defn{braid arrangement}~$\braidArrangement$ is the arrangement of the hyperplanes~$\set{\b{x} \in \HH}{x_i = x_j}$ for all~$1 \le i < j \le n$.
-\vincent{We have to take a decision here: do we work in~$\R^n$ or in $\HH$. At the moment, I work in~$\HH$. Working in~$\R^n$ changes vertices to rays, and multiplies all M\"obius polynomials by a factor~$xy$.}
 \end{definition}
+
+\begin{remark}
+Note that we have decided to work in the space~$\HH$ rather than in the space~$\R^n$.
+The advantage is that the braid arrangement is essential, and we can speak of its vertices.
+Working in~$\R^n$ would change vertices to rays, and would multiplie all M\"obius polynomials by a factor~$xy$.
+\end{remark}
 
 \cref{fig:braidArrangement3} illustrates the braid arrangement~$\braidArrangement[3]$ and its associated intersection poset. 
 The combinatorics of the braid arrangement~$\braidArrangement$ is well-known.
@@ -257,82 +266,82 @@ We now focus on the following specific hyperplane arrangements, illustrated in \
 %\end{table}
 
 \begin{table}
-\centerline{\scalebox{.75}{
-	\begin{tabular}{c@{\hspace{.7cm}}c@{\hspace{.7cm}}c@{\hspace{.7cm}}c}
-		$\ell = 1$ & $\ell = 2$ & $\ell = 3$ & $\ell = 4$
-		\\[.2cm]
-		\begin{tabular}[t]{c|cccc|c}
-			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
-			\hline
-			$1$ & $1$ &&&& $1$ \\
-			$2$ & $2$ & $1$ &&& $3$ \\
-			$3$ & $6$ & $6$ & $1$ && $13$ \\
-			$4$ & $24$ & $36$ & $14$ & $1$ & $75$
+	\centerline{\scalebox{.8}{
+		\begin{tabular}{c@{\hspace{.7cm}}c@{\hspace{.7cm}}c@{\hspace{.7cm}}c}
+			$\ell = 1$ & $\ell = 2$ & $\ell = 3$ & $\ell = 4$
+			\\[.2cm]
+			\begin{tabular}[t]{c|cccc|c}
+				$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+				\hline
+				$1$ & $1$ &&&& $1$ \\
+				$2$ & $2$ & $1$ &&& $3$ \\
+				$3$ & $6$ & $6$ & $1$ && $13$ \\
+				$4$ & $24$ & $36$ & $14$ & $1$ & $75$
+			\end{tabular}
+			&
+			\begin{tabular}[t]{c|cccc|c}
+				$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+				\hline
+				$1$ & $1$ &&&& $1$ \\
+				$2$ & $3$ & $2$ &&& $5$ \\
+				$3$ & $17$ & $24$ & $8$ && $49$ \\
+				$4$ & $149$ & $324$ & $226$ & $50$ & $749$
+			\end{tabular}
+			&
+			\begin{tabular}[t]{c|cccc|c}
+				$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+				\hline
+				$1$ & $1$ &&&& $1$ \\
+				$2$ & $4$ & $3$ &&& $7$ \\
+				$3$ & $34$ & $54$ & $21$ && $109$ \\
+				$4$ & $472$ & $1152$ & $924$ & $243$ & $2791$
+			\end{tabular}
+			&
+			\begin{tabular}[t]{c|cccc|c}
+				$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+				\hline
+				$1$ & $1$ &&&& $1$ \\
+				$2$ & $5$ & $4$ &&& $9$ \\
+				$3$ & $57$ & $96$ & $40$ && $193$ \\
+				$4$ & $1089$ & $2808$ & $2396$ & $676$ & $6969$
+			\end{tabular}
+			\\[2.3cm]
+			\begin{tabular}[t]{c|cccc|c}
+				$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+				\hline
+				$1$ & $1$ &&&& $1$ \\
+				$2$ & $0$ & $1$ &&& $1$ \\
+				$3$ & $0$ & $0$ & $1$ && $1$ \\
+				$4$ & $0$ & $0$ & $0$ & $1$ & $1$
+			\end{tabular}
+			&
+			\begin{tabular}[t]{c|cccc|c}
+				$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+				\hline
+				$1$ & $1$ &&&& $1$ \\
+				$2$ & $1$ & $2$ &&& $3$ \\
+				$3$ & $5$ & $12$ & $8$ && $25$ \\
+				$4$ & $43$ & $132$ & $138$ & $50$ & $363$
+			\end{tabular}
+			&
+			\begin{tabular}[t]{c|cccc|c}
+				$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+				\hline
+				$1$ & $1$ &&&& $1$ \\
+				$2$ & $2$ & $3$ &&& $5$ \\
+				$3$ & $16$ & $36$ & $21$ && $73$ \\
+				$4$ & $224$ & $684$ & $702$ & $243$ & $1853$
+			\end{tabular}
+			&
+			\begin{tabular}[t]{c|cccc|c}
+				$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+				\hline
+				$1$ & $1$ &&&& $1$ \\
+				$2$ & $3$ & $4$ &&& $7$ \\
+				$3$ & $33$ & $72$ & $40$ && $145$ \\
+				$4$ & $639$ & $1944$ & $1980$ & $676$ & $5239$
+			\end{tabular}
 		\end{tabular}
-		&
-		\begin{tabular}[t]{c|cccc|c}
-			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
-			\hline
-			$1$ & $1$ &&&& $1$ \\
-			$2$ & $3$ & $2$ &&& $5$ \\
-			$3$ & $17$ & $24$ & $8$ && $49$ \\
-			$4$ & $149$ & $324$ & $226$ & $50$ & $749$
-		\end{tabular}
-		&
-		\begin{tabular}[t]{c|cccc|c}
-			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
-			\hline
-			$1$ & $1$ &&&& $1$ \\
-			$2$ & $4$ & $3$ &&& $7$ \\
-			$3$ & $34$ & $54$ & $21$ && $109$ \\
-			$4$ & $472$ & $1152$ & $924$ & $243$ & $2791$
-		\end{tabular}
-		&
-		\begin{tabular}[t]{c|cccc|c}
-			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
-			\hline
-			$1$ & $1$ &&&& $1$ \\
-			$2$ & $5$ & $4$ &&& $9$ \\
-			$3$ & $57$ & $96$ & $40$ && $193$ \\
-			$4$ & $1089$ & $2808$ & $2396$ & $676$ & $6969$
-		\end{tabular}
-		\\[2.3cm]
-		\begin{tabular}[t]{c|cccc|c}
-			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
-			\hline
-			$1$ & $1$ &&&& $1$ \\
-			$2$ & $0$ & $1$ &&& $1$ \\
-			$3$ & $0$ & $0$ & $1$ && $1$ \\
-			$4$ & $0$ & $0$ & $0$ & $1$ & $1$
-		\end{tabular}
-		&
-		\begin{tabular}[t]{c|cccc|c}
-			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
-			\hline
-			$1$ & $1$ &&&& $1$ \\
-			$2$ & $1$ & $2$ &&& $3$ \\
-			$3$ & $5$ & $12$ & $8$ && $25$ \\
-			$4$ & $43$ & $132$ & $138$ & $50$ & $363$
-		\end{tabular}
-		&
-		\begin{tabular}[t]{c|cccc|c}
-			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
-			\hline
-			$1$ & $1$ &&&& $1$ \\
-			$2$ & $2$ & $3$ &&& $5$ \\
-			$3$ & $16$ & $36$ & $21$ && $73$ \\
-			$4$ & $224$ & $684$ & $702$ & $243$ & $1853$
-		\end{tabular}
-		&
-		\begin{tabular}[t]{c|cccc|c}
-			$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
-			\hline
-			$1$ & $1$ &&&& $1$ \\
-			$2$ & $3$ & $4$ &&& $7$ \\
-			$3$ & $33$ & $72$ & $40$ && $145$ \\
-			$4$ & $639$ & $1944$ & $1980$ & $676$ & $5239$
-		\end{tabular}
-	\end{tabular}
 	}}
 	\vspace{.3cm}
 	\caption{The face numbers (top) and the bounded face numbers (bottom) of the $(\ell,n)$-braid arrangements for~$\ell, n \in [4]$.}
@@ -546,7 +555,7 @@ F_\ell(z) = 1 + z \, F_\ell(z)^\ell.
 
 \vincent{TODO: examples rainbow trees.}
 \begin{table}
-	\centerline{
+	\centerline{\scalebox{.8}{
 		\begin{tabular}[t]{c|ccccccccc}
 			$m \backslash \ell$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ \\
 			\hline
@@ -560,7 +569,7 @@ F_\ell(z) = 1 + z \, F_\ell(z)^\ell.
 			$8$ & $1$ & $1430$ & $43263$ & $420732$ & $2330445$ & $9203634$ & $28989675$ & $77652024$ & $184138713$ \\
 			$9$ & $1$ & $4862$ & $246675$ & $3362260$ & $23950355$ & $115607310$ & $430321633$ & $1329890705$ & $3573805950$
 		\end{tabular}
-	}
+	}}
 	\vspace{.3cm}
 	\caption{The Fuss-Catalan numbers~$F_{\ell,m} = \frac{1}{(\ell-1)m+1} \binom{\ell m}{m}$ for~$\ell,m \in [9]$. See \OEIS{A062993}.}
 \end{table}
@@ -632,7 +641,7 @@ We now use our labeled $(\ell,n)$-rainbow forests of \cref{subsec:rainbowForests
 We start with the number of vertices of~$\multiBraidArrangement$, whose first values are gathered in \cref{table:verticesMultiBraidArrangement}.
 
 \begin{table}
-	\centerline{
+	\centerline{\scalebox{.8}{
 		\begin{tabular}[t]{c|cccccccc}
 			$n \backslash \ell$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ \\ % & $9$ \\
 			\hline
@@ -646,7 +655,7 @@ We start with the number of vertices of~$\multiBraidArrangement$, whose first va
 		$8$ & $1$ & $1062882$ & $72412707$ & $976562500$ & $6457339845$ & $28500625446$ & $96889010407$ & $274371577992$ \\ % & $678770015625$ \\
 %		$9$ & $1$ & $20000000$ & $2681615217$ & $53971714048$ & $474659385665$ & $2614905943296$ & $10657046640625$ & $35184372088832$ & $99426586671873$
 		\end{tabular}
-	}
+	}}
 	\vspace{.3cm}
 	\caption{The numbers $f_0(\multiBraidArrangement) = \ell \big( (\ell-1) n + 1 \big)^{n-2}$ of vertices of~$\multiBraidArrangement$ for~$\ell,n \in [8]$.}
 	\label{table:verticesMultiBraidArrangement}
@@ -731,7 +740,7 @@ We conclude that
 From \cref{thm:regionsMultiBraidArrangement}, we obtain the number of regions and bounded regions of~$\multiBraidArrangement$, whose first values are gathered in \cref{table:regionsMultiBraidArrangement,table:boundedRegionsMultiBraidArrangement}.
 
 \begin{table}
-	\centerline{
+	\centerline{\scalebox{.8}{
 		\begin{tabular}[t]{c|cccccccc}
 			$n \backslash \ell$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ \\ % & $9$ \\
 			\hline
@@ -745,14 +754,14 @@ From \cref{thm:regionsMultiBraidArrangement}, we obtain the number of regions an
 			$8$ & $40320$ & $12732873$ & $302346112$ & $2666534049$ & $14010892416$ & $53536186825$ & $164859458688$ & $434390214657$ \\ % & $1017282905344$ \\
 %			$9$ & $362880$ & $343231361$ & $13682809216$ & $169423639713$ & $1146173002496$ & $5357227099105$ & $19506923076096$ & $59328538244801$ & $157507267166848$
 		\end{tabular}
-	}
+	}}
 	\vspace{.3cm}
 	\caption{The numbers $f_{n-1}(\multiBraidArrangement)$ of regions of~$\multiBraidArrangement$ for~$\ell,n \in [8]$.}
 	\label{table:regionsMultiBraidArrangement}
 \end{table}
 
 \begin{table}
-	\centerline{
+	\centerline{\scalebox{.8}{
 		\begin{tabular}[t]{c|cccccccc}
 			$n \backslash \ell$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ \\ % & $9$ \\
 			\hline
@@ -766,7 +775,7 @@ From \cref{thm:regionsMultiBraidArrangement}, we obtain the number of regions an
 			$8$ & $0$ & $4010455$ & $156745472$ & $1684352799$ & $9841053184$ & $40179437975$ & $129465630720$ & $352560518527$ \\ % & $846588258944$ \\
 %			$9$ & $0$ & $110676833$ & $7216242688$ & $108413745057$ & $813420601856$ & $4055310777025$ & $15431698810368$ & $48461340225473$ & $131823966149632$
 		\end{tabular}
-	}
+	}}
 	\vspace{.3cm}
 	\caption{The numbers $b_{n-1}(\multiBraidArrangement)$ of bounded regions of~$\multiBraidArrangement$ for~$\ell,n \in [8]$.}
 	\label{table:boundedRegionsMultiBraidArrangement}
