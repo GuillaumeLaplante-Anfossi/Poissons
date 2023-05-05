@@ -139,11 +139,11 @@ We now briefly recall the classical combinatorics of the braid arrangement.
 	\label{fig:intersectionPosetBraidArrangement4}
 \end{figure}
 
-\vincent{Conceptually, it would be nicer in \cref{fig:intersectionPosetBraidArrangement4} to place the numbers $1,2,3,4$ on the vertices of the regular tetrahedron corresponding to the braid arrangement (as is done in \cref{fig:intersectionPosetBraidArrangement3}). However, this is visually not as nice.}
+\vincent{Conceptually, it would be nicer in \cref{fig:intersectionPosetBraidArrangement4} to place the numbers $1,2,3,4$ on the vertices of the regular tetrahedron corresponding to the braid arrangement (as is done in \cref{fig:intersectionPosetBraidArrangement3}). However, this is visually not as nice, so I have decided to put them on a squarre.}
 
 \begin{definition}
-Fix~$n \ge 1$ and denote by~$\HH$ the hyperplane of~$\R^n$ defined by~$\sum_{i = 1}^n x_i = 0$.
-The \defn{braid arrangement}~$\braidArrangement$ is the arrangement of the hyperplanes~$\set{\b{x} \in \HH}{x_i = x_j}$ for all~$1 \le i < j \le n$.
+Fix~$n \ge 1$ and denote by~$\HH$ the hyperplane of~$\R^n$ defined by~$\sum_{r = 1}^n x_r = 0$.
+The \defn{braid arrangement}~$\braidArrangement$ is the arrangement of the hyperplanes~$\set{\b{x} \in \HH}{x_r = x_s}$ for all~$1 \le r < s \le n$.
 \end{definition}
 
 \begin{remark}
@@ -154,7 +154,11 @@ Working in~$\R^n$ would change vertices to rays, and would multiply all M\"obius
 \end{remark}
 
 The combinatorics of the braid arrangement~$\braidArrangement$ is well-known.
-It has a $k$-dimensional flat~$\set{\b{x} \in \R^n}{x_i = x_j \text{ for all } i, j \in p \in \pi}$ for each set partition~$\pi$ of~$[n]$ into $k+1$ parts.
+It has a $k$-dimensional~flat
+\[
+\Psi(\pi) \eqdef \set{\b{x} \in \R^n}{x_r = x_s \text{ for all } r, s \in p \in \pi}
+\]
+for each set partition~$\pi$ of~$[n]$ into $k+1$ parts.
 The flat poset~$\flatPoset[\braidArrangement]$ is thus the refinement poset~$\partitionPoset$ on set partitions of~$[n]$ (where a partition~$\pi$ is smaller than a partition~$\omega$ if each part of~$\pi$ is contained in a part of~$\omega$).
 For instance, \cref{fig:intersectionPosetBraidArrangement3,fig:intersectionPosetBraidArrangement4} illustrate the flat posets of the braid arrangements~$\braidArrangement[3]$ and~$\braidArrangement[4]$.
 The M\"obius function of~$\partitionPoset$ is given by
@@ -210,6 +214,11 @@ We now focus on the following specific hyperplane arrangements, illustrated in \
 For any integers~$\ell,n \geq 1$, the \defn{$(\ell,n)$-braid arrangement}~$\multiBraidArrangement$ is the arrangement obtained as the union of $\ell$ generically translated copies of the braid arrangement~$\braidArrangement$.
 \end{definition}
 
+\begin{remark}
+\label{rem:multiBraidArrangement}
+In practice, we consider the hyperplanes~$\set{\b{x} \in \HH}{x_r - x_s = A_{i,r,s}}$ for all~$1 \le r < s \le n$ and~$i \in [\ell]$, where $A_{i,r,s} \eqdef \smash{\sum_{r \le j < s} a_{i,j}}$ for an arbitrary generic matrix~$(a_{i,j}) \in M_{\ell,n-1}(\R)$.
+\end{remark}
+
 \begin{definition}
 The \defn{intersection hypergraph} of a $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of set partitions of~$[n]$ is the $\ell$-regular $\ell$-partite hypergraph on all parts of all the partitions~$F_i$ for~${i \in [\ell]}$, with an hyperedge connecting the parts containing~$j$  for each~$j \in [n]$.
 A \defn{$(\ell,n)$-partition forest} (resp.~\defn{$(\ell,n)$-partition tree}) is a $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of set partitions of~$[n]$ whose intersection hypergraph is a hyperforest (resp.~hypertree).
@@ -240,7 +249,21 @@ The flat poset of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is i
 \end{proposition}
 
 \begin{proof}
-\vincent{TODO. Don't forget to say that it sends dimension to dimension.}
+Consider the hyperplanes~$\set{\b{x} \in \HH}{x_r - x_s = A_{i,r,s}}$ described in \cref{rem:multiBraidArrangement}.
+For each~$i \in [\ell]$, each set partition~$\pi$ of~$[n]$ corresponds to a $\#\pi$-dimensional flat
+\[
+\Psi_i(\pi) \eqdef \set{\b{x} \in \HH}{x_r - x_s = A_{i,r,s} \text{ for all } r,s \in p \in F_i }
+\]
+of the $i$\ordinal{} copy of the braid arrangement~$\braidArrangement$.
+The flats of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ are thus all of the form
+\[
+\Psi(\b{F}) \eqdef \bigcap_{i \in [\ell]} \Psi_i(F_i)
+\]
+for certain $\ell$-tuples~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of set partitions of~$[n]$.
+Since the parameters~$A_{i,r,s}$ are generic, $\Psi(\b{F})$ is non-empty if and only if the intersection hypergraph of~$\b{F}$ is acyclic.
+Moreover, $\Psi(\b{F})$ is included in~$\Psi(\b{G})$ if and only if~$\b{F}$ refines~$\b{G}$ componentwise.
+Hence, the flat poset of~$\multiBraidArrangement$ is isomorphic to the $(\ell,n)$-partition forest poset.
+Finally, notice that the codimension of the flat~$\Psi(\b{F})$ is the sum of the codimensions of the flats~$\Psi_i(F_i)$ for~$i \in [\ell]$, so that~$\dim(\b{F}) \eqdef n - 1 - \ell n + \sum_{i \in [\ell]} \#F_i $ is indeed the dimension of the flat~$\Psi(\b{F})$.
 \end{proof}
 
 We thus derive the M\"obius polynomial of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ by \cref{def:MobiusPolynomial,prop:flatPosetMultiBraidArrangement}.
@@ -693,7 +716,7 @@ Hence, there are
 \]
 such words.
 Similar ideas where used in~\cite{Lewis}.
-\vincent{Improve citation}
+\vincent{Improve citation?}
 \end{proof}
 
 \begin{theorem}
