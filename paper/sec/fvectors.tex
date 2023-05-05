@@ -124,10 +124,10 @@ The advantage is that the braid arrangement is essential, and we can speak of it
 Working in~$\R^n$ would change vertices to rays, and would multiplie all M\"obius polynomials by a factor~$xy$.
 \end{remark}
 
-\cref{fig:braidArrangement3} illustrates the braid arrangement~$\braidArrangement[3]$ and its associated intersection poset. 
 The combinatorics of the braid arrangement~$\braidArrangement$ is well-known.
 It has a $k$-dimensional flat~$\set{\b{x} \in \R^n}{x_i = x_j \text{ for all } i, j \in p \in \pi}$ for each set partition~$\pi$ of~$[n]$ into $k+1$ parts.
 The flat poset~$\flatPoset[\braidArrangement]$ is thus the refinement poset~$\partitionPoset$ on partitions of~$[n]$ (where a partition~$\pi$ is smaller than a partition~$\omega$ if each part of~$\pi$ is contained in a part of~$\omega$).
+For instance, \cref{fig:intersectionPosetBraidArrangement3,fig:intersectionPosetBraidArrangement4} illustrate the flat posets of the braid arrangements~$\braidArrangement[3]$ and~$\braidArrangement[4]$.
 Its M\"obius function is given by
 \[
 \mu_{\partitionPoset}(\pi, \omega) = \prod_{p \in \omega} (-1)^{\#\pi[p]-1}(\#\pi[p]-1)!
@@ -148,21 +148,32 @@ For instance
 & = x^3 (y - 1) (y - 2) (y - 3) + 6 x^2 (y - 1) (y - 2) + 7 x (y - 1) + 1.
 \end{align*}
 
+%\begin{figure}
+%	\centerline{\includegraphics[scale=.9]{figures/intersectionPosetBraidArrangement3Full}}
+%	\caption{The braid arrangement $\braidArrangement[3]$ (left), its flat poset~$\flatPoset[{\braidArrangement[3]}]$ (middle), and the partition poset~$\partitionPoset[3]$ (right).}
+%	\label{fig:braidArrangement3}
+%\end{figure}
+
 \begin{figure}
-	\centerline{\includegraphics[scale=.9]{figures/intersectionPosetBraidArrangement3Full}}
-	\caption{The braid arrangement $\braidArrangement[3]$ (left), its flat poset~$\flatPoset[{\braidArrangement[3]}]$ (middle), and its interpretation in terms of forests (right).}
-	\label{fig:braidArrangement3}
+	\centerline{\includegraphics[scale=.9]{figures/intersectionPosetBraidArrangement3}}
+	\caption{The flat poset of the braid arrangement $\braidArrangement[3]$, where flats are represented as intersections of hyperplanes (left) and as partitions (right).}
+	\label{fig:intersectionPosetBraidArrangement3}
 \end{figure}
 
-\vincent{Add picture B4.}
-\vincent{Add partitions in pictures. Remove rainbow forests in these pictures as there is only one color.}
+\begin{figure}
+	\centerline{\includegraphics[scale=.26]{figures/intersectionPosetBraidArrangement4}}
+	\caption{The flat poset of the braid arrangement $\braidArrangement[4]$, where flats are represented as intersections of hyperplanes (top) and as partitions (bottom).}
+	\label{fig:intersectionPosetBraidArrangement4}
+\end{figure}
+
+\vincent{Conceptually, it would be nicer in \cref{fig:intersectionPosetBraidArrangement4} to place the numbers $1,2,3,4$ on the vertices of the regular tetrahedron corresponding to the braid arrangement (as is done in \cref{fig:intersectionPosetBraidArrangement3}). However, this is visually not as nice.}
 
 \subsection{The $(\ell,n)$-braid arrrangement}
 \label{subsec:multiBraidArrangement}
 
 We now focus on the following specific hyperplane arrangements, illustrated in \cref{fig:multiBraidArrangements}, and whose face numbers are given in \cref{table:fvectorMultiBraidArrangements}.
 
-\begin{figure}
+\begin{figure}[h]
 	\centerline{
 	\begin{tabular}{c@{\hspace{.7cm}}c@{\hspace{.7cm}}c@{\hspace{.7cm}}c}
 		\includegraphics[scale=.4]{multiBraidArrangement1}
@@ -354,11 +365,9 @@ For any integers~$\ell,n \geq 1$, the \defn{$(\ell,n)$-braid arrangement}~$\mult
 
 \begin{figure}
 	\centerline{\includegraphics[scale=.9]{figures/intersectionPosetMultiBraidArrangement32Full}}
-	\caption{The $(2,3)$-braid arrangement $\multiBraidArrangement[3][2]$ (left), its flat poset~$\flatPoset[{\multiBraidArrangement[3][2]}]$ (top right), and its interpretation in terms of $(2,3)$-rainbow forests (bottom right).}
+	\caption{The $(2,3)$-braid arrangement $\multiBraidArrangement[3][2]$ (left), and its flat poset (right), where flats are represented as intersections of hyperplanes (top), as $(2,3)$-partitions forests (middle), and as labeled $(2,3)$-rainbow forests (bottom).}
 	\label{fig:MultiBraidArrangement32}
 \end{figure}
-
-\vincent{TODO: separate pictures. Add picture partition forests.}
 
 \begin{definition}
 The \defn{intersection hypergraph}~$I(F_1, \dots, F_\ell)$ of a $\ell$-tuple of partitions of~$[n]$ is the $\ell$-regular $\ell$-partite hypergraph on all parts of all the partitions~$F_i$, with an hyperedge for all~$i \in [n]$ connecting the parts containing~$i$.
@@ -371,7 +380,7 @@ Note that the maximal elements of~$\forestPoset$ are the $(\ell, n)$-partition t
 %
 \begin{figure}
 	\centerline{\includegraphics[scale=.9]{forests}}
-	\caption{A $(3,6)$-partition forest with its intersection hypergraph and the corresponding $(3,6)$-rainbow forest (top) and a $(3,6)$-partition tree with its intersection hypertree and the corresponding $(3,6)$-rainbow tree (bottom).}
+	\caption{Some $(3,6)$-partition forests (top) with their intersection hypergraphs (middle) and the corresponding $(3,6)$-rainbow forests (bottom). The last two are trees. The order of the colors is red, green, blue.}
 	\label{fig:forests}
 \end{figure}
 \end{definition}
@@ -466,9 +475,6 @@ Observe that the $(\ell,3)$-partition forests are all of the form
 %\b{K}^p \eqdef (\underbrace{P, \dots, P}_p, R, \underbrace{P, \dots, P}_{\ell-p-1}) \text{ for } p \le \ell-1.
 %\end{gather*}
 Moreover, the cover relations in the $(\ell,3)$-partition forest poset are precisely the relations
-%\[
-%\b{F} \le \b{G}_i^p \begin{array}{c@{\hspace{-.3cm}}c@{\hspace{-.3cm}}c} & \b{H}_{i,j}^{p,q} & \\ \rotatebox[origin=c]{45}{$\le$} & & \rotatebox[origin=c]{-45}{$\le$} \\[.3cm] \rotatebox[origin=c]{-45}{$\le$} & & \rotatebox[origin=c]{45}{$\le$} \\ & \b{H}_{j,i}^{\ell-q-1, \ell-p-1} & \end{array} \b{K}^p
-%\]
 \[
 \b{F} \le \b{G}_i^p \hspace{-.4cm} \begin{array}{l} \rotatebox[origin=c]{45}{$\le$} \raisebox{.2cm}{$\b{H}_{i,j}^{p,q}$} \\[.1cm] \quad \le \b{K}^p \\[.1cm] \rotatebox[origin=c]{-45}{$\le$} \raisebox{-.2cm}{$\b{H}_{j,i}^{\ell-q-1, \ell-p-1}$} \end{array}
 \]
@@ -514,9 +520,16 @@ The $(\ell,m)$-rainbow trees are counted by the \defn{Fuss-Catalan number}
 \end{lemma}
 
 \begin{proof}
-We can transform a $\ell$-rainbow tree~$R$ to a $\ell$-ary tree~$T$: the parent of a node~$N$ in~$T$ is the previous sibling colored as~$N$ in~$R$ if it exists, and the parent of~$N$ in~$R$ otherwise.
-This classical map is a bijection from $\ell$-rainbow trees to a $\ell$-ary trees, which are counted by the Fuss-Catalan numbers.
-\vincent{add refs}
+We can transform a $\ell$-rainbow tree~$R$ to a $\ell$-ary tree~$T$ as illustrated in \cref{fig:rainbowTrees}.
+Namely, the parent of a node~$N$ in~$T$ is the previous sibling colored as~$N$ in~$R$ if it exists, and the parent of~$N$ in~$R$ otherwise.
+This classical map is a bijection from $\ell$-rainbow trees to a $\ell$-ary trees, which are counted by the Fuss-Catalan numbers~\cite{Klarner, HiltonPedersen}.
+\vincent{not sure of the attribution...}
+%
+\begin{figure}
+	\centerline{\includegraphics[scale=.7]{rainbowTrees}}
+	\caption{The $14$ $(2,4)$-rainbow trees (top) and the corresponding $2$-ary trees (bottom). The order of the colors is red, blue.}
+	\label{fig:rainbowTrees}
+\end{figure}
 \end{proof}
 
 \begin{remark}
@@ -527,16 +540,6 @@ F_\ell(z) = 1 + z \, F_\ell(z)^\ell.
 \]
 \end{remark}
 
-%\begin{definition}
-%An \defn{$(\ell,n)$-rainbow forest} (resp.~\defn{tree}) is a rooted forest (resp.~tree) whose
-%\begin{enumerate}[(i)]
-%\item nodes are bijectively labeled by~$[n]$ so that the label of each root is minimal in~its~tree,
-%\item non-root nodes are properly colored by~$[\ell]$, \ie with no monochromatic edge.
-%\end{enumerate}
-%See \cref{fig:forests}.
-%\end{definition}
-
-\vincent{TODO: examples rainbow trees.}
 \begin{table}
 	\centerline{\scalebox{.8}{
 		\begin{tabular}[t]{c|ccccccccc}
@@ -565,8 +568,6 @@ A \defn{labeling} of a $(\ell,n)$-rainbow forest~$F$ is a bijective map between 
 \item the labels of siblings with the same color are increasing from left to right.
 \end{enumerate}
 \end{definition}
-
-\vincent{TODO: examples labeled rainbow trees.}
 
 \begin{definition}
 For a rainbow forest~$F$, we define

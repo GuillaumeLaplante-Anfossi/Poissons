@@ -7,45 +7,45 @@ Warning--missing booktitle in Lewis
 Warning--missing publisher in Lewis
 Warning--missing journal name in OEIS
 Warning--missing journal, volume, and year in OEIS
-You've used 19 entries,
+You've used 21 entries,
             2624 wiz_defined-function locations,
-            698 strings with 7561 characters,
-and the built_in function-call counts, 7508 in all, are:
-= -- 709
-> -- 262
-< -- 13
-+ -- 86
-- -- 81
-* -- 651
-:= -- 1158
-add.period$ -- 19
-call.type$ -- 19
-change.case$ -- 107
-chr.to.int$ -- 19
-cite$ -- 23
-duplicate$ -- 301
-empty$ -- 637
-format.name$ -- 110
-if$ -- 1531
+            714 strings with 7828 characters,
+and the built_in function-call counts, 8245 in all, are:
+= -- 782
+> -- 289
+< -- 14
++ -- 94
+- -- 89
+* -- 717
+:= -- 1275
+add.period$ -- 21
+call.type$ -- 21
+change.case$ -- 118
+chr.to.int$ -- 21
+cite$ -- 25
+duplicate$ -- 330
+empty$ -- 697
+format.name$ -- 121
+if$ -- 1679
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 38
-newline$ -- 67
-num.names$ -- 56
-pop$ -- 131
+missing$ -- 42
+newline$ -- 73
+num.names$ -- 62
+pop$ -- 142
 preamble$ -- 1
-purify$ -- 126
+purify$ -- 139
 quote$ -- 0
-skip$ -- 213
+skip$ -- 233
 stack$ -- 0
-substring$ -- 633
-swap$ -- 40
-text.length$ -- 13
-text.prefix$ -- 10
+substring$ -- 691
+swap$ -- 42
+text.length$ -- 14
+text.prefix$ -- 11
 top$ -- 0
-type$ -- 144
+type$ -- 160
 warning$ -- 4
-while$ -- 74
-width$ -- 22
-write$ -- 209
+while$ -- 83
+width$ -- 24
+write$ -- 230
 (There were 4 warnings)
