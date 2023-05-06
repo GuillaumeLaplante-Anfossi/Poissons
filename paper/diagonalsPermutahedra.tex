@@ -522,7 +522,7 @@ For any integers~$\ell,n \geq 1$, the \defn{$(\ell,n)$-braid arrangement}~$\mult
 
 \begin{remark}
 \label{rem:multiBraidArrangement}
-In practice, we consider the hyperplanes~$\set{\b{x} \in \HH}{x_r - x_s = A_{i,r,s}}$ for all~$1 \le r < s \le n$ and~$i \in [\ell]$, where $A_{i,r,s} \eqdef \smash{\sum_{r \le j < s} a_{i,j}}$ for an arbitrary generic matrix~$(a_{i,j}) \in M_{\ell,n-1}(\R)$.
+In practice, consider the hyperplanes~$\set{\b{x} \in \HH}{x_r - x_s = A_{i,r,s}}$ for all~$1 \le r < s \le n$ and~$i \in [\ell]$, where $A_{i,r,s} \eqdef \smash{\sum_{r \le j < s} a_{i,j}}$ for an arbitrary generic matrix~$(a_{i,j}) \in M_{\ell,n-1}(\R)$.
 \end{remark}
 
 \begin{definition}
@@ -556,7 +556,7 @@ The flat poset of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is i
 
 \begin{proof}
 Consider the hyperplanes~$\set{\b{x} \in \HH}{x_r - x_s = A_{i,r,s}}$ described in \cref{rem:multiBraidArrangement}.
-For each~$i \in [\ell]$, each set partition~$\pi$ of~$[n]$ corresponds to a $\#\pi$-dimensional flat
+For each~${i \in [\ell]}$, each set partition~$\pi$ of~$[n]$ corresponds to a $\#\pi$-dimensional flat
 \[
 \Psi_i(\pi) \eqdef \set{\b{x} \in \HH}{x_r - x_s = A_{i,r,s} \text{ for all } r,s \in p \in F_i }
 \]
@@ -801,15 +801,15 @@ For~$n = 2$, we have
 \bPol[{\multiBraidArrangement[2][\ell]}] = (\ell-1)x+\ell.
 \]
 The case~$n = 3$ is already more interesting.
-Consider the partitions~$P \eqdef \big\{ \{1\}, \{2\}, \{3\} \big\}$, $Q_i \eqdef \big\{ \{i\}, [3] \ssm \{i\} \big\}$ for~$i \in [3]$, and~$R \eqdef \big\{ [3] \big\}$.
+Consider the set partitions~$P \eqdef \big\{ \{1\}, \{2\}, \{3\} \big\}$, $Q_i \eqdef \big\{ \{i\}, [3] \ssm \{i\} \big\}$ for~$i \in [3]$, and~$R \eqdef \big\{ [3] \big\}$.
 Observe that the $(\ell,3)$-partition forests are all of the form
 \begin{gather*}
 \b{F} \eqdef P^\ell,
-\;\;
+\quad
 \b{G}_i^p \eqdef P^p Q_i P^{\ell-p-1}, % \text{ for } p \le \ell-1 \text{ and } i \in [3],
-\;\;
+\quad
 \b{H}_{i,j}^{p,q} \eqdef P^p Q_i P^{\ell-p-q-2} Q_j P^q \;\text{($i \ne j$)} % \text{ for } p + q \le \ell-2 \text{ and } i \ne j \in [3]
-\;\;\text{or}\;\;
+\quad\text{or}\quad
 \b{K}^p \eqdef P^p R P^{\ell-p-1}. % \text{ for } p \le \ell-1.
 \end{gather*}
 (where we write a tuple of partitions of~$[3]$ as a word on~$\{P, Q_1, Q_2, Q_3, R\}$, and $p$ and $q$ are such that the total length is~$\ell$).
@@ -1046,7 +1046,7 @@ Finally, the possible labelings are counted by the multinomial coefficient~$\bin
 
 \begin{theorem}
 \label{thm:topCoefficientMobiusPolynomialMultiBraidArrangement}
-The characteristic polynomial~$\charPol[\multiBraidArrangement]$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is given by
+The characteristic polynomial~$\charPol[\multiBraidArrangement]$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is given~by
 \[
 \charPol[\multiBraidArrangement] = \frac{(-1)^n n!}{y} \, [z^n] \, \exp \bigg( - \sum_{m \ge 1} \frac{F_{\ell,m} \, y \, z^m}{m} \bigg) ,
 \]
@@ -1477,7 +1477,7 @@ The result is a spanning tree of the complete graph~$K_{n+1}$ on~$\{0, \dots, n\
 \end{figure}
 %
 Finally, by double counting the pairs~$(T,e)$ where $T$ is a spanning tree of~$K_{n+1}$ and $e$ is an edge of~$T$, we see that $n$ times the number of spanning trees of~$K_{n+1}$ equals $\binom{n+1}{2}$ times the number of spanning trees of~$K_{n+1}$ containing~$(0,1)$.
-Hence, by Cayley's formula for spanning trees of~$K_{n+1}$, we obtain that the number of $(2,n)$-partition trees is
+Hence, by Cayley's formula for spanning trees of~$K_{n+1}$, we obtain that the number of $(2,n)$-partition trees~is
 \[
 \frac{2n}{n(n+1)} (n+1)^{n-1} = 2 (n + 1)^{n-2}.
 \]
