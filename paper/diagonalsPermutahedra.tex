@@ -2108,6 +2108,8 @@ It follows directly from the fish condition: if the fish condition is satisfied,
 
 \subsection{The Saneblidze-Umble diagonal}
 
+\Guillaume{A reecrire plus tard}
+
 In this section we show that $\SUD$, with its $(I,J)$-description, is the same as the original Saneblidze-Umble diagonal \cite{SaneblidzeUmble04}.
 First, we prove that the original $\SU$ diagonal, which we refer to as ``subset $1$-shift $\SUD$", is equivalent to the ``$1$-shift $\SUD$", where shifts a performed on singletons only \Guillaume{REF}. 
 Second, we prove that the $1$-shift $\SUD$ is equivalent to the $m$-shift $\SUD$, where singleton shifts are not restricted to adjacent vertices. 
@@ -2170,7 +2172,7 @@ As the intersection graph of any pair of essential complementary partitions is a
     For $(\sigma,\tau)$ a pair of essential complementary partitions, we denote by $\sigma_{i,j}$ (resp. $\tau_{i,j}$) the unique oriented path between blocks $\sigma_{i}$ and $\sigma_j$ (resp. $\tau_{i}$ and $\tau_j$).
 \end{notation}
 Note that we make a slight abuse in notation as the path $\sigma_{i,j}$ also depends on $\tau$.
-We can immediately characterise the paths between adjacent blocks of $\SCP$s.
+We can immediately characterise the paths between adjacent blocks of strong complementary partitions.
 
 \begin{proposition} 
 \label{lem:SCP-path-desc}
@@ -2188,34 +2190,40 @@ Since the minima of these paths are traversed from left to right, and the maxima
 
 %%%%
 
-\subsubsection{Subset $1$-shift, $1$-shift and $m$-shift diagonals}
+\subsubsection{$\SU$ diagonals}
 
-\begin{definition}[Subset $m$-shift operators]
+\begin{definition}[Shift operators]
 \label{def:subset shifts}
 Let $\sigma=\sigma_1|\dots|\sigma_k$ be an ordered partition, and let 
 $M_i\subsetneq \sigma_{i}$ be a non-empty subset of the block $\sigma_i$.
-For $m\geq 1$, the \emph{subset right $m$-shift operator} moves the subset $M_i$, $m$ blocks to the right  
+For $m\geq 1$, the \emph{right $m$-shift} moves the subset $M_i$, $m$ blocks to the right  
 \begin{align*}
     R_{M_i}(\sigma) \eqdef \sigma_1|\dots|\sigma_i \ssm M_i|\dots | \sigma_{i+m} \cup M_i|\dots|\sigma_k
 \end{align*}
-while the \emph{subset left $m$-shift operator} moves it $m$ blocks to the left 
+while the \emph{left $m$-shift} moves it $m$ blocks to the left 
 \begin{align*}
     L_{M_{i}}(\sigma) \eqdef \sigma_1|\dots|\sigma_{i-m} \cup M_{i}| \dots |\sigma_{i} \ssm M_{i}|\dots|\sigma_l \ .
 \end{align*}
 \end{definition}
 
+
+
 \begin{definition}[Movable subsets]
     \label{def:movable-subsets}
     Let $(\sigma,\tau) = (\sigma_1|\dots|\sigma_k,\tau_1|\dots|\tau_l)$ be a pair of ordered partitions.
-    A non-empty subset $M_i \subset \sigma_i$ (resp. $N_{i}\subset \tau_{i}$) is \emph{$1$-movable} if 
+    For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (resp. $M_{i}\subset \tau_{i}$) is \emph{$m$-block movable} if 
     \begin{enumerate}
-        \item $\min \sigma_i \notin M_i$ (resp. $\min \tau_{i} \notin N_i$), and
-        \item $\min M_i> \max \sigma_{i+1}$ (resp. $\min N_{i}> \max \tau_{i-1}$).
+        \item $\min \sigma_i \notin M_i$ (resp. $\min \tau_{i} \notin M_i$), and
+        \item $\min M_i> \max \sigma_{i+1}$ (resp. $\min M_{i}> \max \tau_{i-1}$).
+    \end{enumerate}
+    It is \emph{$m$-path movable} if it satisfies $(1)$ above and if
+    \begin{enumerate}
+        \item[(2')] $\min M_i> \max \sigma_{i,i+m}$ (resp. $\min M_{i}> \max \tau_{i,i-m}$).
     \end{enumerate}
 \end{definition}
 
 \begin{example}
-Performing the subset $1$-shifts $R_7$ and $L_{5,6}$ on $1$-movable subsets of the strong complementary pair~$(\sigma,\tau)$ of \cref{ex:strong-complementary}, one obtains the pair $R_{7}(\sigma) \times L_{5,6}(\tau)$.
+Performing the $1$-shifts $R_7$ and $L_{5,6}$ on $1$-movable (they are both block and path-movable) subsets of the strong complementary pair~$(\sigma,\tau)$ of \cref{ex:strong-complementary}, one obtains the pair $R_{7}(\sigma) \times L_{5,6}(\tau)$.
 \begin{center}
 \begin{tikzpicture}[scale=.7]  
     \node (p) at (0, 0) {$13|247|5|6 \times 3|17|4|256$};
@@ -2265,29 +2273,59 @@ Performing the subset $1$-shifts $R_7$ and $L_{5,6}$ on $1$-movable subsets of t
 \end{center}
 \end{example}
 
-\begin{definition}[Admissible sequences of subset $1$-shifts]
+We shall concentrate on three distinct families of shifts:
+\begin{enumerate}[(a)]
+    \item $1$-shifts of $1$-block movable subsets of various sizes,
+    \item $1$-shifts of $1$-path movable singletons, and
+    \item $m$-shifts of $m$-path movable singletons, for various $m\geq 1$,
+\end{enumerate}
+and show that specific sequences all generate the same diagonal. 
+
+\begin{definition}[Admissible sequences of shifts]
     Let $(\sigma,\tau)$ be a pair of ordered partitions. 
-    For $p\geq 1$, a sequence of right subset $1$-shifts $\textbf{M} = (M_{i_1},\dots,M_{i_p}) \in [n]^{p}$ is \emph{admissible} if 
-    \begin{enumerate}
+    For~$p\geq 1$, a sequence of right shifts $\textbf{M} = (M_{i_1},\dots,M_{i_p}) \in [n]^{p}$ is 
+    \begin{enumerate}[(a)]
+    \item \emph{admissible of original type} if 
+    \begin{enumerate}[(1)]
         \item we have $1\leq i_1 < i_2 < \dots < i_p \leq k-1$, and
-        \item each $M_{i_j}$ is a $1$-movable subset of $R_{M_{i_j-1}}\dots R_{M_{i_1}}(\sigma)_{i_j}$.
+        \item each $M_{i_j}$ is a $1$-block movable subset of $R_{M_{i_j-1}}\dots R_{M_{i_1}}(\sigma)_{i_j}$.
     \end{enumerate}
-    We denote the resulting ordered partition by $R_\mathbf{M}(\sigma) \eqdef R_{M_{i_p}}\dots R_{M_{i_1}}(\sigma)$.
-    The result of an admissible sequence of left subset $1$-shifts $L_\mathbf{N}(\tau)  \eqdef  L_{N_{i_1}}\dots L_{N_{i_q}}(\tau)$ is defined similarly via the condition $2\leq i_1 < i_2 \dots < i_q \leq k$, with $q\geq 1$.
+    The resulting ordered partition is denoted by $R_\mathbf{M}(\sigma) \eqdef R_{M_{i_p}}\dots R_{M_{i_1}}(\sigma)$.
+
+    \item \emph{admissible of $1$-path type} if
+    \begin{enumerate}[(1)]
+        \item each $M_{i_j}$ is a $1$-path movable element of $R_{M_{i_j-1}}\dots R_{M_{i_1}}(\sigma)_{i_j}$.
+    \end{enumerate}
+
+    \item \emph{admissible of $m$-path type} if
+    \begin{enumerate}[(1)]
+        \item each $M_{i_j}$ is a $m$-path movable element of $R_{M_{i_j-1}}\dots R_{M_{i_1}}(\sigma)_{i_j}$, for some $m\geq 1$.
+    \end{enumerate}
+
+    \end{enumerate}
+    Admissible sequences of left shifts are defined similarly and are denoted by $L_\mathbf{N}(\tau)$.
 \end{definition}
 
 \Guillaume{Think about notation: too many indices!! $R_{M_{i_j}}$}
 
 By convention, we declare the empty sequence of subset $1$-shift operators to be admissible, and to act by the identity, i.e. we have $R_{\mathbf{\emptyset}}(\sigma)  \eqdef  \sigma$ and $L_{\mathbf{\emptyset}} (\tau) \eqdef  \tau$.
 
-\begin{definition}[Subset $1$-shift $\SU$ diagonal {\cite{SaneblidzeUmble04,saneblidzeComparingDiagonalsAssociahedra2022}}]
+\begin{definition}[$\SU$ diagonals]
     \label{def:classical-SU}
-   The facets of the \emph{subset $1$-shift $\SU$ diagonal} are given by the formula
+   The facets of 
+   \begin{enumerate}[(a)]
+    \item the \emph{original $\SU$ diagonal},
+    \item the \emph{$1$-shift $\SU$ diagonal},
+    \item the \emph{$m$-shift $\SU$ diagonal}
+   \end{enumerate}
+   are defined by the formula
     \begin{align*}
         \SUD([n]) = \bigcup_{(\sigma,\tau)} \bigcup_{\mathbf{M}, \mathbf{N}} R_\mathbf{M}(\sigma)\times L_\mathbf{N}(\tau)
     \end{align*}
-    where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and over all admissible sequences of subset $1$-shift operators $\textbf{M},\textbf{N}$.
+    where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and over all admissible sequences of shifts $\textbf{M},\textbf{N}$ of the corresponding type.
 \end{definition}
+
+The original $\SU$ diagonal was so defined in \cite{SaneblidzeUmble04}, see also \cite{saneblidzeComparingDiagonalsAssociahedra2022}.
 
 \begin{remark}
     Observe that the left (resp. right) subset $1$-shift operator moves elements to the left (resp. right), but acts on the right (resp. left) ordered partition.
@@ -2296,35 +2334,9 @@ By convention, we declare the empty sequence of subset $1$-shift operators to be
 
 We now restrict the size and condition on the subsets that can be moved, but allow them to move more than one block at a time. 
 
-\begin{definition}[Critical elements] 
-    \label{def:critical-elements}
-    Let $(\sigma,\tau)$ be a pair of ordered partitions.
-    For $m\geq 1$, an element $\rho \in \sigma_i$ (resp. $\rho \in \tau_i$) is \emph{$m$-critical} if 
-    \begin{enumerate}
-        \item $\rho \neq \min \sigma_i$ (resp. $\rho \neq \min \tau_i$), and
-        \item $\rho>\max \sigma_{i,i+m}$ (resp. $\rho > \max \tau_{i,i-m}$).
-    \end{enumerate}
-\end{definition}
-
-For any $m\geq 1$, let us call \emph{critical} the right and left $m$-shift operators associated with the singleton sets given by $m$-critical elements, and denote them by $R_{\rho}$ and $L_{\rho}$.
-
-\begin{definition}[$1$-shift and $m$-shift $\SU$ diagonals]
-    \label{def:m-shift-SU}
-    The facets of the \emph{$1$-shift (resp. $m$-shift) $\SU$ diagonal} are given by the formula
-    \begin{align*}
-        \SUD([n]) = \bigcup_{(\sigma,\tau)} \bigcup_{\mathbf{M}, \mathbf{N}} R_\mathbf{M}(\sigma)\times L_\mathbf{N}(\tau)
-    \end{align*}
-    where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and over all well-defined sequences of critical $1$-shift operators $\textbf{M},\textbf{N}$ (resp. sequences of critical $m$-shift operators, for possibly different $m\geq 1$ at each step in the sequence).
-\end{definition}
-
-\begin{remark}
-    Note here the two important differences between the subset $1$-shift and $m$-shift $\SU$ diagonals: a $m$-critical element $\rho$ is not required to satisfy $\rho > \max\sigma_{i+m}$ (compare Points (2) in \cref{def:movable-subsets} and \cref{def:critical-elements}), and the numbers indexing a sequence of shifts are not required to be increasing (compare \cref{def:classical-SU} and \cref{def:m-shift-SU}).
-\end{remark}
-
-
 %%%%
 
-\subsubsection{First isomorphism: subset $1$-shift and $1$-shift diagonals}
+\subsubsection{First isomorphism: original and $1$-shift $\SU$ diagonals}
 
 \begin{proposition} 
 \label{prop:SU-preserves-max}
@@ -2391,7 +2403,7 @@ There are four cases to consider.
 Observe all (non-trivial or non-contradictory) paths $\gamma'$ contain $m>\min M_k$ and either some addition or deletion by $\delta_{k,k+1}$.
 It thus follows from \cref{eq:shift-subset-dominates} that $\max \gamma' = \max \gamma$: in each case, the maximal element will either be $m$, or in $\alpha$, or in $\beta$.
 Moreover, in each case, the maximal element $\max \gamma = \max \gamma'$ are traversed in the same direction.
-It is immediate for cases (1), (2a) and (3); in the case (2b) it follows from the observation that the number of steps of $\beta \cap \delta_{k,k+1}$ and $\delta_{k,k+1}$ have the same parity. \Guillaume{rewrite}
+It is immediate for cases (1), (2a) and (3); in the case (2b) it follows from the observation that the number of steps of $\beta \cap \delta_{k,k+1}$ and $\delta_{k,k+1} \ssm \beta$ have the same parity. \Guillaume{rewrite}
 \end{proof}
 
 \begin{corollary} 
@@ -2442,7 +2454,7 @@ Then from \cref{cor:SU-shift-preserves-max}, we know that $\rho>\max \sigma_{i_j
 
 %%%%
 
-\subsubsection{Second isomorphism: shift and $(I,J)$ coincide}
+\subsubsection{Third isomorphism: $m$-shift and $(I,J)$ coincide}
 
 The remainder of this section is devoted to the proof that the shift $\SUD$ diagonal is equal to the $\SUD$ diagonal. 
 
@@ -2484,7 +2496,8 @@ An adjacent crossing is clearly a crossing. In the other direction, suppose ther
 \end{proof}
 
 We now define inverse critical shift operators.
-\begin{definition} \label{def:critical SU inverse shift}
+\begin{definition} 
+\label{def:critical SU inverse shift}
 Let $(\sigma,\tau)$ be a pair of ordered partitions. Let $\rho \in \sigma_{i+1}$ be such that $\rho>\max \sigma_{i,i+1}$ and $(\alpha,\rho)$ is an adjacent crossing, where $\alpha$ is an arbitrary element which is smaller than $\rho$. 
 Similarly, let $\rho \in \tau_{i} $ such that $\rho > \max \tau_{i,i+1}$ and $(\alpha,\rho)$ is an adjacent crossing.
 Subject to these constraints, we informally define the inverse left/right shift operators as, $R^{-1}_\rho$ returns $\rho$ to $\sigma_i$, and $L^{-1}_\rho$ returns $\rho$ to $\tau_{i+1}$
