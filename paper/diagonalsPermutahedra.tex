@@ -35,6 +35,7 @@
 % marginal comments
 \usepackage{todonotes}
 \newcommand{\vincent}[1]{\todo[color=blue!30]{\rm #1 \\ \hfill --- V.}}
+\newcommand{\vincenti}[1]{\todo[color=blue!30, inline]{\rm #1 \\ \hfill --- V.}}
 \newcommand{\Guillaume}[1]{\todo[color=magenta!30]{\rm #1 \\ \hfill --- G.}}
 \newcommand{\Kurt}[1]{\todo[color=orange!30]{\rm #1 \\ \hfill --- K.}}
 \newcommand{\BDO}[1]{\todo[color=green!30]{\rm #1 \\ \hfill --- B.}}
@@ -174,7 +175,7 @@
 
 \title{The combinatorics of the permutahedron diagonals}
 
-\thanks{BDO was partially supported by the French ANR grants ALCOHOL (ANR-19-CE40-0006), CARPLO (ANR-20-CE40-0007), HighAGT (ANR-20-CE40-0016) and S3 (ANR-20-CE48-0010). VP was partially supported by the French ANR grant CHARMS (ANR-19-CE40-0017) and by the French--Austrian project PAGCAP (ANR-21-CE48-0020 \& FWF I 5788).}
+\thanks{}
 
 \author[B. Delcroix-Oger]{B\'er\'enice Delcroix-Oger}
 \address{Institut Montpelli\'erain Alexander Grothendieck, Universit\'e de Montpellier, France}
@@ -231,7 +232,7 @@ Second, we obtain some (higher) algebraic results via discrete geometry: the alg
 \subsection*{Motivation}
 
 The purpose of this article is to study cellular diagonals on the permutahedra, which are cellular maps homotopic to the usual thin diagonal $\triangle : P \to P \times P, x \mapsto (x,x)$.
-Such diagonals, and in particular coherent families that we call \emph{operadic} diagonals (see [DEF]), are of interest in algebraic geometry and topology: via the theory of Fulton--Sturmfels \cite{fultonIntersectionTheoryToric1997a}, they give explicit formulas for the cup product on Losev--Manin toric varieties \cite{losevNewModuliSpaces2000}; they define universal tensor products of homotopy operads, and in particular universal tensor products of homotopy associative permutads (shuffle algebras) \cite{LA21}; they allow for the definition of a coproduct on permutahedral sets, which are used to models of two-fold loop spaces \cite{SaneblidzeUmble04}; and their study is moreover needed to pursue the work of Baues aiming at defining explicit combinatorial models for higher iterated loop spaces \cite{bauesGeometryLoopSpaces1980}. 
+Such diagonals, and in particular coherent families that we call \emph{operadic} diagonals (see [DEF] \BDO{Reference ?}), are of interest in algebraic geometry and topology: via the theory of Fulton--Sturmfels \cite{fultonIntersectionTheoryToric1997a}, they give explicit formulas for the cup product on Losev--Manin toric varieties \cite{losevNewModuliSpaces2000}; they define universal tensor products of homotopy operads, and in particular universal tensor products of homotopy associative permutads (shuffle algebras) \cite{LA21}; they allow for the definition of a coproduct on permutahedral sets, which are used to models of two-fold loop spaces \cite{SaneblidzeUmble04}; and their study is moreover needed to pursue the work of Baues aiming at defining explicit combinatorial models for higher iterated loop spaces \cite{bauesGeometryLoopSpaces1980}. 
 Moreover, using the canonical projections to the multiplihedra and the associahedra, they define universal tensor product of $\Ainf$-algebras and $\Ainf$-morphisms \cite{MazuirLA22}.
 \Guillaume{lien avec les matroides?}
 
@@ -241,17 +242,16 @@ Moreover, using the canonical projections to the multiplihedra and the associahe
 
 The purpose of the first part of this article is to study the combinatorics of the cellular diagonal of the permutohedra, explained in more details in the second part of the introduction.
  To make this part more accessible to non-algebraists, we formulate it in terms of hyperplane arrangements, as \emph{faces} of the cellular diagonal are in bijection with \emph{regions} of the associated hyperplane arrangements. 
- The hyperplane arrangement associated with  the cellular diagonal is two generically translated copied of the braid arrangement. 
+ The hyperplane arrangement associated with  the cellular diagonal is two generically translated copies of the braid arrangement. 
  Motivated by the beautiful combinatorial formula obtained in our study, we generalize it to the study of $\ell$ generically translated copies of the braid arrangement, which would algebraically corresponds to some cellular $\ell$-gonal.
   We compute the $f$-vector and the $b$-vector of $\ell$-generically translated copies of the braid arrangement, using Zaslavsky's Theorem. 
   We refine the enumeration of the vertices of the hyperplane arrangement using a combinatorial interpretation in terms of $(\ell, n)$-trees and get the following multiplicative formula:
 \begin{theorem}
-The number of vertices of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ (or equivalently of $(\ell,n)$-trees) is
+For any~$k_1, \dots, k_\ell$ such that~$0 \le k_i \le n-1$ for~$i \in [\ell]$ and~${\sum_{i=1}^\ell k_i = n-1}$, the number of vertices~$v$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ such that the smallest flat of the $i$\ordinal{} copy of~$\braidArrangement$ containing~$v$ has dimension~$n-k_i-1$ is given by
 \[
-f_0(\multiBraidArrangement) = \ell \big( (\ell-1) n + 1)^{n-2}.
+n^{\ell-1} \binom{n-1}{k_1, \dots, k_\ell} \prod_{i=1}^\ell (n-k_i)^{k_i-1}.
 \]
 \end{theorem}
-We end this combinatorial section with a conjecture on edge-colored trees.
 
 %%%%%%%%%%%%%%%
 
@@ -417,7 +417,7 @@ b_d(\arrangement) = (-1)^d \, \charPol[\arrangement][1].
 
 %%%%%%%%%%%%%%%
 
-\subsection{The braid arrrangement}
+\subsection{The braid arrangement}
 \label{subsec:braidArrangement}
 
 We now briefly recall the classical combinatorics of the braid arrangement.
@@ -441,7 +441,7 @@ We now briefly recall the classical combinatorics of the braid arrangement.
 	\label{fig:intersectionPosetBraidArrangement4}
 \end{figure}
 
-\vincent{Conceptually, it would be nicer in \cref{fig:intersectionPosetBraidArrangement4} to place the numbers $1,2,3,4$ on the vertices of the regular tetrahedron corresponding to the braid arrangement (as is done in \cref{fig:intersectionPosetBraidArrangement3}). However, this is visually not as nice, so I have decided to put them on a squarre.}
+\vincenti{Conceptually, it would be nicer in \cref{fig:intersectionPosetBraidArrangement4} to place the numbers $1,2,3,4$ on the vertices of the regular tetrahedron corresponding to the braid arrangement (as is done in \cref{fig:intersectionPosetBraidArrangement3}). However, this is visually not as nice, so I have decided to put them on a squarre.}
 
 \begin{definition}
 Fix~$n \ge 1$ and denote by~$\HH$ the hyperplane of~$\R^n$ defined by~$\sum_{r = 1}^n x_r = 0$.
@@ -461,7 +461,7 @@ It has a $k$-dimensional~flat
 \Psi(\pi) \eqdef \set{\b{x} \in \R^n}{x_r = x_s \text{ for all } r, s \in p \in \pi}
 \]
 for each set partition~$\pi$ of~$[n]$ into $k+1$ parts.
-The flat poset~$\flatPoset[\braidArrangement]$ is thus the refinement poset~$\partitionPoset$ on set partitions of~$[n]$ (where a partition~$\pi$ is smaller than a partition~$\omega$ if each part of~$\pi$ is contained in a part of~$\omega$).
+The flat poset~$\flatPoset[\braidArrangement]$ is thus the refinement poset~$\partitionPoset$ \BDO{$\Pi_n$ ?} on set partitions of~$[n]$ (where a partition~$\pi$ is smaller than a partition~$\omega$ if each part of~$\pi$ is contained in a part of~$\omega$).
 For instance, \cref{fig:intersectionPosetBraidArrangement3,fig:intersectionPosetBraidArrangement4} illustrate the flat posets of the braid arrangements~$\braidArrangement[3]$ and~$\braidArrangement[4]$.
 The M\"obius function of~$\partitionPoset$ is given by
 \[
@@ -833,7 +833,7 @@ Hence, we have
 \bPol[{\multiBraidArrangement[3][\ell]}] & = (3 \ell^2 - 4 \ell + 1) x^2 + 6 \ell (\ell - 1) x + \ell (3 \ell - 2).
 \end{align*}
 Observe that~$3 \ell^2 + 2 \ell + 1$ is~\OEIS{A056109}, that~$\ell (3 \ell - 2)$ is~\OEIS{A000567}, and that ${3 \ell^2 - 4 \ell + 1}$ is~\OEIS{A045944}.
-\vincent{There is a weird connection between the first and the last. Namely, $3 \ell^2 - 4 \ell + 1 = 3 (\ell - 1)^2 + 2 (\ell - 1)$. Is there a bijective explanation on the arrangements?}
+\vincenti{There is a weird connection between the first and the last. Namely, $3 \ell^2 - 4 \ell + 1 = 3 (\ell - 1)^2 + 2 (\ell - 1)$. Is there a bijective explanation on the arrangements?}
 \end{example}
 
 \begin{remark}
@@ -2940,8 +2940,7 @@ Note that $\Psi$ is \emph{not} a morphism of ``Hopf" operads, i.e. it does not c
 
 Hugh Thomas (everything started in Montr\'eal), Sylvie Corteel for hyperplane arrangements
 
-We would like to thank the Max Planck Institute for Mathematics in Bonn where part of this work was carried out. 
-The third author was supported by the Australian Research Council Future Fellowship FT210100256.
+We would like to thank the Max Planck Institute for Mathematics in Bonn where part of this work was carried out. BDO was partially supported by the French ANR grants ALCOHOL (ANR-19-CE40-0006), CARPLO (ANR-20-CE40-0007), HighAGT (ANR-20-CE40-0016) and S3 (ANR-20-CE48-0010). GLA was supported by the Australian Research Council Future Fellowship FT210100256. VP was partially supported by the French ANR grant CHARMS (ANR-19-CE40-0017) and by the French--Austrian project PAGCAP (ANR-21-CE48-0020 \& FWF I 5788). 
 
 Galashin (asked about characteristic polynomials). Organizers of the Simon Center conference.
 
