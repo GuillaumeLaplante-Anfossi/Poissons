@@ -2117,9 +2117,9 @@ Third, we show that the $m$-shift $\SUD$ is equivalent to $\SUD$ with its $(I,J)
 Through the isomorphism between $\SUD$ and $\LAD$ (\Guillaume{REF}), we obtain new combinatorial descriptions of both $\LAD$ and the original $\SUD$. 
 \begin{center}
 \begin{tikzcd}
-\text{Subset $1$-shift $\SUD$} \arrow[r,leftrightarrow,"\ref{prop:subset shift to shift bijection}"]&
-\text{$1$-shift $\SUD$} \arrow[r,leftrightarrow,"\ref{prop:subset shift to shift bijection}"]&
-\text{$m$-shift $\SUD$} \arrow[r,leftrightarrow,"\ref{prop: shift SUD and SUD are equal}"]&
+\text{Subset $1$-shift $\SUD$} \arrow[r,leftrightarrow,"\ref{prop:iso-original-shift-diagonals}"]&
+\text{$1$-shift $\SUD$} \arrow[r,leftrightarrow,"\ref{prop:iso-original-shift-diagonals}"]&
+\text{$m$-shift $\SUD$} \arrow[r,leftrightarrow,"\ref{prop:iso-shift-IJ-diagonals}"]&
 \SUD \\
 \text{Subset shift $\LAD$} \arrow[r,dotted,leftrightarrow]&
 \text{$1$-shift $\LAD$} \arrow[r,dotted,leftrightarrow]&
@@ -2334,7 +2334,11 @@ The original $\SU$ diagonal was so defined in \cite{SaneblidzeUmble04}, see also
 
 %%%%
 
-\subsubsection{First isomorphism: original and $1$-shift $\SU$ diagonals}
+\subsubsection{First isomorphism: original and $m$-shift $\SU$ diagonals}
+
+We first compare the original and $1$-shift $\SU$ diagonals, then $1$-shift and $m$-shift. 
+
+\Guillaume{On doit pouvoir compresser ca pour faire directement original -- $m$-shift, on parlera des inversions après}
 
 \begin{proposition} 
 \label{prop:SU-preserves-max}
@@ -2439,7 +2443,7 @@ In particular, if a pair of ordered partitions $(\sigma',\tau')$ is generated fr
 We have now dropped the assumption that $\min M_k > \max R_{\mathbf{M}}(\sigma)_{k+1}$, and the assumption that we need to perform shifts in an increasing order; once this is done, we can generate all subset shifts by chains of singleton set shifts.
 
 \begin{proposition}
-\label{prop:subset shift to shift bijection}
+\label{prop:iso-original-shift-diagonals}
 The original and $1$-shift $\SU$ diagonals coincide.
 \end{proposition}
 
@@ -2466,20 +2470,28 @@ Since by definition subset shift operators do not move the minimal element of a 
 Then using the induction hypothesis, \cref{prop:SU-preserves-max} shows that $\rho>\max \sigma_{i_j+1} = \max (R_{M_{i_{j-1}}}\dots R_{M_{i_1}}(\sigma))_{i_j + 1}$, where the equality follows as $i_1<\dots<i_{j-1}<i_j$. 
 This proves that $R_{M'_{i_j}}$ is well-defined, completing the inductive proof.
 \end{proof}
-%On peut se servir de l'hypothèse de récurrence et de la Proposition 2.45. Pas besoin du corollaire!!
 
-%%%%
+\begin{proposition}
+    \label{prop:iso-1-to-m-shift}
+    The $1$-shift and $m$-shift $\SU$ diagonals coincide.
+\end{proposition}
 
-\subsubsection{Second isomorphism: $1$-shift and $m$-shift coincide}
+\begin{proof}
+    It is clear that any admissible sequence of $1$-shifts is an admissible sequence of $m$-shifts, and thus that the facets of the $1$-shift $\SU$ diagonal are facets of the $m$-shift $\SU$ diagonal. 
+    For the reverse inclusion, we need to show that any $m$-shift can be rexpressed as an admissible sequence of $1$-shift. 
+    We proceed by induction.
+    For the case $m=1$ there is nothing to prove.
+    Let $(\sigma,\tau)$ be a pair of ordered partitions in the $m$-shift diagonal. 
+    Suppose now that an element $\rho \in \sigma_i$ is $m$-movable, i.e. $\rho \neq \min \sigma_i$ and $\rho > \max \sigma_{i,i+m}$.
+    Observing that it is in fact $1$-movable, since $\sigma_{i,i+m}=\sigma_{i,i+1}\sigma_{i+1,i+m}$ we have that $\max \sigma_{i,i+m}\geq \max \sigma_{i,i+1}$, allows us to apply the induction hypothesis.
+\end{proof}
 
 %%%%
 
 \subsubsection{Third isomorphism: $m$-shift and $(I,J)$ coincide}
 
-The remainder of this section is devoted to the proof that the shift $\SUD$ diagonal is equal to the $\SUD$ diagonal. 
-
-Given our existing theory, the closure of the critical shift operator is easy to establish.
-\begin{lemma} \label{lem:SUD closed under shifts}
+\begin{lemma} 
+\label{lem:SUD closed under shifts}
 Let $(\sigma,\tau)\in \SUD$, if we apply a critical shift operator to it, then we remain in $\SUD$.
 \end{lemma}
 \begin{proof}
@@ -2651,7 +2663,7 @@ Then,
 \end{enumerate}
 \end{example}
 
-\begin{proposition} \label{prop: shift SUD and SUD are equal}
+\begin{proposition} \label{prop:iso-shift-IJ-diagonals}
     The facets of shift $\SUD$ and $\SUD$ are equal.
 \end{proposition}
 \begin{proof}
@@ -2663,9 +2675,13 @@ Then,
 
 %%%%
 
+
+
+%%%%
+
 \subsubsection{Some consequences}
 
-Combinining \cref{prop:subset shift to shift bijection} and \cref{prop: shift SUD and SUD are equal}, we obtain that
+Combinining \cref{prop:iso-original-shift-diagonals} and \cref{prop:iso-shift-IJ-diagonals}, we obtain that
 
 \begin{theorem}
     Subset shift $\SU$ and $\SUD$ coincide.
@@ -2792,7 +2808,7 @@ The possible $\SUD$ right shifts (acting on $\sigma'$) are,
 \end{center}
 We note that as the left and right shifts (for both diagonals) can be performed independently, we could combine these lattices into a product of lattices. 
 No other shifts are possible, observe for instance that we cannot perform the $\LAD$ left shift $15|7|234|6 \times 57|46|13|2 \xrightarrow{p=2} 15|27|34|6 \times 57|46|13|2$ as the minimal path connecting $234$ and $7$ contains $1$ which is smaller than $2$ (see \cref{ex:ECbijection}).
-As an example of a $\SUD$ subset shift, and the bijection to critical shifts (\cref{prop:subset shift to shift bijection}), we observe that the unique way of producing $13|247|5|6 \times 37|1|456|2$ from subset shifts is given by
+As an example of a $\SUD$ subset shift, and the bijection to critical shifts (\cref{prop:iso-original-shift-diagonals}), we observe that the unique way of producing $13|247|5|6 \times 37|1|456|2$ from subset shifts is given by
 \begin{center}
 \begin{tikzcd}
 13|247|5|6 \times 3|17|4|256 \arrow[r,"{R_{\{5,6\}}}"] & 13|247|5|6 \times 3|17|456|2 \arrow[r,"{R_{\{7\}}}"] & 13|247|5|6 \times 37|1|456|2
