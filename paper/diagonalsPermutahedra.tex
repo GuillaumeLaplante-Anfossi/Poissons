@@ -268,6 +268,12 @@ corollary: le dernier article de SU!
 corollary: IJ-description of SU diagonal
 corollary: left and right shifts for LA, decomposition of the cube associated to LA diagonal
 
+\Kurt{Mention the LAD and SUD shifts generate the (same) facets of the hexagon in two different ways.}
+
+Perspectives: 
+-for general diagonal, obtain closed formulas for all the faces
+-for specific diagonals, extend the bijection with bipartite trees
+
 %%%%%%%%%%%%%%%
 
 \subsection*{Conventions}
@@ -1217,7 +1223,7 @@ which vanishes by~\eqref{eq:diff}.
 
 The usual \emph{thin diagonal} of a topological space $X$ is the map $\Delta : X \to X \times X$ defined by $\Delta(x):=(x,x)$ for all $x \in X$.
 
-\begin{definition}
+\begin{definition}[Cellular diagonal]
     A \emph{cellular diagonal} of a polytope $P$ is a continuous map $P \to P \times P$ such that
     \begin{enumerate}
         \item its image is a union of $\dim P$-faces of $P\times P$ (i.e. it is \emph{cellular}),
@@ -1228,7 +1234,7 @@ The usual \emph{thin diagonal} of a topological space $X$ is the map $\Delta : X
 \end{definition}
 
 A powerful geometric technique to define face-coherent cellular diagonals on polytopes first appeared in \cite{fultonIntersectionTheoryToric1997a}, was presented in \cite{masudaDiagonalAssociahedra2021}, and was fully developed in \cite{LA21}.
-The key idea is the following: any vector $\vec v$ in generic position with respect to $P$ defines a cellular diagonal $\triangle_{(P,\vec v)}$, via the following formula
+The key idea is the following: any vector $\vec v$ in generic position with respect to $P$ defines a cellular diagonal~$\triangle_{(P,\vec v)}$, via the following formula
 \begin{align*}
     \begin{array}{rlcl}
     \triangle_{(P,\vec v)}\  : & P &\to  &P\times P\\
@@ -1237,18 +1243,18 @@ The key idea is the following: any vector $\vec v$ in generic position with resp
     \end{array}
 \end{align*}
 Here, $\rho_z P := 2z-P$ denotes the reflection of $P$ with respect to the point $z$, and $\min_{\vec v}(P)$ denotes the unique vertex of $P$ which minimizes the scalar product with $\vec v$. 
-The diagonal $\triangle_{(P,\vec v)}$ defines a canonical polytopal subdivision of $P$: it is by construction a tight coherent section of the projection $\pi : P \times P \to (P+P)/2$, and one just needs to draw the polytopes $(F+G)/2$, for all pairs of faces $(F,G) \in \Ima \triangle_{(P,\vec v)}$.
+The diagonal $\triangle_{(P,\vec v)}$ defines a canonical polytopal subdivision of $P$: it is by construction a tight coherent section of the projection $\pi : P \times P \to (P+P)/2$, and to obtain the subdivision one just needs to draw the polytopes $(F+G)/2$, for all pairs of faces $(F,G) \in \Ima \triangle_{(P,\vec v)}$.
 For the rest of the paper, every time we will speak about a diagonal, \emph{we will always mean such a map}. 
 
-\begin{definition}
+\begin{definition}[Diagonal of the permutahedron]
     \label{def:diagonal}
     A \emph{cellular diagonal} or simply a \emph{diagonal} $\triangle_{(P,\vec v)}$ of the permutahedron~$P$ is a tight coherent section of the projection $P \times P \to P, (x,y) \mapsto (x+y)/2$.
 \end{definition}
 
-Such a map can be seen as a topological map, or sometimes as a map of lattices; we shall not change notation and the context should make clear which 
-We will sometimes denote a diagonal of the $n$-permutahedron by $\triangle_n$. 
+Such a map can be seen as a topological map, or as a map of lattices; we shall not change notation and the context should make clear which version we are referring to.
+%We will sometimes denote a diagonal of the $n$-permutahedron by $\triangle_n$. 
 
-\begin{definition}
+\begin{definition}[Diagonal's $f$-vector]
     The \emph{$f$-vector} of the diagonal $\triangle_{(P,\vec v)}$ is the number of faces of $P\times P$ of given total dimension in its cellular image.
     Alternatively, it is the $f$-vector of the polytopal complex~$\pi (\triangle_{(P,\vec v)})$.
 \end{definition}
@@ -1256,14 +1262,22 @@ We will sometimes denote a diagonal of the $n$-permutahedron by $\triangle_n$.
 For the purpose of studying this $f$-vector, one can study the dual of the polytopal complex.
 
 \begin{proposition}
-    The $f$-vector of a cellular diagonal of the permutahedron $\triangle_{(P,\vec v)}$ is given by the opposite of the $f$-vector of the hyperplane arrangement made of the braid arrangement together with a second copy of it, translated in the generic direction $\vec v$. 
+    The $f$-vector of the $(\ell-1)$th iteration of a diagonal of the $(n-1)$-permutahedron $\triangle_{(P,\vec v)}$ is given by the opposite of the $f$-vector of the $(\ell,n)$-braid arrangement.
 \end{proposition}
 
 \begin{proof}
-    This follows from \cite[Proposition 1.3]{LA21}; \cite[Corollary 1.4]{LA21} describes precisely the intersection poset of this hyperplane arrangement.
+    For $\ell=2$, this is in fact precisely the content of the \emph{Fulton--Sturmfels formula} for the intersection product on toric varieties \cite[Theorem 4.2]{fultonIntersectionTheoryToric1997a}.
+    Alternatively, it follows from \cite[Proposition 1.3]{LA21}, and \cite[Corollary 1.4]{LA21} describes precisely the intersection poset of the hyperplane arrangement.
+    The result for arbitrary $\ell$ follows directly. 
 \end{proof}
- 
-The first part of the paper provides explicit formulas for this $f$-vector. 
+
+\begin{remark} \Guillaume{completer et mettre dans l'intro}
+    The toric varieties associated with the permutahedron are called Losev--Manin varieties, introduced in XX, were studied a lot because of Y.
+    They are De Concini--Procesi wonderful compactifications of \dots
+    They ate also brick manifolds?
+    Their ring structure is well-known [REF] but our current work brings a completely combinatorially explicit description of it. 
+    It would be interesting to know if this new description can lead to new results
+\end{remark}
 
 %%%%%%%%%%%%%%%
 
@@ -1283,6 +1297,39 @@ We use the shorthand $14|23$ to denote both the unordered  partition $\{\{1,4\},
 	\label{fig:diagonalPermutahedron2}
 \end{figure}
 \vincent{I have included this picture here to be sure that we don't forget it. I should make one for the SU diagonal~$\SUD$ as well.}
+
+Let us recall the universal formula expressing combinatorially the cellular image of the diagonal of a polytope $P$ obtained in \cite[Theorem 1.26]{LA21}.
+It is expressed in terms of the \emph{fundamental hyperplane arrangement} of $P$. 
+
+\begin{definition}[Fundamental hyperplane arrangement]
+    The \emph{fundamental hyperplane arrangement} $\mathcal{H}_P$ of a polytope $P \subset \R^n$ is the set of hyperplanes whose normal vectors are a choice of directions of the edges of $P\cap \rho_z P$, for any $z \in P$. 
+\end{definition}
+
+\begin{example}
+    Let $U(n):=\{ (I,J) \ | \ I,J \subset [n], |I|=|J|>0, \min(I \cup J) \in I\}$.
+    The fundamental hyperplane arrangement of the $(n-1)$-permutahedron is given by the family of hyperplanes \[ \sum_{i \in I} x_i = \sum_{j \in J} x_j \ ,  \ (I,J) \in U(n) \ . \] 
+\end{example}
+
+\Guillaume{Mentionner le travail en cours de Lionel Pournin?}
+
+\begin{theorem}[Universal formula]
+    Let $(P,\vec v)$ be a positively oriented polytope in $\R^n$. 
+For each $H\in\mathcal{H}_P$, we choose a normal vector $\vec d_H$ such that $\langle \vec d_H, \vec v \rangle >0$. 
+We have 
+\begin{eqnarray}
+(F,G) \in \Ima \triangle_{(P,\vec v)} 
+&\iff& \forall H \in \mathcal{H}_P(F,G), \ \exists i , \ \langle \vec F_i, \vec d_H \rangle < 0  \text{ or } \exists j , \ \langle \vec G_j, \vec d_H \rangle > 0  \\ 
+&\iff& \forall H \in \mathcal{H}_P , \ \exists i , \ \langle \vec F_i, \vec d_H \rangle < 0  \text{ or } \exists j , \ \langle \vec G_j, \vec d_H \rangle > 0 \ . 
+\end{eqnarray} 
+\end{theorem}
+
+\begin{corollary}
+    Any choice of diagonal of the permutahedron is given combinatorially by a choice of inequalities for all the hyperplanes in 
+\end{corollary}
+
+\begin{proof}
+    Choice of vector is choice of chamber, mention chamber invariance
+\end{proof}
 
 Let us recall the combinatorial formula for the cellular approximation of the diagonal of the permutahedra from \cite[Theorem 3.16]{LA21}.
 Let $n\geq 1$, and let us write \[ \LA(n) \coloneqq \{(I,J) \ | \ I,J\subset\{1,\ldots,n\}, |I|=|J|, I\cap J=\emptyset, \min(I\cup J)\in I \}. \] 
@@ -2821,19 +2868,51 @@ This is not typically the case.
     Thus, all the different definitions agree with the geometrically defined $\SUD$. 
 \end{proof}
 
-This
-\begin{enumerate}
-    \item resolves a conjecture of \cite{LA21} for the operahedra, and a conjecture of \cite{MazuirLA22} for the multiplihedra;
-    \item provides a new proof that all known diagonals on the associahedra coincide \cite{saneblidzeComparingDiagonalsAssociahedra2022}
+This result
+\begin{enumerate}[(i)]
+    \item brings a positive answer to \cite[Remark 2.19]{LA21}, showing that the original $\SU$ diagonal can indeed be recovered from a choice of chambers in the fundamental hyperplane arrangement of the permutahedron. 
+    Remark that this choice is precisely given by the family of vectors mentioned in \cite[Remark 4.19]{LA21}, which was already identified to be operadic,
+    \item sets up the analogous question in \cite[Remark 3.9]{MazuirLA22} for the multiplihedra,
+    \item provides a new proof that all known diagonals on the associahedra coincide \cite{saneblidzeComparingDiagonalsAssociahedra2022}.
+    Indeed, since the family of vectors inducing the $\SU$ diagonal all have strictly decreasing coordinates, the diagonal induced on the associahedron is given by the magical formula \cite[Theorem 2]{masudaDiagonalAssociahedra2021}, see also \cite[Proposition 3.8]{LA21}.
 \end{enumerate}
-Moreover, this allows us to obtain alternative descriptions of all four operadic diagonals, in particular
+
+Moreover, it allows us to obtain alternative descriptions of all four operadic diagonals, in particular
 \begin{enumerate}
-    \item subset shift and shift definitions of $\LA$ diagonal,
-    \item matrix description of $\LA$ diagonal,
-    \item conjectural description as subdivision of the cube [...]
+    \item subset shift and $m$-shift definitions of the $\LA$ diagonal,
+    \item matrix description of the $\LA$ diagonal,
+    \item a new realization of the permutahedron as subdivision of the cube, and a conjectural description of the $\LA$ diagonal in terms of this subdivision, 
 \end{enumerate}
-The next subsection is devoted to such a translation. 
-One could hope for similar results in the case of the freehedra [REFS].
+in addition to the new  \Guillaume{add references}
+\begin{enumerate}
+    \item[(4)] geometric construction and $(I,J)$-description of the $\SU$ diagonal,
+    \item[(5)] description of the facets of the $\SU$ diagonal as labelled bipartite trees,
+    \item[(6)] description of the vertices of the $\SU$ diagonal as pattern avoiding permutations,
+    \item[(7)] enumerative results for the facets and vertices of the $\SU$ diagonal. 
+\end{enumerate}
+
+We end this Section by applying the isomorphism between the $\SU$ and $\LA$ diagonal to obtain explicitly the Points (1)-(3) above.
+
+\begin{definition}[$\LA$ diagonals]
+\begin{enumerate}
+    \item subset shift
+    \item $m$-shift
+    \item matrix
+\end{enumerate}
+\end{definition}
+
+\begin{definition}
+    New subdivision of the cube
+\end{definition}
+
+\begin{conjecture}
+    The $\LA$ diagonal is given by the formula...
+\end{conjecture}
+
+This is equivalent, via the isomorphism between $\LA$ and $\SU$ diagonals, to the analogous conjecture for the $\SU$ diagonal, presented as a fact in \cite[Equation (1)]{saneblidzeComparingDiagonalsAssociahedra2022}.
+
+\Kurt{Mention the LAD and SUD shifts generate the (same) facets of the hexagon in two different ways.}
+\Guillaume{AND add picture}
 
 %%%%
 
@@ -2848,17 +2927,21 @@ Let $(\sigma_1|\dots|\sigma_k,\tau) \in \SUD$, and let $\rho \in \sigma_{i}$ be 
 
 As such, an immediate corollary of $\theta:\LAD \to \SUD$ being a face poset isomorphism is that their are analogous critical shift definitions of $\LAD$ induced by $\theta^{-1}$. 
 We now explicitly state the critical shift $\LAD$ definition.
-\begin{definition} \label{def:critical LA shift}
+
+\begin{definition} 
+\label{def:critical LA shift}
 Let $(\sigma,\tau)$ be a pair of ordered partitions, and let $\rho \in (\sigma_{i+1} \ssm \max \sigma_{i+1})$ such that $\rho< \min \sigma_{i,i+1}$. Such an element $\rho$ is said to be \emph{critical}. 
 We similarly define the critical elements of $\tau$ to be, $\rho \in (\tau_{i} \ssm \max\tau_{i})$ such that $\rho < \min \tau_{i,i+1}$. 
 We define the left shift operator $L_{\rho}$ to act on $\sigma$, and the right shift $R_{\rho}$ operator to act on $\tau$.
 \end{definition}
+
 We note that compared to shift $\SUD$, the left shift operator now acts on the left ordered partition, and the right shift operator on the right ordered partition, a distinct notational improvement.
 The correctness of this definition can be verified directly by obvious variants of the proofs of this section for the $\LAD$ diagonal.
 There is also a clear translation of the subset shift operator, which we will not write out in full. 
 We now explore in example how the $\LAD$ shift structure is induced by $\theta$.
 
-\begin{example} \label{ex:shift translation by theta}
+\begin{example} 
+\label{ex:shift translation by theta}
 The $\SCP$s $(\sigma,\tau)  \eqdef  5|17|4|236 \times 57|146|3|2$, and $(\sigma',\tau')  \eqdef  13|247|5|6 \times 3|17|4|156$, are in bijection through $\theta$. Graphically this bijection has a clear symmetry,
 
 \begin{center}
@@ -3001,17 +3084,6 @@ $5|17|4|236 \xrightarrow{L_3}5|17|34|26 $ is sent to the left $\SUD$ shift
 $3|17|4|256 \xrightarrow{L_5} 3|17|45|26$. \Kurt{Hmm maybe it nicer to stick with alternate iso}
 \end{example}
 
-\Kurt{Mention the LAD and SUD shifts generate the (same) facets of the hexagon in two different ways.}
-
-We have the following equivalent characterisations of the $\LAD$ and $\SUD$ diagonals. \Kurt{Probably in the intro somewhere}
-\begin{itemize}
-    \item $I,J$ conditions
-    \item As orderings of essential complementary partitions
-    \item Subset shift
-    \item Critical element shift
-    \item Matrix
-    \item Cubical?
-\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
