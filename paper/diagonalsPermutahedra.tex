@@ -1742,7 +1742,7 @@ In the case of the permutahedron it sends $\LAD$ to $(\LAD)^\op$ and $\SUD$ to $
 \end{proof}
 
 \begin{remark}
-    There is a second, distinct isomorphism given by $t(r\times r)$ \Guillaume{TBC}
+    There is a second, distinct isomorphism given by $t(r\times r)$ \Guillaume{TBC} \Kurt{See shift iso example. Might be slightly better to use this instead}
 \end{remark}
 
 %%%%%%%%%%%%%%%
@@ -1875,13 +1875,13 @@ We now illustrate the ordering (right) of the pair of essential complementary pa
 \node (7) at (1.5, -3) {$46$};
 \node (8) at (1.5, -4) {$57$};
 %
-\draw[-] (1)--(5); 
-\draw[-] (1)--(8);
-\draw[-] (2)--(5); 
-\draw[-] (2)--(6); 
-\draw[-] (2)--(7); 
-\draw[-] (3)--(7);
-\draw[-] (4)--(8);
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (8);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (6); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (7); 
+\draw[thick] (3) to [in=180, out=0, looseness=0] (7);
+\draw[thick] (4) to [in=180, out=0, looseness=0] (8);
 %
 \end{tikzpicture}
 $\quad$
@@ -1896,13 +1896,13 @@ $\quad$
 \node (7) at (1.5, -3) {$13$};
 \node (8) at (1.5, -4) {$2$};
 %
-\draw[-] (1)--(5); 
-\draw[-] (1)--(7);
-\draw[-] (2)--(5); 
-\draw[-] (3)--(6); 
-\draw[-] (3)--(7); 
-\draw[-] (3)--(8); 
-\draw[-] (4)--(6);
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (7);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (3) to [in=180, out=0, looseness=0] (6); 
+\draw[thick] (3) to [in=180, out=0, looseness=0] (7); 
+\draw[thick] (3) to [in=180, out=0, looseness=0] (8); 
+\draw[thick] (4) to [in=180, out=0, looseness=0] (6);
 %
 \end{tikzpicture}
 \end{center}
@@ -2006,13 +2006,13 @@ We apply the bijection $rs\times rs$ to the element of $\LAD$ from \cref{ex:ECbi
 \node (7) at (1.5, -3) {$13$};
 \node (8) at (1.5, -4) {$2$};
 %
-\draw[-] (1)--(5); 
-\draw[-] (1)--(7);
-\draw[-] (2)--(5); 
-\draw[-] (3)--(6); 
-\draw[-] (3)--(7); 
-\draw[-] (3)--(8); 
-\draw[-] (4)--(6);
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (7);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (3) to [in=180, out=0, looseness=0] (6); 
+\draw[thick] (3) to [in=180, out=0, looseness=0] (7); 
+\draw[thick] (3) to [in=180, out=0, looseness=0] (8); 
+\draw[thick] (4) to [in=180, out=0, looseness=0] (6);
 %
 \end{tikzpicture}
 \quad
@@ -2029,13 +2029,13 @@ We apply the bijection $rs\times rs$ to the element of $\LAD$ from \cref{ex:ECbi
 \node (7) at (-1.5, -2) {$456$};
 \node (8) at (-1.5, -1) {$2$};
 %
-\draw[-] (1)--(5);
-\draw[-] (1)--(6); 
-\draw[-] (2)--(7);
-\draw[-] (2)--(8);
-\draw[-] (3)--(5); 
-\draw[-] (3)--(7);
-\draw[-] (4)--(7);
+\draw[thick] (1) to [out=180, in=0, looseness=0] (5);
+\draw[thick] (1) to [out=180, in=0, looseness=0] (6); 
+\draw[thick] (2) to [out=180, in=0, looseness=0] (7);
+\draw[thick] (2) to [out=180, in=0, looseness=0](8);
+\draw[thick] (3) to [out=180, in=0, looseness=0] (5); 
+\draw[thick] (3) to [out=180, in=0, looseness=0] (7);
+\draw[thick] (4) to [out=180, in=0, looseness=0] (7);
 %
 \end{tikzpicture} \ .
 \end{center}
@@ -2153,13 +2153,13 @@ The SCP associated to the permutation $3|1|7|4|2|5|6$ is
     \node (7) at (1.5, -3) {$4$};
     \node (8) at (1.5, -4) {$256$};
     %
-    \draw[-] (1)--(5); 
-    \draw[-] (1)--(6); 
-    \draw[-] (2)--(6); 
-    \draw[-] (2)--(7); 
-    \draw[-] (2)--(8); 
-    \draw[-] (3)--(8); 
-    \draw[-] (4)--(8);
+    \draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
+    \draw[thick] (1) to [in=180, out=0, looseness=0] (6); 
+    \draw[thick] (2) to [in=180, out=0, looseness=0] (6); 
+    \draw[thick] (2) to [in=180, out=0, looseness=0] (7); 
+    \draw[thick] (2) to [in=180, out=0, looseness=0] (8); 
+    \draw[thick] (3) to [in=180, out=0, looseness=0] (8); 
+    \draw[thick] (4) to [in=180, out=0, looseness=0] (8);
     %
 \end{tikzpicture}
 \end{center}
@@ -2237,13 +2237,13 @@ Performing the $1$-shifts $R_7$ and $L_{5,6}$ on $1$-movable (they are both bloc
     \node (7) at (1.5, -3) {$4$};
     \node (8) at (1.5, -4) {$256$};
     %
-    \draw[-] (1)--(5); 
-    \draw[-] (1)--(6); 
-    \draw[-] (2)--(6); 
-    \draw[-] (2)--(7); 
-    \draw[-] (2)--(8); 
-    \draw[-] (3)--(8); 
-    \draw[-] (4)--(8);
+    \draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
+    \draw[thick] (1) to [in=180, out=0, looseness=0] (6); 
+    \draw[thick] (2) to [in=180, out=0, looseness=0] (6); 
+    \draw[thick] (2) to [in=180, out=0, looseness=0] (7); 
+    \draw[thick] (2) to [in=180, out=0, looseness=0] (8); 
+    \draw[thick] (3) to [in=180, out=0, looseness=0] (8); 
+    \draw[thick] (4) to [in=180, out=0, looseness=0] (8);
     %
 \end{tikzpicture}
 \quad
@@ -2261,13 +2261,13 @@ Performing the $1$-shifts $R_7$ and $L_{5,6}$ on $1$-movable (they are both bloc
 \node (7) at (1.5, -3) {$456$};
 \node (8) at (1.5, -4) {$2$};
 %
-\draw[-] (1)--(5); 
-\draw[-] (1)--(6); 
-\draw[-] (3)--(6); 
-\draw[-] (2)--(7); 
-\draw[-] (2)--(8); 
-\draw[-] (3)--(7); 
-\draw[-] (4)--(7);
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (6); 
+\draw[thick] (3) to [in=180, out=0, looseness=0] (6); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (7); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (8); 
+\draw[thick] (3) to [in=180, out=0, looseness=0] (7); 
+\draw[thick] (4) to [in=180, out=0, looseness=0] (7);
 %
 \end{tikzpicture}
 \end{center}
@@ -2648,19 +2648,129 @@ Then,
 \end{proof}
 
 \begin{example}
-\Kurt{I can do an example for each of the cases if this is the route we take}
-\begin{enumerate}
-    \item 
-    \item 
-    \begin{enumerate}
-        \item 
-        \item 
-        \begin{enumerate}
-            \item 
-            \item $12|3|4\times 23|14 \xrightarrow{L_{3}^{-1}} 12|3|4\times 2|134$ 
-        \end{enumerate}
-    \end{enumerate}
-\end{enumerate}
+Here is an example of each of the cases in the prior proof. We display $1$, $2.a$, $2.b.i$ and, $2.b.ii$ respectively, reading the diagrams  from top-left to bottom-right. 
+
+\begin{center}
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$1$};
+\node (2) at (-1.5, -2) {$23$};
+%
+\node (4) at (1.5, -1) {$3$};
+\node (5) at (1.5, -2) {$12$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
+\end{tikzpicture}
+\quad
+\raisebox{1em}{$\xrightarrow{R^{-1}_{3}}$}
+\quad
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$13$};
+\node (2) at (-1.5, -2) {$2$};
+%
+\node (4) at (1.5, -1) {$3$};
+\node (5) at (1.5, -2) {$12$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+,
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$1$};
+\node (2) at (-1.5, -2) {$2$};
+\node (3) at (-1.5, -3) {$34$};
+%
+\node (4) at (1.5, -1) {$14$};
+\node (5) at (1.5, -2) {$23$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (3) to [in=180, out=0, looseness=0] (4);
+\draw[thick] (3) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+\quad
+\raisebox{1.5em}{$\xrightarrow{R^{-1}_{4}}$}
+\quad
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$1$};
+\node (2) at (-1.5, -2) {$24$};
+\node (3) at (-1.5, -3) {$3$};
+%
+\node (4) at (1.5, -1) {$14$};
+\node (5) at (1.5, -2) {$23$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (3) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+\end{center}
+\begin{center}
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$13$};
+\node (2) at (-1.5, -2) {$2$};
+\node (3) at (-1.5, -3) {$4$};
+%
+\node (4) at (1.5, -1) {$34$};
+\node (5) at (1.5, -2) {$12$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (3) to [in=180, out=0, looseness=0] (4);
+\end{tikzpicture}
+\quad
+\raisebox{1.5em}{$\xrightarrow{L^{-1}_{4}}$}
+\quad
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$13$};
+\node (2) at (-1.5, -2) {$2$};
+\node (3) at (-1.5, -3) {$4$};
+%
+\node (4) at (1.5, -1) {$3$};
+\node (5) at (1.5, -2) {$124$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (3) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+,
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$12$};
+\node (2) at (-1.5, -2) {$3$};
+\node (3) at (-1.5, -3) {$4$};
+%
+\node (4) at (1.5, -1) {$23$};
+\node (5) at (1.5, -2) {$14$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
+\draw[thick] (3) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+\quad
+\raisebox{1.5em}{$\xrightarrow{L^{-1}_{3}}$}
+\quad
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$12$};
+\node (2) at (-1.5, -2) {$3$};
+\node (3) at (-1.5, -3) {$4$};
+%
+\node (4) at (1.5, -1) {$2$};
+\node (5) at (1.5, -2) {$134$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (3) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+\end{center}
+Note, as we have chosen minimal illustrate examples, each inverse $m$-shift is an inverse $1$-shift, and after each shift we obtain an $SCP$. 
+This is not typically the case.
+
 \end{example}
 
 \begin{proposition} \label{prop:iso-shift-IJ-diagonals}
@@ -2726,6 +2836,7 @@ We now explore in example how the $\LAD$ shift structure is induced by $\theta$.
 
 \begin{example} \label{ex:shift translation by theta}
 The $\SCP$s $(\sigma,\tau)  \eqdef  5|17|4|236 \times 57|146|3|2$, and $(\sigma',\tau')  \eqdef  13|247|5|6 \times 3|17|4|156$, are in bijection through $\theta$. Graphically this bijection has a clear symmetry,
+
 \begin{center}
 \begin{tikzpicture}[scale=.7]  
 \node (1) at (-1.5, -1) {$5$};
@@ -2738,38 +2849,38 @@ The $\SCP$s $(\sigma,\tau)  \eqdef  5|17|4|236 \times 57|146|3|2$, and $(\sigma'
 \node (7) at (1.5, -3) {$3$};
 \node (8) at (1.5, -4) {$2$};
 %
-\draw[-] (1)--(5); 
-\draw[-] (2)--(5); 
-\draw[-] (2)--(6); 
-\draw[-] (3)--(6); 
-\draw[-] (4)--(6); 
-\draw[-] (4)--(7); 
-\draw[-] (4)--(8);
+\draw[thick] (1) to [in=180, out=0, looseness=0](5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (3) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](8);
 %
 \end{tikzpicture}
 $\xrightarrow{\theta}$
 \begin{tikzpicture}[scale=.7]  
-\node (1) at (-1.5, -1) {$13$};
-\node (2) at (-1.5, -2) {$247$};
-\node (3) at (-1.5, -3) {$5$};
-\node (4) at (-1.5, -4) {$6$};
+\node (1) at (-1.5, -1) {$256$};
+\node (2) at (-1.5, -2) {$4$};
+\node (3) at (-1.5, -3) {$17$};
+\node (4) at (-1.5, -4) {$3$};
 %
-\node (5) at (1.5, -1) {$3$};
-\node (6) at (1.5, -2) {$17$};
-\node (7) at (1.5, -3) {$4$};
-\node (8) at (1.5, -4) {$256$};
+\node (5) at (1.5, -1) {$6$};
+\node (6) at (1.5, -2) {$5$};
+\node (7) at (1.5, -3) {$247$};
+\node (8) at (1.5, -4) {$13$};
 %
-\draw[-] (1)--(5); 
-\draw[-] (1)--(6); 
-\draw[-] (2)--(6); 
-\draw[-] (2)--(7);
-\draw[-] (2)--(8); 
-\draw[-] (3)--(8); 
-\draw[-] (4)--(8);
+\draw[thick] (1) to [in=180, out=0, looseness=0](5);
+\draw[thick] (1) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (1) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (3) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (3) to [in=180, out=0, looseness=0](8); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](8);
 %
 \end{tikzpicture}
 \end{center}
-We now illustrate all possible $\LAD$ shifts of the left $\SCP$ and all possible $\SUD$ shifts of the right $\SCP$. We first display how the $\LAD$ left shifts act on $\sigma$, and the $\SUD$ left shifts act on $\tau'$. We indicate shifts by their corresponding critical element, drawing them to avoid crossings, and so they align with their isomorphic shift under $\theta$.
+We now illustrate all possible $\LAD$ shifts of the left $\SCP$ and all possible $\SUD$ shifts of the right $\SCP$. We first display how the $\LAD$ left shifts act on $\sigma$, and the $\SUD$ left shifts act on $\tau'$. We indicate shifts by their corresponding critical element, drawing them to avoid crossings, and so they align with their isomorphic shift under $\theta$. \Kurt{Update to new theta}
 \begin{center}
 {\small
 \begin{tikzcd}
@@ -2815,7 +2926,55 @@ As an example of a $\SUD$ subset shift, and the bijection to critical shifts (\c
 \end{tikzcd}
 \end{center}
 This corresponds to combining the critical right shift operators of the $\SUD$ diagonal which have been indicated in red into a single subset.
-We note it is also possible to apply $\SUD$ shifts to $(\sigma,\tau)$ and $\LAD$ shifts to $(\sigma',\tau')$. 
+We note it is also possible to apply $\SUD$ shifts to $(\sigma,\tau)$ and $\LAD$ shifts to $(\sigma',\tau')$.
+\\\\
+We note, that the alternate isomorphism identified in Remark ... has the benefit of mapping left shifts to left shifts and right shifts to right shifts. However, this comes at the cost of switching the sides they act on. For instance, the same $\LAD$ $SCP$ is sent to the following $SCP$.
+\begin{center}
+\begin{tikzpicture}[scale=.7]  
+\node (1) at (-1.5, -1) {$5$};
+\node (2) at (-1.5, -2) {$17$};
+\node (3) at (-1.5, -3) {$4$};
+\node (4) at (-1.5, -4) {$236$};
+%
+\node (5) at (1.5, -1) {$57$};
+\node (6) at (1.5, -2) {$146$};
+\node (7) at (1.5, -3) {$3$};
+\node (8) at (1.5, -4) {$2$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0](5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (3) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](8);
+%
+\end{tikzpicture}
+$\xrightarrow{\theta'}$
+\begin{tikzpicture}[scale=.7]  
+\node (1) at (-1.5, -1) {$13$};
+\node (2) at (-1.5, -2) {$247$};
+\node (3) at (-1.5, -3) {$5$};
+\node (4) at (-1.5, -4) {$6$};
+%
+\node (5) at (1.5, -1) {$3$};
+\node (6) at (1.5, -2) {$17$};
+\node (7) at (1.5, -3) {$4$};
+\node (8) at (1.5, -4) {$256$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0](5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (3) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](8);
+%
+\end{tikzpicture}
+\end{center}
+and for instance, the left $\LAD$ shift 
+$5|17|4|236 \xrightarrow{L_3}5|17|34|26 $ is sent to the left $\SUD$ shift
+$3|17|4|256 \xrightarrow{L_5} 3|17|45|26$. \Kurt{Hmm maybe it nicer to stick with alternate iso}
 \end{example}
 
 \Kurt{Mention the LAD and SUD shifts generate the (same) facets of the hexagon in two different ways.}
