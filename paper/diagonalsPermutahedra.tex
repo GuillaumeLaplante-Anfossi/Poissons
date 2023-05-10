@@ -2206,8 +2206,6 @@ while the \emph{left $m$-shift} moves it $m$ blocks to the left
 \end{align*}
 \end{definition}
 
-
-
 \begin{definition}[Movable subsets]
     \label{def:movable-subsets}
     Let $(\sigma,\tau) = (\sigma_1|\dots|\sigma_k,\tau_1|\dots|\tau_l)$ be a pair of ordered partitions.
@@ -2216,7 +2214,7 @@ while the \emph{left $m$-shift} moves it $m$ blocks to the left
         \item $\min \sigma_i \notin M_i$ (resp. $\min \tau_{i} \notin M_i$), and
         \item $\min M_i> \max \sigma_{i+1}$ (resp. $\min M_{i}> \max \tau_{i-1}$).
     \end{enumerate}
-    It is \emph{$m$-path movable} if it satisfies $(1)$ above and if
+    It is \emph{$m$-path movable} if it satisfies $(1)$ above together with
     \begin{enumerate}
         \item[(2')] $\min M_i> \max \sigma_{i,i+m}$ (resp. $\min M_{i}> \max \tau_{i,i-m}$).
     \end{enumerate}
@@ -2273,13 +2271,12 @@ Performing the $1$-shifts $R_7$ and $L_{5,6}$ on $1$-movable (they are both bloc
 \end{center}
 \end{example}
 
-We shall concentrate on three distinct families of shifts:
+We shall concentrate on two distinct families of shifts:
 \begin{enumerate}[(a)]
-    \item $1$-shifts of $1$-block movable subsets of various sizes,
-    \item $1$-shifts of $1$-path movable singletons, and
+    \item $1$-shifts of $1$-block movable subsets of various sizes, and
     \item $m$-shifts of $m$-path movable singletons, for various $m\geq 1$,
 \end{enumerate}
-and show that specific sequences all generate the same diagonal. 
+and show that specific sequences generate the same diagonal. 
 
 \begin{definition}[Admissible sequences of shifts]
     Let $(\sigma,\tau)$ be a pair of ordered partitions. 
@@ -2292,11 +2289,6 @@ and show that specific sequences all generate the same diagonal.
     \end{enumerate}
     The resulting ordered partition is denoted by $R_\mathbf{M}(\sigma) \eqdef R_{M_{i_p}}\dots R_{M_{i_1}}(\sigma)$.
 
-    \item \emph{admissible of $1$-path type} if
-    \begin{enumerate}[(1)]
-        \item each $M_{i_j}$ is a $1$-path movable element of $R_{M_{i_j-1}}\dots R_{M_{i_1}}(\sigma)_{i_j}$.
-    \end{enumerate}
-
     \item \emph{admissible of $m$-path type} if
     \begin{enumerate}[(1)]
         \item each $M_{i_j}$ is a $m$-path movable element of $R_{M_{i_j-1}}\dots R_{M_{i_1}}(\sigma)_{i_j}$, for some $m\geq 1$.
@@ -2308,14 +2300,13 @@ and show that specific sequences all generate the same diagonal.
 
 \Guillaume{Think about notation: too many indices!! $R_{M_{i_j}}$}
 
-By convention, we declare the empty sequence of subset $1$-shift operators to be admissible, and to act by the identity, i.e. we have $R_{\mathbf{\emptyset}}(\sigma)  \eqdef  \sigma$ and $L_{\mathbf{\emptyset}} (\tau) \eqdef  \tau$.
+By convention, we declare the empty sequence of shift operators to be admissible, and to act by the identity, i.e. we have $R_{\mathbf{\emptyset}}(\sigma)  \eqdef  \sigma$ and $L_{\mathbf{\emptyset}} (\tau) \eqdef  \tau$.
 
 \begin{definition}[$\SU$ diagonals]
     \label{def:classical-SU}
    The facets of 
    \begin{enumerate}[(a)]
     \item the \emph{original $\SU$ diagonal},
-    \item the \emph{$1$-shift $\SU$ diagonal},
     \item the \emph{$m$-shift $\SU$ diagonal}
    \end{enumerate}
    are defined by the formula
@@ -2332,13 +2323,28 @@ The original $\SU$ diagonal was so defined in \cite{SaneblidzeUmble04}, see also
     In the analogous description for the diagonal $\LAD$ obtained at the end of the Section \Guillaume{[REF]}, left and right shifts act on the left and right ordered partitions, respectively. 
 \end{remark}
 
-%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{First isomorphism: original and $m$-shift $\SU$ diagonals}
 
-We first compare the original and $1$-shift $\SU$ diagonals, then $1$-shift and $m$-shift. 
+First, we show that the $m$-shift $\SU$ diagonal is equivalent to the \emph{$1$-shift $\SU$ diagonal}, which given by exactly the same definition, but where only $1$-shifts are performed. 
 
-\Guillaume{On doit pouvoir compresser ca pour faire directement original -- $m$-shift, on parlera des inversions après}
+\begin{proposition}
+    \label{prop:iso-1-to-m-shift}
+    The $1$-shift and $m$-shift $\SU$ diagonals coincide.
+\end{proposition}
+
+\begin{proof}
+    It is clear that any admissible sequence of $1$-shifts is an admissible sequence of $m$-shifts, and thus that the facets of the $1$-shift $\SU$ diagonal are facets of the $m$-shift $\SU$ diagonal. 
+    For the reverse inclusion, we need to show that any $m$-shift can be rexpressed as an admissible sequence of $1$-shift. 
+    We proceed by induction.
+    For the case $m=1$ there is nothing to prove.
+    Let $(\sigma,\tau)$ be a pair of ordered partitions in the $m$-shift diagonal. 
+    Suppose now that an element $\rho \in \sigma_i$ is $m$-movable, i.e. $\rho \neq \min \sigma_i$ and $\rho > \max \sigma_{i,i+m}$.
+    Observing that it is in fact $1$-movable, since $\sigma_{i,i+m}=\sigma_{i,i+1}\sigma_{i+1,i+m}$ we have that $\max \sigma_{i,i+m}\geq \max \sigma_{i,i+1}$, allows us to apply the induction hypothesis.
+\end{proof}
+
+We will now compare the $1$-shift and original $\SU$ diagonals. 
 
 \begin{proposition} 
 \label{prop:SU-preserves-max}
@@ -2437,19 +2443,22 @@ In particular, if a pair of ordered partitions $(\sigma',\tau')$ is generated fr
 \end{corollary}
 
 \begin{proof}
-    By definition of the admissible $m$-path shifts, \cref{eq:shift-subset-dominates} holds and we can run the proof of \cref{prop:SU-preserves-max} \emph{mutatis mutandis}; moreover, there is no harm in replacing the tuple $k,k+1$ by the tuple $k,k+m$ in everything that follows \cref{eq:shift-subset-dominates}.
+    By \cref{prop:iso-1-to-m-shift}, it suffices to treat the case of $1$-shifts. 
+    By definition of the admissible $1$-path shifts, \cref{eq:shift-subset-dominates} holds and we can run the proof of \cref{prop:SU-preserves-max} \emph{mutatis mutandis}.
 \end{proof}
 
 We have now dropped the assumption that $\min M_k > \max R_{\mathbf{M}}(\sigma)_{k+1}$, and the assumption that we need to perform shifts in an increasing order; once this is done, we can generate all subset shifts by chains of singleton set shifts.
 
-\begin{proposition}
+\begin{theorem}
 \label{prop:iso-original-shift-diagonals}
-The original and $1$-shift $\SU$ diagonals coincide.
-\end{proposition}
+The original and $m$-shift $\SU$ diagonals coincide.
+\end{theorem}
 
 \Guillaume{review terminology in the proof}
 
 \begin{proof}
+Since $m$-shift and $1$-shift diagonals are equivalent (\cref{prop:iso-1-to-m-shift}), it suffices to show that the $1$-shift and original $\SU$ diagonals coincide. 
+
 We analyse the right shift operator, the case of the left shift is similar. 
 First, we observe that any subset right shift $R_{M_k}(\sigma)$ can be decomposed into a series of singleton right shifts: since $\min M_k > \max \sigma_{k,k+1}$ by the proof of \cref{prop:SU-preserves-max}, we can shift the elements of $M_k$ to the right one after the other (in any order!).
 This shows that any facet of the original $\SU$ diagonal is also a facet in the $1$-shift $\SU$ diagonal.
@@ -2471,44 +2480,24 @@ Then using the induction hypothesis, \cref{prop:SU-preserves-max} shows that $\r
 This proves that $R_{M'_{i_j}}$ is well-defined, completing the inductive proof.
 \end{proof}
 
-\begin{proposition}
-    \label{prop:iso-1-to-m-shift}
-    The $1$-shift and $m$-shift $\SU$ diagonals coincide.
-\end{proposition}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{proof}
-    It is clear that any admissible sequence of $1$-shifts is an admissible sequence of $m$-shifts, and thus that the facets of the $1$-shift $\SU$ diagonal are facets of the $m$-shift $\SU$ diagonal. 
-    For the reverse inclusion, we need to show that any $m$-shift can be rexpressed as an admissible sequence of $1$-shift. 
-    We proceed by induction.
-    For the case $m=1$ there is nothing to prove.
-    Let $(\sigma,\tau)$ be a pair of ordered partitions in the $m$-shift diagonal. 
-    Suppose now that an element $\rho \in \sigma_i$ is $m$-movable, i.e. $\rho \neq \min \sigma_i$ and $\rho > \max \sigma_{i,i+m}$.
-    Observing that it is in fact $1$-movable, since $\sigma_{i,i+m}=\sigma_{i,i+1}\sigma_{i+1,i+m}$ we have that $\max \sigma_{i,i+m}\geq \max \sigma_{i,i+1}$, allows us to apply the induction hypothesis.
-\end{proof}
+\subsubsection{Inversions}
 
-%%%%
-
-\subsubsection{Third isomorphism: $m$-shift and $(I,J)$ coincide}
-
-\begin{lemma} 
-\label{lem:SUD closed under shifts}
-Let $(\sigma,\tau)\in \SUD$, if we apply a critical shift operator to it, then we remain in $\SUD$.
-\end{lemma}
-\begin{proof}
-We consider just the right shift, and the left proceeds similarly. 
-\cref{cor:SU-shift-preserves-max} shows that the maxima of paths between consecutive vertices in $(R_{\rho}(\sigma),\tau)$ are the same as the ones in $(\sigma,\tau)$. 
-Thus, all maxima of paths in $(R_{\rho}(\sigma),\tau)$ are traversed from right to left, and hence by \cref{prop:SUD are ordered EC}, we have that $(R_{\rho}(\sigma),\tau) \in \SUD$.   
-\end{proof}
-
-We now need to develop the theory of inverse shift operators.
+We now aim at showing that $m$-shift and $(I,J)$ diagonals coincide. 
+By $(I,J)$ diagonal, we mean the $\SU$ diagonal defined via $(I,J)$ conditions in \cref{prop:unique-operad}.
 
 \begin{definition}
-Let $(\sigma,\tau)$ be a pair of ordered partitions $[n]$, we say that $(x,y)$, where $x<y$, is an \emph{inversion} if $x$ appears before $y$ in $\sigma$ and $y$ appears before $x$ in $\tau$. 
+Let $(\sigma,\tau)$ be a pair of ordered partitions of $[n]$, we say that $(x,y)$, where $x<y$, is an \emph{inversion} if $x$ appears before $y$ in $\sigma$ and $y$ appears before $x$ in $\tau$. 
 \end{definition}
+
+Pairs of ordered partitions are naturally ordered by their inversion sets. 
+Restricting to pairs of permutations, this is just the weak Bruhat order.
+\Guillaume{@Vincent, est-ce que ca coincide avec l'ordre de Ronco?}
 
 \begin{proposition}
 \label{p:crossings}
-The set of inversions of a $\SUD$ facet is in bijection with its set of edge crossings. 
+The set of inversions of a $(I,J)$ diagonal facet is in bijection with its set of edge crossings. 
 Moreover, the set $\SCP$ is equal to the set of facets with no crossings.
 \end{proposition}
 
@@ -2519,52 +2508,79 @@ The second part of the statement follows from the fact that facets of the diagon
 As explained above, from a partition one obtains a strong complementary pair, which is in $\SUD$. 
 In the other way around, given a strong complementary pair, one can read-off the partition in the associated tree, which has no crossings, by a vertical down-slice of edges, see \cref{ex:strong-complementary}.
 \end{proof}
+
 We say that an edge crossing is an \emph{adjacent crossing} if the two crossing elements are in adjacent blocks (i.e. $\sigma_i|\sigma_{i+1}$ or $\tau_i|\tau_{i+1}$).
+
 \begin{lemma}
-A facet $(\sigma,\tau) \in \SUD$ has a crossing if, and only if, it has an adjacent crossing.
+    \label{lem:adjacent-crossing}
+A facet $(\sigma,\tau)$ of the $(I,J)$ diagonal has a crossing if and only if it has an adjacent crossing.
 \end{lemma}
+
 \begin{proof}
 An adjacent crossing is clearly a crossing. In the other direction, suppose there is a crossing between an element of $\sigma_i$ and an element of $\sigma_j$. If $\sigma_i$ and $\sigma_j$ are not adjacent, then the 'triangle' produced by the crossing elements encloses other $\sigma_k$ such that $i<k<j$, and this produces other crossings. We may repeat this process until end an adjacent crossing.
 \end{proof}
 
-We now define inverse critical shift operators.
-\begin{definition} 
-\label{def:critical SU inverse shift}
-Let $(\sigma,\tau)$ be a pair of ordered partitions. Let $\rho \in \sigma_{i+1}$ be such that $\rho>\max \sigma_{i,i+1}$ and $(\alpha,\rho)$ is an adjacent crossing, where $\alpha$ is an arbitrary element which is smaller than $\rho$. 
-Similarly, let $\rho \in \tau_{i} $ such that $\rho > \max \tau_{i,i+1}$ and $(\alpha,\rho)$ is an adjacent crossing.
-Subject to these constraints, we informally define the inverse left/right shift operators as, $R^{-1}_\rho$ returns $\rho$ to $\sigma_i$, and $L^{-1}_\rho$ returns $\rho$ to $\tau_{i+1}$
-\end{definition}
-The theory of these inverse operators behaves as one would expect. We only develop the necessary results to prove the equality of the diagonals. 
-\begin{lemma} \label{lem: shift operators are inverse to their inverses}
-The shift operators are the inverses of the inverse shift operators.
-\end{lemma}
+\begin{proposition} 
+    \label{lem:IJ-closed-under-shifts}
+    Let $(\sigma,\tau)$ be a pair of facets in the $(I,J)$ diagonal.
+    Then,
+    \begin{enumerate}
+        \item any pair of ordered partitions obtained by applying an $m$-shift to $(\sigma,\tau)$ is also in the $(I,J)$ diagonal,
+        \item applying an $m$-shift increases strictly the number of inversions of $(\sigma,\tau)$.
+    \end{enumerate}
+\end{proposition}
+
 \begin{proof}
-If we apply a well-defined inverse shift operator $R^{-1}_{\rho}$ to $(\sigma,\tau)$, then we have $\alpha,\rho \in R^{-1}_{\rho}(\sigma)_{i}$ such that $\min R^{-1}_{\rho}(\sigma)_i \leq \alpha<\rho$ and $\rho >\max R^{-1}_{\rho}(\sigma)_{i,i+1}$. As such, $R_{\rho}$ is well-defined, and $R_{\rho} R^{-1}_{\rho}=id$. A similar result holds for the left operator.
+    We consider just the right shift, and the left proceeds similarly. 
+    By \cref{cor:SU-shift-preserves-max}, we have that the maxima of paths between consecutive vertices in $(R_{\rho}(\sigma),\tau)$ are the same as the ones in $(\sigma,\tau)$, and are moreover traversed in the same direction.
+    Thus, all maxima of paths in $(R_{\rho}(\sigma),\tau)$ are traversed from right to left, and hence by \cref{prop:LAD-ordered-EC}, we have that $(R_{\rho}(\sigma),\tau)$ is in the $(I,J)$ diagonal, which proves Point (1).
+    For Point (2), observe that the $(I,J)$ conditions for $|I|=|J|=1$ imply that $\rho$ must appear before $\min \sigma_i$ in $\tau$; as a result, after the $m$-shift these two edges will create a new intersection.
 \end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Second isomorphism: $m$-shift and $(I,J)$ diagonals coincide}
+
+\begin{definition} 
+\label{def:inverse-shift}
+Let $(\sigma,\tau)$ be a pair of ordered partitions. 
+Let $\rho \in \sigma_{i+m}$ be such that $\rho>\max \sigma_{i,i+m}$ and $\rho > \min \sigma_i$.
+The \emph{inverse right $m$-shift} $R_\rho^{-1}$ is the left $m$-shift which sends $\rho$ to the block $\sigma_i$. 
+Inverse left $m$-shift operators are defined similarly. 
+\end{definition}
+
+It is clear that the inverse shift operators are indeed inverse to shift operators, i.e. that we have $R_\rho R_\rho^{-1}= R_\rho^{-1} R_\rho= \id$. 
+Moreover, we have the following properties.
+
+\begin{proposition} 
+    \label{lem:IJ-closed-under-inverse-shifts}
+    Let $(\sigma,\tau)$ be a pair of facets in the $(I,J)$ diagonal.
+    Then,
+    \begin{enumerate}
+        \item any pair of ordered partitions obtained by applying an inverse $m$-shift to $(\sigma,\tau)$ is also in the $(I,J)$ diagonal,
+        \item applying an inverse $m$-shift decreases strictly the number of inversions of $(\sigma,\tau)$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    The proof is similar to \cref{lem:IJ-closed-under-shifts}: as the inverse shift operators conserve the maxima of paths, and these same maxima continue to be traversed from right to left, it follows by \cref{prop:LAD-ordered-EC} that the output of an inverse shift operator will remain in $\SUD$, which shows Point (1). 
+    For Point (2), we observe the inverse $m$-shift resolves the intersection between $\rho$ and $\min \sigma_i$.
+\end{proof}
+
+\Guillaume{Change all abreviations $\SCP$ for the words}
 
 \begin{lemma}
-The inverse shift operators conserve the maximal elements of paths.
+\label{lem:inverse-to-SCP}
+Any facet $(\sigma,\tau)$ of the $(I,J)$ diagonal is mapped to a strong complementary pair by a finite number of inverse $m$-shifts.
 \end{lemma}
-\begin{proof}
-This is an immediate corollary of the prior lemma, and the fact that the shift operators conserves maximal elements of paths (\cref{prop:SU-preserves-max}).
-\end{proof}
 
-\begin{lemma} \label{lem:SUD closed under inverse shifts}
-Let $(\sigma,\tau)\in \SUD$, if we apply an inverse critical shift operator to it, then we remain in $\SUD$.
-\end{lemma}
 \begin{proof}
-As in \cref{lem:SUD closed under shifts}, as the inverse shift operators conserve the maxima of paths, and these same maxima continue to be traversed from right to left, it follows by \cref{prop:SUD are ordered EC} that the output of an inverse shift operator will remain in $\SUD$.
-\end{proof}
-
-\begin{lemma}\label{lem:inductive decomposition into SCP}
-All $(\sigma,\tau)\in \SUD$ are mapped to a $\SCP$ by a finite number of inverse shifts.
-\end{lemma}
-\begin{proof}
-It is immediate that given any element, $(\sigma,\tau) \in \SUD$ then we will only be able to apply a finite chain of inverse shift operators to it before no further operations are available. (It is straightforward to show each inverse shift decreases the number of crossings. An even simpler argument is, there are only a finite number of elements to move by a finite number of blocks).
-\\\\
-We now illustrate how to identify an inverse shift for the cases of the following partition.
+    Since the number of inversions of a pair of ordered partitions $(\sigma,\tau)$ in the $(I,J)$ diagonal is finite, we will only be able to apply a finite chain of inverse shift operators to it before no further operations are available. 
+It thus remains to show that for any pair $(\sigma,\tau)$ which is not a strong complementary one, performing an inverse $m$-shift is possible. 
+We consider the following cases, illustrated by examples in \cref{ex:proof-inverse-shift}.
 \begin{enumerate}
-    \item All adjacent blocks are connected by paths of length $2$
+    \item All adjacent blocks are connected by paths of length $2$.
     \item There exist adjacent blocks which are connected by a path of length $2k$ for $k>1$.
     \begin{enumerate}
         \item The maximal step of this path is not the last step.
@@ -2575,33 +2591,32 @@ We now illustrate how to identify an inverse shift for the cases of the followin
         \end{enumerate}
     \end{enumerate}
 \end{enumerate}
-In case $1$, if $\sigma,\tau$ is not an $\SCP$ then it must have a crossing, and hence an adjacent crossing. This adjacent crossing must be in one of the following two forms, and admits the following inverse shifts.
+In Case $(1)$, if $\sigma,\tau$ is not a $\SCP$ then it must have a crossing, and hence an adjacent crossing by \cref{lem:adjacent-crossing}. 
+This adjacent crossing is of the following form (we illustrate the case where the crossing happens on the left, the case when it happens on the right is similar) 
 \begin{center}
-\begin{tikzcd}
-\sigma_i \arrow[rd,dash,"a"] & \cdot\\
-\sigma_{i+1} \arrow[r,dash,"b"] \arrow[ru,dash,"{\rho}"] & \cdot
-\end{tikzcd}
-$\xrightarrow{R_\rho^{-1}}$
-\begin{tikzcd}
-\sigma_i \sqcup \rho \arrow[rd,dash,"a"] \arrow[r,dash,"{\rho}"]& \cdot\\
-\sigma_{i+1}\ssm \rho \arrow[r,dash,"b"]  & \cdot
-\end{tikzcd}
-\quad
-\begin{tikzcd}
-\cdot \arrow[rd,dash,"a"] \arrow[r,dash,"b"]& \tau_{i-1}\\
-\cdot  \arrow[ru,dash,"{\rho}"] & \tau_{i}
-\end{tikzcd}
-$\xrightarrow{L_\rho^{-1}}$
-\begin{tikzcd}
-\cdot \arrow[rd,dash,"a"] \arrow[r,dash,"b"]& \tau_{i-1} \ssm \rho\\
-\cdot  \arrow[r,dash,"{\rho}"] & \tau_{i} \sqcup \rho
-\end{tikzcd}
+\begin{tikzpicture}[scale=0.7]
+\node (a) at (-2,1) {$\sigma_i$};
+\node (b) at (-2,-1) {$\sigma_{i+1}$};
+\node (c) at (2,0) {$\tau_k$};
+\node (d) at (2,2) {$\tau_j$};
+\node (e) at (2,-2) {$\tau_l$};
 
+\draw[-] (a)--(c);
+\draw[-] (b)--(c);
+\draw[-] (b)--(d);
+\draw[-] (a)--(e);
+
+\node at (-1.4,-0.2) {$a$};
+\node at (-0.8,-1) {$b$};
+\node at (-0.8,1) {$c$};
+\end{tikzpicture}
 \end{center}
-\Kurt{Better diagrams}
-Both shifts are well-defined, as in each case the first order $I,J$ conditions witness that $a<b<\rho$.
-\\\\
-In case $2.a$, consider the adjacent blocks say $\sigma_i|\sigma_{i+1}$ (the $\tau$ case is similar), let $\rho=\max \sigma_{i,i+1}$, and let $m\geq 1$ be such that $\rho$ steps into $\sigma_{i+1+m}$. We know that $m\geq 1$ due to the $\SUD$ order, i.e. $\max \sigma_{i,i+1+m} = \rho$ implies that $\sigma_{i,i+1+m}$ comes after $\sigma_{i}$, and by assumption after $\sigma_{i+1}$. Then using squiggly lines to denote paths of length $\geq 1$ we have,
+By definition of the $(I,J)$ diagonal, the fact that $\tau_j < \tau_k$ implies that $a > b$, and the fact that $\sigma_i < \sigma_{i+1}$ implies that $b>c$.
+Thus, we have $a > \max \sigma_{i,i+1}$ and $a > c \geq \min \sigma_i$, which implies that we can perform an inverse $1$-shift $R_a^{-1}$ on it and resolve the crossing. 
+
+In Case $(2a)$, consider the two adjacent blocks say $\sigma_i|\sigma_{i+1}$ (the $\tau$ case is similar), let $\rho:=\max \sigma_{i,i+1}$, and let $m\geq 1$ be such that $\rho$ steps into $\sigma_{i+1+m}$. 
+Since $\max \sigma_{i,i+1+m} = \max \sigma_{i,i+1}= \rho$ the definition of the $(I,J)$ diagonal implies that $\sigma_{i,i+1+m}$ comes after $\sigma_{i}$, and by assumption after $\sigma_{i+1}$. 
+Thus, we know that $m > 1$, and using squiggly lines to denote paths of length $\geq 1$ we have,
 \begin{center}
 \begin{tikzcd}
 \sigma_i \arrow[r,squiggly,dash] & \cdot\\
@@ -2615,9 +2630,10 @@ $\xrightarrow{R_\rho^{-1}}$
 \sigma_{i+1+m} \ssm \rho \arrow[ru,squiggly,dash]
 \end{tikzcd}
 \end{center}
-As $\rho=\max \sigma_{i,i+1} > \max\sigma_{i+1+m,i+1}$ the shift operation is well defined.
-\\\\
-In the case $2.b.i.$, there exists $j,m>0$ such that $\tau_{j-m}$ is the $\tau$ block which contains the maximal element $\rho$, and $\tau_j$ is any greater block on the path from $\sigma_i$ to $\sigma_{i+1}$. Then we may apply the following inverse shift operator.
+As $\rho=\max \sigma_{i,i+1} > \max\sigma_{i+1+m,i+1}$ the inverse $m$-shift operation is well defined.
+
+In the Case $(2bi)$, there exists $j,m>0$ such that $\tau_{j-m}$ is the block of $\tau$ which contains the maximal element $\rho$, and $\tau_j$ is any greater block on the path from $\sigma_i$ to $\sigma_{i+1}$. 
+Then we may apply the following inverse $m$-shift operator.
 \begin{center}
 \begin{tikzcd}
 \sigma' \arrow[r,squiggly,dash] \arrow[rd,squiggly,dash]& \tau_{j-m}\\
@@ -2631,20 +2647,27 @@ $\xrightarrow{L_\rho^{-1}}$
 \sigma_{i+1} \arrow[ru,dash, "\rho"] 
 \end{tikzcd}
 \end{center}
-Consider case $2.b.ii$ (this does exist, e.g. $12|3|4 \times 23|14$). 
-Then,
-\begin{itemize}
-    \item We know each $\sigma'$ must be above $\sigma_{i+1}$ due to the maximal element $\rho$ being the last step.
-    \item This also tells us each $\sigma'$ is above $\sigma_i$.
-    \item So if the path $\sigma_{i,i+1} = (i_1,j_1,i_2,...,i_{k},j_k)$ where $j_k = \rho$ then
-    \item $\max \{i_1,...,i_k\} <\max \{j_1,...,j_k\} =: \rho$, and $\rho':=\max \{i_1,...,i_{k-1}\} > \max \{j_1,...,j_{k-1}\} $. That is to say that $\rho'$ witnesses the second last $\sigma$ block being before $\sigma_i$.
-    \item Suppose that $\rho' < i_{k}$. This implies that $j_{k-1}< i_k$. Then, by the first order $I,J$ condition, the $\sigma$ block which contains $i_k,j_{k-1}$ forces the $\tau$ block containing $j_{k-1}$ to be greater than the $\tau$ block containing $i_k$ (and also containing $\rho$). This is a contradiction.
-    \item So we know that $\rho'>i_{k}$.
-    \item The path $(i_{k},j_{k-1},...,\rho')\setminus \rho'$ connects the $\tau$ block which contains $\rho$  to the $\tau$ block which contains $\rho'$. 
-    Let $j$ and $m$ be indices such that $\rho \in \tau_j$ and $\rho' \in \tau_{j-m}$. 
-    \item By assumption, $m >0$ as $\tau_j$ is the greatest $\tau$ block.
-    \item Hence, by construction $\max \tau_{j,j-m} < \rho'$, so $L_{\rho'}^{-1}$ is a valid inverse shift, which returns $\rho'$ to $\tau_j$.
-\end{itemize}
+
+There remains to be treated Case $(2bii)$.
+We consider the path $\sigma_{i,i+1}:=(i_1,j_1,i_2,...,i_{k},\rho)$ to be of length $2k$, $k>1$. 
+We denote by $\tau_j$ the block of $\tau$ containing the maximal step $\rho$ of this path, which by hypothesis is the last block of $\tau$. 
+Let $\sigma_{i-n}$ be the last block of $\sigma$ which is attained by the path $\sigma_{i,i+1}$ before $\sigma_{i+1}$. 
+We must have $n>1$, since $\rho$ is the last step and $\sigma_i|\sigma_{i+1}$ are adjacent blocks.
+The situation can be pictured as follows.
+\begin{center}
+\begin{tikzcd}
+    \sigma_{i-n} \arrow[r,squiggly,dash] \arrow[rd,dash,"i_k"]& \tau_{j-m}\\
+    \sigma_{i} \arrow[ru,squiggly,dash]  & \tau_j\\
+    \sigma_{i+1} \arrow[ru,dash, "\rho"] 
+\end{tikzcd}
+\end{center}
+\Guillaume{make better drawing}
+Now let $\rho':=\max\sigma_{i,i-n}$ be the maximum of the path $\sigma_{i,i-n}=(i_1,j_1,i_2,...,i_{k-1},j_{k-1})$, and let $\tau_{j-m}$, $m\geq 1$ be the block of $\tau$ containing $\rho'$.
+We want to show that an inverse left $m$-shift can bring $\rho'$ back to $\tau_j$.  
+We just need to show that $\rho' > i_k$, since the path $\tau_{j-m,j}$ is a subset of the path $\sigma_{i,i+1}$. 
+This would imply that both $\rho' > \max \tau_{j-m,j}$ and $\rho' > i_k \geq \min \tau_j$, and thus that an inverse left shift $L_{\rho'}^{-1}$ can be performed.
+To see that this is indeed the case, it suffices to look at the last steps $$\tau_l \overset{j_{k-1}}{\longrightarrow} \sigma_{i-n} \overset{i_{k}}{\longrightarrow} \tau_j \overset{\rho}{\longrightarrow} \sigma_{i+1}$$ of the path $\sigma_{i,i+1}$. 
+By the definition of the $(I,J)$ diagonal, the fact that $\tau_l < \tau_j$ implies that $j_{k-1} > i_k$, and thus that $\rho' > i_k$, which finishes the proof. 
 \end{proof}
 
 \begin{example}
@@ -2773,29 +2796,30 @@ This is not typically the case.
 
 \end{example}
 
-\begin{proposition} \label{prop:iso-shift-IJ-diagonals}
-    The facets of shift $\SUD$ and $\SUD$ are equal.
-\end{proposition}
+\begin{theorem} 
+\label{prop:iso-shift-IJ-diagonals}
+    The $m$-shift and $(I,J)$ diagonals coincide.
+\end{theorem}
+
 \begin{proof}
-    We first note that $\SCP$s are known elements of $\SUD$ and shift $\SUD$.
-    The proof that every facet of shift $\SUD$ is in $\SUD$ follows from the closure of $\SUD$ under the shift operator (\cref{lem:SUD closed under shifts}).
-    The proof that every facet of $\SUD$ is in shift $\SUD$ follows from the closure of $\SUD$ under the inverse shift operator (\cref{lem:SUD closed under inverse shifts}) and an inductive argument that decomposes any facet into a $\SCP$ through inverse shift operators (\cref{lem:inductive decomposition into SCP}).
-    As shift operators are the inverse of the inverse shift operators (\cref{lem: shift operators are inverse to their inverses}), for any given $\SUD$ facet, this provides a $\SCP$ and a sequence of shifts to form it, showing it is a shift $\SUD$ facet.
+    We first note that $\SCP$s are known elements of both the $m$-shift and $(I,J)$ diagonals.
+    The proof that every facet of $m$-shift $\SUD$ is in $\SUD$ follows from the closure of $\SUD$ under the shift operator (\cref{lem:IJ-closed-under-shifts}).
+    The proof that every facet of $\SUD$ is in shift $\SUD$ follows from the closure of $\SUD$ under the inverse shift operator (\cref{lem:IJ-closed-under-inverse-shifts}) and an inductive argument that decomposes any facet into a $\SCP$ through inverse shift operators (\cref{lem:inverse-to-SCP}).
+    As shift operators are the inverse of the inverse shift operators, for any given $\SUD$ facet, this provides a $\SCP$ and a sequence of shifts to form it, showing it is a shift $\SUD$ facet.
 \end{proof}
 
 %%%%
 
-
-
-%%%%
-
-\subsubsection{Some consequences}
-
-Combinining \cref{prop:iso-original-shift-diagonals} and \cref{prop:iso-shift-IJ-diagonals}, we obtain that
+\subsubsection{Consequences of the equivalence between diagonals}
 
 \begin{theorem}
-    Subset shift $\SU$ and $\SUD$ coincide.
+    The original and $(I,J)$ $\SU$ diagonals coincide.
 \end{theorem}
+
+\begin{proof}
+    \cref{prop:iso-original-shift-diagonals} says that the original and $m$-shift diagonals are the same, and \cref{prop:iso-shift-IJ-diagonals} says that the $m$-shift and $(I,J)$ diagonal coincide.
+    Thus, all the different definitions agree with the geometrically defined $\SUD$. 
+\end{proof}
 
 This
 \begin{enumerate}
