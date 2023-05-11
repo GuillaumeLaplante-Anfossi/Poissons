@@ -1792,8 +1792,20 @@ In the case of the permutahedron it sends $\LAD$ to $(\LAD)^\op$ and $\SUD$ to $
     Finally, since both $t,r$ and $s$ preserve the poset structures, so does their composition, which finishes the proof.
 \end{proof}
 
-\begin{remark}
-    There is a second, distinct isomorphism given by $t(r\times r)$ \Guillaume{TBC} \Kurt{See shift iso example. Might be slightly better to use this instead}
+\begin{remark} \label{rem:Alternate Isomorphism}
+There is a second, distinct isomorphism given by $t(r\times r)$.
+This follows as $s\times s:\LAD \to (\LAD)^{op}$ is an isomorphism (and also for  $s\times s:\SUD \to (\SUD)^{op}$ ), as such the composite 
+
+\begin{center}
+\begin{tikzcd}
+t(r\times r):\LAD \arrow[r,"s\times s"] &
+(\LAD)^{\op}\arrow[r,"rs \times rs"] &
+(\SUD)^\op \arrow[r,"t"] & \SUD
+\end{tikzcd}
+\end{center}
+is also an isomorphism.
+We will show this second isomorphism has the conceptual benefit of sending left shift operators to left shift operators (and right to right) in \cref{s: The Saneblidze-Umble Diagonal}.
+
 \end{remark}
 
 %%%%%%%%%%%%%%%
@@ -2918,58 +2930,17 @@ This is equivalent, via the isomorphism between $\LA$ and $\SU$ diagonals, to th
 \Kurt{Mention the LAD and SUD shifts generate the (same) facets of the hexagon in two different ways.}
 \Guillaume{AND add picture}
 
-%%%%
+\subsubsection{Matrix and Cubical Descriptions}
 
-\subsubsection{Shifts Under the Face Poset Isomorphism}
-
-\begin{lemma}
-The critical left and right shift operators send a facet of $\SUD$ to an adjacent facet of $\SUD$. This can be interpreted as stepping through a shared facet of the facets.
-\end{lemma}
-\begin{proof}
-Let $(\sigma_1|\dots|\sigma_k,\tau) \in \SUD$, and let $\rho \in \sigma_{i}$ be a critical element. Then, the shift operator $R_{\rho}$ steps from the facet $(\sigma_1|\dots|\sigma_i |\sigma_{i+1} |\dots|\sigma_k, \tau)$, to the facet $(\sigma_1|\dots|\sigma_i \ssm \{\rho\}|\sigma_{i+1} \sqcup \{\rho\}|\dots|\sigma_k,\tau)$, through the facets of facets $(\sigma_1|\dots|\sigma_i \ssm \{\rho\}|\rho|\sigma_{i+1}|\dots|\sigma_k, \tau)$.
-\end{proof}
-
-As such, an immediate corollary of $\theta:\LAD \to \SUD$ being a face poset isomorphism is that their are analogous critical shift definitions of $\LAD$ induced by $\theta^{-1}$. 
-We now explicitly state the critical shift $\LAD$ definition.
-
-\begin{definition} 
-\label{def:critical LA shift}
-Let $(\sigma,\tau)$ be a pair of ordered partitions, and let $\rho \in (\sigma_{i+1} \ssm \max \sigma_{i+1})$ such that $\rho< \min \sigma_{i,i+1}$. Such an element $\rho$ is said to be \emph{critical}. 
-We similarly define the critical elements of $\tau$ to be, $\rho \in (\tau_{i} \ssm \max\tau_{i})$ such that $\rho < \min \tau_{i,i+1}$. 
-We define the left shift operator $L_{\rho}$ to act on $\sigma$, and the right shift $R_{\rho}$ operator to act on $\tau$.
-\end{definition}
-
-We note that compared to shift $\SUD$, the left shift operator now acts on the left ordered partition, and the right shift operator on the right ordered partition, a distinct notational improvement.
-The correctness of this definition can be verified directly by obvious variants of the proofs of this section for the $\LAD$ diagonal.
-There is also a clear translation of the subset shift operator, which we will not write out in full. 
-We now explore in example how the $\LAD$ shift structure is induced by $\theta$.
-
-\begin{example} 
-\label{ex:shift translation by theta}
-The $\SCP$s $(\sigma,\tau)  \eqdef  5|17|4|236 \times 57|146|3|2$, and $(\sigma',\tau')  \eqdef  13|247|5|6 \times 3|17|4|156$, are in bijection through $\theta$. Graphically this bijection has a clear symmetry,
-
+We first recall the alternate descriptions of the $\SUD$ diagonal from \cite{SaneblidzeUmble04} and\cite{saneblidzeComparingDiagonalsAssociahedra2022}, that we would like to transfer to $\LAD$. 
+In particular, we explicitly relate the matrix and cubical descriptions of the $\SUD$ diagonal, to the description of the $\SUD$ diagonal given in \cref{def:classical-SU}.
+\\\\
+We previously saw that SCPs and permutations are in bijection (\cref{def:Strong complementary pairs}). 
+There is also a third equivalent way to encode this data, the \emph{step matrices} of Definition 6 of \cite{SaneblidzeUmble04}.
+Informally, given a permutation $\sigma$, start in the bottom left corner of a matrix, and write increasing sequences vertically, and decreasing sequences horizontally. All other entries are $0$. Here is an example permutation, its SCP, and its step matrix, with all $0$ entries omitted.
 \begin{center}
-\begin{tikzpicture}[scale=.7]  
-\node (1) at (-1.5, -1) {$5$};
-\node (2) at (-1.5, -2) {$17$};
-\node (3) at (-1.5, -3) {$4$};
-\node (4) at (-1.5, -4) {$236$};
-%
-\node (5) at (1.5, -1) {$57$};
-\node (6) at (1.5, -2) {$146$};
-\node (7) at (1.5, -3) {$3$};
-\node (8) at (1.5, -4) {$2$};
-%
-\draw[thick] (1) to [in=180, out=0, looseness=0](5); 
-\draw[thick] (2) to [in=180, out=0, looseness=0](5); 
-\draw[thick] (2) to [in=180, out=0, looseness=0](6); 
-\draw[thick] (3) to [in=180, out=0, looseness=0](6); 
-\draw[thick] (4) to [in=180, out=0, looseness=0](6); 
-\draw[thick] (4) to [in=180, out=0, looseness=0](7); 
-\draw[thick] (4) to [in=180, out=0, looseness=0](8);
-%
-\end{tikzpicture}
-$\xrightarrow{\theta}$
+\raisebox{3em}{$6524713$}
+$\quad \quad$
 \begin{tikzpicture}[scale=.7]  
 \node (1) at (-1.5, -1) {$256$};
 \node (2) at (-1.5, -2) {$4$};
@@ -2988,58 +2959,184 @@ $\xrightarrow{\theta}$
 \draw[thick] (3) to [in=180, out=0, looseness=0](7); 
 \draw[thick] (3) to [in=180, out=0, looseness=0](8); 
 \draw[thick] (4) to [in=180, out=0, looseness=0](8);
-%
 \end{tikzpicture}
-\end{center}
-We now illustrate all possible $\LAD$ shifts of the left $\SCP$ and all possible $\SUD$ shifts of the right $\SCP$. We first display how the $\LAD$ left shifts act on $\sigma$, and the $\SUD$ left shifts act on $\tau'$. We indicate shifts by their corresponding critical element, drawing them to avoid crossings, and so they align with their isomorphic shift under $\theta$. \Kurt{Update to new theta}
-\begin{center}
-{\small
-\begin{tikzcd}
-& 5|17|4|236 \arrow[ld,"p=3"] \arrow[d,"p=1"] \arrow[rd,"p=2"]\\
-5|17|34|26 \arrow[rd,"p=1"] \arrow[d,"p=2"]&
-15|7|4|236  \arrow[rd,"p=2"] \arrow[d,"p=3"]&
-5|17|24|36 \arrow[d,"p=1"]\\
-5|17|234|6 \arrow[d,"p=1"]&
-15|7|34|26  \arrow[dl,"p=2"]&
-15|7|24|36  \\
-15|7|234|6 
-\end{tikzcd}
-\begin{tikzcd}
-& 3|17|4|256 \arrow[ld,red,"p=5"] \arrow[d,"p=7"] \arrow[rd,"p=6"]\\
-3|17|45|26 \arrow[rd,"p=7"] \arrow[d,red,"p=6"]&
-37|1|4|256 \arrow[rd,"p=6"] \arrow[d,"p=5"]&
- 3|17|46|25 \arrow[d,"p=7"]\\
-3|17|456|2 \arrow[d,"p=7"]&
-37|1|56|24 \arrow[dl,"p=6"]&
-37|1|46|25 \\
-37|1|456|2
-\end{tikzcd}
+$\quad \quad$
+\raisebox{3em}{
+$
+\begin{blockarray}{ccccc}
+  & \sigma_1 & \sigma_2 & \sigma_3 & \sigma_4  \\
+\begin{block}{c[cccc]}
+\tau_4 &   &   & 1 & 3 \\
+\tau_3 & 2 & 4 & 7  &   \\
+\tau_2 & 5 &   &   &   \\
+\tau_1 & 6 &   &   &   \\
+\end{block}
+\end{blockarray}
+$
 }
 \end{center}
-The possible $\LAD$ right shifts (acting on $\tau$)  are,
+Given a $l\times k$ matrix $M$ with all non-zero entries drawn without replacement from $[n]$, let $\sigma_i$ denote the non-zero entries of the $i$th column, and $\tau_j$ the non-zero entries of the $(l-j+1)$th row. 
+For example, we labelled the rows and columns of the prior step matrix in this fashion.
+With this identification, we can apply \cref{def:movable-subsets}, to identify $1$-block moveable subsets of the matrix $M$, and we can apply \cref{def:admissible-shift-sequences}, to identify sequences of shifts which are admissible of original type.
+We now define a suitable subset shift action on these matrices.
+\begin{definition}
+A non-empty set of elements of a matrix $M_i \subset \sigma_i$ (resp. $M_{i}\subset \tau_{i}$) is \emph{$1$-block movable} if
+\begin{enumerate}
+    \item $\min \sigma_i \notin M_i$ (resp. $\min \tau_{i} \notin M_i$), and
+    \item $\min M_i> \max \sigma_{i+1}$ (resp. $\min M_{i}> \max \tau_{i-1}$).
+\end{enumerate}
+The right matrix subset shift operator $R_{M_i}$ shifts the elements of $M_i$ right one column to $\sigma_{i+1}$, replacing only elements of value $0$, and leaving $0$ elements in their wake.
+The left matrix subset shift operator $L_{M_i}$ shifts the elements of $M_i$ down one row to $\tau_{i-1}$, replacing only elements of value $0$, and leaving $0$ elements in their wake.
+\end{definition}
+\begin{proposition}
+The matrix subset shift operators are well-defined.
+\end{proposition}
+\begin{proof}
+We verify the claim that the matrix shift operators never replace non-zero elements.
+It is straightforward to show that this is true when a shift operator is applied to a $SCP$.
+From here we proceed inductively.
+We assume that all prior shift operators have been well-defined, and we then check that applying another valid sequential shift operator is also well-defined.
+Suppose that $M_i$ is $1$-block moveable, and that $R_{M_i}$ is not well-defined as it tries to move a value $m$ into a non-zero matrix entry $n$.
+Then, $n$ must have been placed into that column by a prior left shift operator $L_{N_j}$, and consequently $n>\min N_j > \max \tau_{j-1}> m$.
+However, $n\in \sigma_{i+1}$ so $\max \sigma_{i+1}>n>m>\min M_i $ implies that $M_i$ is not $1$-block moveable, a contradiction.
+\end{proof}
+
+
+\begin{definition}[Definition 7. \cite{SaneblidzeUmble04}]
+We define the set of \emph{configuration matrices} to be those matrices corresponding to $SCP$s and those generated by admissible sequences of shifts.
+
+\end{definition}
+
+\begin{proposition}[\cite{SaneblidzeUmble04}]
+The set of configuration matrices are in bijection with the facets of $\SUD$.
+\end{proposition}
+\begin{proof}
+As configuration matrices have the same recursive description as the original $\SUD$ diagonal (\cref{def:classical-SU)}), and $SCP$s are in bijection with step matrices, the result immediately follows.
+\end{proof}
+
+
+\begin{example}
+Here are some valid subset shifts of the matrix encoding of $6524713$. Every composite of arrows is a valid sequence of shifts.
 \begin{center}
 \begin{tikzcd}
-\sigma \times 57|146|3|2 \arrow[r,"p=1"] & \sigma \times 57|46|13|2 \arrow[r,"p=1"] & \sigma \times 57|46|3|12
+\begin{bmatrix}
+  &   & 1 & 3 \\
+2 & 4 & 7 &   \\
+5 &   &   &   \\
+6 &   &   &   \\
+\end{bmatrix}
+\arrow[r,"R_{5,6}"]
+&
+\begin{bmatrix}
+  &   & 1 & 3 \\
+2 & 4 & 7 &   \\
+  & 5 &   &   \\
+  & 6 &   &   \\
+\end{bmatrix}
 \end{tikzcd}
 \end{center}
-The possible $\SUD$ right shifts (acting on $\sigma'$) are,
-\begin{center}
-\begin{tikzcd}
-13|247|5|6 \times \tau' \arrow[r,"p=7"] & 13|24|57|6 \arrow[r,"p=7"] \times \tau' & 13|24|5|67 \times \tau'
-\end{tikzcd}
-\end{center}
-We note that as the left and right shifts (for both diagonals) can be performed independently, we could combine these lattices into a product of lattices. 
-No other shifts are possible, observe for instance that we cannot perform the $\LAD$ left shift $15|7|234|6 \times 57|46|13|2 \xrightarrow{p=2} 15|27|34|6 \times 57|46|13|2$ as the minimal path connecting $234$ and $7$ contains $1$ which is smaller than $2$ (see \cref{ex:ECbijection}).
-As an example of a $\SUD$ subset shift, and the bijection to critical shifts (\cref{prop:iso-original-shift-diagonals}), we observe that the unique way of producing $13|247|5|6 \times 37|1|456|2$ from subset shifts is given by
-\begin{center}
-\begin{tikzcd}
-13|247|5|6 \times 3|17|4|256 \arrow[r,"{R_{\{5,6\}}}"] & 13|247|5|6 \times 3|17|456|2 \arrow[r,"{R_{\{7\}}}"] & 13|247|5|6 \times 37|1|456|2
-\end{tikzcd}
-\end{center}
-This corresponds to combining the critical right shift operators of the $\SUD$ diagonal which have been indicated in red into a single subset.
-We note it is also possible to apply $\SUD$ shifts to $(\sigma,\tau)$ and $\LAD$ shifts to $(\sigma',\tau')$.
-\\\\
-We note, that the alternate isomorphism identified in Remark ... has the benefit of mapping left shifts to left shifts and right shifts to right shifts. However, this comes at the cost of switching the sides they act on. For instance, the same $\LAD$ $SCP$ is sent to the following $SCP$.
+Note, that $R_5,R_6$ are also valid right shifts of the left matrices.
+\Kurt{Todo.}
+
+
+\Kurt{Todo. Cubical.}
+
+\end{example}
+
+
+\subsubsection{Shifts Under the Face Poset Isomorphism}
+
+Previously in \cref{thm:bijection-operadic-diagonals}, we constructed an isomorphism of face-posets $sr\times sr:\LAD\to\SUD$.
+In addition, we showed in \cref{rem:Alternate Isomorphism}, that $t(r\times r):\LAD\to\SUD$ is also an isomorphism.
+In this section, we use this second isomorphism to directly translate the known shift results for the $\SU$ diagonal to the $\LA$ diagonal. 
+We first explicitly define all $\LA$ shift diagonals before establishing this connection.
+We note that in the $\LA$ diagonal, for $(\sigma,\tau)\in \LAD$, the left shift operators $L_\mathbf{N}$ will act on $\sigma$ and the right shift operators $R_\mathbf{M}$ will act on $\tau$, the opposite of $\SU$.
+The indexing of the following definition compared to \cref{def:movable-subsets} accounts for this fact.
+
+\begin{definition}[$\LA$ moveable subsets]
+\label{def:LAD movable-subsets}
+Let $(\sigma,\tau) = (\sigma_1|\dots|\sigma_k,\tau_1|\dots|\tau_l)$ be a pair of ordered partitions.
+For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (resp. $M_{i}\subset \tau_{i}$) is \emph{$1$-block movable} if 
+\begin{enumerate}
+    \item $\max \sigma_i \notin M_i$ (resp. $\max \tau_{i} \notin M_i$), and
+    \item $\max M_i < \max \sigma_{i-1}$ (resp. $\min M_{i} < \max \tau_{i+1}$).
+\end{enumerate}
+It is \emph{$m$-path movable} if it satisfies $(1)$ above and if
+\begin{enumerate}
+    \item[(2')] $\max M_i < \min \sigma_{i,i-m}$ (resp. $\max M_{i} < \min \tau_{i,i+m}$).
+\end{enumerate}
+\end{definition}
+With our new definitions of moveable subsets, to obtain the correct definition of an admissible sequence of shifts, simply replace $\sigma$ with $\tau$ in \cref{def:admissible-shift-sequences}. 
+Similar definitions hold for admissible sequence of left shifts.
+
+\begin{definition}[$\LA$ diagonals]
+    \label{def:shift-LA}
+   The facets of 
+   \begin{enumerate}[(a)]
+    \item the \emph{1-subset-shift $\LA$ diagonal},
+    \item the \emph{$1$-shift $\LA$ diagonal},
+    \item the \emph{$m$-shift $\LA$ diagonal}
+   \end{enumerate}
+   are defined by the formula
+    \begin{align*}
+        \LAD([n]) = \bigcup_{(\sigma,\tau)} \bigcup_{\mathbf{M}, \mathbf{N}} L_\mathbf{N}(\sigma)\times R_\mathbf{M}(\tau)
+    \end{align*}
+    where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and over all admissible sequences of shifts $\textbf{M},\textbf{N}$ of the corresponding type.
+\end{definition}
+
+We again stress that compared to the $\SU$ diagonals (\cref{def:classical-SU}), the left shift operators now act on the left ordered partition, and the right shift operators on the right ordered partition.
+
+\begin{proposition}
+Let $(\sigma,\tau) \in \LAD$.
+For each type of $\LA$ shift, let $\textbf{M},\textbf{N}$ be admissible sequences of this type, then 
+\begin{align*}
+    t(r,r)(L_\mathbf{N}(\sigma), R_\mathbf{M}(\tau)) = (R_{r\mathbf{M}}(r\tau), L_{r\mathbf{N}}(r\sigma))
+\end{align*}
+where $r\mathbf{M}$ and $r\mathbf{N}$ are admissible sequences of $\SU$ shifts of the same type.
+\end{proposition}
+\begin{proof}
+We first verify that $r\mathbf{M}$ and $r\mathbf{N}$ are admissible sequences of $\SU$ shifts of $(r\tau,r\sigma)$.
+For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (resp. $M_{i}\subset \tau_{i}$) is $LA$ $1$-block moveable if
+\begin{enumerate}
+    \item 
+    \begin{enumerate}
+        \item $\max \sigma_i \notin M_i$ implies that $ \min r\sigma_i \not \in r M_i$
+        \item (resp. $\max \tau_{i} \notin M_i$ implies that  $ \min r\tau_{i} \not \in r M_i$)
+    \end{enumerate}
+    \item 
+    \begin{enumerate}
+        \item $\max M_i < \max \sigma_{i-1}$  implies that $\min r M_i > \min r \sigma_{i+1}$
+        \item (resp. $\min M_{i} < \max \tau_{i+1}$ implies that $\max rM_{i} > \min r\tau_{i+1}$)
+    \end{enumerate}
+\end{enumerate}
+It is \emph{$m$-path movable} if it satisfies $(1)$ above and if
+\begin{enumerate}
+    \item[(2')] 
+    \begin{enumerate}
+        \item $\max M_i < \min \sigma_{i,i-m}$ implies that $\min r M_i > \max r \sigma_{i,i-m}$
+        \item (resp. $\max M_{i} < \min \tau_{i,i+m}$ implies that $\min r M_{i} > \max r\tau_{i,i+m}$)
+    \end{enumerate}
+\end{enumerate}
+The reader may directly verify from \cref{def:movable-subsets}, that each $rM_i \in r\sigma_i$ meets the conditions of a moveable subset 
+if it is interpreted as being in a block of the right partition ($\tau$ in the notation of the definition).
+So, if $\mathbf{M} = (M_{i_1},...,M_{i_p})$, define $r(\mathbf{M}):=(rM_{i_1},...,rM_{i_p})$, and from the prior it is clear this is an admissible sequence of $SU$ shifts.
+Finally, all that remains to be checked is that
+\begin{align*}
+    t(r,r)(R_{M_{i_1}}(\sigma),\tau)= (r\tau,R_{M_{i_1}}(r\sigma))
+\end{align*}
+but this is clear as reversing the elements then shifting them, is the same as shifting the elements then reversing them. 
+
+\end{proof}
+
+\begin{corollary}
+\Kurt{Todo: ALL SU results hold for LA.}
+\end{corollary}
+
+We now explore in example how the isomorphism $t(r\times r)$ translates the shift operators.
+
+\begin{example} \label{ex:shift translation by theta}
+The $\SCP$s $(\sigma,\tau)  \eqdef  5|17|4|236 \times 57|146|3|2$, and $(\sigma',\tau')  \eqdef  13|247|5|6 \times 3|17|4|156$, are in bijection through $t(r\times r)$. Graphically, this bijection has a clear symmetry,
+
 \begin{center}
 \begin{tikzpicture}[scale=.7]  
 \node (1) at (-1.5, -1) {$5$};
@@ -3061,7 +3158,7 @@ We note, that the alternate isomorphism identified in Remark ... has the benefit
 \draw[thick] (4) to [in=180, out=0, looseness=0](8);
 %
 \end{tikzpicture}
-$\xrightarrow{\theta'}$
+$\xrightarrow{t(r\times r)}$
 \begin{tikzpicture}[scale=.7]  
 \node (1) at (-1.5, -1) {$13$};
 \node (2) at (-1.5, -2) {$247$};
@@ -3083,11 +3180,105 @@ $\xrightarrow{\theta'}$
 %
 \end{tikzpicture}
 \end{center}
-and for instance, the left $\LAD$ shift 
-$5|17|4|236 \xrightarrow{L_3}5|17|34|26 $ is sent to the left $\SUD$ shift
-$3|17|4|256 \xrightarrow{L_5} 3|17|45|26$. \Kurt{Hmm maybe it nicer to stick with alternate iso}
+We now illustrate all possible $\LA$ $1$-shifts of the left $\SCP$ and all possible $\SU$ $1$-shifts of the right $\SCP$. 
+We first display how the $\LA$ left shifts act on $\sigma$, and the $\SU$ left shifts act on $\tau'$.
+We indicate shifts by the element being shifted, drawing them to avoid crossings, and so they align with their isomorphic shift under $\theta$. 
+\begin{center}
+{\small
+\begin{tikzcd}
+& 5|17|4|236 \arrow[ld,"\rho=3"] \arrow[d,"\rho=1"] \arrow[rd,"\rho=2"]\\
+5|17|34|26 \arrow[rd,"\rho=1"] \arrow[d,"\rho=2"]&
+15|7|4|236  \arrow[rd,"\rho=2"] \arrow[d,"\rho=3"]&
+5|17|24|36 \arrow[d,"\rho=1"]\\
+5|17|234|6 \arrow[d,"\rho=1"]&
+15|7|34|26  \arrow[dl,"\rho=2"]&
+15|7|24|36  \\
+15|7|234|6 
+\end{tikzcd}
+\begin{tikzcd}
+& 3|17|4|256 \arrow[ld,red,"\rho=5"] \arrow[d,"\rho=7"] \arrow[rd,"\rho=6"]\\
+3|17|45|26 \arrow[rd,"\rho=7"] \arrow[d,red,"\rho=6"]&
+37|1|4|256 \arrow[rd,"\rho=6"] \arrow[d,"\rho=5"]&
+ 3|17|46|25 \arrow[d,"\rho=7"]\\
+3|17|456|2 \arrow[d,"\rho=7"]&
+37|1|56|24 \arrow[dl,"\rho=6"]&
+37|1|46|25 \\
+37|1|456|2
+\end{tikzcd}
+}
+\end{center}
+The possible $\LAD$ right shifts (acting on $\tau$)  are,
+\begin{center}
+\begin{tikzcd}
+\sigma \times 57|146|3|2 \arrow[r,"\rho=1"] & \sigma \times 57|46|13|2 \arrow[r,"\rho=1"] & \sigma \times 57|46|3|12
+\end{tikzcd}
+\end{center}
+The possible $\SUD$ right shifts (acting on $\sigma'$) are,
+\begin{center}
+\begin{tikzcd}
+13|247|5|6 \times \tau' \arrow[r,"\rho=7"] & 13|24|57|6 \arrow[r,"\rho=7"] \times \tau' & 13|24|5|67 \times \tau'
+\end{tikzcd}
+\end{center}
+We note that as the left and right shifts (for both diagonals) can be performed independently, we could combine these lattices into a product of lattices. 
+No other shifts are possible, observe for instance that we cannot perform the $\LAD$ left shift $15|7|234|6 \times 57|46|13|2 \xrightarrow{\rho=2} 15|27|34|6 \times 57|46|13|2$ as the minimal path connecting $234$ and $7$ contains $1$ which is smaller than $2$ (see \cref{ex:ECbijection}).
+As an example of a $\SUD$ subset shift, and the bijection to critical shifts (\cref{prop:iso-original-shift-diagonals}), we observe that the unique way of producing $13|247|5|6 \times 37|1|456|2$ from subset shifts is given by
+\begin{center}
+\begin{tikzcd}
+13|247|5|6 \times 3|17|4|256 \arrow[r,"{R_{\{5,6\}}}"] & 13|247|5|6 \times 3|17|456|2 \arrow[r,"{R_{\{7\}}}"] & 13|247|5|6 \times 37|1|456|2
+\end{tikzcd}
+\end{center}
+This corresponds to combining the critical right shift operators of the $\SUD$ diagonal which have been indicated in red into a single subset.
+We note it is also possible to apply $\SUD$ shifts to $(\sigma,\tau)$ and $\LAD$ shifts to $(\sigma',\tau')$.
+\\\\
+We note, that the isomorphism $rs\times rs:\LAD \to \SUD$ identified in \cref{thm:bijection-operadic-diagonals}, also sends shifts operators to shift operators, but it sends left shift operators to right shift operators and vice versa.
+For instance, the same $SCP$ (on the LHS) is now mapped to a different $SCP$.
+\begin{center}
+\begin{tikzpicture}[scale=.7]  
+\node (1) at (-1.5, -1) {$5$};
+\node (2) at (-1.5, -2) {$17$};
+\node (3) at (-1.5, -3) {$4$};
+\node (4) at (-1.5, -4) {$236$};
+%
+\node (5) at (1.5, -1) {$57$};
+\node (6) at (1.5, -2) {$146$};
+\node (7) at (1.5, -3) {$3$};
+\node (8) at (1.5, -4) {$2$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0](5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (3) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](8);
+%
+\end{tikzpicture}
+$\xrightarrow{rs\times rs}$
+\begin{tikzpicture}[scale=.7]  
+\node (1) at (-1.5, -1) {$256$};
+\node (2) at (-1.5, -2) {$4$};
+\node (3) at (-1.5, -3) {$17$};
+\node (4) at (-1.5, -4) {$3$};
+%
+\node (5) at (1.5, -1) {$6$};
+\node (6) at (1.5, -2) {$5$};
+\node (7) at (1.5, -3) {$247$};
+\node (8) at (1.5, -4) {$13$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0](5);
+\draw[thick] (1) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (1) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (3) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (3) to [in=180, out=0, looseness=0](8); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](8);
+%
+\end{tikzpicture}
+\end{center}
+The left $\LAD$ shift 
+$5|17|4|236 \xrightarrow{L_3}5|17|34|26 $ is sent to the right $\SUD$ shift
+$256|4|17|3 \xrightarrow{R_5} 26|45|17|3$.
 \end{example}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
