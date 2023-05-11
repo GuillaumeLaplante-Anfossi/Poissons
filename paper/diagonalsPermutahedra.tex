@@ -269,6 +269,12 @@ corollary: le dernier article de SU!
 corollary: IJ-description of SU diagonal
 corollary: left and right shifts for LA, decomposition of the cube associated to LA diagonal
 
+\Kurt{Mention the LAD and SUD shifts generate the (same) facets of the hexagon in two different ways.}
+
+Perspectives: 
+-for general diagonal, obtain closed formulas for all the faces
+-for specific diagonals, extend the bijection with bipartite trees
+
 %%%%%%%%%%%%%%%
 
 \subsection*{Conventions}
@@ -1218,7 +1224,7 @@ which vanishes by~\eqref{eq:diff}.
 
 The usual \emph{thin diagonal} of a topological space $X$ is the map $\Delta : X \to X \times X$ defined by $\Delta(x):=(x,x)$ for all $x \in X$.
 
-\begin{definition}
+\begin{definition}[Cellular diagonal]
     A \emph{cellular diagonal} of a polytope $P$ is a continuous map $P \to P \times P$ such that
     \begin{enumerate}
         \item its image is a union of $\dim P$-faces of $P\times P$ (i.e. it is \emph{cellular}),
@@ -1229,7 +1235,7 @@ The usual \emph{thin diagonal} of a topological space $X$ is the map $\Delta : X
 \end{definition}
 
 A powerful geometric technique to define face-coherent cellular diagonals on polytopes first appeared in \cite{fultonIntersectionTheoryToric1997a}, was presented in \cite{masudaDiagonalAssociahedra2021}, and was fully developed in \cite{LA21}.
-The key idea is the following: any vector $\vec v$ in generic position with respect to $P$ defines a cellular diagonal $\triangle_{(P,\vec v)}$, via the following formula
+The key idea is the following: any vector $\vec v$ in generic position with respect to $P$ defines a cellular diagonal~$\triangle_{(P,\vec v)}$, via the following formula
 \begin{align*}
     \begin{array}{rlcl}
     \triangle_{(P,\vec v)}\  : & P &\to  &P\times P\\
@@ -1238,33 +1244,41 @@ The key idea is the following: any vector $\vec v$ in generic position with resp
     \end{array}
 \end{align*}
 Here, $\rho_z P := 2z-P$ denotes the reflection of $P$ with respect to the point $z$, and $\min_{\vec v}(P)$ denotes the unique vertex of $P$ which minimizes the scalar product with $\vec v$. 
-The diagonal $\triangle_{(P,\vec v)}$ defines a canonical polytopal subdivision of $P$: it is by construction a tight coherent section of the projection $\pi : P \times P \to (P+P)/2$, and one just needs to draw the polytopes $(F+G)/2$, for all pairs of faces $(F,G) \in \Ima \triangle_{(P,\vec v)}$.
+The diagonal $\triangle_{(P,\vec v)}$ defines a canonical polytopal subdivision of $P$: it is by construction a tight coherent section of the projection $\pi : P \times P \to (P+P)/2$, and to obtain the subdivision one just needs to draw the polytopes $(F+G)/2$, for all pairs of faces $(F,G) \in \Ima \triangle_{(P,\vec v)}$.
 For the rest of the paper, every time we will speak about a diagonal, \emph{we will always mean such a map}. 
 
-\begin{definition}
+\begin{definition}[Diagonal of the permutahedron]
     \label{def:diagonal}
     A \emph{cellular diagonal} or simply a \emph{diagonal} $\triangle_{(P,\vec v)}$ of the permutahedron~$P$ is a tight coherent section of the projection $P \times P \to P, (x,y) \mapsto (x+y)/2$.
 \end{definition}
 
-Such a map can be seen as a topological map, or sometimes as a map of lattices; we shall not change notation and the context should make clear which 
-We will sometimes denote a diagonal of the $n$-permutahedron by $\triangle_n$. 
+Such a map can be seen as a topological map, or as a map of lattices; we shall not change notation and the context should make clear which version we are referring to.
+%We will sometimes denote a diagonal of the $n$-permutahedron by $\triangle_n$. 
 
-\begin{definition}
+\begin{definition}[Diagonal's $f$-vector]
     The \emph{$f$-vector} of the diagonal $\triangle_{(P,\vec v)}$ is the number of faces of $P\times P$ of given total dimension in its cellular image.
     Alternatively, it is the $f$-vector of the polytopal complex~$\pi (\triangle_{(P,\vec v)})$.
 \end{definition}
 
-For the purpose of studying this $f$-vector, one can study the dual of the polytopal complex.
+For the purpose of studying this $f$-vector, one can study the dual of the polytopal comple, see \cref{fig:diagonalPermutahedron1}.
 
 \begin{proposition}
-    The $f$-vector of a cellular diagonal of the permutahedron $\triangle_{(P,\vec v)}$ is given by the opposite of the $f$-vector of the hyperplane arrangement made of the braid arrangement together with a second copy of it, translated in the generic direction $\vec v$. 
+    The $f$-vector of the $(\ell-1)$th iteration of a diagonal of the $(n-1)$-permutahedron $\triangle_{(P,\vec v)}$ is given by the opposite of the $f$-vector of the $(\ell,n)$-braid arrangement.
 \end{proposition}
 
 \begin{proof}
-    This follows from \cite[Proposition 1.3]{LA21}; \cite[Corollary 1.4]{LA21} describes precisely the intersection poset of this hyperplane arrangement.
+    For $\ell=2$, this is in fact precisely the content of the \emph{Fulton--Sturmfels formula} for the intersection product on toric varieties \cite[Theorem 4.2]{fultonIntersectionTheoryToric1997a}.
+    Alternatively, it follows from \cite[Proposition 1.3]{LA21}, and \cite[Corollary 1.4]{LA21} describes precisely the intersection poset of the hyperplane arrangement.
+    The result for arbitrary $\ell$ follows directly. 
 \end{proof}
- 
-The first part of the paper provides explicit formulas for this $f$-vector. 
+
+\begin{remark} \Guillaume{completer et mettre dans l'intro}
+    The toric varieties associated with the permutahedron are called Losev--Manin varieties, introduced in \cite{losevNewModuliSpaces2000}.
+    \Guillaume{They are De Concini--Procesi wonderful compactifications of \dots
+    They ate also brick manifolds?}
+    The cohomology ring structure was studied by Losev and Manin, and quite extensively since then. \Guillaume{See for example "Graph cohomology"} 
+    Our current work brings a completely combinatorially explicit description of the cup product, it would be interesting to know if this new description can lead to new results, or how it can be used to recover existing ones.
+\end{remark}
 
 %%%%%%%%%%%%%%%
 
@@ -1285,29 +1299,66 @@ We use the shorthand $14|23$ to denote both the unordered  partition $\{\{1,4\},
 \end{figure}
 \vincent{I have included this picture here to be sure that we don't forget it. I should make one for the SU diagonal~$\SUD$ as well.}
 
-Let us recall the combinatorial formula for the cellular approximation of the diagonal of the permutahedra from \cite[Theorem 3.16]{LA21}.
-Let $n\geq 1$, and let us write \[ \LA(n) \coloneqq \{(I,J) \ | \ I,J\subset\{1,\ldots,n\}, |I|=|J|, I\cap J=\emptyset, \min(I\cup J)\in I \}. \] 
-Let $\vec v \in \R^n$ be such that $\forall (I,J) \in \LA(n)$, we have $\sum_{i \in I} v_i > \sum_{j \in J} v_j$, and let $P\subset \R^n$ denote the standard $(n-1)$-dimensional permutahedron.
-For any pair $(\sigma,\tau)$ of ordered partitions of $[n]$, we have
+Let us recall the universal formula expressing combinatorially the cellular image of the diagonal of a polytope $P$ obtained in \cite[Theorem 1.26]{LA21}.
+It is expressed in terms of the \emph{fundamental hyperplane arrangement} of $P$. 
+
+\begin{definition}[Fundamental hyperplane arrangement]
+    The \emph{fundamental hyperplane arrangement} $\mathcal{H}_P$ of a polytope $P \subset \R^n$ is the set of hyperplanes whose normal vectors are a choice of directions of the edges of $P\cap \rho_z P$, for any $z \in P$. 
+\end{definition}
+
+\begin{example}
+    Let $U(n):=\{ (I,J) \ | \ I,J \subset [n], |I|=|J|>0, I \cap J = \emptyset\}$.
+    The fundamental hyperplane arrangement of the $(n-1)$-permutahedron is given by the family of hyperplanes \[ \sum_{i \in I} x_i = \sum_{j \in J} x_j \ ,  \ (I,J) \in U(n) \ . \] 
+\end{example}
+
+\Guillaume{Mentionner le travail en cours de Lionel Pournin?}
+
+\begin{theorem}[Universal formula]
+    \label{thm:universal-formula}
+    Let $(P,\vec v)$ be a positively oriented polytope in $\R^n$. 
+For each $H\in\mathcal{H}_P$, we choose a normal vector $\vec d_H$ such that $\langle \vec d_H, \vec v \rangle >0$. 
+We have 
+\begin{eqnarray}
+(F,G) \in \Ima \triangle_{(P,\vec v)} 
+&\iff& \forall H \in \mathcal{H}_P(F,G), \ \exists i , \ \langle \vec F_i, \vec d_H \rangle < 0  \text{ or } \exists j , \ \langle \vec G_j, \vec d_H \rangle > 0  \\ 
+&\iff& \forall H \in \mathcal{H}_P , \ \exists i , \ \langle \vec F_i, \vec d_H \rangle < 0  \text{ or } \exists j , \ \langle \vec G_j, \vec d_H \rangle > 0 \ . 
+\end{eqnarray} 
+\end{theorem}
+
+Here, the $\vec F_i$ and $\vec G_j$ are vectors spanning the normal cones of the respective faces, and $\mathcal{H}_P(F,G)$ is a subset of hyperplanes which are specifically associated to the pair $(F,G)$.
+Applying this Theorem to $P$ the permutahedron, we obtain the following. 
+
+\begin{corollary}
+    Any choice of diagonal of the $(n-1)$-permutahedron is given combinatorially by a choice of inequalities \[ \sum_{i \in I} x_i > \sum_{j \in J} x_j \text{ or } \sum_{i \in I} x_i < \sum_{j \in J} x_j \]
+    for all $(I,J) \in U(n)$. 
+\end{corollary}
+
+\begin{proof}
+    A choice of diagonal is given by a choice of vector in a chamber of $\mathcal{H}_P$, two vectors living in the same chamber inducing the same diagonal \cite[Proposition 1.23]{LA21}.
+\end{proof}
+
+Let us now recall the specific choice of chambers from \cite[Theorem 3.16]{LA21}.
+
+\begin{definition}[$\LA$ diagonal]
+    Let $n\geq 1$, and let us write $\LA(n) \coloneqq \{(I,J) \in U(n) \ | \ \min(I\cup J)\in I \}$.
+    The \emph{$\LA$ diagonal} $\LAD$ of the $(n-1)$-permutahedron is given by any vector $\vec v \in \R^n$ satisfying  
+    \[\sum_{i \in I} v_i > \sum_{j \in J} v_j  \ , \forall (I,J) \in \LA(n) \ . \]
+\end{definition}
+Applying \cref{thm:universal-formula}, one obtains the following combinatorial description, referred to later as the \emph{$(I,J)$ description}. 
+\begin{proposition}
+\label{p:minimal}
+For a pair $(\sigma,\tau)$ of ordered partitions of $[n]$, we have
 \begin{eqnarray*}
-    (\sigma,\tau)\in \Ima\triangle_{(P,\vec v)} 
-    & \iff & \forall (I,J) \in \LA(n), \exists k \in [n] , 
+    (\sigma,\tau)\in \LAD 
+    & \iff & \forall (I,J) \in \LA(\sigma,\tau), \exists k \in [n] , 
     \left| \sigma_{[k]} \cap I \right|
     >
     \left| \sigma_{[k]} \cap J \right| \text{ or } \\
     && \exists l \in [n] , 
     \left| \tau_{[l]} \cap I \right|
     <
-    \left| \tau_{[l]} \cap J \right|  \ . 
-\end{eqnarray*}
-We shall denote by $\LAD$ the set of pairs of ordered partitions of $[n]$ which satisfy the above condition. 
-There is an equivalent description of $\LAD$ which has the following form: 
-\begin{proposition}
-\label{p:minimal}
-For a two ordered partitions $\sigma, \tau \subset [n]$, we have
-\begin{eqnarray*}
-    (\sigma,\tau)\in \LAD 
-    & \iff & \forall (I,J) \in \LA(\sigma,\tau), \exists k \in [n] , 
+    \left| \tau_{[l]} \cap J \right|   \\
+    & \iff & \forall (I,J) \in \LA(n), \exists k \in [n] , 
     \left| \sigma_{[k]} \cap I \right|
     >
     \left| \sigma_{[k]} \cap J \right| \text{ or } \\
@@ -1319,12 +1370,12 @@ For a two ordered partitions $\sigma, \tau \subset [n]$, we have
 \end{proposition}
 Here, $\LA(\sigma,\tau) \subset \LA(n)$ is a proper subset of $\LA(n)$ which depends on the choice of~$(\sigma,\tau)$, and comes from the geometry of the situation, see \cite[Theorem 1.26]{LA21} for more details.
 For our present purposes, it will be enough to restrict our attention to facets of $\LA$, that is pairs $(\sigma,\tau)$ which satisfy $|\sigma| + |\tau|=n+1$.
-In this case, $\LA(\sigma,\tau)$ has $n-1$ elements, and admits the following description. 
+In this case, the set $\LA(\sigma,\tau)$ has $n-1$ elements, and admits the following description. 
 
 For any subset $\sigma_i \subset [n]$, let $\vec \sigma_i \in \R^n$ denote the boolean vector whose coordinates are given by $1$ in position $j$ if $j \in \sigma_i$ and $0$ otherwise. 
 Given a facet $(\sigma,\tau)$ of $\LAD$, one can consider the system of equations $\langle \vec \sigma_i , x \rangle=0$, $\langle \vec \tau_j , x \rangle=0$ given by the blocks of both partitions.
 For geometric reasons (see the proof of \cite[Theorem 1.26]{LA21}), the solution of this system is $x=0$. 
-Now we will be interested in the solutions of the systems associated to the pairs $(\sigma',\tau)$ and $(\sigma,\tau')$ where $\sigma'$ (resp. $\tau'$) has been obtained from $\sigma$ (resp. $\tau$) by merging two adjacent blocks.
+Now we will be interested in the solutions of the systems associated to the pairs $(\sigma',\tau)$ and $(\sigma,\tau')$ where~$\sigma'$ (resp.~$\tau'$) has been obtained from $\sigma$ (resp. $\tau$) by merging two adjacent blocks.
 
 \begin{proposition}
 \label{p:minimal-IJ-pairs}
@@ -1336,7 +1387,7 @@ Now we will be interested in the solutions of the systems associated to the pair
 \begin{proof}
     For any $z \in (\mathring \sigma+ \mathring \tau)/2$, the face $\tau \cap \rho_z \sigma$ of $P \cap \rho_z P$ is a vertex of the polytope $P \cap \rho_z P$.
     The faces of the form $\tau \cap \rho_z \sigma'$ and $\tau' \cap \rho_z \sigma$ are the edges of $P\cap \rho_z P$ which are adjacent to the vertex $\tau \cap \rho_z \sigma$. 
-    By definition $D(\sigma, \tau)$ describes the directions of these edges, and the translation is made as follows: for a given pair $(I,J)$, define the corresponding direction $\vec d$ by its coordinates $d_i:=1$ if $i \in I$, $d_j:=-1$ if $j \in J$, and $d_k:=0$ otherwise.  
+    By definition $\LA(\sigma, \tau)$ describes the directions of these edges, and the translation is made as follows: for a given pair $(I,J)$, define the corresponding direction $\vec d$ by its coordinates $d_i:=1$ if $i \in I$, $d_j:=-1$ if $j \in J$, and $d_k:=0$ otherwise.  
     We refer to \cite[Section 1.5]{LA21} for more details.
 \end{proof}
 
@@ -1742,8 +1793,20 @@ In the case of the permutahedron it sends $\LAD$ to $(\LAD)^\op$ and $\SUD$ to $
     Finally, since both $t,r$ and $s$ preserve the poset structures, so does their composition, which finishes the proof.
 \end{proof}
 
-\begin{remark}
-    There is a second, distinct isomorphism given by $t(r\times r)$ \Guillaume{TBC}
+\begin{remark} \label{rem:Alternate Isomorphism}
+There is a second, distinct isomorphism given by $t(r\times r)$.
+This follows as $s\times s:\LAD \to (\LAD)^{op}$ is an isomorphism (and also for  $s\times s:\SUD \to (\SUD)^{op}$ ), as such the composite 
+
+\begin{center}
+\begin{tikzcd}
+t(r\times r):\LAD \arrow[r,"s\times s"] &
+(\LAD)^{\op}\arrow[r,"rs \times rs"] &
+(\SUD)^\op \arrow[r,"t"] & \SUD
+\end{tikzcd}
+\end{center}
+is also an isomorphism.
+We will show this second isomorphism has the conceptual benefit of sending left shift operators to left shift operators (and right to right) in \cref{s: The Saneblidze-Umble Diagonal}.
+
 \end{remark}
 
 %%%%%%%%%%%%%%%
@@ -1876,13 +1939,13 @@ We now illustrate the ordering (right) of the pair of essential complementary pa
 \node (7) at (1.5, -3) {$46$};
 \node (8) at (1.5, -4) {$57$};
 %
-\draw[-] (1)--(5); 
-\draw[-] (1)--(8);
-\draw[-] (2)--(5); 
-\draw[-] (2)--(6); 
-\draw[-] (2)--(7); 
-\draw[-] (3)--(7);
-\draw[-] (4)--(8);
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (8);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (6); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (7); 
+\draw[thick] (3) to [in=180, out=0, looseness=0] (7);
+\draw[thick] (4) to [in=180, out=0, looseness=0] (8);
 %
 \end{tikzpicture}
 $\quad$
@@ -1897,13 +1960,13 @@ $\quad$
 \node (7) at (1.5, -3) {$13$};
 \node (8) at (1.5, -4) {$2$};
 %
-\draw[-] (1)--(5); 
-\draw[-] (1)--(7);
-\draw[-] (2)--(5); 
-\draw[-] (3)--(6); 
-\draw[-] (3)--(7); 
-\draw[-] (3)--(8); 
-\draw[-] (4)--(6);
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (7);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (3) to [in=180, out=0, looseness=0] (6); 
+\draw[thick] (3) to [in=180, out=0, looseness=0] (7); 
+\draw[thick] (3) to [in=180, out=0, looseness=0] (8); 
+\draw[thick] (4) to [in=180, out=0, looseness=0] (6);
 %
 \end{tikzpicture}
 \end{center}
@@ -2007,13 +2070,13 @@ We apply the bijection $rs\times rs$ to the element of $\LAD$ from \cref{ex:ECbi
 \node (7) at (1.5, -3) {$13$};
 \node (8) at (1.5, -4) {$2$};
 %
-\draw[-] (1)--(5); 
-\draw[-] (1)--(7);
-\draw[-] (2)--(5); 
-\draw[-] (3)--(6); 
-\draw[-] (3)--(7); 
-\draw[-] (3)--(8); 
-\draw[-] (4)--(6);
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (7);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (3) to [in=180, out=0, looseness=0] (6); 
+\draw[thick] (3) to [in=180, out=0, looseness=0] (7); 
+\draw[thick] (3) to [in=180, out=0, looseness=0] (8); 
+\draw[thick] (4) to [in=180, out=0, looseness=0] (6);
 %
 \end{tikzpicture}
 \quad
@@ -2030,13 +2093,13 @@ We apply the bijection $rs\times rs$ to the element of $\LAD$ from \cref{ex:ECbi
 \node (7) at (-1.5, -2) {$456$};
 \node (8) at (-1.5, -1) {$2$};
 %
-\draw[-] (1)--(5);
-\draw[-] (1)--(6); 
-\draw[-] (2)--(7);
-\draw[-] (2)--(8);
-\draw[-] (3)--(5); 
-\draw[-] (3)--(7);
-\draw[-] (4)--(7);
+\draw[thick] (1) to [out=180, in=0, looseness=0] (5);
+\draw[thick] (1) to [out=180, in=0, looseness=0] (6); 
+\draw[thick] (2) to [out=180, in=0, looseness=0] (7);
+\draw[thick] (2) to [out=180, in=0, looseness=0](8);
+\draw[thick] (3) to [out=180, in=0, looseness=0] (5); 
+\draw[thick] (3) to [out=180, in=0, looseness=0] (7);
+\draw[thick] (4) to [out=180, in=0, looseness=0] (7);
 %
 \end{tikzpicture} \ .
 \end{center}
@@ -2109,6 +2172,8 @@ It follows directly from the fish condition: if the fish condition is satisfied,
 
 \subsection{The Saneblidze-Umble diagonal}
 
+\Guillaume{A reecrire plus tard}
+
 In this section we show that $\SUD$, with its $(I,J)$-description, is the same as the original Saneblidze-Umble diagonal \cite{SaneblidzeUmble04}.
 First, we prove that the original $\SU$ diagonal, which we refer to as ``subset $1$-shift $\SUD$", is equivalent to the ``$1$-shift $\SUD$", where shifts a performed on singletons only \Guillaume{REF}. 
 Second, we prove that the $1$-shift $\SUD$ is equivalent to the $m$-shift $\SUD$, where singleton shifts are not restricted to adjacent vertices. 
@@ -2116,9 +2181,9 @@ Third, we show that the $m$-shift $\SUD$ is equivalent to $\SUD$ with its $(I,J)
 Through the isomorphism between $\SUD$ and $\LAD$ (\Guillaume{REF}), we obtain new combinatorial descriptions of both $\LAD$ and the original $\SUD$. 
 \begin{center}
 \begin{tikzcd}
-\text{Subset $1$-shift $\SUD$} \arrow[r,leftrightarrow,"\ref{prop:subset shift to shift bijection}"]&
-\text{$1$-shift $\SUD$} \arrow[r,leftrightarrow,"\ref{prop:subset shift to shift bijection}"]&
-\text{$m$-shift $\SUD$} \arrow[r,leftrightarrow,"\ref{prop: shift SUD and SUD are equal}"]&
+\text{Subset $1$-shift $\SUD$} \arrow[r,leftrightarrow,"\ref{prop:iso-original-shift-diagonals}"]&
+\text{$1$-shift $\SUD$} \arrow[r,leftrightarrow,"\ref{prop:iso-original-shift-diagonals}"]&
+\text{$m$-shift $\SUD$} \arrow[r,leftrightarrow,"\ref{prop:iso-shift-IJ-diagonals}"]&
 \SUD \\
 \text{Subset shift $\LAD$} \arrow[r,dotted,leftrightarrow]&
 \text{$1$-shift $\LAD$} \arrow[r,dotted,leftrightarrow]&
@@ -2152,13 +2217,13 @@ The SCP associated to the permutation $3|1|7|4|2|5|6$ is
     \node (7) at (1.5, -3) {$4$};
     \node (8) at (1.5, -4) {$256$};
     %
-    \draw[-] (1)--(5); 
-    \draw[-] (1)--(6); 
-    \draw[-] (2)--(6); 
-    \draw[-] (2)--(7); 
-    \draw[-] (2)--(8); 
-    \draw[-] (3)--(8); 
-    \draw[-] (4)--(8);
+    \draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
+    \draw[thick] (1) to [in=180, out=0, looseness=0] (6); 
+    \draw[thick] (2) to [in=180, out=0, looseness=0] (6); 
+    \draw[thick] (2) to [in=180, out=0, looseness=0] (7); 
+    \draw[thick] (2) to [in=180, out=0, looseness=0] (8); 
+    \draw[thick] (3) to [in=180, out=0, looseness=0] (8); 
+    \draw[thick] (4) to [in=180, out=0, looseness=0] (8);
     %
 \end{tikzpicture}
 \end{center}
@@ -2171,7 +2236,7 @@ As the intersection graph of any pair of essential complementary partitions is a
     For $(\sigma,\tau)$ a pair of essential complementary partitions, we denote by $\sigma_{i,j}$ (resp. $\tau_{i,j}$) the unique oriented path between blocks $\sigma_{i}$ and $\sigma_j$ (resp. $\tau_{i}$ and $\tau_j$).
 \end{notation}
 Note that we make a slight abuse in notation as the path $\sigma_{i,j}$ also depends on $\tau$.
-We can immediately characterise the paths between adjacent blocks of $\SCP$s.
+We can immediately characterise the paths between adjacent blocks of strong complementary partitions.
 
 \begin{proposition} 
 \label{lem:SCP-path-desc}
@@ -2189,17 +2254,17 @@ Since the minima of these paths are traversed from left to right, and the maxima
 
 %%%%
 
-\subsubsection{Subset $1$-shift, $1$-shift and $m$-shift diagonals}
+\subsubsection{$\SU$ diagonals}
 
-\begin{definition}[Subset $m$-shift operators]
+\begin{definition}[Shift operators]
 \label{def:subset shifts}
 Let $\sigma=\sigma_1|\dots|\sigma_k$ be an ordered partition, and let 
 $M_i\subsetneq \sigma_{i}$ be a non-empty subset of the block $\sigma_i$.
-For $m\geq 1$, the \emph{subset right $m$-shift operator} moves the subset $M_i$, $m$ blocks to the right  
+For $m\geq 1$, the \emph{right $m$-shift} moves the subset $M_i$, $m$ blocks to the right  
 \begin{align*}
     R_{M_i}(\sigma) \eqdef \sigma_1|\dots|\sigma_i \ssm M_i|\dots | \sigma_{i+m} \cup M_i|\dots|\sigma_k
 \end{align*}
-while the \emph{subset left $m$-shift operator} moves it $m$ blocks to the left 
+while the \emph{left $m$-shift} moves it $m$ blocks to the left 
 \begin{align*}
     L_{M_{i}}(\sigma) \eqdef \sigma_1|\dots|\sigma_{i-m} \cup M_{i}| \dots |\sigma_{i} \ssm M_{i}|\dots|\sigma_l \ .
 \end{align*}
@@ -2208,15 +2273,19 @@ while the \emph{subset left $m$-shift operator} moves it $m$ blocks to the left
 \begin{definition}[Movable subsets]
     \label{def:movable-subsets}
     Let $(\sigma,\tau) = (\sigma_1|\dots|\sigma_k,\tau_1|\dots|\tau_l)$ be a pair of ordered partitions.
-    A non-empty subset $M_i \subset \sigma_i$ (resp. $N_{i}\subset \tau_{i}$) is \emph{$1$-movable} if 
+    For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (resp. $M_{i}\subset \tau_{i}$) is \emph{$m$-block movable} if 
     \begin{enumerate}
-        \item $\min \sigma_i \notin M_i$ (resp. $\min \tau_{i} \notin N_i$), and
-        \item $\min M_i> \max \sigma_{i+1}$ (resp. $\min N_{i}> \max \tau_{i-1}$).
+        \item $\min \sigma_i \notin M_i$ (resp. $\min \tau_{i} \notin M_i$), and
+        \item $\min M_i> \max \sigma_{i+1}$ (resp. $\min M_{i}> \max \tau_{i-1}$).
+    \end{enumerate}
+    It is \emph{$m$-path movable} if it satisfies $(1)$ above together with
+    \begin{enumerate}
+        \item[(2')] $\min M_i> \max \sigma_{i,i+m}$ (resp. $\min M_{i}> \max \tau_{i,i-m}$).
     \end{enumerate}
 \end{definition}
 
 \begin{example}
-Performing the subset $1$-shifts $R_7$ and $L_{5,6}$ on $1$-movable subsets of the strong complementary pair~$(\sigma,\tau)$ of \cref{ex:strong-complementary}, one obtains the pair $R_{7}(\sigma) \times L_{5,6}(\tau)$.
+Performing the $1$-shifts $R_7$ and $L_{5,6}$ on $1$-movable (they are both block and path-movable) subsets of the strong complementary pair~$(\sigma,\tau)$ of \cref{ex:strong-complementary}, one obtains the pair $R_{7}(\sigma) \times L_{5,6}(\tau)$.
 \begin{center}
 \begin{tikzpicture}[scale=.7]  
     \node (p) at (0, 0) {$13|247|5|6 \times 3|17|4|256$};
@@ -2230,13 +2299,13 @@ Performing the subset $1$-shifts $R_7$ and $L_{5,6}$ on $1$-movable subsets of t
     \node (7) at (1.5, -3) {$4$};
     \node (8) at (1.5, -4) {$256$};
     %
-    \draw[-] (1)--(5); 
-    \draw[-] (1)--(6); 
-    \draw[-] (2)--(6); 
-    \draw[-] (2)--(7); 
-    \draw[-] (2)--(8); 
-    \draw[-] (3)--(8); 
-    \draw[-] (4)--(8);
+    \draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
+    \draw[thick] (1) to [in=180, out=0, looseness=0] (6); 
+    \draw[thick] (2) to [in=180, out=0, looseness=0] (6); 
+    \draw[thick] (2) to [in=180, out=0, looseness=0] (7); 
+    \draw[thick] (2) to [in=180, out=0, looseness=0] (8); 
+    \draw[thick] (3) to [in=180, out=0, looseness=0] (8); 
+    \draw[thick] (4) to [in=180, out=0, looseness=0] (8);
     %
 \end{tikzpicture}
 \quad
@@ -2254,100 +2323,118 @@ Performing the subset $1$-shifts $R_7$ and $L_{5,6}$ on $1$-movable subsets of t
 \node (7) at (1.5, -3) {$456$};
 \node (8) at (1.5, -4) {$2$};
 %
-\draw[-] (1)--(5); 
-\draw[-] (1)--(6); 
-\draw[-] (3)--(6); 
-\draw[-] (2)--(7); 
-\draw[-] (2)--(8); 
-\draw[-] (3)--(7); 
-\draw[-] (4)--(7);
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (6); 
+\draw[thick] (3) to [in=180, out=0, looseness=0] (6); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (7); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (8); 
+\draw[thick] (3) to [in=180, out=0, looseness=0] (7); 
+\draw[thick] (4) to [in=180, out=0, looseness=0] (7);
 %
 \end{tikzpicture}
 \end{center}
 \end{example}
 
-\begin{definition}[Admissible sequences of subset $1$-shifts]
+We shall concentrate on two distinct families of shifts:
+\begin{enumerate}[(a)]
+    \item $1$-shifts of $1$-block movable subsets of various sizes, and
+    \item $m$-shifts of $m$-path movable singletons, for various $m\geq 1$,
+\end{enumerate}
+and show that specific sequences generate the same diagonal. 
+
+\begin{definition}[Admissible sequences of shifts]
     Let $(\sigma,\tau)$ be a pair of ordered partitions. 
-    For $p\geq 1$, a sequence of right subset $1$-shifts $\textbf{M} = (M_{i_1},\dots,M_{i_p}) \in [n]^{p}$ is \emph{admissible} if 
-    \begin{enumerate}
+    For~$p\geq 1$, a sequence of right shifts $\textbf{M} = (M_{i_1},\dots,M_{i_p}) \in [n]^{p}$ is 
+    \begin{enumerate}[(a)]
+    \item \emph{admissible of original type} if 
+    \begin{enumerate}[(1)]
         \item we have $1\leq i_1 < i_2 < \dots < i_p \leq k-1$, and
-        \item each $M_{i_j}$ is a $1$-movable subset of $R_{M_{i_j-1}}\dots R_{M_{i_1}}(\sigma)_{i_j}$.
+        \item each $M_{i_j}$ is a $1$-block movable subset of $R_{M_{i_j-1}}\dots R_{M_{i_1}}(\sigma)_{i_j}$.
     \end{enumerate}
-    We denote the resulting ordered partition by $R_\mathbf{M}(\sigma) \eqdef R_{M_{i_p}}\dots R_{M_{i_1}}(\sigma)$.
-    The result of an admissible sequence of left subset $1$-shifts $L_\mathbf{N}(\tau)  \eqdef  L_{N_{i_1}}\dots L_{N_{i_q}}(\tau)$ is defined similarly via the condition $2\leq i_1 < i_2 \dots < i_q \leq k$, with $q\geq 1$.
+    The resulting ordered partition is denoted by $R_\mathbf{M}(\sigma) \eqdef R_{M_{i_p}}\dots R_{M_{i_1}}(\sigma)$.
+
+    \item \emph{admissible of $m$-path type} if
+    \begin{enumerate}[(1)]
+        \item each $M_{i_j}$ is a $m$-path movable element of $R_{M_{i_j-1}}\dots R_{M_{i_1}}(\sigma)_{i_j}$, for some $m\geq 1$.
+    \end{enumerate}
+
+    \end{enumerate}
+    Admissible sequences of left shifts are defined similarly and are denoted by $L_\mathbf{N}(\tau)$.
 \end{definition}
 
 \Guillaume{Think about notation: too many indices!! $R_{M_{i_j}}$}
 
-By convention, we declare the empty sequence of subset $1$-shift operators to be admissible, and to act by the identity, i.e. we have $R_{\mathbf{\emptyset}}(\sigma)  \eqdef  \sigma$ and $L_{\mathbf{\emptyset}} (\tau) \eqdef  \tau$.
+By convention, we declare the empty sequence of shift operators to be admissible, and to act by the identity, i.e. we have $R_{\mathbf{\emptyset}}(\sigma)  \eqdef  \sigma$ and $L_{\mathbf{\emptyset}} (\tau) \eqdef  \tau$.
 
-\begin{definition}[Subset $1$-shift $\SU$ diagonal {\cite{SaneblidzeUmble04,saneblidzeComparingDiagonalsAssociahedra2022}}]
+\begin{definition}[$\SU$ diagonals]
     \label{def:classical-SU}
-   The facets of the \emph{subset $1$-shift $\SU$ diagonal} are given by the formula
+   The facets of 
+   \begin{enumerate}[(a)]
+    \item the \emph{original $\SU$ diagonal},
+    \item the \emph{$m$-shift $\SU$ diagonal}
+   \end{enumerate}
+   are defined by the formula
     \begin{align*}
         \SUD([n]) = \bigcup_{(\sigma,\tau)} \bigcup_{\mathbf{M}, \mathbf{N}} R_\mathbf{M}(\sigma)\times L_\mathbf{N}(\tau)
     \end{align*}
-    where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and over all admissible sequences of subset $1$-shift operators $\textbf{M},\textbf{N}$.
+    where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and over all admissible sequences of shifts $\textbf{M},\textbf{N}$ of the corresponding type.
 \end{definition}
+
+The original $\SU$ diagonal was so defined in \cite{SaneblidzeUmble04}, see also \cite{saneblidzeComparingDiagonalsAssociahedra2022}.
 
 \begin{remark}
-    Observe that the left (resp. right) subset $1$-shift operator moves elements to the left (resp. right), but acts on the right (resp. left) ordered partition.
-    In the analogous description for the diagonal $\LAD$ obtained at the end of the Section \Guillaume{[REF]}, left and right subset $1$-shift operators act on the left and right ordered partitions, respectively. 
+    Observe that the left (resp. right) shifts acts on the right (resp. left) ordered partition.
+    In the analogous description for the diagonal $\LAD$ obtained at the end of the Section \Guillaume{[REF]}, left and right shifts act on the left and right ordered partitions, respectively. 
 \end{remark}
 
-We now restrict the size and condition on the subsets that can be moved, but allow them to move more than one block at a time. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{definition}[Critical elements] 
-    \label{def:critical-elements}
-    Let $(\sigma,\tau)$ be a pair of ordered partitions.
-    For $m\geq 1$, an element $\rho \in \sigma_i$ (resp. $\rho \in \tau_i$) is \emph{$m$-critical} if 
-    \begin{enumerate}
-        \item $\rho \neq \min \sigma_i$ (resp. $\rho \neq \min \tau_i$), and
-        \item $\rho>\max \sigma_{i,i+m}$ (resp. $\rho > \max \tau_{i,i-m}$).
-    \end{enumerate}
-\end{definition}
+\subsubsection{First isomorphism: original and $m$-shift $\SU$ diagonals}
 
-For any $m\geq 1$, let us call \emph{critical} the right and left $m$-shift operators associated with the singleton sets given by $m$-critical elements, and denote them by $R_{\rho}$ and $L_{\rho}$.
+First, we show that the $m$-shift $\SU$ diagonal is equivalent to the \emph{$1$-shift $\SU$ diagonal}, which given by exactly the same definition, but where only $1$-shifts are performed. 
 
-\begin{definition}[$1$-shift and $m$-shift $\SU$ diagonals]
-    \label{def:m-shift-SU}
-    The facets of the \emph{$1$-shift (resp. $m$-shift) $\SU$ diagonal} are given by the formula
-    \begin{align*}
-        \SUD([n]) = \bigcup_{(\sigma,\tau)} \bigcup_{\mathbf{M}, \mathbf{N}} R_\mathbf{M}(\sigma)\times L_\mathbf{N}(\tau)
-    \end{align*}
-    where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and over all well-defined sequences of critical $1$-shift operators $\textbf{M},\textbf{N}$ (resp. sequences of critical $m$-shift operators, for possibly different $m\geq 1$ at each step in the sequence).
-\end{definition}
+\begin{proposition}
+    \label{prop:iso-1-to-m-shift}
+    The $1$-shift and $m$-shift $\SU$ diagonals coincide.
+\end{proposition}
 
-\begin{remark}
-    Note here the two important differences between the subset $1$-shift and $m$-shift $\SU$ diagonals: a $m$-critical element $\rho$ is not required to satisfy $\rho > \max\sigma_{i+m}$ (compare Points (2) in \cref{def:movable-subsets} and \cref{def:critical-elements}), and the numbers indexing a sequence of shifts are not required to be increasing (compare \cref{def:classical-SU} and \cref{def:m-shift-SU}).
-\end{remark}
+\begin{proof}
+    It is clear that any admissible sequence of $1$-shifts is an admissible sequence of $m$-shifts, and thus that the facets of the $1$-shift $\SU$ diagonal are facets of the $m$-shift $\SU$ diagonal. 
+    For the reverse inclusion, we need to show that any $m$-shift can be rexpressed as an admissible sequence of $1$-shift. 
+    We proceed by induction.
+    For the case $m=1$ there is nothing to prove.
+    Let $(\sigma,\tau)$ be a pair of ordered partitions in the $m$-shift diagonal. 
+    Suppose now that an element $\rho \in \sigma_i$ is $m$-movable, i.e. $\rho \neq \min \sigma_i$ and $\rho > \max \sigma_{i,i+m}$.
+    Observing that it is in fact $1$-movable, since $\sigma_{i,i+m}=\sigma_{i,i+1}\sigma_{i+1,i+m}$ we have that $\max \sigma_{i,i+m}\geq \max \sigma_{i,i+1}$, allows us to apply the induction hypothesis.
+\end{proof}
 
-
-%%%%
-
-\subsubsection{First isomorphism: subset $1$-shift and $1$-shift diagonals}
+We will now compare the $1$-shift and original $\SU$ diagonals. 
 
 \begin{proposition} 
 \label{prop:SU-preserves-max}
-The admissible subset $1$-shift operators conserve the maximal element of any path between two blocks of the same ordered partition.
-In particular, for a pair of ordered partitions $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$ obtained via an admissible sequence of $1$-shifts from a strong complementary pair~$(\sigma,\tau)$, we have that
-\begin{align*}
+Admissible sequences of shifts of the original $\SU$ diagonal conserve 
+\begin{enumerate}
+    \item the maximal element of any path between two blocks of the same ordered partition,
+    \item the direction in which this element is traversed. 
+\end{enumerate}
+
+In particular, for a pair of ordered partitions $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$ obtained via an admissible sequence of shifts from a strong complementary pair~$(\sigma,\tau)$, we have that
+\begin{align}
+    \label{eq:max-1}
     \max R_{\mathbf{M}}(\sigma)_{i,j} = \max \sigma_{i,j} \text{ and } \max L_{\mathbf{N}}(\tau)_{i,j} = \max \tau_{i,j}
-\end{align*}
+\end{align}
 and consequently that
-\begin{align*}
+\begin{align}
+    \label{eq:max-2}
     \max R_{\mathbf{M}}(\sigma)_{i,i+1} = \max \sigma_{i+1} \text{ and } \max L_{\mathbf{N}}(\tau)_{i,i+1} = \max \tau_{i}  \ .
-\end{align*}
-Moreover, the direction in which this maximal element is traversed in the path is also preserved. 
+\end{align}
 \end{proposition}
 
-\begin{remark}
-    Note that in the fist line of \cref{prop:SU-preserves-max}, the maxima $\max \sigma_{i,j}$ and $\max \tau_{i,j}$ are maxima of \emph{paths}, while in the second line the maxima $\max \sigma_{i+1}$ and $\max \tau_{i}$ are maxima of \emph{blocks}.
-\end{remark}
+\Guillaume{review terminology in the proof}
 
 \begin{proof}
-For simplicity, in this proof we use ``shift" instead of ``$1$-shift".
 We consider the right subset shift operator; the left subset shift operator proceeds similarly.
+Let us start with Point (1).
 As $\SCP$s trivially meet the above conditions, we will prove the result inductively by assuming the result holds for $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$, and then showing that applying an admissible operator $R_{M_k}$ conserves the maximal elements of paths.
 By the inductive hypothesis, we know that $\max R_{\mathbf{M}}(\sigma)_{k,k+1}= \max \sigma_{k+1}$.
 As $R_{M_k}$ is an admissible operator, we know two things.
@@ -2366,6 +2453,7 @@ Throughout the rest of this proof, we use the following shorthand: we denote by 
 Let~$\gamma$ be any path between two blocks of $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$, and let~$\gamma'$ be the path between the same blocks, by indices, in $(R_{M_k}R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$. 
 There are four cases to consider. 
 \begin{enumerate}
+
     \item $\gamma$ does not contain an element of $M_k$.
     It is thus unaffected by the shift, so $\gamma' = \gamma$.
 
@@ -2376,6 +2464,7 @@ There are four cases to consider.
     For the same reason, $\beta \cap \delta_{k,k+1}$ must be connected and starting at $R_\mathbf{M}(\sigma)_{k}$.
     Then there are two cases to consider:
     \begin{enumerate}
+
         \item $\beta$ does not use any steps of $\delta_{k,k+1}$, in which case $\gamma' = \alpha m \delta_{k+1,k} \beta$.
         This is a path in the tree of $(R_{M_k}R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$ with no repeated steps, as such it must be the unique minimal path. 
         
@@ -2384,88 +2473,95 @@ There are four cases to consider.
         As such, the path $(\delta_{k+1,k}\ssm \beta)$ reaches the point of divergence from $R_{\mathbf{M}}(\sigma)_{k+1}$ instead of $R_{\mathbf{M}}(\sigma)_{k}$, then the path $(\beta \ssm \delta_{k+1,k})$ completes the rest of the route unchanged.
 
     \end{enumerate}
+
     \item $\gamma$ contains two elements of $M_k$. In which case we still have $\gamma'=\gamma$ (in path elements) but $\gamma'$ will step through the $(k+1)$th block instead of $\gamma$ stepping through the $k$th block.
     
     \item $\gamma$ contains more than two elements of $M_k$. 
     This is impossible, as $\gamma$ would not be a minimal path on a tree.
+
 \end{enumerate}
 Observe all (non-trivial or non-contradictory) paths $\gamma'$ contain $m>\min M_k$ and either some addition or deletion by $\delta_{k,k+1}$.
 It thus follows from \cref{eq:shift-subset-dominates} that $\max \gamma' = \max \gamma$: in each case, the maximal element will either be $m$, or in $\alpha$, or in $\beta$.
-Moreover, in each case, the maximal element $\max \gamma = \max \gamma'$ are traversed in the same direction.
-It is immediate for cases (1), (2a) and (3); in the case (2b) it follows from the observation that the number of steps of $\beta \cap \delta_{k,k+1}$ and $\delta_{k,k+1}$ have the same parity. \Guillaume{rewrite}
+
+For Point (2), we need to see that the maximal element $\max \gamma = \max \gamma'$ are traversed in the same direction.
+It is immediate for cases (1), (2a) and (3); the condition is empty in the case (4).
+For the case (2b) it follows from the observation that the number of steps of $\beta \cap \delta_{k,k+1}$ and $\delta_{k,k+1} \ssm \beta$ have the same parity: since $\delta_{k,k+1}$ has an even number of steps, either they both have an even number of steps, or an odd number, which completes the proof.
 \end{proof}
+
+\begin{remark}
+    Note that in \cref{eq:max-1}, the maxima $\max \sigma_{i,j}$ and $\max \tau_{i,j}$ are maxima of \emph{paths}, while in \cref{eq:max-2} the maxima $\max \sigma_{i+1}$ and $\max \tau_{i}$ are maxima of \emph{blocks}.
+\end{remark}
 
 \begin{corollary} 
 \label{cor:SU-shift-preserves-max}
-The critical left and right shift operators conserve the maximal element of paths.
-In particular, if $(\sigma',\tau')$ is generated from a $\SCP$ $(\sigma,\tau)$ by critical shifts, then we have
-\begin{align*}
-    \max \sigma'_{i,i+1} = \max \sigma_{i+1} \text{ and } \max \tau'_{i,i+1} = \max \tau_{i} \ .
-\end{align*}
+Admissible sequences of shifts of the $m$-path $\SU$ diagonal conserve 
+\begin{enumerate}
+    \item the maximal element of any path between two blocks of the same ordered partition,
+    \item the direction in which this element is traversed. 
+\end{enumerate}
+In particular, if a pair of ordered partitions $(\sigma',\tau')$ is generated from a strong complementary pair~$(\sigma,\tau)$ by $m$-path shifts, then we have
+\begin{align}
+    \label{eq:max-3}
+    \max \sigma'_{i,i+m} = \max \sigma_{i+m} \text{ and } \max \tau'_{i,i+m} = \max \tau_{i} \ .
+\end{align}
 \end{corollary}
 
 \begin{proof}
-    By definition of the critical shifts, \cref{eq:shift-subset-dominates} holds and we can run the proof of \cref{prop:SU-preserves-max} \emph{mutatis mutandis}.
+    By \cref{prop:iso-1-to-m-shift}, it suffices to treat the case of $1$-shifts. 
+    By definition of the admissible $1$-path shifts, \cref{eq:shift-subset-dominates} holds and we can run the proof of \cref{prop:SU-preserves-max} \emph{mutatis mutandis}.
 \end{proof}
 
 We have now dropped the assumption that $\min M_k > \max R_{\mathbf{M}}(\sigma)_{k+1}$, and the assumption that we need to perform shifts in an increasing order; once this is done, we can generate all subset shifts by chains of singleton set shifts.
 
-\begin{proposition}
-\label{prop:subset shift to shift bijection}
-The subset shift and shift definitions of the $\SUD$ diagonal coincide.
-\end{proposition}
+\begin{theorem}
+\label{prop:iso-original-shift-diagonals}
+The original and $m$-shift $\SU$ diagonals coincide.
+\end{theorem}
+
+\Guillaume{review terminology in the proof}
 
 \begin{proof}
+Since $m$-shift and $1$-shift diagonals are equivalent (\cref{prop:iso-1-to-m-shift}), it suffices to show that the $1$-shift and original $\SU$ diagonals coincide. 
+
 We analyse the right shift operator, the case of the left shift is similar. 
-First, we observe that any subset right shift $R_{M_k}(\sigma)$ can be decomposed into a series of critical elements right shifts: since $\min M_k > \max \sigma_{k,k+1}$ by the proof of \cref{prop:SU-preserves-max}, we can shift the elements of $M_k$ to the right one after the other (in any order!).
-This shows that any facet of the subset shift $\SUD$ diagonal is also a facet in the shift $\SUD$ diagonal.
+First, we observe that any subset right shift $R_{M_k}(\sigma)$ can be decomposed into a series of singleton right shifts: since $\min M_k > \max \sigma_{k,k+1}$ by the proof of \cref{prop:SU-preserves-max}, we can shift the elements of $M_k$ to the right one after the other (in any order!).
+This shows that any facet of the original $\SU$ diagonal is also a facet in the $1$-shift $\SU$ diagonal.
 
 For the reverse inclusion, we proceed by induction. 
-We are required to show that if we apply a critical right shift to $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$, say $(R_{\rho}R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$, then this can be re-expressed as a well-defined subset shift operation $(R_{\mathbf{M'}}(\sigma),L_{\mathbf{N}}(\tau))$. Suppose that prior to the critical shift that $\rho$ lives in block $l$, then we must have
+We are required to show that if we apply a right $1$-shift to $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$, say $(R_{\rho}R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$, then this can be re-expressed as a well-defined subset shift operation $(R_{\mathbf{M'}}(\sigma),L_{\mathbf{N}}(\tau))$. Suppose that prior to the $1$-shift that $\rho$ lives in block $l$, then we must have
 \begin{align*}
     1 \leq i_1 < \dots < i_j \leq l < i_{j+1} <\dots< i_p \leq k-1
 \end{align*}
 for some $j$. 
-If $i_j < l$, then $R_{\rho}R_{\mathbf{M}}(\sigma) = R_{M_{i_p}}\dots R_{\{\rho\}_{l}}R_{M_{i_j}}\dots R_{M_{i_1}}(\sigma)$, and we are done.
+If $i_j < l$, then we have $R_{\rho}R_{\mathbf{M}}(\sigma) = R_{M_{i_p}}\dots R_{\{\rho\}_{l}}R_{M_{i_j}}\dots R_{M_{i_1}}(\sigma)$, and we are done.
 Otherwise, if $i_j = l$, we set $M'_{i_j} = M_{i_j} \cup \{\rho \}$. 
 It is clear that we have $R_{\rho}R_{\mathbf{M}}(\sigma) = R_{M_{i_p}}\dots R_{M'_{i_j}}\dots R_{M_{i_1}}(\sigma)$, however, we need to check that $R_{M'_{i_j}}$ is a well-defined subset operator. 
 That is, we need to check that $\min M_{i_j}' > \max (R_{M_{i_{j-1}}}\dots R_{M_{i_1}}(\sigma))_{i_j+1}$.
 If~$\rho > \min M_{i_j}$, then we are done since in this case $\min M_{i_j}'=\min M_{i_j}$ and $R_{M_{i_j}}$ is a well-defined subset shift operator.
 Otherwise, we have $\rho=\min M_{i_j}'$. 
 Since by definition subset shift operators do not move the minimal element of a block, we have that $\rho > \min R_{\mathbf{M}}(\sigma)_{i_j}= \min (R_{M_{i_{j-1}}}\dots R_{M_{i_1}}(\sigma))_{i_j}$.
-Then from \cref{cor:SU-shift-preserves-max}, we know that $\rho>\max \sigma_{i_j+1} = \max (R_{M_{i_{j-1}}}\dots R_{M_{i_1}}(\sigma))_{i_j + 1}$, where the equality follows as $i_1<\dots<i_{j-1}<i_j$. This proves that $R_{M'_{i_j}}$ is well-defined, completing the inductive proof.
-\end{proof}
-%On peut se servir de l'hypothèse de récurrence et de la Proposition 2.45. Pas besoin du corollaire!!
-
-%%%%
-
-\subsubsection{Second isomorphism: $1$-shift and $m$-shift coincide}
-
-%%%%
-
-\subsubsection{Second isomorphism: shift and $(I,J)$ coincide}
-
-The remainder of this section is devoted to the proof that the shift $\SUD$ diagonal is equal to the $\SUD$ diagonal. 
-
-Given our existing theory, the closure of the critical shift operator is easy to establish.
-\begin{lemma} \label{lem:SUD closed under shifts}
-Let $(\sigma,\tau)\in \SUD$, if we apply a critical shift operator to it, then we remain in $\SUD$.
-\end{lemma}
-\begin{proof}
-We consider just the right shift, and the left proceeds similarly. 
-\cref{cor:SU-shift-preserves-max} shows that the maxima of paths between consecutive vertices in $(R_{\rho}(\sigma),\tau)$ are the same as the ones in $(\sigma,\tau)$. 
-Thus, all maxima of paths in $(R_{\rho}(\sigma),\tau)$ are traversed from right to left, and hence by \cref{prop:SUD are ordered EC}, we have that $(R_{\rho}(\sigma),\tau) \in \SUD$.   
+Then using the induction hypothesis, \cref{prop:SU-preserves-max} shows that $\rho>\max \sigma_{i_j+1} = \max (R_{M_{i_{j-1}}}\dots R_{M_{i_1}}(\sigma))_{i_j + 1}$, where the equality follows as $i_1<\dots<i_{j-1}<i_j$. 
+This proves that $R_{M'_{i_j}}$ is well-defined, completing the inductive proof.
 \end{proof}
 
-We now need to develop the theory of inverse shift operators.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Inversions}
+
+We now aim at showing that $m$-shift and $(I,J)$ diagonals coincide. 
+By $(I,J)$ diagonal, we mean the $\SU$ diagonal defined via $(I,J)$ conditions in \cref{prop:unique-operad}.
 
 \begin{definition}
-Let $(\sigma,\tau)$ be a pair of ordered partitions $[n]$, we say that $(x,y)$, where $x<y$, is an \emph{inversion} if $x$ appears before $y$ in $\sigma$ and $y$ appears before $x$ in $\tau$. 
+Let $(\sigma,\tau)$ be a pair of ordered partitions of $[n]$, we say that $(x,y)$, where $x<y$, is an \emph{inversion} if $x$ appears before $y$ in $\sigma$ and $y$ appears before $x$ in $\tau$. 
 \end{definition}
+
+Pairs of ordered partitions are naturally ordered by their inversion sets. 
+Restricting to pairs of permutations, this is just the weak Bruhat order.
+\Guillaume{@Vincent, est-ce que ca coincide avec l'ordre de Ronco?}
 
 \begin{proposition}
 \label{p:crossings}
-The set of inversions of a $\SUD$ facet is in bijection with its set of edge crossings. 
+The set of inversions of a $(I,J)$ diagonal facet is in bijection with its set of edge crossings. 
 Moreover, the set $\SCP$ is equal to the set of facets with no crossings.
 \end{proposition}
 
@@ -2476,51 +2572,79 @@ The second part of the statement follows from the fact that facets of the diagon
 As explained above, from a partition one obtains a strong complementary pair, which is in $\SUD$. 
 In the other way around, given a strong complementary pair, one can read-off the partition in the associated tree, which has no crossings, by a vertical down-slice of edges, see \cref{ex:strong-complementary}.
 \end{proof}
+
 We say that an edge crossing is an \emph{adjacent crossing} if the two crossing elements are in adjacent blocks (i.e. $\sigma_i|\sigma_{i+1}$ or $\tau_i|\tau_{i+1}$).
+
 \begin{lemma}
-A facet $(\sigma,\tau) \in \SUD$ has a crossing if, and only if, it has an adjacent crossing.
+    \label{lem:adjacent-crossing}
+A facet $(\sigma,\tau)$ of the $(I,J)$ diagonal has a crossing if and only if it has an adjacent crossing.
 \end{lemma}
+
 \begin{proof}
 An adjacent crossing is clearly a crossing. In the other direction, suppose there is a crossing between an element of $\sigma_i$ and an element of $\sigma_j$. If $\sigma_i$ and $\sigma_j$ are not adjacent, then the 'triangle' produced by the crossing elements encloses other $\sigma_k$ such that $i<k<j$, and this produces other crossings. We may repeat this process until end an adjacent crossing.
 \end{proof}
 
-We now define inverse critical shift operators.
-\begin{definition} \label{def:critical SU inverse shift}
-Let $(\sigma,\tau)$ be a pair of ordered partitions. Let $\rho \in \sigma_{i+1}$ be such that $\rho>\max \sigma_{i,i+1}$ and $(\alpha,\rho)$ is an adjacent crossing, where $\alpha$ is an arbitrary element which is smaller than $\rho$. 
-Similarly, let $\rho \in \tau_{i} $ such that $\rho > \max \tau_{i,i+1}$ and $(\alpha,\rho)$ is an adjacent crossing.
-Subject to these constraints, we informally define the inverse left/right shift operators as, $R^{-1}_\rho$ returns $\rho$ to $\sigma_i$, and $L^{-1}_\rho$ returns $\rho$ to $\tau_{i+1}$
-\end{definition}
-The theory of these inverse operators behaves as one would expect. We only develop the necessary results to prove the equality of the diagonals. 
-\begin{lemma} \label{lem: shift operators are inverse to their inverses}
-The shift operators are the inverses of the inverse shift operators.
-\end{lemma}
+\begin{proposition} 
+    \label{lem:IJ-closed-under-shifts}
+    Let $(\sigma,\tau)$ be a pair of facets in the $(I,J)$ diagonal.
+    Then,
+    \begin{enumerate}
+        \item any pair of ordered partitions obtained by applying an $m$-shift to $(\sigma,\tau)$ is also in the $(I,J)$ diagonal,
+        \item applying an $m$-shift increases strictly the number of inversions of $(\sigma,\tau)$.
+    \end{enumerate}
+\end{proposition}
+
 \begin{proof}
-If we apply a well-defined inverse shift operator $R^{-1}_{\rho}$ to $(\sigma,\tau)$, then we have $\alpha,\rho \in R^{-1}_{\rho}(\sigma)_{i}$ such that $\min R^{-1}_{\rho}(\sigma)_i \leq \alpha<\rho$ and $\rho >\max R^{-1}_{\rho}(\sigma)_{i,i+1}$. As such, $R_{\rho}$ is well-defined, and $R_{\rho} R^{-1}_{\rho}=id$. A similar result holds for the left operator.
+    We consider just the right shift, and the left proceeds similarly. 
+    By \cref{cor:SU-shift-preserves-max}, we have that the maxima of paths between consecutive vertices in $(R_{\rho}(\sigma),\tau)$ are the same as the ones in $(\sigma,\tau)$, and are moreover traversed in the same direction.
+    Thus, all maxima of paths in $(R_{\rho}(\sigma),\tau)$ are traversed from right to left, and hence by \cref{prop:LAD-ordered-EC}, we have that $(R_{\rho}(\sigma),\tau)$ is in the $(I,J)$ diagonal, which proves Point (1).
+    For Point (2), observe that the $(I,J)$ conditions for $|I|=|J|=1$ imply that $\rho$ must appear before $\min \sigma_i$ in $\tau$; as a result, after the $m$-shift these two edges will create a new intersection.
 \end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Second isomorphism: $m$-shift and $(I,J)$ diagonals coincide}
+
+\begin{definition} 
+\label{def:inverse-shift}
+Let $(\sigma,\tau)$ be a pair of ordered partitions. 
+Let $\rho \in \sigma_{i+m}$ be such that $\rho>\max \sigma_{i,i+m}$ and $\rho > \min \sigma_i$.
+The \emph{inverse right $m$-shift} $R_\rho^{-1}$ is the left $m$-shift which sends $\rho$ to the block $\sigma_i$. 
+Inverse left $m$-shift operators are defined similarly. 
+\end{definition}
+
+It is clear that the inverse shift operators are indeed inverse to shift operators, i.e. that we have $R_\rho R_\rho^{-1}= R_\rho^{-1} R_\rho= \id$. 
+Moreover, we have the following properties.
+
+\begin{proposition} 
+    \label{lem:IJ-closed-under-inverse-shifts}
+    Let $(\sigma,\tau)$ be a pair of facets in the $(I,J)$ diagonal.
+    Then,
+    \begin{enumerate}
+        \item any pair of ordered partitions obtained by applying an inverse $m$-shift to $(\sigma,\tau)$ is also in the $(I,J)$ diagonal,
+        \item applying an inverse $m$-shift decreases strictly the number of inversions of $(\sigma,\tau)$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    The proof is similar to \cref{lem:IJ-closed-under-shifts}: as the inverse shift operators conserve the maxima of paths, and these same maxima continue to be traversed from right to left, it follows by \cref{prop:LAD-ordered-EC} that the output of an inverse shift operator will remain in $\SUD$, which shows Point (1). 
+    For Point (2), we observe the inverse $m$-shift resolves the intersection between $\rho$ and $\min \sigma_i$.
+\end{proof}
+
+\Guillaume{Change all abreviations $\SCP$ for the words}
 
 \begin{lemma}
-The inverse shift operators conserve the maximal elements of paths.
+\label{lem:inverse-to-SCP}
+Any facet $(\sigma,\tau)$ of the $(I,J)$ diagonal is mapped to a strong complementary pair by a finite number of inverse $m$-shifts.
 \end{lemma}
-\begin{proof}
-This is an immediate corollary of the prior lemma, and the fact that the shift operators conserves maximal elements of paths (\cref{prop:SU-preserves-max}).
-\end{proof}
 
-\begin{lemma} \label{lem:SUD closed under inverse shifts}
-Let $(\sigma,\tau)\in \SUD$, if we apply an inverse critical shift operator to it, then we remain in $\SUD$.
-\end{lemma}
 \begin{proof}
-As in \cref{lem:SUD closed under shifts}, as the inverse shift operators conserve the maxima of paths, and these same maxima continue to be traversed from right to left, it follows by \cref{prop:SUD are ordered EC} that the output of an inverse shift operator will remain in $\SUD$.
-\end{proof}
-
-\begin{lemma}\label{lem:inductive decomposition into SCP}
-All $(\sigma,\tau)\in \SUD$ are mapped to a $\SCP$ by a finite number of inverse shifts.
-\end{lemma}
-\begin{proof}
-It is immediate that given any element, $(\sigma,\tau) \in \SUD$ then we will only be able to apply a finite chain of inverse shift operators to it before no further operations are available. (It is straightforward to show each inverse shift decreases the number of crossings. An even simpler argument is, there are only a finite number of elements to move by a finite number of blocks).
-\\\\
-We now illustrate how to identify an inverse shift for the cases of the following partition.
+    Since the number of inversions of a pair of ordered partitions $(\sigma,\tau)$ in the $(I,J)$ diagonal is finite, we will only be able to apply a finite chain of inverse shift operators to it before no further operations are available. 
+It thus remains to show that for any pair $(\sigma,\tau)$ which is not a strong complementary one, performing an inverse $m$-shift is possible. 
+We consider the following cases, illustrated by examples in \cref{ex:proof-inverse-shift}.
 \begin{enumerate}
-    \item All adjacent blocks are connected by paths of length $2$
+    \item All adjacent blocks are connected by paths of length $2$.
     \item There exist adjacent blocks which are connected by a path of length $2k$ for $k>1$.
     \begin{enumerate}
         \item The maximal step of this path is not the last step.
@@ -2531,153 +2655,556 @@ We now illustrate how to identify an inverse shift for the cases of the followin
         \end{enumerate}
     \end{enumerate}
 \end{enumerate}
-In case $1$, if $\sigma,\tau$ is not an $\SCP$ then it must have a crossing, and hence an adjacent crossing. This adjacent crossing must be in one of the following two forms, and admits the following inverse shifts.
+In Case $(1)$, if $\sigma,\tau$ is not a $\SCP$ then it must have a crossing, and hence an adjacent crossing by \cref{lem:adjacent-crossing}. 
+This adjacent crossing is of the following form (we illustrate the case where the crossing happens on the left, the case when it happens on the right is similar) 
 \begin{center}
-\begin{tikzcd}
-\sigma_i \arrow[rd,dash,"a"] & \cdot\\
-\sigma_{i+1} \arrow[r,dash,"b"] \arrow[ru,dash,"{\rho}"] & \cdot
-\end{tikzcd}
-$\xrightarrow{R_\rho^{-1}}$
-\begin{tikzcd}
-\sigma_i \sqcup \rho \arrow[rd,dash,"a"] \arrow[r,dash,"{\rho}"]& \cdot\\
-\sigma_{i+1}\ssm \rho \arrow[r,dash,"b"]  & \cdot
-\end{tikzcd}
-\quad
-\begin{tikzcd}
-\cdot \arrow[rd,dash,"a"] \arrow[r,dash,"b"]& \tau_{i-1}\\
-\cdot  \arrow[ru,dash,"{\rho}"] & \tau_{i}
-\end{tikzcd}
-$\xrightarrow{L_\rho^{-1}}$
-\begin{tikzcd}
-\cdot \arrow[rd,dash,"a"] \arrow[r,dash,"b"]& \tau_{i-1} \ssm \rho\\
-\cdot  \arrow[r,dash,"{\rho}"] & \tau_{i} \sqcup \rho
-\end{tikzcd}
+\begin{tikzpicture}[scale=0.7]
+\node (a) at (-2,1) {$\sigma_i$};
+\node (b) at (-2,-1) {$\sigma_{i+1}$};
+\node (c) at (2,0) {$\tau_k$};
+\node (d) at (2,2) {$\tau_j$};
+\node (e) at (2,-2) {$\tau_l$};
 
+\draw[thick] (a) to [in=180, out=0, looseness=0] (c);
+\draw[thick] (b) to [in=180, out=0, looseness=0] (c);
+\draw[thick] (b) to [in=180, out=0, looseness=0] (d);
+\draw[thick] (a) to [in=180, out=0, looseness=0] (e);
+
+\node at (-1.05,-0.3) {$a$};
+\node at (-1.05,-1.2) {$b$};
+\node at (-1.05,1.1) {$c$};
+\end{tikzpicture}
 \end{center}
-\Kurt{Better diagrams}
-Both shifts are well-defined, as in each case the first order $I,J$ conditions witness that $a<b<\rho$.
-\\\\
-In case $2.a$, consider the adjacent blocks say $\sigma_i|\sigma_{i+1}$ (the $\tau$ case is similar), let $\rho=\max \sigma_{i,i+1}$, and let $m\geq 1$ be such that $\rho$ steps into $\sigma_{i+1+m}$. We know that $m\geq 1$ due to the $\SUD$ order, i.e. $\max \sigma_{i,i+1+m} = \rho$ implies that $\sigma_{i,i+1+m}$ comes after $\sigma_{i}$, and by assumption after $\sigma_{i+1}$. Then using squiggly lines to denote paths of length $\geq 1$ we have,
+By definition of the $(I,J)$ diagonal, the fact that $\tau_j < \tau_k$ implies that $a > b$, and the fact that $\sigma_i < \sigma_{i+1}$ implies that $b>c$.
+Thus, we have $a > \max \sigma_{i,i+1}$ and $a > c \geq \min \sigma_i$, which implies that we can perform an inverse $1$-shift $R_a^{-1}$ on it and resolve the crossing. 
+
+In Case $(2a)$, consider the two adjacent blocks say $\sigma_i|\sigma_{i+1}$ (the $\tau$ case is similar), let $\rho:=\max \sigma_{i,i+1}$, and let $m\geq 1$ be such that $\rho$ steps into $\sigma_{i+1+m}$. 
+Since $\max \sigma_{i,i+1+m} = \max \sigma_{i,i+1}= \rho$ the definition of the $(I,J)$ diagonal implies that $\sigma_{i,i+1+m}$ comes after $\sigma_{i}$, and by assumption after $\sigma_{i+1}$. 
+Thus, we know that $m > 1$, and using dashed lines to denote paths of length $\geq 1$ we have,
 \begin{center}
-\begin{tikzcd}
-\sigma_i \arrow[r,squiggly,dash] & \cdot\\
-\sigma_{i+1} \arrow[r,squiggly,dash] & \cdot\\
-\sigma_{i+1+m} \arrow[ruu,dash, "\rho"] \arrow[ru,squiggly,dash]
-\end{tikzcd}
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$\sigma_i$};
+\node (2) at (-1.5, -2) {$\sigma_{i+1}$};
+\node (3) at (-1.5, -3) {$\sigma_{i+1+m}$};
+%
+\node (4) at (1.5, -1) {$\hphantom{.}$};
+\node (5) at (1.5, -2) {$\hphantom{.}$};
+%
+\draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick,dashed] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (3) to [in=180, out=0, looseness=0] (4);
+\draw[thick,dashed] (3) to [in=180, out=0, looseness=0] (5);
+%
+\node (6) at (1.3, -1.3) {$\rho$};
+\end{tikzpicture}
 $\xrightarrow{R_\rho^{-1}}$
-\begin{tikzcd}
-\sigma_i \arrow[r,squiggly,dash] & \cdot\\
-\sigma_{i+1} \sqcup \rho \arrow[r,squiggly,dash] \arrow[ru,dash, "\rho"]& \cdot\\
-\sigma_{i+1+m} \ssm \rho \arrow[ru,squiggly,dash]
-\end{tikzcd}
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$\sigma_i$};
+\node (2) at (-1.5, -2) {$\sigma_{i+1}\sqcup \rho$};
+\node (3) at (-1.5, -3) {$\sigma_{i+1+m}\setminus \rho$};
+%
+\node (4) at (1.5, -1) {$\hphantom{.}$};
+\node (5) at (1.5, -2) {$\hphantom{.}$};
+%
+\draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick,dashed] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
+\draw[thick,dashed] (3) to [in=180, out=0, looseness=0] (5);
+%
+\node (6) at (1.3, -1.3) {$\rho$};
+\end{tikzpicture}
 \end{center}
-As $\rho=\max \sigma_{i,i+1} > \max\sigma_{i+1+m,i+1}$ the shift operation is well defined.
-\\\\
-In the case $2.b.i.$, there exists $j,m>0$ such that $\tau_{j-m}$ is the $\tau$ block which contains the maximal element $\rho$, and $\tau_j$ is any greater block on the path from $\sigma_i$ to $\sigma_{i+1}$. Then we may apply the following inverse shift operator.
+As $\rho=\max \sigma_{i,i+1} > \max\sigma_{i+1+m,i+1}$ the inverse $m$-shift operation is well-defined.
+
+In the Case $(2bi)$, there exists $j,m>0$ such that $\tau_{j-m}$ is the block of $\tau$ which contains the maximal element $\rho$, and $\tau_j$ is any greater block on the path from $\sigma_i$ to $\sigma_{i+1}$. 
+Then we may apply the following inverse $m$-shift operator.
 \begin{center}
-\begin{tikzcd}
-\sigma' \arrow[r,squiggly,dash] \arrow[rd,squiggly,dash]& \tau_{j-m}\\
-\sigma_{i} \arrow[r,squiggly,dash] & \tau_j\\
-\sigma_{i+1} \arrow[ruu,dash, "\rho"] 
-\end{tikzcd}
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$\sigma_i$};
+\node (2) at (-1.5, -2) {$\sigma_{i+1}$};
+\node (3) at (-1.5, -3) {$\sigma_{i+1+m}$};
+%
+\node (4) at (1.5, -1) {$\tau_{j-m}$};
+\node (5) at (1.5, -2) {$\tau_j$};
+%
+\draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (5);
+\draw[thick,dashed] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (3) to [in=180, out=0, looseness=0] (4);
+%
+\node (6) at (0.3, -2.8) {$\rho$};
+\end{tikzpicture}
 $\xrightarrow{L_\rho^{-1}}$
-\begin{tikzcd}
-\sigma' \arrow[r,squiggly,dash] \arrow[rd,squiggly,dash]& \tau_{j-m}\setminus \rho\\
-\sigma_{i} \arrow[r,squiggly,dash] & \tau_j \sqcup \rho\\
-\sigma_{i+1} \arrow[ru,dash, "\rho"] 
-\end{tikzcd}
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$\sigma_i$};
+\node (2) at (-1.5, -2) {$\sigma_{i+1}$};
+\node (3) at (-1.5, -3) {$\sigma_{i+1+m}$};
+%
+\node (4) at (1.5, -1) {$\tau_{j-m}\setminus \rho$};
+\node (5) at (1.5, -2) {$\tau_j \sqcup \rho$};
+%
+\draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (5);
+\draw[thick,dashed] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (3) to [in=180, out=0, looseness=0] (5);
+%
+\node (6) at (0.3, -2.8) {$\rho$};
+\end{tikzpicture}
 \end{center}
-Consider case $2.b.ii$ (this does exist, e.g. $12|3|4 \times 23|14$). 
-Then,
-\begin{itemize}
-    \item We know each $\sigma'$ must be above $\sigma_{i+1}$ due to the maximal element $\rho$ being the last step.
-    \item This also tells us each $\sigma'$ is above $\sigma_i$.
-    \item So if the path $\sigma_{i,i+1} = (i_1,j_1,i_2,...,i_{k},j_k)$ where $j_k = \rho$ then
-    \item $\max \{i_1,...,i_k\} <\max \{j_1,...,j_k\} =: \rho$, and $\rho':=\max \{i_1,...,i_{k-1}\} > \max \{j_1,...,j_{k-1}\} $. That is to say that $\rho'$ witnesses the second last $\sigma$ block being before $\sigma_i$.
-    \item Suppose that $\rho' < i_{k}$. This implies that $j_{k-1}< i_k$. Then, by the first order $I,J$ condition, the $\sigma$ block which contains $i_k,j_{k-1}$ forces the $\tau$ block containing $j_{k-1}$ to be greater than the $\tau$ block containing $i_k$ (and also containing $\rho$). This is a contradiction.
-    \item So we know that $\rho'>i_{k}$.
-    \item The path $(i_{k},j_{k-1},...,\rho')\setminus \rho'$ connects the $\tau$ block which contains $\rho$  to the $\tau$ block which contains $\rho'$. 
-    Let $j$ and $m$ be indices such that $\rho \in \tau_j$ and $\rho' \in \tau_{j-m}$. 
-    \item By assumption, $m >0$ as $\tau_j$ is the greatest $\tau$ block.
-    \item Hence, by construction $\max \tau_{j,j-m} < \rho'$, so $L_{\rho'}^{-1}$ is a valid inverse shift, which returns $\rho'$ to $\tau_j$.
-\end{itemize}
+
+There remains to be treated Case $(2bii)$.
+We consider the path $\sigma_{i,i+1}:=(i_1,j_1,i_2,...,i_{k},\rho)$ to be of length $2k$, $k>1$. 
+We denote by $\tau_j$ the block of $\tau$ containing the maximal step $\rho$ of this path, which by hypothesis is the last block of $\tau$. 
+Let $\sigma_{i-n}$ be the last block of $\sigma$ which is attained by the path $\sigma_{i,i+1}$ before $\sigma_{i+1}$. 
+We must have $n>1$, since $\rho$ is the last step and $\sigma_i|\sigma_{i+1}$ are adjacent blocks.
+The situation can be pictured as on the left.
+\begin{center}
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$\sigma_{i-n}$};
+\node (2) at (-1.5, -2) {$\sigma_{i}$};
+\node (3) at (-1.5, -3) {$\sigma_{i+1}$};
+%
+\node (4) at (1.5, -1) {$\tau_{j-m}$};
+\node (5) at (1.5, -2) {$\tau_j$};
+%
+\draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
+\draw[thick,dashed] (2) to [in=180, out=0, looseness=0] (4);
+\draw[thick] (3) to [in=180, out=0, looseness=0] (5);
+%
+\node (6) at  (0.8, -2.5) {$\rho$};
+\node (7) at  (0.8, -1.5) {$i_k$};
+\end{tikzpicture}
+$\xrightarrow{L_{\rho'}^{-1}}$
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$\sigma_{i-n}$};
+\node (2) at (-1.5, -2) {$\sigma_{i}$};
+\node (3) at (-1.5, -3) {$\sigma_{i+1}$};
+%
+\node (4) at (1.5, -1) {$\tau_{j-m}\setminus \rho'$};
+\node (5) at (1.5, -2) {$\tau_j \sqcup \rho'$};
+%
+\draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
+\draw[thick,dashed] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (3) to [in=180, out=0, looseness=0] (5);
+%
+\node (6) at  (0.45, -2.5) {$\rho$};
+\node (7) at  (0.45, -1.5) {$i_k$};
+\end{tikzpicture}
+\end{center}
+Now let $\rho':=\max\sigma_{i,i-n}$ be the maximum of the path $\sigma_{i,i-n}=(i_1,j_1,i_2,...,i_{k-1},j_{k-1})$, and let $\tau_{j-m}$, $m\geq 1$ be the block of $\tau$ containing $\rho'$.
+We want to show that an inverse left $m$-shift can bring $\rho'$ back to $\tau_j$.  
+We just need to show that $\rho' > i_k$, since the path $\tau_{j-m,j}$ is a subset of the path $\sigma_{i,i+1}$. 
+This would imply that both $\rho' > \max \tau_{j-m,j}$ and $\rho' > i_k \geq \min \tau_j$, and thus that an inverse left shift $L_{\rho'}^{-1}$ can be performed.
+To see that this is indeed the case, it suffices to look at the last steps $$\tau_l \overset{j_{k-1}}{\longrightarrow} \sigma_{i-n} \overset{i_{k}}{\longrightarrow} \tau_j \overset{\rho}{\longrightarrow} \sigma_{i+1}$$ of the path $\sigma_{i,i+1}$. 
+By the definition of the $(I,J)$ diagonal, the fact that $\tau_l < \tau_j$ implies that $j_{k-1} > i_k$, and thus that $\rho' > i_k$, which finishes the proof. 
 \end{proof}
 
 \begin{example}
-\Kurt{I can do an example for each of the cases if this is the route we take}
-\begin{enumerate}
-    \item 
-    \item 
-    \begin{enumerate}
-        \item 
-        \item 
-        \begin{enumerate}
-            \item 
-            \item $12|3|4\times 23|14 \xrightarrow{L_{3}^{-1}} 12|3|4\times 2|134$ 
-        \end{enumerate}
-    \end{enumerate}
-\end{enumerate}
+Here is an example of each of the cases in the prior proof. We display $1$, $2.a$, $2.b.i$ and, $2.b.ii$ respectively, reading the diagrams  from top-left to bottom-right. 
+
+\begin{center}
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$1$};
+\node (2) at (-1.5, -2) {$23$};
+%
+\node (4) at (1.5, -1) {$3$};
+\node (5) at (1.5, -2) {$12$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
+\end{tikzpicture}
+\quad
+\raisebox{1em}{$\xrightarrow{R^{-1}_{3}}$}
+\quad
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$13$};
+\node (2) at (-1.5, -2) {$2$};
+%
+\node (4) at (1.5, -1) {$3$};
+\node (5) at (1.5, -2) {$12$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+,
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$1$};
+\node (2) at (-1.5, -2) {$2$};
+\node (3) at (-1.5, -3) {$34$};
+%
+\node (4) at (1.5, -1) {$14$};
+\node (5) at (1.5, -2) {$23$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (3) to [in=180, out=0, looseness=0] (4);
+\draw[thick] (3) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+\quad
+\raisebox{1.5em}{$\xrightarrow{R^{-1}_{4}}$}
+\quad
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$1$};
+\node (2) at (-1.5, -2) {$24$};
+\node (3) at (-1.5, -3) {$3$};
+%
+\node (4) at (1.5, -1) {$14$};
+\node (5) at (1.5, -2) {$23$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (3) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+\end{center}
+\begin{center}
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$13$};
+\node (2) at (-1.5, -2) {$2$};
+\node (3) at (-1.5, -3) {$4$};
+%
+\node (4) at (1.5, -1) {$34$};
+\node (5) at (1.5, -2) {$12$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (3) to [in=180, out=0, looseness=0] (4);
+\end{tikzpicture}
+\quad
+\raisebox{1.5em}{$\xrightarrow{L^{-1}_{4}}$}
+\quad
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$13$};
+\node (2) at (-1.5, -2) {$2$};
+\node (3) at (-1.5, -3) {$4$};
+%
+\node (4) at (1.5, -1) {$3$};
+\node (5) at (1.5, -2) {$124$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (3) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+,
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$12$};
+\node (2) at (-1.5, -2) {$3$};
+\node (3) at (-1.5, -3) {$4$};
+%
+\node (4) at (1.5, -1) {$23$};
+\node (5) at (1.5, -2) {$14$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
+\draw[thick] (3) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+\quad
+\raisebox{1.5em}{$\xrightarrow{L^{-1}_{3}}$}
+\quad
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$12$};
+\node (2) at (-1.5, -2) {$3$};
+\node (3) at (-1.5, -3) {$4$};
+%
+\node (4) at (1.5, -1) {$2$};
+\node (5) at (1.5, -2) {$134$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (3) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+\end{center}
+Note, as we have chosen minimal illustrate examples, each inverse $m$-shift is an inverse $1$-shift, and after each shift we obtain an $SCP$. 
+This is not typically the case.
+
 \end{example}
 
-\begin{proposition} \label{prop: shift SUD and SUD are equal}
-    The facets of shift $\SUD$ and $\SUD$ are equal.
-\end{proposition}
+\begin{theorem} 
+\label{prop:iso-shift-IJ-diagonals}
+    The $m$-shift and $(I,J)$ diagonals coincide.
+\end{theorem}
+
 \begin{proof}
-    We first note that $\SCP$s are known elements of $\SUD$ and shift $\SUD$.
-    The proof that every facet of shift $\SUD$ is in $\SUD$ follows from the closure of $\SUD$ under the shift operator (\cref{lem:SUD closed under shifts}).
-    The proof that every facet of $\SUD$ is in shift $\SUD$ follows from the closure of $\SUD$ under the inverse shift operator (\cref{lem:SUD closed under inverse shifts}) and an inductive argument that decomposes any facet into a $\SCP$ through inverse shift operators (\cref{lem:inductive decomposition into SCP}).
-    As shift operators are the inverse of the inverse shift operators (\cref{lem: shift operators are inverse to their inverses}), for any given $\SUD$ facet, this provides a $\SCP$ and a sequence of shifts to form it, showing it is a shift $\SUD$ facet.
+    We first note that $\SCP$s are known elements of both the $m$-shift and $(I,J)$ diagonals.
+    The proof that every facet of $m$-shift $\SUD$ is in $\SUD$ follows from the closure of $\SUD$ under the shift operator (\cref{lem:IJ-closed-under-shifts}).
+    The proof that every facet of $\SUD$ is in shift $\SUD$ follows from the closure of $\SUD$ under the inverse shift operator (\cref{lem:IJ-closed-under-inverse-shifts}) and an inductive argument that decomposes any facet into a $\SCP$ through inverse shift operators (\cref{lem:inverse-to-SCP}).
+    As shift operators are the inverse of the inverse shift operators, for any given $\SUD$ facet, this provides a $\SCP$ and a sequence of shifts to form it, showing it is a shift $\SUD$ facet.
 \end{proof}
 
 %%%%
 
-\subsubsection{Some consequences}
-
-Combinining \cref{prop:subset shift to shift bijection} and \cref{prop: shift SUD and SUD are equal}, we obtain that
+\subsubsection{Consequences of the equivalence between diagonals}
 
 \begin{theorem}
-    Subset shift $\SU$ and $\SUD$ coincide.
+    The original and $(I,J)$ $\SU$ diagonals coincide.
 \end{theorem}
 
-This
-\begin{enumerate}
-    \item resolves a conjecture of \cite{LA21} for the operahedra, and a conjecture of \cite{MazuirLA22} for the multiplihedra;
-    \item provides a new proof that all known diagonals on the associahedra coincide \cite{saneblidzeComparingDiagonalsAssociahedra2022}
-\end{enumerate}
-Moreover, this allows us to obtain alternative descriptions of all four operadic diagonals, in particular
-\begin{enumerate}
-    \item subset shift and shift definitions of $\LA$ diagonal,
-    \item matrix description of $\LA$ diagonal,
-    \item conjectural description as subdivision of the cube [...]
-\end{enumerate}
-The next subsection is devoted to such a translation. 
-One could hope for similar results in the case of the freehedra [REFS].
+\begin{proof}
+    \cref{prop:iso-original-shift-diagonals} says that the original and $m$-shift diagonals are the same, and \cref{prop:iso-shift-IJ-diagonals} says that the $m$-shift and $(I,J)$ diagonal coincide.
+    Thus, all the different definitions agree with the geometrically defined $\SUD$. 
+\end{proof}
 
-%%%%
+This result
+\begin{enumerate}[(i)]
+    \item brings a positive answer to \cite[Remark 2.19]{LA21}, showing that the original $\SU$ diagonal can indeed be recovered from a choice of chambers in the fundamental hyperplane arrangement of the permutahedron. 
+    Remark that this choice is precisely given by the family of vectors mentioned in \cite[Remark 4.19]{LA21}, which was already identified to be operadic,
+    \item sets up the analogous question in \cite[Remark 3.9]{MazuirLA22} for the multiplihedra,
+    \item provides a new proof that all known diagonals on the associahedra coincide \cite{saneblidzeComparingDiagonalsAssociahedra2022}.
+    Indeed, since the family of vectors inducing the $\SU$ diagonal all have strictly decreasing coordinates, the diagonal induced on the associahedron is given by the magical formula \cite[Theorem 2]{masudaDiagonalAssociahedra2021}, see also \cite[Proposition 3.8]{LA21}.
+\end{enumerate}
+
+Moreover, it allows us to obtain alternative descriptions of all four operadic diagonals, in particular
+\begin{enumerate}
+    \item subset shift and $m$-shift definitions of the $\LA$ diagonal,
+    \item matrix description of the $\LA$ diagonal,
+    \item a new realization of the permutahedron as subdivision of the cube, and a conjectural description of the $\LA$ diagonal in terms of this subdivision, 
+\end{enumerate}
+in addition to the new  \Guillaume{add references}
+\begin{enumerate}
+    \item[(4)] geometric construction and $(I,J)$-description of the $\SU$ diagonal,
+    \item[(5)] description of the facets of the $\SU$ diagonal as labelled bipartite trees,
+    \item[(6)] description of the vertices of the $\SU$ diagonal as pattern avoiding permutations,
+    \item[(7)] enumerative results for the facets and vertices of the $\SU$ diagonal. 
+\end{enumerate}
+
+We end this Section by applying the isomorphism between the $\SU$ and $\LA$ diagonal to obtain explicitly the Points (1)-(3) above.
+
+\begin{definition}[$\LA$ diagonals]
+\begin{enumerate}
+    \item subset shift
+    \item $m$-shift
+    \item matrix
+\end{enumerate}
+\end{definition}
+
+\begin{definition}
+    New subdivision of the cube
+\end{definition}
+
+\begin{conjecture}
+    The $\LA$ diagonal is given by the formula...
+\end{conjecture}
+
+This is equivalent, via the isomorphism between $\LA$ and $\SU$ diagonals, to the analogous conjecture for the $\SU$ diagonal, presented as a fact in \cite[Equation (1)]{saneblidzeComparingDiagonalsAssociahedra2022}.
+
+\Kurt{Mention the LAD and SUD shifts generate the (same) facets of the hexagon in two different ways.}
+\Guillaume{AND add picture}
+
+\subsubsection{Matrix and Cubical Descriptions}
+
+We first recall the alternate descriptions of the $\SUD$ diagonal from \cite{SaneblidzeUmble04} and\cite{saneblidzeComparingDiagonalsAssociahedra2022}, that we would like to transfer to $\LAD$. 
+In particular, we explicitly relate the matrix and cubical descriptions of the $\SUD$ diagonal, to the description of the $\SUD$ diagonal given in \cref{def:classical-SU}.
+\\\\
+We previously saw that SCPs and permutations are in bijection (\cref{def:Strong complementary pairs}). 
+There is also a third equivalent way to encode this data, the \emph{step matrices} of Definition 6 of \cite{SaneblidzeUmble04}.
+Informally, given a permutation $\sigma$, start in the bottom left corner of a matrix, and write increasing sequences vertically, and decreasing sequences horizontally. All other entries are $0$. Here is an example permutation, its SCP, and its step matrix, with all $0$ entries omitted.
+\begin{center}
+\raisebox{3em}{$6524713$}
+$\quad \quad$
+\begin{tikzpicture}[scale=.7]  
+\node (1) at (-1.5, -1) {$256$};
+\node (2) at (-1.5, -2) {$4$};
+\node (3) at (-1.5, -3) {$17$};
+\node (4) at (-1.5, -4) {$3$};
+%
+\node (5) at (1.5, -1) {$6$};
+\node (6) at (1.5, -2) {$5$};
+\node (7) at (1.5, -3) {$247$};
+\node (8) at (1.5, -4) {$13$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0](5);
+\draw[thick] (1) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (1) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (3) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (3) to [in=180, out=0, looseness=0](8); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](8);
+\end{tikzpicture}
+$\quad \quad$
+\raisebox{3em}{
+$
+\begin{blockarray}{ccccc}
+  & \sigma_1 & \sigma_2 & \sigma_3 & \sigma_4  \\
+\begin{block}{c[cccc]}
+\tau_4 &   &   & 1 & 3 \\
+\tau_3 & 2 & 4 & 7  &   \\
+\tau_2 & 5 &   &   &   \\
+\tau_1 & 6 &   &   &   \\
+\end{block}
+\end{blockarray}
+$
+}
+\end{center}
+Given a $l\times k$ matrix $M$ with all non-zero entries drawn without replacement from $[n]$, let $\sigma_i$ denote the non-zero entries of the $i$th column, and $\tau_j$ the non-zero entries of the $(l-j+1)$th row. 
+For example, we labelled the rows and columns of the prior step matrix in this fashion.
+With this identification, we can apply \cref{def:movable-subsets}, to identify $1$-block moveable subsets of the matrix $M$, and we can apply \cref{def:admissible-shift-sequences}, to identify sequences of shifts which are admissible of original type.
+We now define a suitable subset shift action on these matrices.
+\begin{definition}
+A non-empty set of elements of a matrix $M_i \subset \sigma_i$ (resp. $M_{i}\subset \tau_{i}$) is \emph{$1$-block movable} if
+\begin{enumerate}
+    \item $\min \sigma_i \notin M_i$ (resp. $\min \tau_{i} \notin M_i$), and
+    \item $\min M_i> \max \sigma_{i+1}$ (resp. $\min M_{i}> \max \tau_{i-1}$).
+\end{enumerate}
+The right matrix subset shift operator $R_{M_i}$ shifts the elements of $M_i$ right one column to $\sigma_{i+1}$, replacing only elements of value $0$, and leaving $0$ elements in their wake.
+The left matrix subset shift operator $L_{M_i}$ shifts the elements of $M_i$ down one row to $\tau_{i-1}$, replacing only elements of value $0$, and leaving $0$ elements in their wake.
+\end{definition}
+\begin{proposition}
+The matrix subset shift operators are well-defined.
+\end{proposition}
+\begin{proof}
+We verify the claim that the matrix shift operators never replace non-zero elements.
+It is straightforward to show that this is true when a shift operator is applied to a $SCP$.
+From here we proceed inductively.
+We assume that all prior shift operators have been well-defined, and we then check that applying another valid sequential shift operator is also well-defined.
+Suppose that $M_i$ is $1$-block moveable, and that $R_{M_i}$ is not well-defined as it tries to move a value $m$ into a non-zero matrix entry $n$.
+Then, $n$ must have been placed into that column by a prior left shift operator $L_{N_j}$, and consequently $n>\min N_j > \max \tau_{j-1}> m$.
+However, $n\in \sigma_{i+1}$ so $\max \sigma_{i+1}>n>m>\min M_i $ implies that $M_i$ is not $1$-block moveable, a contradiction.
+\end{proof}
+
+
+\begin{definition}[Definition 7. \cite{SaneblidzeUmble04}]
+We define the set of \emph{configuration matrices} to be those matrices corresponding to $SCP$s and those generated by admissible sequences of shifts.
+
+\end{definition}
+
+\begin{proposition}[\cite{SaneblidzeUmble04}]
+The set of configuration matrices are in bijection with the facets of $\SUD$.
+\end{proposition}
+\begin{proof}
+As configuration matrices have the same recursive description as the original $\SUD$ diagonal (\cref{def:classical-SU)}), and $SCP$s are in bijection with step matrices, the result immediately follows.
+\end{proof}
+
+
+\begin{example}
+Here are some valid subset shifts of the matrix encoding of $6524713$. Every composite of arrows is a valid sequence of shifts.
+\begin{center}
+\begin{tikzcd}
+\begin{bmatrix}
+  &   & 1 & 3 \\
+2 & 4 & 7 &   \\
+5 &   &   &   \\
+6 &   &   &   \\
+\end{bmatrix}
+\arrow[r,"R_{5,6}"]
+&
+\begin{bmatrix}
+  &   & 1 & 3 \\
+2 & 4 & 7 &   \\
+  & 5 &   &   \\
+  & 6 &   &   \\
+\end{bmatrix}
+\end{tikzcd}
+\end{center}
+Note, that $R_5,R_6$ are also valid right shifts of the left matrices.
+\Kurt{Todo.}
+
+
+\Kurt{Todo. Cubical.}
+
+\end{example}
+
 
 \subsubsection{Shifts Under the Face Poset Isomorphism}
 
-\begin{lemma}
-The critical left and right shift operators send a facet of $\SUD$ to an adjacent facet of $\SUD$. This can be interpreted as stepping through a shared facet of the facets.
-\end{lemma}
+Previously in \cref{thm:bijection-operadic-diagonals}, we constructed an isomorphism of face-posets $sr\times sr:\LAD\to\SUD$.
+In addition, we showed in \cref{rem:Alternate Isomorphism}, that $t(r\times r):\LAD\to\SUD$ is also an isomorphism.
+In this section, we use this second isomorphism to directly translate the known shift results for the $\SU$ diagonal to the $\LA$ diagonal. 
+We first explicitly define all $\LA$ shift diagonals before establishing this connection.
+We note that in the $\LA$ diagonal, for $(\sigma,\tau)\in \LAD$, the left shift operators $L_\mathbf{N}$ will act on $\sigma$ and the right shift operators $R_\mathbf{M}$ will act on $\tau$, the opposite of $\SU$.
+The indexing of the following definition compared to \cref{def:movable-subsets} accounts for this fact.
+
+\begin{definition}[$\LA$ moveable subsets]
+\label{def:LAD movable-subsets}
+Let $(\sigma,\tau) = (\sigma_1|\dots|\sigma_k,\tau_1|\dots|\tau_l)$ be a pair of ordered partitions.
+For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (resp. $M_{i}\subset \tau_{i}$) is \emph{$1$-block movable} if 
+\begin{enumerate}
+    \item $\max \sigma_i \notin M_i$ (resp. $\max \tau_{i} \notin M_i$), and
+    \item $\max M_i < \max \sigma_{i-1}$ (resp. $\min M_{i} < \max \tau_{i+1}$).
+\end{enumerate}
+It is \emph{$m$-path movable} if it satisfies $(1)$ above and if
+\begin{enumerate}
+    \item[(2')] $\max M_i < \min \sigma_{i,i-m}$ (resp. $\max M_{i} < \min \tau_{i,i+m}$).
+\end{enumerate}
+\end{definition}
+With our new definitions of moveable subsets, to obtain the correct definition of an admissible sequence of shifts, simply replace $\sigma$ with $\tau$ in \cref{def:admissible-shift-sequences}. 
+Similar definitions hold for admissible sequence of left shifts.
+
+\begin{definition}[$\LA$ diagonals]
+    \label{def:shift-LA}
+   The facets of 
+   \begin{enumerate}[(a)]
+    \item the \emph{1-subset-shift $\LA$ diagonal},
+    \item the \emph{$1$-shift $\LA$ diagonal},
+    \item the \emph{$m$-shift $\LA$ diagonal}
+   \end{enumerate}
+   are defined by the formula
+    \begin{align*}
+        \LAD([n]) = \bigcup_{(\sigma,\tau)} \bigcup_{\mathbf{M}, \mathbf{N}} L_\mathbf{N}(\sigma)\times R_\mathbf{M}(\tau)
+    \end{align*}
+    where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and over all admissible sequences of shifts $\textbf{M},\textbf{N}$ of the corresponding type.
+\end{definition}
+
+We again stress that compared to the $\SU$ diagonals (\cref{def:classical-SU}), the left shift operators now act on the left ordered partition, and the right shift operators on the right ordered partition.
+
+\begin{proposition}
+Let $(\sigma,\tau) \in \LAD$.
+For each type of $\LA$ shift, let $\textbf{M},\textbf{N}$ be admissible sequences of this type, then 
+\begin{align*}
+    t(r,r)(L_\mathbf{N}(\sigma), R_\mathbf{M}(\tau)) = (R_{r\mathbf{M}}(r\tau), L_{r\mathbf{N}}(r\sigma))
+\end{align*}
+where $r\mathbf{M}$ and $r\mathbf{N}$ are admissible sequences of $\SU$ shifts of the same type.
+\end{proposition}
 \begin{proof}
-Let $(\sigma_1|\dots|\sigma_k,\tau) \in \SUD$, and let $\rho \in \sigma_{i}$ be a critical element. Then, the shift operator $R_{\rho}$ steps from the facet $(\sigma_1|\dots|\sigma_i |\sigma_{i+1} |\dots|\sigma_k, \tau)$, to the facet $(\sigma_1|\dots|\sigma_i \ssm \{\rho\}|\sigma_{i+1} \sqcup \{\rho\}|\dots|\sigma_k,\tau)$, through the facets of facets $(\sigma_1|\dots|\sigma_i \ssm \{\rho\}|\rho|\sigma_{i+1}|\dots|\sigma_k, \tau)$.
+We first verify that $r\mathbf{M}$ and $r\mathbf{N}$ are admissible sequences of $\SU$ shifts of $(r\tau,r\sigma)$.
+For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (resp. $M_{i}\subset \tau_{i}$) is $LA$ $1$-block moveable if
+\begin{enumerate}
+    \item 
+    \begin{enumerate}
+        \item $\max \sigma_i \notin M_i$ implies that $ \min r\sigma_i \not \in r M_i$
+        \item (resp. $\max \tau_{i} \notin M_i$ implies that  $ \min r\tau_{i} \not \in r M_i$)
+    \end{enumerate}
+    \item 
+    \begin{enumerate}
+        \item $\max M_i < \max \sigma_{i-1}$  implies that $\min r M_i > \min r \sigma_{i+1}$
+        \item (resp. $\min M_{i} < \max \tau_{i+1}$ implies that $\max rM_{i} > \min r\tau_{i+1}$)
+    \end{enumerate}
+\end{enumerate}
+It is \emph{$m$-path movable} if it satisfies $(1)$ above and if
+\begin{enumerate}
+    \item[(2')] 
+    \begin{enumerate}
+        \item $\max M_i < \min \sigma_{i,i-m}$ implies that $\min r M_i > \max r \sigma_{i,i-m}$
+        \item (resp. $\max M_{i} < \min \tau_{i,i+m}$ implies that $\min r M_{i} > \max r\tau_{i,i+m}$)
+    \end{enumerate}
+\end{enumerate}
+The reader may directly verify from \cref{def:movable-subsets}, that each $rM_i \in r\sigma_i$ meets the conditions of a moveable subset 
+if it is interpreted as being in a block of the right partition ($\tau$ in the notation of the definition).
+So, if $\mathbf{M} = (M_{i_1},...,M_{i_p})$, define $r(\mathbf{M}):=(rM_{i_1},...,rM_{i_p})$, and from the prior it is clear this is an admissible sequence of $SU$ shifts.
+Finally, all that remains to be checked is that
+\begin{align*}
+    t(r,r)(R_{M_{i_1}}(\sigma),\tau)= (r\tau,R_{M_{i_1}}(r\sigma))
+\end{align*}
+but this is clear as reversing the elements then shifting them, is the same as shifting the elements then reversing them. 
+
 \end{proof}
 
-As such, an immediate corollary of $\theta:\LAD \to \SUD$ being a face poset isomorphism is that their are analogous critical shift definitions of $\LAD$ induced by $\theta^{-1}$. 
-We now explicitly state the critical shift $\LAD$ definition.
-\begin{definition} \label{def:critical LA shift}
-Let $(\sigma,\tau)$ be a pair of ordered partitions, and let $\rho \in (\sigma_{i+1} \ssm \max \sigma_{i+1})$ such that $\rho< \min \sigma_{i,i+1}$. Such an element $\rho$ is said to be \emph{critical}. 
-We similarly define the critical elements of $\tau$ to be, $\rho \in (\tau_{i} \ssm \max\tau_{i})$ such that $\rho < \min \tau_{i,i+1}$. 
-We define the left shift operator $L_{\rho}$ to act on $\sigma$, and the right shift $R_{\rho}$ operator to act on $\tau$.
-\end{definition}
-We note that compared to shift $\SUD$, the left shift operator now acts on the left ordered partition, and the right shift operator on the right ordered partition, a distinct notational improvement.
-The correctness of this definition can be verified directly by obvious variants of the proofs of this section for the $\LAD$ diagonal.
-There is also a clear translation of the subset shift operator, which we will not write out in full. 
-We now explore in example how the $\LAD$ shift structure is induced by $\theta$.
+\begin{corollary}
+\Kurt{Todo: ALL SU results hold for LA.}
+\end{corollary}
+
+We now explore in example how the isomorphism $t(r\times r)$ translates the shift operators.
 
 \begin{example} \label{ex:shift translation by theta}
-The $\SCP$s $(\sigma,\tau)  \eqdef  5|17|4|236 \times 57|146|3|2$, and $(\sigma',\tau')  \eqdef  13|247|5|6 \times 3|17|4|156$, are in bijection through $\theta$. Graphically this bijection has a clear symmetry,
+The $\SCP$s $(\sigma,\tau)  \eqdef  5|17|4|236 \times 57|146|3|2$, and $(\sigma',\tau')  \eqdef  13|247|5|6 \times 3|17|4|156$, are in bijection through $t(r\times r)$. Graphically, this bijection has a clear symmetry,
+
 \begin{center}
 \begin{tikzpicture}[scale=.7]  
 \node (1) at (-1.5, -1) {$5$};
@@ -2690,16 +3217,16 @@ The $\SCP$s $(\sigma,\tau)  \eqdef  5|17|4|236 \times 57|146|3|2$, and $(\sigma'
 \node (7) at (1.5, -3) {$3$};
 \node (8) at (1.5, -4) {$2$};
 %
-\draw[-] (1)--(5); 
-\draw[-] (2)--(5); 
-\draw[-] (2)--(6); 
-\draw[-] (3)--(6); 
-\draw[-] (4)--(6); 
-\draw[-] (4)--(7); 
-\draw[-] (4)--(8);
+\draw[thick] (1) to [in=180, out=0, looseness=0](5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (3) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](8);
 %
 \end{tikzpicture}
-$\xrightarrow{\theta}$
+$\xrightarrow{t(r\times r)}$
 \begin{tikzpicture}[scale=.7]  
 \node (1) at (-1.5, -1) {$13$};
 \node (2) at (-1.5, -2) {$247$};
@@ -2711,36 +3238,38 @@ $\xrightarrow{\theta}$
 \node (7) at (1.5, -3) {$4$};
 \node (8) at (1.5, -4) {$256$};
 %
-\draw[-] (1)--(5); 
-\draw[-] (1)--(6); 
-\draw[-] (2)--(6); 
-\draw[-] (2)--(7);
-\draw[-] (2)--(8); 
-\draw[-] (3)--(8); 
-\draw[-] (4)--(8);
+\draw[thick] (1) to [in=180, out=0, looseness=0](5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (3) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](8);
 %
 \end{tikzpicture}
 \end{center}
-We now illustrate all possible $\LAD$ shifts of the left $\SCP$ and all possible $\SUD$ shifts of the right $\SCP$. We first display how the $\LAD$ left shifts act on $\sigma$, and the $\SUD$ left shifts act on $\tau'$. We indicate shifts by their corresponding critical element, drawing them to avoid crossings, and so they align with their isomorphic shift under $\theta$.
+We now illustrate all possible $\LA$ $1$-shifts of the left $\SCP$ and all possible $\SU$ $1$-shifts of the right $\SCP$. 
+We first display how the $\LA$ left shifts act on $\sigma$, and the $\SU$ left shifts act on $\tau'$.
+We indicate shifts by the element being shifted, drawing them to avoid crossings, and so they align with their isomorphic shift under $\theta$. 
 \begin{center}
 {\small
 \begin{tikzcd}
-& 5|17|4|236 \arrow[ld,"p=3"] \arrow[d,"p=1"] \arrow[rd,"p=2"]\\
-5|17|34|26 \arrow[rd,"p=1"] \arrow[d,"p=2"]&
-15|7|4|236  \arrow[rd,"p=2"] \arrow[d,"p=3"]&
-5|17|24|36 \arrow[d,"p=1"]\\
-5|17|234|6 \arrow[d,"p=1"]&
-15|7|34|26  \arrow[dl,"p=2"]&
+& 5|17|4|236 \arrow[ld,"\rho=3"] \arrow[d,"\rho=1"] \arrow[rd,"\rho=2"]\\
+5|17|34|26 \arrow[rd,"\rho=1"] \arrow[d,"\rho=2"]&
+15|7|4|236  \arrow[rd,"\rho=2"] \arrow[d,"\rho=3"]&
+5|17|24|36 \arrow[d,"\rho=1"]\\
+5|17|234|6 \arrow[d,"\rho=1"]&
+15|7|34|26  \arrow[dl,"\rho=2"]&
 15|7|24|36  \\
 15|7|234|6 
 \end{tikzcd}
 \begin{tikzcd}
-& 3|17|4|256 \arrow[ld,red,"p=5"] \arrow[d,"p=7"] \arrow[rd,"p=6"]\\
-3|17|45|26 \arrow[rd,"p=7"] \arrow[d,red,"p=6"]&
-37|1|4|256 \arrow[rd,"p=6"] \arrow[d,"p=5"]&
- 3|17|46|25 \arrow[d,"p=7"]\\
-3|17|456|2 \arrow[d,"p=7"]&
-37|1|56|24 \arrow[dl,"p=6"]&
+& 3|17|4|256 \arrow[ld,red,"\rho=5"] \arrow[d,"\rho=7"] \arrow[rd,"\rho=6"]\\
+3|17|45|26 \arrow[rd,"\rho=7"] \arrow[d,red,"\rho=6"]&
+37|1|4|256 \arrow[rd,"\rho=6"] \arrow[d,"\rho=5"]&
+ 3|17|46|25 \arrow[d,"\rho=7"]\\
+3|17|456|2 \arrow[d,"\rho=7"]&
+37|1|56|24 \arrow[dl,"\rho=6"]&
 37|1|46|25 \\
 37|1|456|2
 \end{tikzcd}
@@ -2749,38 +3278,77 @@ We now illustrate all possible $\LAD$ shifts of the left $\SCP$ and all possible
 The possible $\LAD$ right shifts (acting on $\tau$)  are,
 \begin{center}
 \begin{tikzcd}
-\sigma \times 57|146|3|2 \arrow[r,"p=1"] & \sigma \times 57|46|13|2 \arrow[r,"p=1"] & \sigma \times 57|46|3|12
+\sigma \times 57|146|3|2 \arrow[r,"\rho=1"] & \sigma \times 57|46|13|2 \arrow[r,"\rho=1"] & \sigma \times 57|46|3|12
 \end{tikzcd}
 \end{center}
 The possible $\SUD$ right shifts (acting on $\sigma'$) are,
 \begin{center}
 \begin{tikzcd}
-13|247|5|6 \times \tau' \arrow[r,"p=7"] & 13|24|57|6 \arrow[r,"p=7"] \times \tau' & 13|24|5|67 \times \tau'
+13|247|5|6 \times \tau' \arrow[r,"\rho=7"] & 13|24|57|6 \arrow[r,"\rho=7"] \times \tau' & 13|24|5|67 \times \tau'
 \end{tikzcd}
 \end{center}
 We note that as the left and right shifts (for both diagonals) can be performed independently, we could combine these lattices into a product of lattices. 
-No other shifts are possible, observe for instance that we cannot perform the $\LAD$ left shift $15|7|234|6 \times 57|46|13|2 \xrightarrow{p=2} 15|27|34|6 \times 57|46|13|2$ as the minimal path connecting $234$ and $7$ contains $1$ which is smaller than $2$ (see \cref{ex:ECbijection}).
-As an example of a $\SUD$ subset shift, and the bijection to critical shifts (\cref{prop:subset shift to shift bijection}), we observe that the unique way of producing $13|247|5|6 \times 37|1|456|2$ from subset shifts is given by
+No other shifts are possible, observe for instance that we cannot perform the $\LAD$ left shift $15|7|234|6 \times 57|46|13|2 \xrightarrow{\rho=2} 15|27|34|6 \times 57|46|13|2$ as the minimal path connecting $234$ and $7$ contains $1$ which is smaller than $2$ (see \cref{ex:ECbijection}).
+As an example of a $\SUD$ subset shift, and the bijection to critical shifts (\cref{prop:iso-original-shift-diagonals}), we observe that the unique way of producing $13|247|5|6 \times 37|1|456|2$ from subset shifts is given by
 \begin{center}
 \begin{tikzcd}
 13|247|5|6 \times 3|17|4|256 \arrow[r,"{R_{\{5,6\}}}"] & 13|247|5|6 \times 3|17|456|2 \arrow[r,"{R_{\{7\}}}"] & 13|247|5|6 \times 37|1|456|2
 \end{tikzcd}
 \end{center}
 This corresponds to combining the critical right shift operators of the $\SUD$ diagonal which have been indicated in red into a single subset.
-We note it is also possible to apply $\SUD$ shifts to $(\sigma,\tau)$ and $\LAD$ shifts to $(\sigma',\tau')$. 
+We note it is also possible to apply $\SUD$ shifts to $(\sigma,\tau)$ and $\LAD$ shifts to $(\sigma',\tau')$.
+\\\\
+We note, that the isomorphism $rs\times rs:\LAD \to \SUD$ identified in \cref{thm:bijection-operadic-diagonals}, also sends shifts operators to shift operators, but it sends left shift operators to right shift operators and vice versa.
+For instance, the same $SCP$ (on the LHS) is now mapped to a different $SCP$.
+\begin{center}
+\begin{tikzpicture}[scale=.7]  
+\node (1) at (-1.5, -1) {$5$};
+\node (2) at (-1.5, -2) {$17$};
+\node (3) at (-1.5, -3) {$4$};
+\node (4) at (-1.5, -4) {$236$};
+%
+\node (5) at (1.5, -1) {$57$};
+\node (6) at (1.5, -2) {$146$};
+\node (7) at (1.5, -3) {$3$};
+\node (8) at (1.5, -4) {$2$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0](5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (3) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](8);
+%
+\end{tikzpicture}
+$\xrightarrow{rs\times rs}$
+\begin{tikzpicture}[scale=.7]  
+\node (1) at (-1.5, -1) {$256$};
+\node (2) at (-1.5, -2) {$4$};
+\node (3) at (-1.5, -3) {$17$};
+\node (4) at (-1.5, -4) {$3$};
+%
+\node (5) at (1.5, -1) {$6$};
+\node (6) at (1.5, -2) {$5$};
+\node (7) at (1.5, -3) {$247$};
+\node (8) at (1.5, -4) {$13$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0](5);
+\draw[thick] (1) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (1) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (3) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (3) to [in=180, out=0, looseness=0](8); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](8);
+%
+\end{tikzpicture}
+\end{center}
+The left $\LAD$ shift 
+$5|17|4|236 \xrightarrow{L_3}5|17|34|26 $ is sent to the right $\SUD$ shift
+$256|4|17|3 \xrightarrow{R_5} 26|45|17|3$.
 \end{example}
 
-\Kurt{Mention the LAD and SUD shifts generate the (same) facets of the hexagon in two different ways.}
-
-We have the following equivalent characterisations of the $\LAD$ and $\SUD$ diagonals. \Kurt{Probably in the intro somewhere}
-\begin{itemize}
-    \item $I,J$ conditions
-    \item As orderings of essential complementary partitions
-    \item Subset shift
-    \item Critical element shift
-    \item Matrix
-    \item Cubical?
-\end{itemize}
+It was observed in ... that the $LA$ and $SU$ diagonals coincided up until $n=3$, however we just identified that they dua
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -2940,6 +3508,8 @@ Note that $\Psi$ is \emph{not} a morphism of ``Hopf" operads, i.e. it does not c
 \section*{Aknowledgements}
 
 Hugh Thomas (everything started in Montr\'eal), Sylvie Corteel for hyperplane arrangements
+
+Saneblidze--Umble for useful correspondence
 
 We would like to thank the Max Planck Institute for Mathematics in Bonn where part of this work was carried out. BDO was partially supported by the French ANR grants ALCOHOL (ANR-19-CE40-0006), CARPLO (ANR-20-CE40-0007), HighAGT (ANR-20-CE40-0016) and S3 (ANR-20-CE48-0010). GLA was supported by the Australian Research Council Future Fellowship FT210100256. VP was partially supported by the French ANR grant CHARMS (ANR-19-CE40-0017) and by the French--Austrian project PAGCAP (ANR-21-CE48-0020 \& FWF I 5788). 
 
