@@ -1367,7 +1367,7 @@ Observe that one can easily compute the full M\"obius polynomials of the $(2,n)$
 %}
 
 We now focus on the number of vertices, regions, and bounded regions of the $(2,n)$-braid arrangement~$\multiBraidArrangement[n][2]$, to obtain the number of facets, vertices, and internal vertices of the diagonal of the permutahedron~$\Perm$.
-The first few values are gathered in \cref{table:enumerationDiagonalPermutahedra}.
+The first few values are gathered in \cref{table:enumerationDiagonalPermutahedra1,table:enumerationDiagonalPermutahedra2}.
 
 \begin{table}
 	\centerline{\scalebox{1}{
@@ -1381,7 +1381,74 @@ The first few values are gathered in \cref{table:enumerationDiagonalPermutahedra
 	}}
 	\vspace{.3cm}
 	\caption{The numbers of facets, vertices, and internal vertices of the diagonal of the permutahedron~$\Perm$ for~$n \in [9]$.}
-	\label{table:enumerationDiagonalPermutahedra}
+	\label{table:enumerationDiagonalPermutahedra1}
+\end{table}
+
+\begin{table}
+	\centerline{
+		\begin{tabular}{c@{\quad}c@{\quad}c@{\quad}c}
+			$n = 1$ & $n = 2$ & $n = 3$ & $n = 4$
+			\\[.1cm]
+			\begin{tabular}[t]{r|c}
+				\textbf{dim} & \textbf{0}  \\
+				\hline
+				\textbf{0} & 1  
+			\end{tabular}
+			&
+			\begin{tabular}[t]{r|cc}
+				\textbf{dim} & \textbf{0} & \textbf{1}  \\
+				\hline
+				\textbf{0} & 3 & 1 \\
+				\textbf{1} & 1 &  
+			\end{tabular}
+			&
+			\begin{tabular}[t]{r|ccc}
+				\textbf{dim} & \textbf{0} & \textbf{1} & \textbf{2}  \\
+				\hline
+				\textbf{0} & 17 & 12 & 1 \\
+				\textbf{1} & 12 &  6 & \\
+				\textbf{2} & 1 &  & 
+			\end{tabular}
+			&
+			\begin{tabular}[t]{r|cccc}
+				\textbf{dim} & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} \\
+				\hline
+				\textbf{0} & 149 & 162 & 38 & 1 \\
+				\textbf{1} & 162 & 150 & 24 & \\
+				\textbf{2} & 38 & 24 & & \\
+				\textbf{3} & 1 & & &
+			\end{tabular}
+		\end{tabular}
+	}
+	\vspace{.3cm}
+	\centerline{
+		\begin{tabular}{c@{\quad}c}
+			$n = 5$ & $n = 6$
+			\\[.1cm]
+			\begin{tabular}[t]{r|ccccc}
+				\textbf{dim} & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
+				\hline
+				\textbf{0} & 1809 & 2660 & 1080 & 110 & 1 \\
+				\textbf{1} & 2660 & 3540 & 1200 & 80 & \\
+				\textbf{2} & 1080 & 1200 & 270 & & \\
+				\textbf{3} & 110 & 80 & && \\
+				\textbf{4} & 1 & & & &
+			\end{tabular}
+			&
+			\begin{tabular}[t]{r|cccccc}
+				\textbf{dim} & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} \\
+				\hline
+				\textbf{0} & 28399 & 52635 & 30820 & 6165 & 302 & 1 \\
+				\textbf{1} & 52635 & 90870 & 67580 & 7785 & 240 & \\
+				\textbf{2} & 30820 & 47580 & 20480 & 2160 & & \\
+				\textbf{3} & 6165 & 7785 & 2160 & && \\
+				\textbf{4} & 302 & 240 & & &&\\
+				\textbf{5} & 1 & & & &&
+			\end{tabular}
+		\end{tabular}
+	}
+	\caption{Number of pairs of faces in the cellular image of the diagonal of the permutahedron~$\Perm$ for~$n \in [6]$.}
+	\label{table:enumerationDiagonalPermutahedra2}
 \end{table}
 
 \begin{corollary}
@@ -1389,6 +1456,7 @@ The first few values are gathered in \cref{table:enumerationDiagonalPermutahedra
 The diagonal of the permutahedron~$\Perm$ has 
 \begin{itemize}
 \item $2 (n + 1)^{n-2}$ facets,
+\item $n \binom{n-1}{k_1} (n-k_1)^{k_1-1} (n-k_2)^{k_2-1}$ facets corresponding to pairs~$(F_1, F_2)$ of faces of the permutahedron~$\Perm$ with~$\dim(F_1) = k_1$ and~$\dim(F_2) = k_2$ (thus~$k_1 + k_2 = n-1$),
 \item $\displaystyle n! \, [z^n] \exp \bigg( \sum_{m \ge 1} \frac{C_m \, z^m}{m} \bigg)$ vertices,
 \item $\displaystyle (n-1)! \, [z^{n-1}] \exp \bigg( \sum_{m \ge 1} C_m \, z^m \bigg)$ internal vertices,
 \end{itemize}
@@ -1419,71 +1487,6 @@ Hence, by Cayley's formula for spanning trees of~$K_{n+1}$, we obtain that the n
 \frac{2n}{n(n+1)} (n+1)^{n-1} = 2 (n + 1)^{n-2}.
 \]
 \end{remark}
-
-\vincent{I copy two tables here, we should explain them in the text.}
-
-\begin{table}[h]
-	\centerline{
-		\begin{tabular}{r|c}
-			\textbf{dim} & \textbf{0}  \\
-			\hline
-			\textbf{0} & 1  
-			\end{tabular}
-			\ \ \
-			\begin{tabular}{r|cc}
-			\textbf{dim} & \textbf{0} & \textbf{1}  \\
-			\hline
-			\textbf{0} & 3 & 1 \\
-			\textbf{1} & 1 &  
-			\end{tabular}
-			\ \ \
-			\begin{tabular}{r|ccc}
-			\textbf{dim} & \textbf{0} & \textbf{1} & \textbf{2}  \\
-			\hline
-			\textbf{0} & 17 & 12 & 1 \\
-			\textbf{1} & 12 &  6 & \\
-			\textbf{2} & 1 &  & 
-			\end{tabular}
-			\ \ \
-			\begin{tabular}{r|cccc}
-			\textbf{dim} & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} \\
-			\hline
-			\textbf{0} & 149 & 162 & 38 & 1 \\
-			\textbf{1} & 162 & 150 & 24 & \\
-			\textbf{2} & 38 & 24 & & \\
-			\textbf{3} & 1 & & &
-		\end{tabular}
-	}
-	\caption{Number of pairs of faces in the cellular image of the diagonal $0$, $1$, $2$ and $3$-dimensional permutahedra.}
-	\label{t:dim1-3}
-\end{table}
-
-\begin{table}[h]
-	\centerline{
-		\begin{tabular}{r|ccccc}
-			\textbf{dim} & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
-			\hline
-			\textbf{0} & 1809 & 2660 & 1080 & 110 & 1 \\
-			\textbf{1} & 2660 & 3540 & 1200 & 80 & \\
-			\textbf{2} & 1080 & 1200 & 270 & & \\
-			\textbf{3} & 110 & 80 & && \\
-			\textbf{4} & 1 & & & &
-			\end{tabular}
-			\ \ \
-			\begin{tabular}{r|cccccc}
-			\textbf{dim} & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} \\
-			\hline
-			\textbf{0} & 28399 & 52635 & 30820 & 6165 & 302 & 1 \\
-			\textbf{1} & 52635 & 90870 & 67580 & 7785 & 240 & \\
-			\textbf{2} & 30820 & 47580 & 20480 & 2160 & & \\
-			\textbf{3} & 6165 & 7785 & 2160 & && \\
-			\textbf{4} & 302 & 240 & & &&\\
-			\textbf{5} & 1 & & & &&
-		\end{tabular}
-	}
-	\caption{Number of pairs of faces in the cellular image of the diagonal $4$ and $5$-dimensional permutahedra.}
-	\label{t:dim4-5}
-\end{table}
 
 %%%%%%%%%%%%%%%
 
@@ -2168,9 +2171,9 @@ E(m)=\set{(I,J)\in D(m)}{\begin{array}{l} \min(J)<\min(I-\min(I)), \\ |\llbracke
 It follows directly from the fish condition: if the fish condition is satisfied, as inversions of $\sigma_1$ are included in inversions of $\sigma_2$, we get $j_{k-1},j_k<i_k$ for any $k>1$.
 \end{proof}
 
-%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{The Saneblidze-Umble diagonal}
+\section{The Saneblidze-Umble diagonal}
 
 \Guillaume{A reecrire plus tard}
 
@@ -2193,9 +2196,9 @@ Through the isomorphism between $\SUD$ and $\LAD$ (\Guillaume{REF}), we obtain n
 \end{center}
 Through this Section, we use similar notation to the recent paper \cite{saneblidzeComparingDiagonalsAssociahedra2022}.
 
-%%%%
+%%%%%%%%%%%%%%%
 
-\subsubsection{Strong complementary pairs}
+\subsection{Strong complementary pairs}
 
 \begin{definition}[Strong complementary pairs]
 A \emph{strong complementary pair ($\SCP$ for short)} is a pair of ordered partitions $(\sigma,\tau)$ where $\sigma$ is obtained from a permutation by merging the adjacent elements which are decreasing, and $\tau$ is obtained from the same permutation by merging the adjacent elements which are increasing.
@@ -2252,9 +2255,9 @@ The path description of $(\sigma,\tau)$ is a straightforward observation.
 Since the minima of these paths are traversed from left to right, and the maxima from right to left, \cref{prop:LAD-ordered-EC} implies that strong complementary partitions are in both $\LAD$ and $\SUD$.
 \end{proof}
 
-%%%%
+%%%%%%%%%%%%%%%
 
-\subsubsection{$\SU$ diagonals}
+\subsection{$\SU$ diagonals}
 
 \begin{definition}[Shift operators]
 \label{def:subset shifts}
@@ -2387,9 +2390,9 @@ The original $\SU$ diagonal was so defined in \cite{SaneblidzeUmble04}, see also
     In the analogous description for the diagonal $\LAD$ obtained at the end of the Section \Guillaume{[REF]}, left and right shifts act on the left and right ordered partitions, respectively. 
 \end{remark}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
 
-\subsubsection{First isomorphism: original and $m$-shift $\SU$ diagonals}
+\subsection{First isomorphism: original and $m$-shift $\SU$ diagonals}
 
 First, we show that the $m$-shift $\SU$ diagonal is equivalent to the \emph{$1$-shift $\SU$ diagonal}, which given by exactly the same definition, but where only $1$-shifts are performed. 
 
@@ -2544,9 +2547,9 @@ Then using the induction hypothesis, \cref{prop:SU-preserves-max} shows that $\r
 This proves that $R_{M'_{i_j}}$ is well-defined, completing the inductive proof.
 \end{proof}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
 
-\subsubsection{Inversions}
+\subsection{Inversions}
 
 We now aim at showing that $m$-shift and $(I,J)$ diagonals coincide. 
 By $(I,J)$ diagonal, we mean the $\SU$ diagonal defined via $(I,J)$ conditions in \cref{prop:unique-operad}.
@@ -2601,10 +2604,9 @@ An adjacent crossing is clearly a crossing. In the other direction, suppose ther
     For Point (2), observe that the $(I,J)$ conditions for $|I|=|J|=1$ imply that $\rho$ must appear before $\min \sigma_i$ in $\tau$; as a result, after the $m$-shift these two edges will create a new intersection.
 \end{proof}
 
+%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\subsubsection{Second isomorphism: $m$-shift and $(I,J)$ diagonals coincide}
+\subsection{Second isomorphism: $m$-shift and $(I,J)$ diagonals coincide}
 
 \begin{definition} 
 \label{def:inverse-shift}
@@ -2939,9 +2941,9 @@ This is not typically the case.
     As shift operators are the inverse of the inverse shift operators, for any given $\SUD$ facet, this provides a $\SCP$ and a sequence of shifts to form it, showing it is a shift $\SUD$ facet.
 \end{proof}
 
-%%%%
+%%%%%%%%%%%%%%%
 
-\subsubsection{Consequences of the equivalence between diagonals}
+\subsection{Consequences of the equivalence between diagonals}
 
 \begin{theorem}
     The original and $(I,J)$ $\SU$ diagonals coincide.
@@ -2998,7 +3000,9 @@ This is equivalent, via the isomorphism between $\LA$ and $\SU$ diagonals, to th
 \Kurt{Mention the LAD and SUD shifts generate the (same) facets of the hexagon in two different ways.}
 \Guillaume{AND add picture}
 
-\subsubsection{Matrix and Cubical Descriptions}
+%%%%%%%%%%%%%%%
+
+\subsection{Matrix and cubical Descriptions}
 
 We first recall the alternate descriptions of the $\SUD$ diagonal from \cite{SaneblidzeUmble04} and\cite{saneblidzeComparingDiagonalsAssociahedra2022}, that we would like to transfer to $\LAD$. 
 In particular, we explicitly relate the matrix and cubical descriptions of the $\SUD$ diagonal, to the description of the $\SUD$ diagonal given in \cref{def:classical-SU}.
@@ -3111,8 +3115,9 @@ Note, that $R_5,R_6$ are also valid right shifts of the left matrices.
 
 \end{example}
 
+%%%%%%%%%%%%%%%
 
-\subsubsection{Shifts Under the Face Poset Isomorphism}
+\subsection{Shifts Under the Face Poset Isomorphism}
 
 Previously in \cref{thm:bijection-operadic-diagonals}, we constructed an isomorphism of face-posets $sr\times sr:\LAD\to\SUD$.
 In addition, we showed in \cref{rem:Alternate Isomorphism}, that $t(r\times r):\LAD\to\SUD$ is also an isomorphism.
