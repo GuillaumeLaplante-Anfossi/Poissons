@@ -844,7 +844,7 @@ Observe that~$3 \ell^2 + 2 \ell + 1$ is~\OEIS{A056109}, that~$\ell (3 \ell - 2)$
 \end{example}
 
 \begin{remark}
-\vincent{TODO: Discuss generalizations to $\ell$ copies of an arbitrary arrangement, or a graphical arrangement.}
+\vincenti{TODO: Discuss generalizations to $\ell$ copies of an arbitrary arrangement, or a graphical arrangement.}
 \end{remark}
 
 %%%%%%%%%%%%%%%
@@ -965,7 +965,7 @@ Condition~(i) of \cref{def:rainbowForest} ensures that each $F_i$ is indeed a pa
 
 Conversely, start from a $(\ell,n)$-partition forest~$\b{F} \eqdef (F_1, \dots, F_i)$.
 Consider the colored clique graph~$K_{\b{F}}$ on~$[n]$ obtained by replacing each part in~$F_i$ by a clique of edges colored by~$i$.
-For each~$1 < j \le n$, there is a unique shortest path in~$K_{\b{F}}$ from the vertex~$j$ to the vertex~$1$.
+For each~$1 < j \le n$, there is a unique shortest path in~$K_{\b{F}}$ from the vertex~$j$ to the smallest vertex in the connected component of~$j$.
 Define the parent~$p$ of~$j$ to be the next vertex along this path, and color the node~$j$ by the color of the edge between~$j$ and~$p$.
 This defines a labeled $(\ell,n)$-rainbow forest~$F$.
 
