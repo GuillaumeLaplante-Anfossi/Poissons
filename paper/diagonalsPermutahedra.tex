@@ -1306,13 +1306,14 @@ It is expressed in terms of the \emph{fundamental hyperplane arrangement} of $P$
 \end{definition}
 
 \begin{example}
-    Let $U(n):=\{ (I,J) \ | \ I,J \subset [n], |I|=|J|>0, \min(I \cup J) \in I\}$.
+    Let $U(n):=\{ (I,J) \ | \ I,J \subset [n], |I|=|J|>0, I \cap J = \emptyset\}$.
     The fundamental hyperplane arrangement of the $(n-1)$-permutahedron is given by the family of hyperplanes \[ \sum_{i \in I} x_i = \sum_{j \in J} x_j \ ,  \ (I,J) \in U(n) \ . \] 
 \end{example}
 
 \Guillaume{Mentionner le travail en cours de Lionel Pournin?}
 
 \begin{theorem}[Universal formula]
+    \label{thm:universal-formula}
     Let $(P,\vec v)$ be a positively oriented polytope in $\R^n$. 
 For each $H\in\mathcal{H}_P$, we choose a normal vector $\vec d_H$ such that $\langle \vec d_H, \vec v \rangle >0$. 
 We have 
@@ -1323,37 +1324,40 @@ We have
 \end{eqnarray} 
 \end{theorem}
 
+Here, the $\vec F_i$ and $\vec G_j$ are vectors spanning the normal cones of the respective faces, and $\mathcal{H}_P(F,G)$ is a subset of hyperplanes which are specifically associated to the pair $(F,G)$.
+Applying this Theorem to $P$ the permutahedron, we obtain the following. 
+
 \begin{corollary}
-    Any choice of diagonal of the permutahedron is given combinatorially by a choice of inequalities for all the hyperplanes in 
+    Any choice of diagonal of the $(n-1)$-permutahedron is given combinatorially by a choice of inequalities \[ \sum_{i \in I} x_i > \sum_{j \in J} x_j \text{ or } \sum_{i \in I} x_i < \sum_{j \in J} x_j \]
+    for all $(I,J) \in U(n)$. 
 \end{corollary}
 
 \begin{proof}
-    Choice of vector is choice of chamber, mention chamber invariance
+    A choice of diagonal is given by a choice of vector in a chamber of $\mathcal{H}_P$, two vectors living in the same chamber inducing the same diagonal \cite[Proposition 1.23]{LA21}.
 \end{proof}
 
-Let us recall the combinatorial formula for the cellular approximation of the diagonal of the permutahedra from \cite[Theorem 3.16]{LA21}.
-Let $n\geq 1$, and let us write \[ \LA(n) \coloneqq \{(I,J) \ | \ I,J\subset\{1,\ldots,n\}, |I|=|J|, I\cap J=\emptyset, \min(I\cup J)\in I \}. \] 
-Let $\vec v \in \R^n$ be such that $\forall (I,J) \in \LA(n)$, we have $\sum_{i \in I} v_i > \sum_{j \in J} v_j$, and let $P\subset \R^n$ denote the standard $(n-1)$-dimensional permutahedron.
-For any pair $(\sigma,\tau)$ of ordered partitions of $[n]$, we have
+Let us now recall the specific choice of chambers from \cite[Theorem 3.16]{LA21}.
+
+\begin{definition}[$\LA$ diagonal]
+    Let $n\geq 1$, and let us write $\LA(n) \coloneqq \{(I,J) \in U(n) \ | \ \min(I\cup J)\in I \}$.
+    The \emph{$\LA$ diagonal} $\LAD$ of the $(n-1)$-permutahedron is given by any vector $\vec v \in \R^n$ satisfying  
+    \[\sum_{i \in I} v_i > \sum_{j \in J} v_j  \ , \forall (I,J) \in \LA(n) \ . \]
+\end{definition}
+Applying \cref{thm:universal-formula}, one obtains the following combinatorial description, referred to later as the \emph{$(I,J)$ description}. 
+\begin{proposition}
+\label{p:minimal}
+For a pair $(\sigma,\tau)$ of ordered partitions of $[n]$, we have
 \begin{eqnarray*}
-    (\sigma,\tau)\in \Ima\triangle_{(P,\vec v)} 
-    & \iff & \forall (I,J) \in \LA(n), \exists k \in [n] , 
+    (\sigma,\tau)\in \LAD 
+    & \iff & \forall (I,J) \in \LA(\sigma,\tau), \exists k \in [n] , 
     \left| \sigma_{[k]} \cap I \right|
     >
     \left| \sigma_{[k]} \cap J \right| \text{ or } \\
     && \exists l \in [n] , 
     \left| \tau_{[l]} \cap I \right|
     <
-    \left| \tau_{[l]} \cap J \right|  \ . 
-\end{eqnarray*}
-We shall denote by $\LAD$ the set of pairs of ordered partitions of $[n]$ which satisfy the above condition. 
-There is an equivalent description of $\LAD$ which has the following form: 
-\begin{proposition}
-\label{p:minimal}
-For a two ordered partitions $\sigma, \tau \subset [n]$, we have
-\begin{eqnarray*}
-    (\sigma,\tau)\in \LAD 
-    & \iff & \forall (I,J) \in \LA(\sigma,\tau), \exists k \in [n] , 
+    \left| \tau_{[l]} \cap J \right|   \\
+    & \iff & \forall (I,J) \in \LA(n), \exists k \in [n] , 
     \left| \sigma_{[k]} \cap I \right|
     >
     \left| \sigma_{[k]} \cap J \right| \text{ or } \\
@@ -1365,12 +1369,12 @@ For a two ordered partitions $\sigma, \tau \subset [n]$, we have
 \end{proposition}
 Here, $\LA(\sigma,\tau) \subset \LA(n)$ is a proper subset of $\LA(n)$ which depends on the choice of~$(\sigma,\tau)$, and comes from the geometry of the situation, see \cite[Theorem 1.26]{LA21} for more details.
 For our present purposes, it will be enough to restrict our attention to facets of $\LA$, that is pairs $(\sigma,\tau)$ which satisfy $|\sigma| + |\tau|=n+1$.
-In this case, $\LA(\sigma,\tau)$ has $n-1$ elements, and admits the following description. 
+In this case, the set $\LA(\sigma,\tau)$ has $n-1$ elements, and admits the following description. 
 
 For any subset $\sigma_i \subset [n]$, let $\vec \sigma_i \in \R^n$ denote the boolean vector whose coordinates are given by $1$ in position $j$ if $j \in \sigma_i$ and $0$ otherwise. 
 Given a facet $(\sigma,\tau)$ of $\LAD$, one can consider the system of equations $\langle \vec \sigma_i , x \rangle=0$, $\langle \vec \tau_j , x \rangle=0$ given by the blocks of both partitions.
 For geometric reasons (see the proof of \cite[Theorem 1.26]{LA21}), the solution of this system is $x=0$. 
-Now we will be interested in the solutions of the systems associated to the pairs $(\sigma',\tau)$ and $(\sigma,\tau')$ where $\sigma'$ (resp. $\tau'$) has been obtained from $\sigma$ (resp. $\tau$) by merging two adjacent blocks.
+Now we will be interested in the solutions of the systems associated to the pairs $(\sigma',\tau)$ and $(\sigma,\tau')$ where~$\sigma'$ (resp.~$\tau'$) has been obtained from $\sigma$ (resp. $\tau$) by merging two adjacent blocks.
 
 \begin{proposition}
 \label{p:minimal-IJ-pairs}
@@ -1382,7 +1386,7 @@ Now we will be interested in the solutions of the systems associated to the pair
 \begin{proof}
     For any $z \in (\mathring \sigma+ \mathring \tau)/2$, the face $\tau \cap \rho_z \sigma$ of $P \cap \rho_z P$ is a vertex of the polytope $P \cap \rho_z P$.
     The faces of the form $\tau \cap \rho_z \sigma'$ and $\tau' \cap \rho_z \sigma$ are the edges of $P\cap \rho_z P$ which are adjacent to the vertex $\tau \cap \rho_z \sigma$. 
-    By definition $D(\sigma, \tau)$ describes the directions of these edges, and the translation is made as follows: for a given pair $(I,J)$, define the corresponding direction $\vec d$ by its coordinates $d_i:=1$ if $i \in I$, $d_j:=-1$ if $j \in J$, and $d_k:=0$ otherwise.  
+    By definition $\LA(\sigma, \tau)$ describes the directions of these edges, and the translation is made as follows: for a given pair $(I,J)$, define the corresponding direction $\vec d$ by its coordinates $d_i:=1$ if $i \in I$, $d_j:=-1$ if $j \in J$, and $d_k:=0$ otherwise.  
     We refer to \cite[Section 1.5]{LA21} for more details.
 \end{proof}
 
