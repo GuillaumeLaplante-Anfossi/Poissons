@@ -2664,14 +2664,14 @@ This adjacent crossing is of the following form (we illustrate the case where th
 \node (d) at (2,2) {$\tau_j$};
 \node (e) at (2,-2) {$\tau_l$};
 
-\draw[-] (a)--(c);
-\draw[-] (b)--(c);
-\draw[-] (b)--(d);
-\draw[-] (a)--(e);
+\draw[thick] (a) to [in=180, out=0, looseness=0] (c);
+\draw[thick] (b) to [in=180, out=0, looseness=0] (c);
+\draw[thick] (b) to [in=180, out=0, looseness=0] (d);
+\draw[thick] (a) to [in=180, out=0, looseness=0] (e);
 
-\node at (-1.4,-0.2) {$a$};
-\node at (-0.8,-1) {$b$};
-\node at (-0.8,1) {$c$};
+\node at (-1.05,-0.3) {$a$};
+\node at (-1.05,-1.2) {$b$};
+\node at (-1.05,1.1) {$c$};
 \end{tikzpicture}
 \end{center}
 By definition of the $(I,J)$ diagonal, the fact that $\tau_j < \tau_k$ implies that $a > b$, and the fact that $\sigma_i < \sigma_{i+1}$ implies that $b>c$.
@@ -2679,36 +2679,76 @@ Thus, we have $a > \max \sigma_{i,i+1}$ and $a > c \geq \min \sigma_i$, which im
 
 In Case $(2a)$, consider the two adjacent blocks say $\sigma_i|\sigma_{i+1}$ (the $\tau$ case is similar), let $\rho:=\max \sigma_{i,i+1}$, and let $m\geq 1$ be such that $\rho$ steps into $\sigma_{i+1+m}$. 
 Since $\max \sigma_{i,i+1+m} = \max \sigma_{i,i+1}= \rho$ the definition of the $(I,J)$ diagonal implies that $\sigma_{i,i+1+m}$ comes after $\sigma_{i}$, and by assumption after $\sigma_{i+1}$. 
-Thus, we know that $m > 1$, and using squiggly lines to denote paths of length $\geq 1$ we have,
+Thus, we know that $m > 1$, and using dashed lines to denote paths of length $\geq 1$ we have,
 \begin{center}
-\begin{tikzcd}
-\sigma_i \arrow[r,squiggly,dash] & \cdot\\
-\sigma_{i+1} \arrow[r,squiggly,dash] & \cdot\\
-\sigma_{i+1+m} \arrow[ruu,dash, "\rho"] \arrow[ru,squiggly,dash]
-\end{tikzcd}
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$\sigma_i$};
+\node (2) at (-1.5, -2) {$\sigma_{i+1}$};
+\node (3) at (-1.5, -3) {$\sigma_{i+1+m}$};
+%
+\node (4) at (1.5, -1) {$\hphantom{.}$};
+\node (5) at (1.5, -2) {$\hphantom{.}$};
+%
+\draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick,dashed] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (3) to [in=180, out=0, looseness=0] (4);
+\draw[thick,dashed] (3) to [in=180, out=0, looseness=0] (5);
+%
+\node (6) at (1.3, -1.3) {$\rho$};
+\end{tikzpicture}
 $\xrightarrow{R_\rho^{-1}}$
-\begin{tikzcd}
-\sigma_i \arrow[r,squiggly,dash] & \cdot\\
-\sigma_{i+1} \sqcup \rho \arrow[r,squiggly,dash] \arrow[ru,dash, "\rho"]& \cdot\\
-\sigma_{i+1+m} \ssm \rho \arrow[ru,squiggly,dash]
-\end{tikzcd}
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$\sigma_i$};
+\node (2) at (-1.5, -2) {$\sigma_{i+1}\sqcup \rho$};
+\node (3) at (-1.5, -3) {$\sigma_{i+1+m}\setminus \rho$};
+%
+\node (4) at (1.5, -1) {$\hphantom{.}$};
+\node (5) at (1.5, -2) {$\hphantom{.}$};
+%
+\draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick,dashed] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
+\draw[thick,dashed] (3) to [in=180, out=0, looseness=0] (5);
+%
+\node (6) at (1.3, -1.3) {$\rho$};
+\end{tikzpicture}
 \end{center}
-As $\rho=\max \sigma_{i,i+1} > \max\sigma_{i+1+m,i+1}$ the inverse $m$-shift operation is well defined.
+As $\rho=\max \sigma_{i,i+1} > \max\sigma_{i+1+m,i+1}$ the inverse $m$-shift operation is well-defined.
 
 In the Case $(2bi)$, there exists $j,m>0$ such that $\tau_{j-m}$ is the block of $\tau$ which contains the maximal element $\rho$, and $\tau_j$ is any greater block on the path from $\sigma_i$ to $\sigma_{i+1}$. 
 Then we may apply the following inverse $m$-shift operator.
 \begin{center}
-\begin{tikzcd}
-\sigma' \arrow[r,squiggly,dash] \arrow[rd,squiggly,dash]& \tau_{j-m}\\
-\sigma_{i} \arrow[r,squiggly,dash] & \tau_j\\
-\sigma_{i+1} \arrow[ruu,dash, "\rho"] 
-\end{tikzcd}
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$\sigma_i$};
+\node (2) at (-1.5, -2) {$\sigma_{i+1}$};
+\node (3) at (-1.5, -3) {$\sigma_{i+1+m}$};
+%
+\node (4) at (1.5, -1) {$\tau_{j-m}$};
+\node (5) at (1.5, -2) {$\tau_j$};
+%
+\draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (5);
+\draw[thick,dashed] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (3) to [in=180, out=0, looseness=0] (4);
+%
+\node (6) at (0.3, -2.8) {$\rho$};
+\end{tikzpicture}
 $\xrightarrow{L_\rho^{-1}}$
-\begin{tikzcd}
-\sigma' \arrow[r,squiggly,dash] \arrow[rd,squiggly,dash]& \tau_{j-m}\setminus \rho\\
-\sigma_{i} \arrow[r,squiggly,dash] & \tau_j \sqcup \rho\\
-\sigma_{i+1} \arrow[ru,dash, "\rho"] 
-\end{tikzcd}
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$\sigma_i$};
+\node (2) at (-1.5, -2) {$\sigma_{i+1}$};
+\node (3) at (-1.5, -3) {$\sigma_{i+1+m}$};
+%
+\node (4) at (1.5, -1) {$\tau_{j-m}\setminus \rho$};
+\node (5) at (1.5, -2) {$\tau_j \sqcup \rho$};
+%
+\draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (5);
+\draw[thick,dashed] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (3) to [in=180, out=0, looseness=0] (5);
+%
+\node (6) at (0.3, -2.8) {$\rho$};
+\end{tikzpicture}
 \end{center}
 
 There remains to be treated Case $(2bii)$.
@@ -2716,15 +2756,42 @@ We consider the path $\sigma_{i,i+1}:=(i_1,j_1,i_2,...,i_{k},\rho)$ to be of len
 We denote by $\tau_j$ the block of $\tau$ containing the maximal step $\rho$ of this path, which by hypothesis is the last block of $\tau$. 
 Let $\sigma_{i-n}$ be the last block of $\sigma$ which is attained by the path $\sigma_{i,i+1}$ before $\sigma_{i+1}$. 
 We must have $n>1$, since $\rho$ is the last step and $\sigma_i|\sigma_{i+1}$ are adjacent blocks.
-The situation can be pictured as follows.
+The situation can be pictured as on the left.
 \begin{center}
-\begin{tikzcd}
-    \sigma_{i-n} \arrow[r,squiggly,dash] \arrow[rd,dash,"i_k"]& \tau_{j-m}\\
-    \sigma_{i} \arrow[ru,squiggly,dash]  & \tau_j\\
-    \sigma_{i+1} \arrow[ru,dash, "\rho"] 
-\end{tikzcd}
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$\sigma_{i-n}$};
+\node (2) at (-1.5, -2) {$\sigma_{i}$};
+\node (3) at (-1.5, -3) {$\sigma_{i+1}$};
+%
+\node (4) at (1.5, -1) {$\tau_{j-m}$};
+\node (5) at (1.5, -2) {$\tau_j$};
+%
+\draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
+\draw[thick,dashed] (2) to [in=180, out=0, looseness=0] (4);
+\draw[thick] (3) to [in=180, out=0, looseness=0] (5);
+%
+\node (6) at  (0.8, -2.5) {$\rho$};
+\node (7) at  (0.8, -1.5) {$i_k$};
+\end{tikzpicture}
+$\xrightarrow{L_{\rho'}^{-1}}$
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$\sigma_{i-n}$};
+\node (2) at (-1.5, -2) {$\sigma_{i}$};
+\node (3) at (-1.5, -3) {$\sigma_{i+1}$};
+%
+\node (4) at (1.5, -1) {$\tau_{j-m}\setminus \rho'$};
+\node (5) at (1.5, -2) {$\tau_j \sqcup \rho'$};
+%
+\draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
+\draw[thick,dashed] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (3) to [in=180, out=0, looseness=0] (5);
+%
+\node (6) at  (0.45, -2.5) {$\rho$};
+\node (7) at  (0.45, -1.5) {$i_k$};
+\end{tikzpicture}
 \end{center}
-\Guillaume{make better drawing}
 Now let $\rho':=\max\sigma_{i,i-n}$ be the maximum of the path $\sigma_{i,i-n}=(i_1,j_1,i_2,...,i_{k-1},j_{k-1})$, and let $\tau_{j-m}$, $m\geq 1$ be the block of $\tau$ containing $\rho'$.
 We want to show that an inverse left $m$-shift can bring $\rho'$ back to $\tau_j$.  
 We just need to show that $\rho' > i_k$, since the path $\tau_{j-m,j}$ is a subset of the path $\sigma_{i,i+1}$. 
@@ -3279,6 +3346,8 @@ The left $\LAD$ shift
 $5|17|4|236 \xrightarrow{L_3}5|17|34|26 $ is sent to the right $\SUD$ shift
 $256|4|17|3 \xrightarrow{R_5} 26|45|17|3$.
 \end{example}
+
+It was observed in ... that the $LA$ and $SU$ diagonals coincided up until $n=3$, however we just identified that they dua
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
