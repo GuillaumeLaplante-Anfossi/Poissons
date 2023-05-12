@@ -152,7 +152,30 @@ We denote by $P_n(x)$ the polynomial $\mobPol[\braidArrangement][x][0]$. The pol
 P_n(x)=\sum_{k=1}^n (-1)^{k-1} (k-1)! S(n,k) x^{k-1}. 
 \end{equation*}
 
-The coefficients of this polynomial is given by the sequence \OEIS{A028246}. Remark that this polynomial is a product of $(1-x)$ with the f-polynomial of the permutohedron, whose coefficients are given by the sequence \OEIS{A019538}. 
+The coefficients of this polynomial is given by the sequence \OEIS{A028246}.
+
+\begin{lemma}
+This polynomial is a product of $(1-x)$ with the f-polynomial of the permutohedron, whose coefficients are given by the sequence \OEIS{A019538}. 
+
+\end{lemma}
+
+\begin{proof}
+This lemma is equivalent to the following equality:
+\begin{equation*}
+\sum_{k=1}^n (-1)^{k-1} (k-1)! S(n,k) x^{k-1} = (1-x) \times \sum_{k=1}^{n-1} (-1)^{k-1} k! S(n-1,k) x^{k-1}
+\end{equation*}
+Distributing $(1-x)$ in the RHS gives:
+\begin{multline*}
+(1-x) \times \sum_{k=1}^{n-1} (-1)^{k-1}  k! S(n-1,k) x^{k-1} = \sum_{k=1}^{n-1} k! S(n-1,k) (-x)^{k-1} + \sum_{k=1}^{n-1} k! S(n-1,k) (-x)^{k} \\
+= \sum_{k=1}^{n-1} k! S(n-1,k) (-x)^{k-1} + \sum_{k=2}^{n} (k-1)! S(n-1,k-1) (-x)^{k-1} + (n-1)! S(n-1, n-1) (-x)^{n-1} \\
+= S(n-1,1) (-x)^0 + \sum_{k=2}^{n-1} (k-1)! \left( S(n-1,k-1) + k S(n-1,k) \right) (-x)^{k-1}
+\end{multline*}
+The following inductive formula on Stirling numbers of the second kind holds for $0<k<n$ :
+\begin{equation}
+S(n+1,k) = k S(n,k) + S(n,k-1)
+\end{equation}
+Hence the result.
+\end{proof}
 
 We now compute the M\"obius polynomial of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$:
 
