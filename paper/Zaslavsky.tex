@@ -152,7 +152,30 @@ We denote by $P_n(x)$ the polynomial $\mobPol[\braidArrangement][x][0]$. The pol
 P_n(x)=\sum_{k=1}^n (-1)^{k-1} (k-1)! S(n,k) x^{k-1}. 
 \end{equation*}
 
-The coefficients of this polynomial is given by the sequence \OEIS{A028246}. Remark that this polynomial is a product of $(1-x)$ with the f-polynomial of the permutohedron, whose coefficients are given by the sequence \OEIS{A019538}. 
+The coefficients of this polynomial is given by the sequence \OEIS{A028246}.
+
+\begin{lemma}
+This polynomial is a product of $(1-x)$ with the f-polynomial of the permutohedron, whose coefficients are given by the sequence \OEIS{A019538}. 
+
+\end{lemma}
+
+\begin{proof}
+This lemma is equivalent to the following equality:
+\begin{equation*}
+\sum_{k=1}^n (-1)^{k-1} (k-1)! S(n,k) x^{k-1} = (1-x) \times \sum_{k=1}^{n-1} (-1)^{k-1} k! S(n-1,k) x^{k-1}
+\end{equation*}
+Distributing $(1-x)$ in the RHS gives:
+\begin{multline*}
+(1-x) \times \sum_{k=1}^{n-1} (-1)^{k-1}  k! S(n-1,k) x^{k-1} = \sum_{k=1}^{n-1} k! S(n-1,k) (-x)^{k-1} + \sum_{k=1}^{n-1} k! S(n-1,k) (-x)^{k} \\
+= \sum_{k=1}^{n-1} k! S(n-1,k) (-x)^{k-1} + \sum_{k=2}^{n} (k-1)! S(n-1,k-1) (-x)^{k-1} + (n-1)! S(n-1, n-1) (-x)^{n-1} \\
+= S(n-1,1) (-x)^0 + \sum_{k=2}^{n-1} (k-1)! \left( S(n-1,k-1) + k S(n-1,k) \right) (-x)^{k-1}
+\end{multline*}
+The following inductive formula on Stirling numbers of the second kind holds for $0<k<n$ :
+\begin{equation}
+S(n+1,k) = k S(n,k) + S(n,k-1)
+\end{equation}
+Hence the result.
+\end{proof}
 
 We now compute the M\"obius polynomial of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$:
 
@@ -195,17 +218,23 @@ Finally, we get:
 \begin{theorem}
 The M\"obius polynomial of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is given by
 \[
-\mobPol[\multiBraidArrangement]=\sum_{G \in \forestPoset} y^{n-\ell n - 1 + \sum_{i=1}^\ell |G_i|} x^{(n-1)(1-\ell)} \prod_{i=1}^{\ell} P_{|G_i|}(x).
+\mobPol[\multiBraidArrangement]=x^{(n-1)(1-\ell)} \sum_{G \in \forestPoset} y^{n-\ell n - 1 + \sum_{i=1}^\ell |G_i|}  \prod_{i=1}^{\ell} P_{|G_i|}(x).
 \]
 \end{theorem}
 
 In terms of rainbow forests, this rewrites as
 
 \begin{equation}
-\mobPol[\multiBraidArrangement]=\sum_{G \in \rainbowForests} y^{n- 1 + |E(G)|} x^{(n-1)(1-\ell)} \prod_{i=1}^{\ell} P_{n-|E(G,i)|}(x)
+\mobPol[\multiBraidArrangement]=x^{(n-1)(1-\ell)} \sum_{G \in \rainbowForests} y^{n- 1 + |E(G)|}  \prod_{i=1}^{\ell} P_{n-|E(G,i)|}(x)
 \end{equation}
 
 To further simplify this expression, we now need to count the number of rainbow forests with a prescribed number of colored edges. We deal with this problem by extending the colored Pr\"{u}fer code of Theorem \ref{thm:verticesRefinedMultiBraidArrangement}
+
+
+\begin{remark}
+Bad news : I tried to first understand  how Pr\"{u}fer code works on (non colored) forests rooted in the minimal label of each connected component but no multiplicative formula is known (so the Prufer type proof does not seem to work either).
+We get the sequence \OEIS{A138464}.
+\end{remark}
 
 
 
