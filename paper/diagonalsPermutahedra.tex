@@ -3010,20 +3010,13 @@ This is equivalent, via the isomorphism between $\LA$ and $\SU$ diagonals, to th
 
 \subsubsection{Shift Lattice Structure}
 
-\Kurt{Simplify later}
-
 \begin{definition}
-Let $(\sigma,\tau) \in \SUD$.
-\begin{itemize}
-    \item Let $S_{(\sigma,\tau)}^R := \{\rho: R_{\rho}(\sigma,\tau)  \text{ is a well-defined $1$-shift}\}$, and $S_{(\sigma,\tau)}^L := \{\rho: L_{\rho}(\sigma,\tau)  \text{ is a well-defined $1$-shift}\}$.
-    \item For $\rho \in S_{(\sigma,\tau)}^R$ (or $\rho \in S_{(\sigma,\tau)}^L$), let $m_\rho:= \max m$ such that $R_\rho(\sigma,\tau)$ (or $L_{\rho}(\sigma,\tau)$) is a well-defined $m$-shift.
-\end{itemize}
+Let $(\sigma,\tau) \in \SUD$. For $\rho \in [n]$, let $r_\rho$ (or $l_\rho$) be either $0$, or the maximal value of $m$ such that $R_\rho(\sigma,\tau)$ (resp. $L_\rho(\sigma,\tau)$) is a well-defined $m$-shift.
 \end{definition}
-Note $S_{(\sigma,\tau)}^R$ and $S_{(\sigma,\tau)}^L$ may not be disjoint.
 
 \begin{lemma}[$m$-shifts commute] \label{lem:m-shifts commute}
 Let $(\sigma,\tau) \in \SUD$.
-If either side of the following equations are  well-defined sequences of $m_1,m_2$ shift operators, then the other side is a well-defined sequence of $m_2,m_1$ shift operators, and their output is equal.
+If either side of the following equations are  well-defined sequences of $m_1,m_2$ shift operators, then the other side is a well-defined sequence of $m_2,m_1$ shift operators, and their outputs are equal.
 \begin{align*}
     R_{\rho} L_{\rho'}(\sigma,\tau) = L_{\rho'} R_{\rho}(\sigma,\tau), \quad R_{\rho} R_{\rho'}(\sigma,\tau) = R_{\rho'} R_{\rho}(\sigma,\tau), \quad L_{\rho} L_{\rho'}(\sigma,\tau) = L_{\rho'} L_{\rho}(\sigma,\tau)
 \end{align*}
@@ -3035,7 +3028,7 @@ As such, we can commute any two shift operators.
 We note that right (or left) shifting the same element $m_1$ steps then $m_2$ steps is the same as shifting it $m_1+m_2$ steps.
 \end{proof}
 
-\begin{proposition}
+\begin{proposition} \label{prop:shift lattice}
 Let $(\sigma,\tau)$ be an $SCP$ and 
 \begin{align*}
     L(\sigma,\tau) := \bigcup_{\mathbf{M}, \mathbf{N}} R_\mathbf{M}(\sigma)\times L_\mathbf{N}(\tau)
@@ -3043,19 +3036,97 @@ Let $(\sigma,\tau)$ be an $SCP$ and
 where the union is taken over all admissible sequences of $1$-shifts $\textbf{M},\textbf{N}$. 
 Then $L(\sigma,\tau)$ is a bounded lattice such that
 \begin{align*}
-    L(\sigma,\tau) \cong (\prod_{\rho \in S_{(\sigma,\tau)}^R} [m_\rho])\times 
-    (\prod_{\rho \in S_{(\sigma,\tau)}^L} [m_\rho] )
+    L(\sigma,\tau) \cong \prod_{\rho \in [n]} [r_\rho]
+    \times \prod_{\rho \in [n]} [l_\rho]
 \end{align*}
 where $[n] = (0<1...<n)$.
 \end{proposition}
 
 \begin{proof}
 
-We identify $(0,0,...,0)$ with the SCP $(\sigma,\tau)$ and every other element $(n_{r_1},...,n_{r_{k_1}}, n_{l_1},...,n_{l_{k_2}})$, with 
-$R^{n_{r_1}}_{\rho_{r_1}}...R^{n_{r_{k_1}}}_{\rho_{r_{k_1}}}
-L^{n_{l_1}}_{\rho_{l_1}}...L^{n_{l_{k_2}}}_{\rho_{l_{k_2}}}(\sigma,\tau)$.
+We identify $(0,0,...,0)$ with the SCP $(\sigma,\tau)$ and every other element $(r_1,...,r_n,l_1,...l_n)$, with 
+$R^{r_n}_{n}...R^{r_{1}}_{1}
+L^{l_n}_{n}...L^{l_{1}}_{1}(\sigma,\tau)$.
 Given \cref{lem:m-shifts commute}, it is straightforward to confirm that the join (meet) of any two elements is given by their element wise maximum (minimum).
-The maximum element of the lattice is thus given by starting with $(\sigma,\tau)$ and shifting all elements of $S^R_{(\sigma,\tau)}$ ($S^L_{(\sigma,\tau)}$) right (resp. left) by their height.
+The maximum element of the lattice is thus given by starting with $(\sigma,\tau)$ and shifting all elements of $S^R_{(\sigma,\tau)}$ ($S^L_{(\sigma,\tau)}$) right (resp. left) by their maximal $m$-shift.
+
+\end{proof}
+
+The maximal $m$-shift for an element $\rho$ of a $SCP$ can be explicitly calculated as follows. 
+
+\begin{lemma} \label{lem:Formula for maximal m-shifts}
+Let $(\sigma,\tau)$ be an SCP, then for $\rho \in \sigma_i$,
+\begin{align*}
+    d_{\rho}^r :=& \{ m : m>0 \land \max \sigma_{i+m}>\rho\}, 
+    &r_\rho = 
+    \begin{cases}
+        |\sigma|-i,& d_{\rho}^r = \emptyset\\
+        \min d_{\rho}^r-1,& \text{otherwise}
+    \end{cases}
+\end{align*}
+and for  $\rho \in \tau_i$
+\begin{align*}
+    d_{\rho}^l :=& \{ m : m>0 \land \max \tau_{i-m}>\rho\}, 
+    &l_\rho = 
+    \begin{cases}
+        |\tau|-i,& d_{\rho}^l = \emptyset\\
+        \min d_{\rho}^l-1,& \text{otherwise}
+    \end{cases}
+\end{align*}
+
+\end{lemma}
+\begin{proof}
+We show the formula holds for $r_\rho$ the case for $l_\rho$ is similar. 
+As $\sigma,\tau$ is an SCP, $\max \sigma_{k,k+1} = \max \sigma_{k+1}$. 
+From the equivalence of $1$-shifts and $m$-shifts there exists an $m$-shift of $\rho$ from $\sigma_i$, if, and only if, there exists a sequence of $1$-shifts each satisfying $\rho > \max \sigma_{j}$ for $i+1\leq j\leq i+m$.
+As such, the index $\min d_\rho^r$ identifies the first invalid $m$-shift,
+and hence $\min d_\rho^r-1$ is the biggest valid $m$-shift.
+If there are no invalid $m$-shifts then $d_\rho^r=\emptyset$, and the biggest valid $m$-shift, of size $|\sigma|-i$, places $\rho$ in the last block of $\sigma$.
+\end{proof}
+
+\begin{definition}
+Let $\sigma$ be an ordered partition. 
+\begin{enumerate}
+    \item Let $\sigma_*$ be the permutation resulting from writing out the blocks of $\sigma$ in increasing order.
+    \item Let $\sigma^*$ be the permutation resulting from writing out the blocks of $\sigma$ in decreasing order.
+\end{enumerate}
+\end{definition}
+An immediate observation is that the permutations $\sigma_*$ and $\sigma^*$ are the minimal and maximal vertices of the corresponding face of the permutahedra under the weak Bruhat order.
+\begin{lemma}
+If $(\sigma,\tau)$ is an SCP generated by a vertex $v$ then  $\sigma^* = \tau_*= v$.
+\end{lemma}
+\begin{proof}
+Immediate from definition.
+\end{proof}
+
+\begin{lemma}\label{lem: minimal vertex formulae}
+Let $(\sigma,\tau)$ be the SCP generated by the vertex $v$.
+Then,
+\begin{align*}
+    (R^{r_n}_{n}...R^{r_{1}}_{1}\sigma)_*= \overrightarrow{s_n} \overrightarrow{s_{n-1}}...\overrightarrow{s_1} \sigma^*
+\end{align*}
+where the shift operator $\overrightarrow{s_i}$ shifts the element $i$ past all elements to the right which are smaller than $i$. 
+Similarly,
+\begin{align*}
+    (L^{l_n}_{n}...L^{l_{1}}_{1}\tau)^* =\overleftarrow{s_n} \overleftarrow{s_{n-1}}...\overleftarrow{s_1} \tau_*
+\end{align*}
+where the shift operator $\overleftarrow{s_i}$ shifts $i$ past all elements to the left which are smaller than $i$. 
+\end{lemma}
+\begin{proof}
+We outline the proof for $\sigma$ and the result for $\tau$ follows similarly.
+We first note that the blocks of $\sigma$ can be identified from $\sigma^*$ by descending runs, each with the maximal element first.
+We then identify all shift operators as follows.
+The shift $R_\rho^{r_\rho}$ acting on $R^{r_{\rho-1}}_{\rho-1}...R^{r_{1}}_{1}\sigma$ is equivalent to the shift operator  $\overrightarrow{s_\rho}$ acting on $\overrightarrow{s_{\rho-1}}...\overrightarrow{s_1} \sigma^*$.
+In particular, if $\rho$ is in block $i$ then
+\begin{align*}
+    (...|\rho\sigma_{i,2}...\sigma_{i,k_i}|...|\sigma_{i+m,1}...\sigma_{i+m,k_{i+m}}|...) \mapsto (...| \sigma_{i,2}...\sigma_{i,k_i}|...|\sigma_{i+m,1}...\sigma_{i+m,k_{i+m}} \rho|...)
+\end{align*}
+Can be obtained by forgetting the order of the elements of the block and applying $R_\rho^{r_\rho}$, or by applying $\overrightarrow{s_\rho}$.
+We know that $\overrightarrow{s_\rho}$ places $\rho$ at the same position, as by definition $\sigma_{i+m}$ is either the last block, or the maximal (and hence first) element of the next block is larger than $\rho$.
+Note, that whenever we apply the shift $\overrightarrow{s_\rho}$, the element $\rho$ cannot be inhibited by elements of its own block. 
+This follows, as we firstly ordered the blocks of $\sigma$ in decreasing order through $\sigma^*$, and secondly we apply the shifts $\overrightarrow{s_i}$ in increasing order of elements, so prior shifts will not inhibit later shifts.
+Also observe that after applying the shift $\overrightarrow{s_i}$, that the $i$th element will be the last element of its block. Consequently, after applying all shift operators, each block will be in increasing order, hence $(R^{r_n}_{n}...R^{r_{1}}_{1}\sigma)_*= \overrightarrow{s_n} \overrightarrow{s_{n-1}}...\overrightarrow{s_1} \sigma^*$.
+
 
 \end{proof}
 
@@ -3107,10 +3178,12 @@ For each type of $\LA$ shift, let $\textbf{M},\textbf{N}$ be admissible sequence
 \begin{align*}
     t(r,r)(L_\mathbf{N}(\sigma), R_\mathbf{M}(\tau)) = (R_{r\mathbf{M}}(r\tau), L_{r\mathbf{N}}(r\sigma))
 \end{align*}
-where $r\mathbf{M}$ and $r\mathbf{N}$ are admissible sequences of $\SU$ shifts of the same type.
+where $r\mathbf{M}:=(rM_{i_1},...,rM_{i_p})$ and $r\mathbf{N}$ (defined similarly) are admissible sequences of $\SU$ shifts of the same type.
 \end{proposition}
 \begin{proof}
-We first verify that $r\mathbf{M}$ and $r\mathbf{N}$ are admissible sequences of $\SU$ shifts of $(r\tau,r\sigma)$.
+As reversing the elements then shifting them is the same as shifting the elements then reversing them,
+it is clear that the equality holds if $r\mathbf{M},r\mathbf{N}$ are admissible sequence of $\SU$ shifts.
+As such, we must simply verify the admissibility, and given the equivalence of the various shift definitions, we just do this for $1$-path shifts.
 For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (resp. $M_{i}\subset \tau_{i}$) is $LA$ $1$-block moveable if
 \begin{enumerate}
     \item 
@@ -3135,11 +3208,6 @@ It is \emph{$m$-path movable} if it satisfies $(1)$ above and if
 The reader may directly verify from \cref{def:movable-subsets}, that each $rM_i \in r\sigma_i$ meets the conditions of a moveable subset 
 if it is interpreted as being in a block of the right partition ($\tau$ in the notation of the definition).
 So, if $\mathbf{M} = (M_{i_1},...,M_{i_p})$, define $r(\mathbf{M}):=(rM_{i_1},...,rM_{i_p})$, and from the prior it is clear this is an admissible sequence of $SU$ shifts.
-Finally, all that remains to be checked is that
-\begin{align*}
-    t(r,r)(R_{M_{i_1}}(\sigma),\tau)= (r\tau,R_{M_{i_1}}(r\sigma))
-\end{align*}
-but this is clear as reversing the elements then shifting them, is the same as shifting the elements then reversing them. 
 
 \end{proof}
 
@@ -3302,7 +3370,8 @@ It was observed in ... that the $LA$ and $SU$ diagonals coincided up until $n=3$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsection{Matrix and cubical Descriptions}
+\subsection{Matrix Description}
+
 
 We first recall the alternate descriptions of the $\SUD$ diagonal from \cite{SaneblidzeUmble04} and\cite{saneblidzeComparingDiagonalsAssociahedra2022}, that we would like to transfer to $\LAD$. 
 In particular, we explicitly relate the matrix and cubical descriptions of the $\SUD$ diagonal, to the description of the $\SUD$ diagonal given in \cref{def:classical-SU}.
@@ -3411,10 +3480,41 @@ Note, that $R_5,R_6$ are also valid right shifts of the left matrices.
 
 \end{example}
 
-In \cite{SaneblidzeUmble04} Saneblidze and Umble first identified their diagonal through the following subdivision of the $n$-cube by the permutahedra $P_{n+1}$.
-Let $1$ denote a trivial subdivision of the $0$-cube (a point), then we can subdivide the $n$-cube by weaving $n+1$ through the previous subdivision of the $n-1$-cube, then connecting all vertices by the weak Bruhat order. 
+\subsection{Cubical Description}\label{sec:Cubical}
+
+I still can't quite see the explicit reason their definition defines a diagonal in the first place.
+Surely, their decomposition of the cube must force their defined diagonal to respect the isomorphism $\Theta$ of faces of the permutahedra.\Kurt{?}
+\\\\
+In \cite{SaneblidzeUmble04} Saneblidze and Umble first identified their diagonal through subdivisions of the $(n-1)$-cube by the permutahedra $P_{n}$.
+In this section, we detail the connection between their shift definition and their matrix definition.
+First we recall the necessary definitions, providing alternate characterisations and properties.
+Then we present their alternate formulae for the $SU$ diagonal.
+Finally, we present the alternate formula for the $LA$ diagonal induced by the isomorphism $t(r\times r)$.
+
+\subsubsection{Definitions}
+
+\Kurt{Need a rethink on notation, have some clashes, but I think the proof works.
+Should also rethink organisation, maybe some of the lattice results should be in here.
+}
+
+We present and characterise all definitions in full, before giving a protracted example (\cref{ex:subdivision cubes}).
+Let $1$ denote a trivial subdivision of the $0$-cube (a point), then we can subdivide the $(n-1)$-cube by weaving $n$ through the previous subdivision of the $(n-2)$-cube. 
+In particular, for every face of $\sigma = \sigma_1|...|\sigma_k \in P_{n-1}$, for $0<i<k$ we define
+$n_j := \#(\sigma_{k-i+1}\cup...\cup \sigma_k)$, and 
+$I_j := [1 - \frac{1}{2^{n_j}}, 1 - \frac{1}{2^{n_{j+1}}}]$.
+We then define boundary cases $I_0:= [0,1 - \frac{1}{2^{n_1}}]$ and $I_k:= [1 - \frac{1}{2^{n_k}},1]$, to  produce $I(\sigma) := I_0 \cup ... \cup I_k$, a partition of the interval $[0,1]$.
+Finally, assuming we have subdivided the $(n-2)$ cube with $P_{n-1}$, we can use these partitioned intervals to subdivide the $(n-1)$-cube with $P_n$ through,
+\begin{align} \label{eq:In inductive def}
+    \sigma \times I \mapsto 
+    \begin{cases}
+        \sigma_1|...|\sigma_k| n, &I = [0, 0]\\
+        \sigma_1|...|\sigma_j \cup n|...|\sigma_k, &I = I_j\\
+        \sigma_1|...|\sigma_j|n|\sigma_{j+1}|...|\sigma_k, &I = I_j \cap I_{j+1}\\
+        n|\sigma_1|...|\sigma_k, &I = [1, 1]
+    \end{cases}
+\end{align}
 Here is an illustration of this subdivision for the first few-dimensions.
-We indicate, in bold, a natural inclusion of each $n-1$ cube into the $n$-cube.
+We indicate, in bold, the embedding of the $n-1$ cube into the $n$ cube that occurs when $I=[0, 0]$.
 
 \begin{center}
 \begin{tikzcd}[sep=0.3cm]
@@ -3438,146 +3538,209 @@ $\hookrightarrow$
 \mathbf{1|2|3|4} \arrow [rr,dash] & & \mathbf{1|3|2|4} \arrow [rr,dash] & & \mathbf{3|1|2|4} \\
 \end{tikzcd}
 \end{center}
-To avoid cluttering the diagram, we have only labelled the vertices of the subdivision of cube, but its edges, facets and face are also identified with the expected elements of $P_{n+1}$.
-We note each vertex of the $n-1$ cube produces an edge of the $n$-cube with $n+1$ vertices through,
-\begin{align*}
-    x_1|...|x_n \mapsto (x_1|\dots|x_n|n+1, x_1|\dots|n+1|x_n|,\dots ,n+1|x_1|\dots|x_n)
-\end{align*}
-These successive vertices are totally ordered under the weak-Bruhat order.
+To avoid cluttering the diagram, we have only labelled the vertices of the subdivision of cube, but its edges, facets and face are also identified with the expected elements of $P_{n}$.
+Samson and Umble's formula for the diagonal was constructed through a maximal pairing of $k$-subdivision cubes.
+We now define and characterise the $k$-subdivision cubes, before doing the same for the pairs.
 
 \begin{definition} \label{def:Subdivisions}
-Define $I_{n-1}$ to be the $n-1$-cube under this subdivision of $P_{n}$. 
-Let $e$ be a cell in $P_{n}$ with dimension $|e|$,
-\begin{itemize}
-    \item a \emph{$k$-subdivision cube} of $e$ is a set of faces whose union is a $k$-subcube of $I_{n-1}$ for some $k\leq |e|$.
-    \item the set of vertices in $e$ is denoted $\mathcal{V}_e$.
-\end{itemize}
-Let $v \in \mathcal{V}_e$, as this vertex corresponds to a permutation let $(\sigma,\tau)$ be its SCP. 
-\begin{itemize}
-    \item Let $k_1,k_2$ denote the number of blocks in $\sigma,\tau$ respectively.
-    \item Let $(I_{v,1}^{k_1}$, $I_{v,2}^{k_2})$ be a pair of $k_i$-subdivision cubes of $e$ such that
-    \begin{enumerate}
-        \item $k_1+k_2 = |e|$
-        \item Under the weak Bruhat order $\max I_{v,1}^{k_1} = \min I_{v,2}^{k_2} = v$
-    \end{enumerate}
-    \item We denote the set of all such pairs by $e_v$, and denote its unique maximal \Kurt{... hmmm well union of all, but probably better descs} element by $e_v^*$.
-\end{itemize}
+Define $I_{n-1}$ to be the $(n-1)$-cube under this subdivision of $P_{n}$. 
+Let $e$ be a cell in $P_{n}$ with dimension $|e|$,  a \emph{$k$-subdivision cube} of $e$ is a set of faces whose union is a $k$-subcube of $I_{n-1}$ for some $k\leq |e|$.
 \end{definition}
-\begin{example}
-Here is an example that is directly verifiable from the diagram of $I_3$ above.
-In $P_4$, let $e$ be the top-dimensional cell $1234$. Then the following sets of faces are all $k$-subdivision cubes of $e$
+
+A trivial example of $k$-subdivision cube is a $k$-face of $P_n$.
+
+\begin{lemma}\label{lem:k-subdiv cubes have max/min k faces}
+A $k$-subdivision cube $C$ 
+\begin{enumerate}
+    \item has unique maximal and minimal vertices under the weak Bruhat order.
+    \item has unique maximal and minimal $k$-faces.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+In order for a $k$-subdivision cube to be a $k$-cube it must have unique maximal and minimal vertices.
+The unique maximal/minimal $k$-faces are defined to be the unique $k$-faces adjacent to these vertices.
+\end{proof}
+
+We will denote these maximal and minimal $k$-faces by $\overline{C}$ and $\underline{C}$.
+We need an explicit way to calculate $k$-subdivision cubes, and it turns out it is easier to calculate the minimal/maximal vertices, as follows.
+
+\begin{lemma} \label{lem:subdiv cubes are intervals}
+A $k$-subdivision cube corresponds to an interval $[\overrightarrow{v},v]$ of $P_n$, where $v$ is the unique maximal vertex, and 
 \begin{align*}
-    \{1234\}, \{1|234\}, \{1|234, 14|23\} \{4|13|2\}, \{1|3|24,1|43|2,14|3|2\}.
+    \overrightarrow{v}:= \overrightarrow{s_1}^{k_1}... \overrightarrow{s_{n-1}}^{k_{n-1}}\overrightarrow{s_n}^{k_n}v
 \end{align*}
-The follow two sets of faces are both not $k$-subdivision cubes of $e$,
+where the shift operator $\overrightarrow{s_i}^{k_i}$ shifts element $i$ past $k_i$ elements to the right which are smaller than $i$. 
+Dually, a $k$-subdivision cube corresponds to an interval $[{v},\overleftarrow{v}]$ of $P_n$, where $v$ is the unique minimal vertex, and
 \begin{align*}
-    \{1|234, 14|23,13|24\}, \{1|2|34,1|3|24\}
+    \overleftarrow{v} :=\overleftarrow{s_n}^{k_n}\overleftarrow{s_{n-1}}^{k_{n-1}}...\overleftarrow{s_1}^{k_1}v
 \end{align*}
-For $v = 4|1|3|2$, 
+where the shift operator $\overleftarrow{s_i}^{k_i}$ shifts element $i$ past $k_i$ elements to the right which are smaller than $i$.
+\end{lemma}
+\begin{proof}
+We first show inductively that every interval of the form $[\overrightarrow{v},v]$ is a $k$-subdivision cube.
+The interval $[v,v]$ consisting of just the vertex $v$ is a trivial subdivision cube.
+We make the inductive assumption, that when the formula for
+$\overrightarrow{v}$ uses precisely $k$ non-zero shifts ($k_i$), then $[\overrightarrow{v},v]$ is a $k$-subdivision cube.
+Let $\overrightarrow{v}$ uses precisely $k+1$ non-zero shifts, and let $i$ be the smallest element shifted.
+By the inductive assumption, we know that 
+$[\overrightarrow{s_{i-1}}^{k_{i-1}}... \overrightarrow{s_{n-1}}^{k_{n-1}}\overrightarrow{s_n}^{k_n}v, v]$ is a subdivision cube.
+Then from \cref{eq:In inductive def} it follows that $[\overrightarrow{v},v]$
+must also be a subdivision cube.
+\\\\
+We now show that every subdivision cube is an interval of the form $[\overrightarrow{v},v]$.
+By \cref{eq:In inductive def}, we know that every edge of the $I_{n-1}$ is associated to a shift of a particular element $i$.
+Let $I_v$ be the set of elements associated to the edges touching the maximal vertex $v$.
+We now construct a formula for the minimal vertex in terms of shift operators, i.e. $\overrightarrow{v}$.
+For all $i \not \in I_v$ let $k_i=0$.
+Starting at the maximal vertex $v$, let $i$ be the largest element of $I_v$.
+Follow the edge associated to $i$ to the next corner of the $k$ subdivision cube, counting the number of edges of $I_{n-1}$ used to determine $k_i$, and then remove $i$ from $I_v$.
+Repeat this process until $I_v = \emptyset$, at which point we have reached the minimal vertex.
+\end{proof}
+
+We now define a particular paring of subdivision cubes, our used notation will be clarified in the trailing proposition.
+
+\begin{definition} [\cite{saneblidzeComparingDiagonalsAssociahedra2022}]\label{def:ev}
+Let $e$ be a cell of $P_n$ and let $\mathcal{V}_e$ be the set of vertices in $e$.
+For a given vertex $v \in \mathcal{V}_e$, we define $e_v$ to be set of all pairs $(C_\sigma,C_\tau)$ of $k_1,k_2$ subdivision cubes such that
+\begin{enumerate}
+    \item $C_\sigma$ is a $k_1$-subdivision cube of $e$ with maximal vertex $v$.
+    \item $C_\tau$ is a $k_2$-subdivision cube of $e$ with minimal vertex $v$.
+    \item $k_1+k_2 = |e|$
+\end{enumerate}
+\end{definition}
+The reason for denoting our pairs $(C_\sigma,C_\tau)$ is the following proposition.
+
+\begin{proposition}\label{prop:ev properties}
+The pairs $e_v$ satisfy the following properties,
+\begin{enumerate}
+    \item The SCP $(\sigma,\tau) \in e_v$.
+    \item All pairs $(C_\sigma,C_\tau) \in e_v$ have the same dimensions and these are determined by the number of blocks in the SCP. In particular, $k_1=|\sigma|$ and $k_2 = |\tau|$. 
+    \item For all $(C_\sigma,C_\tau) \in e_v$, $\overline{C_\sigma} = \sigma$, and $\underline{C_\tau} = \tau$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+The proofs in turn are as follows.
+\begin{enumerate}
+    \item The fact that the SCP is in $e_v$ follows directly from the definition of each.
+    \item If $(\sigma,\tau)$ is the SCP of $v$, then $\sigma$ is the largest $k_1$ face of $P_n$ with maximal vertex $v$, and $\tau$ is the largest $k_2$ face of $P_n$ with minimal vertex $v$.    
+    Suppose that exists $(C_1,C_2) \in e_v$ which are $k'_1, k'_2$ subdivision cubes where $k'_1\neq k_1$ (and $k'_2\neq k_2$).
+    If $k'_1< k_1$, then it must be the case that $k'_2> k_2$.
+    As this requires the existence of a $k'_2$ face in $P_n$ with minimal vertex $v$, and we know that the $k_2$ face $\tau$ is the largest such face, we arrive at a contradiction.
+    Assuming $k'_2<k_2$ yields a similar contradiction.
+    \item We know all $C_\sigma$ are $k_1$ subdivision cubes, which by \cref{lem:k-subdiv cubes have max/min k faces} tells us they have a unique maximal $k_1$ face.
+    However, we know that $\sigma$ is a $k_1$ face adjacent to the maximal vertex $v$ so it must be the unique maximal $k_1$ face.
+    Similar logic applies to $C_\tau$.
+\end{enumerate}
+\end{proof}
+
+\begin{definition}
+Let ${e_v}_*$ denote the unique maximal pair of subdivision cubes in $e_v$ under inclusion.
+\end{definition}
+We provide an alternate characterisation, and prove the uniqueness of this definition in the next section (\cref{lem:unique interval desc of maximal subdiv pair}), but we first clarify all the definitions of this section through example.
+
+\begin{example}\label{ex:subdivision cubes}
+Here is an example that is visually verifiable from the diagram of $I_3$ below.
+In $P_4$, let $e$ be the top-dimensional cell $1234$. Then the following sets of faces are all subdivision cubes of $e$ (for varying $k$)
 \begin{align*}
-    e_v = \{( \{14|23\},\{4|13|2\}), ( \{1|234, 14|23\},\{4|13|2\}) \}, \text{and, } e_v^* =( \{1|234, 14|23\},\{4|13|2\})
+    \{1234\}, \{1|234\}, \{1|234, 14|23\}, \{4|13|2\}, \{1|3|24,1|43|2,14|3|2\}.
 \end{align*}
-Note there are two elements in $\blue{\mathbf{14|23}}$$\times\blue{\mathbf{4|13|2}}, \red{\mathbf{1|234}}$$\times\blue{\mathbf{4|13|2}}$$ \in e_v^*$, an $SCP$ and a right shift of it.
-Similarly, for $v=3|1|4|2$, we compute that there are two elements $\mathbf{\blue{13|24}}$$\times \mathbf{\blue{3|14|2}},\mathbf{\blue{13|24}}$$\times \mathbf{\red{43|1|2}}\in e_v^*$, an SCP and its left shift.
-These are illustrated below,
+The follow three sets of faces are not subdivision cubes of $e$,
+\begin{align*}
+    \{134|2, 14|23\}, \{1|234, 134|2, 14|23\}, \{1|2|34,1|23|4\}
+\end{align*}
+For $v = \blue{\mathbf{4|3|1|2}}$, the SCP is $\sigma\times \tau = \blue{\mathbf{134|2\times 4|3|12}}$, $k_1=2$, $k_2=3$, the only $k_2$-subdivision cube with minimal vertex $v$ is $4|3|12$, and the three $k_1$-subdivision cubes are
+\begin{align*}
+    \{134|2\}, \{13|24, 134|2\}, \{ 1|234, 13|24, 14|23, 134|2\}
+\end{align*}
+This defines $e_v$, and thus ${e_v}_*=\{ 1|234, 13|24, 14|23, 134|2\} \times \{4|3|12\}$.
+Observe that $\sigma = \blue{\mathbf{134|2}}$ admits $3$ different sequences of admissible rights shifts, their images are $\red{\mathbf{13|24}}$ , $\red{\mathbf{14|23}}$, $\red{\mathbf{1|234}}$,
+and that $\tau = \blue{\mathbf{4|3|12}}$ admits no left shifts.
+These shifts are illustrated on $I_3$ below.
 \begin{center}
-{\footnotesize
+{\small
 \begin{tikzcd}[sep=0.1cm, scale=0.3]
-& 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] & & 4|2|3|1 \arrow [dd, dash,dotted] \arrow[rr,dash] & & 4|3|2|1 \arrow[dd,dash] \arrow[dl,dash]\\
-4|1|2|3 \arrow [rr,dash] \arrow [dd,dash] & & \mathbf{\blue{4|1|3|2}} \arrow[rr,dash,crossing over, "\mathbf{\blue{4|13|2}}" description] \arrow[dd,dash] & & 4|3|1|2 \arrow[dd,dash]  & \\
-& \blue{\mathbf{14|23}} \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 2|4|3|1  \arrow[dd,dash,dotted] & & 3|4|2|1 \arrow [dl,dash] \arrow[dd,dash]\\
-1|4|2|3 \arrow [rr,dash] \arrow [dd,dash]& & 1|4|3|2  \arrow[dd,dash] & & 3|4|1|2 \arrow[dd,dash]\\
+& 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] & & 4|2|3|1 \arrow [dd, dash,dotted] \arrow[rr,dash] & & 4|3|2|1 \arrow[dd,dash] \arrow[dl,dash, near end, "\mathbf{\blue{4|3|12}}"']\\
+4|1|2|3 \arrow [rr,dash] \arrow [dd,dash] & & 4|1|3|2 \arrow[rr,dash] \arrow[dd,dash] & & \mathbf{\blue{4|3|1|2}} \arrow[dd,dash]  & \\
+& \red{\mathbf{14|23}} \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 2|4|3|1  \arrow[dd,dash,dotted] & & 3|4|2|1 \arrow [dl,dash] \arrow[dd,dash]\\
+1|4|2|3 \arrow [rr,dash] \arrow [dd,dash]& & 1|4|3|2  \arrow[dd,dash] \arrow[rr, phantom, "\blue{\mathbf{134|2}}" description,crossing over] & & 3|4|1|2 \arrow[dd,dash]\\
 & 2|1|4|3 \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] & & 2|3|4|1 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] & & 3|2|4|1 \arrow[dd,dash] \\
-1|2|4|3 \arrow [dd,dash] \arrow[rr, phantom, "\red{\mathbf{1|234}}" description,crossing over]& & 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash] & & 3|1|4|2 \arrow[dd,dash] & \\
-& 2|1|3|4 \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] & & 2|3|1|4 \arrow [rr,dash,dotted] & & 3|2|1|4 \arrow [dl,dash] \\
-1|2|3|4 \arrow [rr,dash] & & 1|3|2|4 \arrow [rr,dash] & & 3|1|2|4 \\
-\end{tikzcd}
-}
-\quad
-{\footnotesize
-\begin{tikzcd}[sep=0.1cm, scale=0.3]
-& 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] & & 4|2|3|1 \arrow [dd, dash,dotted] \arrow[rr,dash] & & 4|3|2|1 \arrow[dd,dash] \arrow[dl,dash]\\
-4|1|2|3 \arrow [rr,dash] \arrow [dd,dash] & & 4|1|3|2 \arrow[rr,dash] \arrow[dd,dash] & & 4|3|1|2 \arrow[dd,dash,crossing over, "\mathbf{\red{43|1|2}}" description]  & \\
-& 2|4|1|3 \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 2|4|3|1  \arrow[dd,dash,dotted] & & 3|4|2|1 \arrow [dl,dash] \arrow[dd,dash]\\
-1|4|2|3 \arrow [rr,dash] \arrow [dd,dash]& & 1|4|3|2  \arrow[dd,dash] & & 3|4|1|2 \arrow[dd,dash,crossing over, "\mathbf{\blue{3|14|2}}" description]\\
-& 2|1|4|3 \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] & & 2|3|4|1 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] & & 3|2|4|1 \arrow[dd,dash] \\
-1|2|4|3 \arrow [dd,dash] & & 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash] & & \mathbf{\blue{3|1|4|2}} \arrow[dd,dash] & \\
-& 2|1|3|4 \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] & & \mathbf{\blue{13|24}} \arrow [rr,dash,dotted] & & 3|2|1|4 \arrow [dl,dash] \\
+1|2|4|3 \arrow [dd,dash] \arrow[rr, phantom, "\red{\mathbf{1|234}}" description,crossing over] & & 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash] & & 3|1|4|2 \arrow[dd,dash] & \\
+& 2|1|3|4 \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] & & \red{\mathbf{13|24}} \arrow [rr,dash,dotted] & & 3|2|1|4 \arrow [dl,dash] \\
 1|2|3|4 \arrow [rr,dash] & & 1|3|2|4 \arrow [rr,dash] & & 3|1|2|4 \\
 \end{tikzcd}
 }
 \end{center}
+
+The reader should observe two points key  points from this example.
+Firstly, all shifts are present in ${e_v}_*$.
+Secondly, the explicit relationship between shifts and the other $k$-subdivision cubes is subtle, as there are four shifts of $\sigma$ (including the trivial shift), but only three $k_1$ subdivision cubes with maximal vertex $v$.
+In particular, $\{14|23, 134|2\}$ is not a $k_1$ subdivision cube.
+
 \end{example}
 
-\begin{lemma}
+\subsubsection{Linking Cubical to Shift}
 
-The set of $k$-subdivision cubes of $e$ with a unique maximal vertex is a bounded lattice.
+Recall that in \cref{lem: minimal vertex formulae} we found that the minimal vertices of the maximal shifts of a SCP $(\sigma,\tau)$ satisfied the following formulae.
+\begin{align*}
+    (R^{r_n}_{n}...R^{r_{1}}_{1}\sigma)_*&= \overrightarrow{s_n} \overrightarrow{s_{n-1}}...\overrightarrow{s_1} \sigma^*, \quad
+    (L^{l_n}_{n}...L^{l_{1}}_{1}\tau)^* =\overleftarrow{s_n} \overleftarrow{s_{n-1}}...\overleftarrow{s_1} \tau_*
+\end{align*}
+where the shift operator $\overrightarrow{s_i}$, $\overleftarrow{s_i}$ shifts the element $i$ past all elements to the right/left which are smaller than $i$. 
+From this result we obtain the following.
+\begin{lemma} \label{lem:unique interval desc of maximal subdiv pair}
+The maximal pair of subdivision cubes ${e_v}_*$ is unique, and has the form
+\begin{align*}
+    {e_v}_*=[\overrightarrow{s_n} \overrightarrow{s_{n-1}}...\overrightarrow{s_1}v, v] \times [v, \overleftarrow{s_n} \overleftarrow{s_{n-1}}...\overleftarrow{s_1}v]
+\end{align*}
 \end{lemma}
 \begin{proof}
-Each $k$-subdivision cube has a minimal and maximal vertex under the weak Bruhat order.
-Given two $k$-subdivision cubes $x,y$ with the same maximal vertex $v$, we define the meet of $x\land y$ to be their intersection.
-We define the join $x \lor y$ to be the unique $k$ subdivision cube with maximal vertex $v$ and minimal vertex given by taking the join of the minimal vertices of $x$ and $y$ under weak Bruhat lattice.
-\begin{itemize}
-    \item Something like this is true, but might not need...
-\end{itemize}
+From \cref{lem:subdiv cubes are intervals}, we know that all $k_1$-subdivision cubes with maximal vertex $v$ are of the form
+$[\overrightarrow{v},v]$, and all $k_2$-subdivision cubes with minimal vertex $v$ are of the form $[{v},\overleftarrow{v}]$, where 
+\begin{align*}
+    \overrightarrow{v}:= \overrightarrow{s_1}^{k_1}... \overrightarrow{s_{n-1}}^{k_{n-1}}\overrightarrow{s_n}^{k_n}v, \quad \overleftarrow{v} :=\overleftarrow{s_n}^{k_n}\overleftarrow{s_{n-1}}^{k_{n-1}}...\overleftarrow{s_1}^{k_1}v
+\end{align*}
+As such, it is clear that $[\overrightarrow{s_n} \overrightarrow{s_{n-1}}...\overrightarrow{s_1}v, v]$ and $[v,\overleftarrow{s_n} \overleftarrow{s_{n-1}}...\overleftarrow{s_1}v]$ are not only $k_1,k_2$-subdivision cubes,
+but the particular subdivision cubes for which each shift $k_i$ is maximal.
+This tells us that all other subdivision cubes are enveloped by these maximal cubes.
+To see this one can observe from the inductive description of $I_n$ (\cref{eq:In inductive def}) that the path from the minimal vertex of $\overrightarrow{s_n} \overrightarrow{s_{n-1}}...\overrightarrow{s_1}v$ to any other $\overrightarrow{s_1}^{k_1}... \overrightarrow{s_{n-1}}^{k_{n-1}}\overrightarrow{s_n}^{k_n}v$ will remain within the $k_1$-cube $[\overrightarrow{s_n} \overrightarrow{s_{n-1}}...\overrightarrow{s_1}v,v]$, and similarly for the $k_2$.
 \end{proof}
 
-\begin{lemma}
-The unique maximal pair $e_v^*$ is well-defined, and has the following formula. Let $(\sigma,\tau)$ be the SCP of the vertex $v\in P_n$, then 
-\begin{align*}
-    e_v^* = L(e_v^*) \times R(e_v^*) := [\overrightarrow{\sigma}, \sigma] \times [\tau, \overleftarrow{\tau}]
-\end{align*}
-where $[x,y]$ is the interval of the permutahedra of faces of the same dimension, and 
-\begin{align*}
-   \overrightarrow{\sigma} := \overrightarrow{s_n}\overrightarrow{s_{n-1}}...\overrightarrow{s_1}(v),\quad 
-   \overleftarrow{\tau} := \overleftarrow{s_n}\overleftarrow{s_{n-1}}...\overleftarrow{s_1}(v)
-\end{align*}
-The operators $\overleftarrow{s_i}, \overrightarrow{s_i}$ each shift the element $i$ to the left/right until there are no further blocks, or the next block contains an element larger than $i$.
-\end{lemma}
-\begin{proof}
-If the SCP $(\sigma,\tau)$ has $k_1,k_2$ blocks respectively, then $([\overrightarrow{\sigma}, \sigma], [\tau, \overleftarrow{\tau}])$ are a pair of subdivision cubes of $P_{n}$ which meet conditions $1$ and $2$ of \cref{def:Subdivisions} by construction. 
-The fact that we meet conditions $1$ and $2$ is clear, to see that they are subdivision cubes
-\begin{itemize}
-    \item 
-\end{itemize}
-
-
-\end{proof}
-
-\begin{example}
-For the SCP $ 13|247|5|6 \times 3|17|4|156$ of \cref{ex:shift translation by theta}. We directly compute $R(e_v^*)$ to be the cube..., and $L(e_v^*)$ to be the square...
-\end{example}
-
-\begin{lemma}[Formula $(3)$ of \cite{saneblidzeComparingDiagonalsAssociahedra2022}]
-Let $e$ be the top-dimensional cell of $P_{n}$, and let $v$ be a permutation of size $n$ and $(\sigma,\tau)$ its SCP.
-Then,
+As such we obtain,
+\begin{proposition}[Formula (3) of \cite{saneblidzeComparingDiagonalsAssociahedra2022}]
+Let $v$ be a vertex of $P_n$, then
 \begin{align*}
     e_v^* = \bigcup_{\mathbf{M},\mathbf{N}} R_\mathbf{M}(\sigma) \times L_{\mathbf{N}}(\tau)
 \end{align*}
-where $R$ and $L$ are shift operators, and $\mathbf{M},\mathbf{N}$ are all admissible sequence of shifts of the appropriate type.
-\end{lemma}
+where $\mathbf{M},\mathbf{N}$ are admissible sequences of $SU$ shifts.
+\end{proposition}
 \begin{proof}
-The reason this works 
-\begin{itemize}
-    \item $\overrightarrow{\sigma}$ is $\sigma$ after right shifting to maximal height....
-\end{itemize}
+From Lemmas \ref{lem:unique interval desc of maximal subdiv pair} and \ref{lem: minimal vertex formulae}, we know that 
+$e_v^* = [(R^{r_n}_{n}...R^{r_{1}}_{1}\sigma)_*,v] \times [v,(L^{l_n}_{n}...L^{l_{1}}_{1}\tau)^*]$, or in terms of $k_1,k_2$ faces,
+$e_v^* = [R^{r_n}_{n}...R^{r_{1}}_{1}\sigma,\sigma] \times [\tau, L^{l_n}_{n}...L^{l_{1}}_{1}\tau]$.
+Using the lattice description of \cref{prop:shift lattice} we now argue that the set equality is true.
+\\\\
+Every $k$-face in $P_n$ has a unique description as a shift $R^{r'_n}_{n}...R^{r'_{1}}_{1}\sigma$ if we allow for the possibility of negative values of $r'_i$, which logically correspond to left shits.
+Under this description $\sigma = R^{0}_{n}...R^{0}_{1}\sigma$.
+From the inductive description of $I_{n-1}$ (\cref{eq:In inductive def}) it clear that a $k_1$ face $R^{r'_n}_{n}...R^{r'_{1}}_{1}\sigma$ is in $[R^{r_n}_{n}...R^{r_{1}}_{1}\sigma,R^{0}_{n}...R^{0}_{1}\sigma]$ if and only if for all $i$ we have that $r_{i}\geq r'_i \geq 0$.
+However, this is precisely the description of $R_\mathbf{M}(\sigma)$ under the lattice description (\cref{prop:shift lattice}).
+The $k_2$ faces of ${e_v}_*$ are similarly characterised, and the result follows.
 \end{proof}
+We note that in the prior proof, the only shifts $R_\mathbf{M}(\sigma) \times L_{\mathbf{N}}(\tau)$ that we associate to an explicit subdivision cube pair are the maximal shift pairs.
+This avoids any issues caused by not all shifts being associated to subdivision cubes (see for instance \cref{ex:subdivision cubes}).
+As a consequence of this result, we obtain the alternate formula for the $\SU$ diagonal.
 
-\begin{corollary}[Formula (1) and (3) \cite{saneblidzeComparingDiagonalsAssociahedra2022}]
+\begin{proposition}[Formula (1) and (3) \cite{saneblidzeComparingDiagonalsAssociahedra2022}]
 \begin{align*}
     \SUD([n]) = \bigcup_{v \in P_n} e_v^*
 \end{align*}
+\end{proposition}
 
-\end{corollary}
-
-\Kurt{So this logic would establish it is a formula, given we know the shift description is a formula. 
-But I don't know follow why it defines a formula independently of this logic.
-I think in the original paper, SU only directly prove the shift formula defines the diagonal...
-So would need to pull back their proof... or give alternate.
-}
+\begin{example}
+For the SCP $ 13|247|5|6 \times 3|17|4|156$ of \cref{ex:shift translation by theta}. We directly compute $R(e_v^*)$ to be the cube..., and $L(e_v^*)$ to be the cube...
+\end{example}
 
 \Kurt{What do the IJ conditions correspond to on the cube?}
-
 
 
 To construct the $LA$ subdivision of the cube we first make a useful observation.
@@ -3614,6 +3777,116 @@ $\hookrightarrow$
 \mathbf{4|3|2|1} \arrow [rr,dash] & & \mathbf{4|2|3|1} \arrow [rr,dash] & & \mathbf{2|4|3|1} \\
 \end{tikzcd}
 \end{center}
+
+\subsubsection{Old/Unneeded Cubical}
+
+\begin{center}
+{\footnotesize
+\begin{tikzcd}[sep=0.1cm, scale=0.3]
+& 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] & & 4|2|3|1 \arrow [dd, dash,dotted] \arrow[rr,dash] & & 4|3|2|1 \arrow[dd,dash] \arrow[dl,dash]\\
+4|1|2|3 \arrow [rr,dash] \arrow [dd,dash] & & \mathbf{\blue{4|1|3|2}} \arrow[rr,dash,crossing over, "\mathbf{\blue{4|13|2}}" description] \arrow[dd,dash] & & 4|3|1|2 \arrow[dd,dash]  & \\
+& \blue{\mathbf{14|23}} \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 2|4|3|1  \arrow[dd,dash,dotted] & & 3|4|2|1 \arrow [dl,dash] \arrow[dd,dash]\\
+1|4|2|3 \arrow [rr,dash] \arrow [dd,dash]& & 1|4|3|2  \arrow[dd,dash] & & 3|4|1|2 \arrow[dd,dash]\\
+& 2|1|4|3 \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] & & 2|3|4|1 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] & & 3|2|4|1 \arrow[dd,dash] \\
+1|2|4|3 \arrow [dd,dash] \arrow[rr, phantom, "\red{\mathbf{1|234}}" description,crossing over]& & 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash] & & 3|1|4|2 \arrow[dd,dash] & \\
+& 2|1|3|4 \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] & & 2|3|1|4 \arrow [rr,dash,dotted] & & 3|2|1|4 \arrow [dl,dash] \\
+1|2|3|4 \arrow [rr,dash] & & 1|3|2|4 \arrow [rr,dash] & & 3|1|2|4 \\
+\end{tikzcd}
+}
+\quad
+{\footnotesize
+\begin{tikzcd}[sep=0.1cm, scale=0.3]
+& 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] & & 4|2|3|1 \arrow [dd, dash,dotted] \arrow[rr,dash] & & 4|3|2|1 \arrow[dd,dash] \arrow[dl,dash]\\
+4|1|2|3 \arrow [rr,dash] \arrow [dd,dash] & & 4|1|3|2 \arrow[rr,dash] \arrow[dd,dash] & & 4|3|1|2 \arrow[dd,dash,crossing over, "\mathbf{\red{43|1|2}}" description]  & \\
+& 2|4|1|3 \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 2|4|3|1  \arrow[dd,dash,dotted] & & 3|4|2|1 \arrow [dl,dash] \arrow[dd,dash]\\
+1|4|2|3 \arrow [rr,dash] \arrow [dd,dash]& & 1|4|3|2  \arrow[dd,dash] & & 3|4|1|2 \arrow[dd,dash,crossing over, "\mathbf{\blue{3|14|2}}" description]\\
+& 2|1|4|3 \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] & & 2|3|4|1 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] & & 3|2|4|1 \arrow[dd,dash] \\
+1|2|4|3 \arrow [dd,dash] & & 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash] & & \mathbf{\blue{3|1|4|2}} \arrow[dd,dash] & \\
+& 2|1|3|4 \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] & & \mathbf{\blue{13|24}} \arrow [rr,dash,dotted] & & 3|2|1|4 \arrow [dl,dash] \\
+1|2|3|4 \arrow [rr,dash] & & 1|3|2|4 \arrow [rr,dash] & & 3|1|2|4 \\
+\end{tikzcd}
+}
+\end{center}
+
+\begin{example}[Shifting a subdivision cube does not produce a cube]
+\Kurt{...}
+Let $v = 4|3|1|2$, then the corresponding SCP is $134|2 \times 4|3|12$. As such, the ordered partition $134|2$ admits three right shifts, these being, $13|24, 14|23$ and $1|234$.
+These correspond to the four front most squares of the cubical subdivision below, with $134|2$ being the top-right square.
+\begin{center}
+ {\small
+\begin{tikzcd}[sep=0.15cm,scale=0.8]
+& 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] & & 4|2|3|1 \arrow [dd, dash,dotted] \arrow[rr,dash] & & 4|3|2|1 \arrow[dd,dash] \arrow[dl,dash]\\
+4|1|2|3 \arrow [rr,dash] \arrow [dd,dash] & & 4|1|3|2 \arrow[rr,dash] \arrow[dd,dash] & & 4|3|1|2 \arrow[dd,dash]  & \\
+& 2|4|1|3 \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 2|4|3|1  \arrow[dd,dash,dotted] & & 3|4|2|1 \arrow [dl,dash] \arrow[dd,dash]\\
+1|4|2|3 \arrow [rr,dash] \arrow [dd,dash]& & 1|4|3|2  \arrow[dd,dash] & & 3|4|1|2 \arrow[dd,dash]\\
+& 2|1|4|3 \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] & & 2|3|4|1 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] & & 3|2|4|1 \arrow[dd,dash] \\
+1|2|4|3 \arrow [dd,dash] & & 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash] & & 3|1|4|2 \arrow[dd,dash] & \\
+& \mathbf{2|1|3|4} \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] & & \mathbf{2|3|1|4} \arrow [rr,dash,dotted] & & \mathbf{3|2|1|4} \arrow [dl,dash] \\
+\mathbf{1|2|3|4} \arrow [rr,dash] & & \mathbf{1|3|2|4} \arrow [rr,dash] & & \mathbf{3|1|2|4} \\
+\end{tikzcd}
+}
+\end{center}
+Under the definition of a $k$-subdivision cube with a maximal vertex $v$, there are three $2$-subdivision cubes (squares) with maximal vertex $4|3|1|2$, the top-right square ($134|2$), the right rectangle ($134|2$, $13|24$), and all four faces.
+However $\{14|23, 134|2\}$ is not a $2$-subdivision cube, as combining the top left and right squares is not a square.
+\\\\
+Thoughts,
+\begin{itemize}
+    \item This messes with a lot of recursive descriptions of ${e_v}_*$ (including the proof outline described by Samson in his email)
+    \item In fact it tells you that thinking about $k$-division cubes with maximal vertices is in general a flawed approach.
+    \item i.e. the only subdivision cube that matters is the maximal one, ${e_v}_*$ (in this case the square with four vertices)
+    \item i.e. we can only compute lower $k_1$-face/vertex, use this to construct ${e_v}_*$, and argue that all other faces are in it via the lattice description.
+\end{itemize}
+So,
+\begin{itemize}
+    \item If $k$-subdivision cubes is not the right approach, then we are free to define $e_v^*$ in another fashion.
+    \item The cubical subdivision still gives you something...
+    \begin{itemize}
+        \item The LHS of ${e_v}^*$ is not the set of $k_1$ faces whose maximal vertex is smaller than $v$
+        \item i.e. the cubical subdiv contains useful stopping info..
+    \end{itemize}
+\end{itemize}
+\end{example}  
+
+
+
+
+\begin{lemma}
+Let $C$ be a $k$-subdivision cube of $I_{n}$,
+then the projection of the $n$th dimension of $C$ is either a point, or it is a non-trivial interval of $[0,1]$.
+Furthermore,
+\begin{itemize}
+    \item If it is a point, then the projection of dimensions $1,...,n-1$ is a $k$-subdivision cube of $I_{n-1}$.
+    \item If it is a non-trivial interval, then the projection of dimensions $1,...,n-1$ is a $(k-1)$-subdivision cube of $I_{n-1}$.
+\end{itemize}
+
+\end{lemma}
+\begin{proof}
+Immediate from being a $k$-subcube.
+\end{proof}
+
+
+\begin{lemma}
+Let $C_\tau$ be a subdivision cube with minimal $k$-face corresponding to the right ordered partition of a $SCP$. Then,
+$k = |\sigma|$, the number of blocks in the ordered partition.
+\item The maximal $k$-face is of the form 
+\begin{align*}
+    \overline{C_\tau} =  \overleftarrow{s_n}^{k_n} \overleftarrow{s_{n-1}}^{k_{n-1}}...\overleftarrow{s_1}^{k_1} \sigma
+\end{align*}
+where the shift operator $\overleftarrow{s_i}^{k_i}$ shifts element $i$,  $k_i$ blocks to the left, if the maximum of all these $k_i$ blocks is smaller than $i$. 
+Dually, let $C_\sigma$ be a subdivision cube with maximal $k$-face corresponding to left ordered partition of a $SCP$. Then,
+\begin{enumerate}
+    \item $k = |\sigma|$, the number of blocks in the ordered partition.
+    \item The minimal $k$-face is of the form 
+    \begin{align*}
+        \underline{C_\sigma} =  \overrightarrow{s_1}^{k_1}... \overrightarrow{s_{n-1}}^{k_{n-1}}\overrightarrow{s_n}^{k_n} \sigma
+    \end{align*}
+    where the shift operator $\overrightarrow{s_i}^{k_i}$ shifts element $i$,  $k_i$ blocks to the right, if the maximum of all these $k_i$ blocks is smaller than $i$. 
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
 
 %%%%%%%%%%%%%%%
 
