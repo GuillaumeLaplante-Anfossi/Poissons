@@ -165,6 +165,9 @@
 \newcommand{\rightshiftk}[2]{\overrightarrow{\vphantom{1}{#1}}^{#2}}
 \newcommand{\leftshift}[1]{\overleftarrow{\vphantom{1}{#1}}}
 \newcommand{\leftshiftk}[2]{\overleftarrow{\vphantom{1}{#1}}^{#2}}
+%Subdiv cube defs
+\newcommand{\subdivpairsv}{e_v}
+\newcommand{\maxsubdivpairsv}{\overline{e_v}}
 
 
 % formating the table of contents
@@ -1820,7 +1823,7 @@ t(r\times r):\LAD \arrow[r,"s\times s"] &
 \end{tikzcd}
 \end{center}
 is also an isomorphism.
-We will show this second isomorphism has the conceptual benefit of sending left shift operators to left shift operators (and right to right) in \cref{s: The Saneblidze-Umble Diagonal}.
+We will show this second isomorphism has the conceptual benefit of sending left shift operators to left shift operators (and right to right) in \cref{prop:trr is an isomorphism of shifts}.
 
 \end{remark}
 
@@ -1828,9 +1831,9 @@ We will show this second isomorphism has the conceptual benefit of sending left 
 
 \subsection{Facets of operadic diagonals}
 
-We have seen in \cref{subsec:multiBraidArrangement} that facets of any diagonal of the permutahedron are in bijection with $(2,n)$-trees, that is pair of partitions whose intersection graph is a tree.
+We have seen in \cref{subsec:multiBraidArrangement} that facets of any diagonal of the permutahedron are in bijection with $(2,n)$-trees, that is, a pair of partitions whose intersection graph is a tree.
 These are precisely the \emph{essential complementary partitions} studied in \cite{chen1969computer,chen1971tables,kajitani1982number}. 
-Here we describe a specific planar embedding of the $(2,n)$-trees for each operadic diagonal. 
+Here, we describe a specific planar embedding of the $(2,n)$-trees for each operadic diagonal. 
 \Guillaume{Simplify and unify exposition with Section 1}
 
 \begin{definition}
@@ -1855,9 +1858,9 @@ A pair of partitions $(\sigma_L,\tau_R)$ is said to be
 \end{enumerate}	
 \end{definition}
 
-In cases where there is no ambiguity we will drop the subscripts $L,R$.
+In cases where there is no ambiguity, we will drop the subscripts $L,R$.
 We shall denote the set of all essential complementary pairs of partitions of $[n]$ by $\EC$.
-Let us emphasize that the pairs of partitions of $\EC$ are \emph{unordered}.
+Let us emphasise that the pairs of partitions of $\EC$ are \emph{unordered}.
 
 \begin{example}
 For $n=2$, the two essential complementary partitions are $1|2 \times 12$ and $12 \times 1|2$. For $n=3$, the eight essential complementary partitions are
@@ -1871,7 +1874,7 @@ For $n=2$, the two essential complementary partitions are $1|2 \times 12$ and $1
 	13|2 \times 12|3,\quad 
 	12|3 \times 13|2
 \end{align*}
-For a larger example see \cref{ex:ECbijection}. 
+For a larger example, see \cref{ex:ECbijection}. 
 \end{example}
 
 %A \emph{tree} is a simply connected graph with no cycles. 
@@ -1894,7 +1897,7 @@ In particular, this defines a particular planar embedding of each $(2,n)$-tree, 
 \end{theorem}
 
 We shall prove this theorem by establishing the necessary total order, showing that the functions are well defined, and then showing that they are injective.
-We will work with the $\LAD$ diagonal, but the proofs can be straightforwardly modified to accomodate any of the other three operadic diagonals. 
+We will work with the $\LAD$ diagonal, but the proofs can be straightforwardly modified to accommodate any of the other three operadic diagonals. 
 
 \begin{lemma} 
 \label{l:u-well-defined}
@@ -1924,7 +1927,7 @@ For $(\sigma,\tau) = (\bigcup_{l\in L}\sigma_l,\bigcup_{r\in R} \tau_r)$ an esse
 \begin{proof}
 We first show our binary relation is well defined before verifying that it defines a total order on the vertices of the $(2,n)$-tree.
 In a bipartite tree, every vertex is connected, and every path connecting two vertices on the same side must be of even length. 
-As $I$ and $J$ partition the path in an alternating fashion i.e. $\gamma=(i_1,j_1,i_2,j_2,\dots)$, we can orient it by forcing each edge of $I$ (resp. $J$) to point to the right (resp. left). 
+As $I$ and $J$ partition the path in an alternating fashion, i.e. $\gamma=(i_1,j_1,i_2,j_2,\dots)$, we can orient it by forcing each edge of $I$ (resp. $J$) to point to the right (resp. left). 
 This order is clearly total, reflexive (by convention) and anti-symmetric, what remains to be checked is its transitivity. 
 
 Let $\gamma$ denote the unique maximal path between two vertices $a$ and $b$ on the left of the tree, that is two blocks of $\sigma$. 
@@ -1935,7 +1938,7 @@ Then, we have
     a < b \iff \min(I_{ab}\cup J_{ab})=\min(I_{ab}) \ . 
 \end{equation}
 Suppose now that $a < b$ and $b < c$.
-Since $\gamma_{ac}= (\gamma_{ab} \cup \gamma_{bc}) \ssm (\gamma_{ab} \cap \gamma_{bc})$, we have $$ I_{ac}=(I_{ab}\cup I_{bc}) \ssm (J_{ab} \cup J_{bc}) \text{ and } J_{ac}=(J_{ab}\cup J_{bc}) \ssm (I_{ab} \cup I_{bc}) \ , $$ and from the condition (\ref{eq:order}) above it is clear that $\min(I_{ac}\cup J_{ac})=\min(I_{ac})$, which completes the proof of the transitivity for the total order on $\sigma$. 
+Since $\gamma_{ac}= (\gamma_{ab} \cup \gamma_{bc}) \ssm (\gamma_{ab} \cap \gamma_{bc})$, we have $$ I_{ac}=(I_{ab}\cup I_{bc}) \ssm (J_{ab} \cup J_{bc}) \text{ and } J_{ac}=(J_{ab}\cup J_{bc}) \ssm (I_{ab} \cup I_{bc}) \ , $$ and from the condition (\ref{eq:order}) above, it is clear that $\min(I_{ac}\cup J_{ac})=\min(I_{ac})$, which completes the proof of the transitivity for the total order on $\sigma$. 
 The proof for $\tau$ is similar. 
 \end{proof}
 
@@ -1993,22 +1996,22 @@ Here are two examples of paths providing order information, with $(I,J)=(\{1,7\}
 \end{example}
 
 This order far from being arbitrary provides the unique way to order an essential complementary partition pair into an ordered partition pair of $\LAD$, as we shall demonstrate next.
-First we need a geometrical result. 
+First, we need a geometrical result. 
 
 \begin{proposition}
     \label{prop:geometrical-IJ}
-    The paths between adjacents vertices of $\sigma$ or $\tau$ are in bijection with the minimal $(I,J)$-pairs (see \cref{s:diagonals-permutahedra}).
+    The paths between adjacent vertices of $\sigma$ or $\tau$ are in bijection with the minimal $(I,J)$-pairs (see \cref{s:diagonals-permutahedra}).
 \end{proposition}
 
 \begin{proof}
     By \cref{p:minimal-IJ-pairs}, it suffices to show that the paths between adjacent vertices of $\sigma$ are in bijection with the solutions of the system of equations of the form $(\rho^1,\sigma^2)$. 
-    To ease notation let us write $\rho$ for $\rho^1$ and $\sigma$ for $\sigma^1$. 
+    To ease notation, let us write $\rho$ for $\rho^1$ and $\sigma$ for $\sigma^1$. 
     Suppose that $\rho$ is obtained from $\sigma$ by merging the two blocks $\sigma_a$ and $\sigma_b$. 
     The two equations $\langle \vec \sigma_a, x \rangle =0$ and $\langle \vec \sigma_b, x \rangle =0$ now become $\langle \vec \sigma_a + \vec \sigma_b, x \rangle =0$; nothing else changes in the system. 
     Since the solution to the system $(\sigma^1,\sigma^2)$ was $x=0$, now the solution is of dimension $1$, and it is given precisely by the path between $a$ and $b$.
     Such a path is given by an alternating sequence of vertices and edges $\sigma_1 \eqdef \sigma_a, e_1, \sigma_2, e_2, \ldots, e_{k-1}, \sigma_k \eqdef \sigma_b$. 
     Every edge $e_i \in \{1,\ldots, n\}$ is by definition the intersection $\sigma_{i} \cap \sigma_{i+1}$; thus it is the only common non-zero coordinate between $\vec \sigma_{i}$ and $\vec \sigma_{i+1}$.
-    Thus the path encodes the series of equations $x_{e_1}+x_{e_{k-1}}=0$, $x_{e_1}+x_{e_2}=0$, $x_{e_2}+x_{e_3}=0$, $\ldots$, $x_{e_{k-2}}+x_{e_{k-1}}=0$. 
+    Thus, the path encodes the series of equations $x_{e_1}+x_{e_{k-1}}=0$, $x_{e_1}+x_{e_2}=0$, $x_{e_2}+x_{e_3}=0$, $\ldots$, $x_{e_{k-2}}+x_{e_{k-1}}=0$. 
     Thus, $x_{e_1}=1$, $x_{e_2}=-1$, $x_{e_3}=1$, $\ldots$, $x_{e_{k-2}}=1$, $x_{e_{k-1}}=-1$ is a basis of one-dimensional space of solutions, and it gives the corresponding minimal $(I,J)$-pair. 
 \end{proof}
 
@@ -2028,7 +2031,7 @@ Suppose that $I,J$ corresponds to a path between two vertices on the left, i.e.
 \end{align*}
 By construction we have that $(I = \{i_1,\dots,i_k\},J=\{j_1,\dots,j_k\}) \in \LA(n)$ (note we are ordering $I$ and $J$ by the path, so it is not necessarily the case that $\min I = i_1$). 
 Furthermore, each block of $\tau$ either contains a single element of $I$ and a single element of $J$, or it contains no elements of $I$ and no elements of $J$. 
-As such for any ordering of the blocks of $\tau$ we have that
+As such, for any ordering of the blocks of $\tau$ we have that
 \begin{align*}
     \forall m, \bigg|\bigcup_{1\leq k \leq m} \tau_{k} \cap I \bigg| = \bigg|\bigcup_{1\leq k \leq m} \tau_{k} \cap J \bigg| \ .
 \end{align*}
@@ -2056,8 +2059,8 @@ and this can only happen if $\tau_r$ comes before $\tau_{r'}$.
 To complete the proof of \cref{thm:facets}, it remains to show that both $u:\LAD \to \EC$ and $o:\EC\to \LAD$ are injective, with the other function being their inverse.
 
 \begin{proof}[{Proof of \cref{thm:facets}}]
-The forgetful function $u$ is clearly the inverse to $o$ as forgetting any assigned order will clearly return the original essential complementary partition pair. 
-The ordering function $o$ is the inverse to $u$ as it returns the sole ordering of the blocks which is compatible with the $\LA(n)$ conditions.
+The forgetful function $u$ is clearly the inverse to $o$, as forgetting any assigned order will clearly return the original essential complementary partition pair. 
+The ordering function $o$ is the inverse to $u$, as it returns the sole ordering of the blocks which is compatible with the $\LA(n)$ conditions.
 \end{proof}
 
 So, we have the follow characterisation of facets of the $\LAD$ and $\SUD$ diagonals (the second one being obtained by changing slightly \cref{const:total} according to the definition of the $\SU$ order).
@@ -2133,7 +2136,7 @@ Note that the composite $\LAD \xrightarrow{u} \EC \xrightarrow{o} \SUD$ provides
 
 \subsection{Vertices of operadic diagonals}
 
-We are now interested in characterizing the pairs of vertices that occur in the diagonal, that is pairs of permutations $(\sigma_1,\sigma_2) \in \triangle$. 
+We are now interested in characterizing the pairs of vertices that occur in the diagonal, that is, pairs of permutations $(\sigma_1,\sigma_2) \in \triangle$. 
 
 \begin{theorem} There exists $(I,J) \in D(n)$ such that $\forall k, |\sigma_1^1\cdots\sigma_1^k \cap I| \leq |\sigma_1^1\cdots\sigma_1^k \cap J|$ and $\forall l, |\sigma_1^1\cdots\sigma_1^l \cap I| \geq |\sigma_1^1\cdots\sigma_1^l \cap J|$ (diagonal condition) if and only if $\exists (I',J')=(\{i_1,\ldots,i_m\},\{j_1,\ldots,j_m\}) \in D(m)$, $m\leq n$, such that \[\sigma_1 \cap (I'\cup J')=j_1 i_1 j_2 i_2 \cdots j_n i_n \] and \[ \sigma_2 \cap (I'\cup J') = i_2 j_1 i_3 j_2 \cdots i_n j_{n-1} i_1 j_n \ , \] where $i_1 = \min (I' \cup J')$ (fish condition). 
 \end{theorem}
@@ -2213,6 +2216,7 @@ Through this Section, we use similar notation to the recent paper \cite{saneblid
 \subsection{Strong complementary pairs}
 
 \begin{definition}[Strong complementary pairs]
+\label{def:strong-complementary-pairs}
 A \emph{strong complementary pair ($\SCP$ for short)} is a pair of ordered partitions $(\sigma,\tau)$ where $\sigma$ is obtained from a permutation by merging the adjacent elements which are decreasing, and $\tau$ is obtained from the same permutation by merging the adjacent elements which are increasing.
 \end{definition}
 
@@ -2360,6 +2364,7 @@ We shall concentrate on two distinct families of shifts:
 and show that specific sequences generate the same diagonal. 
 
 \begin{definition}[Admissible sequences of shifts]
+    \label{def:admissible-shift-sequences}
     Let $(\sigma,\tau)$ be a pair of ordered partitions. 
     For~$p\geq 1$, a sequence of right shifts $\textbf{M} = (M_{i_1},\dots,M_{i_p}) \in [n]^{p}$ is 
     \begin{enumerate}[(a)]
@@ -2818,6 +2823,7 @@ By the definition of the $(I,J)$ diagonal, the fact that $\tau_l < \tau_j$ impli
 \end{proof}
 
 \begin{example}
+\label{ex:proof-inverse-shift}
 Here is an example of each of the cases in the prior proof. We display $1$, $2.a$, $2.b.i$ and, $2.b.ii$ respectively, reading the diagrams  from top-left to bottom-right. 
 
 \begin{center}
@@ -3018,8 +3024,12 @@ This is equivalent, via the isomorphism between $\LA$ and $\SU$ diagonals, to th
 
 \subsubsection{Shift Lattice Structure}
 
+In this section, we show that $\SUD$ 1-shifts admit a natural bounded lattice structure.
+Not only is this interesting in its own right, but the identified unique maximal elements of the lattice will be used later to establish an explicit link between the shift and cubical $\SUD$ diagonal definitions (\cref{sec:Cubical}).
+
 \begin{definition}
-Let $(\sigma,\tau) \in \SUD$. For $\rho \in [n]$, let $r_\rho$ (or $l_\rho$) be either $0$, or the maximal value of $m$ such that $R_\rho(\sigma,\tau)$ (resp. $L_\rho(\sigma,\tau)$) is a well-defined $m$-shift.
+Let $(\sigma,\tau) \in \SUD$. For $\rho \in [n]$, let $r_\rho$ (or $l_\rho$) be the maximal value of $m$ such that $R_\rho$ (resp. $L_\rho$) is a well-defined $m$-shift of $(\sigma,\tau)$, or $0$ if there are no such $m$-shifts.
+
 \end{definition}
 
 \begin{lemma}[$m$-shifts commute] \label{lem:m-shifts commute}
@@ -3047,7 +3057,7 @@ Then $L(\sigma,\tau)$ is a bounded lattice such that
     L(\sigma,\tau) \cong \prod_{\rho \in [n]} [r_\rho]
     \times \prod_{\rho \in [n]} [l_\rho]
 \end{align*}
-where $[n] = (0<1...<n)$.
+where the maximal shifts $r_\rho,l_\rho$ are calculated with respect to $(\sigma,\tau)$.
 \end{proposition}
 
 \begin{proof}
@@ -3060,14 +3070,14 @@ The maximum element of the lattice is thus given by starting with $(\sigma,\tau)
 
 \end{proof}
 
-\Kurt{Can extend the lattice to all elements by pairing with permutahedra lattice in natural fashion. Probably a term for this type construction.
-Surely there is a result that says if you substitute a bounded lattice into a point of another bounded lattice, that there is a natural lattice structure on the composite?
-}
+\Kurt{Can extend the lattice to all elements by pairing with permutahedra lattice in natural fashion. 
+This seems to be an instance of there existing an operad structure on bounded lattices with finite labelled elements. 
+Surely this is known?}
 
 The maximal $m$-shift for an element $\rho$ of a $SCP$ can be explicitly calculated as follows. 
 
-\begin{lemma} \label{lem:Formula for maximal m-shifts}
-Let $(\sigma,\tau)$ be an SCP, then for $\rho \in \sigma_i$,
+\begin{proposition}
+Let $(\sigma,\tau)$ be a SCP, then for $\rho \in \sigma_i$,
 \begin{align*}
     d_{\rho}^r :=& \{ m : m>0 \land \max \sigma_{i+m}>\rho\}, 
     &r_\rho = 
@@ -3086,60 +3096,14 @@ and for  $\rho \in \tau_i$
     \end{cases}
 \end{align*}
 
-\end{lemma}
+\end{proposition}
 \begin{proof}
 We show the formula holds for $r_\rho$ the case for $l_\rho$ is similar. 
-As $\sigma,\tau$ is an SCP, $\max \sigma_{k,k+1} = \max \sigma_{k+1}$. 
+As $\sigma,\tau$ is a SCP, $\max \sigma_{k,k+1} = \max \sigma_{k+1}$. 
 From the equivalence of $1$-shifts and $m$-shifts there exists an $m$-shift of $\rho$ from $\sigma_i$, if, and only if, there exists a sequence of $1$-shifts each satisfying $\rho > \max \sigma_{j}$ for $i+1\leq j\leq i+m$.
 As such, the index $\min d_\rho^r$ identifies the first invalid $m$-shift,
 and hence $\min d_\rho^r-1$ is the biggest valid $m$-shift.
 If there are no invalid $m$-shifts then $d_\rho^r=\emptyset$, and the biggest valid $m$-shift, of size $|\sigma|-i$, places $\rho$ in the last block of $\sigma$.
-\end{proof}
-
-\begin{definition}
-Let $\sigma$ be an ordered partition. 
-\begin{enumerate}
-    \item Let $\sigma_*$ be the permutation resulting from writing out the blocks of $\sigma$ in increasing order.
-    \item Let $\sigma^*$ be the permutation resulting from writing out the blocks of $\sigma$ in decreasing order.
-\end{enumerate}
-\end{definition}
-An immediate observation is that the permutations $\sigma_*$ and $\sigma^*$ are the minimal and maximal vertices of the corresponding face of the permutahedra under the weak Bruhat order.
-\begin{lemma}
-If $(\sigma,\tau)$ is an SCP generated by a vertex $v$ then  $\sigma^* = \tau_*= v$.
-\end{lemma}
-\begin{proof}
-Immediate from definition.
-\end{proof}
-
-\begin{lemma}\label{lem: minimal vertex formulae}
-Let $(\sigma,\tau)$ be the SCP generated by the vertex $v$.
-Then,
-\begin{align*}
-    (R^{r_n}_{n}...R^{r_{1}}_{1}\sigma)_*= \rightshift{n} \rightshift{n-1}...\rightshift{1} \sigma^*
-\end{align*}
-where the shift operator $\rightshift{i}$ shifts the element $i$ past all elements to the right which are smaller than $i$. 
-Similarly,
-\begin{align*}
-    (L^{l_n}_{n}...L^{l_{1}}_{1}\tau)^* =\leftshift{n} \leftshift{n-1}...\leftshift{1} \tau_*
-\end{align*}
-where the shift operator $\leftshift{i}$ shifts $i$ past all elements to the left which are smaller than $i$. 
-\end{lemma}
-\begin{proof}
-We outline the proof for $\sigma$ and the result for $\tau$ follows similarly.
-We first note that the blocks of $\sigma$ can be identified from $\sigma^*$ by descending runs, each with the maximal element first.
-We then identify all shift operators as follows.
-The shift $R_\rho^{r_\rho}$ acting on $R^{r_{\rho-1}}_{\rho-1}...R^{r_{1}}_{1}\sigma$ is equivalent to the shift operator  $\rightshift{\rho}$ acting on $\rightshift{\rho-1}...\rightshift{1} \sigma^*$.
-In particular, if $\rho$ is in block $i$ then
-\begin{align*}
-    (...|\rho\sigma_{i,2}...\sigma_{i,k_i}|...|\sigma_{i+m,1}...\sigma_{i+m,k_{i+m}}|...) \mapsto (...| \sigma_{i,2}...\sigma_{i,k_i}|...|\sigma_{i+m,1}...\sigma_{i+m,k_{i+m}} \rho|...)
-\end{align*}
-Can be obtained by forgetting the order of the elements of the block and applying $R_\rho^{r_\rho}$, or by applying $\rightshift{\rho}$.
-We know that $\rightshift{\rho}$ places $\rho$ at the same position, as by definition $\sigma_{i+m}$ is either the last block, or the maximal (and hence first) element of the next block is larger than $\rho$.
-Note, that whenever we apply the shift $\rightshift{\rho}$, the element $\rho$ cannot be inhibited by elements of its own block. 
-This follows, as we firstly ordered the blocks of $\sigma$ in decreasing order through $\sigma^*$, and secondly we apply the shifts $\rightshift{i}$ in increasing order of elements, so prior shifts will not inhibit later shifts.
-Also observe that after applying the shift $\rightshift{i}$, that the $i$th element will be the last element of its block. Consequently, after applying all shift operators, each block will be in increasing order, hence $(R^{r_n}_{n}...R^{r_{1}}_{1}\sigma)_*= \rightshift{n} \rightshift{n-1}...\rightshift{1} \sigma^*$.
-
-
 \end{proof}
 
 \subsection{Shifts Under the Face Poset Isomorphism}
@@ -3184,7 +3148,7 @@ Similar definitions hold for admissible sequence of left shifts.
 
 We again stress that compared to the $\SU$ diagonals (\cref{def:classical-SU}), the left shift operators now act on the left ordered partition, and the right shift operators on the right ordered partition.
 
-\begin{proposition}
+\begin{proposition} \label{prop:trr is an isomorphism of shifts}
 Let $(\sigma,\tau) \in \LAD$.
 For each type of $\LA$ shift, let $\textbf{M},\textbf{N}$ be admissible sequences of this type, then 
 \begin{align*}
@@ -3504,7 +3468,7 @@ where we have aligned each element, of each diagonal, vertically with its dual e
 We first recall the alternate descriptions of the $\SUD$ diagonal from \cite{SaneblidzeUmble04} and\cite{saneblidzeComparingDiagonalsAssociahedra2022}, that we would like to transfer to $\LAD$. 
 In particular, we explicitly relate the matrix and cubical descriptions of the $\SUD$ diagonal, to the description of the $\SUD$ diagonal given in \cref{def:classical-SU}.
 \\\\
-We previously saw that SCPs and permutations are in bijection (\cref{def:Strong complementary pairs}). 
+We previously saw that SCPs and permutations are in bijection (\cref{def:strong-complementary-pairs}). 
 There is also a third equivalent way to encode this data, the \emph{step matrices} of Definition 6 of \cite{SaneblidzeUmble04}.
 Informally, given a permutation $\sigma$, start in the bottom left corner of a matrix, and write increasing sequences vertically, and decreasing sequences horizontally. All other entries are $0$. Here is an example permutation, its SCP, and its step matrix, with all $0$ entries omitted.
 \begin{center}
@@ -3579,7 +3543,7 @@ We define the set of \emph{configuration matrices} $\mathcal{C}$, to be those ma
 The set of configuration matrices are in bijection with the facets of $\SUD$.
 \end{proposition}
 \begin{proof}
-As configuration matrices have the same recursive description as the original $\SUD$ diagonal (\cref{def:classical-SU)}), and $SCP$s are in bijection with step matrices, the result immediately follows.
+As configuration matrices have the same recursive description as the original $\SUD$ diagonal (\cref{def:classical-SU}), and $SCP$s are in bijection with step matrices, the result immediately follows.
 \end{proof}
 
 As a result of the face poset isomorphism $t(r\times r)$ we also immediately obtain a matrix description of the $\LA$ diagonal.
@@ -3676,17 +3640,14 @@ Surely, their decomposition of the cube must force their defined diagonal to res
 \\\\
 In \cite{SaneblidzeUmble04} Saneblidze and Umble first identified their diagonal through subdivisions of the $(n-1)$-cube by the permutahedra $P_{n}$.
 In this section, we detail the connection between their shift definition and their matrix definition.
-First we recall the necessary definitions, providing alternate characterisations and properties.
+First, we recall the necessary definitions, providing alternate characterisations and properties.
 Then we present their alternate formulae for the $SU$ diagonal.
 Finally, we present the alternate formula for the $LA$ diagonal induced by the isomorphism $t(r\times r)$.
 
 \subsubsection{Definitions}
 
-\Kurt{Need a rethink on notation, have some clashes, but I think the proof works.
-Should also rethink organisation, maybe some of the lattice results should be in here.
-}
 
-We present and characterise all definitions in full, before giving a protracted example (\cref{ex:subdivision cubes}).
+We present and characterise all definitions in full, each of these definitions will be clarified in \cref{ex:subdivision cubes}.
 Let $1$ denote a trivial subdivision of the $0$-cube (a point), then we can subdivide the $(n-1)$-cube by weaving $n$ through the previous subdivision of the $(n-2)$-cube. 
 In particular, for every face of $\sigma = \sigma_1|...|\sigma_k \in P_{n-1}$, for $0<i<k$ we define
 $n_j := \#(\sigma_{k-i+1}\cup...\cup \sigma_k)$, and 
@@ -3752,46 +3713,53 @@ The unique maximal/minimal $k$-faces are defined to be the unique $k$-faces adja
 \end{proof}
 
 We will denote these maximal and minimal $k$-faces by $\overline{C}$ and $\underline{C}$.
-We need an explicit way to calculate $k$-subdivision cubes, and it turns out it is easier to calculate the minimal/maximal vertices, as follows.
+We need an explicit way to identify/calculate $k$-subdivision cubes. \Kurt{Could maybe go by minimal/maximal $k$-faces instead, but seemed less obvious to me.}
+As a $k$-subdivision cube of $I_{n-1}$ is a $k$-cube, its maximal and minimal vertices are connected by straight lines of edges of $P_{n}$, corresponding to stepping along the edges of the cube.
+From the inductive description of \cref{eq:In inductive def}, we know that each edge of the cube is associated to (possibly multiple) shifts of one particular element $i$.
+As such, we know that there must be many paths from the maximal vertex to the minimal vertex that shifts each element to its final position, and then never touches that element again.
+Given the inductive description of $I_{n-1}$, the existence of the particular path of the following lemma is sufficient to identify we have a $k$-subdivision cube.
 
 \begin{lemma} \label{lem:subdiv cubes are intervals}
-A $k$-subdivision cube corresponds to an interval $[\overrightarrow{v},v]$ of $P_n$, where $v$ is the unique maximal vertex, and 
+A $k$-subdivision cube corresponds to an interval $[{v},\overleftarrow{v}]$ of $P_n$, where $v$ is the unique minimal vertex, and
 \begin{align*}
-    \overrightarrow{v}:= \rightshiftk{n}{k_{1}}... \rightshiftk{n-1}{k_{n-1}}\rightshiftk{n}{k_{n}}v
+    \overleftarrow{v} :=\leftshiftk{n}{s_n}\leftshiftk{n-1}{s_{n-1}}...\leftshiftk{1}{s_1}v
 \end{align*}
-where the $\rightshiftk{i}{k_{i}}$ shifts element $i$ past $k_i$ elements to the right which are smaller than $i$. 
-Dually, a $k$-subdivision cube corresponds to an interval $[{v},\overleftarrow{v}]$ of $P_n$, where $v$ is the unique minimal vertex, and
+where $\leftshiftk{i}{s_i}$ shifts element $i$ past $s_i$ elements to the right which are smaller than $i$.
+Dually, a $k$-subdivision cube corresponds to an interval $[\overrightarrow{v},v]$ of $P_n$, where $v$ is the unique maximal vertex, and 
 \begin{align*}
-    \overleftarrow{v} :=\leftshiftk{n}{k_{n}}\leftshiftk{n-1}{k_{n-1}}...\leftshiftk{n}{k_{1}}v
+    \overrightarrow{v}:= \rightshiftk{1}{s_1}... \rightshiftk{n-1}{s_{n-1}}\rightshiftk{n}{s_n}v
 \end{align*}
-where $\leftshiftk{i}{k_{i}}$ shifts element $i$ past $k_i$ elements to the right which are smaller than $i$.
+where the $\rightshiftk{i}{s_i}$ shifts element $i$ past $s_i$ elements to the right which are smaller than $i$. 
 \end{lemma}
 \begin{proof}
-We first show inductively that every interval of the form $[\overrightarrow{v},v]$ is a $k$-subdivision cube.
+We now show inductively that every interval of the form $[v,\overleftarrow{v}]$ is a $k$-subdivision cube.
 The interval $[v,v]$ consisting of just the vertex $v$ is a trivial subdivision cube.
 We make the inductive assumption, that when the formula for
-$\overrightarrow{v}$ uses precisely $k$ non-zero shifts ($k_i$), then $[\overrightarrow{v},v]$ is a $k$-subdivision cube.
-Let $\overrightarrow{v}$ uses precisely $k+1$ non-zero shifts, and let $i$ be the smallest element shifted.
+$\overleftarrow{v}$ uses precisely $k$ non-zero shifts ($s_i$), then $[v,\overleftarrow{v}]$ is a $k$-subdivision cube.
+Let $\overleftarrow{v}$ use precisely $k+1$ non-zero shifts, and let $i$ be the largest element shifted, i.e. $\overleftarrow{v} = \leftshiftk{i}{s_{i}} ...\leftshiftk{1}{s_1}v$.
 By the inductive assumption, we know that 
-$[\overrightarrow{s_{i+1}}^{k_{i+1}}... \rightshiftk{n-1}{k_{n-1}}\rightshiftk{n}{k_{n}}v, v]$ is a subdivision cube.
-Then from \cref{eq:In inductive def} it follows that $[\overrightarrow{v},v]$
-must also be a subdivision cube.
+$[v, \leftshiftk{i-1}{s_{i-1}} ...\leftshiftk{1}{s_1}v]$ is a $k$-subdivision cube.
+Then from \cref{eq:In inductive def} it follows that $[v,\overleftarrow{v}]$
+must be a $(k+1)$-subdivision cube, i.e. we are weaving a larger element through the faces. \Kurt{nah this is surely true but needs something more.}
 \\\\
-We now show that every subdivision cube is an interval of the form $[\overrightarrow{v},v]$.
+We now show that every subdivision cube is an interval of the form $[v,\overleftarrow{v}]$.
 By \cref{eq:In inductive def}, we know that every edge of the $I_{n-1}$ is associated to a shift of a particular element $i$.
-Let $I_v$ be the set of elements associated to the edges touching the maximal vertex $v$.
-We now construct a formula for the minimal vertex in terms of shift operators, i.e. $\overrightarrow{v}$.
-For all $i \not \in I_v$ let $k_i=0$.
-Starting at the maximal vertex $v$, let $i$ be the largest element of $I_v$.
-Follow the edge associated to $i$ to the next corner of the $k$ subdivision cube, counting the number of edges of $I_{n-1}$ used to determine $k_i$, and then remove $i$ from $I_v$.
-Repeat this process until $I_v = \emptyset$, at which point we have reached the minimal vertex.
+Let $I_v$ be the set of elements associated to the edges touching the minimal vertex $v$.
+We now construct a formula for the maximal vertex in terms of shift operators, i.e. $\overleftarrow{v}$.
+For all $i \not \in I_v$ let $s_i=0$.
+Starting at the minimal vertex $v$, let $i$ be the largest element of $I_v$.
+Follow the edge associated to $i$ to the next corner of the $k$ subdivision cube, counting the number of edges of $I_{n-1}$ used to determine $s_i$, and then remove $i$ from $I_v$.
+Repeat this process until $I_v = \emptyset$, at which point we have reached the maximal vertex.
+\\\\
+The dual result is obtained from the observation that if we are given an interval $[{v},\overleftarrow{v}]$, that $u  = \overleftarrow{v}$ implies that under the same shift indices $s_i$, that $\overrightarrow{u}=v$.
+
 \end{proof}
 
 We now define a particular paring of subdivision cubes, our used notation will be clarified in the trailing proposition.
 
 \begin{definition} [\cite{saneblidzeComparingDiagonalsAssociahedra2022}]\label{def:ev}
 Let $e$ be a cell of $P_n$ and let $\mathcal{V}_e$ be the set of vertices in $e$.
-For a given vertex $v \in \mathcal{V}_e$, we define $e_v$ to be set of all pairs $(C_\sigma,C_\tau)$ of $k_1,k_2$ subdivision cubes such that
+For a given vertex $v \in \mathcal{V}_e$, we define $\subdivpairsv$ to be the set of all pairs $(C_\sigma,C_\tau)$ of $k_1,k_2$ subdivision cubes such that
 \begin{enumerate}
     \item $C_\sigma$ is a $k_1$-subdivision cube of $e$ with maximal vertex $v$.
     \item $C_\tau$ is a $k_2$-subdivision cube of $e$ with minimal vertex $v$.
@@ -3801,19 +3769,19 @@ For a given vertex $v \in \mathcal{V}_e$, we define $e_v$ to be set of all pairs
 The reason for denoting our pairs $(C_\sigma,C_\tau)$ is the following proposition.
 
 \begin{proposition}\label{prop:ev properties}
-The pairs $e_v$ satisfy the following properties,
+The pairs $\subdivpairsv$ satisfy the following properties,
 \begin{enumerate}
-    \item The SCP $(\sigma,\tau) \in e_v$.
-    \item All pairs $(C_\sigma,C_\tau) \in e_v$ have the same dimensions and these are determined by the number of blocks in the SCP. In particular, $k_1=|\sigma|$ and $k_2 = |\tau|$. 
-    \item For all $(C_\sigma,C_\tau) \in e_v$, $\overline{C_\sigma} = \sigma$, and $\underline{C_\tau} = \tau$.
+    \item The SCP $(\sigma,\tau) \in \subdivpairsv$.
+    \item All pairs $(C_\sigma,C_\tau) \in \subdivpairsv$ have the same dimensions and these are determined by the number of blocks in the SCP. In particular, $k_1=|\sigma|$ and $k_2 = |\tau|$. 
+    \item For all $(C_\sigma,C_\tau) \in \subdivpairsv$, $\overline{C_\sigma} = \sigma$, and $\underline{C_\tau} = \tau$.
 \end{enumerate}
 \end{proposition}
 \begin{proof}
 The proofs in turn are as follows.
 \begin{enumerate}
-    \item The fact that the SCP is in $e_v$ follows directly from the definition of each.
+    \item The fact that the SCP is in $\subdivpairsv$ follows directly from the definition of each.
     \item If $(\sigma,\tau)$ is the SCP of $v$, then $\sigma$ is the largest $k_1$ face of $P_n$ with maximal vertex $v$, and $\tau$ is the largest $k_2$ face of $P_n$ with minimal vertex $v$.    
-    Suppose that exists $(C_1,C_2) \in e_v$ which are $k'_1, k'_2$ subdivision cubes where $k'_1\neq k_1$ (and $k'_2\neq k_2$).
+    Suppose that exists $(C_1,C_2) \in \subdivpairsv$ which are $k'_1, k'_2$ subdivision cubes where $k'_1\neq k_1$ (and $k'_2\neq k_2$).
     If $k'_1< k_1$, then it must be the case that $k'_2> k_2$.
     As this requires the existence of a $k'_2$ face in $P_n$ with minimal vertex $v$, and we know that the $k_2$ face $\tau$ is the largest such face, we arrive at a contradiction.
     Assuming $k'_2<k_2$ yields a similar contradiction.
@@ -3824,26 +3792,53 @@ The proofs in turn are as follows.
 \end{proof}
 
 \begin{definition}
-Let ${e_v}_*$ denote the unique maximal pair of subdivision cubes in $e_v$ under inclusion.
+Let $\maxsubdivpairsv$ denote the unique maximal pair of subdivision cubes in $\subdivpairsv$ under inclusion.
 \end{definition}
-We provide an alternate characterisation, and prove the uniqueness of this definition in the next section (\cref{lem:unique interval desc of maximal subdiv pair}), but we first clarify all the definitions of this section through example.
+We establish the uniqueness of this definition with the following lemma that also provides a vertex interval characterisation.
+\begin{lemma} \label{lem:unique interval desc of maximal subdiv pair}
+The maximal pair of subdivision cubes $\maxsubdivpairsv$ is unique, and has the form
+\begin{align*}
+    \maxsubdivpairsv=[\rightshift{n} \rightshift{n-1}...\rightshift{1}v, v] \times [v, \leftshift{n} \leftshift{n-1}...\leftshift{1}v]
+\end{align*}
+where the shift operator $\rightshift{i}$ ($\leftshift{i}$) shifts the element $i$ past \emph{all} elements to the right (left) which are smaller than $i$.
+\end{lemma}
+\begin{proof}
+From \cref{lem:subdiv cubes are intervals}, we know that all $k_1$-subdivision cubes with maximal vertex $v$ are of the form
+$[\overrightarrow{v},v]$, and all $k_2$-subdivision cubes with minimal vertex $v$ are of the form $[{v},\overleftarrow{v}]$, where 
+\begin{align*}
+    \overrightarrow{v}:= \rightshiftk{n}{s_1}... \rightshiftk{n-1}{s_{n-1}}\rightshiftk{n}{s_n}v, \quad \overleftarrow{v} :=\leftshiftk{n}{s_n}\leftshiftk{n-1}{s_{n-1}}...\leftshiftk{n}{s_1}v
+\end{align*}
+As such, it is clear that $[\rightshift{n} \rightshift{n-1}...\rightshift{1}v, v]$ and $[v,\leftshift{n} \leftshift{n-1}...\leftshift{1}v]$ are not only $k_1,k_2$-subdivision cubes,
+but the particular subdivision cubes for which each shift $s_i$ is maximal.
+This tells us that all other subdivision cubes are enveloped by these maximal cubes.
+To see this, one can observe from the inductive description of $I_n$ (\cref{eq:In inductive def}) that the path from the minimal vertex of $\rightshift{n} \rightshift{n-1}...\rightshift{1}v$ to any other $\rightshiftk{n}{s_1}... \rightshiftk{n-1}{s_{n-1}}\rightshiftk{n}{s_n}v$ will remain within the $k_1$-cube $[\rightshift{n} \rightshift{n-1}...\rightshift{1}v,v]$, and similarly for the $k_2$.
+\end{proof}
+
+Finally, we clarify all the definitions of this section through example.
 
 \begin{example}\label{ex:subdivision cubes}
 Here is an example that is visually verifiable from the diagram of $I_3$ below.
 In $P_4$, let $e$ be the top-dimensional cell $1234$. Then the following sets of faces are all subdivision cubes of $e$ (for varying $k$)
 \begin{align*}
-    \{1234\}, \{1|234\}, \{1|234, 14|23\}, \{4|13|2\}, \{1|3|24,1|43|2,14|3|2\}.
+    \{1234\},\quad \{1|234\},\quad \{1|234, 14|23\},\quad \{1|3|24,1|43|2,14|3|2\}.
 \end{align*}
-The follow three sets of faces are not subdivision cubes of $e$,
+These subdivision cubes correspond to the following respective intervals under  \cref{lem:subdiv cubes are intervals},
 \begin{align*}
-    \{134|2, 14|23\}, \{1|234, 134|2, 14|23\}, \{1|2|34,1|23|4\}
+    [1|2|3|4,4|3|2|1],\quad [1|2|3|4,1|4|3|2],\quad [1|2|3|4,4|1|3|2],\quad [1|3|2|4, 4|1|3|2]
+\end{align*}
+An example of an interval of the weak Bruhat order which does not correspond to a subdivision cube is $[1|4|2|3,4|3|1|2]$.
+The following three sets of faces are not subdivision cubes of $e$,
+\begin{align*}
+    \{134|2, 14|23\},\quad \{1|234, 134|2, 14|23\}, \quad \{1|2|34,1|23|4\}
 \end{align*}
 For $v = \blue{\mathbf{4|3|1|2}}$, the SCP is $\sigma\times \tau = \blue{\mathbf{134|2\times 4|3|12}}$, $k_1=2$, $k_2=3$, the only $k_2$-subdivision cube with minimal vertex $v$ is $4|3|12$, and the three $k_1$-subdivision cubes are
 \begin{align*}
     \{134|2\}, \{13|24, 134|2\}, \{ 1|234, 13|24, 14|23, 134|2\}
 \end{align*}
-This defines $e_v$, and thus ${e_v}_*=\{ 1|234, 13|24, 14|23, 134|2\} \times \{4|3|12\}$.
-Observe that $\sigma = \blue{\mathbf{134|2}}$ admits $3$ different sequences of admissible rights shifts, their images are $\red{\mathbf{13|24}}$ , $\red{\mathbf{14|23}}$, $\red{\mathbf{1|234}}$,
+
+This defines $\subdivpairsv$, and thus $\maxsubdivpairsv=\{ 1|234, 13|24, 14|23, 134|2\} \times \{4|3|12\}$.
+Under \cref{lem:unique interval desc of maximal subdiv pair}, the vertex interval characterisation is $[1|2|3|4, 4|3|1|2] \times [4|3|1|2, 4|3|2|1]$.
+To relate shifts to these subdivision cubes, observe that $\sigma = \blue{\mathbf{134|2}}$ admits $3$ different sequences of admissible rights shifts, their images are $\red{\mathbf{13|24}}$ , $\red{\mathbf{14|23}}$, $\red{\mathbf{1|234}}$,
 and that $\tau = \blue{\mathbf{4|3|12}}$ admits no left shifts.
 These shifts are illustrated on $I_3$ below.
 \begin{center}
@@ -3862,7 +3857,7 @@ These shifts are illustrated on $I_3$ below.
 \end{center}
 
 The reader should observe two points key  points from this example.
-Firstly, all shifts are present in ${e_v}_*$.
+Firstly, all shifts are present in $\maxsubdivpairsv$.
 Secondly, the explicit relationship between shifts and the other $k$-subdivision cubes is subtle.
 One might expect that the right shifts of $\sigma$ would correspond to the minimal $k_1$-faces of the $k_1$ subdivision cubes.
 This example shows this is not the case, as there are four shifts of $\sigma$ (including the trivial shift), but only three $k_1$ subdivision cubes with maximal vertex $v$.
@@ -3872,50 +3867,67 @@ In particular, $\{14|23, 134|2\}$ is not a $k_1$ subdivision cube.
 
 \subsubsection{Linking Cubical to Shift}
 
-Recall that in \cref{lem: minimal vertex formulae} we found that the minimal vertices of the maximal shifts of a SCP $(\sigma,\tau)$ satisfied the following formulae.
+We now seek to link these cubical definitions to the prior shift definitions, and to do so we will exploit the lattice description of \cref{prop:shift lattice}.
+In particular, we seek to relate $\maxsubdivpairsv$ and the maximal element of the shift lattice $(R^{r_n}_{n}...R^{r_{1}}_{1}\sigma, L^{l_n}_{n}...L^{l_{1}}_{1}\tau)$.
+
+\begin{definition}
+Let $\sigma$ be an ordered partition. 
+\begin{enumerate}
+    \item Let $\sigma_*$ be the permutation resulting from writing out the blocks of $\sigma$ in increasing order.
+    \item Let $\sigma^*$ be the permutation resulting from writing out the blocks of $\sigma$ in decreasing order.
+\end{enumerate}
+\end{definition}
+An immediate observation is that the permutations $\sigma_*$ and $\sigma^*$ are the minimal and maximal vertices of the corresponding face of the permutahedra under the weak Bruhat order.
+\begin{lemma}
+If $(\sigma,\tau)$ is a SCP generated by a vertex $v$, then  $\sigma^* = \tau_*= v$.
+\end{lemma}
+\begin{proof}
+Immediate from definition.
+\end{proof}
+
+\begin{lemma}\label{lem: minimal vertex formulae}
+Let $(\sigma,\tau)$ be the SCP generated by the vertex $v$.
+Then,
 \begin{align*}
-    (R^{r_n}_{n}...R^{r_{1}}_{1}\sigma)_*&= \rightshift{n} \rightshift{n-1}...\rightshift{1} \sigma^*, \quad
-    (L^{l_n}_{n}...L^{l_{1}}_{1}\tau)^* =\leftshift{n} \leftshift{n-1}...\leftshift{1} \tau_*
-\end{align*}
-where the shift operator $\rightshift{i}$, $\leftshift{i}$ shifts the element $i$ past all elements to the right/left which are smaller than $i$. 
-From this result we obtain the following.
-\begin{lemma} \label{lem:unique interval desc of maximal subdiv pair}
-The maximal pair of subdivision cubes ${e_v}_*$ is unique, and has the form
-\begin{align*}
-    {e_v}_*=[\rightshift{n} \rightshift{n-1}...\rightshift{1}v, v] \times [v, \leftshift{n} \leftshift{n-1}...\leftshift{1}v]
+    (R^{r_n}_{n}...R^{r_{1}}_{1}\sigma)_*= \rightshift{n} \rightshift{n-1}...\rightshift{1} v, \quad
+    (L^{l_n}_{n}...L^{l_{1}}_{1}\tau)^* =\leftshift{n} \leftshift{n-1}...\leftshift{1} v
 \end{align*}
 \end{lemma}
 \begin{proof}
-From \cref{lem:subdiv cubes are intervals}, we know that all $k_1$-subdivision cubes with maximal vertex $v$ are of the form
-$[\overrightarrow{v},v]$, and all $k_2$-subdivision cubes with minimal vertex $v$ are of the form $[{v},\overleftarrow{v}]$, where 
+We outline the proof for $\sigma$ and the result for $\tau$ follows similarly.
+We first note that the blocks of $\sigma$ can be identified from $\sigma^*$ by descending runs, each with the maximal element first.
+We then identify all shift operators as follows.
+The shift $R_\rho^{r_\rho}$ acting on $R^{r_{\rho-1}}_{\rho-1}...R^{r_{1}}_{1}\sigma$ is equivalent to the shift operator  $\rightshift{\rho}$ acting on $\rightshift{\rho-1}...\rightshift{1} \sigma^*$.
+In particular, if $\rho$ is in block $i$ then
 \begin{align*}
-    \overrightarrow{v}:= \rightshiftk{n}{k_{1}}... \rightshiftk{n-1}{k_{n-1}}\rightshiftk{n}{k_{n}}v, \quad \overleftarrow{v} :=\leftshiftk{n}{k_{n}}\leftshiftk{n-1}{k_{n-1}}...\leftshiftk{n}{k_{1}}v
+    (...|\rho\sigma_{i,2}...\sigma_{i,k_i}|...|\sigma_{i+m,1}...\sigma_{i+m,k_{i+m}}|...) \mapsto (...| \sigma_{i,2}...\sigma_{i,k_i}|...|\sigma_{i+m,1}...\sigma_{i+m,k_{i+m}} \rho|...)
 \end{align*}
-As such, it is clear that $[\rightshift{n} \rightshift{n-1}...\rightshift{1}v, v]$ and $[v,\leftshift{n} \leftshift{n-1}...\leftshift{1}v]$ are not only $k_1,k_2$-subdivision cubes,
-but the particular subdivision cubes for which each shift $k_i$ is maximal.
-This tells us that all other subdivision cubes are enveloped by these maximal cubes.
-To see this one can observe from the inductive description of $I_n$ (\cref{eq:In inductive def}) that the path from the minimal vertex of $\rightshift{n} \rightshift{n-1}...\rightshift{1}v$ to any other $\rightshiftk{n}{k_{1}}... \rightshiftk{n-1}{k_{n-1}}\rightshiftk{n}{k_{n}}v$ will remain within the $k_1$-cube $[\rightshift{n} \rightshift{n-1}...\rightshift{1}v,v]$, and similarly for the $k_2$.
+Can be obtained by forgetting the order of the elements of the block and applying $R_\rho^{r_\rho}$, or by applying $\rightshift{\rho}$.
+We know that $\rightshift{\rho}$ places $\rho$ at the same position, as by definition $\sigma_{i+m}$ is either the last block, or the maximal (and hence first) element of the next block is larger than $\rho$.
+Note, that whenever we apply the shift $\rightshift{\rho}$, the element $\rho$ cannot be inhibited by elements of its own block. 
+This follows, as we firstly ordered the blocks of $\sigma$ in decreasing order through $\sigma^*$, and secondly we apply the shifts $\rightshift{i}$ in increasing order of elements, so prior shifts will not inhibit later shifts.
+Also observe that after applying the shift $\rightshift{i}$, that the $i$th element will be the last element of its block. Consequently, after applying all shift operators, each block will be in increasing order, hence $(R^{r_n}_{n}...R^{r_{1}}_{1}\sigma)_*= \rightshift{n} \rightshift{n-1}...\rightshift{1} \sigma^*$.
 \end{proof}
 
 As such we obtain,
 \begin{proposition}[Formula (3) of \cite{saneblidzeComparingDiagonalsAssociahedra2022}]
 Let $v$ be a vertex of $P_n$, then
 \begin{align*}
-    e_v^* = \bigcup_{\mathbf{M},\mathbf{N}} R_\mathbf{M}(\sigma) \times L_{\mathbf{N}}(\tau)
+    \maxsubdivpairsv = \bigcup_{\mathbf{M},\mathbf{N}} R_\mathbf{M}(\sigma) \times L_{\mathbf{N}}(\tau)
 \end{align*}
 where $\mathbf{M},\mathbf{N}$ are admissible sequences of $SU$ shifts.
 \end{proposition}
 \begin{proof}
 From Lemmas \ref{lem:unique interval desc of maximal subdiv pair} and \ref{lem: minimal vertex formulae}, we know that 
-$e_v^* = [(R^{r_n}_{n}...R^{r_{1}}_{1}\sigma)_*,v] \times [v,(L^{l_n}_{n}...L^{l_{1}}_{1}\tau)^*]$, or in terms of $k_1,k_2$ faces,
-$e_v^* = [R^{r_n}_{n}...R^{r_{1}}_{1}\sigma,\sigma] \times [\tau, L^{l_n}_{n}...L^{l_{1}}_{1}\tau]$.
+$\maxsubdivpairsv = [(R^{r_n}_{n}...R^{r_{1}}_{1}\sigma)_*,v] \times [v,(L^{l_n}_{n}...L^{l_{1}}_{1}\tau)^*]$, or in terms of $k_1,k_2$ faces,
+$\maxsubdivpairsv = [R^{r_n}_{n}...R^{r_{1}}_{1}\sigma,\sigma] \times [\tau, L^{l_n}_{n}...L^{l_{1}}_{1}\tau]$.
 Using the lattice description of \cref{prop:shift lattice} we now argue that the set equality is true.
 \\\\
 Every $k$-face in $P_n$ has a unique description as a shift $R^{r'_n}_{n}...R^{r'_{1}}_{1}\sigma$ if we allow for the possibility of negative values of $r'_i$, which logically correspond to left shits.
 Under this description $\sigma = R^{0}_{n}...R^{0}_{1}\sigma$.
 From the inductive description of $I_{n-1}$ (\cref{eq:In inductive def}) it clear that a $k_1$ face $R^{r'_n}_{n}...R^{r'_{1}}_{1}\sigma$ is in $[R^{r_n}_{n}...R^{r_{1}}_{1}\sigma,R^{0}_{n}...R^{0}_{1}\sigma]$ if and only if for all $i$ we have that $r_{i}\geq r'_i \geq 0$.
 However, this is precisely the description of $R_\mathbf{M}(\sigma)$ under the lattice description (\cref{prop:shift lattice}).
-The $k_2$ faces of ${e_v}_*$ are similarly characterised, and the result follows.
+The $k_2$ faces of $\maxsubdivpairsv$ are similarly characterised, and the result follows.
 \end{proof}
 We note that in the prior proof, the only shifts $R_\mathbf{M}(\sigma) \times L_{\mathbf{N}}(\tau)$ that we associate to an explicit subdivision cube pair are the maximal shift pairs.
 This avoids any issues caused by not all shifts being associated to subdivision cubes (see for instance \cref{ex:subdivision cubes}).
@@ -3923,7 +3935,7 @@ As a consequence of this result, we obtain the alternate formula for the $\SU$ d
 
 \begin{proposition}[Formula (1) and (3) \cite{saneblidzeComparingDiagonalsAssociahedra2022}]
 \begin{align*}
-    \SUD([n]) = \bigcup_{v \in P_n} e_v^*
+    \SUD([n]) = \bigcup_{v \in P_n} \maxsubdivpairsv
 \end{align*}
 \end{proposition}
 
@@ -3985,7 +3997,7 @@ Where the vertical arrows are both the bijection between SCPs and permutations.
 
 This tells us, \Kurt{think on best way to do this}
 
-From here, there is no need to alter the definition of $k$-subdivision cubes, or ${e_v}$, or ${e_v}_*$.
+From here, there is no need to alter the definition of $k$-subdivision cubes, or ${\subdivpairsv}$, or $\maxsubdivpairsv$.
 This is due to the symmetric nature of the later definitions.
 We note however, that due to switching the the $LA$ diagonal, the right shifts will be associated to the $k_2$-subdivision cubes with minimal vertex $v$, and the left shifts will be associated to the $k_1$-subdivision cubes with maximal vertex $v$.
 As clarifying example, the image of the SCP and shifts of \cref{ex:subdivision cubes} under the isomorphism $t(r\times r)$ are displayed on $I^{\LA}_3$ below.
@@ -4009,14 +4021,14 @@ As clarifying example, the image of the SCP and shifts of \cref{ex:subdivision c
 Indeed it is the case that the maximal $k_2$-subdivision cube with minimal vertex $v$ contains all the right shifts of the 
 
 \begin{align*}
-    t(r\times r) (e_v^*) = t(r\times r) (\bigcup_{\mathbf{M},\mathbf{N}} R_\mathbf{M}^{\SU}(\sigma) \times L_{\mathbf{N}}^{\SU}(\tau)) = 
+    t(r\times r) (\maxsubdivpairsv) = t(r\times r) (\bigcup_{\mathbf{M},\mathbf{N}} R_\mathbf{M}^{\SU}(\sigma) \times L_{\mathbf{N}}^{\SU}(\tau)) = 
     \bigcup_{r\mathbf{M},r\mathbf{N}} L_{r\mathbf{N}}^{\LA}(r\sigma) \times R_{r\mathbf{M}}^{\LA}(r\tau) = e_{rv}^*
 \end{align*}
 
 \begin{proposition}
 Let $v$ be a vertex of $P_n$, then
 \begin{align*}
-    e_v^* = \bigcup_{\mathbf{M},\mathbf{N}} L_\mathbf{M}^{\LA}(\sigma) \times R_{\mathbf{N}}^{\LA}(\tau)
+    \maxsubdivpairsv = \bigcup_{\mathbf{M},\mathbf{N}} L_\mathbf{M}^{\LA}(\sigma) \times R_{\mathbf{N}}^{\LA}(\tau)
 \end{align*}
 where $\mathbf{M},\mathbf{N}$ are admissible sequences of $LA$ shifts.
 \end{proposition}
