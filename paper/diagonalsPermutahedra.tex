@@ -3073,6 +3073,7 @@ The maximum element of the lattice is thus given by starting with $(\sigma,\tau)
 \Kurt{Can extend the lattice to all elements by pairing with permutahedra lattice in natural fashion. 
 This seems to be an instance of there existing an operad structure on bounded lattices with finite labelled elements. 
 Surely this is known?}
+\Kurt{Does there exist a lattice structure, or a generalised notation of shifts for higher k?}
 
 The maximal $m$-shift for an element $\rho$ of a $SCP$ can be explicitly calculated as follows. 
 
@@ -3697,10 +3698,10 @@ Define $I_{n-1}$ to be the $(n-1)$-cube under this subdivision of $P_{n}$.
 Let $e$ be a cell in $P_{n}$ with dimension $|e|$,  a \emph{$k$-subdivision cube} of $e$ is a set of faces whose union is a $k$-subcube of $I_{n-1}$ for some $k\leq |e|$.
 \end{definition}
 
-A trivial example of $k$-subdivision cube is a $k$-face of $P_n$.
+A trivial example of $k$-subdivision cube is a $k$-face of $P_n$. 
 
 \begin{lemma}\label{lem:k-subdiv cubes have max/min k faces}
-A $k$-subdivision cube $C$ 
+A $k$-subdivision cube $C$,
 \begin{enumerate}
     \item has unique maximal and minimal vertices under the weak Bruhat order.
     \item has unique maximal and minimal $k$-faces.
@@ -3713,47 +3714,89 @@ The unique maximal/minimal $k$-faces are defined to be the unique $k$-faces adja
 \end{proof}
 
 We will denote these maximal and minimal $k$-faces by $\overline{C}$ and $\underline{C}$.
-We need an explicit way to identify/calculate $k$-subdivision cubes. \Kurt{Could maybe go by minimal/maximal $k$-faces instead, but seemed less obvious to me.}
-As a $k$-subdivision cube of $I_{n-1}$ is a $k$-cube, its maximal and minimal vertices are connected by straight lines of edges of $P_{n}$, corresponding to stepping along the edges of the cube.
-From the inductive description of \cref{eq:In inductive def}, we know that each edge of the cube is associated to (possibly multiple) shifts of one particular element $i$.
-As such, we know that there must be many paths from the maximal vertex to the minimal vertex that shifts each element to its final position, and then never touches that element again.
-Given the inductive description of $I_{n-1}$, the existence of the particular path of the following lemma is sufficient to identify we have a $k$-subdivision cube.
+We need an explicit way to identify/calculate $k$-subdivision cubes. 
+One less than optimal way to do so, is the following.
+\begin{lemma}\label{lem:Extremal paths implies cube}
+An interval $[u,v] \in P_n$ is a $k$-subdivision cube of $I_{n-1}$, if, and only if, the vertices $u$ and $v$ are connected by all $k!$ extremal edge paths in $I_{n-1}$.
+\end{lemma}
+\begin{proof}
+A $k$-subdivision cube of $I_{n-1}$ is a $k$-cube, so there must be $k! = \binom{k}{1}\binom{k-1}{1}...\binom{1}{1}$ extremal edge paths from its minimal vertex to the maximal vertex.
+Now for the opposite direction.
+From the inductive description of \cref{eq:In inductive def}, we know that each edge of $I_{n-1}$ is associated to (possibly multiple) shifts of one particular element $i$.
+As such, the extremal edge paths correspond to shifting a each element to its final position and then never touching it again. \Kurt{This feels almost tautological, but needs something...}
+
+\end{proof}
+
+We now refine this result to checking a single path.
+First we introduce some terminology, and a helper lemma.
+
+\begin{definition}[Vertex shift operators]
+Let $v$ be a vertex in $P_n$ and define the shift operators acting on $v$ to be,
+\begin{itemize}
+    \item $\leftshiftk{i}{s_i}$ ($\rightshiftk{i}{s_i}$) shifts element $i$ past $s_i$ elements to the left (right) which are smaller than $i$.
+    \item $\leftshift{i}$ ($\rightshift{i}$) shifts element $i$ past all elements to the left (right) which are smaller than $i$.
+\end{itemize}
+\end{definition}
+
+\begin{lemma}\label{lem:Interchanging shift operators}
+Let $v$ be a vertex in $P_n$ and let $i,j \in [n]$ such that $i<j$. If $\rightshiftk{i}{s_i}\rightshiftk{j}{s_j} v$ and $\leftshiftk{i}{s_i}\leftshiftk{j}{s_j} v$ are well-defined sequences of shift operators then $\rightshiftk{j}{s_j}\rightshiftk{i}{s_i} v$ and $\leftshiftk{j}{s_j}\leftshiftk{i}{s_i} v$ are also well-defined.
+Furthermore,
+\begin{align*}
+    \rightshiftk{i}{s_i}\rightshiftk{j}{s_j} v = \rightshiftk{j}{s_j}\rightshiftk{i}{s_i} v, \quad 
+    \leftshiftk{i}{s_i}\leftshiftk{j}{s_j} v = \leftshiftk{j}{s_j}\leftshiftk{i}{s_i} v
+\end{align*}
+\end{lemma}
+\begin{proof}
+As $j>i$, shifting $i$ before $j$ will never block $\rightshiftk{j}{s_j}$ or $\leftshiftk{j}{s_j}$. The equality is clear.
+\end{proof}
 
 \begin{lemma} \label{lem:subdiv cubes are intervals}
-A $k$-subdivision cube corresponds to an interval $[{v},\overleftarrow{v}]$ of $P_n$, where $v$ is the unique minimal vertex, and
-\begin{align*}
-    \overleftarrow{v} :=\leftshiftk{n}{s_n}\leftshiftk{n-1}{s_{n-1}}...\leftshiftk{1}{s_1}v
-\end{align*}
-where $\leftshiftk{i}{s_i}$ shifts element $i$ past $s_i$ elements to the right which are smaller than $i$.
-Dually, a $k$-subdivision cube corresponds to an interval $[\overrightarrow{v},v]$ of $P_n$, where $v$ is the unique maximal vertex, and 
+A $k$-subdivision cube is an interval $[\overrightarrow{v},v]$ of $P_n$, where $v$ is the unique maximal vertex, and 
 \begin{align*}
     \overrightarrow{v}:= \rightshiftk{1}{s_1}... \rightshiftk{n-1}{s_{n-1}}\rightshiftk{n}{s_n}v
 \end{align*}
-where the $\rightshiftk{i}{s_i}$ shifts element $i$ past $s_i$ elements to the right which are smaller than $i$. 
+Dually, a $k$-subdivision cube is an interval $[v,\overleftarrow{v}]$ of $P_n$, where $v$ is the unique minimal vertex, and 
+\begin{align*}
+    \overleftarrow{v} :=\leftshiftk{1}{s_1}...\leftshiftk{n-1}{s_{n-1}}\leftshiftk{n}{s_n}v
+\end{align*}
+In each case exactly $k$ shift increments ($s_i$) are non-zero.
 \end{lemma}
 \begin{proof}
-We now show inductively that every interval of the form $[v,\overleftarrow{v}]$ is a $k$-subdivision cube.
-The interval $[v,v]$ consisting of just the vertex $v$ is a trivial subdivision cube.
-We make the inductive assumption, that when the formula for
-$\overleftarrow{v}$ uses precisely $k$ non-zero shifts ($s_i$), then $[v,\overleftarrow{v}]$ is a $k$-subdivision cube.
-Let $\overleftarrow{v}$ use precisely $k+1$ non-zero shifts, and let $i$ be the largest element shifted, i.e. $\overleftarrow{v} = \leftshiftk{i}{s_{i}} ...\leftshiftk{1}{s_1}v$.
-By the inductive assumption, we know that 
-$[v, \leftshiftk{i-1}{s_{i-1}} ...\leftshiftk{1}{s_1}v]$ is a $k$-subdivision cube.
-Then from \cref{eq:In inductive def} it follows that $[v,\overleftarrow{v}]$
-must be a $(k+1)$-subdivision cube, i.e. we are weaving a larger element through the faces. \Kurt{nah this is surely true but needs something more.}
-\\\\
-We now show that every subdivision cube is an interval of the form $[v,\overleftarrow{v}]$.
-By \cref{eq:In inductive def}, we know that every edge of the $I_{n-1}$ is associated to a shift of a particular element $i$.
-Let $I_v$ be the set of elements associated to the edges touching the minimal vertex $v$.
-We now construct a formula for the maximal vertex in terms of shift operators, i.e. $\overleftarrow{v}$.
-For all $i \not \in I_v$ let $s_i=0$.
-Starting at the minimal vertex $v$, let $i$ be the largest element of $I_v$.
-Follow the edge associated to $i$ to the next corner of the $k$ subdivision cube, counting the number of edges of $I_{n-1}$ used to determine $s_i$, and then remove $i$ from $I_v$.
-Repeat this process until $I_v = \emptyset$, at which point we have reached the maximal vertex.
-\\\\
-The dual result is obtained from the observation that if we are given an interval $[{v},\overleftarrow{v}]$, that $u  = \overleftarrow{v}$ implies that under the same shift indices $s_i$, that $\overrightarrow{u}=v$.
+If we have a $k$-subdivision cube, then one of its extremal paths will be of the form
+$\rightshiftk{1}{s_1}... \rightshiftk{n}{s_n}$ ($\leftshiftk{1}{s_1}...\leftshiftk{n}{s_n}$) for some values of $s_i$.
+Conversely given extremal paths of this form, we can produce all other extremal paths via \cref{lem:Interchanging shift operators}. So the result follows.
 
 \end{proof}
+It is worth stressing that even if  $[\overrightarrow{v},v] = [u,\overleftarrow{u}]$ the paths checked by this lemma are generally not the same. Here is a clarifying example.
+\begin{example}
+We illustrate on the left (right) all $k$-subdivision cubes of $I_3$ with maximal vertex $4|3|2|1$ (with minimal vertex $1|2|3|4$)
+We indicate all subdivision cubes by their minimal (maximal) vertex, colouring it blue to indicate lines, purple for squares and red for cubes.
+In addition, we have directed the edges of each of the cubes so that the unique directed path from $4|3|2|1$ ($1|2|3|4$) to the minimal (maximal) vertex is the path of \cref{lem:subdiv cubes are intervals}.
+{\scriptsize
+\begin{center}
+\begin{tikzcd}[sep=0.15cm,scale=0.8]
+& \color{blue}{4|2|1|3} \arrow[rr,dash,leftarrow] \arrow[dd,dash,dotted] \arrow[dl] & & \color{blue}{4|2|3|1} \arrow [dd,dash,dotted] \arrow[rr,dash,leftarrow] & & \mathbf{4|3|2|1}\arrow[dd] \arrow[dl]\\
+\color{purple}{4|1|2|3} \arrow [rr,dash] \arrow [dd,dash] & & {4|1|3|2} \arrow[rr,dash] \arrow[dd,dash] & & \color{blue}{4|3|1|2} \arrow[dd,dash]  & \\
+& 2|4|1|3 \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 2|4|3|1  \arrow[dd,dash,dotted] & & \color{blue}{3|4|2|1} \arrow [dl] \arrow[dd]\\
+{1|4|2|3} \arrow [rr,dash] \arrow [dd,dash]& & {1|4|3|2}  \arrow[dd,dash] & & \color{purple}{3|4|1|2} \arrow[dd,dash]\\
+& {2|1|4|3} \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] & & \color{purple}{2|3|4|1} \arrow [dd, dash,dotted] \arrow [rr, leftarrow,dotted] & & \color{blue}{3|2|4|1} \arrow[dd] \\
+{1|2|4|3} \arrow [dd,dash] & & 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash] & & 3|1|4|2 \arrow[dd,dash] & \\
+& \color{purple}{2|1|3|4} \arrow [rr,leftarrow,dotted] \arrow [dl,dotted] & & \color{purple}{2|3|1|4} \arrow [rr,leftarrow,dotted] & & \color{blue}{3|2|1|4} \arrow [dl] \\
+\red{1|2|3|4} \arrow [rr,dash] & & {1|3|2|4} \arrow [rr,dash] & & \color{purple}{3|1|2|4} \\ 
+\end{tikzcd}    
+\begin{tikzcd}[sep=0.15cm,scale=0.8]
+& \color{purple}{4|2|1|3} \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,leftarrow] & & 4|2|3|1 \arrow [dd, dash,dotted] \arrow[rr,dash] & & \red{4|3|2|1}\arrow[dd,dash] \arrow[dl,leftarrow]\\
+\blue{4|1|2|3} \arrow [rr] \arrow [dd,leftarrow] & & \color{purple}{4|1|3|2} \arrow[rr] \arrow[dd,dash] & & \color{purple}{4|3|1|2} \arrow[dd,dash]  & \\
+& 2|4|1|3 \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 2|4|3|1  \arrow[dd,dash,dotted] & & 3|4|2|1 \arrow [dl,dash] \arrow[dd,dash]\\
+\blue{1|4|2|3} \arrow [rr] \arrow [dd,leftarrow]& & \color{purple}{1|4|3|2}  \arrow[dd,dash] & & 3|4|1|2 \arrow[dd,dash]\\
+& \color{purple}{2|1|4|3} \arrow[dd,dash,dotted] \arrow[dl,leftarrow,dotted] & & 2|3|4|1 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] & & 3|2|4|1 \arrow[dd,dash] \\
+\blue{1|2|4|3} \arrow [dd,leftarrow] & & 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash] & & 3|1|4|2 \arrow[dd,dash] & \\
+& \blue{2|1|3|4} \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] & & {2|3|1|4} \arrow [rr,dash,dotted] & & \color{purple}{3|2|1|4} \arrow [dl,leftarrow] \\
+\mathbf{1|2|3|4} \arrow [rr] & & \blue{1|3|2|4} \arrow [rr] & & \blue{3|1|2|4} \\ 
+\end{tikzcd}    
+\end{center}
+}
+\end{example}
 
 We now define a particular paring of subdivision cubes, our used notation will be clarified in the trailing proposition.
 
@@ -3796,22 +3839,21 @@ Let $\maxsubdivpairsv$ denote the unique maximal pair of subdivision cubes in $\
 \end{definition}
 We establish the uniqueness of this definition with the following lemma that also provides a vertex interval characterisation.
 \begin{lemma} \label{lem:unique interval desc of maximal subdiv pair}
-The maximal pair of subdivision cubes $\maxsubdivpairsv$ is unique, and has the form
+The maximal pair of subdivision cubes $\maxsubdivpairsv$ is unique, and has the form 
 \begin{align*}
-    \maxsubdivpairsv=[\rightshift{n} \rightshift{n-1}...\rightshift{1}v, v] \times [v, \leftshift{n} \leftshift{n-1}...\leftshift{1}v]
+    \maxsubdivpairsv=[\rightshift{1}... \rightshift{n-1}\rightshift{n}v, v] \times [v, \leftshift{1}...\leftshift{n-1}\leftshift{n}v]
 \end{align*}
-where the shift operator $\rightshift{i}$ ($\leftshift{i}$) shifts the element $i$ past \emph{all} elements to the right (left) which are smaller than $i$.
 \end{lemma}
 \begin{proof}
 From \cref{lem:subdiv cubes are intervals}, we know that all $k_1$-subdivision cubes with maximal vertex $v$ are of the form
 $[\overrightarrow{v},v]$, and all $k_2$-subdivision cubes with minimal vertex $v$ are of the form $[{v},\overleftarrow{v}]$, where 
 \begin{align*}
-    \overrightarrow{v}:= \rightshiftk{n}{s_1}... \rightshiftk{n-1}{s_{n-1}}\rightshiftk{n}{s_n}v, \quad \overleftarrow{v} :=\leftshiftk{n}{s_n}\leftshiftk{n-1}{s_{n-1}}...\leftshiftk{n}{s_1}v
+    \overrightarrow{v}:= \rightshiftk{1}{s_1}... \rightshiftk{n-1}{s_{n-1}}\rightshiftk{n}{s_n}v, \quad \overleftarrow{v} :=\leftshiftk{1}{s_1}...\leftshiftk{n-1}{s_{n-1}}\leftshiftk{n}{s_n}v
 \end{align*}
-As such, it is clear that $[\rightshift{n} \rightshift{n-1}...\rightshift{1}v, v]$ and $[v,\leftshift{n} \leftshift{n-1}...\leftshift{1}v]$ are not only $k_1,k_2$-subdivision cubes,
+As such, it is clear that $[\rightshift{1}... \rightshift{n-1}\rightshift{n}v, v] $ and $[v, \leftshift{1}...\leftshift{n-1}\leftshift{n}v]$ are not only $k_1,k_2$-subdivision cubes,
 but the particular subdivision cubes for which each shift $s_i$ is maximal.
 This tells us that all other subdivision cubes are enveloped by these maximal cubes.
-To see this, one can observe from the inductive description of $I_n$ (\cref{eq:In inductive def}) that the path from the minimal vertex of $\rightshift{n} \rightshift{n-1}...\rightshift{1}v$ to any other $\rightshiftk{n}{s_1}... \rightshiftk{n-1}{s_{n-1}}\rightshiftk{n}{s_n}v$ will remain within the $k_1$-cube $[\rightshift{n} \rightshift{n-1}...\rightshift{1}v,v]$, and similarly for the $k_2$.
+To see this, one can observe from the inductive description of $I_n$ (\cref{eq:In inductive def}) that the path from the minimal vertex of $\rightshift{1}... \rightshift{n-1}\rightshift{n}v$ to any other $\rightshiftk{1}{s_1}... \rightshiftk{n-1}{s_{n-1}}\rightshiftk{n}{s_n}v$ will remain within the $k_1$-cube $[\rightshift{1}... \rightshift{n-1}\rightshift{n}v, v]$, and similarly for the $k_2$.
 \end{proof}
 
 Finally, we clarify all the definitions of this section through example.
@@ -3918,8 +3960,11 @@ Let $v$ be a vertex of $P_n$, then
 where $\mathbf{M},\mathbf{N}$ are admissible sequences of $SU$ shifts.
 \end{proposition}
 \begin{proof}
-From Lemmas \ref{lem:unique interval desc of maximal subdiv pair} and \ref{lem: minimal vertex formulae}, we know that 
-$\maxsubdivpairsv = [(R^{r_n}_{n}...R^{r_{1}}_{1}\sigma)_*,v] \times [v,(L^{l_n}_{n}...L^{l_{1}}_{1}\tau)^*]$, or in terms of $k_1,k_2$ faces,
+Applying Lemmas \ref{lem:unique interval desc of maximal subdiv pair}, \ref{lem:Interchanging shift operators}\Kurt{seems likely I cheated the proof here. Can probably switch prior lemma around to fix this.} and \ref{lem: minimal vertex formulae}, sequentially yields 
+\begin{align*}
+    \maxsubdivpairsv = [\rightshift{1}...\rightshift{n}v, v] \times [v, \leftshift{1}...\leftshift{n}v] = [\rightshift{n}...\rightshift{1}v, v] \times [v, \leftshift{n}...\leftshift{1}v] = [(R^{r_n}_{n}...R^{r_{1}}_{1}\sigma)_*,v] \times [v,(L^{l_n}_{n}...L^{l_{1}}_{1}\tau)^*]
+\end{align*}
+Or in terms of $k_1,k_2$ faces,
 $\maxsubdivpairsv = [R^{r_n}_{n}...R^{r_{1}}_{1}\sigma,\sigma] \times [\tau, L^{l_n}_{n}...L^{l_{1}}_{1}\tau]$.
 Using the lattice description of \cref{prop:shift lattice} we now argue that the set equality is true.
 \\\\
