@@ -166,8 +166,13 @@
 \newcommand{\leftshift}[1]{\overleftarrow{\vphantom{1}{#1}}}
 \newcommand{\leftshiftk}[2]{\overleftarrow{\vphantom{1}{#1}}^{#2}}
 %Subdiv cube defs
-\newcommand{\subdivpairsv}{e_v}
-\newcommand{\maxsubdivpairsv}{\overline{e_v}}
+\newcommand{\subdivcubeofe}{C_e}
+\newcommand{\subdivcubeofouter}{C}
+\newcommand{\subdivpairsev}{D_e^v}
+\newcommand{\maxsubdivpairsev}{\overline{D_e^v}}
+\newcommand{\subdivpairsv}{D^v}
+\newcommand{\maxsubdivpairsv}{\overline{D^v}}
+
 
 
 % formating the table of contents
@@ -1237,7 +1242,7 @@ which vanishes by~\eqref{eq:diff}.
 
 The usual \emph{thin diagonal} of a topological space $X$ is the map $\Delta : X \to X \times X$ defined by $\Delta(x):=(x,x)$ for all $x \in X$.
 
-\begin{definition}[Cellular diagonal]
+\begin{definition}[Cellular diagonal] \label{def:cellular diagonal}
     A \emph{cellular diagonal} of a polytope $P$ is a continuous map $P \to P \times P$ such that
     \begin{enumerate}
         \item its image is a union of $\dim P$-faces of $P\times P$ (i.e. it is \emph{cellular}),
@@ -1743,7 +1748,7 @@ Note that this map is a particular instance of the eponym map introduced in Poin
 
 A \emph{diagonal of the permutahedra} $\triangle:=\{\triangle_n\}$ is a family of diagonals $\triangle_n : P_n \to P_n \times P_n$, for each $n$-permutahedron $P_n$, $ n \geq 1$. 
 
-\begin{definition}
+\begin{definition}\label{def:operadic diagonal}
     A diagonal of the permutahedra $\triangle$ is \emph{operadic} if for every face $A_1 | \ldots | A_k$ of the permutahedron $P_{|A_1|+\cdots + |A_k|-1}$, the map $\Theta$ induces a topological cellular isomorphism \[  \triangle(A_1) \times \ldots \times \triangle(A_k) \cong \triangle(A_1 | \ldots | A_k) \ . \]
 \end{definition}
 In other words, we require that the diagonal $\triangle$ commutes with the map $\Theta$, see \cite[Section 4.2]{LA21}.
@@ -3640,15 +3645,15 @@ The second row is the image of these shifts under isomorphism $t(r\times r)$.
 
 \subsection{Cubical Description}\label{sec:Cubical}
 
-I still can't quite see the explicit reason their definition defines a diagonal in the first place.
-Surely, their decomposition of the cube must force their defined diagonal to respect the isomorphism $\Theta$ of faces of the permutahedra.\Kurt{?}
-\Kurt{Also this entire section is enormous for what it is, maybe streamline, cut or move to an appendix? }
-\\\\
-In \cite{SaneblidzeUmble04} Saneblidze and Umble first identified their diagonal through subdivisions of the $(n-1)$-cube by the permutahedra $P_{n}$.
-In this section, we detail the connection between their shift definition and their matrix definition.
-First, we recall the necessary definitions, providing alternate characterisations and properties.
-Then we present their alternate formulae for the $SU$ diagonal.
-Finally, we present the alternate formula for the $LA$ diagonal induced by the isomorphism $t(r\times r)$.
+Recall from Definitions \ref{def:cellular diagonal} and \ref{def:operadic diagonal} that a cellular operadic diagonal of the permutahdra satisfies the following properties.
+\begin{itemize}
+    \item ...
+\end{itemize}
+In \cite{SaneblidzeUmble04}, Saneblidze and Umble identified that they could use a particular subdivision of the $(n-1)$-cube by $P_{n}$, to construct such a diagonal.
+In their work they briefly outline this construction before using it to induce their subset shift description (\cref{def:classical-SU}).
+In this section, we first recall and re-interpret the necessary definitions of their cubical diagonal.
+We then show this diagonal is indeed a cellular operadic diagonal, and that it coincides with their subset shift formula.
+Finally we use the isomorphism $t(r\times r)$ to induce a cubical $\LA$ diagonal.
 
 \subsubsection{Definitions}
 
@@ -3706,13 +3711,13 @@ We now define and characterise the $k$-subdivision cubes, before doing the same 
 
 \begin{definition} \label{def:Subdivisions}
 Define $I_{n-1}$ to be the $(n-1)$-cube under this subdivision of $P_{n}$. 
-Let $e$ be a cell in $P_{n}$ with dimension $|e|$,  a \emph{$k$-subdivision cube} of $e$ is a set of faces whose union is a $k$-subcube of $I_{n-1}$ for some $k\leq |e|$.
+Let $e$ be a cell in $P_{n}$ with dimension $|e|$,  a \emph{$k$-subdivision cube} of $e$ denoted $\subdivcubeofe$ is a set of faces whose union is a $k$-subcube of $e$ for some $k\leq |e|$.
+When $e$ is the outer face, we denote these $k$-subdivision cubes as simply $\subdivcubeofouter$.
 \end{definition}
-
-A trivial example of $k$-subdivision cube is a $k$-face of $P_n$. 
+Note that trivially every $k$-face of $P_n$ is a $k$-subdivision cube of every cell which contains it, for instance the outer face of $P_n$, and the $k$-face itself. 
 
 \begin{lemma}\label{lem:k-subdiv cubes have max/min k faces}
-A $k$-subdivision cube $C$,
+A $k$-subdivision cube $\subdivcubeofe$,
 \begin{enumerate}
     \item has unique maximal and minimal vertices under the weak Bruhat order.
     \item has unique maximal and minimal $k$-faces.
@@ -3724,17 +3729,16 @@ In order for a $k$-subdivision cube to be a $k$-cube it must have unique maximal
 The unique maximal/minimal $k$-faces are defined to be the unique $k$-faces adjacent to these vertices.
 \end{proof}
 
-We will denote these maximal and minimal $k$-faces by $\overline{C}$ and $\underline{C}$.
 We need an explicit way to identify/calculate $k$-subdivision cubes. 
 One less than optimal way to do so, is the following.
 \begin{lemma}\label{lem:Extremal paths implies cube}
-An interval $[u,v] \in P_n$ is a $k$-subdivision cube of $I_{n-1}$, if, and only if, the vertices $u$ and $v$ are connected by all $k!$ extremal edge paths in $I_{n-1}$.
+An interval $[u,v] \in P_n$ is a $k$-subdivision cube, if, and only if, the vertices $u$ and $v$ are connected by all $k!$ extremal edge paths in $I_{n-1}$.
 \end{lemma}
 \begin{proof}
 A $k$-subdivision cube of $I_{n-1}$ is a $k$-cube, so there must be $k! = \binom{k}{1}\binom{k-1}{1}...\binom{1}{1}$ extremal edge paths from its minimal vertex to the maximal vertex.
 Now for the opposite direction.
 \Kurt{This feels almost tautological, but needs something. Is there a simple non-inductive way to do this?
-Observatioin, interval of $P_n$ prevents interior holes, extremal edges prevents exterior holes.}
+Observation, interval of $P_n$ prevents interior holes, extremal edges prevents exterior holes.}
 \\\\
 From the inductive description of \cref{eq:In inductive def}, we know that each edge of $I_{n-1}$ is associated to (possibly multiple) shifts of one particular element $i$, i.e. edges of $P_n$.
 As such, the extremal edge paths correspond to shifting each element to its final position and then never touching it again.
@@ -3767,11 +3771,11 @@ As $j>i$, shifting $i$ before $j$ will never block $\rightshiftk{j}{s_j}$ or $\l
 \end{proof}
 
 \begin{lemma} \label{lem:subdiv cubes are intervals}
-A $k$-subdivision cube is an interval $[\overrightarrow{v},v]$ of $P_n$, where $v$ is the unique maximal vertex, and 
+A $k$-subdivision cube $\subdivcubeofe$ is an interval $[\overrightarrow{v},v]$ of $P_n$, where $v$ is the unique maximal vertex, and 
 \begin{align*}
     \overrightarrow{v}:= \rightshiftk{1}{s_1}... \rightshiftk{n-1}{s_{n-1}}\rightshiftk{n}{s_n}v
 \end{align*}
-Dually, a $k$-subdivision cube is an interval $[v,\overleftarrow{v}]$ of $P_n$, where $v$ is the unique minimal vertex, and 
+Dually, a $k$-subdivision cube $\subdivcubeofe$ is also an interval $[v,\overleftarrow{v}]$ of $P_n$, where $v$ is the unique minimal vertex, and 
 \begin{align*}
     \overleftarrow{v} :=\leftshiftk{1}{s_1}...\leftshiftk{n-1}{s_{n-1}}\leftshiftk{n}{s_n}v
 \end{align*}
@@ -3783,9 +3787,10 @@ $\rightshiftk{1}{s_1}... \rightshiftk{n}{s_n}$ ($\leftshiftk{1}{s_1}...\leftshif
 Conversely given extremal paths of this form, we can produce all other extremal paths via \cref{lem:Interchanging shift operators}. So the result follows.
 
 \end{proof}
-It is worth stressing that even if  $[\overrightarrow{v},v] = [u,\overleftarrow{u}]$ the paths checked by this lemma are generally not the same. Here is a clarifying example.
+It is worth stressing that even if $C_e =[\overrightarrow{v},v] = [u,\overleftarrow{u}]$ the paths checked by this lemma are generally not the same, i.e. $\rightshiftk{1}{s_1}... \rightshiftk{n-1}{s_{n-1}}\rightshiftk{n}{s_n}$ is not the path $\leftshiftk{1}{s_1}...\leftshiftk{n-1}{s_{n-1}}\leftshiftk{n}{s_n}$ in reverse. 
+Here is a clarifying example.
 \begin{example}\label{ex:subdivision cube path example}
-We illustrate on the left (right) all $k$-subdivision cubes of $I_3$ with maximal vertex $4|3|2|1$ (with minimal vertex $1|2|3|4$)
+We illustrate on the left (right) all $k$-subdivision cubes of the outer face of $P_4$ with maximal vertex $4|3|2|1$ (with minimal vertex $1|2|3|4$).
 We indicate all subdivision cubes by their minimal (maximal) vertex, colouring it blue to indicate lines, purple for squares and red for cubes.
 In addition, we have directed the edges of each of the cubes so that the unique directed path from $4|3|2|1$ ($1|2|3|4$) to the minimal (maximal) vertex is the path of \cref{lem:subdiv cubes are intervals}.\Kurt{Number of subdivision cubes with min id is probably the Naryana numbers A001263. Maybe can get nice refinement?}
 {\scriptsize
@@ -3819,25 +3824,25 @@ In particular, we can compute certain vertices very easily via their cube.
 However, there is almost certainly not an easy way to extend to the other vertices, as this problem is known to be \#P complete https://arxiv.org/pdf/1802.06312.pdf}
 \Kurt{Maybe we can compute a weaker result like A263754?}
 
-We now define a particular paring of subdivision cubes, our used notation will be clarified in the trailing proposition.
+We now define a particular paring of subdivision cubes.
 
 \begin{definition} [\cite{saneblidzeComparingDiagonalsAssociahedra2022}]\label{def:subdiv pairs}
 Let $e$ be a cell of $P_n$ and let $\mathcal{V}_e$ be the set of vertices in $e$.
-For a given vertex $v \in \mathcal{V}_e$, we define $\subdivpairsv$ to be the set of all pairs $(C_\sigma,C_\tau)$ of $k_1,k_2$ subdivision cubes such that
+For a given vertex $v \in \mathcal{V}_e$, we define $\subdivpairsev$ to be the set of all pairs $(C^v,C_v)$ of $k_1,k_2$ subdivision cubes such that
 \begin{enumerate}
-    \item $C_\sigma$ is a $k_1$-subdivision cube of $e$ with maximal vertex $v$.
-    \item $C_\tau$ is a $k_2$-subdivision cube of $e$ with minimal vertex $v$.
+    \item $C^v$ is a $k_1$-subdivision cube of $e$ with maximal vertex $v$.
+    \item $C_v$ is a $k_2$-subdivision cube of $e$ with minimal vertex $v$.
     \item $k_1+k_2 = |e|$
 \end{enumerate}
+If $e$ is the outer face of $P_n$ then we denote the set of pairs $\subdivpairsv$.
 \end{definition}
-The reason for denoting our pairs $(C_\sigma,C_\tau)$ is the following proposition.
 
 \begin{proposition}\label{prop:ev properties}
 The pairs $\subdivpairsv$ satisfy the following properties,
 \begin{enumerate}
     \item The SCP $(\sigma,\tau) \in \subdivpairsv$.
-    \item All pairs $(C_\sigma,C_\tau) \in \subdivpairsv$ have the same dimensions, and these are determined by the number of blocks in the SCP. In particular, $k_1=|\sigma|$ and $k_2 = |\tau|$. 
-    \item For all $(C_\sigma,C_\tau) \in \subdivpairsv$, $\overline{C_\sigma} = \sigma$, and $\underline{C_\tau} = \tau$.
+    \item All pairs $(C^v,C_v) \in \subdivpairsv$ have the same dimensions, and these are determined by the number of blocks in the SCP. In particular, $k_1=|\sigma|$ and $k_2 = |\tau|$. 
+    \item For all $(C^v,C_v) \in \subdivpairsv$, the unique maximal $k_1$ face of $C^v$ is $\sigma$, the unique minimal $k_2$ face of $C_v$ is $\tau$.
 \end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -3849,18 +3854,18 @@ The proofs in turn are as follows.
     If $k'_1< k_1$, then it must be the case that $k'_2> k_2$.
     As this requires the existence of a $k'_2$ face in $P_n$ with minimal vertex $v$, and we know that the $k_2$ face $\tau$ is the largest such face, we arrive at a contradiction.
     Assuming $k'_2<k_2$ yields a similar contradiction.
-    \item We know all $C_\sigma$ are $k_1$ subdivision cubes, which by \cref{lem:k-subdiv cubes have max/min k faces} tells us they have a unique maximal $k_1$ face.
+    \item We know all $C^v$ are $k_1$ subdivision cubes, which by \cref{lem:k-subdiv cubes have max/min k faces} tells us they have a unique maximal $k_1$ face.
     However, we know that $\sigma$ is a $k_1$ face adjacent to the maximal vertex $v$ so it must be the unique maximal $k_1$ face.
-    Similar logic applies to $C_\tau$.
+    Similar logic applies to $C_v$.
 \end{enumerate}
 \end{proof}
 
 \begin{definition}\label{def:max subdiv pairs}
-Let $\maxsubdivpairsv$ denote the unique maximal pair of subdivision cubes in $\subdivpairsv$ under inclusion.
+Let $\maxsubdivpairsev$ denote the unique maximal pair of subdivision cubes in $\subdivpairsev$ under inclusion.
 \end{definition}
-We establish the uniqueness of this definition with the following lemma that also provides a vertex interval characterisation.
+We establish the uniqueness of this definition as a result of the following lemma.
 \begin{lemma} \label{lem:unique interval desc of maximal subdiv pair}
-The maximal pair of subdivision cubes $\maxsubdivpairsv$ is unique, and has the form 
+The maximal pair of subdivision cubes $\maxsubdivpairsv$ is unique, and
 \begin{align*}
     \maxsubdivpairsv=[\rightshift{1}... \rightshift{n-1}\rightshift{n}v, v] \times [v, \leftshift{1}...\leftshift{n-1}\leftshift{n}v]
 \end{align*}
@@ -3877,18 +3882,26 @@ This tells us that all other subdivision cubes are enveloped by these maximal cu
 To see this, one can observe from the inductive description of $I_n$ (\cref{eq:In inductive def}) that the path from the minimal vertex of $\rightshift{1}... \rightshift{n-1}\rightshift{n}v$ to any other $\rightshiftk{1}{s_1}... \rightshiftk{n-1}{s_{n-1}}\rightshiftk{n}{s_n}v$ will remain within the $k_1$-cube $[\rightshift{1}... \rightshift{n-1}\rightshift{n}v, v]$, and similarly for the $k_2$.
 \end{proof}
 
+\begin{corollary}
+All other maximal pairs of subdivision cubes $\maxsubdivpairsev$ are also unique.
+\end{corollary}
+\begin{proof}
+...
+\end{proof}
+
 Finally, we clarify all the definitions of this section through example.
 
 \begin{example}\label{ex:subdivision cubes}
 Here is an example that is visually verifiable from the diagram of $I_3$ below.
 In $P_4$, let $e$ be the top-dimensional cell $1234$. Then the following sets of faces are all subdivision cubes of $e$ (for varying $k$)
 \begin{align*}
-    \{1234\},\quad \{1|234\},\quad \{1|234, 14|23\},\quad \{1|3|24,1|43|2,14|3|2\}.
+    \{1234\},\quad \{1|234\},\quad \{1|234, 14|23\},\quad \{1|43|2,14|3|2\}.
 \end{align*}
 These subdivision cubes correspond to the following respective intervals under  \cref{lem:subdiv cubes are intervals},
 \begin{align*}
     [1|2|3|4,4|3|2|1],\quad [1|2|3|4,1|4|3|2],\quad [1|2|3|4,4|1|3|2],\quad [1|3|2|4, 4|1|3|2]
 \end{align*}
+Note, that $\{3|1|4|2,14|3|2\}$ is also a $k$-subdivision cube of the cell $134|2$.
 An example of an interval of the weak Bruhat order which does not correspond to a subdivision cube is $[1|4|2|3,4|3|1|2]$.
 The following three sets of faces are not subdivision cubes of $e$,
 \begin{align*}
@@ -3927,6 +3940,29 @@ This example shows this is not the case, as there are four shifts of $\sigma$ (i
 In particular, $\{14|23, 134|2\}$ is not a $k_1$ subdivision cube.
 
 \end{example}
+
+\begin{proposition}
+The following formula defines a a cellular operadic diagonal of the permutahedra. For every cell $e$ of the permutahedra
+\begin{align*}
+    \triangle(e) = \bigcup_{v \in V_e} \maxsubdivpairsev
+\end{align*}
+In particular its value on outer faces is 
+\begin{align*}
+    \triangle([n]) = \bigcup_{v \in P_n} \maxsubdivpairsv
+\end{align*}
+and as a result of it being an operadic diagonal, it extends to all other faces.
+\end{proposition}
+\begin{proof}
+By construction the diagonal is cellular (\cref{def:cellular diagonal}).
+This follows, as the image of the map is a union of dim $P$-faces of $P\times P$.
+Furthermore, for every vertex $v$ in $P$, not only is $(v,v) \in \maxsubdivpairsv$, but $\maxsubdivpairsv$ is also contractible to $(v,v)$.
+The diagonal is also operadic, i.e.
+\begin{align*}
+    \triangle(A_1|...|A_k) \cong \triangle(A_1)\times ... \times \triangle(A_k)
+\end{align*}
+why? Surely can do it from the inductive desc...\Kurt{Todo...}
+
+\end{proof}
 
 \subsubsection{Linking Cubical to Shift}
 
