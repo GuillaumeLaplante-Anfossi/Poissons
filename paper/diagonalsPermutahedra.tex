@@ -3730,19 +3730,33 @@ The unique maximal/minimal $k$-faces are defined to be the unique $k$-faces adja
 \end{proof}
 
 We need an explicit way to identify/calculate $k$-subdivision cubes. 
-One less than optimal way to do so, is the following.
+One less than optimal way to do so, is the following. 
+Let $[u,v]$ be an interval of $P_n$ under the weak-Bruhat order.
+We can consider this interval as including not just vertices, but higher faces through $f\in [u,v]$ if all vertices of $f$ are in $[u,v]$.
+\Kurt{Any nice relation with Bruhat interval polytopes?}
 \begin{lemma}\label{lem:Extremal paths implies cube}
-An interval $[u,v] \in P_n$ is a $k$-subdivision cube, if, and only if, the vertices $u$ and $v$ are connected by all $k!$ extremal edge paths in $I_{n-1}$.
+An interval $[u,v] \in P_n$ is a $k$-subdivision cube, if, and only if, the vertices $u$ and $v$ are connected by all $k!$ extremal edge paths in $I_{n-1}$. 
 \end{lemma}
 \begin{proof}
 A $k$-subdivision cube of $I_{n-1}$ is a $k$-cube, so there must be $k! = \binom{k}{1}\binom{k-1}{1}...\binom{1}{1}$ extremal edge paths from its minimal vertex to the maximal vertex.
-Now for the opposite direction.
-\Kurt{This feels almost tautological, but needs something. Is there a simple non-inductive way to do this?
-Observation, interval of $P_n$ prevents interior holes, extremal edges prevents exterior holes.}
-\\\\
-From the inductive description of \cref{eq:In inductive def}, we know that each edge of $I_{n-1}$ is associated to (possibly multiple) shifts of one particular element $i$, i.e. edges of $P_n$.
-As such, the extremal edge paths correspond to shifting each element to its final position and then never touching it again.
-
+Now for the opposite direction. 
+Suppose we have an interval $[u,v] \in P_n$, in which the vertices $u$ and $v$ are connected by all $k!$ extremal edges.
+Under the inductive description of $I_{n-1}$ (\cref{eq:In inductive def}), these extremal edges form a 'frame' for a $k$-cube.
+Considering the extremal vertices of the $k$-frame (the cubical vertices), makes it clear that from the definition of the strong Bruhat order, there cannot be vertices outside this of the $k$-frame.
+We now show that all vertices within this $k$-frame are covered by $k$-faces within the interval, and hence the $k$-frame is a $k$-subdivision cube.
+\Kurt{Could handwave this with "Then, we know from the inductive description (\cref{eq:In inductive def}), that any hole of dimension $k$ must be filled with $k$-faces (and connecting $(k-1)$-faces)", but here is one more explicit path.}
+From the inductive description of the cube \cref{eq:In inductive def}, we know that 
+\begin{enumerate}
+    \item Each extremal path corresponds to shifting an element to its final position and never touching it again.
+    \item The $k$-faces of $I_{n-1}$ are stacked with connecting $k-1$ faces.
+\end{enumerate}
+These extremal paths must run along the back of $k$-faces, i.e. the frame of edges can be thickened into a frame of $k$-faces.
+In particular, recall that a $k$-face is trivially a $k$-subdivision cube.
+As $P_n$ is a simple polytope, the presence of $k$ edges exiting from the minimal vertex $u$ indicates that there is a minimal $k$-face, and hence $k$-cube present in the bottom corner of the $k$-frame.
+Starting from the minimal vertex and stepping along an edge of the $k$-frame will step along an edge of the minimal $k$-cube.
+When we reach the boundary of this $k$-cube, we are either at another corner of the $k$-frame, or we can infer from $P_n$ being a simply polytope and \cref{eq:In inductive def}, that we will step into another $k$-face/cube.
+We can repeat this process for all the extremal paths, thickening the frame of edges into a frame of $k$-faces.
+This frame of $k$-faces can then be filled in with other $k$-faces through \cref{eq:In inductive def}, hence we have a $k$-subdivision cube. 
 
 
 \end{proof}
@@ -3863,7 +3877,7 @@ The proofs in turn are as follows.
 \begin{definition}\label{def:max subdiv pairs}
 Let $\maxsubdivpairsev$ denote the unique maximal pair of subdivision cubes in $\subdivpairsev$ under inclusion.
 \end{definition}
-We establish the uniqueness of this definition as a result of the following lemma.
+We establish the uniqueness of this definition as a result of the following lemma. \Kurt{relate to pattern avoiding desc.}
 \begin{lemma} \label{lem:unique interval desc of maximal subdiv pair}
 The maximal pair of subdivision cubes $\maxsubdivpairsv$ is unique, and
 \begin{align*}
@@ -3942,7 +3956,7 @@ In particular, $\{14|23, 134|2\}$ is not a $k_1$ subdivision cube.
 \end{example}
 
 \begin{proposition}
-The following formula defines a a cellular operadic diagonal of the permutahedra. For every cell $e$ of the permutahedra
+The following formula defines a cellular operadic diagonal of the permutahedra. For every cell $e$ of the permutahedra
 \begin{align*}
     \triangle(e) = \bigcup_{v \in V_e} \maxsubdivpairsev
 \end{align*}
@@ -3962,6 +3976,9 @@ The diagonal is also operadic, i.e.
 \end{align*}
 why? Surely can do it from the inductive desc...\Kurt{Todo...}
 
+
+\Kurt{This might be what is being proven in section 4.1 of \cite{SaneblidzeUmble04}. 
+Actually don't think so.}
 \end{proof}
 
 \subsubsection{Linking Cubical to Shift}
@@ -4018,7 +4035,7 @@ Let $v$ be a vertex of $P_n$, then
 where $\mathbf{M},\mathbf{N}$ are admissible sequences of $SU$ shifts.
 \end{proposition}
 \begin{proof}
-From \cref{lem:unique interval desc of maximal subdiv pair} we know that $\maxsubdivpairsv = [\rightshift{1}...\rightshift{n}v, v] \times [v, \leftshift{1}...\leftshift{n}v]$. Furthermore, given we identified this sequence of shift operators is well-defined, we can apply \cref{lem:Interchanging shift operators} to invert the order of composition to $[\rightshift{n}...\rightshift{1}v, v] \times [v, \leftshift{n}...\leftshift{1}v]$.
+From \cref{lem:unique interval desc of maximal subdiv pair}, we know that $\maxsubdivpairsv = [\rightshift{1}...\rightshift{n}v, v] \times [v, \leftshift{1}...\leftshift{n}v]$. Furthermore, given we identified this sequence of shift operators is well-defined, we can apply \cref{lem:Interchanging shift operators} to invert the order of composition to $[\rightshift{n}...\rightshift{1}v, v] \times [v, \leftshift{n}...\leftshift{1}v]$.
 Finally from \cref{lem: minimal vertex formulae}, we know $\maxsubdivpairsv =[(R^{r_n}_{n}...R^{r_{1}}_{1}\sigma)_*,v] \times [v,(L^{l_n}_{n}...L^{l_{1}}_{1}\tau)^*]$.
 Or, in terms of $k_1,k_2$ faces,
 $\maxsubdivpairsv = [R^{r_n}_{n}...R^{r_{1}}_{1}\sigma,\sigma] \times [\tau, L^{l_n}_{n}...L^{l_{1}}_{1}\tau]$.
@@ -4179,7 +4196,7 @@ SCP \arrow[r,"t(r\times r)",leftrightarrow] \arrow[d,leftrightarrow] & SCP \arro
 \mathbb{S}_n \arrow[r,"r",leftrightarrow] & \mathbb{S}_n
 \end{tikzcd}
 \end{center}
-Where both vertical arrows are the bijection between SCPs and permutations.
+Where both vertical arrows are the bijection between SCPs and permutations. \Kurt{$rs \times rs$ also commutes with $rs$}
 \end{example}
 
 With the observation of the prior example it is straightforward to show,
