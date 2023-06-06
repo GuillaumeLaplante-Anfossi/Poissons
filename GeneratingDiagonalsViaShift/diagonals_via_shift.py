@@ -206,6 +206,11 @@ def diagonal_via_LR_prime_shift(n):
         pairs = pairs + LR_prime_shift_of_v(v)
     return pairs
 
+def SU_diag(n):
+    return diagonal_via_LR_shift(n)
+
+def LA_diag(n):
+    return diagonal_via_LR_prime_shift(n)
 
 if __name__ == "__main__":
     v = list(vertex_generator(3))[3]
