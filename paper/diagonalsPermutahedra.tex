@@ -138,6 +138,7 @@
 \newcommandx{\flatPoset}[1][1 = \arrangement]{\mathsf{Fl}(#1)} % intersection poset
 \newcommandx{\charPol}[2][1 = \arrangement, 2 = y]{\b{\chi}_{#1}(#2)} % characteristic polynomial
 \newcommandx{\mobPol}[3][1 = \arrangement, 2 = x, 3 = y]{\b{\mu}_{#1}(#2, #3)} % Mobius polynomial
+\newcommandx{\weirdPol}[2][1 = \arrangement, 2 = x]{\b{\pi}_{#1}(#2)} % weird polynomial
 \newcommandx{\partitionPoset}[1][1 = n]{\mathsf{Pa}_{#1}} % partition poset
 \newcommandx{\forestPoset}[2][1 = n, 2 = \ell]{\mathsf{Fo}_{#1}^{#2}} % forest poset
 \newcommandx{\rainbowForests}[2][1 = n, 2 = \ell]{\mathsf{RF}_{#1}^{#2}} % rainbow forests
@@ -496,6 +497,22 @@ In particular, the characteristic polynomial of the braid arrangement~$\braidArr
 Working in~$\R^n$ rather than in~$\HH$ would lead to an additional~$y$ factor in this formula, which might be more familiar to the reader
 See \cref{rem:essential}.
 
+Finally, we will consider the evaluation of the M\"obius polynomial~$\mobPol[\braidArrangement]$ at~$y = 0$:
+\[
+\weirdPol[n] \eqdef \mobPol[\braidArrangement][x][0] = \sum_{k \in [n]} (-1)^{k-1} \, (k-1)! \, S(n,k) \, x^{k-1}.
+\]
+We just observe here that it is connected to the $\b{f}$-polynomial of~$\braidArrangement$.
+
+\begin{lemma}
+We have~$\weirdPol[n] = (1-x) \, \fPol[\braidArrangement]$.
+\end{lemma}
+
+\begin{proof}
+\vincent{Todo. See file from Berenice.}
+\end{proof}
+
+\vincent{todo: OEIS sequences, see file from Berenice.}
+
 %%%%%%%%%%%%%%%
 
 \subsection{The $(\ell,n)$-braid arrrangement}
@@ -609,6 +626,24 @@ Hence, we derive from \cref{def:MobiusPolynomial,prop:flatPosetMultiBraidArrange
 & = x^{n-1-\ell n} y^{n-1-\ell n} \sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i} y^{\#G_i} \prod_{p \in G_i} (-1)^{\#F_i[p]-1} (\# F_i[p]-1)! \, .
 \qedhere
 \end{align*}
+\end{proof}
+
+We now simplify the expression of \cref{thm:MobiusPolynomialMultiBraidArrangement} using the polynomial
+\[
+\weirdPol[n] \eqdef \mobPol[\braidArrangement][x][0] = \sum_{k \in [n]} (-1)^{k-1} \, (k-1)! \, S(n,k) \, x^{k-1}.
+\]
+introduced at the end of \cref{subsec:braidArrangement}.
+
+\begin{corollary}
+The M\"obius polynomial of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is given by
+\[
+\mobPol[\multiBraidArrangement] = \sum_{\b{G} \in \forestPoset} x^{(n-1)(1-\ell)} y^{n-1-\ell n} \prod_{i \in [\ell]} 
+\weirdPol[\#G_i].
+\]
+\end{corollary}
+
+\begin{proof}
+\vincent{todo}
 \end{proof}
 
 From \cref{thm:Zaslavsky,thm:MobiusPolynomialMultiBraidArrangement}, we thus obtain the face numbers and bounded face numbers of~$\multiBraidArrangement$, whose first few values are gathered in \cref{table:fvectorMultiBraidArrangements}.
