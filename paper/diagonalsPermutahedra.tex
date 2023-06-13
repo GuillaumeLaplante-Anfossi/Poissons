@@ -160,6 +160,22 @@
 \newcommand{\tr}{\mathrm{tr}}
 \newcommand{\id}{\mathrm{id}}
 
+%Shift operators
+%\vphantom{1} ensures sequential arrows aligned.
+\newcommand{\rightshift}[1]{\overrightarrow{\vphantom{1}{#1}}}
+\newcommand{\rightshiftk}[2]{\overrightarrow{\vphantom{1}{#1}}^{#2}}
+\newcommand{\leftshift}[1]{\overleftarrow{\vphantom{1}{#1}}}
+\newcommand{\leftshiftk}[2]{\overleftarrow{\vphantom{1}{#1}}^{#2}}
+%Subdiv cube defs
+\newcommand{\subdivcubeofe}{C_e}
+\newcommand{\subdivcubeofouter}{C}
+\newcommand{\subdivpairsev}{D_e^v}
+\newcommand{\maxsubdivpairsev}{\overline{D_e^v}}
+\newcommand{\subdivpairsv}{D^v}
+\newcommand{\maxsubdivpairsv}{\overline{D^v}}
+
+
+
 % formating the table of contents
 \setcounter{tocdepth}{2}
 \makeatletter
@@ -247,13 +263,13 @@ The purpose of the first part of this article is to study the combinatorics of t
  The hyperplane arrangement associated with  the cellular diagonal is two generically translated copies of the braid arrangement. 
  Motivated by the beautiful combinatorial formula obtained in our study, we generalize it to the study of $\ell$ generically translated copies of the braid arrangement, which would algebraically corresponds to some cellular $\ell$-gonal.
   We compute the $f$-vector and the $b$-vector of $\ell$-generically translated copies of the braid arrangement, using Zaslavsky's Theorem. 
-  We refine the enumeration of the vertices of the hyperplane arrangement using a combinatorial interpretation in terms of $(\ell, n)$-trees and get the following multiplicative formula:
-\begin{theorem}
+  We refine the enumeration of the vertices of the hyperplane arrangement using a combinatorial interpretation in terms of $(\ell, n)$-trees and get the following multiplicative formula stated in Theorem \ref{thm:verticesRefinedMultiBraidArrangement} and recalled here:
+\begin{theorem*}
 For any~$k_1, \dots, k_\ell$ such that~$0 \le k_i \le n-1$ for~$i \in [\ell]$ and~${\sum_{i=1}^\ell k_i = n-1}$, the number of vertices~$v$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ such that the smallest flat of the $i$\ordinal{} copy of~$\braidArrangement$ containing~$v$ has dimension~$n-k_i-1$ is given by
 \[
 n^{\ell-1} \binom{n-1}{k_1, \dots, k_\ell} \prod_{i=1}^\ell (n-k_i)^{k_i-1}.
 \]
-\end{theorem}
+\end{theorem*}
 
 %%%%%%%%%%%%%%%
 
@@ -1261,7 +1277,7 @@ which vanishes by~\eqref{eq:diff}.
 
 The usual \emph{thin diagonal} of a topological space $X$ is the map $\Delta : X \to X \times X$ defined by $\Delta(x):=(x,x)$ for all $x \in X$.
 
-\begin{definition}[Cellular diagonal]
+\begin{definition}[Cellular diagonal] \label{def:cellular diagonal}
     A \emph{cellular diagonal} of a polytope $P$ is a continuous map $P \to P \times P$ such that
     \begin{enumerate}
         \item its image is a union of $\dim P$-faces of $P\times P$ (i.e. it is \emph{cellular}),
@@ -1767,7 +1783,7 @@ Note that this map is a particular instance of the eponym map introduced in Poin
 
 A \emph{diagonal of the permutahedra} $\triangle:=\{\triangle_n\}$ is a family of diagonals $\triangle_n : P_n \to P_n \times P_n$, for each $n$-permutahedron $P_n$, $ n \geq 1$. 
 
-\begin{definition}
+\begin{definition}\label{def:operadic diagonal}
     A diagonal of the permutahedra $\triangle$ is \emph{operadic} if for every face $A_1 | \ldots | A_k$ of the permutahedron $P_{|A_1|+\cdots + |A_k|-1}$, the map $\Theta$ induces a topological cellular isomorphism \[  \triangle(A_1) \times \ldots \times \triangle(A_k) \cong \triangle(A_1 | \ldots | A_k) \ . \]
 \end{definition}
 In other words, we require that the diagonal $\triangle$ commutes with the map $\Theta$, see \cite[Section 4.2]{LA21}.
@@ -1847,7 +1863,7 @@ t(r\times r):\LAD \arrow[r,"s\times s"] &
 \end{tikzcd}
 \end{center}
 is also an isomorphism.
-We will show this second isomorphism has the conceptual benefit of sending left shift operators to left shift operators (and right to right) in \cref{s: The Saneblidze-Umble Diagonal}.
+We will show this second isomorphism has the conceptual benefit of sending left shift operators to left shift operators (and right to right) in \cref{prop:trr is an isomorphism of shifts}.
 
 \end{remark}
 
@@ -1855,9 +1871,9 @@ We will show this second isomorphism has the conceptual benefit of sending left 
 
 \subsection{Facets of operadic diagonals}
 
-We have seen in \cref{subsec:multiBraidArrangement} that facets of any diagonal of the permutahedron are in bijection with $(2,n)$-trees, that is pair of partitions whose intersection graph is a tree.
+We have seen in \cref{subsec:multiBraidArrangement} that facets of any diagonal of the permutahedron are in bijection with $(2,n)$-trees, that is, a pair of partitions whose intersection graph is a tree.
 These are precisely the \emph{essential complementary partitions} studied in \cite{chen1969computer,chen1971tables,kajitani1982number}. 
-Here we describe a specific planar embedding of the $(2,n)$-trees for each operadic diagonal. 
+Here, we describe a specific planar embedding of the $(2,n)$-trees for each operadic diagonal. 
 \Guillaume{Simplify and unify exposition with Section 1}
 
 \begin{definition}
@@ -1882,9 +1898,9 @@ A pair of partitions $(\sigma_L,\tau_R)$ is said to be
 \end{enumerate}	
 \end{definition}
 
-In cases where there is no ambiguity we will drop the subscripts $L,R$.
+In cases where there is no ambiguity, we will drop the subscripts $L,R$.
 We shall denote the set of all essential complementary pairs of partitions of $[n]$ by $\EC$.
-Let us emphasize that the pairs of partitions of $\EC$ are \emph{unordered}.
+Let us emphasise that the pairs of partitions of $\EC$ are \emph{unordered}.
 
 \begin{example}
 For $n=2$, the two essential complementary partitions are $1|2 \times 12$ and $12 \times 1|2$. For $n=3$, the eight essential complementary partitions are
@@ -1898,7 +1914,7 @@ For $n=2$, the two essential complementary partitions are $1|2 \times 12$ and $1
 	13|2 \times 12|3,\quad 
 	12|3 \times 13|2
 \end{align*}
-For a larger example see \cref{ex:ECbijection}. 
+For a larger example, see \cref{ex:ECbijection}. 
 \end{example}
 
 %A \emph{tree} is a simply connected graph with no cycles. 
@@ -1921,7 +1937,7 @@ In particular, this defines a particular planar embedding of each $(2,n)$-tree, 
 \end{theorem}
 
 We shall prove this theorem by establishing the necessary total order, showing that the functions are well defined, and then showing that they are injective.
-We will work with the $\LAD$ diagonal, but the proofs can be straightforwardly modified to accomodate any of the other three operadic diagonals. 
+We will work with the $\LAD$ diagonal, but the proofs can be straightforwardly modified to accommodate any of the other three operadic diagonals. 
 
 \begin{lemma} 
 \label{l:u-well-defined}
@@ -1951,7 +1967,7 @@ For $(\sigma,\tau) = (\bigcup_{l\in L}\sigma_l,\bigcup_{r\in R} \tau_r)$ an esse
 \begin{proof}
 We first show our binary relation is well defined before verifying that it defines a total order on the vertices of the $(2,n)$-tree.
 In a bipartite tree, every vertex is connected, and every path connecting two vertices on the same side must be of even length. 
-As $I$ and $J$ partition the path in an alternating fashion i.e. $\gamma=(i_1,j_1,i_2,j_2,\dots)$, we can orient it by forcing each edge of $I$ (resp. $J$) to point to the right (resp. left). 
+As $I$ and $J$ partition the path in an alternating fashion, i.e. $\gamma=(i_1,j_1,i_2,j_2,\dots)$, we can orient it by forcing each edge of $I$ (resp. $J$) to point to the right (resp. left). 
 This order is clearly total, reflexive (by convention) and anti-symmetric, what remains to be checked is its transitivity. 
 
 Let $\gamma$ denote the unique maximal path between two vertices $a$ and $b$ on the left of the tree, that is two blocks of $\sigma$. 
@@ -1962,7 +1978,7 @@ Then, we have
     a < b \iff \min(I_{ab}\cup J_{ab})=\min(I_{ab}) \ . 
 \end{equation}
 Suppose now that $a < b$ and $b < c$.
-Since $\gamma_{ac}= (\gamma_{ab} \cup \gamma_{bc}) \ssm (\gamma_{ab} \cap \gamma_{bc})$, we have $$ I_{ac}=(I_{ab}\cup I_{bc}) \ssm (J_{ab} \cup J_{bc}) \text{ and } J_{ac}=(J_{ab}\cup J_{bc}) \ssm (I_{ab} \cup I_{bc}) \ , $$ and from the condition (\ref{eq:order}) above it is clear that $\min(I_{ac}\cup J_{ac})=\min(I_{ac})$, which completes the proof of the transitivity for the total order on $\sigma$. 
+Since $\gamma_{ac}= (\gamma_{ab} \cup \gamma_{bc}) \ssm (\gamma_{ab} \cap \gamma_{bc})$, we have $$ I_{ac}=(I_{ab}\cup I_{bc}) \ssm (J_{ab} \cup J_{bc}) \text{ and } J_{ac}=(J_{ab}\cup J_{bc}) \ssm (I_{ab} \cup I_{bc}) \ , $$ and from the condition (\ref{eq:order}) above, it is clear that $\min(I_{ac}\cup J_{ac})=\min(I_{ac})$, which completes the proof of the transitivity for the total order on $\sigma$. 
 The proof for $\tau$ is similar. 
 \end{proof}
 
@@ -2020,22 +2036,22 @@ Here are two examples of paths providing order information, with $(I,J)=(\{1,7\}
 \end{example}
 
 This order far from being arbitrary provides the unique way to order an essential complementary partition pair into an ordered partition pair of $\LAD$, as we shall demonstrate next.
-First we need a geometrical result. 
+First, we need a geometrical result. 
 
 \begin{proposition}
     \label{prop:geometrical-IJ}
-    The paths between adjacents vertices of $\sigma$ or $\tau$ are in bijection with the minimal $(I,J)$-pairs (see \cref{s:diagonals-permutahedra}).
+    The paths between adjacent vertices of $\sigma$ or $\tau$ are in bijection with the minimal $(I,J)$-pairs (see \cref{s:diagonals-permutahedra}).
 \end{proposition}
 
 \begin{proof}
     By \cref{p:minimal-IJ-pairs}, it suffices to show that the paths between adjacent vertices of $\sigma$ are in bijection with the solutions of the system of equations of the form $(\rho^1,\sigma^2)$. 
-    To ease notation let us write $\rho$ for $\rho^1$ and $\sigma$ for $\sigma^1$. 
+    To ease notation, let us write $\rho$ for $\rho^1$ and $\sigma$ for $\sigma^1$. 
     Suppose that $\rho$ is obtained from $\sigma$ by merging the two blocks $\sigma_a$ and $\sigma_b$. 
     The two equations $\langle \vec \sigma_a, x \rangle =0$ and $\langle \vec \sigma_b, x \rangle =0$ now become $\langle \vec \sigma_a + \vec \sigma_b, x \rangle =0$; nothing else changes in the system. 
     Since the solution to the system $(\sigma^1,\sigma^2)$ was $x=0$, now the solution is of dimension $1$, and it is given precisely by the path between $a$ and $b$.
     Such a path is given by an alternating sequence of vertices and edges $\sigma_1 \eqdef \sigma_a, e_1, \sigma_2, e_2, \ldots, e_{k-1}, \sigma_k \eqdef \sigma_b$. 
     Every edge $e_i \in \{1,\ldots, n\}$ is by definition the intersection $\sigma_{i} \cap \sigma_{i+1}$; thus it is the only common non-zero coordinate between $\vec \sigma_{i}$ and $\vec \sigma_{i+1}$.
-    Thus the path encodes the series of equations $x_{e_1}+x_{e_{k-1}}=0$, $x_{e_1}+x_{e_2}=0$, $x_{e_2}+x_{e_3}=0$, $\ldots$, $x_{e_{k-2}}+x_{e_{k-1}}=0$. 
+    Thus, the path encodes the series of equations $x_{e_1}+x_{e_{k-1}}=0$, $x_{e_1}+x_{e_2}=0$, $x_{e_2}+x_{e_3}=0$, $\ldots$, $x_{e_{k-2}}+x_{e_{k-1}}=0$. 
     Thus, $x_{e_1}=1$, $x_{e_2}=-1$, $x_{e_3}=1$, $\ldots$, $x_{e_{k-2}}=1$, $x_{e_{k-1}}=-1$ is a basis of one-dimensional space of solutions, and it gives the corresponding minimal $(I,J)$-pair. 
 \end{proof}
 
@@ -2055,7 +2071,7 @@ Suppose that $I,J$ corresponds to a path between two vertices on the left, i.e.
 \end{align*}
 By construction we have that $(I = \{i_1,\dots,i_k\},J=\{j_1,\dots,j_k\}) \in \LA(n)$ (note we are ordering $I$ and $J$ by the path, so it is not necessarily the case that $\min I = i_1$). 
 Furthermore, each block of $\tau$ either contains a single element of $I$ and a single element of $J$, or it contains no elements of $I$ and no elements of $J$. 
-As such for any ordering of the blocks of $\tau$ we have that
+As such, for any ordering of the blocks of $\tau$ we have that
 \begin{align*}
     \forall m, \bigg|\bigcup_{1\leq k \leq m} \tau_{k} \cap I \bigg| = \bigg|\bigcup_{1\leq k \leq m} \tau_{k} \cap J \bigg| \ .
 \end{align*}
@@ -2083,8 +2099,8 @@ and this can only happen if $\tau_r$ comes before $\tau_{r'}$.
 To complete the proof of \cref{thm:facets}, it remains to show that both $u:\LAD \to \EC$ and $o:\EC\to \LAD$ are injective, with the other function being their inverse.
 
 \begin{proof}[{Proof of \cref{thm:facets}}]
-The forgetful function $u$ is clearly the inverse to $o$ as forgetting any assigned order will clearly return the original essential complementary partition pair. 
-The ordering function $o$ is the inverse to $u$ as it returns the sole ordering of the blocks which is compatible with the $\LA(n)$ conditions.
+The forgetful function $u$ is clearly the inverse to $o$, as forgetting any assigned order will clearly return the original essential complementary partition pair. 
+The ordering function $o$ is the inverse to $u$, as it returns the sole ordering of the blocks which is compatible with the $\LA(n)$ conditions.
 \end{proof}
 
 So, we have the follow characterisation of facets of the $\LAD$ and $\SUD$ diagonals (the second one being obtained by changing slightly \cref{const:total} according to the definition of the $\SU$ order).
@@ -2160,7 +2176,7 @@ Note that the composite $\LAD \xrightarrow{u} \EC \xrightarrow{o} \SUD$ provides
 
 \subsection{Vertices of operadic diagonals}
 
-We are now interested in characterizing the pairs of vertices that occur in the diagonal, that is pairs of permutations $(\sigma_1,\sigma_2) \in \triangle$. 
+We are now interested in characterizing the pairs of vertices that occur in the diagonal, that is, pairs of permutations $(\sigma_1,\sigma_2) \in \triangle$. 
 
 \begin{theorem} There exists $(I,J) \in D(n)$ such that $\forall k, |\sigma_1^1\cdots\sigma_1^k \cap I| \leq |\sigma_1^1\cdots\sigma_1^k \cap J|$ and $\forall l, |\sigma_1^1\cdots\sigma_1^l \cap I| \geq |\sigma_1^1\cdots\sigma_1^l \cap J|$ (diagonal condition) if and only if $\exists (I',J')=(\{i_1,\ldots,i_m\},\{j_1,\ldots,j_m\}) \in D(m)$, $m\leq n$, such that \[\sigma_1 \cap (I'\cup J')=j_1 i_1 j_2 i_2 \cdots j_n i_n \] and \[ \sigma_2 \cap (I'\cup J') = i_2 j_1 i_3 j_2 \cdots i_n j_{n-1} i_1 j_n \ , \] where $i_1 = \min (I' \cup J')$ (fish condition). 
 \end{theorem}
@@ -2240,6 +2256,7 @@ Through this Section, we use similar notation to the recent paper \cite{saneblid
 \subsection{Strong complementary pairs}
 
 \begin{definition}[Strong complementary pairs]
+\label{def:strong-complementary-pairs}
 A \emph{strong complementary pair ($\SCP$ for short)} is a pair of ordered partitions $(\sigma,\tau)$ where $\sigma$ is obtained from a permutation by merging the adjacent elements which are decreasing, and $\tau$ is obtained from the same permutation by merging the adjacent elements which are increasing.
 \end{definition}
 
@@ -2387,6 +2404,7 @@ We shall concentrate on two distinct families of shifts:
 and show that specific sequences generate the same diagonal. 
 
 \begin{definition}[Admissible sequences of shifts]
+    \label{def:admissible-shift-sequences}
     Let $(\sigma,\tau)$ be a pair of ordered partitions. 
     For~$p\geq 1$, a sequence of right shifts $\textbf{M} = (M_{i_1},\dots,M_{i_p}) \in [n]^{p}$ is 
     \begin{enumerate}[(a)]
@@ -2845,6 +2863,7 @@ By the definition of the $(I,J)$ diagonal, the fact that $\tau_l < \tau_j$ impli
 \end{proof}
 
 \begin{example}
+\label{ex:proof-inverse-shift}
 Here is an example of each of the cases in the prior proof. We display $1$, $2.a$, $2.b.i$ and, $2.b.ii$ respectively, reading the diagrams  from top-left to bottom-right. 
 
 \begin{center}
@@ -2965,7 +2984,7 @@ Here is an example of each of the cases in the prior proof. We display $1$, $2.a
 \draw[thick] (3) to [in=180, out=0, looseness=0] (5);
 \end{tikzpicture}
 \end{center}
-Note, as we have chosen minimal illustrate examples, each inverse $m$-shift is an inverse $1$-shift, and after each shift we obtain an $SCP$. 
+Note, as we have chosen minimal illustrative examples, each inverse $m$-shift is an inverse $1$-shift, and after each shift we obtain a $SCP$. 
 This is not typically the case.
 
 \end{example}
@@ -3045,20 +3064,17 @@ This is equivalent, via the isomorphism between $\LA$ and $\SU$ diagonals, to th
 
 \subsubsection{Shift Lattice Structure}
 
-\Kurt{Simplify later}
+In this section, we show that $\SUD$ 1-shifts admit a natural bounded lattice structure.
+Not only is this interesting in its own right, but the identified unique maximal elements of the lattice will be used later to establish an explicit link between the shift and cubical $\SUD$ diagonal definitions (\cref{sec:Cubical}).
 
 \begin{definition}
-Let $(\sigma,\tau) \in \SUD$.
-\begin{itemize}
-    \item Let $S_{(\sigma,\tau)}^R := \{\rho: R_{\rho}(\sigma,\tau)  \text{ is a well-defined $1$-shift}\}$, and $S_{(\sigma,\tau)}^L := \{\rho: L_{\rho}(\sigma,\tau)  \text{ is a well-defined $1$-shift}\}$.
-    \item For $\rho \in S_{(\sigma,\tau)}^R$ (or $\rho \in S_{(\sigma,\tau)}^L$), let $m_\rho:= \max m$ such that $R_\rho(\sigma,\tau)$ (or $L_{\rho}(\sigma,\tau)$) is a well-defined $m$-shift.
-\end{itemize}
+Let $(\sigma,\tau) \in \SUD$. For $\rho \in [n]$, let $r_\rho$ (or $l_\rho$) be the maximal value of $m$ such that $R_\rho$ (resp. $L_\rho$) is a well-defined $m$-shift of $(\sigma,\tau)$, or $0$ if there are no such $m$-shifts.
+
 \end{definition}
-Note $S_{(\sigma,\tau)}^R$ and $S_{(\sigma,\tau)}^L$ may not be disjoint.
 
 \begin{lemma}[$m$-shifts commute] \label{lem:m-shifts commute}
 Let $(\sigma,\tau) \in \SUD$.
-If either side of the following equations are  well-defined sequences of $m_1,m_2$ shift operators, then the other side is a well-defined sequence of $m_2,m_1$ shift operators, and their output is equal.
+If either side of the following equations are  well-defined sequences of $m_1,m_2$ shift operators, then the other side is a well-defined sequence of $m_2,m_1$ shift operators, and their outputs are equal.
 \begin{align*}
     R_{\rho} L_{\rho'}(\sigma,\tau) = L_{\rho'} R_{\rho}(\sigma,\tau), \quad R_{\rho} R_{\rho'}(\sigma,\tau) = R_{\rho'} R_{\rho}(\sigma,\tau), \quad L_{\rho} L_{\rho'}(\sigma,\tau) = L_{\rho'} L_{\rho}(\sigma,\tau)
 \end{align*}
@@ -3070,7 +3086,7 @@ As such, we can commute any two shift operators.
 We note that right (or left) shifting the same element $m_1$ steps then $m_2$ steps is the same as shifting it $m_1+m_2$ steps.
 \end{proof}
 
-\begin{proposition}
+\begin{proposition} \label{prop:shift lattice}
 Let $(\sigma,\tau)$ be an $SCP$ and 
 \begin{align*}
     L(\sigma,\tau) := \bigcup_{\mathbf{M}, \mathbf{N}} R_\mathbf{M}(\sigma)\times L_\mathbf{N}(\tau)
@@ -3078,20 +3094,57 @@ Let $(\sigma,\tau)$ be an $SCP$ and
 where the union is taken over all admissible sequences of $1$-shifts $\textbf{M},\textbf{N}$. 
 Then $L(\sigma,\tau)$ is a bounded lattice such that
 \begin{align*}
-    L(\sigma,\tau) \cong (\prod_{\rho \in S_{(\sigma,\tau)}^R} [m_\rho])\times 
-    (\prod_{\rho \in S_{(\sigma,\tau)}^L} [m_\rho] )
+    L(\sigma,\tau) \cong \prod_{\rho \in [n]} [r_\rho]
+    \times \prod_{\rho \in [n]} [l_\rho]
 \end{align*}
-where $[n] = (0<1...<n)$.
+where the maximal shifts $r_\rho,l_\rho$ are calculated with respect to $(\sigma,\tau)$.
 \end{proposition}
 
 \begin{proof}
 
-We identify $(0,0,...,0)$ with the SCP $(\sigma,\tau)$ and every other element $(n_{r_1},...,n_{r_{k_1}}, n_{l_1},...,n_{l_{k_2}})$, with 
-$R^{n_{r_1}}_{\rho_{r_1}}...R^{n_{r_{k_1}}}_{\rho_{r_{k_1}}}
-L^{n_{l_1}}_{\rho_{l_1}}...L^{n_{l_{k_2}}}_{\rho_{l_{k_2}}}(\sigma,\tau)$.
+We identify $(0,0,...,0)$ with the SCP $(\sigma,\tau)$ and every other element $(r_1,...,r_n,l_1,...l_n)$, with 
+$R^{r_n}_{n}...R^{r_{1}}_{1}
+L^{l_n}_{n}...L^{l_{1}}_{1}(\sigma,\tau)$.
 Given \cref{lem:m-shifts commute}, it is straightforward to confirm that the join (meet) of any two elements is given by their element wise maximum (minimum).
-The maximum element of the lattice is thus given by starting with $(\sigma,\tau)$ and shifting all elements of $S^R_{(\sigma,\tau)}$ ($S^L_{(\sigma,\tau)}$) right (resp. left) by their height.
+The maximum element of the lattice is thus given by starting with $(\sigma,\tau)$ and shifting all elements of $S^R_{(\sigma,\tau)}$ ($S^L_{(\sigma,\tau)}$) right (resp. left) by their maximal $m$-shift.
 
+\end{proof}
+
+\Kurt{Can extend the lattice to all elements by pairing with permutahedra lattice in natural fashion. 
+This seems to be an instance of there existing an operad structure on bounded lattices with finite labelled elements. 
+Surely this is known?}
+\Kurt{Does there exist a lattice structure, or a generalised notation of shifts for higher k?}
+
+The maximal $m$-shift for an element $\rho$ of a $SCP$ can be explicitly calculated as follows. 
+
+\begin{proposition}\label{prop:maximal m-shift formulae}
+Let $(\sigma,\tau)$ be a SCP, then for $\rho \in \sigma_i$,
+\begin{align*}
+    d_{\rho}^r :=& \{ m : m>0 \land \max \sigma_{i+m}>\rho\}, 
+    &r_\rho = 
+    \begin{cases}
+        |\sigma|-i,& d_{\rho}^r = \emptyset\\
+        \min d_{\rho}^r-1,& \text{otherwise}
+    \end{cases}
+\end{align*}
+and for  $\rho \in \tau_i$
+\begin{align*}
+    d_{\rho}^l :=& \{ m : m>0 \land \max \tau_{i-m}>\rho\}, 
+    &l_\rho = 
+    \begin{cases}
+        |\tau|-i,& d_{\rho}^l = \emptyset\\
+        \min d_{\rho}^l-1,& \text{otherwise}
+    \end{cases}
+\end{align*}
+
+\end{proposition}
+\begin{proof}
+We show the formula holds for $r_\rho$ the case for $l_\rho$ is similar. 
+As $\sigma,\tau$ is a SCP, $\max \sigma_{k,k+1} = \max \sigma_{k+1}$. 
+From the equivalence of $1$-shifts and $m$-shifts there exists an $m$-shift of $\rho$ from $\sigma_i$, if, and only if, there exists a sequence of $1$-shifts each satisfying $\rho > \max \sigma_{j}$ for $i+1\leq j\leq i+m$.
+As such, the index $\min d_\rho^r$ identifies the first invalid $m$-shift,
+and hence $\min d_\rho^r-1$ is the biggest valid $m$-shift.
+If there are no invalid $m$-shifts then $d_\rho^r=\emptyset$, and the biggest valid $m$-shift, of size $|\sigma|-i$, places $\rho$ in the last block of $\sigma$.
 \end{proof}
 
 \subsection{Shifts Under the Face Poset Isomorphism}
@@ -3136,16 +3189,18 @@ Similar definitions hold for admissible sequence of left shifts.
 
 We again stress that compared to the $\SU$ diagonals (\cref{def:classical-SU}), the left shift operators now act on the left ordered partition, and the right shift operators on the right ordered partition.
 
-\begin{proposition}
+\begin{proposition} \label{prop:trr is an isomorphism of shifts}
 Let $(\sigma,\tau) \in \LAD$.
 For each type of $\LA$ shift, let $\textbf{M},\textbf{N}$ be admissible sequences of this type, then 
 \begin{align*}
     t(r,r)(L_\mathbf{N}(\sigma), R_\mathbf{M}(\tau)) = (R_{r\mathbf{M}}(r\tau), L_{r\mathbf{N}}(r\sigma))
 \end{align*}
-where $r\mathbf{M}$ and $r\mathbf{N}$ are admissible sequences of $\SU$ shifts of the same type.
+where $r\mathbf{M}:=(rM_{i_1},...,rM_{i_p})$ and $r\mathbf{N}$ (defined similarly) are admissible sequences of $\SU$ shifts of the same type.
 \end{proposition}
 \begin{proof}
-We first verify that $r\mathbf{M}$ and $r\mathbf{N}$ are admissible sequences of $\SU$ shifts of $(r\tau,r\sigma)$.
+As reversing the elements then shifting them is the same as shifting the elements then reversing them,
+it is clear that the equality holds if $r\mathbf{M},r\mathbf{N}$ are admissible sequences of $\SU$ shifts.
+As such, we must simply verify the admissibility, and given the equivalence of the various shift definitions, we just do this for $1$-path shifts.
 For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (resp. $M_{i}\subset \tau_{i}$) is $LA$ $1$-block moveable if
 \begin{enumerate}
     \item 
@@ -3170,11 +3225,6 @@ It is \emph{$m$-path movable} if it satisfies $(1)$ above and if
 The reader may directly verify from \cref{def:movable-subsets}, that each $rM_i \in r\sigma_i$ meets the conditions of a moveable subset 
 if it is interpreted as being in a block of the right partition ($\tau$ in the notation of the definition).
 So, if $\mathbf{M} = (M_{i_1},...,M_{i_p})$, define $r(\mathbf{M}):=(rM_{i_1},...,rM_{i_p})$, and from the prior it is clear this is an admissible sequence of $SU$ shifts.
-Finally, all that remains to be checked is that
-\begin{align*}
-    t(r,r)(R_{M_{i_1}}(\sigma),\tau)= (r\tau,R_{M_{i_1}}(r\sigma))
-\end{align*}
-but this is clear as reversing the elements then shifting them, is the same as shifting the elements then reversing them. 
 
 \end{proof}
 
@@ -3332,19 +3382,137 @@ $5|17|4|236 \xrightarrow{L_3}5|17|34|26 $ is sent to the right $\SUD$ shift
 $256|4|17|3 \xrightarrow{R_5} 26|45|17|3$.
 \end{example}
 
-It was observed in ... that the $LA$ and $SU$ diagonals coincided up until $n=3$, however we just identified that they dua
+
+\begin{example}
+It was observed in \cite{LA21} that the $LA$ and $SU$ diagonals coincided up until $n=3$, however due to their dual shift structure they generate the non-$SCP$ pairs in a dual fashion.
+In particular, the two center faces of the hexagon (\cref{fig:diagonalPermutahedron2}) are generated by 
+\begin{center}
+
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$13$};
+\node (2) at (-1.5, -2) {$2$};
+%
+\node (4) at (1.5, -1) {$3$};
+\node (5) at (1.5, -2) {$12$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+\quad
+\raisebox{1em}{$\xrightarrow{R^{SU}_{3}}$}
+\quad
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$1$};
+\node (2) at (-1.5, -2) {$23$};
+%
+\node (4) at (1.5, -1) {$3$};
+\node (5) at (1.5, -2) {$12$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
+\end{tikzpicture}
+,\quad \quad
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$12$};
+\node (2) at (-1.5, -2) {$3$};
+%
+\node (4) at (1.5, -1) {$2$};
+\node (5) at (1.5, -2) {$13$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+\quad
+\raisebox{1em}{$\xrightarrow{L^{SU}_{3}}$}
+\quad
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$12$};
+\node (2) at (-1.5, -2) {$3$};
+%
+\node (4) at (1.5, -1) {$23$};
+\node (5) at (1.5, -2) {$1$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+
+\end{center}
+and
+\begin{center}
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$1$};
+\node (2) at (-1.5, -2) {$23$};
+%
+\node (4) at (1.5, -1) {$13$};
+\node (5) at (1.5, -2) {$2$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+\quad
+\raisebox{1em}{$\xrightarrow{R^{LA}_{1}}$}
+\quad
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$1$};
+\node (2) at (-1.5, -2) {$23$};
+%
+\node (4) at (1.5, -1) {$3$};
+\node (5) at (1.5, -2) {$12$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+,\quad \quad
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$2$};
+\node (2) at (-1.5, -2) {$13$};
+%
+\node (4) at (1.5, -1) {$23$};
+\node (5) at (1.5, -2) {$1$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+\quad
+\raisebox{1em}{$\xrightarrow{L^{LA}_{1}}$}
+\quad
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$12$};
+\node (2) at (-1.5, -2) {$3$};
+%
+\node (4) at (1.5, -1) {$23$};
+\node (5) at (1.5, -2) {$1$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+
+\end{center}
+where we have aligned each element, of each diagonal, vertically with its dual element.
+
+\end{example}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsection{Matrix and cubical Descriptions}
+\subsection{Matrix Description}
+
 
 We first recall the alternate descriptions of the $\SUD$ diagonal from \cite{SaneblidzeUmble04} and\cite{saneblidzeComparingDiagonalsAssociahedra2022}, that we would like to transfer to $\LAD$. 
 In particular, we explicitly relate the matrix and cubical descriptions of the $\SUD$ diagonal, to the description of the $\SUD$ diagonal given in \cref{def:classical-SU}.
 \\\\
-We previously saw that SCPs and permutations are in bijection (\cref{def:Strong complementary pairs}). 
+We previously saw that SCPs and permutations are in bijection (\cref{def:strong-complementary-pairs}). 
 There is also a third equivalent way to encode this data, the \emph{step matrices} of Definition 6 of \cite{SaneblidzeUmble04}.
 Informally, given a permutation $\sigma$, start in the bottom left corner of a matrix, and write increasing sequences vertically, and decreasing sequences horizontally. All other entries are $0$. Here is an example permutation, its SCP, and its step matrix, with all $0$ entries omitted.
+{\small
 \begin{center}
 \raisebox{3em}{$6524713$}
 $\quad \quad$
@@ -3382,17 +3550,18 @@ $
 $
 }
 \end{center}
-Given a $l\times k$ matrix $C$ with all non-zero entries drawn without replacement from $[n]$, let $\sigma_i(C)$ denote the non-zero entries of the $i$th column, and $\tau_j(C)$ the non-zero entries of the $(l-j+1)$th row. 
+}
+Given a $l\times k$ matrix $A$ with all non-zero entries drawn without replacement from $[n]$, let $\sigma_i(A)$ denote the non-zero entries of the $i$th column, and $\tau_j(A)$ the non-zero entries of the $(l-j+1)$th row. 
 For example, we labelled the rows and columns of the prior step matrix in this fashion.
 With this identification, we can apply \cref{def:movable-subsets}, to identify $1$-block moveable subsets of the matrix $M$, and we can apply \cref{def:admissible-shift-sequences}, to identify sequences of shifts which are admissible of original type.
 We now define a suitable subset shift action on these matrices.
-\begin{definition}
-A non-empty set of elements of a matrix $M_i \subset \sigma_i(C)$ (resp. $M_{i}\subset \tau_{i}(C)$) is \emph{$1$-block movable} if
+\begin{definition} [SU Matrix Subset Shifts]
+A non-empty set of elements of a matrix $M_i \subset \sigma_i(A)$ (resp. $M_{i}\subset \tau_{i}(A)$) is $1$-block right (left) movable if
 \begin{enumerate}
-    \item $\min \sigma_i(C) \notin M_i$ (resp. $\min \tau_{i}(C) \notin M_i$), and
-    \item $\min M_i> \max \sigma_{i+1}(C)$ (resp. $\min M_{i}> \max \tau_{i-1}(C)$).
+    \item $\min \sigma_i(A) \notin M_i$ (resp. $\min \tau_{i}(A) \notin M_i$), and
+    \item $\min M_i> \max \sigma_{i+1}(A)$ (resp. $\min M_{i}> \max \tau_{i-1}(A)$).
 \end{enumerate}
-The right matrix subset shift operator $R_{M_i}$ shifts the elements of $M_i$ right one column (i.e. if $C_{k,l} \in M_i$ then $(R_{M_i}C)_{k,l+1} = C_{k,l}$), replacing only elements of value $0$, and leaving $0$ elements in their wake.
+The right matrix subset shift operator $R_{M_i}$ shifts the elements of $M_i$ right one column, i.e. if $A_{k,l} \in M_i$ then $(R_{M_i}A)_{k,l+1} = A_{k,l}$, replacing only elements of value $0$, and leaving $0$ elements in their wake.
 The left matrix subset shift operator $L_{M_i}$ shifts the elements of $M_i$ down one row, replacing only elements of value $0$, and leaving $0$ elements in their wake.
 \end{definition}
 \begin{proposition}
@@ -3414,24 +3583,40 @@ We define the set of \emph{configuration matrices} $\mathcal{C}$, to be those ma
 \end{definition}
 
 \begin{proposition}[\cite{SaneblidzeUmble04}]
-The set of configuration matrices are in bijection with the facets of $\SUD$.
+The set of $\SU$ configuration matrices are in bijection with the facets of $\SUD$.
 \end{proposition}
 \begin{proof}
-As configuration matrices have the same recursive description as the original $\SUD$ diagonal (\cref{def:classical-SU)}), and $SCP$s are in bijection with step matrices, the result immediately follows.
+As configuration matrices have the same recursive description as the original $\SUD$ diagonal (\cref{def:classical-SU}), and $SCP$s are in bijection with step matrices, the result immediately follows.
 \end{proof}
 
+As a result of the face poset isomorphism $t(r\times r)$ we also immediately obtain a matrix description of the $\LA$ diagonal.
+\begin{definition}[LA Matrix Subset Shifts]
+A non-empty set of elements of a matrix $M_i \subset \sigma_i(A)$ (resp. $M_{i}\subset \tau_{i}(A)$) is $1$-block right (left) movable if
+\begin{enumerate}
+    \item $\max \sigma_i(A) \notin M_i$ (resp. $\max \tau_{i}(A) \notin M_i$), and
+    \item $\max M_i < \min \sigma_{i-1}(A)$ (resp. $\max M_{i} < \min \tau_{i+1}(A)$).
+\end{enumerate}
+The right matrix subset shift operator $R_{M_i}$ shifts the elements of $M_i$ left one column, replacing only elements of value $0$, and leaving $0$ elements in their wake.
+The left matrix subset shift operator $L_{M_i}$ shifts the elements of $M_i$ up one row, replacing only elements of value $0$, and leaving $0$ elements in their wake.
+\end{definition}
+Defining the set of configuration matrices $\mathcal{C}$, to be those matrices  corresponding to $SCP$s and those generated by admissible sequences of $\LA$ shifts, then yields the expected result.
+\begin{proposition}
+The set of $\LA$ configuration matrices are in bijection with the facets of $\LAD$.
+\end{proposition}
 
 \begin{example}
-Here are some valid subset shifts of the matrix encoding of $6524713$. Every composite of arrows is a valid sequence of shifts.
+The first row of the following diagram contains a sequence of admissible $\SU$ subset shifts applied to the matrix encoding of the SCP $256|4|17|3\times 6|5|147|13$ (see \cref{ex:shift translation by theta} for other encodings of shifts acting on this element). 
+The second row is the image of these shifts under isomorphism $t(r\times r)$.
 \begin{center}
-\begin{tikzcd}
+{\footnotesize
+\begin{tikzcd}[column sep = 0.5cm]
 \begin{bmatrix}
   &   & 1 & 3 \\
 2 & 4 & 7 &   \\
 5 &   &   &   \\
 6 &   &   &   \\
 \end{bmatrix}
-\arrow[r,"R_{5,6}"]
+\arrow[r,"R^{SU}_{5,6}"]
 &
 \begin{bmatrix}
   &   & 1 & 3 \\
@@ -3439,29 +3624,110 @@ Here are some valid subset shifts of the matrix encoding of $6524713$. Every com
   & 5 &   &   \\
   & 6 &   &   \\
 \end{bmatrix}
+\arrow[r,"L^{SU}_7"]
+&
+\begin{bmatrix}
+  &   & 1 & 3 \\
+2 & 4 &   &   \\
+  & 5 & 7 &   \\
+  & 6 &   &   \\
+\end{bmatrix}
+\arrow[r,"R^{SU}_7"]
+&
+\begin{bmatrix}
+  &   & 1 & 3 \\
+2 & 4 &   &   \\
+  & 5 &   & 7 \\
+  & 6 &   &   \\
+\end{bmatrix}
+\\
+\begin{bmatrix}
+  &   &   & 2 \\
+  &   &   & 3 \\
+  & 1 & 4 & 6 \\
+5 & 7 &   &   \\
+\end{bmatrix}
+\arrow[r,"R^{LA}_{2,3}"]
+&
+\begin{bmatrix}
+  &   & 2 &   \\
+  &   & 3 &   \\
+  & 1 & 4 & 6 \\
+5 & 7 &   &   \\
+\end{bmatrix}
+\arrow[r,"L^{LA}_1"]
+&
+\begin{bmatrix}
+  &   & 2 &   \\
+  & 1 & 3 &   \\
+  &   & 4 & 6 \\
+5 & 7 &   &   \\
+\end{bmatrix}
+\arrow[r,"R^{LA}_1"]
+&
+\begin{bmatrix}
+  &   & 2 &   \\
+1 &   & 3 &   \\
+  &   & 4 & 6 \\
+5 & 7 &   &   \\
+\end{bmatrix}
 \end{tikzcd}
+}
 \end{center}
-Note, that $R_5,R_6$ are also valid right shifts of the left matrices.
-\Kurt{Todo.}
+
 
 \end{example}
 
-In \cite{SaneblidzeUmble04} Saneblidze and Umble first identified their diagonal through the following subdivision of the $n$-cube by the permutahedra $P_{n+1}$.
-Let $1$ denote a trivial subdivision of the $0$-cube (a point), then we can subdivide the $n$-cube by weaving $n+1$ through the previous subdivision of the $n-1$-cube, then connecting all vertices by the weak Bruhat order. 
+\subsection{Cubical Description}\label{sec:Cubical}
+
+Recall from Definitions \ref{def:cellular diagonal} and \ref{def:operadic diagonal} that a cellular operadic diagonal of the permutahdra satisfies the following properties.
+\begin{itemize}
+    \item ...
+\end{itemize}
+In \cite{SaneblidzeUmble04}, Saneblidze and Umble identified that they could use a particular subdivision of the $(n-1)$-cube by $P_{n}$, to construct such a diagonal.
+In their work they briefly outline this construction before using it to induce their subset shift description (\cref{def:classical-SU}).
+In this section, we first recall and re-interpret the necessary definitions of their cubical diagonal.
+We then show this diagonal is indeed a cellular operadic diagonal, and that it coincides with their subset shift formula.
+Finally we use the isomorphism $t(r\times r)$ to induce a cubical $\LA$ diagonal.
+
+\subsubsection{Definitions}
+
+
+We present and characterise all definitions in full, each of these definitions will be clarified in \cref{ex:subdivision cubes}.
+Let $1$ denote a trivial subdivision of the $0$-cube (a point), then we can subdivide the $(n-1)$-cube by weaving $n$ through the previous subdivision of the $(n-2)$-cube. 
+In particular, for every face of $\sigma = \sigma_1|...|\sigma_k \in P_{n-1}$, for $0<i<k$ we define
+$n_j := \#(\sigma_{k-i+1}\cup...\cup \sigma_k)$, and 
+$I_j := [1 - \frac{1}{2^{n_j}}, 1 - \frac{1}{2^{n_{j+1}}}]$.
+We then define boundary cases $I_0:= [0,1 - \frac{1}{2^{n_1}}]$ and $I_k:= [1 - \frac{1}{2^{n_k}},1]$, to  produce $I(\sigma) := I_0 \cup ... \cup I_k$, a partition of the interval $[0,1]$.
+Finally, assuming we have subdivided the $(n-2)$ cube with $P_{n-1}$, we can use these partitioned intervals to subdivide the $(n-1)$-cube with $P_n$ through,
+\begin{align} \label{eq:In inductive def}
+    \sigma \times I \mapsto 
+    \begin{cases}
+        \sigma_1|...|\sigma_k| n, &I = [0, 0]\\
+        \sigma_1|...|\sigma_j \cup n|...|\sigma_k, &I = I_j\\
+        \sigma_1|...|\sigma_j|n|\sigma_{j+1}|...|\sigma_k, &I = I_j \cap I_{j+1}\\
+        n|\sigma_1|...|\sigma_k, &I = [1, 1]
+    \end{cases}
+\end{align}
 Here is an illustration of this subdivision for the first few-dimensions.
-We indicate, in bold, a natural inclusion of each $n-1$ cube into the $n$-cube.
+We indicate, in bold, the embedding of the $n-1$ cube into the $n$ cube that occurs when $I=[0, 0]$. 
 
 \begin{center}
+{\small
 \begin{tikzcd}[sep=0.3cm]
 \mathbf{1|2} \arrow[r,dash, "12"] & 2|1
 \end{tikzcd}
+}
 $\hookrightarrow$
+{\small
 \begin{tikzcd}[column sep=0.3cm]
 3|1|2 \arrow[r,dash, "3|12"] \arrow[d,dash, "13|2"]& 3|2|1 \arrow[d,dash, "13|2"]\\
 1|3|2 \arrow[d,dash, "1|23"] & 2|3|1 \arrow[d,dash, "2|13"]\\
 \mathbf{1|2|3} \arrow[r,dash,thick, "12|3"] & \mathbf{2|1|3}
 \end{tikzcd}
+}
 $\hookrightarrow$
+{\small
 \begin{tikzcd}[sep=0.15cm,scale=0.8]
 & 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] & & 4|2|3|1 \arrow [dd, dash,dotted] \arrow[rr,dash] & & 4|3|2|1 \arrow[dd,dash] \arrow[dl,dash]\\
 4|1|2|3 \arrow [rr,dash] \arrow [dd,dash] & & 4|1|3|2 \arrow[rr,dash] \arrow[dd,dash] & & 4|3|1|2 \arrow[dd,dash]  & \\
@@ -3472,172 +3738,389 @@ $\hookrightarrow$
 & \mathbf{2|1|3|4} \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] & & \mathbf{2|3|1|4} \arrow [rr,dash,dotted] & & \mathbf{3|2|1|4} \arrow [dl,dash] \\
 \mathbf{1|2|3|4} \arrow [rr,dash] & & \mathbf{1|3|2|4} \arrow [rr,dash] & & \mathbf{3|1|2|4} \\
 \end{tikzcd}
+}
 \end{center}
-To avoid cluttering the diagram, we have only labelled the vertices of the subdivision of cube, but its edges, facets and face are also identified with the expected elements of $P_{n+1}$.
-We note each vertex of the $n-1$ cube produces an edge of the $n$-cube with $n+1$ vertices through,
-\begin{align*}
-    x_1|...|x_n \mapsto (x_1|\dots|x_n|n+1, x_1|\dots|n+1|x_n|,\dots ,n+1|x_1|\dots|x_n)
-\end{align*}
-These successive vertices are totally ordered under the weak-Bruhat order.
+To avoid cluttering the diagram, we have only labelled the vertices of the subdivision of cube, but its edges, facets and face are also identified with the expected elements of $P_{n}$.
+Samson and Umble's formula for the diagonal was constructed through a maximal pairing of $k$-subdivision cubes.
+We now define and characterise the $k$-subdivision cubes, before doing the same for the pairs.
 
 \begin{definition} \label{def:Subdivisions}
-Define $I_{n-1}$ to be the $n-1$-cube under this subdivision of $P_{n}$. 
-Let $e$ be a cell in $P_{n}$ with dimension $|e|$,
+Define $I_{n-1}$ to be the $(n-1)$-cube under this subdivision of $P_{n}$. 
+Let $e$ be a cell in $P_{n}$ with dimension $|e|$,  a \emph{$k$-subdivision cube} of $e$ denoted $\subdivcubeofe$ is a set of faces whose union is a $k$-subcube of $e$ for some $k\leq |e|$.
+When $e$ is the outer face, we denote these $k$-subdivision cubes as simply $\subdivcubeofouter$.
+\end{definition}
+Note that trivially every $k$-face of $P_n$ is a $k$-subdivision cube of every cell which contains it, for instance the outer face of $P_n$, and the $k$-face itself. 
+
+\begin{lemma}\label{lem:k-subdiv cubes have max/min k faces}
+A $k$-subdivision cube $\subdivcubeofe$,
+\begin{enumerate}
+    \item has unique maximal and minimal vertices under the weak Bruhat order.
+    \item has unique maximal and minimal $k$-faces.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+In order for a $k$-subdivision cube to be a $k$-cube it must have unique maximal and minimal vertices.
+The unique maximal/minimal $k$-faces are defined to be the unique $k$-faces adjacent to these vertices.
+\end{proof}
+
+We need an explicit way to identify/calculate $k$-subdivision cubes. 
+One less than optimal way to do so, is the following. 
+Let $[u,v]$ be an interval of $P_n$ under the weak-Bruhat order.
+We can consider this interval as including not just vertices, but higher faces through $f\in [u,v]$ if all vertices of $f$ are in $[u,v]$.
+\Kurt{Any nice relation with Bruhat interval polytopes?}
+\begin{lemma}\label{lem:Extremal paths implies cube}
+An interval $[u,v] \in P_n$ is a $k$-subdivision cube, if, and only if, the vertices $u$ and $v$ are connected by all $k!$ extremal edge paths in $I_{n-1}$. 
+\end{lemma}
+\begin{proof}
+A $k$-subdivision cube of $I_{n-1}$ is a $k$-cube, so there must be $k! = \binom{k}{1}\binom{k-1}{1}...\binom{1}{1}$ extremal edge paths from its minimal vertex to the maximal vertex.
+Now for the opposite direction. 
+Suppose we have an interval $[u,v] \in P_n$, in which the vertices $u$ and $v$ are connected by all $k!$ extremal edges.
+Under the inductive description of $I_{n-1}$ (\cref{eq:In inductive def}), these extremal edges form a 'frame' for a $k$-cube.
+Considering the extremal vertices of the $k$-frame (the cubical vertices), makes it clear that from the definition of the strong Bruhat order, there cannot be vertices outside this of the $k$-frame.
+We now show that all vertices within this $k$-frame are covered by $k$-faces within the interval, and hence the $k$-frame is a $k$-subdivision cube.
+\Kurt{Could handwave this with "Then, we know from the inductive description (\cref{eq:In inductive def}), that any hole of dimension $k$ must be filled with $k$-faces (and connecting $(k-1)$-faces)", but here is one more explicit path.}
+From the inductive description of the cube \cref{eq:In inductive def}, we know that 
+\begin{enumerate}
+    \item Each extremal path corresponds to shifting an element to its final position and never touching it again.
+    \item The $k$-faces of $I_{n-1}$ are stacked with connecting $k-1$ faces.
+\end{enumerate}
+These extremal paths must run along the back of $k$-faces, i.e. the frame of edges can be thickened into a frame of $k$-faces.
+In particular, recall that a $k$-face is trivially a $k$-subdivision cube.
+As $P_n$ is a simple polytope, the presence of $k$ edges exiting from the minimal vertex $u$ indicates that there is a minimal $k$-face, and hence $k$-cube present in the bottom corner of the $k$-frame.
+Starting from the minimal vertex and stepping along an edge of the $k$-frame will step along an edge of the minimal $k$-cube.
+When we reach the boundary of this $k$-cube, we are either at another corner of the $k$-frame, or we can infer from $P_n$ being a simply polytope and \cref{eq:In inductive def}, that we will step into another $k$-face/cube.
+We can repeat this process for all the extremal paths, thickening the frame of edges into a frame of $k$-faces.
+This frame of $k$-faces can then be filled in with other $k$-faces through \cref{eq:In inductive def}, hence we have a $k$-subdivision cube. 
+
+
+\end{proof}
+
+We now refine this result to checking a single path.
+First we introduce some terminology, and a helper lemma.
+
+\begin{definition}[Vertex shift operators]
+Let $v$ be a vertex in $P_n$ and define the shift operators acting on $v$ to be,
 \begin{itemize}
-    \item a \emph{$k$-subdivision cube} of $e$ is a set of faces whose union is a $k$-subcube of $I_{n-1}$ for some $k\leq |e|$.
-    \item the set of vertices in $e$ is denoted $\mathcal{V}_e$.
-\end{itemize}
-Let $v \in \mathcal{V}_e$, as this vertex corresponds to a permutation let $(\sigma,\tau)$ be its SCP. 
-\begin{itemize}
-    \item Let $k_1,k_2$ denote the number of blocks in $\sigma,\tau$ respectively.
-    \item Let $(I_{v,1}^{k_1}$, $I_{v,2}^{k_2})$ be a pair of $k_i$-subdivision cubes of $e$ such that
-    \begin{enumerate}
-        \item $k_1+k_2 = |e|$
-        \item Under the weak Bruhat order $\max I_{v,1}^{k_1} = \min I_{v,2}^{k_2} = v$
-    \end{enumerate}
-    \item We denote the set of all such pairs by $e_v$, and denote its unique maximal \Kurt{... hmmm well union of all, but probably better descs} element by $e_v^*$.
+    \item $\leftshiftk{i}{s_i}$ ($\rightshiftk{i}{s_i}$) shifts element $i$ past $s_i$ elements to the left (right) which are smaller than $i$.
+    \item $\leftshift{i}$ ($\rightshift{i}$) shifts element $i$ past all elements to the left (right) which are smaller than $i$.
 \end{itemize}
 \end{definition}
-\begin{example}
-Here is an example that is directly verifiable from the diagram of $I_3$ above.
-In $P_4$, let $e$ be the top-dimensional cell $1234$. Then the following sets of faces are all $k$-subdivision cubes of $e$
+
+\begin{lemma}\label{lem:Interchanging shift operators}
+Let $v$ be a vertex in $P_n$ and let $i,j \in [n]$ such that $i<j$. If $\rightshiftk{i}{s_i}\rightshiftk{j}{s_j} v$ and $\leftshiftk{i}{s_i}\leftshiftk{j}{s_j} v$ are well-defined sequences of shift operators, then $\rightshiftk{j}{s_j}\rightshiftk{i}{s_i} v$ and $\leftshiftk{j}{s_j}\leftshiftk{i}{s_i} v$ are also well-defined.
+Furthermore,
 \begin{align*}
-    \{1234\}, \{1|234\}, \{1|234, 14|23\} \{4|13|2\}, \{1|3|24,1|43|2,14|3|2\}.
+    \rightshiftk{i}{s_i}\rightshiftk{j}{s_j} v = \rightshiftk{j}{s_j}\rightshiftk{i}{s_i} v, \quad 
+    \leftshiftk{i}{s_i}\leftshiftk{j}{s_j} v = \leftshiftk{j}{s_j}\leftshiftk{i}{s_i} v
 \end{align*}
-The follow two sets of faces are both not $k$-subdivision cubes of $e$,
+\end{lemma}
+\begin{proof}
+As $j>i$, shifting $i$ before $j$ will never block $\rightshiftk{j}{s_j}$ or $\leftshiftk{j}{s_j}$. The equalities are clear.
+\end{proof}
+
+\begin{lemma} \label{lem:subdiv cubes are intervals}
+A $k$-subdivision cube $\subdivcubeofe$ is an interval $[\overrightarrow{v},v]$ of $P_n$, where $v$ is the unique maximal vertex, and 
 \begin{align*}
-    \{1|234, 14|23,13|24\}, \{1|2|34,1|3|24\}
+    \overrightarrow{v}:= \rightshiftk{1}{s_1}... \rightshiftk{n-1}{s_{n-1}}\rightshiftk{n}{s_n}v
 \end{align*}
-For $v = 4|1|3|2$, 
+Dually, a $k$-subdivision cube $\subdivcubeofe$ is also an interval $[v,\overleftarrow{v}]$ of $P_n$, where $v$ is the unique minimal vertex, and 
 \begin{align*}
-    e_v = \{( \{14|23\},\{4|13|2\}), ( \{1|234, 14|23\},\{4|13|2\}) \}, \text{and, } e_v^* =( \{1|234, 14|23\},\{4|13|2\})
+    \overleftarrow{v} :=\leftshiftk{1}{s_1}...\leftshiftk{n-1}{s_{n-1}}\leftshiftk{n}{s_n}v
 \end{align*}
-Note there are two elements in $\blue{\mathbf{14|23}}$$\times\blue{\mathbf{4|13|2}}, \red{\mathbf{1|234}}$$\times\blue{\mathbf{4|13|2}}$$ \in e_v^*$, an $SCP$ and a right shift of it.
-Similarly, for $v=3|1|4|2$, we compute that there are two elements $\mathbf{\blue{13|24}}$$\times \mathbf{\blue{3|14|2}},\mathbf{\blue{13|24}}$$\times \mathbf{\red{43|1|2}}\in e_v^*$, an SCP and its left shift.
-These are illustrated below,
+In each case exactly $k$ shift increments ($s_i$) are non-zero.
+\end{lemma}
+\begin{proof}
+If we have a $k$-subdivision cube, then one of its extremal paths will be of the form
+$\rightshiftk{1}{s_1}... \rightshiftk{n}{s_n}$ ($\leftshiftk{1}{s_1}...\leftshiftk{n}{s_n}$) for some values of $s_i$.
+Conversely given extremal paths of this form, we can produce all other extremal paths via \cref{lem:Interchanging shift operators}. So the result follows.
+
+\end{proof}
+It is worth stressing that even if $C_e =[\overrightarrow{v},v] = [u,\overleftarrow{u}]$ the paths checked by this lemma are generally not the same, i.e. $\rightshiftk{1}{s_1}... \rightshiftk{n-1}{s_{n-1}}\rightshiftk{n}{s_n}$ is not the path $\leftshiftk{1}{s_1}...\leftshiftk{n-1}{s_{n-1}}\leftshiftk{n}{s_n}$ in reverse. 
+Here is a clarifying example.
+\begin{example}\label{ex:subdivision cube path example}
+We illustrate on the left (right) all $k$-subdivision cubes of the outer face of $P_4$ with maximal vertex $4|3|2|1$ (with minimal vertex $1|2|3|4$).
+We indicate all subdivision cubes by their minimal (maximal) vertex, colouring it blue to indicate lines, purple for squares and red for cubes.
+In addition, we have directed the edges of each of the cubes so that the unique directed path from $4|3|2|1$ ($1|2|3|4$) to the minimal (maximal) vertex is the path of \cref{lem:subdiv cubes are intervals}.\Kurt{Number of subdivision cubes with min id is probably the Naryana numbers A001263. Maybe can get nice refinement?}
+{\scriptsize
 \begin{center}
-{\footnotesize
-\begin{tikzcd}[sep=0.1cm, scale=0.3]
-& 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] & & 4|2|3|1 \arrow [dd, dash,dotted] \arrow[rr,dash] & & 4|3|2|1 \arrow[dd,dash] \arrow[dl,dash]\\
-4|1|2|3 \arrow [rr,dash] \arrow [dd,dash] & & \mathbf{\blue{4|1|3|2}} \arrow[rr,dash,crossing over, "\mathbf{\blue{4|13|2}}" description] \arrow[dd,dash] & & 4|3|1|2 \arrow[dd,dash]  & \\
-& \blue{\mathbf{14|23}} \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 2|4|3|1  \arrow[dd,dash,dotted] & & 3|4|2|1 \arrow [dl,dash] \arrow[dd,dash]\\
-1|4|2|3 \arrow [rr,dash] \arrow [dd,dash]& & 1|4|3|2  \arrow[dd,dash] & & 3|4|1|2 \arrow[dd,dash]\\
-& 2|1|4|3 \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] & & 2|3|4|1 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] & & 3|2|4|1 \arrow[dd,dash] \\
-1|2|4|3 \arrow [dd,dash] \arrow[rr, phantom, "\red{\mathbf{1|234}}" description,crossing over]& & 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash] & & 3|1|4|2 \arrow[dd,dash] & \\
-& 2|1|3|4 \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] & & 2|3|1|4 \arrow [rr,dash,dotted] & & 3|2|1|4 \arrow [dl,dash] \\
-1|2|3|4 \arrow [rr,dash] & & 1|3|2|4 \arrow [rr,dash] & & 3|1|2|4 \\
-\end{tikzcd}
-}
-\quad
-{\footnotesize
-\begin{tikzcd}[sep=0.1cm, scale=0.3]
-& 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] & & 4|2|3|1 \arrow [dd, dash,dotted] \arrow[rr,dash] & & 4|3|2|1 \arrow[dd,dash] \arrow[dl,dash]\\
-4|1|2|3 \arrow [rr,dash] \arrow [dd,dash] & & 4|1|3|2 \arrow[rr,dash] \arrow[dd,dash] & & 4|3|1|2 \arrow[dd,dash,crossing over, "\mathbf{\red{43|1|2}}" description]  & \\
+\begin{tikzcd}[sep=0.15cm,scale=0.8]
+& \color{blue}{4|2|1|3} \arrow[rr,dash,leftarrow] \arrow[dd,dash,dotted] \arrow[dl] & & \color{blue}{4|2|3|1} \arrow [dd,dash,dotted] \arrow[rr,dash,leftarrow] & & \mathbf{4|3|2|1}\arrow[dd] \arrow[dl]\\
+\color{purple}{4|1|2|3} \arrow [rr,dash] \arrow [dd,dash] & & {4|1|3|2} \arrow[rr,dash] \arrow[dd,dash] & & \color{blue}{4|3|1|2} \arrow[dd,dash]  & \\
+& 2|4|1|3 \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 2|4|3|1  \arrow[dd,dash,dotted] & & \color{blue}{3|4|2|1} \arrow [dl] \arrow[dd]\\
+{1|4|2|3} \arrow [rr,dash] \arrow [dd,dash]& & {1|4|3|2}  \arrow[dd,dash] & & \color{purple}{3|4|1|2} \arrow[dd,dash]\\
+& {2|1|4|3} \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] & & \color{purple}{2|3|4|1} \arrow [dd, dash,dotted] \arrow [rr, leftarrow,dotted] & & \color{blue}{3|2|4|1} \arrow[dd] \\
+{1|2|4|3} \arrow [dd,dash] & & 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash] & & 3|1|4|2 \arrow[dd,dash] & \\
+& \color{purple}{2|1|3|4} \arrow [rr,leftarrow,dotted] \arrow [dl,dotted] & & \color{purple}{2|3|1|4} \arrow [rr,leftarrow,dotted] & & \color{blue}{3|2|1|4} \arrow [dl] \\
+\red{1|2|3|4} \arrow [rr,dash] & & {1|3|2|4} \arrow [rr,dash] & & \color{purple}{3|1|2|4} \\ 
+\end{tikzcd}    
+\begin{tikzcd}[sep=0.15cm,scale=0.8]
+& \color{purple}{4|2|1|3} \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,leftarrow] & & 4|2|3|1 \arrow [dd, dash,dotted] \arrow[rr,dash] & & \red{4|3|2|1}\arrow[dd,dash] \arrow[dl,leftarrow]\\
+\blue{4|1|2|3} \arrow [rr] \arrow [dd,leftarrow] & & \color{purple}{4|1|3|2} \arrow[rr] \arrow[dd,dash] & & \color{purple}{4|3|1|2} \arrow[dd,dash]  & \\
 & 2|4|1|3 \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 2|4|3|1  \arrow[dd,dash,dotted] & & 3|4|2|1 \arrow [dl,dash] \arrow[dd,dash]\\
-1|4|2|3 \arrow [rr,dash] \arrow [dd,dash]& & 1|4|3|2  \arrow[dd,dash] & & 3|4|1|2 \arrow[dd,dash,crossing over, "\mathbf{\blue{3|14|2}}" description]\\
+\blue{1|4|2|3} \arrow [rr] \arrow [dd,leftarrow]& & \color{purple}{1|4|3|2}  \arrow[dd,dash] & & 3|4|1|2 \arrow[dd,dash]\\
+& \color{purple}{2|1|4|3} \arrow[dd,dash,dotted] \arrow[dl,leftarrow,dotted] & & 2|3|4|1 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] & & 3|2|4|1 \arrow[dd,dash] \\
+\blue{1|2|4|3} \arrow [dd,leftarrow] & & 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash] & & 3|1|4|2 \arrow[dd,dash] & \\
+& \blue{2|1|3|4} \arrow [rr,dash,dotted] \arrow [dl,leftarrow,dotted] & & {2|3|1|4} \arrow [rr,dash,dotted] & & \color{purple}{3|2|1|4} \arrow [dl,leftarrow] \\
+\mathbf{1|2|3|4} \arrow [rr] & & \blue{1|3|2|4} \arrow [rr] & & \blue{3|1|2|4} \\ 
+\end{tikzcd}    
+\end{center}
+}
+\end{example}
+
+\Kurt{Morally it feels like this would provide a 'good' way to compute the size of the principal ideal in the weak Bruhat order.
+In particular, we can compute certain vertices very easily via their cube.
+However, there is almost certainly not an easy way to extend to the other vertices, as this problem is known to be \#P complete https://arxiv.org/pdf/1802.06312.pdf}
+\Kurt{Maybe we can compute a weaker result like A263754?}
+
+We now define a particular paring of subdivision cubes.
+
+\begin{definition} [\cite{saneblidzeComparingDiagonalsAssociahedra2022}]\label{def:subdiv pairs}
+Let $e$ be a cell of $P_n$ and let $\mathcal{V}_e$ be the set of vertices in $e$.
+For a given vertex $v \in \mathcal{V}_e$, we define $\subdivpairsev$ to be the set of all pairs $(C^v,C_v)$ of $k_1,k_2$ subdivision cubes such that
+\begin{enumerate}
+    \item $C^v$ is a $k_1$-subdivision cube of $e$ with maximal vertex $v$.
+    \item $C_v$ is a $k_2$-subdivision cube of $e$ with minimal vertex $v$.
+    \item $k_1+k_2 = |e|$
+\end{enumerate}
+If $e$ is the outer face of $P_n$ then we denote the set of pairs $\subdivpairsv$.
+\end{definition}
+
+\begin{proposition}\label{prop:ev properties}
+The pairs $\subdivpairsv$ satisfy the following properties,
+\begin{enumerate}
+    \item The SCP $(\sigma,\tau) \in \subdivpairsv$.
+    \item All pairs $(C^v,C_v) \in \subdivpairsv$ have the same dimensions, and these are determined by the number of blocks in the SCP. In particular, $k_1=|\sigma|$ and $k_2 = |\tau|$. 
+    \item For all $(C^v,C_v) \in \subdivpairsv$, the unique maximal $k_1$ face of $C^v$ is $\sigma$, the unique minimal $k_2$ face of $C_v$ is $\tau$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+The proofs in turn are as follows.
+\begin{enumerate}
+    \item The fact that the SCP is in $\subdivpairsv$ follows directly from the definition of each.
+    \item If $(\sigma,\tau)$ is the SCP of $v$, then $\sigma$ is the largest $k_1$ face of $P_n$ with maximal vertex $v$, and $\tau$ is the largest $k_2$ face of $P_n$ with minimal vertex $v$.    
+    Suppose that exists $(C_1,C_2) \in \subdivpairsv$ which are $k'_1, k'_2$ subdivision cubes where $k'_1\neq k_1$ (and $k'_2\neq k_2$).
+    If $k'_1< k_1$, then it must be the case that $k'_2> k_2$.
+    As this requires the existence of a $k'_2$ face in $P_n$ with minimal vertex $v$, and we know that the $k_2$ face $\tau$ is the largest such face, we arrive at a contradiction.
+    Assuming $k'_2<k_2$ yields a similar contradiction.
+    \item We know all $C^v$ are $k_1$ subdivision cubes, which by \cref{lem:k-subdiv cubes have max/min k faces} tells us they have a unique maximal $k_1$ face.
+    However, we know that $\sigma$ is a $k_1$ face adjacent to the maximal vertex $v$ so it must be the unique maximal $k_1$ face.
+    Similar logic applies to $C_v$.
+\end{enumerate}
+\end{proof}
+
+\begin{definition}\label{def:max subdiv pairs}
+Let $\maxsubdivpairsev$ denote the unique maximal pair of subdivision cubes in $\subdivpairsev$ under inclusion.
+\end{definition}
+We establish the uniqueness of this definition as a result of the following lemma. \Kurt{relate to pattern avoiding desc.}
+\begin{lemma} \label{lem:unique interval desc of maximal subdiv pair}
+The maximal pair of subdivision cubes $\maxsubdivpairsv$ is unique, and
+\begin{align*}
+    \maxsubdivpairsv=[\rightshift{1}... \rightshift{n-1}\rightshift{n}v, v] \times [v, \leftshift{1}...\leftshift{n-1}\leftshift{n}v]
+\end{align*}
+\end{lemma}
+\begin{proof}
+From \cref{lem:subdiv cubes are intervals}, we know that all $k_1$-subdivision cubes with maximal vertex $v$ are of the form
+$[\overrightarrow{v},v]$, and all $k_2$-subdivision cubes with minimal vertex $v$ are of the form $[{v},\overleftarrow{v}]$, where 
+\begin{align*}
+    \overrightarrow{v}:= \rightshiftk{1}{s_1}... \rightshiftk{n-1}{s_{n-1}}\rightshiftk{n}{s_n}v, \quad \overleftarrow{v} :=\leftshiftk{1}{s_1}...\leftshiftk{n-1}{s_{n-1}}\leftshiftk{n}{s_n}v
+\end{align*}
+As such, it is clear that $[\rightshift{1}... \rightshift{n-1}\rightshift{n}v, v] $ and $[v, \leftshift{1}...\leftshift{n-1}\leftshift{n}v]$ are not only $k_1,k_2$-subdivision cubes,
+but the particular subdivision cubes for which each shift $s_i$ is maximal.
+This tells us that all other subdivision cubes are enveloped by these maximal cubes.
+To see this, one can observe from the inductive description of $I_n$ (\cref{eq:In inductive def}) that the path from the minimal vertex of $\rightshift{1}... \rightshift{n-1}\rightshift{n}v$ to any other $\rightshiftk{1}{s_1}... \rightshiftk{n-1}{s_{n-1}}\rightshiftk{n}{s_n}v$ will remain within the $k_1$-cube $[\rightshift{1}... \rightshift{n-1}\rightshift{n}v, v]$, and similarly for the $k_2$.
+\end{proof}
+
+\begin{corollary}
+All other maximal pairs of subdivision cubes $\maxsubdivpairsev$ are also unique.
+\end{corollary}
+\begin{proof}
+...
+\end{proof}
+
+Finally, we clarify all the definitions of this section through example.
+
+\begin{example}\label{ex:subdivision cubes}
+Here is an example that is visually verifiable from the diagram of $I_3$ below.
+In $P_4$, let $e$ be the top-dimensional cell $1234$. Then the following sets of faces are all subdivision cubes of $e$ (for varying $k$)
+\begin{align*}
+    \{1234\},\quad \{1|234\},\quad \{1|234, 14|23\},\quad \{1|43|2,14|3|2\}.
+\end{align*}
+These subdivision cubes correspond to the following respective intervals under  \cref{lem:subdiv cubes are intervals},
+\begin{align*}
+    [1|2|3|4,4|3|2|1],\quad [1|2|3|4,1|4|3|2],\quad [1|2|3|4,4|1|3|2],\quad [1|3|2|4, 4|1|3|2]
+\end{align*}
+Note, that $\{3|1|4|2,14|3|2\}$ is also a $k$-subdivision cube of the cell $134|2$.
+An example of an interval of the weak Bruhat order which does not correspond to a subdivision cube is $[1|4|2|3,4|3|1|2]$.
+The following three sets of faces are not subdivision cubes of $e$,
+\begin{align*}
+    \{134|2, 14|23\},\quad \{1|234, 134|2, 14|23\}, \quad \{1|2|34,1|23|4\}
+\end{align*}
+For $v = \blue{\mathbf{4|3|1|2}}$, the SCP is $\sigma\times \tau = \blue{\mathbf{134|2\times 4|3|12}}$, $k_1=2$, $k_2=3$, the only $k_2$-subdivision cube with minimal vertex $v$ is $4|3|12$, and the three $k_1$-subdivision cubes are
+\begin{align*}
+    \{134|2\}, \{13|24, 134|2\}, \{ 1|234, 13|24, 14|23, 134|2\}
+\end{align*}
+
+This defines $\subdivpairsv$, and thus $\maxsubdivpairsv=\{ 1|234, 13|24, 14|23, 134|2\} \times \{4|3|12\}$.
+Under \cref{lem:unique interval desc of maximal subdiv pair}, the vertex interval characterisation is $[1|2|3|4, 4|3|1|2] \times [4|3|1|2, 4|3|2|1]$.
+To relate shifts to these subdivision cubes, observe that $\sigma = \blue{\mathbf{134|2}}$ admits $3$ different sequences of admissible rights shifts, their images are $\red{\mathbf{13|24}}$ , $\red{\mathbf{14|23}}$, $\red{\mathbf{1|234}}$,
+and that $\tau = \blue{\mathbf{4|3|12}}$ admits no left shifts.
+These shifts are illustrated on $I_3$ below.
+\begin{center}
+{\small
+\begin{tikzcd}[sep=0.1cm, scale=0.3]
+& 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] & & 4|2|3|1 \arrow [dd, dash,dotted] \arrow[rr,dash] & & 4|3|2|1 \arrow[dd,dash] \arrow[dl,dash, near end, "\mathbf{\blue{4|3|12}}"']\\
+4|1|2|3 \arrow [rr,dash] \arrow [dd,dash] & & 4|1|3|2 \arrow[rr,dash] \arrow[dd,dash] & & \mathbf{\blue{4|3|1|2}} \arrow[dd,dash]  & \\
+& \red{\mathbf{14|23}} \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 2|4|3|1  \arrow[dd,dash,dotted] & & 3|4|2|1 \arrow [dl,dash] \arrow[dd,dash]\\
+1|4|2|3 \arrow [rr,dash] \arrow [dd,dash]& & 1|4|3|2  \arrow[dd,dash] \arrow[rr, phantom, "\blue{\mathbf{134|2}}" description,crossing over] & & 3|4|1|2 \arrow[dd,dash]\\
 & 2|1|4|3 \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] & & 2|3|4|1 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] & & 3|2|4|1 \arrow[dd,dash] \\
-1|2|4|3 \arrow [dd,dash] & & 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash] & & \mathbf{\blue{3|1|4|2}} \arrow[dd,dash] & \\
-& 2|1|3|4 \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] & & \mathbf{\blue{13|24}} \arrow [rr,dash,dotted] & & 3|2|1|4 \arrow [dl,dash] \\
+1|2|4|3 \arrow [dd,dash] \arrow[rr, phantom, "\red{\mathbf{1|234}}" description,crossing over] & & 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash] & & 3|1|4|2 \arrow[dd,dash] & \\
+& 2|1|3|4 \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] & & \red{\mathbf{13|24}} \arrow [rr,dash,dotted] & & 3|2|1|4 \arrow [dl,dash] \\
 1|2|3|4 \arrow [rr,dash] & & 1|3|2|4 \arrow [rr,dash] & & 3|1|2|4 \\
 \end{tikzcd}
 }
 \end{center}
+
+The reader should observe two points key  points from this example.
+Firstly, all shifts are present in $\maxsubdivpairsv$.
+Secondly, the explicit relationship between shifts and the other $k$-subdivision cubes is subtle.
+One might expect that the right shifts of $\sigma$ would correspond to the minimal $k_1$-faces of the $k_1$ subdivision cubes.
+This example shows this is not the case, as there are four shifts of $\sigma$ (including the trivial shift), but only three $k_1$ subdivision cubes with maximal vertex $v$.
+In particular, $\{14|23, 134|2\}$ is not a $k_1$ subdivision cube.
+
 \end{example}
 
-\begin{lemma}
-
-The set of $k$-subdivision cubes of $e$ with a unique maximal vertex is a bounded lattice.
-\end{lemma}
+\begin{proposition}
+The following formula defines a cellular operadic diagonal of the permutahedra. For every cell $e$ of the permutahedra
+\begin{align*}
+    \triangle(e) = \bigcup_{v \in V_e} \maxsubdivpairsev
+\end{align*}
+In particular its value on outer faces is 
+\begin{align*}
+    \triangle([n]) = \bigcup_{v \in P_n} \maxsubdivpairsv
+\end{align*}
+and as a result of it being an operadic diagonal, it extends to all other faces.
+\end{proposition}
 \begin{proof}
-Each $k$-subdivision cube has a minimal and maximal vertex under the weak Bruhat order.
-Given two $k$-subdivision cubes $x,y$ with the same maximal vertex $v$, we define the meet of $x\land y$ to be their intersection.
-We define the join $x \lor y$ to be the unique $k$ subdivision cube with maximal vertex $v$ and minimal vertex given by taking the join of the minimal vertices of $x$ and $y$ under weak Bruhat lattice.
-\begin{itemize}
-    \item Something like this is true, but might not need...
-\end{itemize}
+By construction the diagonal is cellular (\cref{def:cellular diagonal}).
+This follows, as the image of the map is a union of dim $P$-faces of $P\times P$.
+Furthermore, for every vertex $v$ in $P$, not only is $(v,v) \in \maxsubdivpairsv$, but $\maxsubdivpairsv$ is also contractible to $(v,v)$.
+The diagonal is also operadic, i.e.
+\begin{align*}
+    \triangle(A_1|...|A_k) \cong \triangle(A_1)\times ... \times \triangle(A_k)
+\end{align*}
+why? Surely can do it from the inductive desc...\Kurt{Todo...}
+
+
+\Kurt{This might be what is being proven in section 4.1 of \cite{SaneblidzeUmble04}. 
+Actually don't think so.}
 \end{proof}
 
+\subsubsection{Linking Cubical to Shift}
+
+We now seek to link these cubical definitions to the prior shift definitions, and to do so we will exploit the lattice description of \cref{prop:shift lattice}.
+In particular, we seek to relate $\maxsubdivpairsv$ and the maximal element of the shift lattice $(R^{r_n}_{n}...R^{r_{1}}_{1}\sigma, L^{l_n}_{n}...L^{l_{1}}_{1}\tau)$.
+To establish this link, we first compute the minimal and maximal vertices of these faces.
+
+\begin{definition}
+Let $\sigma$ be an ordered partition. 
+\begin{enumerate}
+    \item Let $\sigma_*$ be the permutation resulting from writing out the blocks of $\sigma$ in increasing order.
+    \item Let $\sigma^*$ be the permutation resulting from writing out the blocks of $\sigma$ in decreasing order.
+\end{enumerate}
+\end{definition}
+An immediate observation is that the permutations $\sigma_*$ and $\sigma^*$ are the minimal and maximal vertices of the corresponding face of the permutahedra under the weak Bruhat order.
 \begin{lemma}
-The unique maximal pair $e_v^*$ is well-defined, and has the following formula. Let $(\sigma,\tau)$ be the SCP of the vertex $v\in P_n$, then 
-\begin{align*}
-    e_v^* = L(e_v^*) \times R(e_v^*) := [\overrightarrow{\sigma}, \sigma] \times [\tau, \overleftarrow{\tau}]
-\end{align*}
-where $[x,y]$ is the interval of the permutahedra of faces of the same dimension, and 
-\begin{align*}
-   \overrightarrow{\sigma} := \overrightarrow{s_n}\overrightarrow{s_{n-1}}...\overrightarrow{s_1}(v),\quad 
-   \overleftarrow{\tau} := \overleftarrow{s_n}\overleftarrow{s_{n-1}}...\overleftarrow{s_1}(v)
-\end{align*}
-The operators $\overleftarrow{s_i}, \overrightarrow{s_i}$ each shift the element $i$ to the left/right until there are no further blocks, or the next block contains an element larger than $i$.
+If $(\sigma,\tau)$ is a SCP generated by a vertex $v$, then  $\sigma^* = \tau_*= v$.
 \end{lemma}
 \begin{proof}
-If the SCP $(\sigma,\tau)$ has $k_1,k_2$ blocks respectively, then $([\overrightarrow{\sigma}, \sigma], [\tau, \overleftarrow{\tau}])$ are a pair of subdivision cubes of $P_{n}$ which meet conditions $1$ and $2$ of \cref{def:Subdivisions} by construction. 
-The fact that we meet conditions $1$ and $2$ is clear, to see that they are subdivision cubes
-\begin{itemize}
-    \item 
-\end{itemize}
-
-
+Immediate from definition.
 \end{proof}
 
-\begin{example}
-For the SCP $ 13|247|5|6 \times 3|17|4|156$ of \cref{ex:shift translation by theta}. We directly compute $R(e_v^*)$ to be the cube..., and $L(e_v^*)$ to be the square...
-\end{example}
-
-\begin{lemma}[Formula $(3)$ of \cite{saneblidzeComparingDiagonalsAssociahedra2022}]
-Let $e$ be the top-dimensional cell of $P_{n}$, and let $v$ be a permutation of size $n$ and $(\sigma,\tau)$ its SCP.
+\begin{lemma}\label{lem: minimal vertex formulae}
+Let $(\sigma,\tau)$ be the SCP generated by the vertex $v$.
 Then,
 \begin{align*}
-    e_v^* = \bigcup_{\mathbf{M},\mathbf{N}} R_\mathbf{M}(\sigma) \times L_{\mathbf{N}}(\tau)
+    (R^{r_n}_{n}...R^{r_{1}}_{1}\sigma)_*= \rightshift{n} \rightshift{n-1}...\rightshift{1} v, \quad
+    (L^{l_n}_{n}...L^{l_{1}}_{1}\tau)^* =\leftshift{n} \leftshift{n-1}...\leftshift{1} v
 \end{align*}
-where $R$ and $L$ are shift operators, and $\mathbf{M},\mathbf{N}$ are all admissible sequence of shifts of the appropriate type.
 \end{lemma}
 \begin{proof}
-The reason this works 
-\begin{itemize}
-    \item $\overrightarrow{\sigma}$ is $\sigma$ after right shifting to maximal height....
-\end{itemize}
+We outline the proof for $\sigma$ and the result for $\tau$ follows similarly.
+We first note that the blocks of $\sigma$ can be identified from $\sigma^*$ by descending runs, each with the maximal element first.
+We then identify all shift operators as follows.
+The shift $R_\rho^{r_\rho}$ acting on $R^{r_{\rho-1}}_{\rho-1}...R^{r_{1}}_{1}\sigma$ is equivalent to the shift operator  $\rightshift{\rho}$ acting on $\rightshift{\rho-1}...\rightshift{1} \sigma^*$.
+In particular, if $\rho$ is in block $i$ then
+\begin{align*}
+    (...|\rho\sigma_{i,2}...\sigma_{i,k_i}|...|\sigma_{i+m,1}...\sigma_{i+m,k_{i+m}}|...) \mapsto (...| \sigma_{i,2}...\sigma_{i,k_i}|...|\sigma_{i+m,1}...\sigma_{i+m,k_{i+m}} \rho|...)
+\end{align*}
+Can be obtained by forgetting the order of the elements of the block and applying $R_\rho^{r_\rho}$, or by applying $\rightshift{\rho}$.
+We know that $\rightshift{\rho}$ places $\rho$ at the same position, as by definition $\sigma_{i+m}$ is either the last block, or the maximal (and hence first) element of the next block is larger than $\rho$.
+Note, that whenever we apply the shift $\rightshift{\rho}$, the element $\rho$ cannot be inhibited by elements of its own block. 
+This follows, as $v=\sigma^*$, so the blocks of $\sigma$ were initially ordered in decreasing order, and secondly we apply the shifts $\rightshift{i}$ in increasing order of elements, so prior shifts will not inhibit later shifts.
+Also observe that after applying the shift $\rightshift{i}$, that the $i$th element will be the last element of its block. Consequently, after applying all shift operators, each block will be in increasing order, hence $(R^{r_n}_{n}...R^{r_{1}}_{1}\sigma)_*= \rightshift{n} \rightshift{n-1}...\rightshift{1} \sigma^*$.
 \end{proof}
 
-\begin{corollary}[Formula (1) and (3) \cite{saneblidzeComparingDiagonalsAssociahedra2022}]
+As such we obtain,
+\begin{proposition}[Formula (3) of \cite{saneblidzeComparingDiagonalsAssociahedra2022}]
+Let $v$ be a vertex of $P_n$, then
 \begin{align*}
-    \SUD([n]) = \bigcup_{v \in P_n} e_v^*
+    \maxsubdivpairsv = \bigcup_{\mathbf{M},\mathbf{N}} R_\mathbf{M}(\sigma) \times L_{\mathbf{N}}(\tau)
 \end{align*}
+where $\mathbf{M},\mathbf{N}$ are admissible sequences of $SU$ shifts.
+\end{proposition}
+\begin{proof}
+From \cref{lem:unique interval desc of maximal subdiv pair}, we know that $\maxsubdivpairsv = [\rightshift{1}...\rightshift{n}v, v] \times [v, \leftshift{1}...\leftshift{n}v]$. Furthermore, given we identified this sequence of shift operators is well-defined, we can apply \cref{lem:Interchanging shift operators} to invert the order of composition to $[\rightshift{n}...\rightshift{1}v, v] \times [v, \leftshift{n}...\leftshift{1}v]$.
+Finally from \cref{lem: minimal vertex formulae}, we know $\maxsubdivpairsv =[(R^{r_n}_{n}...R^{r_{1}}_{1}\sigma)_*,v] \times [v,(L^{l_n}_{n}...L^{l_{1}}_{1}\tau)^*]$.
+Or, in terms of $k_1,k_2$ faces,
+$\maxsubdivpairsv = [R^{r_n}_{n}...R^{r_{1}}_{1}\sigma,\sigma] \times [\tau, L^{l_n}_{n}...L^{l_{1}}_{1}\tau]$.
+Using the lattice description of \cref{prop:shift lattice}, we now argue that 
+\begin{align*}
+    \maxsubdivpairsv = \bigcup_{\mathbf{M},\mathbf{N}} R_\mathbf{M}(\sigma) \times L_{\mathbf{N}}(\tau)
+\end{align*}
+Define $U^{m}_i$ to be an unrestricted $m$-right shift operator, where $m \in \mathbb{Z}$.
+In particular, $U^{m}_i \sigma$ moves element $i$, $m$ blocks to the right subject only to the condition that this target block exists.
+Note that if $m$ is negative, then $U^{m}_i \sigma$ shifts to the left.
+As every $k$-face in $P_n$ has $n-k$ blocks, every $k$-face in $P_n$ has a unique description as an unrestricted shift of $\sigma$, i.e. $U^{u_n}_{n}...U^{u_{1}}_{1}\sigma$.
+Under this description $\sigma = {U}^{0}_{n}...{U}^{0}_{1}\sigma$.
+From the inductive description of $I_{n-1}$ (\cref{eq:In inductive def}) it clear that a $k_1$ face $U^{u_n}_{n}...U^{u_{1}}_{1}\sigma$ is in $[R^{r_n}_{n}...R^{r_{1}}_{1}\sigma,R^{0}_{n}...R^{0}_{1}\sigma]$ if, and only if, for all $i$ we have that $r_{i}\geq u_i \geq 0$.
+However, this is precisely the description of $R_\mathbf{M}(\sigma)$ under the lattice description (\cref{prop:shift lattice}).
+The $k_2$ faces of $\maxsubdivpairsv$ are similarly characterised, and the result follows.
+\end{proof}
+We note that in the prior proof, the only shifts $R_\mathbf{M}(\sigma) \times L_{\mathbf{N}}(\tau)$ that we associate to an explicit subdivision cube pair are the maximal shift pairs.
+This avoids any issues caused by not all shifts being associated to subdivision cubes (see for instance \cref{ex:subdivision cubes}).
+As a consequence of this result, we obtain the alternate formula for the $\SU$ diagonal.
 
-\end{corollary}
+\begin{proposition}[Formula (1) and (3) \cite{saneblidzeComparingDiagonalsAssociahedra2022}]
+\begin{align*}
+    \SUD([n]) = \bigcup_{v \in P_n} \maxsubdivpairsv
+\end{align*}
+\end{proposition}
 
-\Kurt{So this logic would establish it is a formula, given we know the shift description is a formula. 
-But I don't know follow why it defines a formula independently of this logic.
-I think in the original paper, SU only directly prove the shift formula defines the diagonal...
-So would need to pull back their proof... or give alternate.
-}
+\subsubsection{LA Cubical Description}
 
-\Kurt{What do the IJ conditions correspond to on the cube?}
+To construct the $LA$ subdivision of the cube we first recall that the permutahedron has a natural face poset isomorphism $r:P\to P$. 
+In terms of ordered partitions, it replaces each block $A_j$ in $A_1 | \cdots | A_k$ by the block $r(A_j):=\{n-i+1 \ | \ i \in A_j\}$.
+As such, we can construct an alternate subdivision of the $n-1$-cube by $P_n$, say $I_{n-1}^{\LA}$, by applying $r$ to the $\SU$ subdivision of the $n-1$ cube (\cref{eq:In inductive def})
+now denoted $I_{n-1}^{\SU}$.
+We illustrate the first few generations, aligning the vertices of these $n$-cubes with the respective vertices of \cref{eq:In inductive def} under the isomorphism $r$.
 
-
-
-To construct the $LA$ subdivision of the cube we first make a useful observation.
-\begin{lemma}
-The following square commutes,
 \begin{center}
-\begin{tikzcd}
-SCP \arrow[r,"t(r\times r)",leftrightarrow] \arrow[d,leftrightarrow] & SCP \arrow[d,leftrightarrow]\\
-\mathbb{S}_n \arrow[r,"r",leftrightarrow] & \mathbb{S}_n
-\end{tikzcd}
-\end{center}
-Where the vertical arrows are 'read the right-side blocks to identify the permutation'.
-\end{lemma}
-
-\begin{center}
+{\small
 \begin{tikzcd}[sep=0.3cm]
 \mathbf{2|1} \arrow[r,dash, "12"] & 1|2
 \end{tikzcd}
+}
 $\hookrightarrow$
+{\small
 \begin{tikzcd}[column sep=0.3cm]
 1|3|2 \arrow[r,dash, "1|23"] \arrow[d,dash, "13|2"]& 1|2|3 \arrow[d,dash, "13|2"]\\
 3|1|2 \arrow[d,dash, "3|12"] & 2|1|3 \arrow[d,dash, "2|13"]\\
 \mathbf{3|2|1} \arrow[r,dash,thick, "23|1"] & \mathbf{2|3|1}
 \end{tikzcd}
+}
 $\hookrightarrow$
+{\small
 \begin{tikzcd}[sep=0.15cm,scale=0.8]
 & 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] & & 1|3|2|4 \arrow [dd, dash,dotted] \arrow[rr,dash] & & 1|2|3|4 \arrow[dd,dash] \arrow[dl,dash]\\
 1|4|3|2 \arrow [rr,dash] \arrow [dd,dash] & & 1|4|2|3 \arrow[rr,dash] \arrow[dd,dash] & & 1|2|4|3 \arrow[dd,dash]  & \\
@@ -3648,9 +4131,126 @@ $\hookrightarrow$
 & \mathbf{3|4|2|1} \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] & & \mathbf{3|2|4|1} \arrow [rr,dash,dotted] & & \mathbf{2|3|4|1} \arrow [dl,dash] \\
 \mathbf{4|3|2|1} \arrow [rr,dash] & & \mathbf{4|2|3|1} \arrow [rr,dash] & & \mathbf{2|4|3|1} \\
 \end{tikzcd}
+}
 \end{center}
 
-%%%%%%%%%%%%%%%
+We can also directly combinatorially characterise this subdivision, as  weaving $1$ through the previous subdivision of the $(n-2)$-cube, shifted up by $1$.
+More formally, with everything defined as in \cref{eq:In inductive def}, it is straightforward to show the cube $I_{n}^{\LA}$ has the following inductive description.
+\begin{align} \label{eq:In LA inductive def}
+    \sigma \times I \mapsto 
+    \begin{cases}
+        \sigma'_1|...|\sigma'_k| 1, &I = [0, 0]\\
+        \sigma'_1|...|\sigma'_j \cup 1|...|\sigma'_k, &I = I_j\\
+        \sigma'_1|...|\sigma'_j|1|\sigma'_{j+1}|...|\sigma'_k, &I = I_j \cap I_{j+1}\\
+        1|\sigma'_1|...|\sigma'_k, &I = [1, 1]
+    \end{cases}
+    , \text{where } \sigma'_i = \{x+1:x\in \sigma\}
+\end{align}
+The appropriate base definitions for the $\LA$ diagonal of $k$-subdivision cubes (\ref{def:Subdivisions}),  ${\subdivpairsv}$ (\ref{def:subdiv pairs}), and $\maxsubdivpairsv$ (\ref{def:max subdiv pairs}) are all the same.
+We then immediately observe, that by construction.
+\begin{proposition}
+The face poset isomorphism $r: P\to P$ is a $k$-subdivision cube isomorphism $r:I^{\SU}\to I^{\LA}$. In particular, it sends $k$-subdivision cubes of $I^{\SU}_{n-1}$ to $k$-subdivision cubes of $I^{\LA}_{n-1}$.
+\end{proposition}
+This isomorphism alters the interval characterisations of the subdivision cubes as follows.
+Firstly, the vertex shift operators $\leftshiftk{i}{s_i}$ ($\rightshiftk{i}{s_i}$) moves element $i$ past $s_i$ elements which are larger than $i$ (it was smaller in the $\SU$ case).
+\begin{corollary}[LA Interval Characterisations]
+A $k$-subdivision cube is an interval of either of the following two forms
+\begin{align*}
+     [\leftshiftk{n}{s_n}...\leftshiftk{2}{s_{2}}\leftshiftk{1}{s_1}v,v], \quad [v,\rightshiftk{n}{s_n}... \rightshiftk{2}{s_{2}}\rightshiftk{1}{s_1}v,]
+\end{align*}
+Where in each case exactly $k$ shift increments ($s_i$) are non-zero.
+The maximal pair of subdivision cubes $\maxsubdivpairsv$ is unique, and has the form 
+\begin{align*}
+    \maxsubdivpairsv=[\leftshift{n}...\leftshift{2}\leftshift{1}v,v] \times [v,\rightshift{n}... \rightshift{2}\rightshift{1}v,]
+\end{align*}
+
+\end{corollary}
+
+\begin{example}
+When we apply $r$ to the $\SU$ subdivision cubes of \cref{ex:subdivision cube path example}, we obtain the following $\LA$ subdivision cubes.
+The left (right) diagram displays all $k$-subdivision cubes of $I_3^{\LA}$ with minimal vertex $1|2|3|4$ (maximal vertex $4|3|2|1$).
+{\scriptsize
+\begin{center}
+\begin{tikzcd}[sep=0.15cm,scale=0.8]
+& \color{blue}{1|3|4|2} \arrow[rr,dash,leftarrow] \arrow[dd,dash,dotted] \arrow[dl] & & \color{blue}{1|3|2|4} \arrow [dd,dash,dotted] \arrow[rr,dash,leftarrow] & & \mathbf{1|2|3|4}\arrow[dd] \arrow[dl]\\
+\color{purple}{1|4|3|2} \arrow [rr,dash] \arrow [dd,dash] & & {1|4|2|3} \arrow[rr,dash] \arrow[dd,dash] & & \color{blue}{1|2|4|3} \arrow[dd,dash]  & \\
+& 3|1|4|2 \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 3|1|2|4  \arrow[dd,dash,dotted] & & \color{blue}{2|1|3|4} \arrow [dl] \arrow[dd]\\
+{4|1|3|2} \arrow [rr,dash] \arrow [dd,dash]& & {4|1|2|3}  \arrow[dd,dash] & & \color{purple}{2|1|4|3} \arrow[dd,dash]\\
+& {3|4|1|2} \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] & & \color{purple}{3|2|1|4} \arrow [dd, dash,dotted] \arrow [rr, leftarrow,dotted] & & \color{blue}{2|3|1|4} \arrow[dd] \\
+{4|3|1|2} \arrow [dd,dash] & & 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash] & & 2|4|1|3 \arrow[dd,dash] & \\
+& \color{purple}{3|4|2|1} \arrow [rr,leftarrow,dotted] \arrow [dl,dotted] & & \color{purple}{3|2|4|1} \arrow [rr,leftarrow,dotted] & & \color{blue}{2|3|4|1} \arrow [dl] \\
+\red{4|3|2|1} \arrow [rr,dash] & & {4|2|3|1} \arrow [rr,dash] & & \color{purple}{2|4|3|1} \\ 
+\end{tikzcd}    
+\begin{tikzcd}[sep=0.15cm,scale=0.1]
+& \color{purple}{1|3|4|2} \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,leftarrow] & & 1|3|2|4 \arrow [dd, dash,dotted] \arrow[rr,dash] & & \red{1|2|3|4}\arrow[dd,dash] \arrow[dl,leftarrow]\\
+\blue{1|4|3|2} \arrow [rr] \arrow [dd,leftarrow] & & \color{purple}{1|4|2|3} \arrow[rr] \arrow[dd,dash] & & \color{purple}{1|2|4|3} \arrow[dd,dash]  & \\
+& 3|1|4|2 \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 3|1|2|4  \arrow[dd,dash,dotted] & & 2|1|3|4 \arrow [dl,dash] \arrow[dd,dash]\\
+\blue{4|1|3|2} \arrow [rr] \arrow [dd,leftarrow]& & \color{purple}{4|1|2|3}  \arrow[dd,dash] & & 2|1|4|3 \arrow[dd,dash]\\
+& \color{purple}{3|4|1|2} \arrow[dd,dash,dotted] \arrow[dl,leftarrow,dotted] & & 3|2|1|4 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] & & 2|3|1|4 \arrow[dd,dash] \\
+\blue{4|3|1|2} \arrow [dd,leftarrow] & & 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash] & & 2|4|1|3 \arrow[dd,dash] & \\
+& \blue{3|4|2|1} \arrow [rr,dash,dotted] \arrow [dl,leftarrow,dotted] & & {3|2|4|1} \arrow [rr,dash,dotted] & & \color{purple}{2|3|4|1} \arrow [dl,leftarrow] \\
+\mathbf{4|3|2|1} \arrow [rr] & & \blue{4|2|3|1} \arrow [rr] & & \blue{2|4|3|1} \\ 
+\end{tikzcd}    
+\end{center}
+}
+Applying $r$ to \cref{ex:subdivision cubes} yields,
+\begin{center}
+
+{\scriptsize
+\begin{tikzcd}[sep=0.1cm, scale=0.3]
+& 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] & & 4|2|3|1 \arrow [dd, dash,dotted] \arrow[rr,dash] & & 4|3|2|1 \arrow[dd,dash] \arrow[dl,dash, near end, "\mathbf{\blue{4|3|12}}"']\\
+4|1|2|3 \arrow [rr,dash] \arrow [dd,dash] & & 4|1|3|2 \arrow[rr,dash] \arrow[dd,dash] & & \mathbf{\blue{4|3|1|2}} \arrow[dd,dash]  & \\
+& \red{\mathbf{14|23}} \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 2|4|3|1  \arrow[dd,dash,dotted] & & 3|4|2|1 \arrow [dl,dash] \arrow[dd,dash]\\
+1|4|2|3 \arrow [rr,dash] \arrow [dd,dash]& & 1|4|3|2  \arrow[dd,dash] \arrow[rr, phantom, "\blue{\mathbf{134|2}}" description,crossing over] & & 3|4|1|2 \arrow[dd,dash]\\
+& 2|1|4|3 \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] & & 2|3|4|1 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] & & 3|2|4|1 \arrow[dd,dash] \\
+1|2|4|3 \arrow [dd,dash] \arrow[rr, phantom, "\red{\mathbf{1|234}}" description,crossing over] & & 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash] & & 3|1|4|2 \arrow[dd,dash] & \\
+& 2|1|3|4 \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] & & \red{\mathbf{13|24}} \arrow [rr,dash,dotted] & & 3|2|1|4 \arrow [dl,dash] \\
+1|2|3|4 \arrow [rr,dash] & & 1|3|2|4 \arrow [rr,dash] & & 3|1|2|4 \\
+\end{tikzcd}
+}
+$\xrightarrow{r}$
+{\scriptsize
+\begin{tikzcd}[sep=0.1cm, scale=0.3]
+& 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] & & 1|3|2|4 \arrow [dd, dash,dotted] \arrow[rr,dash] & & 1|2|3|4 \arrow[dd,dash] \arrow[dl,dash, near end, "\mathbf{\blue{1|2|34}}"']\\
+1|4|3|2 \arrow [rr,dash] \arrow [dd,dash] & & 1|4|2|3 \arrow[rr,dash] \arrow[dd,dash] & & \mathbf{\blue{1|2|4|3}} \arrow[dd,dash]  & \\
+& \red{\mathbf{14|23}} \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 3|1|2|4  \arrow[dd,dash,dotted] & & 2|1|3|4 \arrow [dl,dash] \arrow[dd,dash]\\
+4|1|3|2 \arrow [rr,dash] \arrow [dd,dash]& & 4|1|2|3  \arrow[dd,dash] \arrow[rr, phantom, "\blue{\mathbf{124|3}}" description,crossing over] & & 2|1|4|3 \arrow[dd,dash]\\
+& 3|4|1|2 \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] & & 3|2|1|4 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] & & 2|3|1|4 \arrow[dd,dash] \\
+4|3|1|2 \arrow [dd,dash] \arrow[rr, phantom, "\red{\mathbf{4|123}}" description,crossing over] & & 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash] & & 2|4|1|3 \arrow[dd,dash] & \\
+& 3|4|2|1 \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] & & \red{\mathbf{24|13}} \arrow [rr,dash,dotted] & & 2|3|4|1 \arrow [dl,dash] \\
+4|3|2|1 \arrow [rr,dash] & & 4|2|3|1 \arrow [rr,dash] & & 2|4|3|1 \\
+\end{tikzcd}
+}
+\end{center}
+Note that applying $r$ to the maximal $\SU$ subdivision pair $\maxsubdivpairsv$, has yielded a 'flipped' maximal subdivision cube, i.e. the image of the $\SU$ subdivision cube with maximal (minimal) vertex $4|3|1|2$, is a $\LA$ subdivision cube with minimal (maximal) vertex $1|2|4|3$. 
+Furthermore, the $2$-faces generated by $\SU$ right shifts have become the $2$-faces generated by $\LA$ rights shifts.
+This occurs because of the isomorphism between $\LA$ and $\SU$ shifts, and the commutativity of the square 
+\begin{center}
+\begin{tikzcd}
+SCP \arrow[r,"t(r\times r)",leftrightarrow] \arrow[d,leftrightarrow] & SCP \arrow[d,leftrightarrow]\\
+\mathbb{S}_n \arrow[r,"r",leftrightarrow] & \mathbb{S}_n
+\end{tikzcd}
+\end{center}
+Where both vertical arrows are the bijection between SCPs and permutations. \Kurt{$rs \times rs$ also commutes with $rs$}
+\end{example}
+
+With the observation of the prior example it is straightforward to show,
+
+\begin{proposition}
+Let $v$ be a vertex of $P_n$, then
+\begin{align*}
+    \maxsubdivpairsv = \bigcup_{\mathbf{M},\mathbf{N}} L_\mathbf{M}^{\LA}(\sigma) \times R_{\mathbf{N}}^{\LA}(\tau)
+\end{align*}
+where $\mathbf{M},\mathbf{N}$ are admissible sequences of $LA$ shifts.
+\end{proposition}
+
+Which yields,
+\begin{proposition}
+\begin{align*}
+    \LAD([n]) = \bigcup_{v \in P_n} \maxsubdivpairsv
+\end{align*}
+\end{proposition}
+
 
 \section{Topological operadic structures}
 
@@ -3811,7 +4411,7 @@ Hugh Thomas (everything started in Montr\'eal), Sylvie Corteel for hyperplane ar
 
 Saneblidze--Umble for useful correspondence
 
-We would like to thank the Max Planck Institute for Mathematics in Bonn where part of this work was carried out. BDO was partially supported by the French ANR grants ALCOHOL (ANR-19-CE40-0006), CARPLO (ANR-20-CE40-0007), HighAGT (ANR-20-CE40-0016) and S3 (ANR-20-CE48-0010). GLA was supported by the Australian Research Council Future Fellowship FT210100256. VP was partially supported by the French ANR grant CHARMS (ANR-19-CE40-0017) and by the French--Austrian project PAGCAP (ANR-21-CE48-0020 \& FWF I 5788). 
+We would like to thank the Max Planck Institute for Mathematics in Bonn where part of this work was carried out. BDO was partially supported by the French ANR grants ALCOHOL (ANR-19-CE40-0006), CARPLO (ANR-20-CE40-0007), HighAGT (ANR-20-CE40-0016) and S3 (ANR-20-CE48-0010). GLA and KS were supported by the Australian Research Council Future Fellowship FT210100256. VP was partially supported by the French ANR grant CHARMS (ANR-19-CE40-0017) and by the French--Austrian project PAGCAP (ANR-21-CE48-0020 \& FWF I 5788). KS was supported by an Australian Government Research Training Program (RTP) Scholarship.
 
 Galashin (asked about characteristic polynomials). Organizers of the Simon Center conference.
 

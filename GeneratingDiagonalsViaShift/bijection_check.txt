@@ -1,0 +1,304 @@
+('For n=', 3)
+('For tree i=', 1, 'shared count=', 6)
+('For tree i=', 2, 'shared count=', 8)
+('For tree i=', 3, 'shared count=', 6)
+('For tree i=', 4, 'shared count=', 6)
+('For tree i=', 5, 'shared count=', 8)
+('For n=', 4)
+('For tree i=', 1, 'shared count=', 22)
+('For tree i=', 2, 'shared count=', 33)
+('For tree i=', 3, 'shared count=', 33)
+('For tree i=', 4, 'shared count=', 32)
+('For tree i=', 5, 'shared count=', 50)
+('For tree i=', 6, 'shared count=', 22)
+('For tree i=', 7, 'shared count=', 33)
+('For tree i=', 8, 'shared count=', 23)
+('For tree i=', 9, 'shared count=', 33)
+('For tree i=', 10, 'shared count=', 21)
+('For tree i=', 11, 'shared count=', 31)
+('For tree i=', 12, 'shared count=', 32)
+('For tree i=', 13, 'shared count=', 33)
+('For tree i=', 14, 'shared count=', 50)
+('For n=', 5)
+('For tree i=', 1, 'shared count=', 91)
+('For tree i=', 2, 'shared count=', 145)
+('For tree i=', 3, 'shared count=', 163)
+Tree:
+0
+	1
+		2
+			3
+				4
+			5
+
+('SU Count:', 157)
+('LA Count:', 154)
+('disjoint', 44, 47)
+Tree:
+0
+	1
+		2
+			3
+			4
+			5
+
+('SU Count:', 266)
+('LA Count:', 263)
+('disjoint', 96, 99)
+('For tree i=', 6, 'shared count=', 145)
+('For tree i=', 7, 'shared count=', 234)
+Tree:
+0
+	1
+		2
+			3
+		4
+			5
+
+('SU Count:', 160)
+('LA Count:', 161)
+('disjoint', 62, 61)
+Tree:
+0
+	1
+		2
+		3
+		4
+			5
+
+('SU Count:', 263)
+('LA Count:', 266)
+('disjoint', 99, 96)
+Tree:
+0
+	1
+		2
+			3
+				4
+		5
+
+('SU Count:', 129)
+('LA Count:', 127)
+('disjoint', 26, 28)
+Tree:
+0
+	1
+		2
+			3
+			4
+		5
+
+('SU Count:', 212)
+('LA Count:', 213)
+('disjoint', 64, 63)
+Tree:
+0
+	1
+		2
+		3
+			4
+		5
+
+('SU Count:', 255)
+('LA Count:', 254)
+('disjoint', 85, 86)
+Tree:
+0
+	1
+		2
+			3
+		4
+		5
+
+('SU Count:', 256)
+('LA Count:', 255)
+('disjoint', 89, 90)
+('For tree i=', 14, 'shared count=', 432)
+('For tree i=', 15, 'shared count=', 91)
+('For tree i=', 16, 'shared count=', 145)
+('For tree i=', 17, 'shared count=', 163)
+Tree:
+0
+	1
+	2
+		3
+			4
+		5
+
+('SU Count:', 157)
+('LA Count:', 154)
+('disjoint', 44, 47)
+Tree:
+0
+	1
+	2
+		3
+		4
+		5
+
+('SU Count:', 266)
+('LA Count:', 263)
+('disjoint', 96, 99)
+Tree:
+0
+	1
+		2
+	3
+		4
+			5
+
+('SU Count:', 98)
+('LA Count:', 97)
+('disjoint', 39, 40)
+Tree:
+0
+	1
+		2
+	3
+		4
+		5
+
+('SU Count:', 155)
+('LA Count:', 152)
+('disjoint', 65, 68)
+('For tree i=', 22, 'shared count=', 145)
+('For tree i=', 23, 'shared count=', 234)
+Tree:
+0
+	1
+		2
+			3
+	4
+		5
+
+('SU Count:', 91)
+('LA Count:', 92)
+('disjoint', 36, 35)
+Tree:
+0
+	1
+		2
+		3
+	4
+		5
+
+('SU Count:', 141)
+('LA Count:', 144)
+('disjoint', 53, 50)
+Tree:
+0
+	1
+	2
+		3
+	4
+		5
+
+('SU Count:', 160)
+('LA Count:', 161)
+('disjoint', 62, 61)
+('For tree i=', 27, 'shared count=', 166)
+Tree:
+0
+	1
+	2
+	3
+	4
+		5
+
+('SU Count:', 263)
+('LA Count:', 266)
+('disjoint', 99, 96)
+('For tree i=', 29, 'shared count=', 80)
+('For tree i=', 30, 'shared count=', 127)
+('For tree i=', 31, 'shared count=', 146)
+Tree:
+0
+	1
+		2
+			3
+		4
+	5
+
+('SU Count:', 142)
+('LA Count:', 141)
+('disjoint', 35, 36)
+('For tree i=', 33, 'shared count=', 236)
+Tree:
+0
+	1
+	2
+		3
+			4
+	5
+
+('SU Count:', 129)
+('LA Count:', 127)
+('disjoint', 26, 28)
+Tree:
+0
+	1
+	2
+		3
+		4
+	5
+
+('SU Count:', 212)
+('LA Count:', 213)
+('disjoint', 64, 63)
+Tree:
+0
+	1
+		2
+	3
+		4
+	5
+
+('SU Count:', 162)
+('LA Count:', 161)
+('disjoint', 59, 60)
+Tree:
+0
+	1
+	2
+	3
+		4
+	5
+
+('SU Count:', 255)
+('LA Count:', 254)
+('disjoint', 85, 86)
+('For tree i=', 38, 'shared count=', 135)
+Tree:
+0
+	1
+		2
+		3
+	4
+	5
+
+('SU Count:', 214)
+('LA Count:', 216)
+('disjoint', 61, 59)
+Tree:
+0
+	1
+	2
+		3
+	4
+	5
+
+('SU Count:', 256)
+('LA Count:', 255)
+('disjoint', 89, 90)
+Tree:
+0
+	1
+		2
+	3
+	4
+	5
+
+('SU Count:', 266)
+('LA Count:', 263)
+('disjoint', 92, 95)
+('For tree i=', 42, 'shared count=', 432)
