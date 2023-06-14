@@ -40,6 +40,7 @@
 \newcommand{\Guillaume}[1]{\todo[color=magenta!30]{\rm #1 \\ \hfill --- G.}}
 \newcommand{\Kurt}[1]{\todo[color=orange!30]{\rm #1 \\ \hfill --- K.}}
 \newcommand{\BDO}[1]{\todo[color=green!30]{\rm #1 \\ \hfill --- B.}}
+\newcommand{\BDOi}[1]{\todo[color=green!30, inline]{\rm #1 \\ \hfill --- B.}}
 
 % theorems
 \newtheorem{theorem}{Theorem}[section]
@@ -196,16 +197,16 @@
 \thanks{}
 
 \author[B. Delcroix-Oger]{B\'er\'enice Delcroix-Oger}
-\address{Institut Montpelli\'erain Alexander Grothendieck, Universit\'e de Montpellier, France}
+\address[B\'{e}r\'{e}nice Delcroix-Oger]{Institut Montpelli\'erain Alexander Grothendieck, Universit\'e de Montpellier, France}
 \email{berenice.delcroix-oger@umontpellier.fr}
 \urladdr{\url{https://oger.perso.math.cnrs.fr/}}
 
 \author[M. Josuat-Verg\`es]{Matthieu Josuat-Verg\`es}
-\address{}
+\address[Matthieu Josuat-Vergès]{}
 \email{}
 
 \author[G. Laplante-Anfossi]{Guillaume Laplante-Anfossi}
-\address{School of Mathematics and Statistics, The University of Melbourne, Victoria, Australia}
+\address[Guillaume Laplante-Anfossi]{School of Mathematics and Statistics, The University of Melbourne, Victoria, Australia}
 \email{guillaume.laplanteanfossi@unimelb.edu.au}
 
 \author[V. Pilaud]{Vincent Pilaud}
@@ -214,7 +215,7 @@
 \urladdr{\url{http://www.lix.polytechnique.fr/~pilaud/}}
 
 \author[K. Stoeckl]{Kurt Stoeckl}
-\address{School of Mathematics and Statistics, The University of Melbourne, Victoria, Australia}
+\address[Kurt Stoeckl]{School of Mathematics and Statistics, The University of Melbourne, Victoria, Australia}
 \email{kstoeckl@student.unimelb.edu.au}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -465,7 +466,8 @@ We now briefly recall the classical combinatorics of the braid arrangement.
 	\label{fig:intersectionPosetBraidArrangement4}
 \end{figure}
 
-\vincenti{Conceptually, it would be nicer in \cref{fig:intersectionPosetBraidArrangement4} to place the numbers $1,2,3,4$ on the vertices of the regular tetrahedron corresponding to the braid arrangement (as is done in \cref{fig:intersectionPosetBraidArrangement3}). However, this is visually not as nice, so I have decided to put them on a squarre.}
+\vincenti{Conceptually, it would be nicer in \cref{fig:intersectionPosetBraidArrangement4} to place the numbers $1,2,3,4$ on the vertices of the regular tetrahedron corresponding to the braid arrangement (as is done in \cref{fig:intersectionPosetBraidArrangement3}). However, this is visually not as nice, so I have decided to put them on a square.}
+\BDO{Ok for me}
 
 \begin{definition}
 Fix~$n \ge 1$ and denote by~$\HH$ the hyperplane of~$\R^n$ defined by~$\sum_{r = 1}^n x_r = 0$.
@@ -516,7 +518,8 @@ See \cref{rem:essential}.
 Finally, we will consider the evaluation of the M\"obius polynomial~$\mobPol[\braidArrangement]$ at~$y = 0$:
 \[
 \weirdPol[n] \eqdef \mobPol[\braidArrangement][x][0] = \sum_{k \in [n]} (-1)^{k-1} \, (k-1)! \, S(n,k) \, x^{k-1}.
-\]
+\] 
+\BDOi{Where did I say it was weird ?? You could have called it "awesomePol" !}
 We just observe here that it is connected to the $\b{f}$-polynomial of~$\braidArrangement$.
 
 \begin{lemma}
@@ -524,10 +527,24 @@ We have~$\weirdPol[n] = (1-x) \, \fPol[\braidArrangement]$.
 \end{lemma}
 
 \begin{proof}
-\vincent{Todo. See file from Berenice.}
+This lemma is equivalent to the following equality:
+\begin{equation*}
+\sum_{k=1}^n (-1)^{k-1} (k-1)! S(n,k) x^{k-1} = (1-x) \times \sum_{k=1}^{n-1} (-1)^{k-1} k! S(n-1,k) x^{k-1}
+\end{equation*}
+Distributing $(1-x)$ in the RHS gives:
+\begin{multline*}
+(1-x) \times \sum_{k=1}^{n-1} (-1)^{k-1}  k! S(n-1,k) x^{k-1} = \sum_{k=1}^{n-1} k! S(n-1,k) (-x)^{k-1} + \sum_{k=1}^{n-1} k! S(n-1,k) (-x)^{k} \\
+= \sum_{k=1}^{n-1} k! S(n-1,k) (-x)^{k-1} + \sum_{k=2}^{n} (k-1)! S(n-1,k-1) (-x)^{k-1} + (n-1)! S(n-1, n-1) (-x)^{n-1} \\
+= S(n-1,1) (-x)^0 + \sum_{k=2}^{n-1} (k-1)! \left( S(n-1,k-1) + k S(n-1,k) \right) (-x)^{k-1}
+\end{multline*}
+The following inductive formula on Stirling numbers of the second kind holds for $0<k<n$ :
+\begin{equation}
+S(n+1,k) = k S(n,k) + S(n,k-1)
+\end{equation}
+Hence the result.
 \end{proof}
 
-\vincent{todo: OEIS sequences, see file from Berenice.}
+The coefficients of this polynomial is given by the sequence \OEIS{A028246}.
 
 %%%%%%%%%%%%%%%
 
@@ -644,23 +661,63 @@ Hence, we derive from \cref{def:MobiusPolynomial,prop:flatPosetMultiBraidArrange
 \end{align*}
 \end{proof}
 
-We now simplify the expression of \cref{thm:MobiusPolynomialMultiBraidArrangement} using the polynomial
+By using the polynomial
 \[
 \weirdPol[n] \eqdef \mobPol[\braidArrangement][x][0] = \sum_{k \in [n]} (-1)^{k-1} \, (k-1)! \, S(n,k) \, x^{k-1}.
 \]
-introduced at the end of \cref{subsec:braidArrangement}.
+introduced at the end of \cref{subsec:braidArrangement}, the M\"obius polynomial can also be expressed as:
 
-\begin{corollary}
+\begin{proposition} 
 The M\"obius polynomial of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is given by
 \[
-\mobPol[\multiBraidArrangement] = \sum_{\b{G} \in \forestPoset} x^{(n-1)(1-\ell)} y^{n-1-\ell n} \prod_{i \in [\ell]} 
-\weirdPol[\#G_i].
+\mobPol[\multiBraidArrangement]=x^{(n-1)(1-\ell)} \sum_{G \in \forestPoset} y^{n-\ell n - 1 + \sum_{i=1}^\ell |G_i|}  \prod_{i=1}^{\ell} P_{|G_i|}(x).
 \]
-\end{corollary}
+In terms of rainbow forests, this rewrites as
+
+\begin{equation}
+\mobPol[\multiBraidArrangement]=x^{(n-1)(1-\ell)} \sum_{G \in \rainbowForests} y^{n- 1 + |E(G)|}  \prod_{i=1}^{\ell} P_{n-|E(G,i)|}(x)
+\end{equation}
+\end{proposition}
+\BDOi{there was a typo in the formula of the proposition. I corrected it according to Zaslavsky.tex}
 
 \begin{proof}
-\vincent{todo}
+We have:
+
+\begin{align*}
+\mobPol[\multiBraidArrangement] & =\sum_{F \leq G} \mu_{\flatPoset}(F,G) \, x^{\dim(F)} \, y^{\dim(G)}, \\
+ &=\sum_{G \in \rainbowForests} y^{n-1 - |E(G)| - \ell} \sum_{F \in \rainbowForests, F \leq G } \mu_{\forestPoset}(F,G) \, x^{n-1 - |E(F)| - \ell}, \\
+ &=\sum_{G \in \forestPoset} y^{n-\ell n - 1 + \sum_{i=1}^\ell |G_i|} \sum_{F \in \forestPoset, F \leq G } \mu_{\forestPoset}(F,G) \, x^{n-\ell n - 1 + \sum_{i=1}^\ell |F_i|}, \\ 
+\end{align*}
+where $E(G)$ (resp. $E(G,i)$) denotes the set of edges (resp. edges of color $i$) in $G$ which satisfies $n-|E(G,i)| =  |G_i|$.
+
+Observe that for~$\b{F} \eqdef (F_1, \dots, F_\ell)$ and~$\b{G} \eqdef (G_1, \dots, G_\ell)$ in~$\forestPoset$, we have
+\[
+[\b{F}, \b{G}] = \prod_{i \in [\ell]} [F_i, G_i],
+\]
+where $[F_i, G_i]$ is an interval of $\partitionPoset[n]$. Morover, given a $(\ell,n)$-partition forest $\b{G}\eqdef (G_1, \dots, G_\ell)$, any n-tuples of partition $(F_1, \dots, F_\ell)$ satisfying for any $1\leq i \leq \ell$ $F_i \leq_{\partitionPoset[n]} G_i $ is a $(\ell,n)$-partition forest as its intersection hypergraph is a subforest of the intersection hypergraph of $G$. 
+Recall moreover that the M\"obius function is multiplicative.
+
+
+Hence, we obtain that
+
+\begin{align*}
+\mobPol[\multiBraidArrangement] &=\sum_{G \in \forestPoset} y^{n-\ell n - 1 + \sum_{i=1}^\ell |G_i|} \prod_{i=1}^{\ell} \sum_{F_i \leq_{\partitionPoset[n]} G_i } \mu_{\partitionPoset[n]}(F_i,G_i) \, x^{n-\ell n - 1 + \sum_{i=1}^\ell |F_i|}, \\
+ &=\sum_{G \in \forestPoset} y^{n-\ell n - 1 + \sum_{i=1}^\ell |G_i|} x^{(n-1)(1-\ell)} \prod_{i=1}^{\ell} \sum_{\pi_i \in \partitionPoset[|G_i|]}  \mu_{\partitionPoset[|G_i|]}(\pi_i,\hat{1}) \, x^{|\pi_i|-1}, 
+\end{align*}
+where $\hat{1}$ denotes the maximal element in $\partitionPoset[|G_i|]$ and $\pi_i$ is obtained from $F_i$ by merging elements in the same part of $G_i$.
+
+Finally, we get:
+
+\begin{equation}
+\mobPol[\multiBraidArrangement]=\sum_{G \in \forestPoset} y^{n-\ell n - 1 + \sum_{i=1}^\ell |G_i|} x^{(n-1)(1-\ell)} \prod_{i=1}^{\ell} P_{|G_i|}(x).
+\end{equation}
 \end{proof}
+
+
+\begin{remark}
+To further simplify this expression, we would need to count the number of rainbow forests with a prescribed number of colored edges, however this number does not admit a  known multiplicative formula, up to our knowledge. When there is only one color, the corresponding sequence (counting non colored forests on $n$ nodes and $k$ edges, rooted in the minimal label of each connected component) is \OEIS{A138464}.
+\end{remark}
+
 
 From \cref{thm:Zaslavsky,thm:MobiusPolynomialMultiBraidArrangement}, we thus obtain the face numbers and bounded face numbers of~$\multiBraidArrangement$, whose first few values are gathered in \cref{table:fvectorMultiBraidArrangements}.
 
@@ -1033,8 +1090,7 @@ Finally, observe that
 \subsection{Enumeration of vertices and regions of $\multiBraidArrangement$}
 \label{subsec:verticesFacetsMultiBraidArrangement}
 
-We now use the labeled $(\ell,n)$-rainbow forests of \cref{subsec:rainbowForests} to derive more explicit formulas for the number of vertices and regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
-We start with the number of vertices of~$\multiBraidArrangement$, whose first values are gathered in \cref{table:verticesMultiBraidArrangement}.
+We now use the labeled $(\ell,n)$-rainbow forests of \cref{subsec:rainbowForests} to derive more explicit formulas for the number of vertices and regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$. We first explain the partial order of the flat lattice in terms of rainbow forests before counting the vertices of~$\multiBraidArrangement$, whose first values are gathered in \cref{table:verticesMultiBraidArrangement}.
 
 \begin{table}
 	\centerline{\scalebox{.8}{
@@ -1056,6 +1112,32 @@ We start with the number of vertices of~$\multiBraidArrangement$, whose first va
 	\caption{The numbers $f_0(\multiBraidArrangement) = \ell \big( (\ell-1) n + 1 \big)^{n-2}$ of vertices of~$\multiBraidArrangement$ for~$\ell,n \in [8]$.}
 	\label{table:verticesMultiBraidArrangement}
 \end{table}
+
+\begin{proposition}
+The cover relations of the partial order on the flat poset of rainbow forests is given by the following rules. A rainbow forest $F$ is greater than a rainbow forest $G$ if $G$ can be obtained from $F$ by:
+\begin{itemize}
+\item Choosing a color $c$.
+\item Choosing two vertices $a$ and $b$ not colored in $c$ in two connected components $A$ and $B$, with the convention that the root of $A$ is smaller than the root of $B$.
+\item Removing edges between $b$ and its children $C_b$ of color $c$ and recursively "pushing" the color of $b$ to its parent until the root of $B$ is colored: we get a forest whose roots are $C_b$ and $b$, colored in $c$.
+\item Grafting $b$ and all the nodes in $C_b$ on $a$.
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+Let us first remark that the graph obtained with these operations is indeed a rainbow forest. First, we add an edge between two connected components: the result will be acyclic. Moreover, the condition on the color of $a$ and on the deletion of edges between $b$ and vertices of color $c$ ensures that we do not add an edge between two vertices of the same color. Note that the parent of $b$ inherits the color of $b$ which is not $c$.
+
+Let us recall that the cover relations in the flat poset is given in terms of tuples of partition by:
+\begin{itemize}
+\item choosing a partition $\pi$, i.e. an element of the tuple (which corresponds directly to choosing a color)
+\item choosing two parts $\pi_a$ and $\pi_b$ in the partition $\pi$
+\item and merging them.
+\end{itemize}
+so that the corresponding intersection hypergraph does not have any loop.
+
+By choosing two vertices in different connected components of the rainbow forest, we are sure that the intersection hypergraph obtained by adding an edge is still acyclic.
+
+The last point that has to be explained is the link between the condition on the color of $a$ and $b$ and merging two parts in the same partition. If one of the two nodes, say $a$ for instance is of color $c$, then it belongs to the same part of $\pi$ as its parent $z$. The merging is the same if we choose $z$ which is not colored $c$. Moreover, as $b$ is an other connected components, the corresponding two parts are distinct in $\pi$. Finally, a part is just a corolla so the merging corresponds to building a corolla with $a$, $b$ and their children of color $c$.
+\end{proof}
 
 \begin{theorem}
 \label{thm:verticesMultiBraidArrangement}
