@@ -2308,6 +2308,125 @@ E(m)=\set{(I,J)\in D(m)}{\begin{array}{l} \min(J)<\min(I-\min(I)), \\ |\llbracke
 It follows directly from the fish condition: if the fish condition is satisfied, as inversions of $\sigma_1$ are included in inversions of $\sigma_2$, we get $j_{k-1},j_k<i_k$ for any $k>1$.
 \end{proof}
 
+
+\Kurt{Maybe through dominance?}
+
+\begin{definition}[Dominance]
+Let $\sigma$ be a sequence of $n$ distinct elements, and $X,Y$, non-overlapping proper subsets of $\sigma$.
+We say the set $X$ dominates $Y$ in $\sigma$ if 
+\begin{align*}
+    \forall k \in [n] , 
+    \left| \sigma_{[k]} \cap Y \right|
+    \leq
+    \left| \sigma_{[k]} \cap X \right|
+\end{align*}
+\end{definition}
+The domination of sets is conserved under deletion of elements in the following situation. 
+\begin{lemma}[Coherent Domination]\label{lem:Coherent Domination}
+Suppose $X$ dominates $Y$ in $\sigma$. 
+Given $x \in X, y\in Y$, let $i_x,i_y$ be their indices in $\sigma$ and define $D(k) :=  \left| \sigma_{[k]} \cap X \right| -  \left| \sigma_{[k]} \cap Y \right|$.
+Then, given $X’ := X\setminus x, Y’:= Y\setminus y$,
+\begin{align*}
+    X' \text{ dominates } Y' \text{ in } \sigma \iff &(1) \text{ $y$ comes before $x$, or}\\
+    &(2) \text{ for all $k$ in the open interval $(i_x,i_y)$, $D(k) > 0$.} 
+\end{align*}
+\end{lemma}
+\begin{proof}
+Immediate from definition.
+\end{proof}
+We can re-characterise membership of the diagonal through domination.
+\begin{eqnarray*}
+    (\sigma,\tau)\in \LAD 
+    & \iff \forall (I,J) \in \LA(n), &\exists k \in [n] , 
+    \left| \sigma_{[k]} \cap I \right|
+    >
+    \left| \sigma_{[k]} \cap J \right| \text{ or } \\
+    && \exists l \in [n] , 
+    \left| \tau_{[l]} \cap I \right|
+    <
+    \left| \tau_{[l]} \cap J \right|  \ . \\
+    (\sigma,\tau) \in \LAD & \iff \not \exists (I,J) \in \LA(n), & J \text{ dominates } I \text{ in } \sigma, \text{ and } I \text{ dominates } J \text{ in } \tau
+\end{eqnarray*}
+Which enables the following characterisation of vertices in the diagonal.
+
+\begin{proposition}\label{prop: LAD Fish Pattern}
+Let $(I_k,J_k):= (\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\})$.
+A pair of permutations $(\sigma,\tau)\in \LAD$ if, and only if, $\forall k,$ $(\sigma,\tau)$ avoids the set of $(k-1)!k!$ different patterns
+\begin{align*}
+    P_k:= \{ (j_1 i_1 j_2 i_2 \cdots j_k i_k,\quad  i_2 j_1 i_3 j_2 \cdots i_k j_{k-1} i_1 j_k): i_1 = 1, I = \{i_1,...,i_k\},J = \{j_1,...,j_k\} \}
+\end{align*}
+In particular, for $k=1,2$ the patterns avoided are $(21,12),(2134,4213)$ and $(3124,4312)$.
+\end{proposition}
+
+\begin{proof}
+
+Given the coherent/operadic nature of $\LA$ (\cref{lem:operadic-ordering}), $(\sigma,\tau) \in \LAD$ if, and only if, it never fails an $(I,J)$ condition whose standardisation is of the form 
+\begin{align*}
+    (I_k,J_k) := (\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\})
+\end{align*}
+for some $k\geq 1$.
+We first prove that each pair of permutations in $P_k$ fails $(I_k,J_k)$, and does not fail $(I_l,J_l)$ for $l<k$.
+It is clear by construction that each $p\in P_k$ fails $(I_k,J_k)$, as $J$ dominates $I$ in $\sigma$ and $I$ dominates $J$ in $\tau$. 
+Furthermore, each $p$ has no sub-pair of permutations $p'$ which fails $(I_l,J_l)$ for $l<k$.
+In particular, trying to construct such a $p'$ recovers $p$.
+\begin{itemize}
+    \item To possibly fail $(I_l,J_l)$, the pair must have $(j_1 i_1..., ... i_1j_k)$, so we must have $i_1,j_1,j_k$.
+    
+    \item However, we must then dominate $j_1$ with an element of $I$ in $\tau$. 
+    The only possibility is through $i_2$ which itself must be dominated by an element of $J$ in $\sigma$.
+    This leads to a chain of necessary additions $j_1 \implies i_2\implies j_2 \implies i_3 \implies ... \implies i_{k}$. 
+    Which implies that $p'=p$.
+\end{itemize}
+We now prove that $P_k$ are the only pairs of permutations of size $k$ which fail $(I_k,J_k)$, but which do not fail any smaller conditions. 
+We complete this proof in two steps.
+Firstly, we will show that for any such $p=(\sigma,\tau)$, the leftmost $I$ of $\sigma$ is $i_1=1$.
+Then, for $n\geq1$ we will prove that,
+\begin{enumerate}[(a)]
+    \item If $\sigma = j_1 i_1 j_2 i_2 ... j_{n-1} i_{n-1} w i_{n} w'$, $\tau = i_2 j_1 i_3 j_2 ... i_{n}j_{n-1}w''$, and $j_n$ is the leftmost $J\setminus \{j_1,...,j_{n-1}\}$ in $\tau$, then $w = j_n$.
+    \item If $\sigma = j_1 i_1 j_2 i_2 ... j_{n-1} i_{n-1} w''$, $\tau = i_2 j_1 i_3 j_2 ... i_{n-1}j_{n-2} w j_{n-1} w''$, and $i_n$ is the leftmost $I\setminus \{i_1,...,i_{n-1}\}$ in $\sigma$, then $w = i_n$.
+\end{enumerate}
+Consequently, as the leftmost $I$ of $\sigma$ is $1$.
+We can inductively generate the entire permutation, determining $j_1$ via $(a)$, then $i_2$ via $(b)$, then $j_2$ via $(a)$ and so on.
+This inductive process fully generates $\sigma$, and places all elements in $\tau$ except $i_1$, with a final known expression  $\tau = i_2 j_1 i_3 j_2 \cdots i_k j_{k-1} w j_k w''$.
+However, as $j_k$ must be dominated by an element of $I$, this forces $w = i_1$ and $w'' =\emptyset$, completing the proof.
+\\\\
+We now prove the requisite steps.
+Firstly, let $i_1$ be the leftmost element of $I$, and suppose that $i_1\neq 1$. 
+Let $j_1$ be the leftmost element of $J$ in $\tau$, and define $(I',J'):=(I_k\setminus \{i_1\}, J_k \setminus \{j_1\})$.
+As $i_1, j_1$ are the leftmost elements of $\sigma,\tau$ respectively, one can check using both cases of \cref{lem:Coherent Domination}, that $J'$ dominates $I'$ in $\sigma$, and $I'$ dominates $J'$ in $\tau$.
+\\\\
+Finally, we prove $(a)$, the proof of $(b)$ proceeds similarly. 
+Let $j_n$ be the leftmost element of $J\setminus \{j_1,...,j_{n-1} \}$ in $\tau$.
+Suppose that $w\neq j_n$, then either
+\begin{enumerate}
+    \item $w$ consists of multiple elements of $J$ including $j_n$, or
+    \item $j_n$ comes after $i_n$ in $\sigma$.
+\end{enumerate}
+Let $(I',J'):=(I_k\setminus \{i_n\}, J_k \setminus \{j_n\})$.
+As was the case for $i_1=1$, $I'$ will dominate $J'$ in $\tau$.
+To prove $J'$ dominates $I'$ in $\sigma$, we split by the cases.
+In case $(a)$, we may apply condition $(2)$ of \cref{lem:Coherent Domination}.
+In case $(b)$, either $i_n$ comes before $j_n$, in which case we meet condition $(1)$ of \cref{lem:Coherent Domination}, or $j_n$ comes before $i_n$.
+If $j_n$ comes before $i_n$, then as $i_n$ is the leftmost element of $I\setminus \{i_1,...,i_{n-1} \}$ in $\sigma$, this implies condition $(2)$ of \cref{lem:Coherent Domination} holds.
+
+\end{proof}
+
+Dually, we have the following characterisation of the vertices of the $\SU$ diagonal.
+
+\begin{proposition}\label{prop:SUD Fish Pattern}
+Let $(I_k,J_k):= (\{k,k+1,\dots,2k-1\},\{1,2,3,\dots,k-1,2k\})$.
+A pair of permutations $(\sigma,\tau)\in \SUD$ if, and only if, $\forall k,$ $(\sigma,\tau)$ avoids the set of $(k-1)!k!$ different patterns
+\begin{align*}
+    P_k:= \{ (j_1 i_1 j_2 i_2 \cdots j_k i_k,\quad  i_1 j_k i_2 j_1 \cdots i_{k-1} j_{k-2}i_k j_{k-1}): j_k = 2k, I = \{i_1,...,i_k\},J = \{j_1,...,j_k\} \}
+\end{align*}
+In particular, for $k=1,2$ the patterns avoided are $(21,12), (1243,2431)$ and $(1342, 3421)$.
+\end{proposition}
+\begin{proof}
+We apply either of face poset isomorphisms $rs \times rs,t(r\times r):\LAD \to \SUD$ (\cref{rem:Alternate Isomorphism}).
+By necessity, both isomorphisms produce the same set of patterns, and map $i_1=1$ in the $\LAD$ patterns of \cref{prop: LAD Fish Pattern} to $j_k = 2k$ in these $\SUD$ patterns.
+\end{proof}
+\Kurt{Check on fresh head.}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{The Saneblidze-Umble diagonal}
