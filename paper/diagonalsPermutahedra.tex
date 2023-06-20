@@ -1953,74 +1953,38 @@ We will show this second isomorphism has the conceptual benefit of sending left 
 
 \subsection{Facets of operadic diagonals}
 
-We have seen in \cref{subsec:multiBraidArrangement} that facets of any diagonal of the permutahedron are in bijection with $(2,n)$-trees, that is, a pair of partitions whose intersection graph is a tree.
-These are precisely the \emph{essential complementary partitions} studied in \cite{chen1969computer,chen1971tables,kajitani1982number}. 
-Here, we describe a specific planar embedding of the $(2,n)$-trees for each operadic diagonal. 
-\Guillaume{Simplify and unify exposition with Section 1}
-
-\begin{definition}
-A set of \emph{distinct representatives} of an (unordered) partition $\sigma_I$ is a set $M\subset [n]$ such that $\forall i \in I,|\sigma_i \cap M| = 1$.
-\end{definition}
-
-\begin{definition}
-A pair of partitions $(\sigma_L,\tau_R)$ is 
-\begin{enumerate} 
-    \item \emph{complementary} if there exists $M\subset [n]$ and $m \in M$ such that $M$ and $([n]\ssm M) \cup \{m\}$ are distinct representatives of $\sigma_L$ and $\tau_R$, respectively,
-    \item it is furthermore \emph{essential} if there does not exist proper subsets $ L'\subset L$, $R'\subset R$ and $N \subset [n]$ such that $(\sigma_{L'},\tau_{R'})$ is a complementary partition of $N$.
-\end{enumerate}
-\end{definition}
-
-An equivalent definition is the following. 
-
-\begin{definition}
-A pair of partitions $(\sigma_L,\tau_R)$ is said to be 
-\begin{enumerate}
-	\item \emph{complementary}, if $\forall l\in L, r\in R$ we have that $|\sigma_l \cap \tau_r| \leq 1$,
-	\item \emph{essential}, if there are no proper subsets of $L'\subset L,R'\subset R$ such that $\cup_{l \in L'} \sigma_l = \cup_{r \in R'} \tau_r$.
-\end{enumerate}	
-\end{definition}
-
-In cases where there is no ambiguity, we will drop the subscripts $L,R$.
-We shall denote the set of all essential complementary pairs of partitions of $[n]$ by $\EC$.
-Let us emphasise that the pairs of partitions of $\EC$ are \emph{unordered}.
-
-\begin{example}
-For $n=2$, the two essential complementary partitions are $1|2 \times 12$ and $12 \times 1|2$. For $n=3$, the eight essential complementary partitions are
-\begin{align*}
-	1|2|3 \times 123,\quad 
-	123 \times 1|2|3,\quad 
-	1|23 \times 13|2,\quad 
-	13|2 \times 1|23\\
-	1|23 \times 12|3,\quad 
-	12|3 \times 1|23,\quad 
-	13|2 \times 12|3,\quad 
-	12|3 \times 13|2
-\end{align*}
-For a larger example, see \cref{ex:ECbijection}. 
-\end{example}
-
-%A \emph{tree} is a simply connected graph with no cycles. 
-%A \emph{bipartite graph} is a graph whose vertices are partitioned into two sets such that vertices in one set are only adjacent to vertices in the other.
-%We say a bipartite graph is \emph{ordered} if one of the sets is considered smaller than the other and we denote the partition $(V_L,V_R)$. 
-%We say a graph with $n$ edges is \emph{edge labelled} if there exists a bijection between the edges and $\{1,\dots,n\}$.
-
-As we have seen in \cref{subsec:multiBraidArrangement}, essential complementary partitions are in bijection with $(2,n)$-trees.
-Given an essential complementary pair $(\sigma,\tau)$, the corresponding $(2,n)$-tree has the blocks of each partition as its vertices, and two such vertices are connected by an edge if the two blocks share a common element, which labels the edge, see \cref{ex:ECbijection}.
-
+We have seen in \cref{subsec:multiBraidArrangement} that facets of any diagonal of the permutahedron are in bijection with $(2,n)$-trees, that is, a pair of unordered partitions of $[n]$ whose intersection graph is a tree.
+These pairs of partitions were first studied and called essential complementary partitions in \cite{chen1969computer,chen1971tables,kajitani1982number}, as such we will denote the set of all $(2,n)$-trees by $\EC$.\Kurt{A historic nod, but this way don't need to define.}
+In this section, we prove that particular orderings of $\EC$ recover the four operadic diagonals of \cref{prop:unique-operad}.\Guillaume{Simplify and unify exposition with Section 1}
+\Kurt{A bit better but feel free to doctor further.}
 
 \begin{theorem}
 \label{thm:facets}
-The facets of any operadic diagonal $\OP$ are in bijection with essential complementary partitions, through the inverse functions $u:\OP \to \EC$ and $o:\EC\to \OP$, where
+There exists a bijective ordering function $o:\EC\to \OP$, for each of the operadic diagonals.
+For any $(\sigma,\tau) \in \EC$, we order any two vertices on the same side, i.e. $a,b\in \sigma$, or $a,b\in \tau$, by directing the unique path $\gamma$ connecting them.
+If the path points $a\to b$, then $a<b$.
+Each diagonal orients every path by extending the orientation of a particular path element,
 \begin{enumerate}
-    \item the function $u$ forgets the order of the ordered partition pair,
-    \item the function $o$ uniquely orders an essential complementary partition pair via the minimal $(I,J)$-pairs defining the diagonal. 
+    \item $\min \gamma$ oriented left to right (right to left) yields $o(\sigma,\tau) \in \LAD$ (resp. $o(\sigma,\tau) \in (\LAD)^{op})$ )
+    \item $\max \gamma$ oriented right to left (left to right) yields $o(\sigma,\tau) \in \SUD$ (resp. $o(\sigma,\tau) \in (\SUD)^{op})$ ).
 \end{enumerate}
-In particular, this defines a particular planar embedding of each $(2,n)$-tree, as illustrated in \cref{ex:ECbijection}.
 \end{theorem}
 
-We shall prove this theorem by establishing the necessary total order, showing that the functions are well defined, and then showing that they are injective.
-We will work with the $\LAD$ diagonal, but the proofs can be straightforwardly modified to accommodate any of the other three operadic diagonals. 
+\begin{proof}
+In this section, we first prove this theorem for $\LAD$, via the following lemmas,
+\begin{itemize}
+    \item The function $u:\LAD\to \EC$, which forgets the order of the blocks, is well defined (\cref{l:u-well-defined}).
+    \item The ordering function $o:\EC \to \LAD$ is well defined. In particular, 
+    \begin{itemize}
+        \item it totally orders the vertices on each side (\cref{l:o-provides-total-order}), and
+        \item it produces elements of $\LAD$ (\cref{l:o-well-defined}).
+    \end{itemize}
+    \item The functions $u,o$ are mutual inverses (\cref{l:o and u inverses}).
+\end{itemize}
+Then, we transfer the result to the other operadic diagonals via isomorphism (\cref{l:Non LA ordering functions}).
+\end{proof}
 
+We now prove the requisite lemmas, whilst providing clarifying examples.
 \begin{lemma} 
 \label{l:u-well-defined}
 The function $u:\OP \to \EC$ that forgets the order in a pair of partitions is well defined.
@@ -2035,38 +1999,29 @@ Their intersection graph has $n+1$ vertices and $n$ edges, and as no vertices ca
 %This edge specifies the element $p$ of the distinct representatives.
 \end{proof}
 
-\begin{construction} 
-\label{const:total}
-For $(\sigma,\tau) = (\bigcup_{l\in L}\sigma_l,\bigcup_{r\in R} \tau_r)$ an essential complementary pair, we construct total orders on the blocks of $\sigma$ and $\tau$ in three steps:
-\begin{enumerate}
-    \item For any two blocks $\sigma_k,\sigma_l$ in $\sigma$ or $\tau$, there is a unique minimal path $\gamma$ of even cardinality  connecting them.
-    We partition $\gamma=I\cup J$ where $\min(I\cup J) \in I$ and the path alternates between elements of $I$ and $J$;
-    \item Direct each path $\gamma$ so that all the edges of $I$ (resp. $J$) go from left to right (resp. right to left);
-    \item We say $\sigma_k< \sigma_l$ if the path joining them is directed from $\sigma_k$ to $\sigma_l$.
-\end{enumerate}
-\end{construction}
-
+\begin{lemma}\label{l:o-provides-total-order}
+The ordering $o:\EC\to \LAD$ totally orders the vertices of each side.
+\end{lemma}
 \begin{proof}
-We first show our binary relation is well defined before verifying that it defines a total order on the vertices of the $(2,n)$-tree.
-In a bipartite tree, every vertex is connected, and every path connecting two vertices on the same side must be of even length. 
-As $I$ and $J$ partition the path in an alternating fashion, i.e. $\gamma=(i_1,j_1,i_2,j_2,\dots)$, we can orient it by forcing each edge of $I$ (resp. $J$) to point to the right (resp. left). 
-This order is clearly total, reflexive (by convention) and anti-symmetric, what remains to be checked is its transitivity. 
-
-Let $\gamma$ denote the unique maximal path between two vertices $a$ and $b$ on the left of the tree, that is two blocks of $\sigma$. 
-Let $I_{ab}$ denote the set of left-to-right edges in this path, and let $J_{ab}$ denote its complement. 
-Then, we have 
-\begin{equation}
-    \label{eq:order}
-    a < b \iff \min(I_{ab}\cup J_{ab})=\min(I_{ab}) \ . 
-\end{equation}
-Suppose now that $a < b$ and $b < c$.
-Since $\gamma_{ac}= (\gamma_{ab} \cup \gamma_{bc}) \ssm (\gamma_{ab} \cap \gamma_{bc})$, we have $$ I_{ac}=(I_{ab}\cup I_{bc}) \ssm (J_{ab} \cup J_{bc}) \text{ and } J_{ac}=(J_{ab}\cup J_{bc}) \ssm (I_{ab} \cup I_{bc}) \ , $$ and from the condition (\ref{eq:order}) above, it is clear that $\min(I_{ac}\cup J_{ac})=\min(I_{ac})$, which completes the proof of the transitivity for the total order on $\sigma$. 
-The proof for $\tau$ is similar. 
+Let $(\sigma,\tau)\in \EC$, and let $a,b$ be any pair of vertices on the same side.
+As every element of $(2,n)$ is a bipartite tree, $a$ and $b$ are connected by a unique minimal path of even length $\delta_{ab}$.
+Orienting the minimal element $i_{ab}$ of this path, so that it points from an element of $\sigma$ to an element of $\tau$ (i.e. left to right), then extending this orientation along the entire path, orients the path $a\to b$ or $b\to a$.
+This method of ordering vertices is clearly total, reflexive (by convention) and anti-symmetric, what remains to be checked is its transitivity.
+\\\\
+Let $a,b,c$ all be vertices on the same side, and let $\delta_{ab},\delta_{bc}$ be the unique minimal paths between them.
+Suppose that $a<b$ and $b<c$ as a result of orienting $i_{ab},i_{bc}$, then we are required to show that $a<c$.
+Observe that $\delta_{ac}= (\delta_{ab} \cup \delta_{bc}) \ssm (\delta_{ab} \cap \delta_{bc})$.
+As $a<b$ and $b<c$ it must be the case that when we orient each $\delta_{ab},\delta_{bc}$ through their minimal elements, that $(\delta_{ab} \cap \delta_{bc})$ is traversed in opposite directions by the paths $\delta_{ab}$ and $\delta_{bc}$.
+This implies that $\min \{i_{ab},i_{bc} \} \not \in \delta_{ab} \cap \delta_{bc}$.
+Consequently, it must be the case that $i_{ac}:=\min \delta_{a,c} = \min \{i_{ab},i_{bc} \}$, which orients $a\to c$ implying $a<c$.
 \end{proof}
+
+We will show that this ordering produces elements of the $\LAD$ diagonal, as each oriented path $\gamma_{ab}$ will correspond to satisfying a specific $(I,J) \in \LA$.
+We first present a clarifying example.
 
 \begin{example}
 \label{ex:ECbijection}
-We now illustrate the ordering (right) of the pair of essential complementary partitions $\{15,234,6,7\} \times \{13,2,46,57\}$ (left).
+We display the ordering (right) of the $(2,7)$-tree $\{15,234,6,7\} \times \{13,2,46,57\}$ (left).
 \begin{center}
 \begin{tikzpicture}[scale=.7]  
 \node (1) at (-1.5, -1) {$15$};
@@ -2110,18 +2065,18 @@ $\quad$
 %
 \end{tikzpicture}
 \end{center}
-Here are two examples of paths providing order information, with $(I,J)=(\{1,7\},\{3,5\})$ and $(I,J)=(\{1,4\},\{3,5\})$
+Here are two examples of paths providing order information, 
 \begin{align*}
-	7 <_L 234 \text{ as } 7 \xrightarrow{7} 57 \xrightarrow{5} 15 \xrightarrow{1=\min(I\cup J)} 13 \xrightarrow{3} 234 \ , \\
-	57 <_R 46 \text{ as } 57 \xrightarrow{5} 15 \xrightarrow{1=\min(I\cup J)} 13 \xrightarrow{3} 234 \xrightarrow{4} 46 \ .
+	7 <_L 234 \text{ as } 7 \xrightarrow{7} 57 \xrightarrow{5} 15 \xrightarrow{1=\min(I\cup J)} 13 \xrightarrow{3} 234 \ \text{corresponds to } (I,J)=(\{1,7\},\{3,5\}), \\
+	57 <_R 46 \text{ as } 57 \xrightarrow{5} 15 \xrightarrow{1=\min(I\cup J)} 13 \xrightarrow{3} 234 \xrightarrow{4} 46 \ \text{corresponds to } (I,J)=(\{1,4\},\{3,5\}).
 \end{align*}
 \end{example}
 
-This order far from being arbitrary provides the unique way to order an essential complementary partition pair into an ordered partition pair of $\LAD$, as we shall demonstrate next.
 First, we need a geometrical result. 
 
 \begin{proposition}
     \label{prop:geometrical-IJ}
+    Let $(\sigma,\tau) \in \LAD$.
     The paths between adjacent vertices of $\sigma$ or $\tau$ are in bijection with the minimal $(I,J)$-pairs (see \cref{s:diagonals-permutahedra}).
 \end{proposition}
 
@@ -2137,63 +2092,56 @@ First, we need a geometrical result.
     Thus, $x_{e_1}=1$, $x_{e_2}=-1$, $x_{e_3}=1$, $\ldots$, $x_{e_{k-2}}=1$, $x_{e_{k-1}}=-1$ is a basis of one-dimensional space of solutions, and it gives the corresponding minimal $(I,J)$-pair. 
 \end{proof}
 
-\begin{lemma} 
-\label{l:o-well-defined}
-The function $o:\EC \to \LAD$ which orders an essential complementary pair is well defined.
+\begin{lemma} \label{l:o-well-defined}
+The ordering function $o:\EC \to \LAD$ is well defined.
 \end{lemma}
 
 \begin{proof}
-Consider the ordering $o(\sigma,\tau)$ of the pair $(\sigma,\tau)$ given by \cref{const:total}. 
-We first show that every $(I,J)$-condition, for $(I,J) \in \LA(n)$, which corresponds to a path between vertices is satisfied. 
-In particular, this statement will be true for paths between adjacent vertices, which are exactly the minimal $(I,J)$-pairs according to \cref{prop:geometrical-IJ}.
-This will in turn allow us to conclude since testing the minimal $(I,J)$-pairs is equivalent to testing all $(I,J)$-pairs as stated in \cref{p:minimal}. 
-Suppose that $I,J$ corresponds to a path between two vertices on the left, i.e.
+We seek to show that every $(I,J) \in \LA(n)$ is satisfied by the ordered $o(\sigma,\tau)$.
+Given \cref{prop:geometrical-IJ}, it is sufficient to show that it satisfies the minimal $(I,J)$ pairs corresponding to paths between all the adjacent ordered vertices of $\sigma$ and $\tau$.
+As such, it is sufficient to prove that for any two ordered vertices $\sigma_l<\sigma_{l'}$ in $\sigma$ (or $\tau_r<\tau_{r'}$ in $\tau$), that the path connecting them corresponds to a satisfied $I,J$ condition.
+We provide the proof for $\sigma$, and $\tau$ proceeds similarly.
+As $\sigma_l<\sigma_{l'}$, the path connecting them is of the form
 \begin{align*}
     \sigma_l = \sigma_{l_1} \xrightarrow{i_1} \tau_{r_1}\xrightarrow{j_1} \sigma_{l_2} \xrightarrow{i_2}\dots \xrightarrow{i_{k}} \tau_{r_{k-1}} \xrightarrow{j_k} \sigma_{l_k}= \sigma_{l'}
 \end{align*}
-By construction we have that $(I = \{i_1,\dots,i_k\},J=\{j_1,\dots,j_k\}) \in \LA(n)$ (note we are ordering $I$ and $J$ by the path, so it is not necessarily the case that $\min I = i_1$). 
+Given the path has been oriented by forcing the minimal element to point from $\sigma$ to $\tau$ we know that $(I,J) := (\{i_1,\dots,i_k\},\{j_1,\dots,j_k\}) \in LA(n)$.
 Furthermore, each block of $\tau$ either contains a single element of $I$ and a single element of $J$, or it contains no elements of $I$ and no elements of $J$. 
 As such, for any ordering of the blocks of $\tau$ we have that
 \begin{align*}
     \forall m, \bigg|\bigcup_{1\leq k \leq m} \tau_{k} \cap I \bigg| = \bigg|\bigcup_{1\leq k \leq m} \tau_{k} \cap J \bigg| \ .
 \end{align*}
-Hence in order for this $\LA(n)$ condition to be satisfied it must be the case that for some ordering of the blocks of $\sigma$ we have
+Hence in order for $(I,J)$ to be satisfied it must be the case that,
 \begin{align*}
     \exists m, \bigg| \bigcup_{1\leq k \leq m} \sigma_k \cap I \bigg| > \bigg|\bigcup_{1\leq k \leq m} \sigma_k \cap J \bigg| \ .
 \end{align*}
 Every block of $\sigma$ excluding $\sigma_l$ and $\sigma_{l'}$ either contains no elements of both $I$ and $J$, or contains a single element of $I$ and a single element of $J$. 
 So the only way for the condition to be satisfied is for $\sigma_l$ to come before $\sigma_{l'}$, which is precisely what is required by the total order.
-If the sets $(I,J)$ correspond to a path between two vertices on the right
-\begin{align*}
-    \tau_r = \tau_{r_1} \xrightarrow{j_1} \sigma_{l_1}\xrightarrow{i_1} \tau_{r_2} \xrightarrow{j_2}\dots \xrightarrow{j_{k}} \sigma_{l_{k-1}} \xrightarrow{1_k} \tau_{r_k}=\tau_{r'} \ ,
-\end{align*}
-then a similar chain of logic implies we must have an ordering of the blocks of $\tau$ such that
-\begin{align*}
-    \exists m, \bigg|\bigcup_{1\leq k \leq m}\tau_k \cap I\bigg| < \bigg|\bigcup_{1\leq k \leq m} \tau_k \cap J\bigg| \ , 
-\end{align*}
-and this can only happen if $\tau_r$ comes before $\tau_{r'}$.
 \end{proof}
 
 \begin{remark}
     It would be interesting to know if there is a geometrical interpretation of the paths that are not between adjacent vertices. 
 \end{remark}
 
-To complete the proof of \cref{thm:facets}, it remains to show that both $u:\LAD \to \EC$ and $o:\EC\to \LAD$ are injective, with the other function being their inverse.
+We now complete the proof that $o:\EC\to \LAD$ is a bijective with the following lemma.
 
-\begin{proof}[{Proof of \cref{thm:facets}}]
-The forgetful function $u$ is clearly the inverse to $o$, as forgetting any assigned order will clearly return the original essential complementary partition pair. 
+\begin{lemma}\label{l:o and u inverses}
+The functions $o:\EC\to \LAD$ and $u:\LAD \to \EC$ are mutual inverses.
+\end{lemma}
+\begin{proof}
+The forgetful function $u$ is clearly the inverse to $o$, as forgetting any assigned order will clearly return the original bipartite tree. 
 The ordering function $o$ is the inverse to $u$, as it returns the sole ordering of the blocks which is compatible with the $\LA(n)$ conditions.
 \end{proof}
 
-So, we have the follow characterisation of facets of the $\LAD$ and $\SUD$ diagonals (the second one being obtained by changing slightly \cref{const:total} according to the definition of the $\SU$ order).
-We omit the adaptation for the two opposite diagonals, which is immediate.
+\begin{lemma} \label{l:Non LA ordering functions}
+The other ordering functions of \cref{thm:facets} are well-defined and bijective.
+\end{lemma}
+\begin{proof}
+To obtain the $\SU$ ordering, we apply the isomorphism $rs\times rs$ (\cref{thm:bijection-operadic-diagonals}) and track what happens to each path.
+To obtain the $\LA^{op}$ and $\SU^{op}$ orderings, we reverse these orders.
+\end{proof}
 
-\begin{corollary} 
-\label{prop:LAD-ordered-EC}
-The facets of the $\LAD$ (resp. $\SUD$) diagonal are ordered essential complementary partitions in which the minimal (resp. maximal) element of each path is traversed from left to right (resp. right to left).
-\end{corollary}
-
-We illustrate how the bijection $rs\times rs$ from \cref{thm:bijection-operadic-diagonals} relates the two results.
+We illustrate how the isomorphism $rs\times rs$ from \cref{thm:bijection-operadic-diagonals} relates the two results.
 
 \begin{example}
 \label{ex:theta-path-translation}
@@ -2253,6 +2201,11 @@ are mapped to $\SU(7)$ conditions corresponding to paths, e.g. the prior $(I,J)$
 \end{align*}
 \end{example}
 Note that the composite $\LAD \xrightarrow{u} \EC \xrightarrow{o} \SUD$ provides another bijection between facets, however this map is not equal to $rs \times rs$ and is not defined on the other faces.
+
+\Kurt{A necessary condition for any shift description of $(l,n)$-trees would be having a generalised order for it.
+Not sure what an obvious extension of this order would be.
+Can we compute via code what the ordering must be for $\LA$/$\SU$ $(l,n)$-trees for small $l,n$?
+}
 
 %%%%%%%%%%%%%%%
 
