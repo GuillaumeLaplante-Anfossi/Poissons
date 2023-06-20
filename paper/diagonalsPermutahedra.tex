@@ -287,8 +287,6 @@ corollary: le dernier article de SU!
 corollary: IJ-description of SU diagonal
 corollary: left and right shifts for LA, decomposition of the cube associated to LA diagonal
 
-\Kurt{Mention the LAD and SUD shifts generate the (same) facets of the hexagon in two different ways.}
-
 Perspectives: 
 -for general diagonal, obtain closed formulas for all the faces
 -for specific diagonals, extend the bijection with bipartite trees
@@ -1641,6 +1639,7 @@ We use the shorthand $14|23$ to denote both the unordered  partition $\{\{1,4\},
 	\label{fig:diagonalPermutahedron2}
 \end{figure}
 \vincent{I have included this picture here to be sure that we don't forget it. I should make one for the SU diagonal~$\SUD$ as well.}
+\Kurt{I think there is a typo, $23|1\times 1|2|3$ on top left edge, should be $23|1\times 3|2|1$.}
 
 Let us recall the universal formula expressing combinatorially the cellular image of the diagonal of a polytope $P$ obtained in \cite[Theorem 1.26]{LA21}.
 It is expressed in terms of the \emph{fundamental hyperplane arrangement} of $P$. 
@@ -2145,7 +2144,7 @@ We illustrate how the isomorphism $rs\times rs$ from \cref{thm:bijection-operadi
 
 \begin{example}
 \label{ex:theta-path-translation}
-We apply the bijection $rs\times rs$ to the element of $\LAD$ from \cref{ex:ECbijection}
+We apply $rs\times rs$ to the element of $\LAD$ from \cref{ex:ECbijection}
 \begin{center}
 \begin{tikzpicture}[scale=.7]  
 \node (1) at (-1.5, -1) {$15$};
@@ -2364,7 +2363,8 @@ If $j_n$ comes before $i_n$, then as $i_n$ is the leftmost element of $I\setminu
 
 \end{proof}
 
-Dually, we have the following characterisation of the vertices of the $\SU$ diagonal.
+All the operadic diagonals admit similar characterisations. 
+In particular, the vertices of the $\SU$ diagonal are characterised as follows.
 
 \begin{proposition}\label{prop:SUD Fish Pattern}
 Let $(I_k,J_k):= (\{k,k+1,\dots,2k-1\},\{1,2,3,\dots,k-1,2k\})$.
@@ -2375,10 +2375,9 @@ A pair of permutations $(\sigma,\tau)\in \SUD$ if, and only if, $\forall k,$ $(\
 In particular, for $k=1,2$ the patterns avoided are $(21,12), (1243,2431)$ and $(1342, 3421)$.
 \end{proposition}
 \begin{proof}
-We apply either of face poset isomorphisms $rs \times rs,t(r\times r):\LAD \to \SUD$ (\cref{rem:Alternate Isomorphism}).
+We apply either of the face poset isomorphisms $rs \times rs,t(r\times r):\LAD \to \SUD$ (\cref{rem:Alternate Isomorphism}).
 By necessity, both isomorphisms produce the same set of patterns, and map $i_1=1$ in the $\LAD$ patterns of \cref{prop: LAD Fish Pattern} to $j_k = 2k$ in these $\SUD$ patterns.
 \end{proof}
-\Kurt{Check on fresh head.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -2462,7 +2461,7 @@ As a consequence, all strong complementary pairs are in both $\LAD$ and $\SUD$.
 \end{proposition}
 \begin{proof}
 The path description of $(\sigma,\tau)$ is a straightforward observation. 
-Since the minima of these paths are traversed from left to right, and the maxima from right to left, \cref{prop:LAD-ordered-EC} implies that strong complementary partitions are in both $\LAD$ and $\SUD$.
+Since the minima of these paths are traversed from left to right, and the maxima from right to left, \cref{thm:facets} implies that strong complementary partitions are in both $\LAD$ and $\SUD$.
 \end{proof}
 
 \vincent{SCP corresponds to pairs~$(F,G)$ with $\max(F) = \min(G)$.}
@@ -2813,7 +2812,7 @@ An adjacent crossing is clearly a crossing. In the other direction, suppose ther
 \begin{proof}
     We consider just the right shift, and the left proceeds similarly. 
     By \cref{cor:SU-shift-preserves-max}, we have that the maxima of paths between consecutive vertices in $(R_{\rho}(\sigma),\tau)$ are the same as the ones in $(\sigma,\tau)$, and are moreover traversed in the same direction.
-    Thus, all maxima of paths in $(R_{\rho}(\sigma),\tau)$ are traversed from right to left, and hence by \cref{prop:LAD-ordered-EC}, we have that $(R_{\rho}(\sigma),\tau)$ is in the $(I,J)$ diagonal, which proves Point (1).
+    Thus, all maxima of paths in $(R_{\rho}(\sigma),\tau)$ are traversed from right to left, and hence by \cref{thm:facets}, we have that $(R_{\rho}(\sigma),\tau)$ is in the $(I,J)$ diagonal, which proves Point (1).
     For Point (2), observe that the $(I,J)$ conditions for $|I|=|J|=1$ imply that $\rho$ must appear before $\min \sigma_i$ in $\tau$; as a result, after the $m$-shift these two edges will create a new intersection.
 \end{proof}
 
@@ -2843,7 +2842,7 @@ Moreover, we have the following properties.
 \end{proposition}
 
 \begin{proof}
-    The proof is similar to \cref{lem:IJ-closed-under-shifts}: as the inverse shift operators conserve the maxima of paths, and these same maxima continue to be traversed from right to left, it follows by \cref{prop:LAD-ordered-EC} that the output of an inverse shift operator will remain in $\SUD$, which shows Point (1). 
+    The proof is similar to \cref{lem:IJ-closed-under-shifts}: as the inverse shift operators conserve the maxima of paths, and these same maxima continue to be traversed from right to left, it follows by \cref{thm:facets} that the output of an inverse shift operator will remain in $\SUD$, which shows Point (1). 
     For Point (2), we observe the inverse $m$-shift resolves the intersection between $\rho$ and $\min \sigma_i$.
 \end{proof}
 
@@ -3210,9 +3209,6 @@ We end this Section by applying the isomorphism between the $\SU$ and $\LA$ diag
 \end{conjecture}
 
 This is equivalent, via the isomorphism between $\LA$ and $\SU$ diagonals, to the analogous conjecture for the $\SU$ diagonal, presented as a fact in \cite[Equation (1)]{saneblidzeComparingDiagonalsAssociahedra2022}.
-
-\Kurt{Mention the LAD and SUD shifts generate the (same) facets of the hexagon in two different ways.}
-\Guillaume{AND add picture}
 
 %%%%%%%%%%%%%%%
 
