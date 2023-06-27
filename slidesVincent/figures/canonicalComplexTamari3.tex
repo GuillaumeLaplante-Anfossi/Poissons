@@ -1,0 +1,109 @@
+\documentclass[10pt]{standalone}
+\usepackage{pgf,tikz,pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\pagestyle{empty}
+\begin{document}
+
+\begin{tikzpicture}
+\begin{scope}[shift = {(0,0)}]
+	\node (bottom) at (0,0) {\tikz[scale = 0.4]{
+		\clip (-.2,-.3) rectangle (2.2, .3);
+		\draw[blue, line width = 1] (0, 0) -- (1, 0);
+		\draw[blue, line width = 1] (1, 0) -- (2, 0);
+		\draw[fill = black] (0,0) circle (.1);
+		\draw[fill = black] (1,0) circle (.1);
+		\draw[fill = black] (2,0) circle (.1);
+	}};
+	\node (a) at (-1.5,1.5) {\tikz[scale = 0.4]{
+		\clip (-.2,-1.1) rectangle (2.2, 1.1);
+		\draw[blue, line width = 1] (0, 0) arc (180:0:1.0);
+		\draw[red, line width = 1] (0, 0) -- (1, 0);
+		\draw[fill = black] (0,0) circle (.1);
+		\draw[fill = black] (1,0) circle (.1);
+		\draw[fill = black] (2,0) circle (.1);
+	}};
+	\node (b) at (1.5,2.25) {\tikz[scale = 0.4]{
+		\clip (-.2,-1.1) rectangle (2.2, 1.1);
+		\draw[blue, line width = 1] (0, 0) -- (1, 0);
+		\draw[red, line width = 1] (1, 0) -- (2, 0);
+		\draw[fill = black] (0,0) circle (.1);
+		\draw[fill = black] (1,0) circle (.1);
+		\draw[fill = black] (2,0) circle (.1);
+	}};
+	\node (c) at (-1.5,3) {\tikz[scale = 0.4]{
+		\clip (-.2,-1.1) rectangle (2.2, 1.1);
+		\draw[red, line width = 1] (0, 0) arc (180:0:1.0);
+		\draw[blue, line width = 1] (1, 0) -- (2, 0);
+		\draw[fill = black] (0,0) circle (.1);
+		\draw[fill = black] (1,0) circle (.1);
+		\draw[fill = black] (2,0) circle (.1);
+	}};
+	\node (top) at (0,4.5) {\tikz[scale = 0.4]{
+		\clip (-.2,-.3) rectangle (2.2, .3);
+		\draw[red, line width = 1] (0, 0) -- (1, 0);
+		\draw[red, line width = 1] (1, 0) -- (2, 0);
+		\draw[fill = black] (0,0) circle (.1);
+		\draw[fill = black] (1,0) circle (.1);
+		\draw[fill = black] (2,0) circle (.1);
+	}};
+	
+	\draw (bottom) -- (a) -- (c) -- (top) -- (b) -- (bottom);
+\end{scope}
+
+\begin{scope}[shift = {(5,2)}]
+	\node (12b) at (30:2) {\tikz[scale = 0.4]{
+		\clip (-.2,-.3) rectangle (2.2, .3);
+		\draw[blue, line width = 1] (0, 0) -- (1, 0);
+		\draw[fill = black] (0,0) circle (.1);
+		\draw[fill = black] (1,0) circle (.1);
+		\draw[fill = black] (2,0) circle (.1);
+	}};
+	\node (13b) at (90:2) {\tikz[scale = 0.4]{
+		\clip (-.2,-1.1) rectangle (2.2, 1.1);
+		\draw[blue, line width = 1] (0, 0) arc (180:0:1.0);
+		\draw[fill = black] (0,0) circle (.1);
+		\draw[fill = black] (1,0) circle (.1);
+		\draw[fill = black] (2,0) circle (.1);
+	}};
+	\node (23b) at (150:2) {\tikz[scale = 0.4]{
+		\clip (-.2,-.3) rectangle (2.2, .3);
+		\draw[blue, line width = 1] (1, 0) -- (2, 0);
+		\draw[fill = black] (0,0) circle (.1);
+		\draw[fill = black] (1,0) circle (.1);
+		\draw[fill = black] (2,0) circle (.1);
+	}};
+	\node (12r) at (210:2) {\tikz[scale = 0.4]{
+		\clip (-.2,-.3) rectangle (2.2, .3);
+		\draw[red, line width = 1] (0, 0) -- (1, 0);
+		\draw[fill = black] (0,0) circle (.1);
+		\draw[fill = black] (1,0) circle (.1);
+		\draw[fill = black] (2,0) circle (.1);
+	}};
+	\node (13r) at (270:2) {\tikz[scale = 0.4]{
+		\clip (-.2,-1.1) rectangle (2.2, 1.1);
+		\draw[red, line width = 1] (0, 0) arc (180:0:1.0);
+		\draw[fill = black] (0,0) circle (.1);
+		\draw[fill = black] (1,0) circle (.1);
+		\draw[fill = black] (2,0) circle (.1);
+	}};
+	\node (23r) at (330:2) {\tikz[scale = 0.4]{
+		\clip (-.2,-.3) rectangle (2.2, .3);
+		\draw[red, line width = 1] (1, 0) -- (2, 0);
+		\draw[fill = black] (0,0) circle (.1);
+		\draw[fill = black] (1,0) circle (.1);
+		\draw[fill = black] (2,0) circle (.1);
+	}};
+	\draw (23b) -- (13r);
+	\draw (12b) -- (23r);
+	\draw (13b) -- (12r);
+	\draw (23b) -- (12r);
+	\draw[blue] (12b) -- (23b);
+	\draw[red] (12r) -- (23r);
+	\draw[blue] (23b) -- (12b);
+	\draw[red] (23r) -- (12r);
+\end{scope}
+
+\end{tikzpicture}
+\end{document}
