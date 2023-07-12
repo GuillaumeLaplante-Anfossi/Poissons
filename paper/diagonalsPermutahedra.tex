@@ -517,7 +517,7 @@ Finally, we will consider the evaluation of the M\"obius polynomial~$\mobPol[\br
 \[
 \weirdPol[n] \eqdef \mobPol[\braidArrangement][x][0] = \sum_{k \in [n]} (-1)^{k-1} \, (k-1)! \, S(n,k) \, x^{k-1}.
 \] 
-\BDOi{Where did I say it was weird ?? You could have called it "awesomePol" !}
+The coefficients of this polynomial are given by the sequence \OEIS{A028246}.
 We just observe here that it is connected to the $\b{f}$-polynomial of~$\braidArrangement$.
 
 \begin{lemma}
@@ -527,22 +527,21 @@ We have~$\weirdPol[n] = (1-x) \, \fPol[\braidArrangement]$.
 \begin{proof}
 This lemma is equivalent to the following equality:
 \begin{equation*}
-\sum_{k=1}^n (-1)^{k-1} (k-1)! S(n,k) x^{k-1} = (1-x) \times \sum_{k=1}^{n-1} (-1)^{k-1} k! S(n-1,k) x^{k-1}
+\sum_{k=1}^n (-1)^{k-1} (k-1)! \, S(n,k) \, x^{k-1} = (1-x) \sum_{k=1}^{n-1} (-1)^{k-1} \, k! \, S(n-1,k) \, x^{k-1}.
 \end{equation*}
-Distributing $(1-x)$ in the RHS gives:
-\begin{multline*}
-(1-x) \times \sum_{k=1}^{n-1} (-1)^{k-1}  k! S(n-1,k) x^{k-1} = \sum_{k=1}^{n-1} k! S(n-1,k) (-x)^{k-1} + \sum_{k=1}^{n-1} k! S(n-1,k) (-x)^{k} \\
-= \sum_{k=1}^{n-1} k! S(n-1,k) (-x)^{k-1} + \sum_{k=2}^{n} (k-1)! S(n-1,k-1) (-x)^{k-1} + (n-1)! S(n-1, n-1) (-x)^{n-1} \\
-= S(n-1,1) (-x)^0 + \sum_{k=2}^{n-1} (k-1)! \left( S(n-1,k-1) + k S(n-1,k) \right) (-x)^{k-1}
-\end{multline*}
-The following inductive formula on Stirling numbers of the second kind holds for $0<k<n$ :
-\begin{equation}
+Distributing $(1-x)$ in the right hand side gives:
+\begin{gather*}
+(1-x) \sum_{k=1}^{n-1} (-1)^{k-1} \, k! \, S(n-1,k) \, x^{k-1} \\
+= \sum_{k=1}^{n-1} k! \, S(n-1,k) \, (-x)^{k-1} + \sum_{k=1}^{n-1} k! \, S(n-1,k) \, (-x)^{k} \\
+= \sum_{k=1}^{n-1} k! \, S(n-1,k) \, (-x)^{k-1} + \sum_{k=2}^{n} (k-1)! \, S(n-1,k-1) \, (-x)^{k-1} + (n-1)! \, S(n-1, n-1) \, (-x)^{n-1} \\
+= S(n-1,1) \, (-x)^0 + \sum_{k=2}^{n-1} (k-1)! \, \big( S(n-1,k-1) + k \, S(n-1,k) \big) \, (-x)^{k-1}.
+\end{gather*}
+The result thus follows from the inductive formula on Stirling numbers of the second kind
+\[
 S(n+1,k) = k S(n,k) + S(n,k-1)
-\end{equation}
-Hence the result.
+\]
+for $0<k<n$.
 \end{proof}
-
-The coefficients of this polynomial is given by the sequence \OEIS{A028246}.
 
 %%%%%%%%%%%%%%%
 
@@ -661,32 +660,32 @@ Hence, we derive from \cref{def:MobiusPolynomial,prop:flatPosetMultiBraidArrange
 
 By using the polynomial
 \[
-\weirdPol[n] \eqdef \mobPol[\braidArrangement][x][0] = \sum_{k \in [n]} (-1)^{k-1} \, (k-1)! \, S(n,k) \, x^{k-1}.
+\weirdPol[n] \eqdef \mobPol[\braidArrangement][x][0] = \sum_{k \in [n]} (-1)^{k-1} \, (k-1)! \, S(n,k) \, x^{k-1}
 \]
-introduced at the end of \cref{subsec:braidArrangement}, the M\"obius polynomial can also be expressed as:
+introduced at the end of \cref{subsec:braidArrangement}, the M\"obius polynomial can also be expressed as follows.
 
 \begin{proposition} 
 The M\"obius polynomial of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is given by
 \[
-\mobPol[\multiBraidArrangement]=x^{(n-1)(1-\ell)} \sum_{G \in \forestPoset} y^{n-\ell n - 1 + \sum_{i=1}^\ell |G_i|}  \prod_{i=1}^{\ell} P_{|G_i|}(x).
+\mobPol[\multiBraidArrangement] = x^{(n-1)(1-\ell)} \sum_{G \in \forestPoset} y^{n-1-\ell n+\sum_{i=1}^\ell \#G_i}  \prod_{i \in [\ell]} \weirdPol[\#G_i]
 \]
 In terms of rainbow forests, this rewrites as
-
-\begin{equation}
-\mobPol[\multiBraidArrangement]=x^{(n-1)(1-\ell)} \sum_{G \in \rainbowForests} y^{n- 1 + |E(G)|}  \prod_{i=1}^{\ell} P_{n-|E(G,i)|}(x)
-\end{equation}
+\[
+\mobPol[\multiBraidArrangement] = x^{(n-1)(1-\ell)} \sum_{G \in \rainbowForests} y^{n-1+\#E(G)}  \prod_{i=1}^{\ell} \weirdPol[n-\#E(G,i)]
+\]
 \end{proposition}
 \BDOi{there was a typo in the formula of the proposition. I corrected it according to Zaslavsky.tex}
+\vincenti{I made some further corrections...}
 
 \begin{proof}
-We have:
-
+We have
 \begin{align*}
-\mobPol[\multiBraidArrangement] & =\sum_{F \leq G} \mu_{\flatPoset}(F,G) \, x^{\dim(F)} \, y^{\dim(G)}, \\
- &=\sum_{G \in \rainbowForests} y^{n-1 - |E(G)| - \ell} \sum_{F \in \rainbowForests, F \leq G } \mu_{\forestPoset}(F,G) \, x^{n-1 - |E(F)| - \ell}, \\
- &=\sum_{G \in \forestPoset} y^{n-\ell n - 1 + \sum_{i=1}^\ell |G_i|} \sum_{F \in \forestPoset, F \leq G } \mu_{\forestPoset}(F,G) \, x^{n-\ell n - 1 + \sum_{i=1}^\ell |F_i|}, \\ 
+\mobPol[\multiBraidArrangement]
+& = \sum_{F \leq G} \mu_{\flatPoset}(F,G) \, x^{\dim(F)} \, y^{\dim(G)}, \\
+ &=\sum_{G \in \rainbowForests} y^{n-1-\ell-\#E(G)} \sum_{F \in \rainbowForests, F \leq G } \mu_{\forestPoset}(F,G) \, x^{n-1-\ell-\#E(F)}, \\
+ &=\sum_{G \in \forestPoset} y^{n-1-\ell n+\sum_{i=1}^\ell \#G_i} \sum_{F \in \forestPoset, F \leq G } \mu_{\forestPoset}(F,G) \, x^{n-1-\ell n+\sum_{i=1}^\ell \#F_i},
 \end{align*}
-where $E(G)$ (resp. $E(G,i)$) denotes the set of edges (resp. edges of color $i$) in $G$ which satisfies $n-|E(G,i)| =  |G_i|$.
+where $E(G)$ (resp. $E(G,i)$) denotes the set of edges (resp.~of edges of color $i$) in $G$ which satisfies $n-\#E(G,i) =  \#G_i$.
 
 Observe that for~$\b{F} \eqdef (F_1, \dots, F_\ell)$ and~$\b{G} \eqdef (G_1, \dots, G_\ell)$ in~$\forestPoset$, we have
 \[
@@ -694,10 +693,9 @@ Observe that for~$\b{F} \eqdef (F_1, \dots, F_\ell)$ and~$\b{G} \eqdef (G_1, \do
 \]
 where $[F_i, G_i]$ is an interval of $\partitionPoset[n]$. Morover, given a $(\ell,n)$-partition forest $\b{G}\eqdef (G_1, \dots, G_\ell)$, any n-tuples of partition $(F_1, \dots, F_\ell)$ satisfying for any $1\leq i \leq \ell$ $F_i \leq_{\partitionPoset[n]} G_i $ is a $(\ell,n)$-partition forest as its intersection hypergraph is a subforest of the intersection hypergraph of $G$. 
 Recall moreover that the M\"obius function is multiplicative.
-
+\vincenti{It seems you are redoing the proof of \cref{thm:MobiusPolynomialMultiBraidArrangement}. Can we not just use the result?}
 
 Hence, we obtain that
-
 \begin{align*}
 \mobPol[\multiBraidArrangement] &=\sum_{G \in \forestPoset} y^{n-\ell n - 1 + \sum_{i=1}^\ell |G_i|} \prod_{i=1}^{\ell} \sum_{F_i \leq_{\partitionPoset[n]} G_i } \mu_{\partitionPoset[n]}(F_i,G_i) \, x^{n-\ell n - 1 + \sum_{i=1}^\ell |F_i|}, \\
  &=\sum_{G \in \forestPoset} y^{n-\ell n - 1 + \sum_{i=1}^\ell |G_i|} x^{(n-1)(1-\ell)} \prod_{i=1}^{\ell} \sum_{\pi_i \in \partitionPoset[|G_i|]}  \mu_{\partitionPoset[|G_i|]}(\pi_i,\hat{1}) \, x^{|\pi_i|-1}, 
@@ -705,17 +703,15 @@ Hence, we obtain that
 where $\hat{1}$ denotes the maximal element in $\partitionPoset[|G_i|]$ and $\pi_i$ is obtained from $F_i$ by merging elements in the same part of $G_i$.
 
 Finally, we get:
-
-\begin{equation}
+\[
 \mobPol[\multiBraidArrangement]=\sum_{G \in \forestPoset} y^{n-\ell n - 1 + \sum_{i=1}^\ell |G_i|} x^{(n-1)(1-\ell)} \prod_{i=1}^{\ell} P_{|G_i|}(x).
-\end{equation}
+\qedhere
+\]
 \end{proof}
-
 
 \begin{remark}
 To further simplify this expression, we would need to count the number of rainbow forests with a prescribed number of colored edges, however this number does not admit a  known multiplicative formula, up to our knowledge. When there is only one color, the corresponding sequence (counting non colored forests on $n$ nodes and $k$ edges, rooted in the minimal label of each connected component) is \OEIS{A138464}.
 \end{remark}
-
 
 From \cref{thm:Zaslavsky,thm:MobiusPolynomialMultiBraidArrangement}, we thus obtain the face numbers and bounded face numbers of~$\multiBraidArrangement$, whose first few values are gathered in \cref{table:fvectorMultiBraidArrangements}.
 
@@ -987,7 +983,6 @@ The $(\ell,m)$-rainbow trees are counted by the \defn{Fuss-Catalan number}
 We can transform a $\ell$-rainbow tree~$R$ to a $\ell$-ary tree~$T$ as illustrated in \cref{fig:rainbowTrees}.
 Namely, the parent of a node~$N$ in~$T$ is the previous sibling colored as~$N$ in~$R$ if it exists, and the parent of~$N$ in~$R$ otherwise.
 This classical map is a bijection from $\ell$-rainbow trees to a $\ell$-ary trees, which are counted by the Fuss-Catalan numbers~\cite{Klarner, HiltonPedersen}.
-\vincent{not sure of the attribution...}
 %
 \begin{figure}
 	\centerline{\includegraphics[scale=.7]{rainbowTrees}}
@@ -1088,7 +1083,8 @@ Finally, observe that
 \subsection{Enumeration of vertices and regions of $\multiBraidArrangement$}
 \label{subsec:verticesFacetsMultiBraidArrangement}
 
-We now use the labeled $(\ell,n)$-rainbow forests of \cref{subsec:rainbowForests} to derive more explicit formulas for the number of vertices and regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$. We first explain the partial order of the flat lattice in terms of rainbow forests before counting the vertices of~$\multiBraidArrangement$, whose first values are gathered in \cref{table:verticesMultiBraidArrangement}.
+We now use the labeled $(\ell,n)$-rainbow forests of \cref{subsec:rainbowForests} to derive more explicit formulas for the number of vertices and regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
+We first explain the partial order of the flat lattice in terms of rainbow forests before counting the vertices of~$\multiBraidArrangement$, whose first values are gathered in \cref{table:verticesMultiBraidArrangement}.
 
 \begin{table}
 	\centerline{\scalebox{.8}{
@@ -1161,8 +1157,7 @@ Hence, there are
 \big( \ell+(n-1)(\ell-1) \big)^{n-2} \ell = \ell \big( (\ell-1) n + 1 \big)^{n-2}
 \]
 such words.
-Similar ideas where used in~\cite{Lewis}.
-\vincent{Improve citation?}
+Similar ideas were used in~\cite{Lewis}.
 \end{proof}
 
 \begin{theorem}
