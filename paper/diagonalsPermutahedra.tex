@@ -145,6 +145,7 @@
 \newcommandx{\rainbowForests}[2][1 = n, 2 = \ell]{\mathsf{RF}_{#1}^{#2}} % rainbow forests
 \newcommandx{\rainbowTrees}[2][1 = n, 2 = \ell]{\mathsf{RT}_{#1}^{#2}} % rainbow trees
 \newcommandx{\Perm}[1][1 = n]{\mathds{P}\mathsf{erm}(#1)} % permutahedron
+\newcommandx{\orient}[1]{\smash{\overrightarrow{#1}}} % ordered
 
 %Operadic diagonals
 \newcommand{\SU}{\mathrm{SU}}
@@ -175,7 +176,17 @@
 \newcommand{\subdivpairsv}{D^v}
 \newcommand{\maxsubdivpairsv}{\overline{D^v}}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% formating the part command
+\makeatletter
+\def\part{\@startsection{part}{1}%
+\z@{.7\linespacing\@plus\linespacing}{.8\linespacing}%
+{\LARGE\sffamily\centering}}
+%\@addtoreset{section}{part}
+\makeatother
+\renewcommand{\thepart}{\Roman{part}}
+%\renewcommand{\thesection}{\arabic{part}.\arabic{section}}
 
 % formating the table of contents
 \setcounter{tocdepth}{2}
@@ -320,17 +331,23 @@ Perspectives:
 \end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newpage
-\section{Combinatorics of multiple braid arrangements}
-\label{sec:combinatorics}
+\clearpage
+\part{Combinatorics of multiple braid arrangements}
+\label{part:combinatorics}
 
 In this section, we study the combinatorics of hyperplane arrangements obtained as unions of generically translated copies of the braid arrangement.
 %Specializing to two copies, we derive enumerative results on the diagonals of the permutahedra.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Recollection on hyperplane arrangements and the braid arrangement}
+\label{sec:arrangements}
+
 %%%%%%%%%%%%%%%
 
-\subsection{Recollection on hyperplane arrangements}
+\subsection{Hyperplane arrangements}
 \label{subsec:arrangements}
 
 We first briefly recall classical results on the combinatorics of affine hyperplane arrangements, in particular the enumerative connection between their intersection posets and their face lattices due to T.~Zaslavsky~\cite{Zaslavsky}.
@@ -464,9 +481,6 @@ We now briefly recall the classical combinatorics of the braid arrangement.
 	\label{fig:intersectionPosetBraidArrangement4}
 \end{figure}
 
-\vincenti{Conceptually, it would be nicer in \cref{fig:intersectionPosetBraidArrangement4} to place the numbers $1,2,3,4$ on the vertices of the regular tetrahedron corresponding to the braid arrangement (as is done in \cref{fig:intersectionPosetBraidArrangement3}). However, this is visually not as nice, so I have decided to put them on a square.}
-\BDO{Ok for me}
-
 \begin{definition}
 Fix~$n \ge 1$ and denote by~$\HH$ the hyperplane of~$\R^n$ defined by~$\sum_{r = 1}^n x_r = 0$.
 The \defn{braid arrangement}~$\braidArrangement$ is the arrangement of the hyperplanes~$\set{\b{x} \in \HH}{x_r = x_s}$ for all~$1 \le r < s \le n$.
@@ -480,12 +494,24 @@ Working in~$\R^n$ would change vertices to rays, and would multiply all M\"obius
 \end{remark}
 
 The combinatorics of the braid arrangement~$\braidArrangement$ is well-known.
-It has a $k$-dimensional~flat
+The descriptions of its face and flat posets involve both ordered and unordered set partitions.
+To avoid confusions, we will always mark with an arrow the ordered structures (ordered set partitions, ordered partition forests, etc.).
+Hence, $\pi$ denotes an unordered set partition (the order is irrelevant, neither inside each part, nor between two distinct part), while~$\orient{\pi}$ denotes an ordered set partition (the order inside each part is irrelevant, but the order between distinct parts is relevant).
+
+The braid arrangement~$\braidArrangement$ has a $k$-dimensional face
+\[
+\Phi(\orient{\pi}) \eqdef \set{\b{x} \in \R^n}{x_r \le x_s \text{ for all $r,s$ such that the part of~$r$ is weakly before the part of~$s$ in $\pi$}}
+\]
+for each ordered set partition~$\orient{\pi}$ of~$[n]$ into~$k+1$ parts (or equivalently, for each surjection from~$[n]$ to~$[k+1]$).
+The face poset~$\facePoset[\braidArrangement]$ is thus (isomorphic to) the refinement poset~$\orient{\partitionPoset}$ on ordered set partitions (where an ordered partition~$\orient{\pi}$ is smaller than an ordered partition~$\orient{\omega}$ if each part of~$\orient{\omega}$ is the union of an interval of consecutive parts in~$\orient{\pi}$).
+In particular, it has a single vertex corresponding to the ordered partition~$[n]$, $2^n-2$ rays corresponding to the proper nonempty subsets of~$[n]$ (ordered partitions of~$[n]$ into~$2$ parts), and $n!$ regions corresponding to the permutations of~$[n]$ (ordered partitions of~$[n]$ into~$n-1$ parts).
+
+The braid arrangement~$\braidArrangement$ has a $k$-dimensional~flat
 \[
 \Psi(\pi) \eqdef \set{\b{x} \in \R^n}{x_r = x_s \text{ for all } r, s \in p \in \pi}
 \]
-for each set partition~$\pi$ of~$[n]$ into $k+1$ parts.
-The flat poset~$\flatPoset[\braidArrangement]$ is thus the refinement poset~$\partitionPoset$ \BDO{$\Pi_n$ ?} on set partitions of~$[n]$ (where a partition~$\pi$ is smaller than a partition~$\omega$ if each part of~$\pi$ is contained in a part of~$\omega$).
+for each (unordered) set partition~$\pi$ of~$[n]$ into $k+1$ parts.
+The flat poset~$\flatPoset[\braidArrangement]$ is thus (isomorphic to) the refinement poset~$\partitionPoset$ \BDO{$\Pi_n$ ?} on set partitions of~$[n]$ (where a partition~$\pi$ is smaller than a partition~$\omega$ if each part of~$\pi$ is contained in a part of~$\omega$).
 For instance, \cref{fig:intersectionPosetBraidArrangement3,fig:intersectionPosetBraidArrangement4} illustrate the flat posets of the braid arrangements~$\braidArrangement[3]$ and~$\braidArrangement[4]$.
 The M\"obius function of~$\partitionPoset$ is given by
 \[
@@ -569,13 +595,48 @@ We now focus on the following specific hyperplane arrangements, illustrated in \
 \end{figure}
 
 \begin{definition}
-For any integers~$\ell,n \geq 1$, the \defn{$(\ell,n)$-braid arrangement}~$\multiBraidArrangement$ is the arrangement obtained as the union of $\ell$ generically translated copies of the braid arrangement~$\braidArrangement$.
+The \defn{$(\ell,n)$-braid arrangement}~$\multiBraidArrangement$ is the arrangement obtained as the union of $\ell$ generically translated copies of the braid arrangement~$\braidArrangement$.
 \end{definition}
 
+This definition is slightly misleading, as the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ a priori depends on the (generic) translation vectors chosen for each copy.
+We will see that many combinatorial aspects of~$\multiBraidArrangement$ are in fact independent of the translation vectors, in particular the flat poset and thus the $f$-vector of~$\multiBraidArrangement$.
+However, the combinatorial description of the face poset of~$\multiBraidArrangement$ will depend on the translation vectors, so that we introduce the following more precise notation recording of the translations.
+
+\begin{definition}
+For any integers~$\ell,n \geq 1$, and a generic matrix~$\b{a} \eqdef (a_{i,j}) \in M_{\ell,n-1}(\R)$ of~$\R^n$, the \defn{$\b{a}$-braid arrangement}~$\multiBraidArrangement(\b{a})$ is the arrangement of hyperplanes~$\set{\b{x} \in \HH}{x_r - x_s = A_{i,r,s}}$ for all~$1 \le r < s \le n$ and~$i \in [\ell]$, where $A_{i,r,s} \eqdef \smash{\sum_{r \le j < s} a_{i,j}}$.
+\end{definition}
+
+%\begin{remark}
+%\label{rem:multiBraidArrangement}
+%In practice, consider the hyperplanes~$\set{\b{x} \in \HH}{x_r - x_s = A_{i,r,s}}$ for all~$1 \le r < s \le n$ and~$i \in [\ell]$, where $A_{i,r,s} \eqdef \smash{\sum_{r \le j < s} a_{i,j}}$ for an arbitrary generic matrix~$(a_{i,j}) \in M_{\ell,n-1}(\R)$.
+%\end{remark}
+
+The objective of \cref{part:combinatorics} is to explore the combinatorics of these multi braid arrangements.
+We have split our presentation into two sections:
+\begin{itemize}
+\item In \cref{sec:flatPoset}, we describe the flat poset~$\flatPoset[\multiBraidArrangement]$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ in terms of $(\ell,n)$-partition forests (\cref{subsec:partitionForests}) and labeled $(\ell,n)$-rainbow forests (\cref{subsec:rainbowForests}), which enables us to derive its M\"obius, $f$- and $b$- polynomials (\cref{subsec:MobiusPolynomialMultiBraidArrangement}), from which we extract interesting formulas for the number of vertices and regions of~$\multiBraidArrangement$ (\cref{subsec:verticesFacetsMultiBraidArrangement}). Note that all these results are independent of the translation vectors.
+\item In \cref{sec:facePoset}, we describe the face poset~$\facePoset[\multiBraidArrangement(\b{a})]$ of the $\b{a}$-braid  arrangement~$\multiBraidArrangement(\b{a})$ in terms of ordered $(\ell,n)$-partition forests (\cref{subsec:orderedPartitionForests}). In contrast to the flat poset, this description of the face poset depends on the translation vectors. For a given choice of translation matrix~$\b{a}$, we describe in particular the ordered $(\ell,n)$-partitions forests with a given underlying (unordered) $(\ell,n)$-partition forest (\cref{subsec:PFtoOPF}). We then give a criterion to decide whether a given ordered $(\ell,n)$-partition forest corresponds to a face of~$\multiBraidArrangement(\b{a})$ (\cref{subsec:criterionOPF}).
+\end{itemize}
+
 \begin{remark}
-\label{rem:multiBraidArrangement}
-In practice, consider the hyperplanes~$\set{\b{x} \in \HH}{x_r - x_s = A_{i,r,s}}$ for all~$1 \le r < s \le n$ and~$i \in [\ell]$, where $A_{i,r,s} \eqdef \smash{\sum_{r \le j < s} a_{i,j}}$ for an arbitrary generic matrix~$(a_{i,j}) \in M_{\ell,n-1}(\R)$.
+Connections to other multi braid arrangements. Shi arrangements (non generic). Discriminantal arrangements (fully generic).
+\vincent{todo}
 \end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Flat poset and enumeration of~$\multiBraidArrangement$}
+\label{sec:flatPoset}
+
+In this section, we describe the flat poset of~$\multiBraidArrangement$ and derive explicit formulas for its $f$-vector.
+Remarkably, the flat poset (and thus the M\"obius, $f$- and $b$- polynomials) of~$\multiBraidArrangement$ is independent of the translation vectors as long as they are generic.
+
+%%%%%%%%%%%%%%%
+
+\subsection{Partition forests}
+\label{subsec:partitionForests}
+
+We first introduce the main characters of this section, which will describe the combinatorics of the flat poset of~$\multiBraidArrangement$.
 
 \begin{definition}
 The \defn{intersection hypergraph} of a $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of set partitions of~$[n]$ is the $\ell$-regular $\ell$-partite hypergraph on all parts of all the partitions~$F_i$ for~${i \in [\ell]}$, with an hyperedge connecting the parts containing~$j$  for each~$j \in [n]$.
@@ -623,6 +684,11 @@ Moreover, $\Psi(\b{F})$ is included in~$\Psi(\b{G})$ if and only if~$\b{F}$ refi
 Hence, the flat poset of~$\multiBraidArrangement$ is isomorphic to the $(\ell,n)$-partition forest poset.
 Finally, notice that the codimension of the flat~$\Psi(\b{F})$ is the sum of the codimensions of the flats~$\Psi_i(F_i)$ for~$i \in [\ell]$, so that~$\dim(\b{F}) \eqdef n - 1 - \ell n + \sum_{i \in [\ell]} \#F_i $ is indeed the dimension of the flat~$\Psi(\b{F})$.
 \end{proof}
+
+%%%%%%%%%%%%%%%
+
+\subsection{M\"obius polynomial}
+\label{subsec:MobiusPolynomialMultiBraidArrangement}
 
 We thus derive the M\"obius polynomial of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ by \cref{def:MobiusPolynomial,prop:flatPosetMultiBraidArrangement}.
 
@@ -674,8 +740,6 @@ In terms of rainbow forests, this rewrites as
 \mobPol[\multiBraidArrangement] = x^{(n-1)(1-\ell)} \sum_{G \in \rainbowForests} y^{n-1+\#E(G)}  \prod_{i=1}^{\ell} \weirdPol[n-\#E(G,i)]
 \]
 \end{proposition}
-\BDOi{there was a typo in the formula of the proposition. I corrected it according to Zaslavsky.tex}
-\vincenti{I made some further corrections...}
 
 \begin{proof}
 We have
@@ -1341,7 +1405,38 @@ which vanishes by~\eqref{eq:diff}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newpage
+\section{Face poset and combinatorial description of~$\multiBraidArrangement$}
+\label{sec:facePoset}
+
+%%%%%%%%%%%%%%%
+
+\subsection{Ordered partition forests}
+\label{subsec:orderedPartitionForests}
+
+%%%%%%%%%%%%%%%
+
+\subsection{From partition forests to ordered partition forests}
+\label{subsec:PFtoOPF}
+
+In this section, we start from a partition forest~$\b{F}$ and describe all ordered partition forests~$\orient{\b{F}}$
+
+%%%%%%%%%%%%%%%
+
+\subsection{A criterion for ordered partition forests}
+\label{subsec:criterionOPF}
+
+In this section, we start from an ordered partition forest and decides if it is valid for~$\b{A}$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+\part{Diagonals of permutahedra}
+
+%Commented to compile faster.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Cellular diagonals}
 
 %%%%%%%%%%%%%%%
