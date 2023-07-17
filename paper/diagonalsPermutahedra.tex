@@ -2954,16 +2954,13 @@ This proves that $R_{M'_{i_j}}$ is well-defined, completing the inductive proof.
 
 \subsection{Inversions}
 
-We now aim at showing that $m$-shift and $(I,J)$ diagonals coincide. 
-By $(I,J)$ diagonal, we mean the $\SU$ diagonal defined via $(I,J)$ conditions in \cref{prop:unique-operad}.
+In this section, we combinatorially characterise inversions of the $(I,J)$ $\SU$ diagonal as crossings in the bipartite tree.
+We will use this as a tool to prove that the $m$-shift and the $(I,J)$ diagonal coincide in the next section.
+Later, we will discuss in \cref{sec:Shift-lattice}, how the inversions are compatible with a shift lattice structure.
 
 \begin{definition}
 Let $(\sigma,\tau)$ be a pair of ordered partitions of $[n]$, we say that $(x,y)$, where $x<y$, is an \emph{inversion} if $x$ appears before $y$ in $\sigma$ and $y$ appears before $x$ in $\tau$. 
 \end{definition}
-
-Pairs of ordered partitions are naturally ordered by their inversion sets. 
-Restricting to pairs of permutations, this is just the weak Bruhat order.
-\Guillaume{@Vincent, est-ce que ca coincide avec l'ordre de Ronco?}
 
 \begin{proposition}
 \label{p:crossings}
@@ -2990,54 +2987,42 @@ A facet $(\sigma,\tau)$ of the $(I,J)$ diagonal has a crossing if and only if it
 An adjacent crossing is clearly a crossing. In the other direction, suppose there is a crossing between an element of $\sigma_i$ and an element of $\sigma_j$. If $\sigma_i$ and $\sigma_j$ are not adjacent, then the 'triangle' produced by the crossing elements encloses other $\sigma_k$ such that $i<k<j$, and this produces other crossings. We may repeat this process until end an adjacent crossing.
 \end{proof}
 
+
+
+%%%%%%%%%%%%%%%
+
+\subsection{Second isomorphism: $m$-shift and $(I,J)$ diagonals coincide}\label{sec:Iso m-shifts to IJ}
+
+We now aim at showing that the $m$-shift and the $\SU$ diagonal defined via $(I,J)$ conditions coincide (\cref{prop:unique-operad}).
+We first identify that left (right) shift operators are natural inverses to right (resp. left) shift operators.
+
+\begin{definition} 
+\label{def:inverse-shift}
+Let $(\sigma,\tau)$ be a pair of ordered partitions. 
+Let $\rho \in \sigma_{i+m}$ be such that $\rho>\max \sigma_{i,i+m}$.
+The \emph{inverse right $m$-shift} $R_\rho^{-1}$ is the left $m$-shift which sends $\rho$ to the block $\sigma_i$. 
+Inverse left $m$-shift operators are defined similarly. 
+\end{definition}
+It is clear that the inverse shift operators are indeed inverse to shift operators, i.e. that we have $R_\rho R_\rho^{-1}= R_\rho^{-1} R_\rho= \id$.
+Then we observe that the $(I,J)$ diagonal is closed with respect to shifts.
+
 \begin{proposition} 
     \label{lem:IJ-closed-under-shifts}
     Let $(\sigma,\tau)$ be a pair of facets in the $(I,J)$ diagonal.
     Then,
     \begin{enumerate}
         \item any pair of ordered partitions obtained by applying an $m$-shift to $(\sigma,\tau)$ is also in the $(I,J)$ diagonal,
-        \item applying an $m$-shift increases strictly the number of inversions of $(\sigma,\tau)$.
+        \item applying an $m$-shift strictly increases the number of inversions of $(\sigma,\tau)$.
     \end{enumerate}
+    Dually, the $(I,J)$ diagonal is also closed under inverse shifts, and applying an inverse $m$-shift strictly decreases the number of inversions of $(\sigma,\tau)$.
 \end{proposition}
 
 \begin{proof}
-    We consider just the right shift, and the left proceeds similarly. 
+    We consider just the right shift for the primary statement, the left shift and dual result proceeds similarly. 
     By \cref{cor:SU-shift-preserves-max}, we have that the maxima of paths between consecutive vertices in $(R_{\rho}(\sigma),\tau)$ are the same as the ones in $(\sigma,\tau)$, and are moreover traversed in the same direction.
     Thus, all maxima of paths in $(R_{\rho}(\sigma),\tau)$ are traversed from right to left, and hence by \cref{thm:facets}, we have that $(R_{\rho}(\sigma),\tau)$ is in the $(I,J)$ diagonal, which proves Point (1).
     For Point (2), observe that the $(I,J)$ conditions for $|I|=|J|=1$ imply that $\rho$ must appear before $\min \sigma_i$ in $\tau$; as a result, after the $m$-shift these two edges will create a new intersection.
 \end{proof}
-
-%%%%%%%%%%%%%%%
-
-\subsection{Second isomorphism: $m$-shift and $(I,J)$ diagonals coincide}
-
-\begin{definition} 
-\label{def:inverse-shift}
-Let $(\sigma,\tau)$ be a pair of ordered partitions. 
-Let $\rho \in \sigma_{i+m}$ be such that $\rho>\max \sigma_{i,i+m}$ and $\rho > \min \sigma_i$.
-The \emph{inverse right $m$-shift} $R_\rho^{-1}$ is the left $m$-shift which sends $\rho$ to the block $\sigma_i$. 
-Inverse left $m$-shift operators are defined similarly. 
-\end{definition}
-
-It is clear that the inverse shift operators are indeed inverse to shift operators, i.e. that we have $R_\rho R_\rho^{-1}= R_\rho^{-1} R_\rho= \id$. 
-Moreover, we have the following properties.
-
-\begin{proposition} 
-    \label{lem:IJ-closed-under-inverse-shifts}
-    Let $(\sigma,\tau)$ be a pair of facets in the $(I,J)$ diagonal.
-    Then,
-    \begin{enumerate}
-        \item any pair of ordered partitions obtained by applying an inverse $m$-shift to $(\sigma,\tau)$ is also in the $(I,J)$ diagonal,
-        \item applying an inverse $m$-shift decreases strictly the number of inversions of $(\sigma,\tau)$.
-    \end{enumerate}
-\end{proposition}
-
-\begin{proof}
-    The proof is similar to \cref{lem:IJ-closed-under-shifts}: as the inverse shift operators conserve the maxima of paths, and these same maxima continue to be traversed from right to left, it follows by \cref{thm:facets} that the output of an inverse shift operator will remain in $\SUD$, which shows Point (1). 
-    For Point (2), we observe the inverse $m$-shift resolves the intersection between $\rho$ and $\min \sigma_i$.
-\end{proof}
-
-\Guillaume{Change all abreviations $\SCP$ for the words}
 
 \begin{lemma}
 \label{lem:inverse-to-SCP}
@@ -3045,9 +3030,9 @@ Any facet $(\sigma,\tau)$ of the $(I,J)$ diagonal is mapped to a strong compleme
 \end{lemma}
 
 \begin{proof}
-    Since the number of inversions of a pair of ordered partitions $(\sigma,\tau)$ in the $(I,J)$ diagonal is finite, we will only be able to apply a finite chain of inverse shift operators to it before no further operations are available. 
+Since the number of inversions of a pair of ordered partitions $(\sigma,\tau)$ in the $(I,J)$ diagonal is finite, we will only be able to apply a finite chain of inverse shift operators to it before no further operations are available. 
 It thus remains to show that for any pair $(\sigma,\tau)$ which is not a strong complementary one, performing an inverse $m$-shift is possible. 
-We consider the following cases, illustrated by examples in \cref{ex:proof-inverse-shift}.
+We consider the following cases, illustrated in \cref{ex:proof-inverse-shift}.
 \begin{enumerate}
     \item All adjacent blocks are connected by paths of length $2$.
     \item There exist adjacent blocks which are connected by a path of length $2k$ for $k>1$.
@@ -3060,28 +3045,40 @@ We consider the following cases, illustrated by examples in \cref{ex:proof-inver
         \end{enumerate}
     \end{enumerate}
 \end{enumerate}
-In Case $(1)$, if $\sigma,\tau$ is not a $\SCP$ then it must have a crossing, and hence an adjacent crossing by \cref{lem:adjacent-crossing}. 
+In Case $(1)$, if $(\sigma,\tau)$ is not a $\SCP$ then it must have a crossing, and hence an adjacent crossing by \cref{lem:adjacent-crossing}. 
 This adjacent crossing is of the following form (we illustrate the case where the crossing happens on the left, the case when it happens on the right is similar) 
 \begin{center}
-\begin{tikzpicture}[scale=0.7]
-\node (a) at (-2,1) {$\sigma_i$};
-\node (b) at (-2,-1) {$\sigma_{i+1}$};
-\node (c) at (2,0) {$\tau_k$};
-\node (d) at (2,2) {$\tau_j$};
-\node (e) at (2,-2) {$\tau_l$};
-
-\draw[thick] (a) to [in=180, out=0, looseness=0] (c);
-\draw[thick] (b) to [in=180, out=0, looseness=0] (c);
-\draw[thick] (b) to [in=180, out=0, looseness=0] (d);
-\draw[thick] (a) to [in=180, out=0, looseness=0] (e);
-
-\node at (-1.05,-0.3) {$a$};
-\node at (-1.05,-1.2) {$b$};
-\node at (-1.05,1.1) {$c$};
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$\sigma_i$};
+\node (2) at (-1.5, -2) {$\sigma_{i+1}$};
+%
+\node (4) at (1.5, -1) {$\tau_j$};
+\node (5) at (1.5, -2) {$\tau_{k}$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
+\node (6) at (0.9, -0.7) {$\rho$};
+\node (7) at (0, -2.3) {$b$};
+\node (8) at (-0.9, -0.7) {$c$};
+\end{tikzpicture}
+\quad
+\raisebox{1em}{$\xrightarrow{R^{-1}_{\rho}}$}
+\quad
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$\sigma_i \sqcup \rho$};
+\node (2) at (-1.5, -2) {$\sigma_{i+1}\setminus \rho$};
+%
+\node (4) at (1.5, -1) {$\tau_j$};
+\node (5) at (1.5, -2) {$\tau_{k}$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
 \end{tikzpicture}
 \end{center}
-By definition of the $(I,J)$ diagonal, the fact that $\tau_j < \tau_k$ implies that $a > b$, and the fact that $\sigma_i < \sigma_{i+1}$ implies that $b>c$.
-Thus, we have $a > \max \sigma_{i,i+1}$ and $a > c \geq \min \sigma_i$, which implies that we can perform an inverse $1$-shift $R_a^{-1}$ on it and resolve the crossing. 
+By definition of the $(I,J)$ diagonal, the fact that $\tau_j < \tau_k$ implies that $\rho > b$, and the fact that $\sigma_i < \sigma_{i+1}$ implies that $b>c$.
+Thus, we have $\rho > \max \sigma_{i,i+1}$ which implies $R_\rho^{-1}$ is well-defined.
 
 In Case $(2a)$, consider the two adjacent blocks say $\sigma_i|\sigma_{i+1}$ (the $\tau$ case is similar), let $\rho:=\max \sigma_{i,i+1}$, and let $m\geq 1$ be such that $\rho$ steps into $\sigma_{i+1+m}$. 
 Since $\max \sigma_{i,i+1+m} = \max \sigma_{i,i+1}= \rho$ the definition of the $(I,J)$ diagonal implies that $\sigma_{i,i+1+m}$ comes after $\sigma_{i}$, and by assumption after $\sigma_{i+1}$. 
@@ -3339,10 +3336,11 @@ This is not typically the case.
 \end{theorem}
 
 \begin{proof}
-    We first note that $\SCP$s are known elements of both the $m$-shift and $(I,J)$ diagonals.
+
+    We first note that $\SCP$s are known elements of both the $m$-shift and $(I,J)$ diagonals (\cref{lem:SCP-path-desc}).
     The proof that every facet of $m$-shift $\SUD$ is in $\SUD$ follows from the closure of $\SUD$ under the shift operator (\cref{lem:IJ-closed-under-shifts}).
-    The proof that every facet of $\SUD$ is in shift $\SUD$ follows from the closure of $\SUD$ under the inverse shift operator (\cref{lem:IJ-closed-under-inverse-shifts}) and an inductive argument that decomposes any facet into a $\SCP$ through inverse shift operators (\cref{lem:inverse-to-SCP}).
-    As shift operators are the inverse of the inverse shift operators, for any given $\SUD$ facet, this provides a $\SCP$ and a sequence of shifts to form it, showing it is a shift $\SUD$ facet.
+    The proof that every facet of $\SUD$ is in shift $\SUD$ follows from the closure of $\SUD$ under the inverse shift operator (\cref{lem:IJ-closed-under-shifts}) and the fact that every facet is sent to a $\SCP$ after a finite number of inverse shifts(\cref{lem:inverse-to-SCP}).
+    In particular, as shift operators are the inverse of the inverse shift operators, for any given $\SUD$ facet, this provides a $\SCP$ and a sequence of shifts to form it, showing it is a shift $\SUD$ facet.
 \end{proof}
 
 %%%%%%%%%%%%%%%
@@ -3403,10 +3401,376 @@ This is equivalent, via the isomorphism between $\LA$ and $\SU$ diagonals, to th
 
 %%%%%%%%%%%%%%%
 
-\subsubsection{Shift Lattice Structure}
+\subsection{Shifts Under the Face Poset Isomorphism}
 
-In this section, we show that $\SUD$ 1-shifts admit a natural bounded lattice structure.
-Not only is this interesting in its own right, but the identified unique maximal elements of the lattice will be used later to establish an explicit link between the shift and cubical $\SUD$ diagonal definitions (\cref{sec:Cubical}).
+Previously in \cref{thm:bijection-operadic-diagonals}, we constructed an isomorphism of face-posets $sr\times sr:\LAD\to\SUD$.
+In addition, we showed in \cref{rem:Alternate Isomorphism}, that $t(r\times r):\LAD\to\SUD$ is also an isomorphism.
+In this section, we use this second isomorphism to directly translate the known shift results for the $\SU$ diagonal to the $\LA$ diagonal. 
+We first explicitly define all $\LA$ shift diagonals before establishing this connection.
+We note that in the $\LA$ diagonal, for $(\sigma,\tau)\in \LAD$, the left shift operators $L_\mathbf{N}$ will act on $\sigma$ and the right shift operators $R_\mathbf{M}$ will act on $\tau$, the opposite of $\SU$.
+The indexing of the following definition compared to \cref{def:movable-subsets} accounts for this fact.
+
+\begin{definition}[$\LA$ moveable subsets]
+\label{def:LAD movable-subsets}
+Let $(\sigma,\tau) = (\sigma_1|\dots|\sigma_k,\tau_1|\dots|\tau_l)$ be a pair of ordered partitions.
+For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (resp. $M_{i}\subset \tau_{i}$) is \emph{$1$-block movable} if 
+\begin{enumerate}
+    \item $\max \sigma_i \notin M_i$ (resp. $\max \tau_{i} \notin M_i$), and
+    \item $\max M_i < \max \sigma_{i-1}$ (resp. $\min M_{i} < \max \tau_{i+1}$).
+\end{enumerate}
+It is \emph{$m$-path movable} if it satisfies $(1)$ above and if
+\begin{enumerate}
+    \item[(2')] $\max M_i < \min \sigma_{i,i-m}$ (resp. $\max M_{i} < \min \tau_{i,i+m}$).
+\end{enumerate}
+\end{definition}
+With our new definitions of moveable subsets, to obtain the correct definition of an admissible sequence of shifts, simply replace $\sigma$ with $\tau$ in \cref{def:admissible-shift-sequences}. 
+Similar definitions hold for admissible sequence of left shifts.
+
+\begin{definition}[$\LA$ diagonals]
+    \label{def:shift-LA}
+   The facets of 
+   \begin{enumerate}[(a)]
+    \item the \emph{1-subset-shift $\LA$ diagonal},
+    \item the \emph{$1$-shift $\LA$ diagonal},
+    \item the \emph{$m$-shift $\LA$ diagonal}
+   \end{enumerate}
+   are defined by the formula
+    \begin{align*}
+        \LAD([n]) = \bigcup_{(\sigma,\tau)} \bigcup_{\mathbf{M}, \mathbf{N}} L_\mathbf{N}(\sigma)\times R_\mathbf{M}(\tau)
+    \end{align*}
+    where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and over all admissible sequences of shifts $\textbf{M},\textbf{N}$ of the corresponding type.
+\end{definition}
+
+We again stress that compared to the $\SU$ diagonals (\cref{def:classical-SU}), the left shift operators now act on the left ordered partition, and the right shift operators on the right ordered partition.
+
+\begin{proposition} \label{prop:trr is an isomorphism of shifts}
+Let $(\sigma,\tau) \in \LAD$.
+For each type of $\LA$ shift, let $\textbf{M},\textbf{N}$ be admissible sequences of this type, then 
+\begin{align*}
+    t(r,r)(L_\mathbf{N}(\sigma), R_\mathbf{M}(\tau)) = (R_{r\mathbf{M}}(r\tau), L_{r\mathbf{N}}(r\sigma))
+\end{align*}
+where $r\mathbf{M}:=(rM_{i_1},...,rM_{i_p})$ and $r\mathbf{N}$ (defined similarly) are admissible sequences of $\SU$ shifts of the same type.
+\end{proposition}
+\begin{proof}
+As reversing the elements then shifting them is the same as shifting the elements then reversing them,
+it is clear that the equality holds if $r\mathbf{M},r\mathbf{N}$ are admissible sequences of $\SU$ shifts.
+As such, we must simply verify the admissibility, and given the equivalence of the various shift definitions, we just do this for $1$-path shifts.
+For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (resp. $M_{i}\subset \tau_{i}$) is $LA$ $1$-block moveable if
+\begin{enumerate}
+    \item 
+    \begin{enumerate}
+        \item $\max \sigma_i \notin M_i$ implies that $ \min r\sigma_i \not \in r M_i$
+        \item (resp. $\max \tau_{i} \notin M_i$ implies that  $ \min r\tau_{i} \not \in r M_i$)
+    \end{enumerate}
+    \item 
+    \begin{enumerate}
+        \item $\max M_i < \max \sigma_{i-1}$  implies that $\min r M_i > \min r \sigma_{i+1}$
+        \item (resp. $\min M_{i} < \max \tau_{i+1}$ implies that $\max rM_{i} > \min r\tau_{i+1}$)
+    \end{enumerate}
+\end{enumerate}
+It is \emph{$m$-path movable} if it satisfies $(1)$ above and if
+\begin{enumerate}
+    \item[(2')] 
+    \begin{enumerate}
+        \item $\max M_i < \min \sigma_{i,i-m}$ implies that $\min r M_i > \max r \sigma_{i,i-m}$
+        \item (resp. $\max M_{i} < \min \tau_{i,i+m}$ implies that $\min r M_{i} > \max r\tau_{i,i+m}$)
+    \end{enumerate}
+\end{enumerate}
+The reader may directly verify from \cref{def:movable-subsets}, that each $rM_i \in r\sigma_i$ meets the conditions of a moveable subset 
+if it is interpreted as being in a block of the right partition ($\tau$ in the notation of the definition).
+So, if $\mathbf{M} = (M_{i_1},...,M_{i_p})$, define $r(\mathbf{M}):=(rM_{i_1},...,rM_{i_p})$, and from the prior it is clear this is an admissible sequence of $SU$ shifts.
+
+\end{proof}
+
+\begin{corollary}
+\Kurt{Todo: ALL SU results hold for LA.}
+\end{corollary}
+
+We now explore in example how the isomorphism $t(r\times r)$ translates the shift operators.
+
+\begin{example} \label{ex:shift translation by theta}
+The $\SCP$s $(\sigma,\tau)  \eqdef  5|17|4|236 \times 57|146|3|2$, and $(\sigma',\tau')  \eqdef  13|247|5|6 \times 3|17|4|156$, are in bijection through $t(r\times r)$. Graphically, this bijection has a clear symmetry,
+
+\begin{center}
+\begin{tikzpicture}[scale=.7]  
+\node (1) at (-1.5, -1) {$5$};
+\node (2) at (-1.5, -2) {$17$};
+\node (3) at (-1.5, -3) {$4$};
+\node (4) at (-1.5, -4) {$236$};
+%
+\node (5) at (1.5, -1) {$57$};
+\node (6) at (1.5, -2) {$146$};
+\node (7) at (1.5, -3) {$3$};
+\node (8) at (1.5, -4) {$2$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0](5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (3) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](8);
+%
+\end{tikzpicture}
+$\xrightarrow{t(r\times r)}$
+\begin{tikzpicture}[scale=.7]  
+\node (1) at (-1.5, -1) {$13$};
+\node (2) at (-1.5, -2) {$247$};
+\node (3) at (-1.5, -3) {$5$};
+\node (4) at (-1.5, -4) {$6$};
+%
+\node (5) at (1.5, -1) {$3$};
+\node (6) at (1.5, -2) {$17$};
+\node (7) at (1.5, -3) {$4$};
+\node (8) at (1.5, -4) {$256$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0](5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (3) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](8);
+%
+\end{tikzpicture}
+\end{center}
+We now illustrate all possible $\LA$ $1$-shifts of the left $\SCP$ and all possible $\SU$ $1$-shifts of the right $\SCP$. 
+We first display how the $\LA$ left shifts act on $\sigma$, and the $\SU$ left shifts act on $\tau'$.
+The $LA$ shifts have been drawn so that the leftmost arrow shifts the smallest element, and the $SU$ shifts have been drawn so that the leftmost arrow shifts the largest element.
+As such, the face poset isomorphism $t(r\times r)$ directly translates one diagram to the other.
+The specific element being shifted can be inferred by the source and target of the arrow.
+\begin{center}
+{\small
+\begin{tikzcd}
+& 5|17|4|236 \arrow[ld] \arrow[d] \arrow[rd]\\
+15|7|4|236 \arrow[rd] \arrow[d]&
+5|17|24|36  \arrow[dl] \arrow[rd]&
+5|17|34|26 \arrow[d] \arrow[dl]\\
+15|7|24|36 \arrow[dr]&
+15|7|34|26  \arrow[d]&
+5|17|234|6  \arrow[dl]\\
+&15|7|234|6 
+\end{tikzcd}
+\begin{tikzcd}
+& 3|17|4|256 \arrow[ld] \arrow[d] \arrow[rd]\\
+37|1|4|256 \arrow[rd] \arrow[d]&
+3|17|46|25  \arrow[dl] \arrow[rd]&
+3|17|44|26 \arrow[d] \arrow[dl]\\
+37|1|46|25 \arrow[dr]&
+36|17|44|26  \arrow[d]&
+3|17|456|2  \arrow[dl]\\
+&37|1|456|2
+\end{tikzcd}
+}
+\end{center}
+The possible $\LAD$ right shifts (acting on $\tau$)  are,
+\begin{center}
+\begin{tikzcd}
+\sigma \times 57|146|3|2 \arrow[r,"\rho=1"] & \sigma \times 57|46|13|2 \arrow[r,"\rho=1"] & \sigma \times 57|46|3|12
+\end{tikzcd}
+\end{center}
+The possible $\SUD$ right shifts (acting on $\sigma'$) are,
+\begin{center}
+\begin{tikzcd}
+13|247|5|6 \times \tau' \arrow[r,"\rho=7"] & 13|24|57|6 \arrow[r,"\rho=7"] \times \tau' & 13|24|5|67 \times \tau'
+\end{tikzcd}
+\end{center}
+We note that as the left and right shifts (for both diagonals) can be performed independently, we could combine these lattices into a product of lattices. 
+No other shifts are possible, observe for instance that we cannot perform the $\LAD$ left shift $15|7|234|6 \times 57|46|13|2 \xrightarrow{\rho=2} 15|27|34|6 \times 57|46|13|2$ as the minimal path connecting $234$ and $7$ contains $1$ which is smaller than $2$ (see \cref{ex:ECbijection}).
+As an example of a $\SUD$ subset shift, and the bijection to critical shifts (\cref{prop:iso-original-shift-diagonals}), we observe that the unique way of producing $13|247|5|6 \times 37|1|456|2$ from subset shifts is given by
+\begin{center}
+\begin{tikzcd}
+13|247|5|6 \times 3|17|4|256 \arrow[r,"{R_{\{5,6\}}}"] & 13|247|5|6 \times 3|17|456|2 \arrow[r,"{R_{\{7\}}}"] & 13|247|5|6 \times 37|1|456|2
+\end{tikzcd}
+\end{center}
+This corresponds to combining the critical right shift operators of the $\SUD$ diagonal which have been indicated in red into a single subset.
+We note it is also possible to apply $\SUD$ shifts to $(\sigma,\tau)$ and $\LAD$ shifts to $(\sigma',\tau')$.
+\\\\
+We note, that the isomorphism $rs\times rs:\LAD \to \SUD$ identified in \cref{thm:bijection-operadic-diagonals}, also sends shifts operators to shift operators, but it sends left shift operators to right shift operators and vice versa.
+For instance, the same $SCP$ (on the LHS) is now mapped to a different $SCP$.
+\begin{center}
+\begin{tikzpicture}[scale=.7]  
+\node (1) at (-1.5, -1) {$5$};
+\node (2) at (-1.5, -2) {$17$};
+\node (3) at (-1.5, -3) {$4$};
+\node (4) at (-1.5, -4) {$236$};
+%
+\node (5) at (1.5, -1) {$57$};
+\node (6) at (1.5, -2) {$146$};
+\node (7) at (1.5, -3) {$3$};
+\node (8) at (1.5, -4) {$2$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0](5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (3) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](8);
+%
+\end{tikzpicture}
+$\xrightarrow{rs\times rs}$
+\begin{tikzpicture}[scale=.7]  
+\node (1) at (-1.5, -1) {$256$};
+\node (2) at (-1.5, -2) {$4$};
+\node (3) at (-1.5, -3) {$17$};
+\node (4) at (-1.5, -4) {$3$};
+%
+\node (5) at (1.5, -1) {$6$};
+\node (6) at (1.5, -2) {$5$};
+\node (7) at (1.5, -3) {$247$};
+\node (8) at (1.5, -4) {$13$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0](5);
+\draw[thick] (1) to [in=180, out=0, looseness=0](6); 
+\draw[thick] (1) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (2) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (3) to [in=180, out=0, looseness=0](7); 
+\draw[thick] (3) to [in=180, out=0, looseness=0](8); 
+\draw[thick] (4) to [in=180, out=0, looseness=0](8);
+%
+\end{tikzpicture}
+\end{center}
+The left $\LAD$ shift 
+$5|17|4|236 \xrightarrow{L_3}5|17|34|26 $ is sent to the right $\SUD$ shift
+$256|4|17|3 \xrightarrow{R_5} 26|45|17|3$.
+\end{example}
+
+
+\begin{example}
+It was observed in \cite{LA21} that the $LA$ and $SU$ diagonals coincided up until $n=3$, however due to their dual shift structure they generate the non-$SCP$ pairs in a dual fashion.
+In particular, the two center faces of the hexagon (\cref{fig:diagonalPermutahedron2}) are generated by 
+\begin{center}
+
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$13$};
+\node (2) at (-1.5, -2) {$2$};
+%
+\node (4) at (1.5, -1) {$3$};
+\node (5) at (1.5, -2) {$12$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+\quad
+\raisebox{1em}{$\xrightarrow{R^{SU}_{3}}$}
+\quad
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$1$};
+\node (2) at (-1.5, -2) {$23$};
+%
+\node (4) at (1.5, -1) {$3$};
+\node (5) at (1.5, -2) {$12$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
+\end{tikzpicture}
+,\quad \quad
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$12$};
+\node (2) at (-1.5, -2) {$3$};
+%
+\node (4) at (1.5, -1) {$2$};
+\node (5) at (1.5, -2) {$13$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+\quad
+\raisebox{1em}{$\xrightarrow{L^{SU}_{3}}$}
+\quad
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$12$};
+\node (2) at (-1.5, -2) {$3$};
+%
+\node (4) at (1.5, -1) {$23$};
+\node (5) at (1.5, -2) {$1$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+
+\end{center}
+and
+\begin{center}
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$1$};
+\node (2) at (-1.5, -2) {$23$};
+%
+\node (4) at (1.5, -1) {$13$};
+\node (5) at (1.5, -2) {$2$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+\quad
+\raisebox{1em}{$\xrightarrow{R^{LA}_{1}}$}
+\quad
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$1$};
+\node (2) at (-1.5, -2) {$23$};
+%
+\node (4) at (1.5, -1) {$3$};
+\node (5) at (1.5, -2) {$12$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+,\quad \quad
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$2$};
+\node (2) at (-1.5, -2) {$13$};
+%
+\node (4) at (1.5, -1) {$23$};
+\node (5) at (1.5, -2) {$1$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
+\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+\quad
+\raisebox{1em}{$\xrightarrow{L^{LA}_{1}}$}
+\quad
+\begin{tikzpicture}[scale=.6]  
+\node (1) at (-1.5, -1) {$12$};
+\node (2) at (-1.5, -2) {$3$};
+%
+\node (4) at (1.5, -1) {$23$};
+\node (5) at (1.5, -2) {$1$};
+%
+\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
+\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
+\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
+\end{tikzpicture}
+
+\end{center}
+where we have aligned each element, of each diagonal, vertically with its dual element.
+
+\end{example}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\subsection{Shift Lattice Structure}\label{sec:Shift-lattice}
+
+\Kurt{Lattice Section should be after inversion so can discuss link to inversion order.
+Should be after face poset isomorphism so can unpack LA lattice as well.}
+Pairs of ordered partitions are naturally ordered by their inversion sets. 
+Restricting to pairs of permutations, this is just the weak Bruhat order.
+\Guillaume{@Vincent, est-ce que ca coincide avec l'ordre de Ronco?}
+
+
+\Kurt{Happy for all notation to be changed}
+
+In this section, we show that $\SUD$ 1-shifts admit a simple lattice structure, that is to say each $\SCP$ is the minimal element of a lattice isomorphic to a product of chains, where the partial order is given by shifts.
+We will discuss how this order is compatible with the inversion partial order, and latter use results of this section to prove the shift definition of the diagonal is equivalent to the $(I,J)$, and cubical definitions of the diagonal (Sections \ref{sec:Iso m-shifts to IJ} and \ref{sec:Cubical}).
 
 \begin{definition}
 Let $(\sigma,\tau) \in \SUD$. For $\rho \in [n]$, let $r_\rho$ (or $l_\rho$) be the maximal value of $m$ such that $R_\rho$ (resp. $L_\rho$) is a well-defined $m$-shift of $(\sigma,\tau)$, or $0$ if there are no such $m$-shifts.
@@ -3447,14 +3811,8 @@ We identify $(0,0,...,0)$ with the SCP $(\sigma,\tau)$ and every other element $
 $R^{r_n}_{n}...R^{r_{1}}_{1}
 L^{l_n}_{n}...L^{l_{1}}_{1}(\sigma,\tau)$.
 Given \cref{lem:m-shifts commute}, it is straightforward to confirm that the join (meet) of any two elements is given by their element wise maximum (minimum).
-The maximum element of the lattice is thus given by starting with $(\sigma,\tau)$ and shifting all elements of $S^R_{(\sigma,\tau)}$ ($S^L_{(\sigma,\tau)}$) right (resp. left) by their maximal $m$-shift.
-
+In particular, the maximal element of the lattice is given by shifting all elements of $\sigma$ ($\tau$) as far to the right (resp. left) as possible.
 \end{proof}
-
-\Kurt{Can extend the lattice to all elements by pairing with permutahedra lattice in natural fashion. 
-This seems to be an instance of there existing an operad structure on bounded lattices with finite labelled elements. 
-Surely this is known?}
-\Kurt{Does there exist a lattice structure, or a generalised notation of shifts for higher k?}
 
 The maximal $m$-shift for an element $\rho$ of a $SCP$ can be explicitly calculated as follows. 
 
@@ -3488,7 +3846,95 @@ and hence $\min d_\rho^r-1$ is the biggest valid $m$-shift.
 If there are no invalid $m$-shifts then $d_\rho^r=\emptyset$, and the biggest valid $m$-shift, of size $|\sigma|-i$, places $\rho$ in the last block of $\sigma$.
 \end{proof}
 
-\subsection{Shifts Under the Face Poset Isomorphism}
+
+
+\Kurt{Lattice Section should be after inversion so can discuss link to inversion order.
+Should be after face poset isomorphism so can unpack LA lattice as well.}
+Pairs of ordered partitions are naturally ordered by their inversion sets. 
+Restricting to pairs of permutations, this is just the weak Bruhat order.
+\Guillaume{@Vincent, est-ce que ca coincide avec l'ordre de Ronco?}
+
+
+\Kurt{Happy for all notation to be changed}
+
+In this section, we show that $\SUD$ 1-shifts admit a simple lattice structure, that is to say each $\SCP$ is the minimal element of a lattice isomorphic to a product of chains, where the partial order is given by shifts.
+We will discuss how this order is compatible with the inversion partial order, and latter use results of this section to prove the shift definition of the diagonal is equivalent to the $(I,J)$, and cubical definitions of the diagonal (Sections \ref{sec:Iso m-shifts to IJ} and \ref{sec:Cubical}).
+
+\begin{definition}
+Let $(\sigma,\tau) \in \SUD$. For $\rho \in [n]$, let $r_\rho$ (or $l_\rho$) be the maximal value of $m$ such that $R_\rho$ (resp. $L_\rho$) is a well-defined $m$-shift of $(\sigma,\tau)$, or $0$ if there are no such $m$-shifts.
+
+\end{definition}
+
+\begin{lemma}[$m$-shifts commute] \label{lem:m-shifts commute}
+Let $(\sigma,\tau) \in \SUD$.
+If either side of the following equations are  well-defined sequences of $m_1,m_2$ shift operators, then the other side is a well-defined sequence of $m_2,m_1$ shift operators, and their outputs are equal.
+\begin{align*}
+    R_{\rho} L_{\rho'}(\sigma,\tau) = L_{\rho'} R_{\rho}(\sigma,\tau), \quad R_{\rho} R_{\rho'}(\sigma,\tau) = R_{\rho'} R_{\rho}(\sigma,\tau), \quad L_{\rho} L_{\rho'}(\sigma,\tau) = L_{\rho'} L_{\rho}(\sigma,\tau)
+\end{align*}
+\end{lemma}
+\begin{proof}
+A $m$-shift $R_{\rho}(\sigma,\tau)$ is defined when $\rho > \max \sigma_{i,i+m}$ (similarly for $L_{\rho}$).
+From \cref{cor:SU-shift-preserves-max}, we know $m$-shifts conserve the maximal elements of paths. 
+As such, we can commute any two shift operators.
+We note that right (or left) shifting the same element $m_1$ steps then $m_2$ steps is the same as shifting it $m_1+m_2$ steps.
+\end{proof}
+
+\begin{proposition} \label{prop:shift lattice}
+Let $(\sigma,\tau)$ be an $SCP$ and 
+\begin{align*}
+    L(\sigma,\tau) := \bigcup_{\mathbf{M}, \mathbf{N}} R_\mathbf{M}(\sigma)\times L_\mathbf{N}(\tau)
+\end{align*}
+where the union is taken over all admissible sequences of $1$-shifts $\textbf{M},\textbf{N}$. 
+Then $L(\sigma,\tau)$ is a bounded lattice such that
+\begin{align*}
+    L(\sigma,\tau) \cong \prod_{\rho \in [n]} [r_\rho]
+    \times \prod_{\rho \in [n]} [l_\rho]
+\end{align*}
+where the maximal shifts $r_\rho,l_\rho$ are calculated with respect to $(\sigma,\tau)$.
+\end{proposition}
+
+\begin{proof}
+
+We identify $(0,0,...,0)$ with the SCP $(\sigma,\tau)$ and every other element $(r_1,...,r_n,l_1,...l_n)$, with 
+$R^{r_n}_{n}...R^{r_{1}}_{1}
+L^{l_n}_{n}...L^{l_{1}}_{1}(\sigma,\tau)$.
+Given \cref{lem:m-shifts commute}, it is straightforward to confirm that the join (meet) of any two elements is given by their element wise maximum (minimum).
+In particular, the maximal element of the lattice is given by shifting all elements of $\sigma$ ($\tau$) as far to the right (resp. left) as possible.
+\end{proof}
+
+The maximal $m$-shift for an element $\rho$ of a $SCP$ can be explicitly calculated as follows. 
+
+\begin{proposition}\label{prop:maximal m-shift formulae}
+Let $(\sigma,\tau)$ be a SCP, then for $\rho \in \sigma_i$,
+\begin{align*}
+    d_{\rho}^r :=& \{ m : m>0 \land \max \sigma_{i+m}>\rho\}, 
+    &r_\rho = 
+    \begin{cases}
+        |\sigma|-i,& d_{\rho}^r = \emptyset\\
+        \min d_{\rho}^r-1,& \text{otherwise}
+    \end{cases}
+\end{align*}
+and for  $\rho \in \tau_i$
+\begin{align*}
+    d_{\rho}^l :=& \{ m : m>0 \land \max \tau_{i-m}>\rho\}, 
+    &l_\rho = 
+    \begin{cases}
+        |\tau|-i,& d_{\rho}^l = \emptyset\\
+        \min d_{\rho}^l-1,& \text{otherwise}
+    \end{cases}
+\end{align*}
+
+\end{proposition}
+\begin{proof}
+We show the formula holds for $r_\rho$ the case for $l_\rho$ is similar. 
+As $\sigma,\tau$ is a SCP, $\max \sigma_{k,k+1} = \max \sigma_{k+1}$. 
+From the equivalence of $1$-shifts and $m$-shifts there exists an $m$-shift of $\rho$ from $\sigma_i$, if, and only if, there exists a sequence of $1$-shifts each satisfying $\rho > \max \sigma_{j}$ for $i+1\leq j\leq i+m$.
+As such, the index $\min d_\rho^r$ identifies the first invalid $m$-shift,
+and hence $\min d_\rho^r-1$ is the biggest valid $m$-shift.
+If there are no invalid $m$-shifts then $d_\rho^r=\emptyset$, and the biggest valid $m$-shift, of size $|\sigma|-i$, places $\rho$ in the last block of $\sigma$.
+\end{proof}
+
+
 
 Previously in \cref{thm:bijection-operadic-diagonals}, we constructed an isomorphism of face-posets $sr\times sr:\LAD\to\SUD$.
 In addition, we showed in \cref{rem:Alternate Isomorphism}, that $t(r\times r):\LAD\to\SUD$ is also an isomorphism.
