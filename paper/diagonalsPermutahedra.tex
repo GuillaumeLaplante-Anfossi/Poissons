@@ -104,6 +104,7 @@
 \DeclareMathOperator{\conv}{conv} % convex hull
 \DeclareMathOperator{\vect}{vect} % linear span
 \DeclareMathOperator{\cone}{cone} % cone hull
+\DeclareMathOperator{\Inv}{Inv} % inversions
 \DeclareMathOperator{\inv}{inv} % inversions
 \DeclareMathOperator{\Ima}{Im} %Image d'une fonction
 \DeclareMathOperator{\std}{std}
@@ -641,6 +642,10 @@ Connections to other multi braid arrangements. Shi arrangements (non generic). D
 \vincent{todo}
 \end{remark}
 
+\begin{remark}
+\vincenti{TODO: Discuss generalizations to $\ell$ copies of an arbitrary arrangement, or a graphical arrangement.}
+\end{remark}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Flat poset and enumeration of~$\multiBraidArrangement$}
@@ -1024,12 +1029,8 @@ Hence, we have
 \bPol[{\multiBraidArrangement[3][\ell]}] & = (3 \ell^2 - 4 \ell + 1) x^2 + 6 \ell (\ell - 1) x + \ell (3 \ell - 2).
 \end{align*}
 Observe that~$3 \ell^2 + 2 \ell + 1$ is~\OEIS{A056109}, that~$\ell (3 \ell - 2)$ is~\OEIS{A000567}, and that ${3 \ell^2 - 4 \ell + 1}$ is~\OEIS{A045944}.
-\vincenti{There is a weird connection between the first and the last. Namely, $3 \ell^2 - 4 \ell + 1 = 3 (\ell - 1)^2 + 2 (\ell - 1)$. Is there a bijective explanation on the arrangements?}
+%\vincenti{There is a weird connection between the first and the last. Namely, $3 \ell^2 - 4 \ell + 1 = 3 (\ell - 1)^2 + 2 (\ell - 1)$. Is there a bijective explanation on the arrangements?}
 \end{example}
-
-\begin{remark}
-\vincenti{TODO: Discuss generalizations to $\ell$ copies of an arbitrary arrangement, or a graphical arrangement.}
-\end{remark}
 
 %%%%%%%%%%%%%%%
 
@@ -1428,7 +1429,6 @@ which vanishes by~\eqref{eq:diff}.
 
 In this section, we describe the face poset of~$\multiBraidArrangement(\b{a})$ in terms of ordered $(\ell,n)$-partition forests.
 This section highly depends on the choice of the translation matrix~$\b{a}$.
-\vincent{All this section needs a lot of pictures.}
 
 %%%%%%%%%%%%%%%
 
@@ -1444,7 +1444,7 @@ In other words, $\orientedForestPoset$ is the subposet of the $\ell$\ordinal{} C
 Note that the maximal elements of~$\orientedForestPoset$ are the ordered $(\ell, n)$-partition trees.
 \end{definition}
 
-The following statement is the analogue of \cref{prop:flatPosetMultiBraidArrangement}.
+The following statement is the analogue of \cref{prop:flatPosetMultiBraidArrangement}, and is illustrated in \cref{fig:B23a,fig:B23b}.
 
 \begin{proposition}
 \label{prop:facePosetMultiBraidArrangement}
@@ -1462,22 +1462,21 @@ Finally, by genericity, it is immediate that we obtain an upper set of this comp
 
 \begin{figure}
 	\includegraphics[scale=.9]{B23a}
-	\caption{Labelings of the faces of the arrangement~$\multiBraidArrangement[3][2](\b{a})$ for~$\b{a} = ???$.}
+	\caption{Labelings of the faces of the arrangement~$\multiBraidArrangement[3][2](\b{a})$ for~$\b{a} = \begin{bmatrix} 0 & 0 \\ 1 & 1 \end{bmatrix}$.}
 	\label{fig:B23a}
 \end{figure}
 
 \begin{figure}
 	\includegraphics[scale=.9]{B23b}
-	\caption{Labelings of the faces of the arrangement~$\multiBraidArrangement[3][2](\b{a})$ for~$\b{a} = ???$.}
+	\caption{Labelings of the faces of the arrangement~$\multiBraidArrangement[3][2](\b{a})$ for~$\b{a} = \begin{bmatrix} 0 & 0 \\ -1 & 2 \end{bmatrix}$.}
 	\label{fig:B23b}
 \end{figure}
 
-We now fix a generic translation matrix~$\b{a} \eqdef (a_{i,j})$ and still denote by~$A_{i,s,t} \eqdef \smash{\sum_{s \le j < t} a_{i,j}}$ for all~$1 \le s < t \le n$ and~$i \in [\ell]$.
-\vincent{Say that $A_{i,t,s} \eqdef -A_{i,s,t}$ for~$1 \le s < t \le n$.}
+We now fix a generic translation matrix~$\b{a} \eqdef (a_{i,j})$ and still denote by~$A_{i,s,t} \eqdef \smash{\sum_{s \le j < t} a_{i,j}}$ for all~$1 \le s < t \le n$ and~$i \in [\ell]$ (and often write~$A_{i,t,s}$ for~$-A_{i,s,t}$).
 The objective of this section is to describe
 \begin{itemize}
-\item the ordered $(\ell,n)$-partitions forests with a given underlying (unordered) $(\ell,n)$-partition forest (\cref{subsec:PFtoOPF}),
-\item a criterion to decide whether a given ordered $(\ell,n)$-partition forest corresponds to a face of~$\multiBraidArrangement(\b{a})$ (\cref{subsec:criterionOPF}).
+\item the ordered $(\ell,n)$-partitions forests of the upper set~$\orientedForestPoset(\b{a})$ with a given underlying (unordered) $(\ell,n)$-partition forest (\cref{subsec:PFtoOPF}),
+\item a criterion to decide whether a given ordered $(\ell,n)$-partition forest belongs to the upper set~$\orientedForestPoset(\b{a})$, \ie corresponds to a face of~$\multiBraidArrangement(\b{a})$ (\cref{subsec:criterionOPF}).
 \end{itemize}
 
 %%%%%%%%%%%%%%%
@@ -1485,14 +1484,15 @@ The objective of this section is to describe
 \subsection{From partition forests to ordered partition forests}
 \label{subsec:PFtoOPF}
 
-In this section, we describe the ordered $(\ell,n)$-partitions forests~$\orient{\b{F}}$ with a given underlying $(\ell,n)$-partition forest~$\b{F}$.
+In this section, we describe the ordered $(\ell,n)$-partitions forests~$\orient{\b{F}}$ of the upper set~$\orientedForestPoset(\b{a})$ with a given underlying $(\ell,n)$-partition forest~$\b{F}$.
 We denote by~$cc(\b{F})$ the connected components of~$\b{F}$, meaning the partition of~$[n]$ given by the hyperedge labels of the connected components of the intersection hypergraph of~$\b{F}$.
 We first observe that the choice of~$\b{a}$ fixes the order of the parts in a common connected component of~$\b{F}$.
 
 \begin{proposition}
+\label{prop:PFtoOPF1}
 Consider an $(\ell,n)$-partition forest~$\b{F} \eqdef (F_1, \dots, F_\ell)$, and two integers~$s,t \in [n]$ labeling two hyperedges in the same connected component of the intersection hypergraph of~$\b{F}$.
 Assume that the unique path from~$s$ to~$t$ in the hypergraph of~$\b{F}$ passes through the hyperedges labeled by~$s = r_0, \dots, r_q = t$ and through parts of the partitions~$F_{i_1}, \dots, F_{i_q}$.
-Then for any ordered $(\ell,n)$-partition forest~$\orient{\b{F}} \eqdef (\orient{F_1}, \dots, \orient{F_\ell})$ of~$\orientedForestPoset(\b{a})$ with underlying $(\ell,n)$-partition forest~$\b{F}$ and any~$i \in [\ell]$, the order of~$s$ and~$t$ in~$\orient{F}_i$ is given by the sign of~$A_{i,s,t} - \sum_{p \in [q]} A_{i_p, r_{p-1}, r_p}$.
+Then for any ordered $(\ell,n)$-partition forest~$\orient{\b{F}} \eqdef (\orient{F_1}, \dots, \orient{F_\ell})$ of the upper set~$\orientedForestPoset(\b{a})$ with underlying $(\ell,n)$-partition forest~$\b{F}$ and any~$i \in [\ell]$, the order of~$s$ and~$t$ in~$\orient{F}_i$ is given by the sign of~$A_{i,s,t} - \sum_{p \in [q]} A_{i_p, r_{p-1}, r_p}$.
 \end{proposition}
 
 \begin{proof}
@@ -1506,19 +1506,32 @@ The order of~$s,t$ in~$\orient{F}_i$ is given by the sign of~$A_{i,s,t} - (x_s -
 \end{proof}
 
 We now describe the different ways to order the parts in distinct connected components of~$\b{F}$.
+For this, we need the following posets.
 
 \begin{definition}
 Consider an $(\ell,n)$-partition forest~$\b{F}$ and denote by~$cc(\b{F})$ the connected components of~$\b{F}$.
-For each pair~$s,t \in [n]$ in distinct connected components of~$cc(\b{F})$, we define the chain~$<_i$ on the $\ell$ triples~$(i,s,t)$ for~$i \in [\ell]$ given by the order of the values~$A_{i,s,t}$.
-The \defn{inversion poset}~$I(\b{F}, \b{a})$ is then the poset obtained by quotienting the disjoint union of the chains~$<_i$ by the equivalence relation~$(i,s,t) \equiv (i,s',t')$ if~$s$ and~$s'$ belong to the same part of~$F_i$ and~$t$ and~$t'$ belong to the same part of~$F_i$.
+For each pair~$s,t \in [n]$ in distinct connected components of~$cc(\b{F})$, we define the chain~$<_{s,t}$ on the $\ell$ triples~$(i,s,t)$ for~$i \in [\ell]$ given by the order of the values~$A_{i,s,t}$.
+The \defn{inversion poset}~$\Inv(\b{F}, \b{a})$ is then the poset obtained by quotienting the disjoint union of the chains~$<_{s,t}$ (for all~$s,t \in [n]$ in distinct connected components of~$cc(\b{F})$) by the equivalence relation~$(i,s,t) \equiv (i,s',t')$ if~$s$ and~$s'$ belong to the same part of~$F_i$ and~$t$ and~$t'$ belong to the same part of~$F_i$.
 \end{definition}
 
 \begin{proposition}
-The ordered $(\ell,n)$-partition forests with a given underlying $(\ell,n)$-partition forest~$\b{F}$ are in bijection with the lower ideals of the inversion poset~$I(\b{F}, \b{a})$.
+\label{prop:PFtoOPF2}
+The ordered $(\ell,n)$-partition forests of the upper set~$\orientedForestPoset(\b{a})$ with a given underlying $(\ell,n)$-partition forest~$\b{F}$ are in bijection with the lower sets of the inversion poset~$\Inv(\b{F}, \b{a})$.
 \end{proposition}
 
 \begin{proof}
-\vincent{todo}
+Consider an ordered $(\ell,n)$-partition forest~$\orient{\b{F}}$ of the upper set~$\orientedForestPoset(\b{a})$.
+Let~$\b{x}$ be any point of the face of~$\multiBraidArrangement(\b{a})$ corresponding to~$\orient{\b{F}}$.
+For each pair~$s,t \in [n]$ in distinct connected components of~$cc(\b{F})$, let~$I_{s,t}(\orient{\b{F}})$ be the set of indices~$i \in [\ell]$ such that~$x_s - x_t < A_{i,s,t}$.
+Note that~$I_{s,t}$ is by definition a lower set of the chain~$<_{s,t}$ of~$\Inv(\b{F}, \b{a})$.
+Hence, $\bigcup_{s,t} I_{s,t} / {\equiv}$ is a lower set of~$\Inv(\b{F}, \b{a})$.
+
+Conversely, given a lower set~$I$ of~$\Inv(\b{F}, \b{a})$, we can reconstruct an ordered $(\ell,n)$-partition forest~$\orient{\b{F}}$ by ordering each pair~$s,t \in [n]$ in~$\orient{F}_i$ 
+\begin{itemize}
+\item according to \cref{prop:PFtoOPF1} (hence independently of~$I$) if $s$ and~$t$ belong to the same connected component of~$\b{F}$,
+\item according to~$I$ if~$s$ and~$t$ belong to distinct connected components of~$\b{F}$. Namely, we place the block of~$\orient{F}_i$ containing~$s$ before the block of~$\orient{F}_i$ containing~$t$ if and only if~$(i,s,t) \in I$.
+\end{itemize}
+It is then straightforward to check that the resulting ordered $(\ell,n)$-partition forest belongs to the upper set~$\orientedForestPoset(\b{a})$, by exhibiting a point~$\b{x}$ in of the corresponding face of~$\multiBraidArrangement(\b{a})$.
 \end{proof}
 
 %%%%%%%%%%%%%%%
@@ -1526,7 +1539,7 @@ The ordered $(\ell,n)$-partition forests with a given underlying $(\ell,n)$-part
 \subsection{A criterion for ordered partition forests}
 \label{subsec:criterionOPF}
 
-We now consider a given ordered $(\ell,n)$-partition forest and provide a criterion to decide if it belongs to the upper set~$\orientedForestPoset(\b{a})$ corresponding to the faces of~$\multiBraidArrangement(\b{a})$.
+We now consider a given ordered $(\ell,n)$-partition forest~$\orient{F}$ and provide a criterion to decide if it belongs to the upper set~$\orientedForestPoset(\b{a})$ corresponding to the faces of~$\multiBraidArrangement(\b{a})$.
 For this, we need the following directed graph associated to~$\orient{\b{F}}$.
 
 \begin{definition}
@@ -1536,7 +1549,7 @@ For an ordered $(\ell,n)$-partition forest~$\orient{\b{F}} \eqdef (\orient{F_1},
 \end{definition}
 
 \begin{proposition}
-An ordered $(\ell,n)$-partition forest~$\orient{\b{F}}$ belongs to the upper set~$\orientedForestPoset(\b{a})$ corresponding to the faces of~$\multiBraidArrangement(\b{a})$ if and only if $\sum_{\alpha \in \gamma} A_{i(\alpha), s(\alpha), t(\alpha)} \ge 0$ for any (simple) oriented cycle~$\gamma$ in~$D_{\orient{\b{F}}}$, where each arc~$\alpha \in \gamma$ has label~$i(\alpha)$, source~$s(\alpha)$, and target~$t(\alpha)$.
+An ordered $(\ell,n)$-partition forest~$\orient{\b{F}}$ belongs to the upper set~$\orientedForestPoset(\b{a})$ if and only if $\sum_{\alpha \in \gamma} A_{i(\alpha), s(\alpha), t(\alpha)} \ge 0$ for any (simple) oriented cycle~$\gamma$ in~$D_{\orient{\b{F}}}$, where each arc~$\alpha \in \gamma$ has label~$i(\alpha)$, source~$s(\alpha)$, and target~$t(\alpha)$.
 \end{proposition}
 
 \begin{proof}
@@ -1547,7 +1560,7 @@ For each~$i \in [\ell]$, denote by
 \item $M_i$ the incidence matrix of~$D_{\orient{F}_i}$, with $m_i$ rows and $n$ columns, with a row for each arc~$\alpha$ of~$D_{\orient{F}_i}$ containing a $-1$ in column~$s(\alpha)$, a $1$ in column~$t(\alpha)$, and $0$ elsewhere,
 \item $\b{z}_i$ the column vector in~$\R^{m_i}$ with a row for each arc~$\alpha$ of~$D_{\orient{F}_i}$ containing the value~$A_{i(\alpha), s(\alpha), t(\alpha)}$.
 \end{itemize}
-Then a point~$\b{x} \in \R^n$ belongs to the face of the $i$th braid arrangement corresponding to~$\orient{F}_i$ if and only if it satisfies~$M_i \, \b{x} \le \b{z}_i$.
+Then a point~$\b{x} \in \R^n$ belongs to the face of the $i$\ordinal braid arrangement corresponding to~$\orient{F}_i$ if and only if it satisfies~$M_i \, \b{x} \le \b{z}_i$.
 Hence, $\orient{\b{F}}$ appears as a face of the $\b{a}$-braid arrangement if and only if there exists~$\b{x} \in \R^n$ such that~$M \, \b{x} \le \b{z}$, where~$M$ is the $(m \times n)$-matrix (where~$m \eqdef \sum_{i \in [\ell]} m_i$), obtained by piling the matrices~$M_i$ for~$i \in [\ell]$ and similarly, $\b{z}$ is the column vector obtained by piling the vectors~$\b{z}_i$.
 A direct application of the Farkas lemma (see \eg \cite[Prop.~1.7]{Ziegler-polytopes}), there exists~$\b{x} \in \R^n$ such that~$M \, \b{x} \le \b{z}$ if and only if~$\b{c} \b{z} \ge 0$ for any~$\b{c} \in (\R^m)^*$ with~$\b{c} \ge \b{0}$ and~$\b{c} M = \b{0}$.
 Now it is classical that the left kernel of the incidence matrix of a directed graph is generated by its circuits (non-necessarily oriented cycles), and that the positive cone in this left kernel is generated by its oriented cycles.
@@ -1618,7 +1631,7 @@ Such a map can be seen as a topological map, or as a map of lattices; we shall n
 For the purpose of studying this $f$-vector, one can study the dual of the polytopal comple, see \cref{fig:diagonalPermutahedron1}.
 
 \begin{proposition}
-    The $f$-vector of the $(\ell-1)$th iteration of a diagonal of the $(n-1)$-permutahedron $\triangle_{(P,\vec v)}$ is given by the opposite of the $f$-vector of the $(\ell,n)$-braid arrangement.
+    The $f$-vector of the $(\ell-1)$\ordinalst{} iteration of a diagonal of the $(n-1)$-permutahedron $\triangle_{(P,\vec v)}$ is given by the opposite of the $f$-vector of the $(\ell,n)$-braid arrangement.
 \end{proposition}
 
 \begin{proof}
@@ -2912,7 +2925,7 @@ There are four cases to consider.
 
     \end{enumerate}
 
-    \item $\gamma$ contains two elements of $M_k$. In which case we still have $\gamma'=\gamma$ (in path elements) but $\gamma'$ will step through the $(k+1)$th block instead of $\gamma$ stepping through the $k$th block.
+    \item $\gamma$ contains two elements of $M_k$. In which case we still have $\gamma'=\gamma$ (in path elements) but $\gamma'$ will step through the $(k+1)$\ordinalst{} block instead of $\gamma$ stepping through the $k$\ordinal{} block.
     
     \item $\gamma$ contains more than two elements of $M_k$. 
     This is impossible, as $\gamma$ would not be a minimal path on a tree.
@@ -3924,7 +3937,7 @@ $
 }
 \end{center}
 }
-Given a $l\times k$ matrix $A$ with all non-zero entries drawn without replacement from $[n]$, let $\sigma_i(A)$ denote the non-zero entries of the $i$th column, and $\tau_j(A)$ the non-zero entries of the $(l-j+1)$th row. 
+Given a $l\times k$ matrix $A$ with all non-zero entries drawn without replacement from $[n]$, let $\sigma_i(A)$ denote the non-zero entries of the $i$\ordinal{} column, and $\tau_j(A)$ the non-zero entries of the $(l-j+1)$\ordinalst{} row. 
 For example, we labelled the rows and columns of the prior step matrix in this fashion.
 With this identification, we can apply \cref{def:movable-subsets}, to identify $1$-block moveable subsets of the matrix $M$, and we can apply \cref{def:admissible-shift-sequences}, to identify sequences of shifts which are admissible of original type.
 We now define a suitable subset shift action on these matrices.
@@ -4284,20 +4297,20 @@ We prove the result for $(1)$, the dual result is similar.
 \\\\
 We start by making two observations. \Kurt{Could pull out as lemmas}
 Firstly, as $P_n$ is a simple polytope, and there are $k+1$ edges flowing into the vertex $v$, there must be a maximal $k+1$ face adjacent to $v$, which we denote $\sigma$.
-Secondly, as $C$ spans differing dimensions to $L$, every $k$-face in $C$ must have the element $\rho$ in the same singleton block, say the $i$th block.
-Furthermore, the number of elements on either side of the $i$th block must be the same.
+Secondly, as $C$ spans differing dimensions to $L$, every $k$-face in $C$ must have the element $\rho$ in the same singleton block, say the $i$\ordinal{} block.
+Furthermore, the number of elements on either side of the $i$\ordinal{} block must be the same.
 This follows from the inductive description of $I_n$ (\cref{eq:In inductive def}).
 Having access to $\sigma$ will enable us to generate the other $(k+1)$-faces, and variants of the second property will enable us to check the faces are in the shape of a $(k+1)$ cube. In particular,
 \begin{enumerate}
     \item We use $\sigma$ to form a set of $(k+1)$-faces which are flush with the boundary of $C$ and the initial portion of the line $L$.
     \item We follow the line down growing the set of $(k+1)$-faces, and showing that when the line terminates we must have a $(k+1)$-cube.
 \end{enumerate}
-From the inductive description of $I_n$ (\cref{eq:In inductive def}), it must be the case that $\sigma$ is obtained from $\sigma_C$ by merging the $i$th and $(i+1)$th block.
+From the inductive description of $I_n$ (\cref{eq:In inductive def}), it must be the case that $\sigma$ is obtained from $\sigma_C$ by merging the $i$\ordinal{} and $(i+1)$\ordinalst{} block.
 Furthermore, for each element $\rho'$ shifted in $C$, the maximal right shift on $\sigma_C$, say $r_{\rho'}^C$, must be the same as the maximal right shift $r_{\rho'}$ acting on $\sigma$.
 This follows as each $k$-face in $C$ has $\rho$ in a singleton block, which by virtue of being larger than every other element $\rho'$ blocks their shifts.
 Consequently, each admissible sequence of right shifts $R_{\mathbf{M}}$ for $\sigma_C$ is also an admissible sequence of right shifts for $\sigma$.
 As such, $\bigcup_{\mathbf{M}} R_{\mathbf{M}}(\sigma)$ will be a collection of $(k+1)$-faces.
-Furthermore, it is straightforward to see these $(k+1)$ faces are just $\bigcup_{\mathbf{M}} R_{\mathbf{M}}(\sigma_C)$ with the $i$th and $(i+1)$th block merged.
+Furthermore, it is straightforward to see these $(k+1)$ faces are just $\bigcup_{\mathbf{M}} R_{\mathbf{M}}(\sigma_C)$ with the $i$\ordinal{} and $(i+1)$\ordinalst{} block merged.
 So, under the projections $\pi_C$ and $\pi_L$ this collection of $(k+1)$-faces are flush with the $k$-cube and the initial portion of the line $L$ \Kurt{What is the best way to say flush with boundary?}
 \\\\ 
 Let $v'$ be the smallest vertex of the line $L$.
