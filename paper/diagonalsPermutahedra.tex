@@ -255,6 +255,7 @@ A corollary of our study is that the Saneblidze--Umble diagonal can be recovered
 \centerline{\includegraphics[scale=.9]{diagonalPermutahedron3}}
 
 \newpage
+\enlargethispage{1cm}
 \tableofcontents
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -314,10 +315,6 @@ Perspectives:
 -for specific diagonals, extend the bijection with bipartite trees
 
 %%%%%%%%%%%%%%%
-
-\subsection*{Conventions}
-
-%We use the notations of \cite{LodayVallette12} for operads.
 
 \Guillaume{Please make a new line for each sentence as to facilitate comparison between versions in GitHub}
 
@@ -1615,6 +1612,8 @@ Here, $\rho_z P := 2z-P$ denotes the reflection of $P$ with respect to the point
 The diagonal $\triangle_{(P,\vec v)}$ defines a canonical polytopal subdivision of $P$: it is by construction a tight coherent section of the projection $\pi : P \times P \to (P+P)/2$, and to obtain the subdivision one just needs to draw the polytopes $(F+G)/2$, for all pairs of faces $(F,G) \in \Ima \triangle_{(P,\vec v)}$.
 For the rest of the paper, every time we will speak about a diagonal, \emph{we will always mean such a map}. 
 
+\vincent{This subsection should only be about diagonals of polytopes, not specific to the permutahedron.}
+\vincent{This is where I would connect the diagonal~$\triangle_{(P,\vec v)}$ with the oriented skeleton of~$P$ in direction~$\vec v$.}
 \begin{definition}[Diagonal of the permutahedron]
     \label{def:diagonal}
     A \emph{cellular diagonal} or simply a \emph{diagonal} $\triangle_{(P,\vec v)}$ of the permutahedron~$P$ is a tight coherent section of the projection $P \times P \to P, (x,y) \mapsto (x+y)/2$.
@@ -1650,10 +1649,71 @@ For the purpose of studying this $f$-vector, one can study the dual of the polyt
 
 %%%%%%%%%%%%%%%
 
+\subsection{Cellular diagonals for the permutahedra}
+\label{s:diagonals-permutahedra}
+
+Let us first set up some notations that will be of use throughout the paper. 
+A set $\sigma_I := \bigcup_{i\in I} \sigma_i$ is a \emph{partition} of $[n]:=\{1,\ldots,n\}$ if $\bigcup_{i\in I} \sigma_i = [n]$ and $\sigma_i \cap \sigma_j = \emptyset$ for $i \neq j$.
+The subsets $\sigma_i$ are called \emph{blocks}. 
+We denote by $|\sigma|:=|I|$ the size of the partition (its number of blocks).
+A partition is \emph{ordered} if the indexing set $I$ is equipped with a total order; in what follows we shall use $I=[k]$ for $k \in \N$. 
+We use the shorthand $14|23$ to denote both the unordered  partition $\{\{1,4\},\{2,3\}\}$, and also the ordered partition $(\{1,4\},\{2,3\})$ (when the order is clear from context).
+\vincent{All this paragraph is useless... or should appear in \cref{subsec:braidArrangement}...}
+
+\begin{figure}
+	\includegraphics[scale=.9]{diagonalPermutahedron2}
+	\caption{Labelings of the faces of the permutahedron~$\Perm[3]$ by ordered partitions of~$[3]$ (left) and of the faces of the LA diagonal  $\LAD$ of the permutahedron~$\Perm[3]$ by pairs of compatible ordered partitions of~$[3]$ (right).}
+	\label{fig:diagonalPermutahedron2}
+\end{figure}
+
+Let us recall the universal formula expressing combinatorially the cellular image of the diagonal of a polytope $P$ obtained in \cite[Theorem 1.26]{LA21}.
+It is expressed in terms of the \emph{fundamental hyperplane arrangement} of $P$. 
+
+\begin{definition}[Fundamental hyperplane arrangement]
+    The \emph{fundamental hyperplane arrangement} $\mathcal{H}_P$ of a polytope $P \subset \R^n$ is the set of hyperplanes whose normal vectors are a choice of directions of the edges of $P\cap \rho_z P$, for any $z \in P$. 
+\vincent{This definition should appear in the previous paragraph...}
+\end{definition}
+
+\begin{example}
+    Let $U(n):=\{ (I,J) \ | \ I,J \subset [n], |I|=|J|>0, I \cap J = \emptyset\}$.
+    The fundamental hyperplane arrangement of the $(n-1)$-permutahedron is given by the family of hyperplanes \[ \sum_{i \in I} x_i = \sum_{j \in J} x_j \ ,  \ (I,J) \in U(n) \ . \] 
+\end{example}
+
+\Guillaume{Mentionner le travail en cours de Lionel Pournin?}
+
+\begin{theorem}[Universal formula]
+    \label{thm:universal-formula}
+    Let $(P,\vec v)$ be a positively oriented polytope in $\R^n$. 
+For each $H\in\mathcal{H}_P$, we choose a normal vector $\vec d_H$ such that $\langle \vec d_H, \vec v \rangle >0$. 
+We have 
+\begin{eqnarray}
+(F,G) \in \Ima \triangle_{(P,\vec v)} 
+&\iff& \forall H \in \mathcal{H}_P(F,G), \ \exists i , \ \langle \vec F_i, \vec d_H \rangle < 0  \text{ or } \exists j , \ \langle \vec G_j, \vec d_H \rangle > 0  \\ 
+&\iff& \forall H \in \mathcal{H}_P , \ \exists i , \ \langle \vec F_i, \vec d_H \rangle < 0  \text{ or } \exists j , \ \langle \vec G_j, \vec d_H \rangle > 0 \ . 
+\end{eqnarray} 
+\vincent{This theorem should appear in the previous paragraph...}
+\end{theorem}
+
+Here, the $\vec F_i$ and $\vec G_j$ are vectors spanning the normal cones of the respective faces, and $\mathcal{H}_P(F,G)$ is a subset of hyperplanes which are specifically associated to the pair $(F,G)$.
+Applying this Theorem to $P$ the permutahedron, we obtain the following. 
+
+\begin{corollary}
+    Any choice of diagonal of the $(n-1)$-permutahedron is given combinatorially by a choice of inequalities \[ \sum_{i \in I} x_i > \sum_{j \in J} x_j \text{ or } \sum_{i \in I} x_i < \sum_{j \in J} x_j \]
+    for all $(I,J) \in U(n)$. 
+\end{corollary}
+
+\begin{proof}
+    A choice of diagonal is given by a choice of vector in a chamber of $\mathcal{H}_P$, two vectors living in the same chamber inducing the same diagonal \cite[Proposition 1.23]{LA21}.
+\end{proof}
+
+\vincent{Here, we need to treat all diagonals. Each choice of region in the fundamental hyperplane arrangement gives an orientation of both partitions of a partition forest. We need to explicitly describe this orientation.}
+
+%%%%%%%%%%%%%%%
+
 \subsection{Enumerative results on cellular diagonals of the permutahedra} 
 \label{subsec:enumerationDiagonal}
 
-We now specialize the results of the previous section to the case~$\ell = 2$ to derive enumerative results on the diagonals of the permutahedra.
+We now specialize the results of \cref{part:combinatorics} to the case~$\ell = 2$ to derive enumerative results on the diagonals of the permutahedra.
 The duality between the $(2,n)$-braid arrangement~$\multiBraidArrangement[n][2]$ and the diagonal of the permutahedron~$\Perm$ is illustrated in \cref{fig:diagonalPermutahedron1}.
 
 \begin{figure}
@@ -1856,66 +1916,19 @@ Hence, by Cayley's formula for spanning trees of~$K_{n+1}$, we obtain that the n
 \]
 \end{remark}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\section{The LA and SU diagonals}
+\label{sec:LASUdiagonals}
+
+This section is devoted to the combinatorics of two specific diagonals of the permutahedron, the LA diagonal (\cref{subsec:LAdiagonal}) and the SU diagonal (\cref{subsec:SUdiagonal}).
+We will see later in \cref{sec:operadicDiagonals} that these two diagonals are in fact the only two operadic diagonals, and we will provide in \cref{...} alternative descriptions of these two diagonals in terms of strong complementary partitions and shifts (which will in particular connect the present description of the SU diagonal with the original description of \cite{SaneblitzeUmble04}).
+
 %%%%%%%%%%%%%%%
 
-\subsection{Cellular diagonals for the permutahedra}
-\label{s:diagonals-permutahedra}
-
-Let us first set up some notations that will be of use throughout the paper. 
-A set $\sigma_I := \bigcup_{i\in I} \sigma_i$ is a \emph{partition} of $[n]:=\{1,\ldots,n\}$ if $\bigcup_{i\in I} \sigma_i = [n]$ and $\sigma_i \cap \sigma_j = \emptyset$ for $i \neq j$.
-The subsets $\sigma_i$ are called \emph{blocks}. 
-We denote by $|\sigma|:=|I|$ the size of the partition (its number of blocks).
-A partition is \emph{ordered} if the indexing set $I$ is equipped with a total order; in what follows we shall use $I=[k]$ for $k \in \N$. 
-We use the shorthand $14|23$ to denote both the unordered  partition $\{\{1,4\},\{2,3\}\}$, and also the ordered partition $(\{1,4\},\{2,3\})$ (when the order is clear from context).
-
-\begin{figure}
-	\includegraphics[scale=.9]{diagonalPermutahedron2}
-	\caption{Labelings of the faces of the permutahedron~$\Perm[3]$ by ordered partitions of~$[3]$ (left) and of the faces of the LA diagonal  $\LAD$ of the permutahedron~$\Perm[3]$ by pairs of compatible ordered partitions of~$[3]$ (right).}
-	\label{fig:diagonalPermutahedron2}
-\end{figure}
-\vincent{I have included this picture here to be sure that we don't forget it. I should make one for the SU diagonal~$\SUD$ as well.}
-\Kurt{I think there is a typo, $23|1\times 1|2|3$ on top left edge, should be $23|1\times 3|2|1$.}
-\vincent{You are right! thank you. I just corrected it.}
-
-Let us recall the universal formula expressing combinatorially the cellular image of the diagonal of a polytope $P$ obtained in \cite[Theorem 1.26]{LA21}.
-It is expressed in terms of the \emph{fundamental hyperplane arrangement} of $P$. 
-
-\begin{definition}[Fundamental hyperplane arrangement]
-    The \emph{fundamental hyperplane arrangement} $\mathcal{H}_P$ of a polytope $P \subset \R^n$ is the set of hyperplanes whose normal vectors are a choice of directions of the edges of $P\cap \rho_z P$, for any $z \in P$. 
-\end{definition}
-
-\begin{example}
-    Let $U(n):=\{ (I,J) \ | \ I,J \subset [n], |I|=|J|>0, I \cap J = \emptyset\}$.
-    The fundamental hyperplane arrangement of the $(n-1)$-permutahedron is given by the family of hyperplanes \[ \sum_{i \in I} x_i = \sum_{j \in J} x_j \ ,  \ (I,J) \in U(n) \ . \] 
-\end{example}
-
-\Guillaume{Mentionner le travail en cours de Lionel Pournin?}
-
-\begin{theorem}[Universal formula]
-    \label{thm:universal-formula}
-    Let $(P,\vec v)$ be a positively oriented polytope in $\R^n$. 
-For each $H\in\mathcal{H}_P$, we choose a normal vector $\vec d_H$ such that $\langle \vec d_H, \vec v \rangle >0$. 
-We have 
-\begin{eqnarray}
-(F,G) \in \Ima \triangle_{(P,\vec v)} 
-&\iff& \forall H \in \mathcal{H}_P(F,G), \ \exists i , \ \langle \vec F_i, \vec d_H \rangle < 0  \text{ or } \exists j , \ \langle \vec G_j, \vec d_H \rangle > 0  \\ 
-&\iff& \forall H \in \mathcal{H}_P , \ \exists i , \ \langle \vec F_i, \vec d_H \rangle < 0  \text{ or } \exists j , \ \langle \vec G_j, \vec d_H \rangle > 0 \ . 
-\end{eqnarray} 
-\end{theorem}
-
-Here, the $\vec F_i$ and $\vec G_j$ are vectors spanning the normal cones of the respective faces, and $\mathcal{H}_P(F,G)$ is a subset of hyperplanes which are specifically associated to the pair $(F,G)$.
-Applying this Theorem to $P$ the permutahedron, we obtain the following. 
-
-\begin{corollary}
-    Any choice of diagonal of the $(n-1)$-permutahedron is given combinatorially by a choice of inequalities \[ \sum_{i \in I} x_i > \sum_{j \in J} x_j \text{ or } \sum_{i \in I} x_i < \sum_{j \in J} x_j \]
-    for all $(I,J) \in U(n)$. 
-\end{corollary}
-
-\begin{proof}
-    A choice of diagonal is given by a choice of vector in a chamber of $\mathcal{H}_P$, two vectors living in the same chamber inducing the same diagonal \cite[Proposition 1.23]{LA21}.
-\end{proof}
-
-\vincent{Here, we need to treat all diagonals. Each choice of region in the fundamental hyperplane arrangement gives an orientation of both partitions of a partition forest. We need to explicitly describe this orientation.}
+\subsection{LA diagonal}
+\label{subsec:LAdiagonal}
 
 Let us now recall the specific choice of chambers from \cite[Theorem 3.16]{LA21}.
 
@@ -1973,10 +1986,17 @@ Now we will be interested in the solutions of the systems associated to the pair
 
 We will sometimes refer to the elements of $\LA(\sigma,\tau)$ as the \emph{minimal $(I,J)$-pairs}.
 
+%%%%%%%%%%%%%%%
+
+\subsection{SU diagonal}
+\label{subsec:SUdiagonal}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
 \section{Operadic diagonals}
+\label{sec:operadicDiagonals}
 
 %%%%%%%%%%%%%%%
 
@@ -2187,7 +2207,7 @@ We will show this second isomorphism has the conceptual benefit of sending left 
 %%%%%%%%%%%%%%%
 
 \subsection{Facets of operadic diagonals}
-
+\vincent{The next two subsections should be integrated in \cref{sec:LASUdiagonals}.}
 We have seen in \cref{subsec:multiBraidArrangement} that facets of any diagonal of the permutahedron are in bijection with $(2,n)$-trees, that is, pairs of unordered partitions of $[n]$ whose intersection graph is a tree.
 These pairs of partitions were first studied and called essential complementary partitions in \cite{chen1969computer,chen1971tables,kajitani1982number}, as such we will denote the set of all $(2,n)$-trees by $\EC$. \Guillaume{change notation for $(2,n)$-trees}
 In this section, we prove that particular orderings of $\EC$ recover the facets of the four operadic diagonals of \cref{prop:unique-operad}.
@@ -2548,6 +2568,7 @@ It follows directly from the fish condition: if the fish condition is satisfied,
 \section{The Saneblidze-Umble diagonal}
 
 \Guillaume{A reecrire plus tard}
+\vincent{This section should be called Shifts.}
 
 In this section we show that $\SUD$, with its $(I,J)$-description, is the same as the original Saneblidze-Umble diagonal \cite{SaneblidzeUmble04}.
 First, we prove that the original $\SU$ diagonal, which we refer to as ``subset $1$-shift $\SUD$", is equivalent to the ``$1$-shift $\SUD$", where shifts a performed on singletons only \Guillaume{REF}. 
