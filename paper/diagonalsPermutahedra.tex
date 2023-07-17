@@ -1509,11 +1509,13 @@ For this, we need the following posets.
 Consider an $(\ell,n)$-partition forest~$\b{F}$ and denote by~$cc(\b{F})$ the connected components of~$\b{F}$.
 For each pair~$s,t \in [n]$ in distinct connected components of~$cc(\b{F})$, we define the chain~$<_{s,t}$ on the $\ell$ triples~$(i,s,t)$ for~$i \in [\ell]$ given by the order of the values~$A_{i,s,t}$.
 The \defn{inversion poset}~$\Inv(\b{F}, \b{a})$ is then the poset obtained by quotienting the disjoint union of the chains~$<_{s,t}$ (for all~$s,t \in [n]$ in distinct connected components of~$cc(\b{F})$) by the equivalence relation~$(i,s,t) \equiv (i,s',t')$ if~$s$ and~$s'$ belong to the same part of~$F_i$ and~$t$ and~$t'$ belong to the same part of~$F_i$.
+%Note that the map~$\phi: (i,s,t) \to (i,t,s)$ is an anti-isomorphism of the poset~$\Inv(\b{F}, \b{a})$.
+We say that a subset~$X$ of~$\Inv(\b{F}, \b{a})$ is antisymmetric if~$(i,s,t) \in X \iff (i,t,s) \notin X$.
 \end{definition}
 
 \begin{proposition}
 \label{prop:PFtoOPF2}
-The ordered $(\ell,n)$-partition forests of the upper set~$\orientedForestPoset(\b{a})$ with a given underlying $(\ell,n)$-partition forest~$\b{F}$ are in bijection with the lower sets of the inversion poset~$\Inv(\b{F}, \b{a})$.
+The ordered $(\ell,n)$-partition forests of the upper set~$\orientedForestPoset(\b{a})$ with a given underlying $(\ell,n)$-partition forest~$\b{F}$ are in bijection with the antisymmetric lower sets of the inversion poset~$\Inv(\b{F}, \b{a})$.
 \end{proposition}
 
 \begin{proof}
@@ -1521,9 +1523,13 @@ Consider an ordered $(\ell,n)$-partition forest~$\orient{\b{F}}$ of the upper se
 Let~$\b{x}$ be any point of the face of~$\multiBraidArrangement(\b{a})$ corresponding to~$\orient{\b{F}}$.
 For each pair~$s,t \in [n]$ in distinct connected components of~$cc(\b{F})$, let~$I_{s,t}(\orient{\b{F}})$ be the set of indices~$i \in [\ell]$ such that~$x_s - x_t < A_{i,s,t}$.
 Note that~$I_{s,t}$ is by definition a lower set of the chain~$<_{s,t}$ of~$\Inv(\b{F}, \b{a})$.
-Hence, $\bigcup_{s,t} I_{s,t} / {\equiv}$ is a lower set of~$\Inv(\b{F}, \b{a})$.
+Hence, $I(\orient{F}) \eqdef \bigcup_{s,t} I_{s,t} / {\equiv}$ is a lower set of~$\Inv(\b{F}, \b{a})$.
+Moreover, it is clearly antisymmetric since
+\[
+(i,s,t) \in I(\orient{F}) \iff x_s - x_t < A_{i,s,t} \iff x_t - x_s > A_{i,t,s} \iff (i,t,s) \notin I(\orient{F}).
+\]
 
-Conversely, given a lower set~$I$ of~$\Inv(\b{F}, \b{a})$, we can reconstruct an ordered $(\ell,n)$-partition forest~$\orient{\b{F}}$ by ordering each pair~$s,t \in [n]$ in~$\orient{F}_i$ 
+Conversely, given an antisymmetric lower set~$I$ of~$\Inv(\b{F}, \b{a})$, we can reconstruct an ordered $(\ell,n)$-partition forest~$\orient{\b{F}}$ by ordering each pair~$s,t \in [n]$ in~$\orient{F}_i$ 
 \begin{itemize}
 \item according to \cref{prop:PFtoOPF1} (hence independently of~$I$) if $s$ and~$t$ belong to the same connected component of~$\b{F}$,
 \item according to~$I$ if~$s$ and~$t$ belong to distinct connected components of~$\b{F}$. Namely, we place the block of~$\orient{F}_i$ containing~$s$ before the block of~$\orient{F}_i$ containing~$t$ if and only if~$(i,s,t) \in I$.
