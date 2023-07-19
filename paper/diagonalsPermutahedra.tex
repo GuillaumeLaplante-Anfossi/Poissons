@@ -1785,6 +1785,7 @@ Let
 \[
 \Un(n) \eqdef \{ (I,J) \ | \ I,J \subset [n] \text{ with } |I|=|J|>0 \text{ and } I \cap J = \varnothing\}.
 \]
+\vincent{Change $(I,J)$ to $\{I,J\}$???}
 The fundamental hyperplane arrangement of the permutahedron~$\Perm$ is given by the family of hyperplanes
 \[
 \sum_{i \in I} x_i = \sum_{j \in J} x_j,
@@ -2056,23 +2057,31 @@ We will see in Part III \Guillaume{Hyperlink} that these choice of orderings ind
 \subsection{The $\LA$ and $\SU$ diagonals}
 \label{subsec:LASUdiagonal}
 
-Recall from \cref{cor:choice-inequalities} that a diagonal of the permutahedra is given by a choice of ordering of the sets
+Recall from \cref{cor:choice-inequalities} that a diagonal of the permutahedron~$\Perm$ is given by a choice of ordering of the sets
 \[
 \Un(n)  \eqdef  \set{\{I,J\}}{I,J \subset [n] \text{ with } |I|= |J| > 0 \text{ and } I\cap J = \varnothing}.
 \]
-By \defn{ordering} of $\Un=\{\Un(n)\}_{n \geq 1}$, we mean a family of sets $\Or:=\{\Or(n)\}_{n\geq 1}$ where the elements of each $\Or(n)$ are choices of ordered pairs $(I,J)$ or $(J,I)$, for each $\{I,J\} \in \Un(n)$.
+As we consider in this section diagonals for all permutahedra, we define~$\Un \eqdef \{\Un(n)\}_{n \geq 1}$.
 
 \begin{definition}
-The \defn{$\LA$ and $\SU$ orderings} are defined by
+An \defn{ordering} of~$\Un(n)$ is a choice of one of the two ordered pairs $(I,J)$ or $(J,I)$ for each $\{I,J\} \in \Un(n)$.
+An \defn{ordering} of $\Un \eqdef \{\Un(n)\}_{n \ge 1}$ is a family~$\Or \eqdef \{\Or(n)\}_{n \ge 1}$ where~$\Or(n)$ is an ordering of~$\Un(n)$ for each~$n \ge 1$.
+\end{definition}
+
+\begin{definition}
+The \defn{$\LA$} and~\defn{$\SU$ orderings} are defined by
 \begin{itemize} 
-    \item $\LA(n) \eqdef \set{(I,J)}{\{I,J\} \in \Un(n), \ \min(I\cup J) = \min I}$ and
-    \item $\SU(n) \eqdef \set{(I,J)}{\{I,J\} \in \Un(n), \ \max(I\cup J) = \max J}$.
+    \item $\LA(n) \eqdef \set{(I,J)}{\{I,J\} \in \Un(n) \text{ and } \min(I\cup J) = \min I}$ and
+    \item $\SU(n) \eqdef \set{(I,J)}{\{I,J\} \in \Un(n) \text{ and } \max(I\cup J) = \max J}$.
 \end{itemize}
 \end{definition}
 
 \begin{definition}
-    The \defn{$\LA$ diagonal} $\LAD$ (resp. \defn{$\SU$ diagonal} $\SUD$) of the $(n-1)$-permutahedron is given by any vector $\vec v \in \R^n$ satisfying  
-    \[\sum_{i \in I} v_i > \sum_{j \in J} v_j  \ , \forall (I,J) \in \LA(n) \quad (\text{resp. } \SU(n)) \ . \]
+The \defn{$\LA$ diagonal} $\LAD$ (resp. \defn{$\SU$ diagonal} $\SUD$) of the permutahedron~$\Perm$ is given by any vector $\vec v \in \R^n$ satisfying  
+\[
+\sum_{i \in I} v_i > \sum_{j \in J} v_j,
+\]
+for all~$(I,J) \in \LA(n)$ (resp.~$(I,J) \in \SU(n)$).
 \end{definition}
 
 We will prove in \cref{thm:recover-SU} that $\SUD$ is a topological enhancement of the Saneblidze--Umble diagonal from \cite{SaneblidzeUmble04}.
@@ -2095,7 +2104,7 @@ Note that this map is a particular instance of the eponym map introduced in Poin
 
 \begin{definition}
 \label{def:operadic diagonal}
-A family of diagonals $\triangle:=\{\triangle_n : P_n \to P_n \times P_n\}_{n\geq 1}$ of the permutahedra is \defn{operadic} if for every face $A_1 | \ldots | A_k$ of the permutahedron $P_{|A_1|+\cdots + |A_k|-1}$, the map $\Theta$ induces a topological cellular isomorphism \[  \triangle(A_1) \times \ldots \times \triangle(A_k) \cong \triangle(A_1 | \ldots | A_k) \ . \]
+A family of diagonals $\triangle \eqdef \{\triangle_n : P_n \to P_n \times P_n\}_{n\geq 1}$ of the permutahedra is \defn{operadic} if for every face $A_1 | \ldots | A_k$ of the permutahedron $P_{|A_1|+\cdots + |A_k|-1}$, the map $\Theta$ induces a topological cellular isomorphism \[  \triangle(A_1) \times \ldots \times \triangle(A_k) \cong \triangle(A_1 | \ldots | A_k) \ . \]
 \end{definition}
 In other words, we require that the diagonal $\triangle$ commutes with the map $\Theta$, see \cite[Section 4.2]{LA21}.
 At the algebraic level, this property is called ``comultiplicativity" in \cite{SaneblidzeUmble04}.
