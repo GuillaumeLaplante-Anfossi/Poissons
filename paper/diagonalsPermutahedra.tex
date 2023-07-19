@@ -148,7 +148,7 @@
 \newcommandx{\forestPoset}[2][1 = n, 2 = \ell]{\mathsf{Fo}_{#1}^{#2}} % partition forest poset
 \newcommandx{\rainbowForests}[2][1 = n, 2 = \ell]{\mathsf{RF}_{#1}^{#2}} % rainbow forests
 \newcommandx{\rainbowTrees}[2][1 = n, 2 = \ell]{\mathsf{RT}_{#1}^{#2}} % rainbow trees
-\newcommandx{\Perm}[1][1 = n]{\mathds{P}\mathsf{erm}(#1)} % permutahedron
+\newcommandx{\Perm}[1][1 = n]{\mathsf{Perm}(#1)} % permutahedron
 \makeatletter
 \def\rightharpoonupfill@{\arrowfill@\relbar\relbar\rightharpoonup}
 \newcommand{\overrightharpoonup}{%
@@ -313,7 +313,7 @@ n^{\ell-1} \binom{n-1}{k_1, \dots, k_\ell} \prod_{i=1}^\ell (n-k_i)^{k_i-1}.
 The first cellular diagonal for the permutahedra was defined at the level of chains by S. Saneblidze and R. Umble in \cite{SaneblidzeUmble04}, we will call it the \emph{SU diagonal}. 
 Cellular diagonals for the associahedra and the multiplihedra were also defined there, via projection. 
 The first topological map for the permutahedra was given in \cite{LA21} -we will call it the \emph{LA diagonal}, where a general theory of cellular diagonals of polytopes was developed. 
-The LA diagonal, however, is distinct from the SU diagonal at the cellular level \cite[Remark 3.19]{LA21}. 
+The LA diagonal, however, is distinct from the SU diagonal at the cellular level \cite[Rem.~3.19]{LA21}. 
 
 computer program for the SU diagonal \cite{vejdemo-johanssonEnumeratingSaneblidzeUmbleDiagonal2007}; we give a much more effective computer program (however, without the signs)
 
@@ -334,7 +334,7 @@ Perspectives:
 \begin{table}[h]
 	\centerline{
 		\begin{tabular}{c|c|rrrrrrr|l}
-			\textbf{Pairs $(F,G) \in \Ima\triangle_{(P,\vec v)}$} & \textbf{Polytopes} & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{\cite{OEIS}} \\
+			\textbf{Pairs $(F,G) \in \Ima\triangle_{(P,\b{v})}$} & \textbf{Polytopes} & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{\cite{OEIS}} \\
 			\hline
 			& \text{Associahedra} & 1 & 2 & 6 & 22 & 91 & 408 & 1938 & \OEIS{A000139}  \\
 			$ \dim F + \dim G = \dim P$  & \text{Multiplihedra} & 1 & 2 & 8 & 42 & 254 & 1678 & 11790 &  to appear \\
@@ -354,10 +354,13 @@ Perspectives:
 
 \clearpage
 \part{Combinatorics of multiple braid arrangements}
-\label{part:combinatorics}
+\label{part:multiBraidArrangements}
 
-In this section, we study the combinatorics of hyperplane arrangements obtained as unions of generically translated copies of the braid arrangement.
+In this first part, we study the combinatorics of hyperplane arrangements obtained as unions of generically translated copies of the braid arrangement.
 %Specializing to two copies, we derive enumerative results on the diagonals of the permutahedra.
+In \cref{sec:arrangements}, we first recall some classical facts on the enumeration of hyperplane arrangements (\cref{subsec:arrangements}), present the classical braid arrangement (\cref{subsec:braidArrangement}), and define our multiple braid arrangements (\cref{subsec:multiBraidArrangement}).
+Then in \cref{sec:flatPoset}, we describe their flat posets in terms of partition forests (\cref{subsec:partitionForests}) and rainbow forests (\cref{subsec:rainbowForests}), from which we obtain their M\"obius polynomial (\cref{subsec:MobiusPolynomialMultiBraidArrangement}), and some surprizing formulas for their numbers of vertices and regions (\cref{subsec:verticesFacetsMultiBraidArrangement}).
+Finally in \cref{sec:facePoset}, we describe their face posets in terms of ordered partition forests (\cref{subsec:orderedPartitionForests}), and explore some combinatorial criteria to describe the ordered partition forests that appear as faces for a given multiple braid arrangement (\cref{subsec:PFtoOPF,subsec:criterionOPF}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -638,7 +641,7 @@ For any integers~$\ell,n \geq 1$, and a generic matrix~$\b{a} \eqdef (a_{i,j}) \
 %In practice, consider the hyperplanes~$\set{\b{x} \in \HH}{x_s - x_t = A_{i,s,t}}$ for all~$1 \le s < t \le n$ and~$i \in [\ell]$, where $A_{i,s,t} \eqdef \smash{\sum_{s \le j < t} a_{i,j}}$ for an arbitrary generic matrix~$(a_{i,j}) \in M_{\ell,n-1}(\R)$.
 %\end{remark}
 
-The objective of \cref{part:combinatorics} is to explore the combinatorics of these multi braid arrangements.
+The objective of \cref{part:multiBraidArrangements} is to explore the combinatorics of these multiple braid arrangements.
 We have split our presentation into two sections:
 \begin{itemize}
 \item In \cref{sec:flatPoset}, we describe the flat poset~$\flatPoset[\multiBraidArrangement]$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ in terms of $(\ell,n)$-partition forests (\cref{subsec:partitionForests}) and labeled $(\ell,n)$-rainbow forests (\cref{subsec:rainbowForests}), which enables us to derive its M\"obius, $f$- and $b$- polynomials (\cref{subsec:MobiusPolynomialMultiBraidArrangement}), from which we extract interesting formulas for the number of vertices and regions of~$\multiBraidArrangement$ (\cref{subsec:verticesFacetsMultiBraidArrangement}). Note that all these results are independent of the translation vectors.
@@ -646,7 +649,7 @@ We have split our presentation into two sections:
 \end{itemize}
 
 \begin{remark}
-Connections to other multi braid arrangements. Shi arrangements (non generic). Discriminantal arrangements (fully generic).
+Connections to other multiple braid arrangements. Shi arrangements (non generic). Discriminantal arrangements (fully generic).
 \vincent{todo}
 \end{remark}
 
@@ -780,7 +783,7 @@ We have
  &=\sum_{G \in \rainbowForests} y^{n-1-\ell-\#E(G)} \sum_{F \in \rainbowForests, F \leq G } \mu_{\forestPoset}(F,G) \, x^{n-1-\ell-\#E(F)}, \\
  &=\sum_{G \in \forestPoset} y^{n-1-\ell n+\sum_{i=1}^\ell \#G_i} \sum_{F \in \forestPoset, F \leq G } \mu_{\forestPoset}(F,G) \, x^{n-1-\ell n+\sum_{i=1}^\ell \#F_i},
 \end{align*}
-where $E(G)$ (resp. $E(G,i)$) denotes the set of edges (resp.~of edges of color $i$) in $G$ which satisfies $n-\#E(G,i) =  \#G_i$.
+where $E(G)$ (resp.~$E(G,i)$) denotes the set of edges (resp.~of edges of color $i$) in $G$ which satisfies $n-\#E(G,i) =  \#G_i$.
 
 Observe that for~$\b{F} \eqdef (F_1, \dots, F_\ell)$ and~$\b{G} \eqdef (G_1, \dots, G_\ell)$ in~$\forestPoset$, we have
 \[
@@ -1591,121 +1594,157 @@ Our choices just limit the amount of oriented cycles in~$D_{\orient{\pi}}$.
 
 \clearpage
 \part{Diagonals of permutahedra}
+\label{part:diagonalsPermutahedra}
 
-%Commented to compile faster.
+This second part is devoted to the study of the combinatorics of the diagonals of the permutahedra.
+In \cref{sec:cellularDiagonals}, we first recall the definition and some know facts about cellular diagonals of polytopes (\cref{subsec:cellularDiagonalsPolytopes}), which we immediately specialize to the classical permutahedron (\cref{sec:cellularDiagonalsPermutahedra}), and connect to \cref{part:multiBraidArrangements} to derive enumerative statements on the diagonals of permutahedra (\cref{subsec:enumerationDiagonalPermutahedra}).
+
+\vincent{To complete}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Cellular diagonals}
+\label{sec:cellularDiagonals}
 
 %%%%%%%%%%%%%%%
 
 \subsection{Cellular diagonals for polytopes}
+\label{subsec:cellularDiagonalsPolytopes}
 
-The usual \emph{thin diagonal} of a topological space $X$ is the map~$\Delta : X \to X \times X$ defined by $\Delta(x):=(x,x)$ for all $x \in X$.
+We first define the thin diagonal of a polytope and its approximations by cellular diagonals.
+\vincent{Give with one sentence the motivations for these cellular approximations...}
 
 \begin{definition} 
-\label{def:cellular diagonal}
-    A \defn{cellular diagonal} of a polytope $P$ is a continuous map $P \to P \times P$ such that
-    \begin{enumerate}
-        \item its image is a union of $\dim P$-faces of $P\times P$ (i.e. it is \emph{cellular}),
-        \item it agrees with the thin diagonal on the vertices of $P$, and
-        \item it is homotopic to the thin diagonal, relative to the image of the vertices. 
-    \end{enumerate}
-    A cellular diagonal is said to be \defn{face-coherent} if its restriction to a face of $P$ is itself a cellular diagonal for that face. 
+\label{def:thinDiagonal}
+The \defn{thin diagonal} of a set $X$ is the map~$\delta : X \to X \times X$ defined by $\delta(x) \eqdef (x,x)$ for all $x \in X$.
+See \cref{fig:examplesDiagonals1}\,(left).
+\end{definition}
+
+\begin{definition} 
+\label{def:cellularDiagonal}
+A \defn{cellular diagonal} of a $d$-dimensional polytope $P$ is a continuous map ${\Delta : P \to P \times P}$ such that
+\begin{enumerate}
+\item its image is a union of $d$-dimensional faces of $P\times P$ (\ie it is \defn{cellular}),
+\item it agrees with the thin diagonal of~$P$ on the vertices of $P$, and
+\item it is homotopic to the thin diagonal of~$P$, relative to the image of the vertices of~$P$. 
+\end{enumerate}
+See \cref{fig:examplesDiagonals1}\,(middle left).
+A cellular diagonal is said to be \defn{face-coherent} if its restriction to a face of $P$ is itself a cellular diagonal for that face. 
 \end{definition}
 
 A powerful geometric technique to define face-coherent cellular diagonals on polytopes first appeared in \cite{fultonIntersectionTheoryToric1997a}, was presented in \cite{masudaDiagonalAssociahedra2021}, and was fully developed in \cite{LA21}.
-The key idea is that any vector $\vec v$ in generic position with respect to $P$ defines a cellular diagonal of $P$. 
+The key idea is that any vector $\b{v}$ in generic position with respect to $P$ defines a cellular diagonal of $P$.
+We denote by~$\min_{\b{v}}(P)$ (resp.~$\max_{\b{v}}(P)$) the unique vertex of~$P$ which minimizes (resp.~maximizes) the scalar product with~$\b{v}$. 
 
 \begin{definition}
-    \label{def:diagonal}
-    A \defn{cellular diagonal} or simply a \defn{diagonal} of a polytope~$P$ is a tight coherent section~$\triangle_{(P,\vec v)}$ of the projection $P \times P \to P, (x,y) \mapsto (x+y)/2$.
-    It is given explicitly by a choice of generic vector $\vec v$ via the formula
-    \begin{align*}
-        \begin{array}{rlcl}
-        \triangle_{(P,\vec v)}\  : & P &\to  &P\times P\\
-        &z & \mapsto& 
-        \bigl(\min_{\vec v}(P\cap \rho_z P),\,  \max_{\vec v}(P\cap \rho_z P)\bigr) \ ,
-        \end{array}
-    \end{align*}
-    where $\rho_z P := 2z-P$ denotes the reflection of $P$ with respect to the point $z$, and $\min_{\vec v}(P)$ (resp. $\max_{\vec v}(P)$) denotes the unique vertex of $P$ which minimizes (resp. maximizes) the scalar product with $\vec v$. 
+\label{prop:diagonal}
+For any vector $\b{v}$ in generic position with respect to $P$, the tight coherent section~$\triangle_{(P,\b{v})}$ of the projection $P \times P \to P, (\b{x}, \b{y}) \mapsto (\b{x}+\b{y})/2$ selected by the vector~$(-\b{v}, \b{v})$ defines a cellular diagonal of~$P$.
+More precisely, $\triangle_{(P,\b{v})}$ is given by the explicit formula
+\begin{align*}
+\begin{array}{rlcl}
+	\triangle_{(P,\b{v})}\ : & P & \to & P\times P \\
+	& \b{z} & \mapsto & \bigl( \min_{\b{v}}(P\cap \rho_{\b{z}} P), \, \max_{\b{v}}(P\cap \rho_{\b{z}} P) \bigr),
+\end{array}
+\end{align*}
+where $\rho_{\b{z}} P \eqdef 2\b{z}-P$ denotes the reflection of $P$ with respect to the point~$\b{z}$. 
 \end{definition}
 
-\begin{figure}[h!]
-	\includegraphics[scale=.9]{diagonalTriangle3.pdf}
-    \quad
-    \includegraphics[scale=.9]{diagonalTriangle4.pdf}
-    \quad
-    \includegraphics[scale=.9]{diagonalSquarre3.pdf}
-    \includegraphics[scale=.9]{diagonalSquarre4.pdf}
-	\caption{The thin (in blue) and cellular (in red) diagonals of the triangle and the square.}
-	\label{fig:diagonal-2simplex}
+\begin{figure}[p]
+	\centerline{\scalebox{1.25}{
+	\begin{tabular}{c@{\hspace{-.2cm}}c@{\hspace{-.2cm}}c@{\hspace{-.2cm}}c}
+		\includegraphics[scale=1.2]{diagonalSegment1} &
+		\includegraphics[scale=1.2]{diagonalSegment2} &
+		\raisebox{-.2cm}{\includegraphics[scale=1]{diagonalSegment3}} &
+		\raisebox{-.2cm}{\includegraphics[scale=1]{diagonalSegment4}}
+		\\
+		\includegraphics[scale=.9]{diagonalTriangle1} &
+		\includegraphics[scale=.9]{diagonalTriangle2} &
+		\includegraphics[scale=.6]{diagonalTriangle3} &
+		\includegraphics[scale=.6]{diagonalTriangle4}	
+		\\
+		\includegraphics[scale=.9]{diagonalSquarre1} &
+		\includegraphics[scale=.9]{diagonalSquarre2} &
+		\includegraphics[scale=.6]{diagonalSquarre3} &
+		\includegraphics[scale=.6]{diagonalSquarre4}
+	\end{tabular}
+	}}
+	\caption{The diagonals of the segment (top), the triangle (middle) and the squarre (bottom). For each of them, we have represented the thin diagonal of~$P$ (left, in blue) and the cellular diagonal of~$P$ (middle left, in red) both in~$P \times P$, and the polytopal subdivision of~$P$ (middle right) and the common refinement of the two copies of the normal fan of~$P$ (right) both in~$P$.}
+	\label{fig:examplesDiagonals1}
 \end{figure}
 
-The image of $\triangle_{(P,\vec v)}$ is a family of pairs of faces $F \times G \subset P \times P$.
-The generic vector $\vec v$ orients the $1$-skeleton of $P$, which defines for each face $F$ of $P$ a unique minimum vertex~$\min_{\vec v}(F)$, and a unique maximum vertex $\max_{\vec v}(F)$.
-The following inclusion was proved in \cite[Prop. 1.17]{LA21}.
+%\begin{figure}[h!]
+%	\includegraphics[scale=.9]{diagonalTriangle3}
+%	\quad
+%	\includegraphics[scale=.9]{diagonalTriangle4}
+%	\quad
+%	\includegraphics[scale=.9]{diagonalSquarre3}
+%	\includegraphics[scale=.9]{diagonalSquarre4}
+%	\caption{The thin (in blue) and cellular (in red) diagonals of the triangle and the square.}
+%	\label{fig:examplesDiagonals1}
+%\end{figure}
 
-\begin{proposition}
-    For any polytope $P$, and for any generic vector $\vec v$, we have that 
-    \begin{equation}
-        \Ima\triangle_{(P, \vec v)} \subset \bigcup_{\substack{F,G \subset P \\ \max_{\vec v}(F) \leq \min_{\vec v}(G)}} F \times G \ . \label{eq:magique}
-    \end{equation}
-\end{proposition}
-
-That is, the pairs of faces in the image of a cellular diagonal are always comparable under the partial order induced by $\vec v$ on the $1$-skeleton. 
-
-\begin{remark}
-    For some polytopes such as the simplices, the cubes, the Hoschild polytopes, and the associahedra, the reverse inclusion also holds.
-    The resulting equality enhancing (\ref{eq:magique}) was called \defn{magical formula} by J.-L. Loday. 
-    Polytopes of greater complexity such as the multiplihedra, the operahedra or the permutahedra, do not possess this exceptional property. 
-\end{remark}
-
-The diagonal $\triangle_{(P,\vec v)}$ defines a canonical polytopal subdivision of $P$, obtained by drawing the polytopes $(F+G)/2$, for all pairs of faces $(F,G) \in \Ima \triangle_{(P,\vec v)}$.
-
-\begin{figure}[h!]
-	\includegraphics[scale=.2]{diagonalSimplexGuillaume.png}
-    \quad
-    \includegraphics[scale=.2]{diagonalCubeGuillaume.png}
-    \quad
-    \includegraphics[scale=.2]{diagonalPermutahedronGuillaume.png}
-	\caption{The subdivisions induced by cellular diagonals of the $3$-simplex, cube, and permutahedron.}
-	\label{fig:diagonal-3simplex}
+\begin{figure}[p]
+	\centerline{
+		\includegraphics[scale=.3]{diagonalSimplexGuillaume.png}
+		\includegraphics[scale=.35]{diagonalCubeGuillaume.png}
+		\includegraphics[scale=.3]{diagonalPermutahedronGuillaume.png}
+	}
+	\caption{The subdivisions induced by cellular diagonals of the $3$-dimensional simplex (left), cube (middle), and permutahedron (right).}
+	\label{fig:examplesDiagonals2}
 \end{figure}
 
-\begin{definition}
-    The \defn{$f$-vector} of the diagonal $\triangle_{(P,\vec v)}$ is the number of faces of $P\times P$ of given total dimension in its cellular image.
-    Alternatively, it is the $f$-vector of the polytopal complex~$\pi (\triangle_{(P,\vec v)})$.
-\end{definition}
+The image of $\triangle_{(P,\b{v})}$ is a union of pairs of faces $F \times G$ of the Cartesian product~$P \times P$.
+By drawing the polytopes~${(F+G)/2}$ for all pairs of faces $(F,G) \in \Ima \triangle_{(P,\b{v})}$, we can visualize~$\triangle_{(P,\b{v})}$ as a polytopal subdivision of $P$.
+See \cref{fig:examplesDiagonals1}\,(middle right) and \cref{fig:examplesDiagonals2}.
 
-For the purpose of studying this $f$-vector, one can study the dual of the polytopal complex, see \cref{fig:diagonalPermutahedron1}.
-The following was proven in \cite[Corollary 1.4]{LA21}.
+It turns out that the dual of this complex is just the common refinement of two translated copies of the normal fan of~$P$.
+See \cref{fig:examplesDiagonals1}\,(right).
+Let us recall here that the \defn{normal cone} of a face~$F$ of a polytope~$P$ in~$\R^d$ is the cone of directions~$\b{c} \in \R^d$ such that the maximum of the scalar product~$\dotprod{\b{c}}{\b{x}}$ over~$P$ is attained for some~$\b{x}$ in~$F$, and that the \defn{normal fan} of~$P$ is the fan formed by the normal cones of all faces of~$P$.
+We thus obtain the following statement.
 
-\begin{proposition}
-    The $f$-vector of the diagonal $\triangle_{(P,\vec v)}$ is given by the opposite of the $f$-vector of the polyhedral complex made of two copies of the normal fan of $P$, one of them perturbed in the direction $\vec v$. 
+\begin{proposition}[{\cite[Coro.~1.4]{LA21}}]
+The inclusion poset on the faces in the image of the diagonal~$\triangle_{(P,\b{v})}$ is isomorphic to the reverse inclusion poset of the faces of the common refinement of two copies of the normal fan of~$P$, translated from each other by the vector~$\b{v}$. 
+\end{proposition}
+
+Moreover, the following statement relates the image of the diagonal~$\triangle_{(P, \b{v})}$ to the intervals of the poset obtained by orienting the $1$-skeleton of~$P$ in direction~$\b{v}$.
+
+\begin{proposition}[{\cite[Prop. 1.17]{LA21}}]
+For any polytope $P$ and any generic vector $\b{v}$,
+\begin{equation}
+\label{eq:magique}
+\Ima\triangle_{(P, \b{v})} \quad \subseteq \bigcup_{\substack{F,G \text{ faces of } P \\ \max_{\b{v}}(F) \, \le \, \min_{\b{v}}(G)}} F \times G \ .
+\end{equation}
 \end{proposition}
 
 \begin{remark}
-    This is in fact precisely the content of the \emph{Fulton--Sturmfels formula} for the intersection product on toric varieties \cite[Theorem 4.2]{fultonIntersectionTheoryToric1997a}, where the definition of cellular diagonals as tight coherent sections first appeared.
+For some polytopes such as the simplices, the cubes, the Hoschild polytopes, and the associahedra, the reverse inclusion also holds.
+\vincent{Hochschild?}
+The resulting equality enhancing (\ref{eq:magique}) was called \defn{magical formula} by J.-L. Loday.
+\vincent{reference}
+Polytopes of greater complexity such as the multiplihedra, the operahedra or the permutahedra, do not possess this exceptional property. 
 \end{remark}
 
-The following \defn{universal formula} \cite[Theorem 1.26]{LA21} expresses combinatorially the cellular image of the diagonal of a polytope $P$.
+\begin{remark}
+This is in fact precisely the content of the \emph{Fulton--Sturmfels formula} for the intersection product on toric varieties \cite[Thm.~4.2]{fultonIntersectionTheoryToric1997a}, where the definition of cellular diagonals as tight coherent sections first appeared.
+\end{remark}
+
+\vincent{To discuss with Guillaume from this point...}
+The following \defn{universal formula} \cite[Thm.~1.26]{LA21} expresses combinatorially the cellular image of the diagonal of a polytope $P$.
 
 \begin{definition}
-    The \defn{fundamental hyperplane arrangement} $\mathcal{H}_P$ of a polytope $P \subset \R^n$ is the set of hyperplanes whose normal vectors are a choice of directions of the edges of $P\cap \rho_z P$, for any $z \in P$. 
+The \defn{fundamental hyperplane arrangement} $\mathcal{H}_P$ of a polytope $P \subset \R^n$ is the set of hyperplanes whose normal vectors are a choice of directions of the edges of $P\cap \rho_z P$, for any $z \in P$. 
 \end{definition}
 
 \begin{theorem}
 \label{thm:universal-formula}
-Let $(P,\vec v)$ be a positively oriented polytope in $\R^n$. 
-For each $H\in\mathcal{H}_P$, we choose a normal vector $\vec d_H$ such that $\langle \vec d_H, \vec v \rangle >0$. 
+Let $(P,\b{v})$ be a positively oriented polytope in $\R^n$. 
+For each $H\in\mathcal{H}_P$, we choose a normal vector $\vec d_H$ such that $\langle \vec d_H, \b{v} \rangle >0$. 
 We have 
-\begin{eqnarray}
-(F,G) \in \Ima \triangle_{(P,\vec v)} 
+\begin{eqnarray*}
+(F,G) \in \Ima \triangle_{(P,\b{v})} 
 &\iff& \forall H \in \mathcal{H}_P(F,G), \ \exists i , \ \langle \vec F_i, \vec d_H \rangle < 0  \text{ or } \exists j , \ \langle \vec G_j, \vec d_H \rangle > 0  \\ 
 &\iff& \forall H \in \mathcal{H}_P , \ \exists i , \ \langle \vec F_i, \vec d_H \rangle < 0  \text{ or } \exists j , \ \langle \vec G_j, \vec d_H \rangle > 0 \ . 
-\end{eqnarray} 
+\end{eqnarray*}
 \end{theorem}
 
 Here, the $\vec F_i$ and $\vec G_j$ are vectors spanning the normal cones of the respective faces, and $\mathcal{H}_P(F,G)$ is a subset of hyperplanes which are specifically associated to the pair $(F,G)$.
@@ -1713,48 +1752,49 @@ Here, the $\vec F_i$ and $\vec G_j$ are vectors spanning the normal cones of the
 %%%%%%%%%%%%%%%
 
 \subsection{Cellular diagonals for the permutahedra}
-\label{s:diagonals-permutahedra}
+\label{sec:cellularDiagonalsPermutahedra}
 
 We now specialize the results of the preceding Section to the standard permutahedron. 
+\vincent{Define here the permutahedron}
+\vincent{The next proposition should be stated for $\ell = 2$ and just be a vague remark for bigger~$\ell$.}
 
 \begin{proposition}
-    The $f$-vector of the $(\ell-1)$\ordinalst{} iteration of a diagonal of the $(n-1)$-permutahedron $\triangle_{(P,\vec v)}$ is given by the opposite of the $f$-vector of the $(\ell,n)$-braid arrangement.
+The $f$-vector of the $(\ell-1)$\ordinalst{} iteration of a diagonal of the $(n-1)$-permutahedron $\triangle_{(P,\b{v})}$ is given by the opposite of the $f$-vector of the $(\ell,n)$-braid arrangement.
 \end{proposition}
 
 \begin{proposition}
-    A diagonal $\triangle_{(P,\vec v)}$ of the standard permutahedron does \emph{not} satisfy the magical formula.
-    That is, the inclusion      
-    \begin{equation*}
-        \Ima\triangle_{(P, \vec v)} \subsetneq \bigcup_{\substack{F,G \subset P \\ \max_{\vec v}(F) \leq \min_{\vec v}(G)}} F \times G  
-    \end{equation*}
-    is strict, for any choice of generic vector $\vec v$. 
+A diagonal $\triangle_{(P,\b{v})}$ of the standard permutahedron~$\Perm$ does \emph{not} satisfy the magical formula.
+That is, the inclusion      
+\begin{equation*}
+\Ima\triangle_{(P, \b{v})} \quad \subsetneq \bigcup_{\substack{F,G \text{ faces of } P \\ \max_{\b{v}}(F) \, \le \, \min_{\b{v}}(G)}} F \times G  
+\end{equation*}
+is strict, for any choice of generic vector $\b{v}$. 
 \end{proposition}
 
 \begin{proof}
     \Guillaume{On peut montrer ça uniquement par le compte des faces non?}
 \end{proof}
 
-The fundamental hyperplane arrangement of the permutahedron was computed in \cite[Section 3.1]{LA21}.
-Let $\Un(n):=\{ (I,J) \ | \ I,J \subset [n], |I|=|J|>0, I \cap J = \emptyset\}$.
+The fundamental hyperplane arrangement of the permutahedron was computed in \cite[Sect.~3.1]{LA21}.
+Let $\Un(n) \eqdef \{ (I,J) \ | \ I,J \subset [n], |I|=|J|>0, I \cap J = \emptyset\}$.
 
 \begin{proposition}
     The fundamental hyperplane arrangement of the $(n-1)$-permutahedron is given by the family of hyperplanes \[ \sum_{i \in I} x_i = \sum_{j \in J} x_j \ ,  \ (I,J) \in \Un(n) \ . \] 
 \end{proposition}
 
-Recall that a choice of diagonal is given by a choice of vector in a chamber of $\mathcal{H}_P$, two vectors living in the same chamber inducing the same diagonal \cite[Proposition 1.23]{LA21}.
+Recall that a choice of diagonal is given by a choice of vector in a chamber of $\mathcal{H}_P$, two vectors living in the same chamber inducing the same diagonal \cite[Prop.~1.23]{LA21}.
 
 \begin{corollary}
     Any choice of diagonal of the $(n-1)$-permutahedron is given combinatorially by a choice of inequalities \[ \sum_{i \in I} x_i > \sum_{j \in J} x_j \quad \text{or} \quad \sum_{i \in I} x_i < \sum_{j \in J} x_j \]
     for all $(I,J) \in \Un(n)$. 
 \end{corollary}
 
-
 %%%%%%%%%%%%%%%
 
 \subsection{Enumerative results on cellular diagonals of the permutahedra} 
-\label{subsec:enumerationDiagonal}
+\label{subsec:enumerationDiagonalPermutahedra}
 
-We now specialize the results of \cref{part:combinatorics} to the case~$\ell = 2$ to derive enumerative results on the diagonals of the permutahedra.
+We now specialize the results of \cref{part:multiBraidArrangements} to the case~$\ell = 2$ to derive enumerative results on the diagonals of the permutahedra.
 The duality between the $(2,n)$-braid arrangement~$\multiBraidArrangement[n][2]$ and the diagonal of the permutahedron~$\Perm$ is illustrated in \cref{fig:diagonalPermutahedron1}.
 
 \begin{figure}
@@ -1988,7 +2028,7 @@ The $\LA$ and $\SU$ orders on $U=\{U(n)\}$ are defined by
 As we have seen in the preceding Section, the $\LA$ order defines the diagonal $\LAD$. 
 Similarly, we will show in \Guillaume{Corollary X} that the $\SU$ order defines the Saneblidze--Umble diagonal from $\SUD$ \cite{SaneblidzeUmble04}.
 Both of these diagonals have opposites $(\LAD)^{\op}$ and $(\SUD)^{\op}$, obtained by permuting the factors in every term; at the level of orderings they are obtained by permuting $I$ and $J$ in the definitions of $\LA(n)$ and $\SU(n)$. 
-Geometrically, these opposite versions are given by taking $-\vec v$ instead of $\vec v$ as an orientation vector. 
+Geometrically, these opposite versions are given by taking $-\b{v}$ instead of $\b{v}$ as an orientation vector. 
 
 In general, an \emph{ordering} $O$ of $U$ is a family of sets $\{O(n)\}_{n\geq 1}$ where each $O(n)$ has as elements ordered pairs $(I,J)$ or $(J,I)$, for each $\{I,J\} \in U(n)$.
 For an ordered pair $(I,J)$ in $O(n)$, we denote by $\std(I,J)$ the standardisation function, e.g. $\std(\{5,9,10\},\{6,8,12\}) = (\{1,4,5\},\{2,3,6\})$.
@@ -2085,18 +2125,18 @@ Now recall that each face $A_1 | \ldots | A_k$ of the permutahedron $P_{|A_1|+\c
     \end{matrix}
 \end{equation*}
 where $\sigma$ is the $(|A_1|,\ldots,|A_k|)$-shuffle sending the increasingly ordered elements of~$A_1 \cup \ldots \cup A_k$ to the block by block increasingly ordered elements of $A_1 | \ldots | A_k$.
-Note that this map is a particular instance of the eponym map introduced in Point (5) of \cite[Prop. 2.3]{LA21}.
+Note that this map is a particular instance of the eponym map introduced in Point (5) of \cite[Prop.~2.3]{LA21}.
 
 \begin{remark}
     This fact underlies a \emph{permutadic} structure \cite{LodayRonco11,MARKL2020105277}.
 \end{remark}
 
-A \emph{diagonal of the permutahedra} $\triangle:=\{\triangle_n\}$ is a family of diagonals $\triangle_n : P_n \to P_n \times P_n$, for each $n$-permutahedron $P_n$, $ n \geq 1$. 
+A \emph{diagonal of the permutahedra} $\triangle \eqdef \{\triangle_n\}$ is a family of diagonals $\triangle_n : P_n \to P_n \times P_n$, for each $n$-permutahedron $P_n$, $ n \geq 1$. 
 
 \begin{definition}\label{def:operadic diagonal}
     A diagonal of the permutahedra $\triangle$ is \emph{operadic} if for every face $A_1 | \ldots | A_k$ of the permutahedron $P_{|A_1|+\cdots + |A_k|-1}$, the map $\Theta$ induces a topological cellular isomorphism \[  \triangle(A_1) \times \ldots \times \triangle(A_k) \cong \triangle(A_1 | \ldots | A_k) \ . \]
 \end{definition}
-In other words, we require that the diagonal $\triangle$ commutes with the map $\Theta$, see \cite[Section 4.2]{LA21}.
+In other words, we require that the diagonal $\triangle$ commutes with the map $\Theta$, see \cite[Sect.~4.2]{LA21}.
 At the algebraic level, this property is called ``comultiplicativity" in \cite{SaneblidzeUmble04}.
 \Guillaume{Our choice of terminology comes from the results in Section X}
 Note that in particular such an isomorphism respects the poset structures. 
@@ -2107,16 +2147,16 @@ There are exactly four operadic diagonals on the permutahedra.
 \end{theorem}
 
 \begin{proof}
-    First, by \cite[Theorem 3.9]{LA21} any diagonal in the sense of \cref{def:diagonal} is given by a choice of ordering of $U$.
-    Second, every operadic diagonal satisfies \cite[Proposition 4.14]{LA21}, which amounts precisely to an operadic ordering of $U$ in the sense of \cref{def:operadic-ordering}.
+    First, by \cite[Thm.~3.9]{LA21} any diagonal in the sense of \cref{prop:diagonal} is given by a choice of ordering of $U$.
+    Second, every operadic diagonal satisfies \cite[Prop.~4.14]{LA21}, which amounts precisely to an operadic ordering of $U$ in the sense of \cref{def:operadic-ordering}.
     We conclude with \cref{prop:operadic-ordering}.
 \end{proof}
 
-The orientation vectors $\vec v=(v_1,\ldots,v_{n}) \in \R^n$ inducing each of these four diagonals are given by the conditions \[ \sum_{i \in I} v_i > \sum_{j \in J} v_j \ , \ \forall (I,J) \in O(n) \ , \]
+The orientation vectors $\b{v}=(v_1,\ldots,v_{n}) \in \R^n$ inducing each of these four diagonals are given by the conditions \[ \sum_{i \in I} v_i > \sum_{j \in J} v_j \ , \ \forall (I,J) \in O(n) \ , \]
 where $O(n)$ stands for either $\LA(n), \LA(n)^\op, \SU(n)$ or $\SU(n)^\op$.
 
 \begin{remark}
-    This answers by the negative a conjecture regarding unicity of diagonals on the permutahedra, raised at the beginning of \cite[Section 3]{SaneblidzeUmble04}, and could be seen as an alternative statement. \Guillaume{See the next section where we prove that SU diagonal is SU diagonal}
+    This answers by the negative a conjecture regarding unicity of diagonals on the permutahedra, raised at the beginning of \cite[Sect.~3]{SaneblidzeUmble04}, and could be seen as an alternative statement. \Guillaume{See the next section where we prove that SU diagonal is SU diagonal}
 \end{remark}
 
 %%%%%%%%%%%%%%%
@@ -2125,14 +2165,16 @@ where $O(n)$ stands for either $\LA(n), \LA(n)^\op, \SU(n)$ or $\SU(n)^\op$.
 \subsection{LA diagonal}
 \label{subsec:LAdiagonal}
 
-Let us now recall the specific choice of chambers from \cite[Theorem 3.16]{LA21}.
+Let us now recall the specific choice of chambers from \cite[Thm.~3.16]{LA21}.
 
 \begin{definition}[$\LA$ diagonal]
     Let $n\geq 1$, and let us write $\LA(n) \coloneqq \{(I,J) \in U(n) \ | \ \min(I\cup J)\in I \}$.
-    The \emph{$\LA$ diagonal} $\LAD$ of the $(n-1)$-permutahedron is given by any vector $\vec v \in \R^n$ satisfying  
+    The \emph{$\LA$ diagonal} $\LAD$ of the $(n-1)$-permutahedron is given by any vector $\b{v} \in \R^n$ satisfying  
     \[\sum_{i \in I} v_i > \sum_{j \in J} v_j  \ , \forall (I,J) \in \LA(n) \ . \]
 \end{definition}
+
 Applying \cref{thm:universal-formula}, one obtains the following combinatorial description, referred to later as the \emph{$(I,J)$ description}. 
+
 \begin{proposition}
 \label{p:minimal}
 For a pair $(\sigma,\tau)$ of ordered partitions of $[n]$, we have
@@ -2156,14 +2198,14 @@ For a pair $(\sigma,\tau)$ of ordered partitions of $[n]$, we have
     \left| \tau_{[l]} \cap J \right|  \ . 
 \end{eqnarray*}
 \end{proposition}
-Here, $\LA(\sigma,\tau) \subset \LA(n)$ is a proper subset of $\LA(n)$ which depends on the choice of~$(\sigma,\tau)$, and comes from the geometry of the situation, see \cite[Theorem 1.26]{LA21} for more details.
+Here, $\LA(\sigma,\tau) \subset \LA(n)$ is a proper subset of $\LA(n)$ which depends on the choice of~$(\sigma,\tau)$, and comes from the geometry of the situation, see \cite[Thm.~1.26]{LA21} for more details.
 For our present purposes, it will be enough to restrict our attention to facets of $\LA$, that is pairs $(\sigma,\tau)$ which satisfy $|\sigma| + |\tau|=n+1$.
 In this case, the set $\LA(\sigma,\tau)$ has $n-1$ elements, and admits the following description. 
 
 For any subset $\sigma_i \subset [n]$, let $\vec \sigma_i \in \R^n$ denote the boolean vector whose coordinates are given by $1$ in position $j$ if $j \in \sigma_i$ and $0$ otherwise. 
 Given a facet $(\sigma,\tau)$ of $\LAD$, one can consider the system of equations $\langle \vec \sigma_i , x \rangle=0$, $\langle \vec \tau_j , x \rangle=0$ given by the blocks of both partitions.
-For geometric reasons (see the proof of \cite[Theorem 1.26]{LA21}), the solution of this system is $x=0$. 
-Now we will be interested in the solutions of the systems associated to the pairs $(\sigma',\tau)$ and $(\sigma,\tau')$ where~$\sigma'$ (resp.~$\tau'$) has been obtained from $\sigma$ (resp. $\tau$) by merging two adjacent blocks.
+For geometric reasons (see the proof of \cite[Thm.~1.26]{LA21}), the solution of this system is $x=0$. 
+Now we will be interested in the solutions of the systems associated to the pairs $(\sigma',\tau)$ and $(\sigma,\tau')$ where~$\sigma'$ (resp.~$\tau'$) has been obtained from $\sigma$ (resp.~$\tau$) by merging two adjacent blocks.
 
 \begin{proposition}
 \label{p:minimal-IJ-pairs}
@@ -2175,8 +2217,8 @@ Now we will be interested in the solutions of the systems associated to the pair
 \begin{proof}
     For any $z \in (\mathring \sigma+ \mathring \tau)/2$, the face $\tau \cap \rho_z \sigma$ of $P \cap \rho_z P$ is a vertex of the polytope $P \cap \rho_z P$.
     The faces of the form $\tau \cap \rho_z \sigma'$ and $\tau' \cap \rho_z \sigma$ are the edges of $P\cap \rho_z P$ which are adjacent to the vertex $\tau \cap \rho_z \sigma$. 
-    By definition $\LA(\sigma, \tau)$ describes the directions of these edges, and the translation is made as follows: for a given pair $(I,J)$, define the corresponding direction $\vec d$ by its coordinates $d_i:=1$ if $i \in I$, $d_j:=-1$ if $j \in J$, and $d_k:=0$ otherwise.  
-    We refer to \cite[Section 1.5]{LA21} for more details.
+    By definition $\LA(\sigma, \tau)$ describes the directions of these edges, and the translation is made as follows: for a given pair $(I,J)$, define the corresponding direction $\vec d$ by its coordinates $d_i \eqdef 1$ if $i \in I$, $d_j \eqdef -1$ if $j \in J$, and $d_k \eqdef 0$ otherwise.  
+    We refer to \cite[Sect.~1.5]{LA21} for more details.
 \end{proof}
 
 We will sometimes refer to the elements of $\LA(\sigma,\tau)$ as the \emph{minimal $(I,J)$-pairs}.
@@ -2191,7 +2233,7 @@ For $P$ the permutahedron, this face poset involution is given by the assignment
 
 The permutahedron possesses another symmetry: the cellular involution $r : P \to P$ which sends a point $p \in P$ to its reflection with respect to the hyperplane of equation \[ \sum_{i=1}^{\lfloor n/2 \rfloor}x_i = \sum_{i=1}^{\lfloor n/2 \rfloor}x_{n-i+1} \ . \]
 This involution also respects the face poset structure. 
-In terms of ordered partitions, it replaces each block $A_j$ in $A_1 | \cdots | A_k$ by the block $r(A_j):=\{n-i+1 \ | \ i \in A_j\}$.
+In terms of ordered partitions, it replaces each block $A_j$ in $A_1 | \cdots | A_k$ by the block $r(A_j) \eqdef \{n-i+1 \ | \ i \in A_j\}$.
 
 As we have already remarked \Guillaume{in Rem X}, the polytope of diagonals of $P$ is always centrally symmetric, and the involution $t : P \times P \to P \times P$ sending $(x,y)$ to~$(y,x)$ takes a cellular diagonal to another cellular diagonal.
 In the case of the permutahedron it sends $\LAD$ to $(\LAD)^\op$ and $\SUD$ to $(\SUD)^\op$.
@@ -2253,8 +2295,8 @@ Given an operadic diagonal $\triangle$, we define an ordering function $o:\EC\to
 Let $(\sigma,\tau)$ be a $(2,n)$-tree, and let $a,b$ be two vertices of $\sigma$ or $\tau$.
 We say that $a < b$ if the unique path $\gamma$ from $a$ to $b$ is such that
 \begin{itemize}
-    \item $\min \gamma$ is oriented from left to right (resp. right to left) if $\triangle=\LAD$ (resp. $\triangle=(\LAD)^{\op}$),
-    \item $\max \gamma$ oriented from right to left (resp. left to right) if $\triangle=\SUD$ (resp. $\triangle=(\SUD)^{\op})$.
+    \item $\min \gamma$ is oriented from left to right (resp.~right to left) if $\triangle=\LAD$ (resp.~$\triangle=(\LAD)^{\op}$),
+    \item $\max \gamma$ oriented from right to left (resp.~left to right) if $\triangle=\SUD$ (resp.~$\triangle=(\SUD)^{\op})$.
 \end{itemize}
 \end{construction}
 
@@ -2274,7 +2316,7 @@ As $a<b$ and $b<c$ it must be the case that the intersection $(\gamma_{ab} \cap 
 Thus, the minimum of $\gamma_{ac}$, which is one of the two preceding minima, is traversed from left to right. 
 \end{proof}
 
-The key observation in proving \cref{thm:facets} is that paths between pairs of vertices in a $(2,n)$-tree correspond to $(I,J)$ conditions defining an operadic diagonal (see \cref{s:diagonals-permutahedra}). 
+The key observation in proving \cref{thm:facets} is that paths between pairs of vertices in a $(2,n)$-tree correspond to $(I,J)$ conditions defining an operadic diagonal (see \cref{sec:cellularDiagonalsPermutahedra}). 
 
 \begin{example}
 \label{ex:ECbijection}
@@ -2361,7 +2403,7 @@ The path connecting them is of the form
 \begin{align*}
     \sigma_l = \sigma_{l_1} \xrightarrow{i_1} \tau_{r_1}\xrightarrow{j_1} \sigma_{l_2} \xrightarrow{i_2}\dots \xrightarrow{i_{k}} \tau_{r_{k-1}} \xrightarrow{j_k} \sigma_{l_k}= \sigma_{l'}
 \end{align*}
-and we have $(I,J) := (\{i_1,\dots,i_k\},\{j_1,\dots,j_k\}) \in \LA(n)$ since the minimal element points from~$\sigma$ to $\tau$.
+and we have $(I,J) \eqdef (\{i_1,\dots,i_k\},\{j_1,\dots,j_k\}) \in \LA(n)$ since the minimal element points from~$\sigma$ to $\tau$.
 Furthermore, each block of $\tau$ either contains a single element of $I$ and a single element of $J$, or it contains no elements of $I$ and no elements of $J$. 
 As such, for any ordering of the blocks of $\tau$ we have that
 $
@@ -2517,7 +2559,7 @@ where $I=\{i_1,\dots,i_k\}$, $J=\{j_1,\dots,j_k\}$ and $i_1=\min(I\cup J)$.
 \begin{proof}
 Given the operadic nature of the $\LA$ diagonal (\cref{lem:operadic-ordering}), a pair of permutations $(\sigma,\tau)$ is in~$\LAD$ if and only if it satisfies every $(I,J)$ condition whose standardisation is of the form 
 \begin{align}
-    (I_k,J_k) := (\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\}) \label{eq:standard}
+    (I_k,J_k) \eqdef (\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\}) \label{eq:standard}
 \end{align}
 for some $k\geq 1$. Thus, according to \cref{l:LA-domination}, we have that $(\sigma,\tau) \notin \LAD$ if and only if there is an $(I,J)$ of standard form (\ref{eq:standard}) sucht that $J$ dominates $I$ in $\sigma$ and $I$ dominates $J$ in $\tau$.
 It remains to show this last condition is equivalent to the patterns (\ref{eq:pattern}).
@@ -2534,7 +2576,7 @@ Let us consider the case where such a $(I',J')$ does not exist, and suppose that
 We want to show that $(\sigma,\tau)$ contains a pattern of the form~(\ref{eq:pattern}) made from the pair $(I,J)$.
 
 Firstly, suppose that the leftmost element $i_1$ of $I$ in $\sigma$ is not $\min(I\cup J)$, and let us write $j_1$ for the leftmost element of $J$ in $\tau$.
-Since the pair $(I,J)$ is of standard form (\ref{eq:standard}), so is the pair $(I',J'):=(I_k\setminus \{i_1\}, J_k \setminus \{j_1\})$, and one can check using both cases of \cref{lem:Coherent Domination} that $J'$ dominates $I'$ in $\sigma$, and $I'$ dominates $J'$ in $\tau$.
+Since the pair $(I,J)$ is of standard form (\ref{eq:standard}), so is the pair $(I',J') \eqdef (I_k\setminus \{i_1\}, J_k \setminus \{j_1\})$, and one can check using both cases of \cref{lem:Coherent Domination} that $J'$ dominates $I'$ in $\sigma$, and $I'$ dominates $J'$ in $\tau$.
 We can thus conclude with the induction hypothesis. 
 
 Secondly, suppose that the leftmost element $i_1$ of $I$ in $\sigma$ is $\min(I\cup J)$.
@@ -2550,7 +2592,7 @@ Suppose that $w\neq j_n$, then either
     \item $w$ consists of multiple elements of $J$ including $j_n$, or
     \item $j_n$ comes after $i_n$ in $\sigma$.
 \end{enumerate}
-Let $(I',J'):=(I_k\setminus \{i_n\}, J_k \setminus \{j_n\})$.
+Let $(I',J') \eqdef (I_k\setminus \{i_n\}, J_k \setminus \{j_n\})$.
 As was the case for $i_1=1$, $I'$ will dominate $J'$ in $\tau$.
 To prove $J'$ dominates $I'$ in $\sigma$, we split by the cases.
 In case $(a)$, we may apply condition $(2)$ of \cref{lem:Coherent Domination}.
@@ -2572,10 +2614,10 @@ All the operadic diagonals admit similar characterisations.
 In particular, the vertices of the $\SU$ diagonal are characterised as follows.
 
 \begin{proposition}\label{prop:SUD Fish Pattern}
-Let $(I_k,J_k):= (\{k,k+1,\dots,2k-1\},\{1,2,3,\dots,k-1,2k\})$.
+Let $(I_k,J_k) \eqdef (\{k,k+1,\dots,2k-1\},\{1,2,3,\dots,k-1,2k\})$.
 A pair of permutations $(\sigma,\tau)\in \SUD$ if, and only if, $\forall k,$ $(\sigma,\tau)$ avoids the set of $(k-1)!k!$ different patterns
 \begin{align*}
-    P_k:= \{ (j_1 i_1 j_2 i_2 \cdots j_k i_k,\quad  i_1 j_k i_2 j_1 \cdots i_{k-1} j_{k-2}i_k j_{k-1}): j_k = 2k, I = \{i_1,...,i_k\},J = \{j_1,...,j_k\} \}
+    P_k \eqdef \{ (j_1 i_1 j_2 i_2 \cdots j_k i_k,\quad  i_1 j_k i_2 j_1 \cdots i_{k-1} j_{k-2}i_k j_{k-1}): j_k = 2k, I = \{i_1,...,i_k\},J = \{j_1,...,j_k\} \}
 \end{align*}
 In particular, for $k=1,2$ the patterns avoided are $(21,12), (1243,2431)$ and $(1342, 3421)$.
 \end{proposition}
@@ -2665,7 +2707,7 @@ Observe that the permutation can be read off the graph of the SCP by a vertical 
 As the intersection graph of any pair of essential complementary partitions is a bipartite tree, there is a unique path between any two vertices. 
 
 \begin{notation}[Paths between blocks]
-    For $(\sigma,\tau)$ a pair of essential complementary partitions, we denote by $\sigma_{i,j}$ (resp. $\tau_{i,j}$) the unique oriented path between blocks $\sigma_{i}$ and $\sigma_j$ (resp. $\tau_{i}$ and $\tau_j$).
+    For $(\sigma,\tau)$ a pair of essential complementary partitions, we denote by $\sigma_{i,j}$ (resp.~$\tau_{i,j}$) the unique oriented path between blocks $\sigma_{i}$ and $\sigma_j$ (resp.~$\tau_{i}$ and $\tau_j$).
 \end{notation}
 Note that we make a slight abuse in notation as the path $\sigma_{i,j}$ also depends on $\tau$.
 We can immediately characterise the paths between adjacent blocks of strong complementary partitions.
@@ -2707,14 +2749,14 @@ while the \emph{left $m$-shift} moves it $m$ blocks to the left
 \begin{definition}[Movable subsets]
     \label{def:movable-subsets}
     Let $(\sigma,\tau) = (\sigma_1|\dots|\sigma_k,\tau_1|\dots|\tau_l)$ be a pair of ordered partitions.
-    For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (resp. $M_{i}\subset \tau_{i}$) is \emph{$m$-block movable} if 
+    For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (resp.~$M_{i}\subset \tau_{i}$) is \emph{$m$-block movable} if 
     \begin{enumerate}
-        \item $\min \sigma_i \notin M_i$ (resp. $\min \tau_{i} \notin M_i$), and
-        \item $\min M_i> \max \sigma_{i+1}$ (resp. $\min M_{i}> \max \tau_{i-1}$).
+        \item $\min \sigma_i \notin M_i$ (resp.~$\min \tau_{i} \notin M_i$), and
+        \item $\min M_i> \max \sigma_{i+1}$ (resp.~$\min M_{i}> \max \tau_{i-1}$).
     \end{enumerate}
     It is \emph{$m$-path movable} if it satisfies $(1)$ above together with
     \begin{enumerate}
-        \item[(2')] $\min M_i> \max \sigma_{i,i+m}$ (resp. $\min M_{i}> \max \tau_{i,i-m}$).
+        \item[(2')] $\min M_i> \max \sigma_{i,i+m}$ (resp.~$\min M_{i}> \max \tau_{i,i-m}$).
     \end{enumerate}
 \end{definition}
 
@@ -2818,7 +2860,7 @@ By convention, we declare the empty sequence of shift operators to be admissible
 The original $\SU$ diagonal was so defined in \cite{SaneblidzeUmble04}, see also \cite{saneblidzeComparingDiagonalsAssociahedra2022}.
 
 \begin{remark}
-    Observe that the left (resp. right) shifts acts on the right (resp. left) ordered partition.
+    Observe that the left (resp.~right) shifts acts on the right (resp.~left) ordered partition.
     In the analogous description for the diagonal $\LAD$ obtained at the end of the Section \Guillaume{[REF]}, left and right shifts act on the left and right ordered partitions, respectively. 
 \end{remark}
 
@@ -3023,7 +3065,7 @@ An adjacent crossing is clearly a crossing. In the other direction, suppose ther
 \subsection{Second isomorphism: $m$-shift and $(I,J)$ diagonals coincide}\label{sec:Iso m-shifts to IJ}
 
 We now aim at showing that the $m$-shift and the $\SU$ diagonal defined via $(I,J)$ conditions coincide (\cref{prop:unique-operad}).
-We first identify that left (right) shift operators are natural inverses to right (resp. left) shift operators.
+We first identify that left (right) shift operators are natural inverses to right (resp.~left) shift operators.
 
 \begin{definition} 
 \label{def:inverse-shift}
@@ -3109,7 +3151,7 @@ This adjacent crossing is of the following form (we illustrate the case where th
 By definition of the $(I,J)$ diagonal, the fact that $\tau_j < \tau_k$ implies that $\rho > b$, and the fact that $\sigma_i < \sigma_{i+1}$ implies that $b>c$.
 Thus, we have $\rho > \max \sigma_{i,i+1}$ which implies $R_\rho^{-1}$ is well-defined.
 
-In Case $(2a)$, consider the two adjacent blocks say $\sigma_i|\sigma_{i+1}$ (the $\tau$ case is similar), let $\rho:=\max \sigma_{i,i+1}$, and let $m\geq 1$ be such that $\rho$ steps into $\sigma_{i+1+m}$. 
+In Case $(2a)$, consider the two adjacent blocks say $\sigma_i|\sigma_{i+1}$ (the $\tau$ case is similar), let $\rho \eqdef \max \sigma_{i,i+1}$, and let $m\geq 1$ be such that $\rho$ steps into $\sigma_{i+1+m}$. 
 Since $\max \sigma_{i,i+1+m} = \max \sigma_{i,i+1}= \rho$ the definition of the $(I,J)$ diagonal implies that $\sigma_{i,i+1+m}$ comes after $\sigma_{i}$, and by assumption after $\sigma_{i+1}$. 
 Thus, we know that $m > 1$, and using dashed lines to denote paths of length $\geq 1$ we have,
 \begin{center}
@@ -3184,7 +3226,7 @@ $\xrightarrow{L_\rho^{-1}}$
 \end{center}
 
 There remains to be treated Case $(2bii)$.
-We consider the path $\sigma_{i,i+1}:=(i_1,j_1,i_2,...,i_{k},\rho)$ to be of length $2k$, $k>1$. 
+We consider the path $\sigma_{i,i+1} \eqdef (i_1,j_1,i_2,...,i_{k},\rho)$ to be of length $2k$, $k>1$. 
 We denote by $\tau_j$ the block of $\tau$ containing the maximal step $\rho$ of this path, which by hypothesis is the last block of $\tau$. 
 Let $\sigma_{i-n}$ be the last block of $\sigma$ which is attained by the path $\sigma_{i,i+1}$ before $\sigma_{i+1}$. 
 We must have $n>1$, since $\rho$ is the last step and $\sigma_i|\sigma_{i+1}$ are adjacent blocks.
@@ -3224,7 +3266,7 @@ $\xrightarrow{L_{\rho'}^{-1}}$
 \node (7) at  (0.45, -1.5) {$i_k$};
 \end{tikzpicture}
 \end{center}
-Now let $\rho':=\max\sigma_{i,i-n}$ be the maximum of the path $\sigma_{i,i-n}=(i_1,j_1,i_2,...,i_{k-1},j_{k-1})$, and let $\tau_{j-m}$, $m\geq 1$ be the block of $\tau$ containing $\rho'$.
+Now let $\rho' \eqdef \max\sigma_{i,i-n}$ be the maximum of the path $\sigma_{i,i-n}=(i_1,j_1,i_2,...,i_{k-1},j_{k-1})$, and let $\tau_{j-m}$, $m\geq 1$ be the block of $\tau$ containing $\rho'$.
 We want to show that an inverse left $m$-shift can bring $\rho'$ back to $\tau_j$.  
 We just need to show that $\rho' > i_k$, since the path $\tau_{j-m,j}$ is a subset of the path $\sigma_{i,i+1}$. 
 This would imply that both $\rho' > \max \tau_{j-m,j}$ and $\rho' > i_k \geq \min \tau_j$, and thus that an inverse left shift $L_{\rho'}^{-1}$ can be performed.
@@ -3387,11 +3429,11 @@ This is not typically the case.
 
 This result
 \begin{enumerate}[(i)]
-    \item brings a positive answer to \cite[Remark 2.19]{LA21}, showing that the original $\SU$ diagonal can indeed be recovered from a choice of chambers in the fundamental hyperplane arrangement of the permutahedron. 
-    Remark that this choice is precisely given by the family of vectors mentioned in \cite[Remark 4.19]{LA21}, which was already identified to be operadic,
-    \item sets up the analogous question in \cite[Remark 3.9]{MazuirLA22} for the multiplihedra,
+    \item brings a positive answer to \cite[Rem.~2.19]{LA21}, showing that the original $\SU$ diagonal can indeed be recovered from a choice of chambers in the fundamental hyperplane arrangement of the permutahedron. 
+    Remark that this choice is precisely given by the family of vectors mentioned in \cite[Rem.~4.19]{LA21}, which was already identified to be operadic,
+    \item sets up the analogous question in \cite[Rem.~3.9]{MazuirLA22} for the multiplihedra,
     \item provides a new proof that all known diagonals on the associahedra coincide \cite{saneblidzeComparingDiagonalsAssociahedra2022}.
-    Indeed, since the family of vectors inducing the $\SU$ diagonal all have strictly decreasing coordinates, the diagonal induced on the associahedron is given by the magical formula \cite[Theorem 2]{masudaDiagonalAssociahedra2021}, see also \cite[Proposition 3.8]{LA21}.
+    Indeed, since the family of vectors inducing the $\SU$ diagonal all have strictly decreasing coordinates, the diagonal induced on the associahedron is given by the magical formula \cite[Thm.~2]{masudaDiagonalAssociahedra2021}, see also \cite[Prop.~3.8]{LA21}.
 \end{enumerate}
 
 Moreover, it allows us to obtain alternative descriptions of all four operadic diagonals, in particular
@@ -3426,7 +3468,7 @@ We end this Section by applying the isomorphism between the $\SU$ and $\LA$ diag
     The $\LA$ diagonal is given by the formula...
 \end{conjecture}
 
-This is equivalent, via the isomorphism between $\LA$ and $\SU$ diagonals, to the analogous conjecture for the $\SU$ diagonal, presented as a fact in \cite[Equation (1)]{saneblidzeComparingDiagonalsAssociahedra2022}.
+This is equivalent, via the isomorphism between $\LA$ and $\SU$ diagonals, to the analogous conjecture for the $\SU$ diagonal, presented as a fact in \cite[Equ.~(1)]{saneblidzeComparingDiagonalsAssociahedra2022}.
 
 %%%%%%%%%%%%%%%
 
@@ -3442,14 +3484,14 @@ The indexing of the following definition compared to \cref{def:movable-subsets} 
 \begin{definition}[$\LA$ moveable subsets]
 \label{def:LAD movable-subsets}
 Let $(\sigma,\tau) = (\sigma_1|\dots|\sigma_k,\tau_1|\dots|\tau_l)$ be a pair of ordered partitions.
-For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (resp. $M_{i}\subset \tau_{i}$) is \emph{$1$-block movable} if 
+For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (resp.~$M_{i}\subset \tau_{i}$) is \emph{$1$-block movable} if 
 \begin{enumerate}
-    \item $\max \sigma_i \notin M_i$ (resp. $\max \tau_{i} \notin M_i$), and
-    \item $\max M_i < \max \sigma_{i-1}$ (resp. $\min M_{i} < \max \tau_{i+1}$).
+    \item $\max \sigma_i \notin M_i$ (resp.~$\max \tau_{i} \notin M_i$), and
+    \item $\max M_i < \max \sigma_{i-1}$ (resp.~$\min M_{i} < \max \tau_{i+1}$).
 \end{enumerate}
 It is \emph{$m$-path movable} if it satisfies $(1)$ above and if
 \begin{enumerate}
-    \item[(2')] $\max M_i < \min \sigma_{i,i-m}$ (resp. $\max M_{i} < \min \tau_{i,i+m}$).
+    \item[(2')] $\max M_i < \min \sigma_{i,i-m}$ (resp.~$\max M_{i} < \min \tau_{i,i+m}$).
 \end{enumerate}
 \end{definition}
 With our new definitions of moveable subsets, to obtain the correct definition of an admissible sequence of shifts, simply replace $\sigma$ with $\tau$ in \cref{def:admissible-shift-sequences}. 
@@ -3478,23 +3520,23 @@ For each type of $\LA$ shift, let $\textbf{M},\textbf{N}$ be admissible sequence
 \begin{align*}
     t(r,r)(L_\mathbf{N}(\sigma), R_\mathbf{M}(\tau)) = (R_{r\mathbf{M}}(r\tau), L_{r\mathbf{N}}(r\sigma))
 \end{align*}
-where $r\mathbf{M}:=(rM_{i_1},...,rM_{i_p})$ and $r\mathbf{N}$ (defined similarly) are admissible sequences of $\SU$ shifts of the same type.
+where $r\mathbf{M} \eqdef (rM_{i_1},...,rM_{i_p})$ and $r\mathbf{N}$ (defined similarly) are admissible sequences of $\SU$ shifts of the same type.
 \end{proposition}
 \begin{proof}
 As reversing the elements then shifting them is the same as shifting the elements then reversing them,
 it is clear that the equality holds if $r\mathbf{M},r\mathbf{N}$ are admissible sequences of $\SU$ shifts.
 As such, we must simply verify the admissibility, and given the equivalence of the various shift definitions, we just do this for $1$-path shifts.
-For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (resp. $M_{i}\subset \tau_{i}$) is $LA$ $1$-block moveable if
+For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (resp.~$M_{i}\subset \tau_{i}$) is $LA$ $1$-block moveable if
 \begin{enumerate}
     \item 
     \begin{enumerate}
         \item $\max \sigma_i \notin M_i$ implies that $ \min r\sigma_i \not \in r M_i$
-        \item (resp. $\max \tau_{i} \notin M_i$ implies that  $ \min r\tau_{i} \not \in r M_i$)
+        \item (resp.~$\max \tau_{i} \notin M_i$ implies that  $ \min r\tau_{i} \not \in r M_i$)
     \end{enumerate}
     \item 
     \begin{enumerate}
         \item $\max M_i < \max \sigma_{i-1}$  implies that $\min r M_i > \min r \sigma_{i+1}$
-        \item (resp. $\min M_{i} < \max \tau_{i+1}$ implies that $\max rM_{i} > \min r\tau_{i+1}$)
+        \item (resp.~$\min M_{i} < \max \tau_{i+1}$ implies that $\max rM_{i} > \min r\tau_{i+1}$)
     \end{enumerate}
 \end{enumerate}
 It is \emph{$m$-path movable} if it satisfies $(1)$ above and if
@@ -3502,12 +3544,12 @@ It is \emph{$m$-path movable} if it satisfies $(1)$ above and if
     \item[(2')] 
     \begin{enumerate}
         \item $\max M_i < \min \sigma_{i,i-m}$ implies that $\min r M_i > \max r \sigma_{i,i-m}$
-        \item (resp. $\max M_{i} < \min \tau_{i,i+m}$ implies that $\min r M_{i} > \max r\tau_{i,i+m}$)
+        \item (resp.~$\max M_{i} < \min \tau_{i,i+m}$ implies that $\min r M_{i} > \max r\tau_{i,i+m}$)
     \end{enumerate}
 \end{enumerate}
 The reader may directly verify from \cref{def:movable-subsets}, that each $rM_i \in r\sigma_i$ meets the conditions of a moveable subset 
 if it is interpreted as being in a block of the right partition ($\tau$ in the notation of the definition).
-So, if $\mathbf{M} = (M_{i_1},...,M_{i_p})$, define $r(\mathbf{M}):=(rM_{i_1},...,rM_{i_p})$, and from the prior it is clear this is an admissible sequence of $SU$ shifts.
+So, if $\mathbf{M} = (M_{i_1},...,M_{i_p})$, define $r(\mathbf{M}) \eqdef (rM_{i_1},...,rM_{i_p})$, and from the prior it is clear this is an admissible sequence of $SU$ shifts.
 
 \end{proof}
 
@@ -3735,7 +3777,7 @@ In this section, we show that the 1-shifts of each diagonal admit a simple latti
 We will discuss how this lattice is compatible with a generalised weak Bruhat order, and latter we will use the lattice structure to relate the cubical and shift definitions of the $\SUD$ diagonal (\cref{sec:Cubical}).
 
 \begin{definition}
-Let $(\sigma,\tau) \in \LAD$ or $\SUD$. For $\rho \in [n]$, let $r_\rho$ (or $l_\rho$) be the maximal value of $m$ such that $R_\rho$ (resp. $L_\rho$) is a well-defined $m$-shift of $(\sigma,\tau)$, or $0$ if there are no such $m$-shifts.
+Let $(\sigma,\tau) \in \LAD$ or $\SUD$. For $\rho \in [n]$, let $r_\rho$ (or $l_\rho$) be the maximal value of $m$ such that $R_\rho$ (resp.~$L_\rho$) is a well-defined $m$-shift of $(\sigma,\tau)$, or $0$ if there are no such $m$-shifts.
 
 \end{definition}
 
@@ -3777,7 +3819,7 @@ As such, we can commute any two shift operators.
 \begin{proposition} \label{prop:shift lattice}
 Let $(\sigma,\tau)$ be an $\SCP$, and define
 \begin{align*}
-    L^{\LA}(\sigma,\tau) := \bigcup_{\mathbf{M}, \mathbf{N}} L_\mathbf{N}(\sigma)\times R_\mathbf{M}(\tau), \quad L^{\SU}(\sigma,\tau) := \bigcup_{\mathbf{M}, \mathbf{N}} R_\mathbf{M}(\sigma)\times L_\mathbf{N}(\tau)
+    L^{\LA}(\sigma,\tau) \eqdef \bigcup_{\mathbf{M}, \mathbf{N}} L_\mathbf{N}(\sigma)\times R_\mathbf{M}(\tau), \quad L^{\SU}(\sigma,\tau) \eqdef \bigcup_{\mathbf{M}, \mathbf{N}} R_\mathbf{M}(\sigma)\times L_\mathbf{N}(\tau)
 \end{align*}
 where the union is taken over all admissible sequences of $1$-shifts $\textbf{M},\textbf{N}$, for each diagonal.
 Then each set is isomorphic as a lattice to a product of chains
@@ -3804,7 +3846,7 @@ As such, this lattice structure is compatible with ordering these pairs of order
 For a clear example of the Hasse diagram we direct the reader back to
 \cref{ex:shift translation by theta}.
 
-Given our previously obtained formulae for the number of elements in the diagonal (\cref{subsec:enumerationDiagonal}), and the results of this section we obtain the following statistics on permutations.
+Given our previously obtained formulae for the number of elements in the diagonal (\cref{subsec:enumerationDiagonalPermutahedra}), and the results of this section we obtain the following statistics on permutations.
 \begin{corollary}
 Let $l_\rho^{\LA}(\sigma)$ be the result of calculating $l_\rho$ for the $\LA$ diagonal for the the $\SCP$ resulting from the permutation $\sigma$, and similarly for variants of this notation. Then,
 \begin{align*}
@@ -3884,10 +3926,10 @@ For example, we labelled the rows and columns of the prior step matrix in this f
 With this identification, we can apply \cref{def:movable-subsets}, to identify $1$-block moveable subsets of the matrix $M$, and we can apply \cref{def:admissible-shift-sequences}, to identify sequences of shifts which are admissible of original type.
 We now define a suitable subset shift action on these matrices.
 \begin{definition} [SU Matrix Subset Shifts]
-A non-empty set of elements of a matrix $M_i \subset \sigma_i(A)$ (resp. $M_{i}\subset \tau_{i}(A)$) is $1$-block right (left) movable if
+A non-empty set of elements of a matrix $M_i \subset \sigma_i(A)$ (resp.~$M_{i}\subset \tau_{i}(A)$) is $1$-block right (left) movable if
 \begin{enumerate}
-    \item $\min \sigma_i(A) \notin M_i$ (resp. $\min \tau_{i}(A) \notin M_i$), and
-    \item $\min M_i> \max \sigma_{i+1}(A)$ (resp. $\min M_{i}> \max \tau_{i-1}(A)$).
+    \item $\min \sigma_i(A) \notin M_i$ (resp.~$\min \tau_{i}(A) \notin M_i$), and
+    \item $\min M_i> \max \sigma_{i+1}(A)$ (resp.~$\min M_{i}> \max \tau_{i-1}(A)$).
 \end{enumerate}
 The right matrix subset shift operator $R_{M_i}$ shifts the elements of $M_i$ right one column, i.e. if $A_{k,l} \in M_i$ then $(R_{M_i}A)_{k,l+1} = A_{k,l}$, replacing only elements of value $0$, and leaving $0$ elements in their wake.
 The left matrix subset shift operator $L_{M_i}$ shifts the elements of $M_i$ down one row, replacing only elements of value $0$, and leaving $0$ elements in their wake.
@@ -3919,10 +3961,10 @@ As configuration matrices have the same recursive description as the original $\
 
 As a result of the face poset isomorphism $t(r\times r)$ we also immediately obtain a matrix description of the $\LA$ diagonal.
 \begin{definition}[LA Matrix Subset Shifts]
-A non-empty set of elements of a matrix $M_i \subset \sigma_i(A)$ (resp. $M_{i}\subset \tau_{i}(A)$) is $1$-block right (left) movable if
+A non-empty set of elements of a matrix $M_i \subset \sigma_i(A)$ (resp.~$M_{i}\subset \tau_{i}(A)$) is $1$-block right (left) movable if
 \begin{enumerate}
-    \item $\max \sigma_i(A) \notin M_i$ (resp. $\max \tau_{i}(A) \notin M_i$), and
-    \item $\max M_i < \min \sigma_{i-1}(A)$ (resp. $\max M_{i} < \min \tau_{i+1}(A)$).
+    \item $\max \sigma_i(A) \notin M_i$ (resp.~$\max \tau_{i}(A) \notin M_i$), and
+    \item $\max M_i < \min \sigma_{i-1}(A)$ (resp.~$\max M_{i} < \min \tau_{i+1}(A)$).
 \end{enumerate}
 The right matrix subset shift operator $R_{M_i}$ shifts the elements of $M_i$ left one column, replacing only elements of value $0$, and leaving $0$ elements in their wake.
 The left matrix subset shift operator $L_{M_i}$ shifts the elements of $M_i$ up one row, replacing only elements of value $0$, and leaving $0$ elements in their wake.
@@ -4008,7 +4050,7 @@ The second row is the image of these shifts under isomorphism $t(r\times r)$.
 
 \subsection{Cubical Description}\label{sec:Cubical}
 
-Recall from Definitions \ref{def:cellular diagonal} and \ref{def:operadic diagonal} that a cellular operadic diagonal of the permutahdra satisfies the following properties.
+Recall from Definitions \ref{def:cellularDiagonal} and \ref{def:operadic diagonal} that a cellular operadic diagonal of the permutahdra satisfies the following properties.
 \begin{itemize}
     \item ...
 \end{itemize}
@@ -4024,9 +4066,9 @@ Finally we use the isomorphism $t(r\times r)$ to induce a cubical $\LA$ diagonal
 We present and characterise all definitions in full, each of these definitions will be clarified in \cref{ex:subdivision cubes}.
 Let $1$ denote a trivial subdivision of the $0$-cube (a point), then we can subdivide the $(n-1)$-cube by weaving $n$ through the previous subdivision of the $(n-2)$-cube. 
 In particular, for every face of $\sigma = \sigma_1|...|\sigma_k \in P_{n-1}$, for $0<i<k$ we define
-$n_j := \#(\sigma_{k-i+1}\cup...\cup \sigma_k)$, and 
-$I_j := [1 - \frac{1}{2^{n_j}}, 1 - \frac{1}{2^{n_{j+1}}}]$.
-We then define boundary cases $I_0:= [0,1 - \frac{1}{2^{n_1}}]$ and $I_k:= [1 - \frac{1}{2^{n_k}},1]$, to  produce $I(\sigma) := I_0 \cup ... \cup I_k$, a partition of the interval $[0,1]$.
+$n_j \eqdef \#(\sigma_{k-i+1}\cup...\cup \sigma_k)$, and 
+$I_j \eqdef [1 - \frac{1}{2^{n_j}}, 1 - \frac{1}{2^{n_{j+1}}}]$.
+We then define boundary cases $I_0 \eqdef [0,1 - \frac{1}{2^{n_1}}]$ and $I_k \eqdef [1 - \frac{1}{2^{n_k}},1]$, to  produce $I(\sigma) \eqdef I_0 \cup ... \cup I_k$, a partition of the interval $[0,1]$.
 Finally, assuming we have subdivided the $(n-2)$ cube with $P_{n-1}$, we can use these partitioned intervals to subdivide the $(n-1)$-cube with $P_n$ through,
 \begin{align} \label{eq:In inductive def}
     \sigma \times I \mapsto 
@@ -4190,7 +4232,7 @@ In particular its value on outer faces is
 and as a result of it being an operadic diagonal, it extends to all other faces.
 \end{proposition}
 \begin{proof}
-By construction the diagonal is cellular (\cref{def:cellular diagonal}).
+By construction the diagonal is cellular (\cref{def:cellularDiagonal}).
 This follows, as the image of the map is a union of dim $P$-faces of $P\times P$.
 Furthermore, for every vertex $v$ in $P$, not only is $(v,v) \in \maxsubdivpairsv$, but $\maxsubdivpairsv$ is also contractible to $(v,v)$.
 The diagonal is also operadic, i.e.
@@ -4320,7 +4362,7 @@ As a consequence of this result, we obtain the alternate formula for the $\SU$ d
 \Kurt{Todo for line desc. Max transfering line will become min transferring line, so will be nice.}
 
 To construct the $LA$ subdivision of the cube we first recall that the permutahedron has a natural face poset isomorphism $r:P\to P$. 
-In terms of ordered partitions, it replaces each block $A_j$ in $A_1 | \cdots | A_k$ by the block $r(A_j):=\{n-i+1 \ | \ i \in A_j\}$.
+In terms of ordered partitions, it replaces each block $A_j$ in $A_1 | \cdots | A_k$ by the block $r(A_j) \eqdef \{n-i+1 \ | \ i \in A_j\}$.
 As such, we can construct an alternate subdivision of the $n-1$-cube by $P_n$, say $I_{n-1}^{\LA}$, by applying $r$ to the $\SU$ subdivision of the $n-1$ cube (\cref{eq:In inductive def})
 now denoted $I_{n-1}^{\SU}$.
 We illustrate the first few generations, aligning the vertices of these $n$-cubes with the respective vertices of \cref{eq:In inductive def} under the isomorphism $r$.
@@ -4448,13 +4490,13 @@ Which yields,
 
 \subsection{Operadic diagonals on the operahedra and multiplihedra}
 
-The permutahedra are part of a more general family of polytopes called Loday realizations of the \emph{operahedra} \cite[Def. 2.9]{LA21} which encodes the notion of homotopy operad \cite[Def. 4.11]{LA21}.
+The permutahedra are part of a more general family of polytopes called Loday realizations of the \emph{operahedra} \cite[Def.~2.9]{LA21} which encodes the notion of homotopy operad \cite[Def.~4.11]{LA21}.
 For every planar tree $t$, there is a corresponding polytope $P_t$ whose codimension $k$ faces are in bijection with nestings of $t$ with $k$ non-trivial nests.
-Since the operahedra are generalized permutahedra \cite[Cor. 2.16]{LA21}, a choice of diagonal for the permuthedra induces a choice of diagonal for every operahedron \cite[Cor. 1.31]{LA21}.
-Every face of an operahedron is isomorphic to a product of lower-dimensional operahedra, via an isomorphism $\Theta$ which generalizes the one above, see Point (5) of \cite[Prop. 2.3]{LA21}.
+Since the operahedra are generalized permutahedra \cite[Coro.~2.16]{LA21}, a choice of diagonal for the permuthedra induces a choice of diagonal for every operahedron \cite[Coro.~1.31]{LA21}.
+Every face of an operahedron is isomorphic to a product of lower-dimensional operahedra, via an isomorphism $\Theta$ which generalizes the one above, see Point (5) of \cite[Prop.~2.3]{LA21}.
 
 \begin{definition}
-    An \emph{operadic diagonal} for the operahedra is a choice of diagonal $\triangle_t$ for each operahedron~$P_t$, such that $\triangle:=\{\triangle_t\}$ commutes with the map $\Theta$, i.e. it satisfies \cite[Prop. 4.14]{LA21}.
+    An \emph{operadic diagonal} for the operahedra is a choice of diagonal $\triangle_t$ for each operahedron~$P_t$, such that $\triangle \eqdef \{\triangle_t\}$ commutes with the map $\Theta$, i.e. it satisfies \cite[Prop.~4.14]{LA21}.
 \end{definition}
 
 \begin{theorem}[Operadic structures on the operahedra] 
@@ -4476,16 +4518,16 @@ two of which (the $\LA$ and $\SU$ diagonals) agree with the generalized Tamari o
     Therefore, $P_t$ and $P_{t'}$ appear as facets of $P_{t''}$ and by the preceding remark, any choice of diagonal for $P_{t''}$ will then contradict our initial two choices. 
     Thus, these had to be the same from the start, which concludes the proof. 
 
-    Point (2) then follows from fact that a choice of diagonal for the Loday realizations of the operahedra \emph{forces} a unique topological cellular colored operad structure on them, see \cite[Theorem 4.18]{LA21}.
-    Since universal tensor products of homotopy operads are induced by a colored operad structure on the operahedra \cite[Cor. 4.24]{LA21}, we obtain Point~(3).
-    Finally, since only vectors with strictly descreasing coordinates induce the generalized Tamari order on the $1$-skeleton of the operahedra \cite[Prop. 3.11]{LA21}, we get the last part of the statement. 
+    Point (2) then follows from fact that a choice of diagonal for the Loday realizations of the operahedra \emph{forces} a unique topological cellular colored operad structure on them, see \cite[Thm.~4.18]{LA21}.
+    Since universal tensor products of homotopy operads are induced by a colored operad structure on the operahedra \cite[Coro.~4.24]{LA21}, we obtain Point~(3).
+    Finally, since only vectors with strictly descreasing coordinates induce the generalized Tamari order on the $1$-skeleton of the operahedra \cite[Prop.~3.11]{LA21}, we get the last part of the statement. 
 \end{proof}
 
-This answers the first question in \cite[Remark 3.14]{LA21}.
+This answers the first question in \cite[Rem.~3.14]{LA21}.
 
-Two other important families of generalized permutahedra are the \emph{Loday associahedra} and \emph{Forcey--Loday multiplihedra}, which encode respectively $\Ainf$-algebras and $\Ainf$-morphisms \cite[Prop. 4.9]{MazuirLA22}, as well as $\Ainf$-categories and $\Ainf$-functors \cite[Section 4.3]{MazuirLA22}.
-Using the same techniques as in the case of the operahedra, they were endowed with diagonals and compatible operad and operadic bimodule structures in \cite[Theorem~1]{MazuirLA22}.
-An analogous notion of \emph{operadic diagonal} is available for these polytopes, see \cite[Proposition 2.14]{MazuirLA22}.
+Two other important families of generalized permutahedra are the \emph{Loday associahedra} and \emph{Forcey--Loday multiplihedra}, which encode respectively $\Ainf$-algebras and $\Ainf$-morphisms \cite[Prop.~4.9]{MazuirLA22}, as well as $\Ainf$-categories and $\Ainf$-functors \cite[Sect.~4.3]{MazuirLA22}.
+Using the same techniques as in the case of the operahedra, they were endowed with diagonals and compatible operad and operadic bimodule structures in \cite[Thm.~1]{MazuirLA22}.
+An analogous notion of \emph{operadic diagonal} is available for these polytopes, see \cite[Prop.~2.14]{MazuirLA22}.
 
 \begin{samepage}
 \begin{theorem}[Operadic structures on the multiplihedra]
@@ -4511,7 +4553,7 @@ We shall see now that these different operadic structures are related to one ano
 
 %In this section we show that the four diagonals are isomorphic, and that this induces an isomorphism of the corresponding operadic structures on the operahedra, multiplihedra and associahedra.
 
-Recall that the topological cellular operad structure on the operahedra \cite[Def. 4.17]{LA21} is given by a family of partial composition maps 
+Recall that the topological cellular operad structure on the operahedra \cite[Def.~4.17]{LA21} is given by a family of partial composition maps 
 \[
 \vcenter{\hbox{
 \begin{tikzcd}[column sep=1cm]
@@ -4523,17 +4565,17 @@ Recall that the topological cellular operad structure on the operahedra \cite[De
 P_t \ .
 \end{tikzcd}
 }}  \]
-Here, the map $\tr$ is the \emph{unique} topological cellular map which commutes with the diagonal~$\LAD$ \cite[Prop. 7]{masudaDiagonalAssociahedra2021}. 
-This partial composition $\circ_i^\LA$ is an isomorphism (in the category $\PolySub$ \cite[Def. 4.13]{LA21}) between the product $P_{t'}\times P_{t''}$ and the facet $t' \circ_i^\LA t''$ of~$P_t$.
+Here, the map $\tr$ is the \emph{unique} topological cellular map which commutes with the diagonal~$\LAD$ \cite[Prop.~7]{masudaDiagonalAssociahedra2021}. 
+This partial composition $\circ_i^\LA$ is an isomorphism (in the category $\PolySub$ \cite[Def.~4.13]{LA21}) between the product $P_{t'}\times P_{t''}$ and the facet $t' \circ_i^\LA t''$ of~$P_t$.
 Using the $\SU$ diagonal $\SUD$, one can define similarly a topological operad structure via the same formula, but with a different transition map $\tr$, which commutes with $\SUD$.
 
 Recall that a face $F$ of $P_t$ is represented by a nested tree $(t,\mathcal{N})$, which can be written uniquely as a sequence of substitution of trivially nested trees 
 $(t,\mathcal{N})=t_1\circ_{i_1} t_2 \circ_{i_2} t_3 \cdots \circ_{i_k} t_{k+1}$.
-Note that we do not need to specify a parenthesization of this sequence of $\circ_i$ operations since these form an operad \cite[Def. 4.7]{LA21}.
+Note that we do not need to specify a parenthesization of this sequence of $\circ_i$ operations since these form an operad \cite[Def.~4.7]{LA21}.
 At the geometric level, we have an isomorphism
 \[\circ_{i_1}^\LA \circ_{i_2}^\LA \cdots \circ_{i_k}^\LA: P_{t_1} \times P_{t_2} \times \cdots \times P_{t_{k+1}} \overset{\cong}{\longrightarrow} F \subset P_t \]
 between a uniquely determined product of lower dimensional operahedra, and the face $F=(t,\mathcal{N})$ of~$P_t$.
-Note that we can omit the parentheses in the sequence of $\circ_i^\LA$ operations since they define an operad structure \cite[Thm 4.18]{LA21}.
+Note that we can omit the parentheses in the sequence of $\circ_i^\LA$ operations since they define an operad structure \cite[Thm.~4.18]{LA21}.
 The same holds when taking the~$\circ_i^\SU$ operations instead of the $\circ_i^\LA$. 
 
 \begin{definition}
@@ -4548,7 +4590,7 @@ The same holds when taking the~$\circ_i^\SU$ operations instead of the $\circ_i^
 
 \begin{proposition}
     \label{thm:top-iso}
-    The map $\Psi:=\{\Psi_t\}$ is an isomorphism of topological cellular symmetric colored operad in the category $\PolySub$.
+    The map $\Psi \eqdef \{\Psi_t\}$ is an isomorphism of topological cellular symmetric colored operad in the category $\PolySub$.
 \end{proposition}
 
 \begin{proof}
@@ -4569,7 +4611,7 @@ The same holds when taking the~$\circ_i^\SU$ operations instead of the $\circ_i^
     For two interior points $(x,y) \in \mathring P_{t'}\times \mathring P_{t''}$, the diagram clearly commutes by definition, since $\Psi_{t'}$ $\Psi_{t''}$ are the identity in that case. 
     If $x$ is in a face $F=t_1 \circ_{i_1} t_2 \circ_{i_2} \cdots \circ_{i_k} t_{k+1}$ of the boundary of $P_{t'}$, then the lower composite is equal to $\circ_i^\SU (\circ_{i_1}^\SU \circ_{i_2}^\SU \cdots \circ_{i_k}^\SU \times \id)(\circ_{i_1}^\LA \circ_{i_2}^\LA \cdots \circ_{i_k}^\LA \times \id)^{-1}$, and so is the upper composite since $\Psi_t$ starts with the inverse $(\circ_i^\LA)^{-1}$ and the decomposition of $F$ unto $P_{t_1} \times \cdots \times P_{t_{k+1}} \times P_{t''}$ is unique.
     The case when $y$ is in the boundary of $P_{t''}$ is similar.  
-    Finally, the compatibility of $\Psi$ with units and the symmetric group actions are straightfoward to check, see \cite[Def. 4.17 and Thm 4.18]{LA21}.
+    Finally, the compatibility of $\Psi$ with units and the symmetric group actions are straightfoward to check, see \cite[Def.~4.17 \& Thm.~4.18]{LA21}.
 \end{proof}
 
 Note that $\Psi$ is \emph{not} a morphism of ``Hopf" operads, i.e. it does not commute with the respective diagonals $\LAD$ and $\SUD$. 
