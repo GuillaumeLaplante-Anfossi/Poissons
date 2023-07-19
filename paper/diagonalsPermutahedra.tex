@@ -289,6 +289,8 @@ They are also brick manifolds?}
 The cohomology ring structure was studied by Losev and Manin, and quite extensively since then. \Guillaume{See for example "Graph cohomology"} 
 Our current work brings a completely combinatorially explicit description of the cup product, it would be interesting to know if this new description can lead to new results, or how it can be used to recover existing ones.
 
+Permutades
+
 %%%%%%%%%%%%%%%
 
 \subsection*{Combinatorics}
@@ -1744,6 +1746,7 @@ Let $\Un(n):=\{ (I,J) \ | \ I,J \subset [n], |I|=|J|>0, I \cap J = \emptyset\}$.
 Recall that a choice of diagonal is given by a choice of vector in a chamber of $\mathcal{H}_P$, two vectors living in the same chamber inducing the same diagonal \cite[Proposition 1.23]{LA21}.
 
 \begin{corollary}
+    \label{cor:choice-inequalities}
     Any choice of diagonal of the $(n-1)$-permutahedron is given combinatorially by a choice of inequalities \[ \sum_{i \in I} x_i > \sum_{j \in J} x_j \quad \text{or} \quad \sum_{i \in I} x_i < \sum_{j \in J} x_j \]
     for all $(I,J) \in \Un(n)$. 
 \end{corollary}
@@ -1963,44 +1966,66 @@ Hence, by Cayley's formula for spanning trees of~$K_{n+1}$, we obtain that the n
 \section{Operadic diagonals}
 \label{sec:operadicDiagonals}
 
-This section is devoted to the combinatorics of two specific diagonals of the permutahedron, the LA diagonal (\cref{subsec:LAdiagonal}) and the SU diagonal (\cref{subsec:SUdiagonal}).
+This section is devoted to the combinatorics of two specific diagonals of the permutahedron, the LA diagonal and SU diagonals (\cref{subsec:LAdiagonal}).
 We will see later in \cref{sec:operadicDiagonals} that these two diagonals are in fact the only two operadic diagonals, and we will provide in \cref{...} alternative descriptions of these two diagonals in terms of strong complementary partitions and shifts (which will in particular connect the present description of the SU diagonal with the original description of \cite{SaneblitzeUmble04}).
+
+We will see in Part III \Guillaume{Hyperlink} that these choice of orderings induce operadic structure on the operahedra, multiplihedra and associahedra.
 
 %%%%%%%%%%%%%%%
 
+\subsection{The $\LA$ and $\SU$ diagonals}
 
+Recall from \cref{cor:choice-inequalities} that a diagonal of the permutahedra is given by a choice of ordering of the sets $$\Un(n)  \eqdef  \set{\{I,J\}}{I,J \subset [n], |I|= |J|, I\cap J = \emptyset} \ .$$
+By \defn{ordering} of $\Un=\{\Un(n)\}_{n \geq 1}$, we mean a family of sets $\Or:=\{\Or(n)\}_{n\geq 1}$ where the elements of each $\Or(n)$ are choices of ordered pairs $(I,J)$ or $(J,I)$, for each $\{I,J\} \in \Un(n)$.
 
+\begin{definition}
+The \defn{$\LA$ and $\SU$ orderings} are defined by
+\begin{itemize} 
+    \item $\LA(n) \eqdef \set{(I,J)}{\{I,J\} \in \Un(n), \ \min(I\cup J) = \min I}$ and
+    \item $\SU(n) \eqdef \set{(I,J)}{\{I,J\} \in \Un(n), \ \max(I\cup J) = \max J}$.
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+    The \defn{$\LA$ diagonal} $\LAD$ (resp. \defn{$\SU$ diagonal} $\SUD$) of the $(n-1)$-permutahedron is given by any vector $\vec v \in \R^n$ satisfying  
+    \[\sum_{i \in I} v_i > \sum_{j \in J} v_j  \ , \forall (I,J) \in \LA(n) \quad (\text{resp. } \SU(n)) \ . \]
+\end{definition}
+
+We will prove in \cref{thm:recover-SU} that $\SUD$ is a topological enhancement of the Saneblidze--Umble diagonal from \cite{SaneblidzeUmble04}.
+Both of these diagonals have opposites $(\LAD)^{\op}$ and $(\SUD)^{\op}$, obtained by permuting the factors in every term: at the level of orderings, they are obtained by permuting $I$ and $J$ in the definitions of $\LA(n)$ and $\SU(n)$, while they are given geometrically by taking $-\vec v$ instead of $\vec v$ as an orientation vector. 
 
 %%%%%%%%%%%%%%%
 
 \subsection{Operadic diagonals for the permutahedra}
+The goal of this section is to prove in \cref{prop:unique-operad} that the $\LA$ and $\SU$ diagonals are the only two operadic diagonals which induce the weak Bruhat order the vertices of the permutahedra. 
 
-We consider the unordered sets $$U(n)  \eqdef  \set{\{I,J\}}{I,J \subset [n], |I|= |J|, I\cap J = \emptyset} \ . $$
-
-\begin{definition}
-The $\LA$ and $\SU$ orders on $U=\{U(n)\}$ are defined by 
-\begin{itemize} 
-    \item $\LA(n) \eqdef \set{(I,J)}{\{I,J\} \in U(n), \ \min(I\cup J) = \min I}$, and by 
-    \item $\SU(n) \eqdef \set{(I,J)}{\{I,J\} \in U(n), \ \max(I\cup J) = \max J}$.
-\end{itemize}
-\end{definition}
-
-As we have seen in the preceding Section, the $\LA$ order defines the diagonal $\LAD$. 
-Similarly, we will show in \Guillaume{Corollary X} that the $\SU$ order defines the Saneblidze--Umble diagonal from $\SUD$ \cite{SaneblidzeUmble04}.
-Both of these diagonals have opposites $(\LAD)^{\op}$ and $(\SUD)^{\op}$, obtained by permuting the factors in every term; at the level of orderings they are obtained by permuting $I$ and $J$ in the definitions of $\LA(n)$ and $\SU(n)$. 
-Geometrically, these opposite versions are given by taking $-\vec v$ instead of $\vec v$ as an orientation vector. 
-
-In general, an \emph{ordering} $O$ of $U$ is a family of sets $\{O(n)\}_{n\geq 1}$ where each $O(n)$ has as elements ordered pairs $(I,J)$ or $(J,I)$, for each $\{I,J\} \in U(n)$.
-For an ordered pair $(I,J)$ in $O(n)$, we denote by $\std(I,J)$ the standardisation function, e.g. $\std(\{5,9,10\},\{6,8,12\}) = (\{1,4,5\},\{2,3,6\})$.
+Recall that each face $A_1 | \ldots | A_k$ of the permutahedron $P_{|A_1|+\cdots + |A_k|-1}$ is isomorphic to the product $P_{|A_1|-1} \times \cdots \times P_{|A_k|-1}$ of lower dimensional permutahedra, via the permutation of coordinates
+\begin{equation*}
+    \begin{matrix}
+        \Theta & : & \R^{|A_1|} \times \cdots \times \R^{|A_k|} & \overset{\cong}{\longrightarrow} & \R^{|A_1|+\cdots+|A_k|} \\
+         & & (x_1,\ldots,x_{|A_1|}) \times \cdots \times (x_{|A_1|+\cdots +|A_{k-1}|+1}, \ldots, x_{|A_1|+\cdots +|A_k|})  & \mapsto & (x_{\sigma^{-1}(1)},\ldots,x_{\sigma^{-1}(|A_1|+\cdots +|A_k|)})
+    \end{matrix}
+\end{equation*}
+where $\sigma$ is the $(|A_1|,\ldots,|A_k|)$-shuffle sending the increasingly ordered elements of~$A_1 \cup \ldots \cup A_k$ to the block by block increasingly ordered elements of $A_1 | \ldots | A_k$.
+Note that this map is a particular instance of the eponym map introduced in Point (5) of \cite[Prop. 2.3]{LA21}.
 
 \begin{definition}
-    \label{def:operadic-ordering}
-An ordering $O \eqdef \{O(n)\}_{n \geq 1}$ of $U \eqdef \{U(n)\}_{n\geq 1}$ is \emph{operadic} if for all $(I,J) \in O$, we have that $(I',J') \subsetneq (I,J) \implies \std(I',J') \in O$. 
+\label{def:operadic diagonal}
+A family of diagonals $\triangle:=\{\triangle_n : P_n \to P_n \times P_n\}_{n\geq 1}$ of the permutahedra is \defn{operadic} if for every face $A_1 | \ldots | A_k$ of the permutahedron $P_{|A_1|+\cdots + |A_k|-1}$, the map $\Theta$ induces a topological cellular isomorphism \[  \triangle(A_1) \times \ldots \times \triangle(A_k) \cong \triangle(A_1 | \ldots | A_k) \ . \]
+\end{definition}
+In other words, we require that the diagonal $\triangle$ commutes with the map $\Theta$, see \cite[Section 4.2]{LA21}.
+At the algebraic level, this property is called ``comultiplicativity" in \cite{SaneblidzeUmble04}.
+Note that in particular such an isomorphism respects the poset structures. 
+
+For a pair $(I,J)$ in an ordering $\Or$, we denote by $\std(I,J)$ the \defn{standardisation function}, e.g. $\std(\{5,9,10\},\{6,8,12\}) = (\{1,4,5\},\{2,3,6\})$.
+
+\begin{definition}
+\label{def:operadic-ordering}
+An ordering $\Or$ of $\Un$ is \defn{operadic} if for all~$\{I,J\} \in \Un$, we have that if $\forall \ (I',J')\subset(I,J)$, $\std(I',J') \in \Or$ then we have $(I,J) \in \Or$.
 \end{definition}
 
-We will see \Guillaume{in prop X} that these choice of orderings induce operadic structure on the operahedra, multiplihedra and associahedra.
-
-\begin{lemma} \label{lem:operadic-ordering}
+\begin{lemma} 
+\label{lem:operadic-ordering}
 The $\LA$ and $\SU$ orderings are operadic, and are extensions of the following $(I,J)$ pairs,
 \begin{itemize}
     \item $\LA :$ for all $k\geq 1$  $(\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\})$, and 
@@ -2077,30 +2102,6 @@ In particular,
 \end{align*}
 \end{example}
 
-Now recall that each face $A_1 | \ldots | A_k$ of the permutahedron $P_{|A_1|+\cdots + |A_k|-1}$ is isomorphic to the product $P_{|A_1|-1} \times \cdots \times P_{|A_k|-1}$ of lower dimensional permutahedra, via the isomorphism
-\begin{equation*}
-    \begin{matrix}
-        \Theta & : & \R^{|A_1|} \times \cdots \times \R^{|A_k|} & \overset{\cong}{\longrightarrow} & \R^{|A_1|+\cdots+|A_k|} \\
-         & & (x_1,\ldots,x_{|A_1|}) \times \cdots \times (x_{|A_1|+\cdots +|A_{k-1}|+1}, \ldots, x_{|A_1|+\cdots +|A_k|})  & \mapsto & (x_{\sigma^{-1}(1)},\ldots,x_{\sigma^{-1}(|A_1|+\cdots +|A_k|)})
-    \end{matrix}
-\end{equation*}
-where $\sigma$ is the $(|A_1|,\ldots,|A_k|)$-shuffle sending the increasingly ordered elements of~$A_1 \cup \ldots \cup A_k$ to the block by block increasingly ordered elements of $A_1 | \ldots | A_k$.
-Note that this map is a particular instance of the eponym map introduced in Point (5) of \cite[Prop. 2.3]{LA21}.
-
-\begin{remark}
-    This fact underlies a \emph{permutadic} structure \cite{LodayRonco11,MARKL2020105277}.
-\end{remark}
-
-A \emph{diagonal of the permutahedra} $\triangle:=\{\triangle_n\}$ is a family of diagonals $\triangle_n : P_n \to P_n \times P_n$, for each $n$-permutahedron $P_n$, $ n \geq 1$. 
-
-\begin{definition}\label{def:operadic diagonal}
-    A diagonal of the permutahedra $\triangle$ is \emph{operadic} if for every face $A_1 | \ldots | A_k$ of the permutahedron $P_{|A_1|+\cdots + |A_k|-1}$, the map $\Theta$ induces a topological cellular isomorphism \[  \triangle(A_1) \times \ldots \times \triangle(A_k) \cong \triangle(A_1 | \ldots | A_k) \ . \]
-\end{definition}
-In other words, we require that the diagonal $\triangle$ commutes with the map $\Theta$, see \cite[Section 4.2]{LA21}.
-At the algebraic level, this property is called ``comultiplicativity" in \cite{SaneblidzeUmble04}.
-\Guillaume{Our choice of terminology comes from the results in Section X}
-Note that in particular such an isomorphism respects the poset structures. 
-
 \begin{theorem}
 \label{prop:unique-operad}
 There are exactly four operadic diagonals on the permutahedra. 
@@ -2111,9 +2112,6 @@ There are exactly four operadic diagonals on the permutahedra.
     Second, every operadic diagonal satisfies \cite[Proposition 4.14]{LA21}, which amounts precisely to an operadic ordering of $U$ in the sense of \cref{def:operadic-ordering}.
     We conclude with \cref{prop:operadic-ordering}.
 \end{proof}
-
-The orientation vectors $\vec v=(v_1,\ldots,v_{n}) \in \R^n$ inducing each of these four diagonals are given by the conditions \[ \sum_{i \in I} v_i > \sum_{j \in J} v_j \ , \ \forall (I,J) \in O(n) \ , \]
-where $O(n)$ stands for either $\LA(n), \LA(n)^\op, \SU(n)$ or $\SU(n)^\op$.
 
 \begin{remark}
     This answers by the negative a conjecture regarding unicity of diagonals on the permutahedra, raised at the beginning of \cite[Section 3]{SaneblidzeUmble04}, and could be seen as an alternative statement. \Guillaume{See the next section where we prove that SU diagonal is SU diagonal}
@@ -3377,6 +3375,7 @@ This is not typically the case.
 \subsection{Consequences of the equivalence between diagonals}
 
 \begin{theorem}
+    \label{thm:recover-SU}
     The original and $(I,J)$ $\SU$ diagonals coincide.
 \end{theorem}
 
