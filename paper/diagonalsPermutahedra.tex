@@ -1735,9 +1735,9 @@ We now specialize the results of the preceding Section to the standard permutahe
 \end{proof}
 
 The fundamental hyperplane arrangement of the permutahedron was computed in \cite[Section 3.1]{LA21}.
+Let $\Un(n):=\{ (I,J) \ | \ I,J \subset [n], |I|=|J|>0, I \cap J = \emptyset\}$.
 
 \begin{proposition}
-    Let $\Un(n):=\{ (I,J) \ | \ I,J \subset [n], |I|=|J|>0, I \cap J = \emptyset\}$.
     The fundamental hyperplane arrangement of the $(n-1)$-permutahedron is given by the family of hyperplanes \[ \sum_{i \in I} x_i = \sum_{j \in J} x_j \ ,  \ (I,J) \in \Un(n) \ . \] 
 \end{proposition}
 
@@ -1960,84 +1960,16 @@ Hence, by Cayley's formula for spanning trees of~$K_{n+1}$, we obtain that the n
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
-\section{The LA and SU diagonals}
-\label{sec:LASUdiagonals}
+\section{Operadic diagonals}
+\label{sec:operadicDiagonals}
 
 This section is devoted to the combinatorics of two specific diagonals of the permutahedron, the LA diagonal (\cref{subsec:LAdiagonal}) and the SU diagonal (\cref{subsec:SUdiagonal}).
 We will see later in \cref{sec:operadicDiagonals} that these two diagonals are in fact the only two operadic diagonals, and we will provide in \cref{...} alternative descriptions of these two diagonals in terms of strong complementary partitions and shifts (which will in particular connect the present description of the SU diagonal with the original description of \cite{SaneblitzeUmble04}).
 
 %%%%%%%%%%%%%%%
 
-\subsection{LA diagonal}
-\label{subsec:LAdiagonal}
-
-Let us now recall the specific choice of chambers from \cite[Theorem 3.16]{LA21}.
-
-\begin{definition}[$\LA$ diagonal]
-    Let $n\geq 1$, and let us write $\LA(n) \coloneqq \{(I,J) \in U(n) \ | \ \min(I\cup J)\in I \}$.
-    The \emph{$\LA$ diagonal} $\LAD$ of the $(n-1)$-permutahedron is given by any vector $\vec v \in \R^n$ satisfying  
-    \[\sum_{i \in I} v_i > \sum_{j \in J} v_j  \ , \forall (I,J) \in \LA(n) \ . \]
-\end{definition}
-Applying \cref{thm:universal-formula}, one obtains the following combinatorial description, referred to later as the \emph{$(I,J)$ description}. 
-\begin{proposition}
-\label{p:minimal}
-For a pair $(\sigma,\tau)$ of ordered partitions of $[n]$, we have
-\begin{eqnarray*}
-    (\sigma,\tau)\in \LAD 
-    & \iff & \forall (I,J) \in \LA(\sigma,\tau), \exists k \in [n] , 
-    \left| \sigma_{[k]} \cap I \right|
-    >
-    \left| \sigma_{[k]} \cap J \right| \text{ or } \\
-    && \exists l \in [n] , 
-    \left| \tau_{[l]} \cap I \right|
-    <
-    \left| \tau_{[l]} \cap J \right|   \\
-    & \iff & \forall (I,J) \in \LA(n), \exists k \in [n] , 
-    \left| \sigma_{[k]} \cap I \right|
-    >
-    \left| \sigma_{[k]} \cap J \right| \text{ or } \\
-    && \exists l \in [n] , 
-    \left| \tau_{[l]} \cap I \right|
-    <
-    \left| \tau_{[l]} \cap J \right|  \ . 
-\end{eqnarray*}
-\end{proposition}
-Here, $\LA(\sigma,\tau) \subset \LA(n)$ is a proper subset of $\LA(n)$ which depends on the choice of~$(\sigma,\tau)$, and comes from the geometry of the situation, see \cite[Theorem 1.26]{LA21} for more details.
-For our present purposes, it will be enough to restrict our attention to facets of $\LA$, that is pairs $(\sigma,\tau)$ which satisfy $|\sigma| + |\tau|=n+1$.
-In this case, the set $\LA(\sigma,\tau)$ has $n-1$ elements, and admits the following description. 
-
-For any subset $\sigma_i \subset [n]$, let $\vec \sigma_i \in \R^n$ denote the boolean vector whose coordinates are given by $1$ in position $j$ if $j \in \sigma_i$ and $0$ otherwise. 
-Given a facet $(\sigma,\tau)$ of $\LAD$, one can consider the system of equations $\langle \vec \sigma_i , x \rangle=0$, $\langle \vec \tau_j , x \rangle=0$ given by the blocks of both partitions.
-For geometric reasons (see the proof of \cite[Theorem 1.26]{LA21}), the solution of this system is $x=0$. 
-Now we will be interested in the solutions of the systems associated to the pairs $(\sigma',\tau)$ and $(\sigma,\tau')$ where~$\sigma'$ (resp.~$\tau'$) has been obtained from $\sigma$ (resp. $\tau$) by merging two adjacent blocks.
-
-\begin{proposition}
-\label{p:minimal-IJ-pairs}
-    There is a bijection between the set $\LA(\sigma,\tau)$ and the solutions to the systems of equations of the form $(\sigma',\tau)$ and $(\sigma,\tau')$. 
-\end{proposition}
-
-\Guillaume{A revoir!! Il faut utiliser le fait que ce sont des facettes!!}
-
-\begin{proof}
-    For any $z \in (\mathring \sigma+ \mathring \tau)/2$, the face $\tau \cap \rho_z \sigma$ of $P \cap \rho_z P$ is a vertex of the polytope $P \cap \rho_z P$.
-    The faces of the form $\tau \cap \rho_z \sigma'$ and $\tau' \cap \rho_z \sigma$ are the edges of $P\cap \rho_z P$ which are adjacent to the vertex $\tau \cap \rho_z \sigma$. 
-    By definition $\LA(\sigma, \tau)$ describes the directions of these edges, and the translation is made as follows: for a given pair $(I,J)$, define the corresponding direction $\vec d$ by its coordinates $d_i:=1$ if $i \in I$, $d_j:=-1$ if $j \in J$, and $d_k:=0$ otherwise.  
-    We refer to \cite[Section 1.5]{LA21} for more details.
-\end{proof}
-
-We will sometimes refer to the elements of $\LA(\sigma,\tau)$ as the \emph{minimal $(I,J)$-pairs}.
-
-%%%%%%%%%%%%%%%
-
-\subsection{SU diagonal}
-\label{subsec:SUdiagonal}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newpage
-\section{Operadic diagonals}
-\label{sec:operadicDiagonals}
 
 %%%%%%%%%%%%%%%
 
@@ -2189,7 +2121,69 @@ where $O(n)$ stands for either $\LA(n), \LA(n)^\op, \SU(n)$ or $\SU(n)^\op$.
 
 %%%%%%%%%%%%%%%
 
-\subsection{Isomorphisms between permutahedra's operadic diagonals}
+
+\subsection{LA diagonal}
+\label{subsec:LAdiagonal}
+
+Let us now recall the specific choice of chambers from \cite[Theorem 3.16]{LA21}.
+
+\begin{definition}[$\LA$ diagonal]
+    Let $n\geq 1$, and let us write $\LA(n) \coloneqq \{(I,J) \in U(n) \ | \ \min(I\cup J)\in I \}$.
+    The \emph{$\LA$ diagonal} $\LAD$ of the $(n-1)$-permutahedron is given by any vector $\vec v \in \R^n$ satisfying  
+    \[\sum_{i \in I} v_i > \sum_{j \in J} v_j  \ , \forall (I,J) \in \LA(n) \ . \]
+\end{definition}
+Applying \cref{thm:universal-formula}, one obtains the following combinatorial description, referred to later as the \emph{$(I,J)$ description}. 
+\begin{proposition}
+\label{p:minimal}
+For a pair $(\sigma,\tau)$ of ordered partitions of $[n]$, we have
+\begin{eqnarray*}
+    (\sigma,\tau)\in \LAD 
+    & \iff & \forall (I,J) \in \LA(\sigma,\tau), \exists k \in [n] , 
+    \left| \sigma_{[k]} \cap I \right|
+    >
+    \left| \sigma_{[k]} \cap J \right| \text{ or } \\
+    && \exists l \in [n] , 
+    \left| \tau_{[l]} \cap I \right|
+    <
+    \left| \tau_{[l]} \cap J \right|   \\
+    & \iff & \forall (I,J) \in \LA(n), \exists k \in [n] , 
+    \left| \sigma_{[k]} \cap I \right|
+    >
+    \left| \sigma_{[k]} \cap J \right| \text{ or } \\
+    && \exists l \in [n] , 
+    \left| \tau_{[l]} \cap I \right|
+    <
+    \left| \tau_{[l]} \cap J \right|  \ . 
+\end{eqnarray*}
+\end{proposition}
+Here, $\LA(\sigma,\tau) \subset \LA(n)$ is a proper subset of $\LA(n)$ which depends on the choice of~$(\sigma,\tau)$, and comes from the geometry of the situation, see \cite[Theorem 1.26]{LA21} for more details.
+For our present purposes, it will be enough to restrict our attention to facets of $\LA$, that is pairs $(\sigma,\tau)$ which satisfy $|\sigma| + |\tau|=n+1$.
+In this case, the set $\LA(\sigma,\tau)$ has $n-1$ elements, and admits the following description. 
+
+For any subset $\sigma_i \subset [n]$, let $\vec \sigma_i \in \R^n$ denote the boolean vector whose coordinates are given by $1$ in position $j$ if $j \in \sigma_i$ and $0$ otherwise. 
+Given a facet $(\sigma,\tau)$ of $\LAD$, one can consider the system of equations $\langle \vec \sigma_i , x \rangle=0$, $\langle \vec \tau_j , x \rangle=0$ given by the blocks of both partitions.
+For geometric reasons (see the proof of \cite[Theorem 1.26]{LA21}), the solution of this system is $x=0$. 
+Now we will be interested in the solutions of the systems associated to the pairs $(\sigma',\tau)$ and $(\sigma,\tau')$ where~$\sigma'$ (resp.~$\tau'$) has been obtained from $\sigma$ (resp. $\tau$) by merging two adjacent blocks.
+
+\begin{proposition}
+\label{p:minimal-IJ-pairs}
+    There is a bijection between the set $\LA(\sigma,\tau)$ and the solutions to the systems of equations of the form $(\sigma',\tau)$ and $(\sigma,\tau')$. 
+\end{proposition}
+
+\Guillaume{A revoir!! Il faut utiliser le fait que ce sont des facettes!!}
+
+\begin{proof}
+    For any $z \in (\mathring \sigma+ \mathring \tau)/2$, the face $\tau \cap \rho_z \sigma$ of $P \cap \rho_z P$ is a vertex of the polytope $P \cap \rho_z P$.
+    The faces of the form $\tau \cap \rho_z \sigma'$ and $\tau' \cap \rho_z \sigma$ are the edges of $P\cap \rho_z P$ which are adjacent to the vertex $\tau \cap \rho_z \sigma$. 
+    By definition $\LA(\sigma, \tau)$ describes the directions of these edges, and the translation is made as follows: for a given pair $(I,J)$, define the corresponding direction $\vec d$ by its coordinates $d_i:=1$ if $i \in I$, $d_j:=-1$ if $j \in J$, and $d_k:=0$ otherwise.  
+    We refer to \cite[Section 1.5]{LA21} for more details.
+\end{proof}
+
+We will sometimes refer to the elements of $\LA(\sigma,\tau)$ as the \emph{minimal $(I,J)$-pairs}.
+
+%%%%%%%%%%%%%%%
+
+\subsection{Isomorphisms between operadic diagonals}
 
 Let $P$ be a centrally symmetric polytope, and let $s : P \to P$ be its involution, given by taking a point $p \in P$ to its reflection $s(p)$ with respect to the center of symmetry of $P$. 
 Note that this map is cellular, and induces an involution on the face lattice of $P$. 
@@ -2606,7 +2600,7 @@ It follows directly from the fish condition: if the fish condition is satisfied,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{The Saneblidze-Umble diagonal}
+\section{The lattice of facets}
 
 \Guillaume{A reecrire plus tard}
 \vincent{This section should be called Shifts.}
@@ -4437,7 +4431,15 @@ Which yields,
 \end{align*}
 \end{proposition}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\clearpage
+\part{Higher algebraic structures}
+
+%Commented to compile faster.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \section{Topological operadic structures}
