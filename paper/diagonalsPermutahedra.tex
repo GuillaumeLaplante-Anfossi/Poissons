@@ -2046,7 +2046,7 @@ Hence, by Cayley's formula for spanning trees of~$K_{n+1}$, we obtain that the n
 \section{Operadic diagonals}
 \label{sec:operadicDiagonals}
 
-This section is devoted to the combinatorics of two specific diagonals of the permutahedron, the LA diagonal and SU diagonals (\cref{subsec:LAdiagonal}).
+This section is devoted to the combinatorics of two specific diagonals of the permutahedra, the LA diagonal and SU diagonal (\cref{subsec:LASUdiagonal}).
 We will see later in \cref{sec:operadicDiagonals} that these two diagonals are in fact the only two operadic diagonals, and we will provide in \cref{...} alternative descriptions of these two diagonals in terms of strong complementary partitions and shifts (which will in particular connect the present description of the SU diagonal with the original description of \cite{SaneblitzeUmble04}).
 
 We will see in Part III \Guillaume{Hyperlink} that these choice of orderings induce operadic structure on the operahedra, multiplihedra and associahedra.
@@ -2054,8 +2054,12 @@ We will see in Part III \Guillaume{Hyperlink} that these choice of orderings ind
 %%%%%%%%%%%%%%%
 
 \subsection{The $\LA$ and $\SU$ diagonals}
+\label{subsec:LASUdiagonal}
 
-Recall from \cref{cor:choice-inequalities} that a diagonal of the permutahedra is given by a choice of ordering of the sets $$\Un(n)  \eqdef  \set{\{I,J\}}{I,J \subset [n], |I|= |J|, I\cap J = \varnothing} \ .$$
+Recall from \cref{cor:choice-inequalities} that a diagonal of the permutahedra is given by a choice of ordering of the sets
+\[
+\Un(n)  \eqdef  \set{\{I,J\}}{I,J \subset [n] \text{ with } |I|= |J| > 0 \text{ and } I\cap J = \varnothing}.
+\]
 By \defn{ordering} of $\Un=\{\Un(n)\}_{n \geq 1}$, we mean a family of sets $\Or:=\{\Or(n)\}_{n\geq 1}$ where the elements of each $\Or(n)$ are choices of ordered pairs $(I,J)$ or $(J,I)$, for each $\{I,J\} \in \Un(n)$.
 
 \begin{definition}
