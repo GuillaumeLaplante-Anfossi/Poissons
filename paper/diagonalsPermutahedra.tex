@@ -1695,6 +1695,8 @@ where $\rho_{\b{z}} P \eqdef 2\b{z}-P$ denotes the reflection of $P$ with respec
 	\label{fig:examplesDiagonals2}
 \end{figure}
 
+\vincent{Include here the discussion about the fundamental hyperplane arrangement and the precise description of the diagonal. Make it precise.}
+
 The image of $\triangle_{(P,\b{v})}$ is a union of pairs of faces $F \times G$ of the Cartesian product~$P \times P$.
 By drawing the polytopes~${(F+G)/2}$ for all pairs of faces $(F,G) \in \Ima \triangle_{(P,\b{v})}$, we can visualize~$\triangle_{(P,\b{v})}$ as a polytopal subdivision of $P$.
 See \cref{fig:examplesDiagonals1}\,(middle right) and \cref{fig:examplesDiagonals2}.
@@ -1705,12 +1707,14 @@ Let us recall here that the \defn{normal cone} of a face~$F$ of a polytope~$P$ i
 We thus obtain the following statement.
 
 \begin{proposition}[{\cite[Coro.~1.4]{LA21}}]
+\label{prop:diagonalCommonRefinement}
 The inclusion poset on the faces in the image of the diagonal~$\triangle_{(P,\b{v})}$ is isomorphic to the reverse inclusion poset of the faces of the common refinement of two copies of the normal fan of~$P$, translated from each other by the vector~$\b{v}$. 
 \end{proposition}
 
-Moreover, the following statement relates the image of the diagonal~$\triangle_{(P, \b{v})}$ to the intervals of the poset obtained by orienting the $1$-skeleton of~$P$ in direction~$\b{v}$.
+Finally, the following statement relates the image of the diagonal~$\triangle_{(P, \b{v})}$ to the intervals of the poset obtained by orienting the $1$-skeleton of~$P$ in direction~$\b{v}$.
 
 \begin{proposition}[{\cite[Prop. 1.17]{LA21}}]
+\label{prop:magicalFormula}
 For any polytope $P$ and any generic vector $\b{v}$,
 \begin{equation}
 \label{eq:magique}
@@ -1731,14 +1735,17 @@ This is in fact precisely the content of the \emph{Fulton--Sturmfels formula} fo
 \end{remark}
 
 \vincent{To discuss with Guillaume from this point...}
+\vincent{I want to make this more precise and have it just after \cref{prop:diagonal}.}
 The following \defn{universal formula} \cite[Thm.~1.26]{LA21} expresses combinatorially the cellular image of the diagonal of a polytope $P$.
 
 \begin{definition}
 The \defn{fundamental hyperplane arrangement} $\mathcal{H}_P$ of a polytope $P \subset \R^n$ is the set of hyperplanes whose normal vectors are a choice of directions of the edges of $P\cap \rho_z P$, for any $z \in P$. 
 \end{definition}
 
+Recall that a choice of diagonal is given by a choice of vector in a chamber of $\mathcal{H}_P$, two vectors living in the same chamber inducing the same diagonal \cite[Prop.~1.23]{LA21}.
+
 \begin{theorem}
-\label{thm:universal-formula}
+\label{thm:universalFormula}
 Let $(P,\b{v})$ be a positively oriented polytope in $\R^n$. 
 For each $H\in\mathcal{H}_P$, we choose a normal vector $\vec d_H$ such that $\langle \vec d_H, \b{v} \rangle >0$. 
 We have 
@@ -1750,61 +1757,94 @@ We have
 \end{theorem}
 
 Here, the $\vec F_i$ and $\vec G_j$ are vectors spanning the normal cones of the respective faces, and $\mathcal{H}_P(F,G)$ is a subset of hyperplanes which are specifically associated to the pair $(F,G)$.
+\vincent{Unprecise.}
 
 %%%%%%%%%%%%%%%
 
 \subsection{Cellular diagonals for the permutahedra}
 \label{sec:cellularDiagonalsPermutahedra}
 
-We now specialize the results of the preceding Section to the standard permutahedron. 
-\vincent{Define here the permutahedron}
-\vincent{The next proposition should be stated for $\ell = 2$ and just be a vague remark for bigger~$\ell$.}
+We now specialize the statements of \cref{subsec:cellularDiagonalsPolytopes} to the standard permutahedron.
+We first recall its definition.
+
+\begin{definition}
+The \defn{permutahedron}~$\Perm$ is the polytope defined equivalently as
+\begin{itemize}
+\item the convex hull of the points~$\sum_{i \in [n]} i \, \b{e}_{\sigma(i)}$ for all permutations~$\sigma$ of~$[n]$, see \cite{Schoute},
+\item the intersection of the hyperplane~$\smash{\bigset{\b{x} \in \R^n}{\sum_{i \in I} x_i = \binom{n+1}{2}}}$ with the affine halfspaces $\smash{\bigset{\b{x} \in \R^n}{\sum_{i \in I} x_i \ge \binom{|I|+1}{2}}}$ for all~${\varnothing \ne I \subsetneq [n]}$, see \cite{Rado}.
+\end{itemize}
+The normal fan of the permutahedron~$\Perm$ is the fan defined by the braid arrangement~$\braidArrangement$.
+Moreover, when oriented in a generic direction, the skeleton of the permutahedron~$\Perm$ is isomorphic to the Hasse diagram of the classical weak order on permutations of~$[n]$.
+% when oriented in the direction~${\b{\omega} \eqdef (n,\dots,1) - (1,\dots,n) = \sum_{i \in [n]} (n+1-2i) \, \b{e}_i}$
+\end{definition}
+
+The fundamental hyperplane arrangement of the permutahedron~$\Perm$ was described in~\cite[Sect.~3.1]{LA21}.
 
 \begin{proposition}
-The $f$-vector of the $(\ell-1)$\ordinalst{} iteration of a diagonal of the $(n-1)$-permutahedron $\triangle_{(P,\b{v})}$ is given by the opposite of the $f$-vector of the $(\ell,n)$-braid arrangement.
+Let
+\[
+\Un(n) \eqdef \{ (I,J) \ | \ I,J \subset [n] \text{ with } |I|=|J|>0 \text{ and } I \cap J = \varnothing\}.
+\]
+The fundamental hyperplane arrangement of the permutahedron~$\Perm$ is given by the family of hyperplanes
+\[
+\sum_{i \in I} x_i = \sum_{j \in J} x_j,
+\]
+for all~$(I,J) \in \Un(n)$.
 \end{proposition}
 
+\begin{corollary}
+\label{cor:choice-inequalities}
+Any choice of diagonal of the $(n-1)$-permutahedron is given combinatorially by a choice of inequalities
+\[
+\sum_{i \in I} x_i > \sum_{j \in J} x_j \quad \text{or} \quad \sum_{i \in I} x_i < \sum_{j \in J} x_j
+\]
+for all $(I,J) \in \Un(n)$. 
+\vincent{This seems imprecise to me. We focus on special diagonals...}
+\end{corollary}
+
+\vincent{Can we specialize \cref{thm:universalFormula} as well?}
+
+As the normal fan of the permutahedron~$\Perm$ is the fan defined by the braid arrangement~$\braidArrangement$, we obtain by \cref{prop:diagonalCommonRefinement} the following connection between the diagonal of~$\Perm$ and the $(2,n)$-braid arrangement~$\multiBraidArrangement[2][n]$ studied in \cref{part:multiBraidArrangements}, illustrated in \cref{fig:diagonalPermutahedron1}.
+%
+\begin{figure}
+	\includegraphics[scale=.9]{diagonalPermutahedron1}
+	\caption{The duality between the $(2,3)$-braid arrangement~$\multiBraidArrangement[3][2]$ (left) and the diagonal of the permutahedron~$\Perm[3]$ (right).}
+	\label{fig:diagonalPermutahedron1}
+\end{figure}
+
 \begin{proposition}
-A diagonal $\triangle_{(P,\b{v})}$ of the standard permutahedron~$\Perm$ does \emph{not} satisfy the magical formula.
-That is, the inclusion      
+\label{prop:diagonalPermutahedraMultiBraidArrangements}
+The inclusion poset on the faces in the image of the diagonal~$\triangle_{(\Perm, \b{v})}$ is isomorphic to the reverse inclusion poset of the faces of the $(2,n)$-braid arrangement~$\multiBraidArrangement[2][n]$. 
+\end{proposition}
+
+\begin{remark}
+Similarly, the combinatorics of the $(\ell-1)$\ordinalst{} iteration of a diagonal of the permutahedron~$\Perm$ is given by the combinatorics of the $(\ell,n)$-braid arrangement.
+\vincent{This is too vague, I am not sure to keep it.}
+\end{remark}
+
+Finally, the permutahedron~$\Perm$ is not magical in the sense of \cref{prop:magicalFormula}.
+
+\begin{proposition}
+For any generic vector~$\b{v}$, the diagonal~$\triangle_{(\Perm, \b{v})}$ of the standard permutahedron~$\Perm$ does \emph{not} satisfy the magical formula.
+Namely, the inclusion      
 \begin{equation*}
-\Ima\triangle_{(P, \b{v})} \quad \subsetneq \bigcup_{\substack{F,G \text{ faces of } P \\ \max_{\b{v}}(F) \, \le \, \min_{\b{v}}(G)}} F \times G  
+\Ima\triangle_{(\Perm, \b{v})} \quad \subsetneq \bigcup_{\substack{F,G \text{ faces of } \Perm \\ \max_{\b{v}}(F) \, \le \, \min_{\b{v}}(G)}} F \times G  
 \end{equation*}
-is strict, for any choice of generic vector $\b{v}$. 
+is strict.
+\vincent{When $n > 3$.}
 \end{proposition}
 
 \begin{proof}
-    \Guillaume{On peut montrer ça uniquement par le compte des faces non?}
+\Guillaume{On peut montrer ça uniquement par le compte des faces non?}
+\vincent{I would not put any proof. Just say that the specialization of \cref{thm:universalFormula} gives less faces than the magical formula would expect.}
 \end{proof}
-
-The fundamental hyperplane arrangement of the permutahedron was computed in \cite[Sect.~3.1]{LA21}.
-Let $\Un(n) \eqdef \{ (I,J) \ | \ I,J \subset [n], |I|=|J|>0, I \cap J = \emptyset\}$.
-
-\begin{proposition}
-    The fundamental hyperplane arrangement of the $(n-1)$-permutahedron is given by the family of hyperplanes \[ \sum_{i \in I} x_i = \sum_{j \in J} x_j \ ,  \ (I,J) \in \Un(n) \ . \] 
-\end{proposition}
-
-Recall that a choice of diagonal is given by a choice of vector in a chamber of $\mathcal{H}_P$, two vectors living in the same chamber inducing the same diagonal \cite[Prop.~1.23]{LA21}.
-
-\begin{corollary}
-    \label{cor:choice-inequalities}
-    Any choice of diagonal of the $(n-1)$-permutahedron is given combinatorially by a choice of inequalities \[ \sum_{i \in I} x_i > \sum_{j \in J} x_j \quad \text{or} \quad \sum_{i \in I} x_i < \sum_{j \in J} x_j \]
-    for all $(I,J) \in \Un(n)$. 
-\end{corollary}
 
 %%%%%%%%%%%%%%%
 
 \subsection{Enumerative results on cellular diagonals of the permutahedra} 
 \label{subsec:enumerationDiagonalPermutahedra}
 
-We now specialize the results of \cref{part:multiBraidArrangements} to the case~$\ell = 2$ to derive enumerative results on the diagonals of the permutahedra.
-The duality between the $(2,n)$-braid arrangement~$\multiBraidArrangement[n][2]$ and the diagonal of the permutahedron~$\Perm$ is illustrated in \cref{fig:diagonalPermutahedron1}.
-
-\begin{figure}
-	\includegraphics[scale=.9]{diagonalPermutahedron1}
-	\caption{The duality between the $(2,3)$-braid arrangement~$\multiBraidArrangement[3][2]$ (left) and the diagonal of the permutahedron~$\Perm[3]$ (right).}
-	\label{fig:diagonalPermutahedron1}
-\end{figure}
+Relying on \cref{prop:diagonalPermutahedraMultiBraidArrangements}, we now specialize the results of \cref{part:multiBraidArrangements} to the case~$\ell = 2$ to derive enumerative results on the diagonals of the permutahedra.
 
 Observe that one can easily compute the full M\"obius polynomials of the $(2,n)$-braid arrangements~$\multiBraidArrangement[n][2]$ from \cref{thm:MobiusPolynomialMultiBraidArrangement}:
 \begin{align*}
@@ -2015,7 +2055,7 @@ We will see in Part III \Guillaume{Hyperlink} that these choice of orderings ind
 
 \subsection{The $\LA$ and $\SU$ diagonals}
 
-Recall from \cref{cor:choice-inequalities} that a diagonal of the permutahedra is given by a choice of ordering of the sets $$\Un(n)  \eqdef  \set{\{I,J\}}{I,J \subset [n], |I|= |J|, I\cap J = \emptyset} \ .$$
+Recall from \cref{cor:choice-inequalities} that a diagonal of the permutahedra is given by a choice of ordering of the sets $$\Un(n)  \eqdef  \set{\{I,J\}}{I,J \subset [n], |I|= |J|, I\cap J = \varnothing} \ .$$
 By \defn{ordering} of $\Un=\{\Un(n)\}_{n \geq 1}$, we mean a family of sets $\Or:=\{\Or(n)\}_{n\geq 1}$ where the elements of each $\Or(n)$ are choices of ordered pairs $(I,J)$ or $(J,I)$, for each $\{I,J\} \in \Un(n)$.
 
 \begin{definition}
@@ -2171,7 +2211,7 @@ Let us now recall the specific choice of chambers from \cite[Thm.~3.16]{LA21}.
     \[\sum_{i \in I} v_i > \sum_{j \in J} v_j  \ , \forall (I,J) \in \LA(n) \ . \]
 \end{definition}
 
-Applying \cref{thm:universal-formula}, one obtains the following combinatorial description, referred to later as the \emph{$(I,J)$ description}. 
+Applying \cref{thm:universalFormula}, one obtains the following combinatorial description, referred to later as the \emph{$(I,J)$ description}. 
 
 \begin{proposition}
 \label{p:minimal}
@@ -2253,7 +2293,7 @@ In the case of the permutahedron it sends $\LAD$ to $(\LAD)^\op$ and $\SUD$ to $
 \begin{proof}
     The result for the transpositions $t$ and the commutativity of the diagram are straighforward, so we prove that $rs\times rs$ is a cellular isomorphism respecting the poset structure. 
     First, we observe that the assignment $(I,J) \mapsto (r(J),r(I))$ defines a bijection between $\LA(n)$ and $\SU(n)$. 
-    Indeed, we have $r(\min(I\cup J))=\max(I\cup J)$; since $I \cap J = \emptyset$, $r$ is well-defined, and it is a bijection with inverse $r$ itself.  
+    Indeed, we have $r(\min(I\cup J))=\max(I\cup J)$; since $I \cap J = \varnothing$, $r$ is well-defined, and it is a bijection with inverse $r$ itself.  
     Denoting by $N^c$ the complement of a subset $N \subset [n]$, we have that $|N \cap I| > |N\cap J| \iff |N^c \cap I|< |N^c \cap J|$.
     Combining this with the fact that $|N \cap I| > |N\cap J| \iff |r(N) \cap r(I)| > |r(N) \cap r(J)|$, we obtain that 
     \begin{eqnarray*}
@@ -2601,7 +2641,7 @@ If $j_n$ comes before $i_n$, then as $i_n$ is the leftmost element of $I\setminu
 Consequently, as the leftmost $I$ of $\sigma$ is $1$.
 We can inductively generate the entire permutation, determining $j_1$ via $(a)$, then $i_2$ via $(b)$, then $j_2$ via $(a)$ and so on.
 This inductive process fully generates $\sigma$, and places all elements in $\tau$ except $i_1$, with a final known expression  $\tau = i_2 j_1 i_3 j_2 \cdots i_k j_{k-1} w j_k w''$.
-However, as $j_k$ must be dominated by an element of $I$, this forces $w = i_1$ and $w'' =\emptyset$, completing the proof.
+However, as $j_k$ must be dominated by an element of $I$, this forces $w = i_1$ and $w'' =\varnothing$, completing the proof.
 \end{proof}
 
 \begin{remark}
@@ -2839,7 +2879,7 @@ and show that specific sequences generate the same diagonal.
 
 \Guillaume{Think about notation: too many indices!! $R_{M_{i_j}}$}
 
-By convention, we declare the empty sequence of shift operators to be admissible, and to act by the identity, i.e. we have $R_{\mathbf{\emptyset}}(\sigma)  \eqdef  \sigma$ and $L_{\mathbf{\emptyset}} (\tau) \eqdef  \tau$.
+By convention, we declare the empty sequence of shift operators to be admissible, and to act by the identity, i.e. we have $R_{\mathbf{\varnothing}}(\sigma)  \eqdef  \sigma$ and $L_{\mathbf{\varnothing}} (\tau) \eqdef  \tau$.
 
 \begin{definition}[$\SU$ diagonals]
     \label{def:classical-SU}
@@ -2935,7 +2975,7 @@ There are four cases to consider.
     \item $\gamma$ contains one element $m\in M_k$, i.e. it is of the form $\gamma = \alpha m \beta$, with $\alpha$ or $\beta$ possibly empty.
     Note that in virtue of \cref{eq:shift-subset-dominates}, $m$ is not in $\delta_{k,k+1}$, and $\delta_{k,k+1}$ is unaffected by the shift. 
     We assume that $m$ is incoming to $R_\mathbf{M}(\sigma)_{k}$, the case when it is outgoing is similar.
-    We must have $\alpha \cap \delta_{k,k+1}=\emptyset$ since otherwise there would be an oriented loop from $R_\mathbf{M}(\sigma)_{k}$ to itself.
+    We must have $\alpha \cap \delta_{k,k+1}=\varnothing$ since otherwise there would be an oriented loop from $R_\mathbf{M}(\sigma)_{k}$ to itself.
     For the same reason, $\beta \cap \delta_{k,k+1}$ must be connected and starting at $R_\mathbf{M}(\sigma)_{k}$.
     Then there are two cases to consider:
     \begin{enumerate}
