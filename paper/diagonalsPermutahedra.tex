@@ -708,7 +708,7 @@ Consider the hyperplanes~$\set{\b{x} \in \HH}{x_s - x_t = A_{i,s,t}}$ described 
 For each~${i \in [\ell]}$, each set partition~$\pi$ of~$[n]$ corresponds to a $(\#\pi)$-dimensional flat
 \[
 \Psi_i(\pi) \eqdef \set{\b{x} \in \HH}{x_s - x_t = A_{i,s,t} \text{ for all } s,t \in p \in F_i }
-\]
+\] \Guillaume{What is $p$ here?}
 of the $i$\ordinal{} copy of the braid arrangement~$\braidArrangement$.
 The flats of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ are thus all of the form
 \[
@@ -2088,10 +2088,29 @@ for all~$(I,J) \in \LA(n)$ (resp.~$(I,J) \in \SU(n)$).
 
 We will prove in \cref{thm:recover-SU} that $\SUD$ is a topological enhancement of the Saneblidze--Umble diagonal from \cite{SaneblidzeUmble04}.
 Both of these diagonals have opposites $(\LAD)^{\op}$ and $(\SUD)^{\op}$, obtained by permuting the factors in every term: at the level of orderings, they are obtained by permuting $I$ and $J$ in the definitions of $\LA(n)$ and $\SU(n)$, while they are given geometrically by taking $-\vec v$ instead of $\vec v$ as an orientation vector. 
+The faces of these two diagonals are characterized combinatorially by the following direct application of \cref{thm:universalFormula}.
+
+\begin{theorem}[{\cite[Thm.~3.16]{LA21}}]
+\label{p:minimal}
+For a pair $(\sigma,\tau)$ of ordered partitions of $[n]$, we have
+\begin{eqnarray*}
+    (\sigma,\tau)\in \LAD 
+    & \iff & \forall (I,J) \in \LA(n), \exists k \in [n] , 
+    \left| \sigma_{[k]} \cap I \right|
+    >
+    \left| \sigma_{[k]} \cap J \right| \text{ or } \\
+    && \exists l \in [n] , 
+    \left| \tau_{[l]} \cap I \right|
+    <
+    \left| \tau_{[l]} \cap J \right|  \ . 
+\end{eqnarray*}
+The same holds for the $\SU$ diagonal by replacing $\LAD$ and $\LA(n)$ by $\SUD$ and $\SU(n)$, respectively.
+\end{theorem}
 
 %%%%%%%%%%%%%%%
 
 \subsection{The operadic property}
+
 The goal of this section is to prove in \cref{prop:unique-operad} that the $\LA$ and $\SU$ diagonals are the only two operadic diagonals which induce the weak Bruhat order the vertices of the permutahedra. 
 
 Recall that each face $A_1 | \ldots | A_k$ of the permutahedron $P_{|A_1|+\cdots + |A_k|-1}$ is isomorphic to the product $P_{|A_1|-1} \times \cdots \times P_{|A_k|-1}$ of lower dimensional permutahedra, via the permutation of coordinates
@@ -2180,7 +2199,7 @@ The operadic property then determines the orders of all the pairs of $\Un(3)$ an
 Now, we claim that all the higher choices are forced by the operadic property. 
 Starting instead with the orders $(\{1\},\{2\})$ and $(\{2,3\},\{1,4\})$ would give the $\SU$ diagonal, and reversing the pairs would give the opposite orders. 
 
-Let $l\geq 2$ and suppose that for all $k\leq l$, we have ordered $I_k=\{1,k+2,k+3,\dots,2k-1,2k\} < J_k=\{2,3,\dots,k+1\}$.
+Let $l\geq 2$ and suppose that for all $k\leq l$, we have ordered $I_k \eqdef \{1,k+2,k+3,\dots,2k-1,2k\} <  \{2,3,\dots,k+1\} \defeq J_k$.
 Then from \cref{lem:operadic-ordering} we know that the only $\{I,J\}$ pair of order $l+1$ that will not decompose (and hence be specified by the already chosen conditions) is $\{I_{l+1},J_{l+1}\}$.
 As such, the only way we can vary from $\LA$ is to order this element in the opposite direction i.e. choose $(J_{l+1},I_{l+1})$.
 However, this choice leads to contradictions in the ordering of the $\{I,J\}$ pairs of order $|I|=|J|=l+2$.
@@ -2220,64 +2239,6 @@ The $\LA$ and $\SU$ diagonals are the only operadic diagonals which induce the w
 \begin{remark}
     This answers by the negative a conjecture regarding unicity of diagonals on the permutahedra, raised at the beginning of \cite[Sect.~3]{SaneblidzeUmble04}, and could be seen as an alternative statement. \Guillaume{See the next section where we prove that SU diagonal is SU diagonal}
 \end{remark}
-
-%%%%%%%%%%%%%%%
-
-
-\subsection{Faces of operadic diagonals}
-\label{subsec:LAdiagonal}
-
-
-Applying \cref{thm:universalFormula}, one obtains the following combinatorial description, referred to later as the \emph{$(I,J)$ description}. 
-
-\begin{proposition}
-\label{p:minimal}
-For a pair $(\sigma,\tau)$ of ordered partitions of $[n]$, we have
-\begin{eqnarray*}
-    (\sigma,\tau)\in \LAD 
-    & \iff & \forall (I,J) \in \LA(\sigma,\tau), \exists k \in [n] , 
-    \left| \sigma_{[k]} \cap I \right|
-    >
-    \left| \sigma_{[k]} \cap J \right| \text{ or } \\
-    && \exists l \in [n] , 
-    \left| \tau_{[l]} \cap I \right|
-    <
-    \left| \tau_{[l]} \cap J \right|   \\
-    & \iff & \forall (I,J) \in \LA(n), \exists k \in [n] , 
-    \left| \sigma_{[k]} \cap I \right|
-    >
-    \left| \sigma_{[k]} \cap J \right| \text{ or } \\
-    && \exists l \in [n] , 
-    \left| \tau_{[l]} \cap I \right|
-    <
-    \left| \tau_{[l]} \cap J \right|  \ . 
-\end{eqnarray*}
-\end{proposition}
-
-Here, $\LA(\sigma,\tau) \subset \LA(n)$ is a proper subset of $\LA(n)$ which depends on the choice of~$(\sigma,\tau)$, and comes from the geometry of the situation, see \cite[Thm.~1.26]{LA21} for more details.
-For our present purposes, it will be enough to restrict our attention to facets of $\LA$, that is pairs $(\sigma,\tau)$ which satisfy $|\sigma| + |\tau|=n+1$.
-In this case, the set $\LA(\sigma,\tau)$ has $n-1$ elements, and admits the following description. 
-
-For any subset $\sigma_i \subset [n]$, let $\vec \sigma_i \in \R^n$ denote the boolean vector whose coordinates are given by $1$ in position $j$ if $j \in \sigma_i$ and $0$ otherwise. 
-Given a facet $(\sigma,\tau)$ of $\LAD$, one can consider the system of equations $\langle \vec \sigma_i , x \rangle=0$, $\langle \vec \tau_j , x \rangle=0$ given by the blocks of both partitions.
-For geometric reasons (see the proof of \cite[Thm.~1.26]{LA21}), the solution of this system is $x=0$. 
-Now we will be interested in the solutions of the systems associated to the pairs $(\sigma',\tau)$ and $(\sigma,\tau')$ where~$\sigma'$ (resp.~$\tau'$) has been obtained from $\sigma$ (resp.~$\tau$) by merging two adjacent blocks.
-
-\begin{proposition}
-\label{p:minimal-IJ-pairs}
-    There is a bijection between the set $\LA(\sigma,\tau)$ and the solutions to the systems of equations of the form $(\sigma',\tau)$ and $(\sigma,\tau')$. 
-\end{proposition}
-
-\Guillaume{A revoir!! Il faut utiliser le fait que ce sont des facettes!!}
-
-\begin{proof}
-    For any $z \in (\mathring \sigma+ \mathring \tau)/2$, the face $\tau \cap \rho_z \sigma$ of $P \cap \rho_z P$ is a vertex of the polytope $P \cap \rho_z P$.
-    The faces of the form $\tau \cap \rho_z \sigma'$ and $\tau' \cap \rho_z \sigma$ are the edges of $P\cap \rho_z P$ which are adjacent to the vertex $\tau \cap \rho_z \sigma$. 
-    By definition $\LA(\sigma, \tau)$ describes the directions of these edges, and the translation is made as follows: for a given pair $(I,J)$, define the corresponding direction $\vec d$ by its coordinates $d_i \eqdef 1$ if $i \in I$, $d_j \eqdef -1$ if $j \in J$, and $d_k \eqdef 0$ otherwise.  
-    We refer to \cite[Sect.~1.5]{LA21} for more details.
-\end{proof}
-
-We will sometimes refer to the elements of $\LA(\sigma,\tau)$ as the \emph{minimal $(I,J)$-pairs}.
 
 %%%%%%%%%%%%%%%
 
@@ -2337,13 +2298,18 @@ We will show this second isomorphism has the conceptual benefit of sending left 
 
 \end{remark}
 
+
+
 %%%%%%%%%%%%%%%
 
 \subsection{Facets of operadic diagonals}
-\vincent{The next two subsections should be integrated in \cref{sec:LASUdiagonals}.}
+
+
+\Guillaume{Rewrite completely}
+
 We have seen in \cref{subsec:multiBraidArrangement} that facets of any diagonal of the permutahedron are in bijection with $(2,n)$-trees, that is, pairs of unordered partitions of $[n]$ whose intersection graph is a tree.
-These pairs of partitions were first studied and called essential complementary partitions in \cite{chen1969computer,chen1971tables,kajitani1982number}, as such we will denote the set of all $(2,n)$-trees by $\EC$. \Guillaume{change notation for $(2,n)$-trees}
-In this section, we prove that particular orderings of $\EC$ recover the facets of the four operadic diagonals of \cref{prop:unique-operad}.
+These pairs of partitions were first studied and called essential complementary partitions in \cite{chen1969computer,chen1971tables,kajitani1982number}.
+
 
 \begin{construction}
 \label{const:orienting-function}
@@ -2356,21 +2322,7 @@ We say that $a < b$ if the unique path $\gamma$ from $a$ to $b$ is such that
 \end{itemize}
 \end{construction}
 
-We now aim at proving that this ordering function is in fact a bijection in \cref{thm:facets}. 
-To this end we need a few intermediary results. 
 
-\begin{lemma}
-\label{l:o-provides-total-order}
-For any $(2,n)$-tree $(\sigma, \tau)$, the ordering function $o:\EC\to \LAD$ provides a total order of the blocks of the unordered partitions $\sigma$ and $\tau$. 
-\end{lemma}
-\begin{proof}
-The order defined in \cref{const:orienting-function} is clearly total, reflexive (by convention) and anti-symmetric, what remains to be checked is its transitivity.
-Let $a,b,c$ all be vertices of $\sigma$ or $\tau$, and let $\gamma_{ab},\gamma_{bc}$ denote the unique minimal paths between them.
-Suppose that the paths have been oriented such that $a<b$ and $b<c$, and let us show that this implies $a<c$.
-First observe that $\gamma_{ac}= (\gamma_{ab} \cup \gamma_{bc}) \ssm (\gamma_{ab} \cap \gamma_{bc})$.
-As $a<b$ and $b<c$ it must be the case that the intersection $(\gamma_{ab} \cap \gamma_{bc})$ is traversed in opposite directions by the paths $\gamma_{ab}$ and $\gamma_{bc}$; this implies that neither of the minima of paths are in $(\gamma_{ab} \cap \gamma_{bc})$. 
-Thus, the minimum of $\gamma_{ac}$, which is one of the two preceding minima, is traversed from left to right. 
-\end{proof}
 
 The key observation in proving \cref{thm:facets} is that paths between pairs of vertices in a $(2,n)$-tree correspond to $(I,J)$ conditions defining an operadic diagonal (see \cref{sec:cellularDiagonalsPermutahedra}). 
 
@@ -2427,71 +2379,14 @@ Two paths providing order information are
 \end{align*}
 \end{example}
 
-\begin{proposition}
-    \label{prop:geometrical-IJ}
-    Let $(\sigma,\tau)$ be a facet of the $\LA$ diagonal $\LAD$.
-    The paths between adjacent vertices of $\sigma$ or $\tau$ are in bijection with the minimal $(I,J)$-pairs.
-\end{proposition}
 
-\begin{proof}
-    By \cref{p:minimal-IJ-pairs}, it suffices to show that the paths between adjacent vertices of $\sigma$ are in bijection with the solutions of the system of equations of the form $(\rho^1,\sigma^2)$. 
-    To ease notation, let us write $\rho$ for $\rho^1$ and $\sigma$ for $\sigma^1$. 
-    Suppose that $\rho$ is obtained from $\sigma$ by merging the two blocks $\sigma_a$ and $\sigma_b$. 
-    The two equations $\langle \vec \sigma_a, x \rangle =0$ and $\langle \vec \sigma_b, x \rangle =0$ now become $\langle \vec \sigma_a + \vec \sigma_b, x \rangle =0$; nothing else changes in the system. 
-    Since the solution to the system $(\sigma^1,\sigma^2)$ was $x=0$, now the solution is of dimension $1$, and it is given precisely by the path between $a$ and $b$.
-    Such a path is given by an alternating sequence of vertices and edges $\sigma_1 \eqdef \sigma_a, e_1, \sigma_2, e_2, \ldots, e_{k-1}, \sigma_k \eqdef \sigma_b$. 
-    Every edge $e_i \in \{1,\ldots, n\}$ is by definition the intersection $\sigma_{i} \cap \sigma_{i+1}$; thus it is the only common non-zero coordinate between $\vec \sigma_{i}$ and $\vec \sigma_{i+1}$.
-    Thus, the path encodes the series of equations $x_{e_1}+x_{e_{k-1}}=0$, $x_{e_1}+x_{e_2}=0$, $x_{e_2}+x_{e_3}=0$, $\ldots$, $x_{e_{k-2}}+x_{e_{k-1}}=0$. 
-    Thus, $x_{e_1}=1$, $x_{e_2}=-1$, $x_{e_3}=1$, $\ldots$, $x_{e_{k-2}}=1$, $x_{e_{k-1}}=-1$ is a basis of one-dimensional space of solutions, and it gives the corresponding minimal $(I,J)$-pair. 
-\end{proof}
 
-\begin{lemma} \label{l:o-well-defined}
-The ordering function $o:\EC \to \LAD$ is well defined.
-\end{lemma}
 
-\begin{proof}
-Let $(\sigma,\tau)$ be a $(2,n)$-tree.
-By \cref{l:o-provides-total-order}, we have the blocks of $o(\sigma,\tau)$ a totally ordered. 
-It remains to show that the ordered pair $o(\sigma,\tau)$ belongs to the $\LA$ diagonal, i.e. it satisfies every minimal $(I,J)$ condition of \cref{p:minimal}.
-By \cref{prop:geometrical-IJ}, these are given by the paths between adjacent vertices of $o(\sigma,\tau)$.
-Let us consider two such ordered vertices $\sigma_l<\sigma_{l'}$ in $\sigma$ (the situation for $\tau$ is similar).
-The path connecting them is of the form
-\begin{align*}
-    \sigma_l = \sigma_{l_1} \xrightarrow{i_1} \tau_{r_1}\xrightarrow{j_1} \sigma_{l_2} \xrightarrow{i_2}\dots \xrightarrow{i_{k}} \tau_{r_{k-1}} \xrightarrow{j_k} \sigma_{l_k}= \sigma_{l'}
-\end{align*}
-and we have $(I,J) \eqdef (\{i_1,\dots,i_k\},\{j_1,\dots,j_k\}) \in \LA(n)$ since the minimal element points from~$\sigma$ to $\tau$.
-Furthermore, each block of $\tau$ either contains a single element of $I$ and a single element of $J$, or it contains no elements of $I$ and no elements of $J$. 
-As such, for any ordering of the blocks of $\tau$ we have that
-$
-    \forall m, \big|\bigcup_{1\leq k \leq m} \tau_{k} \cap I \big| = \big|\bigcup_{1\leq k \leq m} \tau_{k} \cap J \big| \ .
-$
-Hence in order for the $(I,J)$ condition to be satisfied it must be the case that
-$
-    \exists m, \big| \bigcup_{1\leq k \leq m} \sigma_k \cap I \big| > \big|\bigcup_{1\leq k \leq m} \sigma_k \cap J \big| \ .
-$
-Every block of~$\sigma$ excluding $\sigma_l$ and $\sigma_{l'}$ either contains no elements of both $I$ and $J$, or contains a single element of $I$ and a single element of $J$. 
-So the only way for the condition to be satisfied is for $\sigma_l$ to come before $\sigma_{l'}$, which is precisely what is required by the total order.
-\end{proof}
-
-\begin{remark}
-    It would be interesting to know if there is a geometrical interpretation of the paths that are not between adjacent vertices. 
-\end{remark}
-
-We are now ready to prove the main result of this Section. 
 
 \begin{theorem}
 \label{thm:facets}
 For any operadic diagonal $\triangle$, the ordering function $o:\EC\to \OP$ is a bijection between the set of $(2,n)$-trees and the set of facets of $\triangle$. 
 \end{theorem}
-
-\begin{proof}
-First, we prove the statement for the $\LA$ diagonal $\LAD$. 
-By \cref{l:o-well-defined}, the ordering function $o:\EC \to \LAD$ is well defined.
-Now, the intersection graph of a facet of the diagonal $\LAD$ has $n+1$ vertices and $n$ edges, thus it defines a $(2,n)$-tree, and the function $u:\OP \to \EC$ which forgets the order in a pair of partitions is well defined.
-It is clear that the two functions $o$ and $u$ are mutual inverses, thus we have a bijection. 
-To obtain the $\SU$ ordering, we apply the isomorphism $rs\times rs$ from \cref{thm:bijection-operadic-diagonals} and track what happens to each path.
-The facets of $\LA^{op}$ and $\SU^{op}$ are obtained by reversing these orders.
-\end{proof}
 
 We end this Section by illustrating how the isomorphism $rs\times rs$ from \cref{thm:bijection-operadic-diagonals} relates the $\LA$ and $\SU$ orders. 
 
@@ -2558,9 +2453,7 @@ are mapped to $\SU(7)$ conditions corresponding to paths, e.g. the prior $(I,J)$
     Note that the composite $\LAD \xrightarrow{u} \EC \xrightarrow{o} \SUD$ provides another bijection between facets, however this map is not equal to $rs \times rs$ and is not defined on the other faces.
 \end{remark}
 
-%\Kurt{A necessary condition for any shift description of $(l,n)$-trees would be having a generalised order for it.
-%Not sure what an obvious extension of this order would be.
-%Can we compute via code what the ordering must be for $\LA$/$\SU$ $(l,n)$-trees for small $l,n$?}
+
 
 %%%%%%%%%%%%%%%
 
@@ -2695,6 +2588,8 @@ It follows directly from the fish condition: if the fish condition is satisfied,
 \begin{remark}
     Fish condition
 \end{remark}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
