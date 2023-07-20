@@ -3996,26 +3996,23 @@ The second row is the image of these shifts under isomorphism $t(r\times r)$.
 
 \subsection{Cubical Description}\label{sec:Cubical}
 
-Recall from Definitions \ref{def:cellularDiagonal} and \ref{def:operadic diagonal} that a cellular operadic diagonal of the permutahdra satisfies the following properties.
-\begin{itemize}
-    \item ...
-\end{itemize}
-In \cite{SaneblidzeUmble04}, Saneblidze and Umble identified that they could use a particular subdivision of the $(n-1)$-cube by $P_{n}$, to construct such a diagonal.
-In their work they briefly outline this construction before using it to induce their subset shift description (\cref{def:classical-SU}).
-In this section, we first recall and re-interpret the necessary definitions of their cubical diagonal.
-We then show this diagonal is indeed a cellular operadic diagonal, and that it coincides with their subset shift formula.
-Finally we use the isomorphism $t(r\times r)$ to induce a cubical $\LA$ diagonal.
-
-\subsubsection{Definitions}
+In \cite{SaneblidzeUmble04}, Saneblidze and Umble identified that they could use a particular subdivision of the $(n-1)$-cube by $P_{n}$, to construct cellular operadic diagonals of polytopes which admit cellular projections from the permutahedra.
+In their work, they briefly outline this cubical construction before using it to induce their subset shift description (\cref{def:classical-SU}).
+In this section, we recall their cubical definition of the $\SU$ diagonal and explicitly relate it to their shift description, using a new proof that exploits the lattice description of the diagonal (\cref{sec:Shift-lattice}).
+We finally transfer the cubical formulae to the $\LA$ diagonal via isomorphism.
 
 
-We present and characterise all definitions in full, each of these definitions will be clarified in \cref{ex:subdivision cubes}.
-Let $1$ denote a trivial subdivision of the $0$-cube (a point), then we can subdivide the $(n-1)$-cube by weaving $n$ through the previous subdivision of the $(n-2)$-cube. 
-In particular, for every face of $\sigma = \sigma_1|...|\sigma_k \in P_{n-1}$, for $0<i<k$ we define
-$n_j \eqdef \#(\sigma_{k-i+1}\cup...\cup \sigma_k)$, and 
-$I_j \eqdef [1 - \frac{1}{2^{n_j}}, 1 - \frac{1}{2^{n_{j+1}}}]$.
-We then define boundary cases $I_0 \eqdef [0,1 - \frac{1}{2^{n_1}}]$ and $I_k \eqdef [1 - \frac{1}{2^{n_k}},1]$, to  produce $I(\sigma) \eqdef I_0 \cup ... \cup I_k$, a partition of the interval $[0,1]$.
-Finally, assuming we have subdivided the $(n-2)$ cube with $P_{n-1}$, we can use these partitioned intervals to subdivide the $(n-1)$-cube with $P_n$ through,
+\subsubsection{The Cubical Diagonal}
+
+We first provide a recursive description of a subdivision of the $(n-1)$-cube by $P_n$.
+The $0$-cube (a point), admits a trivial subdivision by the sole element $1$ of $P_1$.
+Then, assuming we have subdivided the $(n-2)$ cube with $P_{n-1}$, we can subdivide the $(n-1)$-cube with $P_n$ by weaving $n$ through the previous subdivision.
+In particular, we weave $n$ through every face of $\sigma = \sigma_1|...|\sigma_k \in P_{n-1}$, using an interval description.
+For $0<j<k$ we define
+$n_j := |\sigma_{k-j+1}\cup...\cup \sigma_k|$, $I_j := [1 - \frac{1}{2^{n_j}}, 1 - \frac{1}{2^{n_{j+1}}}]$, and boundary cases $I_0:= [0,1 - \frac{1}{2^{n_1}}]$, $I_k:= [1 - \frac{1}{2^{n_k}},1]$,
+This defines a partition of the interval $[0,1]$, which we denote $I := I_0 \cup ... \cup I_k$.
+The weaving of $n$ through $\sigma$ is then defined as follows.
+
 \begin{align} \label{eq:In inductive def}
     \sigma \times I \mapsto 
     \begin{cases}
@@ -4027,6 +4024,7 @@ Finally, assuming we have subdivided the $(n-2)$ cube with $P_{n-1}$, we can use
 \end{align}
 Here is an illustration of this subdivision for the first few-dimensions.
 We indicate, in bold, the embedding of the $n-1$ cube into the $n$ cube that occurs when $I=[0, 0]$. 
+We also emphasise, that an immediate consequence of the construction is that each dimension of the cube corresponds to shifting a particular element of $[n]\setminus \{1\}$.
 
 \begin{center}
 {\small
@@ -4056,31 +4054,59 @@ $\hookrightarrow$
 \end{tikzcd}
 }
 \end{center}
-To avoid cluttering the diagram, we have only labelled the vertices of the subdivision of cube, but its edges, facets and face are also identified with the expected elements of $P_{n}$.
-Samson and Umble's formula for the diagonal was constructed through a maximal pairing of $k$-subdivision cubes.
-We now define and characterise the $k$-subdivision cubes, before doing the same for the pairs.
+To avoid cluttering the diagram, we have only labelled the vertices of the subdivision of cube, but its edges, facets and outer face are all identified with the expected elements of $P_{n}$.
+The cubical formula for the diagonal is constructed through maximal pairings of $k$-subdivision cubes of this presentation of $P_n$, which we now define, and prove the existence of.
 
 \begin{definition} \label{def:Subdivisions}
 Define $I_{n-1}$ to be the $(n-1)$-cube under this subdivision of $P_{n}$. 
-Let $e$ be a cell in $P_{n}$ with dimension $|e|$,  a \emph{$k$-subdivision cube} of $e$ denoted $\subdivcubeofe$ is a set of faces whose union is a $k$-subcube of $e$ for some $k\leq |e|$.
-When $e$ is the outer face, we denote these $k$-subdivision cubes as simply $\subdivcubeofouter$.
+Let $e$ be a cell in $P_{n}$ with dimension $|e|$, a \defn{$k$-subdivision cube} of $e$ denoted $\subdivcubeofe$ is a set of $k$-faces whose union is a $k$-subcube of $e$ for some $k\leq |e|$.
+When $e$ is the outer face, we denote these $k$-subdivision cubes $\subdivcubeofouter$.
 \end{definition}
-Note that trivially every $k$-face of $P_n$ is a $k$-subdivision cube of every cell which contains it, for instance the outer face of $P_n$, and the $k$-face itself. 
+
+As a trivial example, every $k$-face of $P_n$ is a $k$-subdivision cube of every cell which contains it, for instance itself, and the outer face of $P_n$.
+Less trivial examples are provided in \cref{ex:subdivision cubes}.
 
 \begin{lemma}\label{lem:k-subdiv cubes have max/min k faces}
-A $k$-subdivision cube $\subdivcubeofe$,
-\begin{enumerate}
-    \item has unique maximal and minimal vertices under the weak Bruhat order.
-    \item has unique maximal and minimal $k$-faces.
-\end{enumerate}
+A $k$-subdivision cube $\subdivcubeofe$ has unique maximal and minimal vertices under the weak Bruhat order.
 \end{lemma}
 
 \begin{proof}
-In order for a $k$-subdivision cube to be a $k$-cube it must have unique maximal and minimal vertices.
-The unique maximal/minimal $k$-faces are defined to be the unique $k$-faces adjacent to these vertices.
+If $\subdivcubeofe$ had multiple maximal/minimal vertices, then it could not be a union of $k$-faces in the shape of a $k$-cube.
 \end{proof}
 
-We now define a particular paring of subdivision cubes.
+We thus define the unique maximal (minimal) $k$-face of a $k$-subdivision cube to be the unique $k$-face adjacent to the maximal (minimal) vertex.
+
+\begin{lemma}\label{lem:Unique maximal subdivcubes}
+Let $e$ be a cell of $P_n$ and $\sigma$ a $k$-face of the cell. Then there exists a unique maximal $k$-subdivision cube $C_e$ whose maximal (minimal) $k$-face is $\sigma$.
+\end{lemma}
+
+\begin{proof}
+We first prove the result for $1$-subdivision cubes, i.e. lines, then proceed inductively from there.
+We only treat the case for maximal $k$-face $\sigma$, the minimal case proceeds similarly.
+Given the inductive description of $I_{n}$ (\cref{eq:In inductive def}), the maximal vertex $v$ and the face $\sigma$ specifies the element $\rho$ being shifted by the line.
+Furthermore, from this inductive description, the line can be grown, with respect to inclusion of $1$-faces, by shifting $\rho$ to the right (left) as far as possible.
+Note, that $\rho$ will eventually be blocked by either reaching the boundary of the enveloping cell $e$, or being blocked by a larger element.
+So there is a unique maximal $1$-subdivision line with maximal $1$-face $\sigma$.
+\\\\
+Now consider the set of $(k+1)$-subdivision cubes with maximal $(k+1)$-face $\sigma$.
+The face $\sigma$ is trivially one such cube.
+Consider the $k+1$ elements of $[n]$, which correspond to dimensions spanned by $\sigma$, and let $\rho$ be the largest such element.
+Let $\sigma_L$ be the $1$-face, with maximal vertex $v$, whose only non-trivial dimension corresponds to $\rho$.
+Then, there exists a unique maximal $1$-subdivision line with maximal $1$-face $\sigma_L$, which we denote $L$.
+In particular, if $v'$ is the minimal vertex of $L$, and $v_\rho, v'_\rho$ are the indices of $\rho$ in $v,v'$, then under the inductive description of $I_{n-1}$ (\cref{eq:In inductive def}) the line $L$ corresponds to $\sigma_L \times I'$ where $I':=[1-\frac{1}{2^{n-v'_\rho}},1-\frac{1}{2^{n-v_\rho}}]$.
+\\\\
+Let $\sigma_C$ be the $k$-face which results from taking $\sigma$, and setting the dimension corresponding to $\rho$ to $1-\frac{1}{2^{n-v_\rho}}$.
+This corresponds to shifting $\rho$ from its current block, into a singleton block above it.
+Then, by the inductive assumption, there exists a unique maximal $k$-subdivision cube with maximal $k$-face $\sigma_C$, which we denote $C$.
+The product $L\times C$ is then clearly a $(k+1)$-cube with maximal vertex $v$.
+In addition, every $k$-face in $C$ must have its corresponding $\rho$ coordinate be $1-\frac{1}{2^{n-v_\rho}}$.
+Consequently, as $\rho$ was the maximal element corresponding to dimensions of the $(k+1)$-cube, and the line $\sigma_L \times I'$ was well defined, we know the product $C\times L$ will correspond to the union of intervals $\sqcup_{f\in C}f \times I'$ (\cref{eq:In inductive def}), which spans the $(k+1)$-cube with $(k+1)$-faces resulting from shifting $\rho$ through $C$.
+Finally, it is clear that $L\times C$ must be maximal under inclusion.
+If there was a larger $(k+1)$-subdivision cube $C'$ enveloping $L\times C$, then one of its projections would be a $1,k$ subdivision cube enveloping $L$ or $C$, which contradicts the assumption they were maximal.
+
+\end{proof}
+
+We now define a pairing of subdivision cubes.
 
 \begin{definition} [\cite{saneblidzeComparingDiagonalsAssociahedra2022}]\label{def:subdiv pairs}
 Let $e$ be a cell of $P_n$ and let $\mathcal{V}_e$ be the set of vertices in $e$.
@@ -4091,56 +4117,31 @@ For a given vertex $v \in \mathcal{V}_e$, we define $\subdivpairsev$ to be the s
     \item $k_1+k_2 = |e|$
 \end{enumerate}
 If $e$ is the outer face of $P_n$ then we denote the set of pairs $\subdivpairsv$.
+Finally, we define $\maxsubdivpairsev$ and $\maxsubdivpairsv$ to be the unique maximal pair, with respect to inclusion, of $\subdivpairsv$ and $\subdivpairsv$ respectively.
 \end{definition}
-
-\begin{proposition}\label{prop:ev properties}
-The pairs $\subdivpairsv$ satisfy the following properties,
-\begin{enumerate}
-    \item The SCP $(\sigma,\tau) \in \subdivpairsv$.
-    \item All pairs $(C^v,C_v) \in \subdivpairsv$ have the same dimensions, and these are determined by the number of blocks in the SCP. In particular, $k_1=|\sigma|$ and $k_2 = |\tau|$. 
-    \item For all $(C^v,C_v) \in \subdivpairsv$, the unique maximal $k_1$ face of $C^v$ is $\sigma$, the unique minimal $k_2$ face of $C_v$ is $\tau$.
-\end{enumerate}
-\end{proposition}
-\begin{proof}
-The proofs in turn are as follows.
-\begin{enumerate}
-    \item The fact that the SCP is in $\subdivpairsv$ follows directly from the definition of each.
-    \item If $(\sigma,\tau)$ is the SCP of $v$, then $\sigma$ is the largest $k_1$ face of $P_n$ with maximal vertex $v$, and $\tau$ is the largest $k_2$ face of $P_n$ with minimal vertex $v$.    
-    Suppose that exists $(C_1,C_2) \in \subdivpairsv$ which are $k'_1, k'_2$ subdivision cubes where $k'_1\neq k_1$ (and $k'_2\neq k_2$).
-    If $k'_1< k_1$, then it must be the case that $k'_2> k_2$.
-    As this requires the existence of a $k'_2$ face in $P_n$ with minimal vertex $v$, and we know that the $k_2$ face $\tau$ is the largest such face, we arrive at a contradiction.
-    Assuming $k'_2<k_2$ yields a similar contradiction.
-    \item We know all $C^v$ are $k_1$ subdivision cubes, which by \cref{lem:k-subdiv cubes have max/min k faces} tells us they have a unique maximal $k_1$ face.
-    However, we know that $\sigma$ is a $k_1$ face adjacent to the maximal vertex $v$ so it must be the unique maximal $k_1$ face.
-    Similar logic applies to $C_v$.
-\end{enumerate}
-\end{proof}
-
-\begin{definition}\label{def:max subdiv pairs}
-Let $\maxsubdivpairsev$ denote the unique maximal pair of subdivision cubes in $\subdivpairsev$ under inclusion.
-\end{definition}
-We establish the uniqueness of this definition as a result of the following lemma. \Kurt{need uniquess}
+We note that the uniqueness of the maximal pairs is a corollary of \cref{lem:Unique maximal subdivcubes}.
 
 \begin{example}\label{ex:subdivision cubes}
-Here is an example that is visually verifiable from the diagram of $I_3$ below.
-In $P_4$, let $e$ be the top-dimensional cell $1234$. Then the following sets of faces are all subdivision cubes of $e$ (for varying $k$)
+We clarify the previous section with examples that are visually verifiable from the diagram of $I_3$ below.
+The following sets of faces are all subdivision cubes of the outer face of $P_4$, $1234$ (for varying $k$),
 \begin{align*}
-    \{1234\},\quad \{1|234\},\quad \{1|234, 14|23\},\quad \{1|43|2,14|3|2\}.
+    \{1234\},\quad \{1|234\},\quad \{1|234, 14|23\},\quad \{1|3|24,1|34|2\}.
 \end{align*}
-Note, that $\{3|1|4|2,14|3|2\}$ is also a $k$-subdivision cube of the cell $134|2$.
+Note, that $\{1|3|24,1|34|2\}$ is also a $1$-subdivision cube of the cell $1|234$.
 The following three sets of faces are not subdivision cubes of $e$,
 \begin{align*}
     \{134|2, 14|23\},\quad \{1|234, 134|2, 14|23\}, \quad \{1|2|34,1|23|4\}
 \end{align*}
-For $v = \blue{\mathbf{4|3|1|2}}$, the SCP is $\sigma\times \tau = \blue{\mathbf{134|2\times 4|3|12}}$, $k_1=2$, $k_2=1$, the only $k_2$-subdivision cube with minimal vertex $v$ is $4|3|12$, and the three $k_1$-subdivision cubes are
+For $v = \blue{\mathbf{4|3|1|2}}$, $k_1=2$, $k_2=1$, the only $k_2$-subdivision cube with minimal vertex $v$ is $4|3|12$, and the three $k_1$-subdivision cubes with maximal vertex $v$ are
 \begin{align*}
     \{134|2\}, \{13|24, 134|2\}, \{ 1|234, 13|24, 14|23, 134|2\}
 \end{align*}
 
 This defines $\subdivpairsv$, and thus $\maxsubdivpairsv=\{ 1|234, 13|24, 14|23, 134|2\} \times \{4|3|12\}$.
-To relate shifts to these subdivision cubes, observe that $\sigma = \blue{\mathbf{134|2}}$ admits $3$ different sequences of admissible rights shifts, their images are $\red{\mathbf{13|24}}$ , $\red{\mathbf{14|23}}$, $\red{\mathbf{1|234}}$,
-and that $\tau = \blue{\mathbf{4|3|12}}$ admits no left shifts.
-These shifts are illustrated on $I_3$ below.
+In the next section, we will show that $\maxsubdivpairsv$ is generated by all shifts of the strong complementary pair corresponding to $v$.
+For now, we verify this claim on this example.
+The $\SCP$ corresponding to $v$ is $(\sigma,\tau) = (\blue{\mathbf{134|2}},\blue{\mathbf{4|3|12}} )$.
+The ordered partition $\sigma$ admits three distinct rights shifts, $\red{\mathbf{13|24}}$, $\red{\mathbf{14|23}}$, $\red{\mathbf{1|234}}$, and $\tau$ admits no left shifts.
 
 \begin{center}
 {\small
@@ -4157,145 +4158,99 @@ These shifts are illustrated on $I_3$ below.
 }
 \end{center}
 
-The reader should observe two points key  points from this example.
-Firstly, all shifts are present in $\maxsubdivpairsv$.
-Secondly, the explicit relationship between shifts and the other $k$-subdivision cubes is subtle.
-One might expect that the right shifts of $\sigma$ would correspond to the minimal $k_1$-faces of the $k_1$ subdivision cubes.
-This example shows this is not the case, as there are four shifts of $\sigma$ (including the trivial shift), but only three $k_1$ subdivision cubes with maximal vertex $v$.
-In particular, $\{14|23, 134|2\}$ is not a $k_1$ subdivision cube.
-
 \end{example}
 
-\begin{proposition}
-The following formula defines a cellular operadic diagonal of the permutahedra. For every cell $e$ of the permutahedra
+\begin{proposition}[Formula (1) of \cite{saneblidzeComparingDiagonalsAssociahedra2022}]
+The following formula defines a cellular operadic diagonal of the permutahedra. 
+For every cell $e$ of the permutahedra,
 \begin{align*}
     \triangle(e) = \bigcup_{v \in V_e} \maxsubdivpairsev
 \end{align*}
-In particular its value on outer faces is 
+where $V_e$ is the set of vertices of the cell.
+In particular, its value on outer faces is 
 \begin{align*}
     \triangle([n]) = \bigcup_{v \in P_n} \maxsubdivpairsv
 \end{align*}
 and as a result of it being an operadic diagonal, it extends to all other faces.
 \end{proposition}
 \begin{proof}
-By construction the diagonal is cellular (\cref{def:cellularDiagonal}).
+By construction, the diagonal is cellular (\cref{def:cellular diagonal}).
 This follows, as the image of the map is a union of dim $P$-faces of $P\times P$.
 Furthermore, for every vertex $v$ in $P$, not only is $(v,v) \in \maxsubdivpairsv$, but $\maxsubdivpairsv$ is also contractible to $(v,v)$.
-The diagonal is also operadic, i.e.
+The diagonal is also operadic (\cref{def:operadic diagonal}), as the presence of vertices $v$ in a cell $e=A_1|...|A_k$ are conserved under the isomorphism $\Theta$. Consequently, \Kurt{Something like this... Or can cop out and just say operadic as a result of LA being operadic...}
 \begin{align*}
-    \triangle(A_1|...|A_k) \cong \triangle(A_1)\times ... \times \triangle(A_k)
+    \triangle(A_1|...|A_k) = \bigcup_{v \in V_{A_1|...|A_k}} \maxsubdivpairsev \cong \bigcup_{v \in V_{A_1\times ... \times A_k}} \maxsubdivpairsev
+    = \triangle(A_1)\times...\times \triangle(A_k)
 \end{align*}
-why? Surely can do it from the inductive desc...\Kurt{Todo...}
 
 \end{proof}
 
+\subsubsection{The Cubical-Shift Equivalence}
 
-\subsubsection{The Cubical to Shift Link}
+\Kurt{Can probably streamline further...}
 
-\Kurt{We should also give a lattice-shift definition.
-In this definition, the only thing that matters are the computed maximal shifts.
-i.e. $R_\rho^{k}\sigma$ is well-defined if $h_\rho(\sigma)+k\leq r_\rho$. 
-}
-A stronger result than this lemma is saying we can treat any $k$-face as if it is either $\sigma$ or $\tau$ in an $SCP$ and consider the consequential lattice structure...\Kurt{Generalised Tamari Order link...}
+We now explicitly relate the $\SU$ cubical formula to $\SU$ shifts (\cref{sec:Shift-lattice}).
+In particular, we will show that when we specialise the cubical formula for the diagonal to the outer faces, we recover the shift description. 
+
+
+\begin{proposition}\label{prop:ev properties}
+The set of pairs $\subdivpairsv$ satisfies the following properties,
+\begin{enumerate}
+    \item The strong complementary pair $(\sigma,\tau)$ corresponding to $v$ is in $\subdivpairsv$.
+    \item All pairs in $\subdivpairsv$ have the same dimensions $k_1$ and $k_2$.
+    \item For all $(C^v,C_v) \in \subdivpairsv$, the unique maximal $k_1$-face of $C^v$ is $\sigma$, the unique minimal $k_2$-face of $C_v$ is $\tau$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+Strong complementary partitions correspond to those pairs of faces $(F,G)$ of the permutahedra such that the maximal vertex of $F$ is the minimal vertex of $G$ (\cref{def:strong-complementary-pairs}).
+That is to say, $(\sigma,\tau)$ is the unique pair of faces of the permutahedra that meet at vertex $v$.
+Consequently, not only must $(1)$ be true, but every pair of subdivision cubes $(C^v,C_v) \in \subdivpairsv$ must have $\sigma$ as its maximal $k_1$-face, and $\tau$ as its minimal $k_2$-face, giving $(2)$ and $(3)$.
+\end{proof}
 
 \begin{lemma}
-If $L$ is a maximal $1$-subdivision cube with maximal (minimal) $1$-face $\sigma$ then its faces are generated by $\bigcup_{i=0}^{r_\rho} R_\rho^i (\sigma)$ (dually $\bigcup_{i=0}^{l_\rho} L_\rho^i (\sigma)$ ).
-Where, $r_\rho, l_\rho$ are the maximal shift-indices calculated using \cref{prop:maximal m-shift formulae}.
+Let $C$ be a maximal $k$-subdivision cube with  maximal (minimal) $k$-face $\sigma$ ($\tau$).
+Then $C = \bigcup_{\mathbf{M}} R_\mathbf{M}(\sigma)$ (resp. $C=\bigcup_{\mathbf{N}} L_\mathbf{M}(\tau)$), where $\mathbf{M}$ and $\mathbf{N}$ are all admissible sequence of $\SU$ shifts.
 
 \end{lemma}
 \begin{proof}
-We note that the formula for the maximal shift-indices of \cref{prop:maximal m-shift formulae} does not depend on the pair of ordered partitions, but just the left (right) partition.
-The result then follows from the inductive description of $I_{n}$ (\cref{eq:In inductive def}), applied to lines.
-\end{proof}
-
-\begin{lemma}\label{lem:product of line and cube shift desc}
-Let $L,C$ be maximal $1,k$-subdivision cubes with maximal (minimal) vertex $v$, which span differing dimensions, and such that the element shifted by $L$, say $\rho$, is greater than all the corresponding elements for $C$.
-Then $L\times C$, is a maximal $k+1$-subdivision cube with maximal (minimal) vertex $v$, whose $k+1$ faces are generated by
-\begin{enumerate}
-    \item $\bigcup_{i=0}^{r_\rho}\bigcup_\mathbf{M} R_\rho^i R_\mathbf{M}(\sigma)$, if $C$ is generated by $\bigcup_\mathbf{M} R_\mathbf{M}(\sigma_C)$, and $L$ is generated by $\bigcup_{i=0}^{r_\rho^L}R_\rho^i (\sigma_L)$.
-    \item ($\bigcup_{i=0}^{l_\rho}\bigcup_\mathbf{N} L_\rho^i L_\mathbf{N}(\sigma)$, if $C$ is generated by $\bigcup_\mathbf{N} L_\mathbf{N}(\sigma_C)$, and $L$ is generated by $\bigcup_{i=0}^{l_\rho^L}L_\rho^i (\sigma_L)$.)
-\end{enumerate}
-where $\sigma_L,\sigma_C,\sigma$ are the maximal (minimal) $1,k,(k+1)$-faces of $C,L,L\times C$ respectively, the maximal shifts $r_\rho^L$, $l_\rho^L$ are calculated from $\sigma_L$, and $r_\rho$, $l_\rho$ are calculated from $\sigma$.
-\end{lemma}
-
-\begin{proof}
-It is clear that $L \times C$ will be a $(k+1)$-cube, with maximal (minimal) vertex $v$.
-Furthermore, if this cube is a $(k+1)$-subdivision cube, i.e. it is spanned by $(k+1)$-faces of $I_{n-1}$, then it must be maximal with respect to inclusion.
-This follows, as if it was enveloped by some bigger $C'$ then either the projection $\pi_C C'$ envelopes $C$, or $\pi_L C'$ envelopes $L$, which violates the assumption that these cubes were maximal with respect to inclusion.
-As such, all that remains is to show that $L\times C$ is spanned by $k+1$-faces of the form described.
-We prove the result for $(1)$, the dual result is similar.
+Compared to \cref{lem:Unique maximal subdivcubes}, we now have the additional assumption that $C$ is a $k$-subdivision cell of the outer face.
+This means we don't have to worry about generic boundaries imposed by generic enveloping cells $e$.
+We prove the result inductively from lines, and consider just the case of the maximal $k$-face $\sigma$, as the minimal $k$-face $\tau$ proceeds similarly.
+If $L$ is a maximal $1$-subdivision cube with maximal $1$-face $\sigma$, then its faces are generated by $\bigcup_{i=0}^{r_\rho} R_\rho^i(\sigma)$
+Where $r_\rho$ is calculated using the maximal shift-indices of \cref{prop:maximal m-shift formulae}.
+This is because the maximal $1$-face $\sigma$ uniquely determines the element $\rho$ being shifted, and the inductive description of $I_{n-1}$ (\cref{sec:Shift-lattice}) coincides with the $\SU$ lattice description (\cref{sec:Shift-lattice}) given the maximal face $\sigma$ can be interpreted as the left ordered partition of an $\SCP$.
+Note in both formulae, $\rho$ is simply right shifted until it reaches the final block, or is blocked by a larger element.
 \\\\
-We start by making two observations. \Kurt{Could pull out as lemmas}
-Firstly, as $P_n$ is a simple polytope, and there are $k+1$ edges flowing into the vertex $v$, there must be a maximal $k+1$ face adjacent to $v$, which we denote $\sigma$.
-Secondly, as $C$ spans differing dimensions to $L$, every $k$-face in $C$ must have the element $\rho$ in the same singleton block, say the $i$\ordinal{} block.
-Furthermore, the number of elements on either side of the $i$\ordinal{} block must be the same.
+Let $C^\sigma$ be the unique maximal $(k+1)$-subdivision cube with maximal $(k+1)$-face $\sigma$.
+Given the proof of \cref{lem:Unique maximal subdivcubes}, we know $C^\sigma = L\times C$, i.e. the $(k+1)$-subdivision cube is a product of a line corresponding to $\rho$, and a $k$-cube $C$ corresponding to all other elements.
+We know that the line $L$, with maximal $1$-face $\sigma_L$ satisfies $L=\bigcup_{i=0}^{r_\rho} R_\rho^i(\sigma_L)$, and we make the inductive assumption that $C$ with maximal $k$-face $\sigma_C$ satisfies $C = \bigcup_{\mathbf{M}}R_\mathbf{M}(\sigma_C)$, where $\mathbf{M}$ is the set of all admissible right shifts of $\sigma_C$.
+\\\\
+Let $\rho'$ be an element shifted in $C$, then its maximal right shift height in $C$ is the same as its maximal right shift height in $L\times C$.
 This follows from the inductive description of $I_n$ (\cref{eq:In inductive def}).
-Having access to $\sigma$ will enable us to generate the other $(k+1)$-faces, and variants of the second property will enable us to check the faces are in the shape of a $(k+1)$ cube. In particular,
-\begin{enumerate}
-    \item We use $\sigma$ to form a set of $(k+1)$-faces which are flush with the boundary of $C$ and the initial portion of the line $L$.
-    \item We follow the line down growing the set of $(k+1)$-faces, and showing that when the line terminates we must have a $(k+1)$-cube.
-\end{enumerate}
-From the inductive description of $I_n$ (\cref{eq:In inductive def}), it must be the case that $\sigma$ is obtained from $\sigma_C$ by merging the $i$\ordinal{} and $(i+1)$\ordinalst{} block.
-Furthermore, for each element $\rho'$ shifted in $C$, the maximal right shift on $\sigma_C$, say $r_{\rho'}^C$, must be the same as the maximal right shift $r_{\rho'}$ acting on $\sigma$.
-This follows as each $k$-face in $C$ has $\rho$ in a singleton block, which by virtue of being larger than every other element $\rho'$ blocks their shifts.
-Consequently, each admissible sequence of right shifts $R_{\mathbf{M}}$ for $\sigma_C$ is also an admissible sequence of right shifts for $\sigma$.
-As such, $\bigcup_{\mathbf{M}} R_{\mathbf{M}}(\sigma)$ will be a collection of $(k+1)$-faces.
-Furthermore, it is straightforward to see these $(k+1)$ faces are just $\bigcup_{\mathbf{M}} R_{\mathbf{M}}(\sigma_C)$ with the $i$\ordinal{} and $(i+1)$\ordinalst{} block merged.
-So, under the projections $\pi_C$ and $\pi_L$ this collection of $(k+1)$-faces are flush with the $k$-cube and the initial portion of the line $L$ \Kurt{What is the best way to say flush with boundary?}
-\\\\ 
-Let $v'$ be the smallest vertex of the line $L$.
-If $v'$ is in $\sigma$, then $r_\rho = 0$, and all that remains is to show that $\bigcup_{\mathbf{M}} R_{\mathbf{M}}(\sigma)$, has a $(k+1)$-cubical shape, i.e. we need to be flush with the end portion of the line $L$ under the projection $\pi_L$. 
-From the inductive description of $I_n$ (\cref{eq:In inductive def}), this will occur if every $k$-face in $C$ has a constant number of elements in block $i+1$. 
-Suppose, that there exists a $k$-face with one less element in that block.
-Then this implies that one of these elements was shifted into the next block.
-However, as $\rho$ is larger than all $\rho'$ this implies that we can also shift $\rho$ into the next block, i.e. $r_\rho>0$, a contradiction. 
+In particular, every $k$-face in $C$ has $\rho$ in a singleton block, and as $\rho$ is larger than all other elements it blocks all other shifts.
+If $\rho$ is in the $i$th block of $\sigma_C$, then $\sigma$ is obtained from $\sigma_C$ by merging the $i$\ordinal{} and $(i+1)$\ordinalst{} blocks.
+It is thus straightforward to see that $r_{\rho'}$ is conserved, when moving from $C$ to $C\times L$.
 \\\\
-Suppose that $v'$ is not in $\sigma$. 
-As $\sigma$ is a $(k+1)$-face, it is a trivial $(k+1)$-cube.
-When the line $L$ steps out of $\sigma$ towards $v'$, it must do so through a cubical vertex, with $(k+1)$ incoming edges.
-Once again, as $P_n$ is a simply polytope this implies the next face is a $(k+1)$-face.
-Through the inductive description of $I_n$, it must have form $R_\rho^1(\sigma)$, and each admissible sequence of shifts $R_{\mathbf{M}}$ will continue to act on it, i.e. $\bigcup_{i=0}^{i=1}\bigcup_{\mathbf{M}} R_\rho^i R_{\mathbf{M}}(\sigma)$ will be a collection of $(k+1)$-faces.
-Furthermore, this set of faces remains flush with the boundary of $C$, and the initial part of $L$.
-We can proceed inductively from here, either $v' \in R_\rho^1 \sigma$, in which case we can mirror the argument above to show the set of $(k+1)$-faces must have a $(k+1)$-cubical shape, or $v' \not \in R_\rho^1 \sigma$, so we can infer the existence of $R_\rho^2 \sigma$ and proceed from here.
-Note that this inductive argument must terminate with maximal shift $r_\rho$ for $\sigma$, and the boundary of the $(k+1)$-faces agreeing with $L\times C$.
-\end{proof}
-
-Note this result is not true if $L,C$ are not maximal. \Kurt{look at $I_3$}
-
-
-\begin{lemma}\label{lem:every cube is product of lines}
-Every maximal $k$-subdivision cube with maximal (minimal) vertex $v$ is a composite product of $1$-subdivision cubes (lines) with maximal (minimal) vertex $v$.
-\end{lemma}
-\begin{proof}
-To prove this result, we show that every maximal $k+1$-subdivision cube $C^*$ with maximal (minimal) vertex $v$ is a composite product of a $1,k$ subdivision cubes with maximal (minimal) vertex $v$, then the result follows from induction.
-We prove the case for maximal vertex $v$, the logic proceeds similarly for the minimal vertex $v$.
-\\\\
-The $k+1$ subdivision cube $C^*$, uses $k+1$ dimensions non-trivially, so let $\rho$ be the element corresponding to the maximal non-trivial dimension.
-This choice of dimension induces by projection a line $L$ and $k$-cube $C$, with maximal vertex $v$, such that $L\times C = C^*$.
-The cubes $L$ and $C$ must be maximal, as if they were enveloped by other $1,k$-cubes say $L'$ or $C'$ then $L \times C'$ or $L'\times C$ would envelope $C^* = L\times C$, and hence $C^*$ would not be maximal.
-Under the inductive description of $I_{n-1}$ \cref{eq:In inductive def}, the line $L$ consists of a sequence of $1$-faces/edges from the maximal vertex $v$ to some other vertex $v'$, which repeatedly shifts $\rho$.
-As such $L$ is a $1$-subdivision cube.
-Similarly, under the inductive description, projecting onto $C$ involves shifting the element $\rho$ into a mutual singleton set, producing a $k$-face,
-As such, $C$ must be spanned by $k$-faces, and hence be a $k$-subdivision cube as
+Finally, we know from the inductive description of $I_n$ (\cref{eq:In inductive def}), and the proof of \cref{lem:Unique maximal subdivcubes}, that to construct the $(k+1)$-faces of $L\times C$ that we simply weave $\rho$ through the $k$-faces of $C$ (stepping through the interval $[1-\frac{1}{2^{n-v_\rho}},1-\frac{1}{2^{n-v'_\rho}}]$).
+However, every $k$-face in $C$ has $\rho$ in a fixed singleton set (specified by $1-\frac{1}{2^{n-v_\rho}}$), and every $k$ face on the opposite side of $C\times L$ has $\rho$ in another fixed singleton set (specified by $1-\frac{1}{2^{n-v'_\rho}}$).
+Given \cref{eq:In inductive def}, this final singleton block is either the last block, or is followed by a block containing an element larger than $\rho$.
+If we translate this observation back to the $(k+1)$-faces that are adjacent to the boundaries of the interval, then this corresponds to an equivalent calculation of $r_\rho$ for $\sigma$.
+This thus proves that $L\times C = \bigcup_{i=0}^{r_\rho}\bigcup_{\mathbf{M}}R^i_\rho R_\mathbf{M}(\sigma) = \bigcup_{\mathbf{M'}}R_\mathbf{M'}(\sigma)$, where $M'$ must be the set of admissible sequence of right shifts of $\sigma$, given the lattice description of the diagonal \cref{prop:shift lattice}.
 
 \end{proof}
 
-\begin{proposition}
+Applying this lemma to pairs of maximal subdivision cubes yields,
+
+\begin{corollary}\label{prop:Maximal Subdiv Pairs and Shifts}
 [Formula (3) of \cite{saneblidzeComparingDiagonalsAssociahedra2022}]
 Let $v$ be a vertex of $P_n$, then
 \begin{align*}
     \maxsubdivpairsv = \bigcup_{\mathbf{M},\mathbf{N}} R_\mathbf{M}(\sigma) \times L_{\mathbf{N}}(\tau)
 \end{align*}
 where $\mathbf{M},\mathbf{N}$ are admissible sequences of $SU$ shifts.
-\end{proposition}
+\end{corollary}
 
-\begin{proof}
-Given \cref{lem:every cube is product of lines}, we can decompose each maximal subdivision cube in this pair as a product of lines.
-Then with \cref{lem:product of line and cube shift desc}, we can determine that it admits a shift description which coincides with the lattice formula for shifts \cref{prop:shift lattice}.
-As such, the result follows.
-\end{proof}
-
-As a consequence of this result, we obtain the alternate formula for the $\SU$ diagonal.
+Which consequently provides an alternate formula for the $\SU$ diagonal,
 
 \begin{proposition}[Formula (1) and (3) \cite{saneblidzeComparingDiagonalsAssociahedra2022}]
 \begin{align*}
@@ -4305,10 +4260,8 @@ As a consequence of this result, we obtain the alternate formula for the $\SU$ d
 
 \subsubsection{LA Cubical Description}
 
-\Kurt{Todo for line desc. Max transfering line will become min transferring line, so will be nice.}
-
 To construct the $LA$ subdivision of the cube we first recall that the permutahedron has a natural face poset isomorphism $r:P\to P$. 
-In terms of ordered partitions, it replaces each block $A_j$ in $A_1 | \cdots | A_k$ by the block $r(A_j) \eqdef \{n-i+1 \ | \ i \in A_j\}$.
+In terms of ordered partitions, it replaces each block $A_j$ in $A_1 | \cdots | A_k$ by the block $r(A_j):=\{n-i+1 \ | \ i \in A_j\}$.
 As such, we can construct an alternate subdivision of the $n-1$-cube by $P_n$, say $I_{n-1}^{\LA}$, by applying $r$ to the $\SU$ subdivision of the $n-1$ cube (\cref{eq:In inductive def})
 now denoted $I_{n-1}^{\SU}$.
 We illustrate the first few generations, aligning the vertices of these $n$-cubes with the respective vertices of \cref{eq:In inductive def} under the isomorphism $r$.
@@ -4354,7 +4307,7 @@ More formally, with everything defined as in \cref{eq:In inductive def}, it is s
     \end{cases}
     , \text{where } \sigma'_i = \{x+1:x\in \sigma\}
 \end{align}
-The appropriate base definitions for the $\LA$ diagonal of $k$-subdivision cubes (\ref{def:Subdivisions}),  ${\subdivpairsv}$ (\ref{def:subdiv pairs}), and $\maxsubdivpairsv$ (\ref{def:max subdiv pairs}) are all the same.
+The appropriate base definitions for the $\LA$ diagonal of $k$-subdivision cubes (\ref{def:Subdivisions}),  ${\subdivpairsv}$ (\ref{def:subdiv pairs}), and $\maxsubdivpairsv$ (\ref{lem:max subdiv pairs}) are all the same.
 We then immediately observe, that by construction.
 \begin{proposition}
 The face poset isomorphism $r: P\to P$ is a $k$-subdivision cube isomorphism $r:I^{\SU}\to I^{\LA}$. In particular, it sends $k$-subdivision cubes of $I^{\SU}_{n-1}$ to $k$-subdivision cubes of $I^{\LA}_{n-1}$.
@@ -4423,6 +4376,7 @@ Which yields,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \clearpage
+
 \part{Higher algebraic structures}
 
 %Commented to compile faster.
