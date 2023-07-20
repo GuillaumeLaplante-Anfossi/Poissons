@@ -707,8 +707,8 @@ The flat poset~$\flatPoset[\multiBraidArrangement]$ of the $(\ell,n)$-braid arra
 Consider the hyperplanes~$\set{\b{x} \in \HH}{x_s - x_t = A_{i,s,t}}$ described in \cref{def:multiBraidArrangementPrecise}.
 For each~${i \in [\ell]}$, each set partition~$\pi$ of~$[n]$ corresponds to a $(\#\pi)$-dimensional flat
 \[
-\Psi_i(\pi) \eqdef \set{\b{x} \in \HH}{x_s - x_t = A_{i,s,t} \text{ for all } s,t \in p \in F_i }
-\] \Guillaume{What is $p$ here?}
+\Psi_i(\pi) \eqdef \set{\b{x} \in \HH}{x_s - x_t = A_{i,s,t} \text{ for all $s,t$ in the same part of $F_i$} }
+\]
 of the $i$\ordinal{} copy of the braid arrangement~$\braidArrangement$.
 The flats of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ are thus all of the form
 \[
@@ -1599,7 +1599,7 @@ Our choices just limit the amount of oriented cycles in~$D_{\orient{\pi}}$.
 \label{part:diagonalsPermutahedra}
 
 This second part is devoted to the study of the combinatorics of the diagonals of the permutahedra.
-In \cref{sec:cellularDiagonals}, we first recall the definition and some know facts about cellular diagonals of polytopes (\cref{subsec:cellularDiagonalsPolytopes}), which we immediately specialize to the classical permutahedron (\cref{sec:cellularDiagonalsPermutahedra}), and connect to \cref{part:multiBraidArrangements} to derive enumerative statements on the diagonals of permutahedra (\cref{subsec:enumerationDiagonalPermutahedra}).
+In \cref{sec:cellularDiagonals}, we first recall the definition and some know facts about diagonals of polytopes (\cref{subsec:cellularDiagonalsPolytopes}), which we immediately specialize to the classical permutahedron (\cref{sec:cellularDiagonalsPermutahedra}), and connect to \cref{part:multiBraidArrangements} to derive enumerative statements on the diagonals of permutahedra (\cref{subsec:enumerationDiagonalPermutahedra}).
 
 \vincent{To complete}
 
@@ -1635,21 +1635,9 @@ A cellular diagonal is said to be \defn{face-coherent} if its restriction to a f
 \end{definition}
 
 A powerful geometric technique to define face-coherent cellular diagonals on polytopes first appeared in \cite{fultonIntersectionTheoryToric1997a}, was presented in \cite{masudaDiagonalAssociahedra2021}, and was fully developed in \cite{LA21}.
+We provide in \cref{thm:diagonal} the precise (but slightly technical) definition of these diagonals, even though we will only use the characterization of the faces in their image provided in \cref{thm:universalFormula}.
 The key idea is that any vector $\b{v}$ in generic position with respect to $P$ defines a cellular diagonal of $P$.
 We denote by~$\min_{\b{v}}(P)$ (resp.~$\max_{\b{v}}(P)$) the unique vertex of~$P$ which minimizes (resp.~maximizes) the scalar product with~$\b{v}$. 
-
-\begin{proposition}
-\label{prop:diagonal}
-For any vector $\b{v}$ in generic position with respect to $P$, the tight coherent section~$\triangle_{(P,\b{v})}$ of the projection $P \times P \to P, (\b{x}, \b{y}) \mapsto (\b{x}+\b{y})/2$ selected by the vector~$(-\b{v}, \b{v})$ defines a cellular diagonal of~$P$.
-More precisely, $\triangle_{(P,\b{v})}$ is given by the explicit formula
-\begin{align*}
-\begin{array}{rlcl}
-	\triangle_{(P,\b{v})}\ : & P & \to & P\times P \\
-	& \b{z} & \mapsto & \bigl( \min_{\b{v}}(P\cap \rho_{\b{z}} P), \, \max_{\b{v}}(P\cap \rho_{\b{z}} P) \bigr),
-\end{array}
-\end{align*}
-where $\rho_{\b{z}} P \eqdef 2\b{z}-P$ denotes the reflection of $P$ with respect to the point~$\b{z}$. 
-\end{proposition}
 
 \begin{figure}[p]
 	\centerline{\scalebox{1.25}{
@@ -1691,11 +1679,46 @@ where $\rho_{\b{z}} P \eqdef 2\b{z}-P$ denotes the reflection of $P$ with respec
 		\includegraphics[scale=.35]{diagonalCubeGuillaume.png}
 		\includegraphics[scale=.3]{diagonalPermutahedronGuillaume.png}
 	}
-	\caption{The subdivisions induced by cellular diagonals of the $3$-dimensional simplex (left), cube (middle), and permutahedron (right).}
+	\caption{The subdivisions induced by cellular diagonals of the $3$-dimensional simplex (left), cube (middle), and permutahedron (right). Right illustration from~\cite[Fig.~13]{LA21}.}
 	\label{fig:examplesDiagonals2}
 \end{figure}
 
-\vincent{Include here the discussion about the fundamental hyperplane arrangement and the precise description of the diagonal. Make it precise.}
+\begin{theorem}
+\label{thm:diagonal}
+For any vector $\b{v} \in \R^d$ in generic position with respect to $P$, the tight coherent section~$\triangle_{(P,\b{v})}$ of the projection $P \times P \to P, (\b{x}, \b{y}) \mapsto (\b{x}+\b{y})/2$ selected by the vector~$(-\b{v}, \b{v})$ defines a cellular diagonal of~$P$.
+More precisely, $\triangle_{(P,\b{v})}$ is given by the explicit formula
+\begin{align*}
+\begin{array}{rlcl}
+	\triangle_{(P,\b{v})}\ : & P & \to & P\times P \\
+	& \b{z} & \mapsto & \bigl( \min_{\b{v}}(P\cap \rho_{\b{z}} P), \, \max_{\b{v}}(P\cap \rho_{\b{z}} P) \bigr),
+\end{array}
+\end{align*}
+where $\rho_{\b{z}} P \eqdef 2\b{z}-P$ denotes the reflection of $P$ with respect to the point~$\b{z}$. 
+\end{theorem}
+
+\begin{definition}
+A \defn{geometric diagonal} of a polytope~$P$ is a diagonal of the form~$\triangle_{(P,\b{v})}$ for some vector~$\b{v} \in \R^d$ in generic position with respect to~$P$.
+\end{definition}
+
+To give the precise meaning of generic with respect~$P$ and the characterization of the faces in the image of~$\triangle_{(P,\b{v})}$, we now consider the following hyperplane arrangement.
+\vincent{add figure of fundamental hyperplane arrangements for simplex, cube, permutahedron.}
+
+\begin{definition}
+The \defn{fundamental hyperplane arrangement}~$\mathcal{H}_P$ of a polytope~$P \subset \R^d$ is the set of all linear hyperplanes of~$\R^d$ orthogonal to the edges of $P\cap \rho_{\b{z}} P$ for all $\b{z} \in P$. 
+\end{definition}
+
+A vector is \defn{generic with respect to~$P$} if it does not belong to the union of the hyperplanes of the fundamental hyperplane arrangement~$\mathcal{H}_P$.
+Moreover, the geometric diagonal~$\triangle_{(P,\b{v})}$ only depends on the region of~$\mathcal{H}_P$ containing~$\b{v}$, see~\cite[Prop.~1.23]{LA21}.
+
+Now the following \defn{universal formula}~\cite[Thm.~1.26]{LA21} expresses combinatorially the faces in the image of the geometric diagonal~$\triangle_{(P,\b{v})}$.
+Recall that the \defn{normal cone} of a face~$F$ of a polytope~$P$ in~$\R^d$ is the cone of directions~$\b{c} \in \R^d$ such that the maximum of the scalar product~$\dotprod{\b{c}}{\b{x}}$ over~$P$ is attained for some~$\b{x}$ in~$F$.
+
+\begin{theorem}[{\cite[Thm.~1.26]{LA21}}]
+\label{thm:universalFormula}
+Fix a vector $\b{v} \in \R^d$ in generic position with respect to $P$.
+For each hyperplane~$H$ of the fundamental hyperplane arrangement~$\mathcal{H}_P$, denote by~$H^{\b{v}}$ the open half space defined by~$H$ and containing~$\b{v}$.
+The faces of~$P \times P$ in the image of the geometric diagonal~$\triangle_{(P,\b{v})}$ are the faces~$F \times G$ where~$F$ and~$G$ are faces of~$P$ such that either the normal cone of~$F$ intersects~$H^{-\b{v}}$ or the normal cone of~$G$ intersects~$H^{\b{v}}$, for each~$H \in \mathcal{H}_P$.
+\end{theorem}
 
 The image of $\triangle_{(P,\b{v})}$ is a union of pairs of faces $F \times G$ of the Cartesian product~$P \times P$.
 By drawing the polytopes~${(F+G)/2}$ for all pairs of faces $(F,G) \in \Ima \triangle_{(P,\b{v})}$, we can visualize~$\triangle_{(P,\b{v})}$ as a polytopal subdivision of $P$.
@@ -1703,7 +1726,7 @@ See \cref{fig:examplesDiagonals1}\,(middle right) and \cref{fig:examplesDiagonal
 
 It turns out that the dual of this complex is just the common refinement of two translated copies of the normal fan of~$P$.
 See \cref{fig:examplesDiagonals1}\,(right).
-Let us recall here that the \defn{normal cone} of a face~$F$ of a polytope~$P$ in~$\R^d$ is the cone of directions~$\b{c} \in \R^d$ such that the maximum of the scalar product~$\dotprod{\b{c}}{\b{x}}$ over~$P$ is attained for some~$\b{x}$ in~$F$, and that the \defn{normal fan} of~$P$ is the fan formed by the normal cones of all faces of~$P$.
+Recall that the \defn{normal fan} of~$P$ is the fan formed by the normal cones of all faces of~$P$.
 We thus obtain the following statement.
 
 \begin{proposition}[{\cite[Coro.~1.4]{LA21}}]
@@ -1711,7 +1734,7 @@ We thus obtain the following statement.
 The inclusion poset on the faces in the image of the diagonal~$\triangle_{(P,\b{v})}$ is isomorphic to the reverse inclusion poset of the faces of the common refinement of two copies of the normal fan of~$P$, translated from each other by the vector~$\b{v}$. 
 \end{proposition}
 
-Finally, the following statement relates the image of the diagonal~$\triangle_{(P, \b{v})}$ to the intervals of the poset obtained by orienting the $1$-skeleton of~$P$ in direction~$\b{v}$.
+Finally, the following statement relates the image of the diagonal~$\triangle_{(P, \b{v})}$ to the intervals of the poset obtained by orienting the skeleton of~$P$ in direction~$\b{v}$.
 
 \begin{proposition}[{\cite[Prop. 1.17]{LA21}}]
 \label{prop:magicalFormula}
@@ -1723,8 +1746,8 @@ For any polytope $P$ and any generic vector $\b{v}$,
 \end{proposition}
 
 \begin{remark}
-For some polytopes such as the simplices, the cubes, the Hoschild polytopes, and the associahedra, the reverse inclusion also holds.
-\vincent{Hochschild?}
+For some polytopes such as the simplices, the cubes, the freehedra, and the associahedra, the reverse inclusion also holds.
+\vincent{reference}
 The resulting equality enhancing (\ref{eq:magique}) was called \defn{magical formula} by J.-L. Loday.
 \vincent{reference}
 Polytopes of greater complexity such as the multiplihedra, the operahedra or the permutahedra, do not possess this exceptional property. 
@@ -1733,31 +1756,6 @@ Polytopes of greater complexity such as the multiplihedra, the operahedra or the
 \begin{remark}
 This is in fact precisely the content of the \emph{Fulton--Sturmfels formula} for the intersection product on toric varieties \cite[Thm.~4.2]{fultonIntersectionTheoryToric1997a}, where the definition of cellular diagonals as tight coherent sections first appeared.
 \end{remark}
-
-\vincent{To discuss with Guillaume from this point...}
-\vincent{I want to make this more precise and have it just after \cref{prop:diagonal}.}
-The following \defn{universal formula} \cite[Thm.~1.26]{LA21} expresses combinatorially the cellular image of the diagonal of a polytope $P$.
-
-\begin{definition}
-The \defn{fundamental hyperplane arrangement} $\mathcal{H}_P$ of a polytope $P \subset \R^n$ is the set of hyperplanes whose normal vectors are a choice of directions of the edges of $P\cap \rho_z P$, for any $z \in P$. 
-\end{definition}
-
-Recall that a choice of diagonal is given by a choice of vector in a chamber of $\mathcal{H}_P$, two vectors living in the same chamber inducing the same diagonal \cite[Prop.~1.23]{LA21}.
-
-\begin{theorem}
-\label{thm:universalFormula}
-Let $(P,\b{v})$ be a positively oriented polytope in $\R^n$. 
-For each $H\in\mathcal{H}_P$, we choose a normal vector $\vec d_H$ such that $\langle \vec d_H, \b{v} \rangle >0$. 
-We have 
-\begin{eqnarray*}
-(F,G) \in \Ima \triangle_{(P,\b{v})} 
-&\iff& \forall H \in \mathcal{H}_P(F,G), \ \exists i , \ \langle \vec F_i, \vec d_H \rangle < 0  \text{ or } \exists j , \ \langle \vec G_j, \vec d_H \rangle > 0  \\ 
-&\iff& \forall H \in \mathcal{H}_P , \ \exists i , \ \langle \vec F_i, \vec d_H \rangle < 0  \text{ or } \exists j , \ \langle \vec G_j, \vec d_H \rangle > 0 \ . 
-\end{eqnarray*}
-\end{theorem}
-
-Here, the $\vec F_i$ and $\vec G_j$ are vectors spanning the normal cones of the respective faces, and $\mathcal{H}_P(F,G)$ is a subset of hyperplanes which are specifically associated to the pair $(F,G)$.
-\vincent{Unprecise.}
 
 %%%%%%%%%%%%%%%
 
@@ -1774,36 +1772,39 @@ The \defn{permutahedron}~$\Perm$ is the polytope defined equivalently as
 \item the intersection of the hyperplane~$\smash{\bigset{\b{x} \in \R^n}{\sum_{i \in I} x_i = \binom{n+1}{2}}}$ with the affine halfspaces $\smash{\bigset{\b{x} \in \R^n}{\sum_{i \in I} x_i \ge \binom{|I|+1}{2}}}$ for all~${\varnothing \ne I \subsetneq [n]}$, see \cite{Rado}.
 \end{itemize}
 The normal fan of the permutahedron~$\Perm$ is the fan defined by the braid arrangement~$\braidArrangement$.
+In particular, the faces of~$\Perm$ correspond to the ordered partitions of~$[n]$.
 Moreover, when oriented in a generic direction, the skeleton of the permutahedron~$\Perm$ is isomorphic to the Hasse diagram of the classical weak order on permutations of~$[n]$.
 % when oriented in the direction~${\b{\omega} \eqdef (n,\dots,1) - (1,\dots,n) = \sum_{i \in [n]} (n+1-2i) \, \b{e}_i}$
 \end{definition}
 
 The fundamental hyperplane arrangement of the permutahedron~$\Perm$ was described in~\cite[Sect.~3.1]{LA21}.
+As we will use the following set throughout the paper, we embed it in a definition.
 
-\begin{proposition}
-Let
+\begin{definition}
+\label{def:Un}
+For~$n \in \N$, we define
 \[
-\Un(n) \eqdef \{ (I,J) \ | \ I,J \subset [n] \text{ with } |I|=|J|>0 \text{ and } I \cap J = \varnothing\}.
+\Un(n) \eqdef \{ \{I,J\} \ | \ I,J \subset [n] \text{ with } |I|=|J| \text{ and } I \cap J = \varnothing\}.
 \]
-\vincent{Change $(I,J)$ to $\{I,J\}$???}
-The fundamental hyperplane arrangement of the permutahedron~$\Perm$ is given by the family of hyperplanes
-\[
-\sum_{i \in I} x_i = \sum_{j \in J} x_j,
-\]
-for all~$(I,J) \in \Un(n)$.
+An \defn{ordering} of~$\Un(n)$ is a set containing exactly one of the two ordered pairs $(I,J)$ or $(J,I)$ for each $\{I,J\} \in \Un(n)$.
+\end{definition}
+
+\begin{proposition}[{\cite[Sect.~3.1]{LA21}}]
+The fundamental hyperplane arrangement of the permutahedron~$\Perm$ is given by the hyperplanes~$\bigset{\b{x} \in \R^n}{\sum\limits_{i \in I} x_i = \sum\limits_{j \in J} x_j}$ for all~$\{I,J\} \in \Un(n)$.
 \end{proposition}
 
-\begin{corollary}
-\label{cor:choice-inequalities}
-Any choice of diagonal of the $(n-1)$-permutahedron is given combinatorially by a choice of inequalities
-\[
-\sum_{i \in I} x_i > \sum_{j \in J} x_j \quad \text{or} \quad \sum_{i \in I} x_i < \sum_{j \in J} x_j
-\]
-for all $(I,J) \in \Un(n)$. 
-\vincent{This seems imprecise to me. We focus on special diagonals...}
-\end{corollary}
+For a vector~$\b{v}$ generic with respect to~$\Perm$, we denote by~$\Or(\b{v})$ the ordering of~$\Un(n)$ such that~$\sum_{i \in I} v_i > \sum_{j \in J} v_j$ for all~$(I,J) \in \Or(\b{v})$.
+Applying \cref{thm:universalFormula}, we next describe the faces in the image of the geometric diagonal~$\triangle_{(\Perm, \b{v})}$.
+For this, the following definition will be convenient.
 
-\vincent{Can we specialize \cref{thm:universalFormula} as well?}
+\begin{definition}
+For $I,J \subseteq [n]$ and an ordered partition $\sigma$ of~$[n]$ into $k$ blocks, we say that $I$~\defn{dominates} $J$ in~$\sigma$ if for all $\ell \in [k]$, the first~$\ell$ blocks of~$\sigma$ contain more elements of~$I$ than of~$J$.
+\end{definition}
+
+\begin{theorem}[{\cite[Thm.~3.16]{LA21}}]
+\label{p:minimal}
+A pair~$(\sigma, \tau)$ of ordered partitions of~$[n]$ corresponds to a face in the image of the geometric diagonal~$\triangle_{(\Perm, \b{v})}$ if and only if, for all~$(I,J) \in \Or(\b{v})$, $J$ does not dominate~$I$ in~$\sigma$ or $I$ does not dominate~$J$ in~$\tau$.
+\end{theorem}
 
 As the normal fan of the permutahedron~$\Perm$ is the fan defined by the braid arrangement~$\braidArrangement$, we obtain by \cref{prop:diagonalCommonRefinement} the following connection between the diagonal of~$\Perm$ and the $(2,n)$-braid arrangement~$\multiBraidArrangement[2][n]$ studied in \cref{part:multiBraidArrangements}, illustrated in \cref{fig:diagonalPermutahedron1}.
 %
@@ -1820,25 +1821,18 @@ The inclusion poset on the faces in the image of the diagonal~$\triangle_{(\Perm
 
 \begin{remark}
 Similarly, the combinatorics of the $(\ell-1)$\ordinalst{} iteration of a diagonal of the permutahedron~$\Perm$ is given by the combinatorics of the $(\ell,n)$-braid arrangement.
-\vincent{This is too vague, I am not sure to keep it.}
 \end{remark}
 
 Finally, the permutahedron~$\Perm$ is not magical in the sense of \cref{prop:magicalFormula}.
 
-\begin{proposition}
-For any generic vector~$\b{v}$, the diagonal~$\triangle_{(\Perm, \b{v})}$ of the standard permutahedron~$\Perm$ does \emph{not} satisfy the magical formula.
+\begin{proposition}[{\cite[Sect.~3]{LA21}}]
+For any~$n > 3$ and any generic vector~$\b{v}$, the diagonal~$\triangle_{(\Perm, \b{v})}$ of the permutahedron~$\Perm$ does \emph{not} satisfy the magical formula.
 Namely, the inclusion      
 \begin{equation*}
 \Ima\triangle_{(\Perm, \b{v})} \quad \subsetneq \bigcup_{\substack{F,G \text{ faces of } \Perm \\ \max_{\b{v}}(F) \, \le \, \min_{\b{v}}(G)}} F \times G  
 \end{equation*}
 is strict.
-\vincent{When $n > 3$.}
 \end{proposition}
-
-\begin{proof}
-\Guillaume{On peut montrer ça uniquement par le compte des faces non?}
-\vincent{I would not put any proof. Just say that the specialization of \cref{thm:universalFormula} gives less faces than the magical formula would expect.}
-\end{proof}
 
 %%%%%%%%%%%%%%%
 
@@ -2226,12 +2220,12 @@ In particular,
 
 \begin{theorem}
 \label{prop:unique-operad}
-There are exactly four operadic diagonals of the permutahedra, given by the $\LA$ and $\SU$ diagonals, and their opposites. 
-The $\LA$ and $\SU$ diagonals are the only operadic diagonals which induce the weak Bruhat order on the vertices.
+There are exactly four operadic geometric diagonals of the permutahedra, given by the $\LA$ and $\SU$ diagonals, and their opposites. 
+The $\LA$ and $\SU$ diagonals are the only operadic geometric diagonals which induce the weak Bruhat order on the vertices.
 \end{theorem}
 
 \begin{proof}
-    First, by \cite[Thm.~3.9]{LA21} any diagonal in the sense of \cref{prop:diagonal} is given by a choice of ordering of $\Un$.
+    First, by \cite[Thm.~3.9]{LA21} any geometric diagonal is given by a choice of ordering of $\Un$.
     Second, every operadic diagonal satisfies \cite[Prop.~4.14]{LA21}, which amounts precisely to an operadic ordering of $\Un$ in the sense of \cref{def:operadic-ordering}.
     We conclude with \cref{prop:operadic-ordering}.
 \end{proof}
@@ -4472,7 +4466,7 @@ two of which (the $\LA$ and $\SU$ diagonals) agree with the generalized Tamari o
 
     Point (2) then follows from fact that a choice of diagonal for the Loday realizations of the operahedra \emph{forces} a unique topological cellular colored operad structure on them, see \cite[Thm.~4.18]{LA21}.
     Since universal tensor products of homotopy operads are induced by a colored operad structure on the operahedra \cite[Coro.~4.24]{LA21}, we obtain Point~(3).
-    Finally, since only vectors with strictly descreasing coordinates induce the generalized Tamari order on the $1$-skeleton of the operahedra \cite[Prop.~3.11]{LA21}, we get the last part of the statement. 
+    Finally, since only vectors with strictly descreasing coordinates induce the generalized Tamari order on the skeleton of the operahedra \cite[Prop.~3.11]{LA21}, we get the last part of the statement. 
 \end{proof}
 
 This answers the first question in \cite[Rem.~3.14]{LA21}.
