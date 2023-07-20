@@ -2161,30 +2161,25 @@ In other words, any $(I,J) = (\{i_1,\dots,i_k\}, \{j_1,\dots,j_k\})$ decomposes 
 where $\std((I',J')) = (I_l,J_l)$, and $1\leq l \leq k$.
 \end{proof}
 
-We note that the decomposition in \cref{lem:operadic-ordering} is one of potentially many different decompositions of the pair $(I,J)$. 
-However, by definition of the $\LA$ order, for any decomposition $(I,J) = (\sqcup_{a\in A} I_a, \sqcup_{a \in A} J_a)$, we have that $\forall a \in A, \std(I_a, J_a) \in \LA$.
-As such all decompositions of a pair $(I,J)$ order it the same way.
+\begin{remark}
+    We note that the decomposition in \cref{lem:operadic-ordering} is one of potentially many different decompositions of the pair $(I,J)$. 
+    However, by definition of the $\LA$ order, for any decomposition $(I,J) = (\sqcup_{a\in A} I_a, \sqcup_{a \in A} J_a)$, we have that $\forall a \in A, \std(I_a, J_a) \in \LA$.
+    As such all decompositions of a pair $(I,J)$ order it the same way.
+\end{remark}
 
 \begin{proposition}
-    \label{prop:operadic-ordering}
-The only operadic orderings of $U=\{U(n)\}_{n\geq 1}$ are the $\LA,\SU,\LA^{\op}$ and $\SU^{\op}$ orderings.
+\label{prop:operadic-ordering}
+The only operadic orderings of $\Un=\{\Un(n)\}_{n\geq 1}$ are the $\LA,\SU,\LA^{\op}$ and $\SU^{\op}$ orderings.
 \end{proposition}
 
 \begin{proof}
-We first observe that there are precisely four ways to order the $U(n)$ pairs of size $k\leq 2$ such that the coherent extension of these orders do not collide.
-These are,
-\begin{itemize} 
-    \item $(\{1\},\{2\})$ and $(\{1,4\},\{2,3\})$ which corresponds to $\LA$ i.e. $\min(I\cup J) = \min I$;
-    \item $(\{1\},\{2\})$ and $(\{2,3\},\{1,4\})$ which corresponds to $\SU$ i.e. $\max(I\cup J) = \max J$;
-    \item $(\{2\},\{1\})$ and $(\{2,3\},\{1,4\})$ which corresponds to $\LA^{\op}$ i.e. $\min(I\cup J) = \min J$;
-    \item $(\{2\},\{1\})$ and $(\{1,4\},\{2,3\})$ which corresponds to $\SU^{\op}$ i.e. $\max(I\cup J) = \max I$.
-\end{itemize}
-More specifically, we must first order the sole reduced pair $\{\{1\},\{2\}\}$ of $U(1)$.
-Then, the sole reduced pair of $U(2)$ which must be ordered is $\{\{1,4\},\{2,3\} \}$.
-There are clearly four ways to order these two pairs, and we can identify these $(I,J)$ pairs as cases of \cref{lem:operadic-ordering}.
+We build operadic orderings inductively, showing that the choices for $\Un(n)$, $n\leq 4$ determine higher ones. 
+We prove the statement for the $\LA$ order, the $\SU$ and opposite orders are similar. 
+First, we decide to order by $(\{1\},\{2\})$ the unique pair of $\Un(2)$.
+The operadic property then determines the orders of all the pairs of $\Un(3)$ and $\Un(4)$, except the pair $\{\{1,4\},\{2,3\}\}$, for which we choose the order $(\{1,4\},\{2,3\})$.
+Now, we claim that all the higher choices are forced by the operadic property. 
+Starting instead with the orders $(\{1\},\{2\})$ and $(\{2,3\},\{1,4\})$ would give the $\SU$ diagonal, and reversing the pairs would give the opposite orders. 
 
-We now show that once we have committed to one of these four orders we must follow through with it.
-We will show this through induction for the $LA$ order, the $\SU$ and opposite orders proceeds similarly.
 Let $l\geq 2$ and suppose that for all $k\leq l$, we have ordered $I_k=\{1,k+2,k+3,\dots,2k-1,2k\} < J_k=\{2,3,\dots,k+1\}$.
 Then from \cref{lem:operadic-ordering} we know that the only $\{I,J\}$ pair of order $l+1$ that will not decompose (and hence be specified by the already chosen conditions) is $\{I_{l+1},J_{l+1}\}$.
 As such, the only way we can vary from $\LA$ is to order this element in the opposite direction i.e. choose $(J_{l+1},I_{l+1})$.
@@ -2212,12 +2207,13 @@ In particular,
 
 \begin{theorem}
 \label{prop:unique-operad}
-There are exactly four operadic diagonals on the permutahedra. 
+There are exactly four operadic diagonals of the permutahedra, given by the $\LA$ and $\SU$ diagonals, and their opposites. 
+The $\LA$ and $\SU$ diagonals are the only operadic diagonals which induce the weak Bruhat order on the vertices.
 \end{theorem}
 
 \begin{proof}
-    First, by \cite[Thm.~3.9]{LA21} any diagonal in the sense of \cref{prop:diagonal} is given by a choice of ordering of $U$.
-    Second, every operadic diagonal satisfies \cite[Prop.~4.14]{LA21}, which amounts precisely to an operadic ordering of $U$ in the sense of \cref{def:operadic-ordering}.
+    First, by \cite[Thm.~3.9]{LA21} any diagonal in the sense of \cref{prop:diagonal} is given by a choice of ordering of $\Un$.
+    Second, every operadic diagonal satisfies \cite[Prop.~4.14]{LA21}, which amounts precisely to an operadic ordering of $\Un$ in the sense of \cref{def:operadic-ordering}.
     We conclude with \cref{prop:operadic-ordering}.
 \end{proof}
 
