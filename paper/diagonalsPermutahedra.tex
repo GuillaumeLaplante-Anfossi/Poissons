@@ -1803,7 +1803,7 @@ For $I,J \subseteq [n]$ and an ordered partition $\sigma$ of~$[n]$ into $k$ bloc
 \end{definition}
 
 \begin{theorem}[{\cite[Thm.~3.16]{LA21}}]
-\label{p:minimal}
+\label{thm:IJ-description}
 A pair~$(\sigma, \tau)$ of ordered partitions of~$[n]$ corresponds to a face in the image of the geometric diagonal~$\triangle_{(\Perm, \b{v})}$ if and only if, for all~$(I,J) \in \Or(\b{v})$, $J$ does not dominate~$I$ in~$\sigma$ or $I$ does not dominate~$J$ in~$\tau$.
 \end{theorem}
 
@@ -2045,16 +2045,15 @@ Hence, by Cayley's formula for spanning trees of~$K_{n+1}$, we obtain that the n
 \Guillaume{Rework Section intros at the end}
 
 This section is devoted to the combinatorics of two specific diagonals of the permutahedra, the LA diagonal and SU diagonal (\cref{subsec:LASUdiagonal}).
-We will see later in \cref{sec:operadicDiagonals} that these two diagonals are in fact the only two operadic diagonals, and we will provide in \cref{...} alternative descriptions of these two diagonals in terms of strong complementary partitions and shifts (which will in particular connect the present description of the SU diagonal with the original description of \cite{SaneblitzeUmble04}).
-
-We will see in Part III \Guillaume{Hyperlink} that these choice of orderings induce operadic structure on the operahedra, multiplihedra and associahedra.
+%We will see later in \cref{sec:operadicDiagonals} that these two diagonals are in fact the only two operadic diagonals, and we will provide in \cref{...} alternative descriptions of these two diagonals in terms of strong complementary partitions and shifts (which will in particular connect the present description of the SU diagonal with the original description of \cite{SaneblitzeUmble04}).
+%We will see in Part III \Guillaume{Hyperlink} that these choice of orderings induce operadic structure on the operahedra, multiplihedra and associahedra.
 
 %%%%%%%%%%%%%%%
 
 \subsection{The $\LA$ and $\SU$ diagonals}
 \label{subsec:LASUdiagonal}
 
-Recall from \cref{cor:choice-inequalities} that a diagonal of the permutahedron~$\Perm$ is given by a choice of ordering of the sets
+Recall from \cref{sec:cellularDiagonalsPermutahedra} that a geometric diagonal of the permutahedron~$\Perm$ gives a choice of ordering of the sets
 \[
 \Un(n)  \eqdef  \set{\{I,J\}}{I,J \subset [n] \text{ with } |I|= |J| \text{ and } I\cap J = \varnothing}.
 \]
@@ -2074,7 +2073,7 @@ The \defn{$\LA$} and~\defn{$\SU$ orderings} are defined by
 \end{definition}
 
 \begin{definition}
-The \defn{$\LA$ diagonal} $\LAD$ (resp. \defn{$\SU$ diagonal} $\SUD$) of the permutahedron~$\Perm$ is given by any vector $\vec v \in \R^n$ satisfying  
+The \defn{$\LA$ diagonal} $\LAD$ (resp. \defn{$\SU$ diagonal} $\SUD$) of the permutahedron~$\Perm$ is the geometric diagonal given by any vector $\vec v \in \R^n$ satisfying  
 \[
 \sum_{i \in I} v_i > \sum_{j \in J} v_j,
 \]
@@ -2083,21 +2082,14 @@ for all~$(I,J) \in \LA(n)$ (resp.~$(I,J) \in \SU(n)$).
 
 We will prove in \cref{thm:recover-SU} that $\SUD$ is a topological enhancement of the Saneblidze--Umble diagonal from \cite{SaneblidzeUmble04}.
 Both of these diagonals have opposites $(\LAD)^{\op}$ and $(\SUD)^{\op}$, obtained by permuting the factors in every term: at the level of orderings, they are obtained by permuting $I$ and $J$ in the definitions of $\LA(n)$ and $\SU(n)$, while they are given geometrically by taking $-\vec v$ instead of $\vec v$ as an orientation vector. 
-The faces of these two diagonals are characterized combinatorially by the following direct application of \cref{thm:universalFormula}.
+The faces of the $\LA$ and $\SU$ diagonals are described the following specialisation of \cref{thm:IJ-description}.
 
-\begin{theorem}[{\cite[Thm.~3.16]{LA21}}]
+\begin{theorem}
 \label{p:minimal}
 For a pair $(\sigma,\tau)$ of ordered partitions of $[n]$, we have
 \begin{eqnarray*}
-    (\sigma,\tau)\in \LAD 
-    & \iff & \forall (I,J) \in \LA(n), \exists k \in [n] , 
-    \left| \sigma_{[k]} \cap I \right|
-    >
-    \left| \sigma_{[k]} \cap J \right| \text{ or } \\
-    && \exists l \in [n] , 
-    \left| \tau_{[l]} \cap I \right|
-    <
-    \left| \tau_{[l]} \cap J \right|  \ . 
+    (\sigma,\tau)\notin \LAD 
+    & \iff & \exists (I,J) \in \LA(n) \ , J \text{ dominates } I \text{ in } \sigma \text{ and } I \text{ dominates } J \text{ in } \tau \ .
 \end{eqnarray*}
 The same holds for the $\SU$ diagonal by replacing $\LAD$ and $\LA(n)$ by $\SUD$ and $\SU(n)$, respectively.
 \end{theorem}
@@ -2106,7 +2098,8 @@ The same holds for the $\SU$ diagonal by replacing $\LAD$ and $\LA(n)$ by $\SUD$
 
 \subsection{The operadic property}
 
-The goal of this section is to prove in \cref{prop:unique-operad} that the $\LA$ and $\SU$ diagonals are the only two operadic diagonals which induce the weak Bruhat order the vertices of the permutahedra. 
+The goal of this section is to prove that the $\LA$ and $\SU$ diagonals are the only two operadic diagonals which induce the weak Bruhat order the vertices of the permutahedra (\cref{prop:unique-operad}). 
+We first define this special property. 
 
 Recall that each face $A_1 | \ldots | A_k$ of the permutahedron $P_{|A_1|+\cdots + |A_k|-1}$ is isomorphic to the product $P_{|A_1|-1} \times \cdots \times P_{|A_k|-1}$ of lower dimensional permutahedra, via the permutation of coordinates
 \begin{equation*}
@@ -2139,6 +2132,16 @@ An ordering $\Or$ of $\Un$ is \defn{operadic} if for every $\{I,J\} \in \Un$, th
 \end{definition}
 
 We call \defn{indecomposables} of $\Or$ the pairs $(I,J) \in \Or$ for which the only subpair $(I',J')$ satisfying Condition (2) above is the pair $(I,J)$ itself.
+
+Every operadic diagonal satisfies \cite[Prop.~4.14]{LA21}, which amounts precisely to an operadic ordering of $\Un$ in this sense.
+We thus have the following.
+
+\begin{proposition}
+\label{prop:equiv-operadic}
+    A geometric diagonal of the permutahedra is operadic if and only if its associated ordering is. 
+\end{proposition}
+
+We now turn to the study of the $\LA$ and $\SU$ orderings.
 
 \begin{lemma} 
 \label{lem:operadic-ordering}
@@ -2194,15 +2197,15 @@ The operadic property then determines the orders of all the pairs of $\Un(3)$ an
 Now, we claim that all the higher choices are forced by the operadic property. 
 Starting instead with the orders $(\{1\},\{2\})$ and $(\{2,3\},\{1,4\})$ would give the $\SU$ diagonal, and reversing the pairs would give the opposite orders. 
 
-Let $l\geq 2$ and suppose that for all $k\leq l$, we have ordered $I_k \eqdef \{1,k+2,k+3,\dots,2k-1,2k\} <  \{2,3,\dots,k+1\} \defeq J_k$.
-Then from \cref{lem:operadic-ordering} we know that the only $\{I,J\}$ pair of order $l+1$ that will not decompose (and hence be specified by the already chosen conditions) is $\{I_{l+1},J_{l+1}\}$.
-As such, the only way we can vary from $\LA$ is to order this element in the opposite direction i.e. choose $(J_{l+1},I_{l+1})$.
-However, this choice leads to contradictions in the ordering of the $\{I,J\}$ pairs of order $|I|=|J|=l+2$.
-The following is a generalisation of \cref{ex:Non-coherent order contradiction}.
-For $m = l+2$, the pair $\{I_m,J_m\}$ can be oriented in both directions.
-On the one side, we can write $\{I_m,J_m\} = \{I_a \cup I_b, J_a \cup J_b\}$ with $I_a \eqdef  \{1,m+3,\dots,2m\} > J_a \eqdef  \{4,5,\dots,m+2\}$  and $I_b \eqdef \{3\} > J_b \eqdef  \{2\}$, which imply that $I_m > J_m$ by the first remark in the proof of \cref{lem:operadic-ordering}. 
-This decomposition makes use of the (reversed) order $J_{l+1} > I_{l+1}$ and the (non-reversed) order $I_1 < J_1$.
-On the other side, we can write $\{I_m,J_m\} = \{I_c \cup I_d, J_c \cup J_d\}$, where $I_c \eqdef  \{1,m+3,\dots,  2m-1\} < J_c \eqdef  \{2,5,\dots,m+1\}$ and $I_d \eqdef \{3, 2m\} < J_d \eqdef  \{4, m+2\}$, which imply that $I_m < J_m$ via the (non-reversed) orders $I_l < J_l$ and $I_2 < J_2$, a contradiction.
+Let $l\geq 2$ and suppose that for all $k\leq l$, we have given the pair $\{I_k,J_k\} \eqdef \{\{1,k+2,k+3,\dots,2k-1,2k\},\{2,3,\dots,k+1\}\}$ the $\LA$ ordering $(I_k,J_k)$.
+Then from \cref{lem:operadic-ordering} we know that the only $\{I,J\}$ pair of order $l+1$ that will not decompose, and hence be specified by the already chosen conditions, is $\{I_{l+1},J_{l+1}\}$.
+As such, the only way we can vary from $\LA$ is to order this elements in the opposite direction $(J_{l+1},I_{l+1})$.
+Let us show that this choice leads to a contradiction in the ordering of the pair $\{I_m,J_m\}$ of order $m \eqdef l+2$ (see \cref{ex:Non-coherent order contradiction}).
+On the one side, we can write $\{I_m,J_m\} = \{I_a \cup I_b, J_a \cup J_b\}$ with $I_a \eqdef  \{1,m+3,\dots,2m\}, J_a \eqdef  \{4,5,\dots,m+2\}, I_b \eqdef \{3\}$ and $J_b \eqdef  \{2\}$. 
+By hypothesis, we have the orders $(J_a,I_a)$ and $(J_b,I_b)$ which imply the order $(J_m,I_m)$ since our ordering is operadic. 
+On the other side, we can write $\{I_m,J_m\} = \{I_c \cup I_d, J_c \cup J_d\}$, where $I_c \eqdef  \{1,m+3,\dots,  2m-1\}, J_c \eqdef \{2,5,\dots,m+1\}, I_d \eqdef \{3, 2m\}$ and $J_d \eqdef  \{4, m+2\}$.
+By hypothesis, we have the orders $(I_c,J_c)$ and $(I_d,J_d)$ which imply that $(I_m,J_m)$, a contradiction.
+Thus, the only possible operadic choice of ordering for $\{I_{l+1},J_{l+1}\}$ is the $\LA$ ordering, which finishes the proof. 
 \end{proof}
 
 \begin{example} 
@@ -2219,20 +2222,18 @@ In particular,
 \end{align*}
 \end{example}
 
+Combining \cref{prop:equiv-operadic} with \cref{prop:operadic-ordering}, we get the main result of this section.
+Recall that a vector induces the weak Bruhat order on the vertices of the standard permutahedron if and only if it has strictly decreasing coordinates.\Guillaume{@Vincent: quoi citer?}
+
 \begin{theorem}
 \label{prop:unique-operad}
 There are exactly four operadic geometric diagonals of the permutahedra, given by the $\LA$ and $\SU$ diagonals, and their opposites. 
 The $\LA$ and $\SU$ diagonals are the only operadic geometric diagonals which induce the weak Bruhat order on the vertices.
 \end{theorem}
 
-\begin{proof}
-    First, by \cite[Thm.~3.9]{LA21} any geometric diagonal is given by a choice of ordering of $\Un$.
-    Second, every operadic diagonal satisfies \cite[Prop.~4.14]{LA21}, which amounts precisely to an operadic ordering of $\Un$ in the sense of \cref{def:operadic-ordering}.
-    We conclude with \cref{prop:operadic-ordering}.
-\end{proof}
-
 \begin{remark}
-    This answers by the negative a conjecture regarding unicity of diagonals on the permutahedra, raised at the beginning of \cite[Sect.~3]{SaneblidzeUmble04}, and could be seen as an alternative statement. \Guillaume{See the next section where we prove that SU diagonal is SU diagonal}
+    This answers by the negative a conjecture regarding unicity of diagonals on the permutahedra, raised at the beginning of \cite[Sect.~3]{SaneblidzeUmble04}, and could be seen as an alternative statement. 
+    See \cref{sec:shifts} where we prove that the geometric $\SU$ diagonal is a topological enhancement of the $\SU$ diagonal from \cite{SaneblidzeUmble04}.
 \end{remark}
 
 %%%%%%%%%%%%%%%
@@ -2247,18 +2248,18 @@ The permutahedron possesses another symmetry: the cellular involution $r : P \to
 This involution also respects the face poset structure. 
 In terms of ordered partitions, it replaces each block $A_j$ in $A_1 | \cdots | A_k$ by the block $r(A_j) \eqdef \{n-i+1 \ | \ i \in A_j\}$.
 
-As we have already remarked \Guillaume{in Rem X}, the polytope of diagonals of $P$ is always centrally symmetric, and the involution $t : P \times P \to P \times P$ sending $(x,y)$ to~$(y,x)$ takes a cellular diagonal to another cellular diagonal.
-In the case of the permutahedron it sends $\LAD$ to $(\LAD)^\op$ and $\SUD$ to $(\SUD)^\op$.
+The involution $t : P \times P \to P \times P$ sending $(x,y)$ to~$(y,x)$ takes a cellular diagonal to another cellular diagonal.
+As we have already remarked in \cref{subsec:LASUdiagonal}, in the case of the permutahedron it sends $\LAD$ to $(\LAD)^\op$ and $\SUD$ to $(\SUD)^\op$.
 
 \begin{theorem}
     \label{thm:bijection-operadic-diagonals}
-    For $P$ the permutahedron, the involutions $t$ and $rs \times rs$ are cellular isomorphisms between the four operadic diagonals, through the following commutative diagram: 
+    For $P$ the permutahedron, the involutions $t$ and $rs \times rs$ are cellular isomorphisms between the four operadic diagonals, through the following commutative diagram
     \begin{center}
         \begin{tikzcd}
         \LAD \arrow[r,"t"] \arrow[d,"rs \times rs"]&
         (\LAD)^{\op}\arrow[d,"rs \times rs"]\\
         \SUD \arrow[r,"t"] &
-        (\SUD)^\op
+        (\SUD)^\op \ .
         \end{tikzcd}
         \end{center}
     Moreover, they induce poset isomorphisms at the level of the face lattices. 
@@ -2279,8 +2280,7 @@ In the case of the permutahedron it sends $\LAD$ to $(\LAD)^\op$ and $\SUD$ to $
 
 \begin{remark} \label{rem:Alternate Isomorphism}
 There is a second, distinct isomorphism given by $t(r\times r)$.
-This follows as $s\times s:\LAD \to (\LAD)^{op}$ is an isomorphism (and also for  $s\times s:\SUD \to (\SUD)^{op}$ ), as such the composite 
-
+This follows as $s\times s:\LAD \to (\LAD)^{\op}$ is an isomorphism (and also for  $s\times s:\SUD \to (\SUD)^{\op}$ ), as such the composite 
 \begin{center}
 \begin{tikzcd}
 t(r\times r):\LAD \arrow[r,"s\times s"] &
@@ -2289,11 +2289,8 @@ t(r\times r):\LAD \arrow[r,"s\times s"] &
 \end{tikzcd}
 \end{center}
 is also an isomorphism.
-We will show this second isomorphism has the conceptual benefit of sending left shift operators to left shift operators (and right to right) in \cref{prop:trr is an isomorphism of shifts}.
-
+This second isomorphism has the conceptual benefit of sending left shift operators to left shift operators (and right to right), see \cref{prop:trr is an isomorphism of shifts}.
 \end{remark}
-
-
 
 %%%%%%%%%%%%%%%
 
@@ -2316,7 +2313,6 @@ We say that $a < b$ if the unique path $\gamma$ from $a$ to $b$ is such that
     \item $\max \gamma$ oriented from right to left (resp.~left to right) if $\triangle=\SUD$ (resp.~$\triangle=(\SUD)^{\op})$.
 \end{itemize}
 \end{construction}
-
 
 
 The key observation in proving \cref{thm:facets} is that paths between pairs of vertices in a $(2,n)$-tree correspond to $(I,J)$ conditions defining an operadic diagonal (see \cref{sec:cellularDiagonalsPermutahedra}). 
@@ -2373,9 +2369,6 @@ Two paths providing order information are
 	57 < 46 \text{ as } 57 \xrightarrow{5} 15 \xrightarrow{1=\min(I\cup J)} 13 \xrightarrow{3} 234 \xrightarrow{4} 46 \ \text{corresponding to } (I,J)=(\{1,4\},\{3,5\}).
 \end{align*}
 \end{example}
-
-
-
 
 
 \begin{theorem}
@@ -2588,7 +2581,8 @@ It follows directly from the fish condition: if the fish condition is satisfied,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{The lattice of facets}
+\section{Shifts and the lattice of facets}
+\label{sec:shifts}
 
 \Guillaume{A reecrire plus tard}
 \vincent{This section should be called Shifts.}
