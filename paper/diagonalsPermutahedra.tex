@@ -2073,6 +2073,7 @@ The \defn{$\LA$} and~\defn{$\SU$ orderings} are defined by
 \end{definition}
 
 \begin{definition}
+\label{def:LA-and-SU}
 The \defn{$\LA$ diagonal} $\LAD$ (resp. \defn{$\SU$ diagonal} $\SUD$) of the permutahedron~$\Perm$ is the geometric diagonal given by any vector $\vec v \in \R^n$ satisfying  
 \[
 \sum_{i \in I} v_i > \sum_{j \in J} v_j,
@@ -2091,7 +2092,7 @@ For a pair $(\sigma,\tau)$ of ordered partitions of $[n]$, we have
     (\sigma,\tau)\notin \LAD 
     & \iff & \exists (I,J) \in \LA(n) \ , J \text{ dominates } I \text{ in } \sigma \text{ and } I \text{ dominates } J \text{ in } \tau \ .
 \end{eqnarray*}
-The same holds for the $\SU$ diagonal by replacing $\LAD$ and $\LA(n)$ by $\SUD$ and $\SU(n)$, respectively.
+The same holds for the $\SU$ diagonal by replacing $\LAD$ by $\SUD$ and $\LA(n)$ by $\SU(n)$.
 \end{theorem}
 
 %%%%%%%%%%%%%%%
@@ -2133,13 +2134,14 @@ An ordering $\Or$ of $\Un$ is \defn{operadic} if for every $\{I,J\} \in \Un$, th
 
 We call \defn{indecomposables} of $\Or$ the pairs $(I,J) \in \Or$ for which the only subpair $(I',J')$ satisfying Condition (2) above is the pair $(I,J)$ itself.
 
-Every operadic diagonal satisfies \cite[Prop.~4.14]{LA21}, which amounts precisely to an operadic ordering of $\Un$ in this sense.
-We thus have the following.
-
 \begin{proposition}
 \label{prop:equiv-operadic}
     A geometric diagonal of the permutahedra is operadic if and only if its associated ordering is. 
 \end{proposition}
+
+\begin{proof}
+    Every operadic diagonal satisfies \cite[Prop.~4.14]{LA21}, which amounts precisely to an operadic ordering of $\Un$ in the above sense. 
+\end{proof}
 
 We now turn to the study of the $\LA$ and $\SU$ orderings.
 
@@ -2265,7 +2267,7 @@ As we have already remarked in \cref{subsec:LASUdiagonal}, in the case of the pe
     Moreover, they induce poset isomorphisms at the level of the face lattices. 
 \end{theorem}
 
-\begin{proof}
+\begin{proof} \Guillaume{Could be rephrased in terms of domination...}
     The result for the transpositions $t$ and the commutativity of the diagram are straighforward, so we prove that $rs\times rs$ is a cellular isomorphism respecting the poset structure. 
     First, we observe that the assignment $(I,J) \mapsto (r(J),r(I))$ defines a bijection between $\LA(n)$ and $\SU(n)$. 
     Indeed, we have $r(\min(I\cup J))=\max(I\cup J)$; since $I \cap J = \varnothing$, $r$ is well-defined, and it is a bijection with inverse $r$ itself.  
@@ -2296,30 +2298,36 @@ This second isomorphism has the conceptual benefit of sending left shift operato
 
 \subsection{Facets of operadic diagonals}
 
-
-\Guillaume{Rewrite completely}
-
+We aim at describing the facets of the $\LA$ and $\SU$ diagonals. 
 We have seen in \cref{subsec:multiBraidArrangement} that facets of any diagonal of the permutahedron are in bijection with $(2,n)$-trees, that is, pairs of unordered partitions of $[n]$ whose intersection graph is a tree.
 These pairs of partitions were first studied and called essential complementary partitions in \cite{chen1969computer,chen1971tables,kajitani1982number}.
+We now explain how to order these pairs of partitions to get the facets of $\LAD$ and $\SUD$. 
 
+\begin{theorem}
+    \label{thm:facet-ordering}
+    Let $(\sigma,\tau)$ be two ordered partitions of $[n]$ whose underlying intersection graph is a $(2,n)$-tree.
+    We have that $(\sigma,\tau) \in \LAD$ (resp. $\SUD$) if and only if the minimum (resp. maximum) of every directed path between two consecutive blocks of $\sigma$ or $\tau$ is oriented from $\sigma$ to $\tau$, that is from left to right (resp. from $\tau$ to $\sigma$, that is from right to left).
+\end{theorem}
 
-\begin{construction}
-\label{const:orienting-function}
-Given an operadic diagonal $\triangle$, we define an ordering function $o:\EC\to \OP$ from the set of $(2,n)$-trees to the set of facets of $\triangle$ as follows. 
-Let $(\sigma,\tau)$ be a $(2,n)$-tree, and let $a,b$ be two vertices of $\sigma$ or $\tau$.
-We say that $a < b$ if the unique path $\gamma$ from $a$ to $b$ is such that
-\begin{itemize}
-    \item $\min \gamma$ is oriented from left to right (resp.~right to left) if $\triangle=\LAD$ (resp.~$\triangle=(\LAD)^{\op}$),
-    \item $\max \gamma$ oriented from right to left (resp.~left to right) if $\triangle=\SUD$ (resp.~$\triangle=(\SUD)^{\op})$.
-\end{itemize}
-\end{construction}
+\begin{proof}
+    We specialize \cref{prop:PFtoOPF1} to the $\LA$ diagonal, the proof for the $\SU$ diagonal is similar. 
+    Let $\vec v$ be a vector inducing the $\LA$ diagonal as in \cref{def:LA-and-SU}.
+    Without loss of generality, we place the first copy of the braid arrangement centered at $0$, and the second copy centered at $\vec v$.
+    From \cref{def:multiBraidArrangementPrecise} we get that $A_{1,s,t}=0$ and $A_{2,s,t}=v_s-v_t$ for any edges $s,t$.
+    We treat the case of a two consecutive blocks $A$ and $B$ of $\sigma$, the analysis for $\tau$ is similar. 
+    The directed path between $A$ and $B$ is a sequence of edges $r_0,r_1,\dots,r_q$.  
+    Let us denote by $I \eqdef \{r_0,r_2,\dots\}$ de set of edges directed from $\sigma$ to $\tau$, and by $J \eqdef \{r_1,r_3,\dots\}$ its complement. 
+    According to \cref{prop:PFtoOPF1}, the order between $A$ and $B$ is determined by the sign of $A_{1,r_0,r_q}- \sum_{p \in [q]} A_{i_p,r_{p-1},r_p}$, where $i_p$ is the copy of the block adjacent to both edges $r_{p-1}$ and $r_p$. 
+    Thus, the order between $A$ and $B$ is determined by the sign of $\sum_{i \in I} v_i - \sum_{j \in J} v_j$, which according to the definition of $\LAD$ is positive whenever $\min(I\cup J) \in I$. 
+    Thus, the pair $(\sigma,\tau) \in \LAD$ if and only if the mimum of every directed path between two consecutive blocks of $\sigma$ or $\tau$ is oriented from $\sigma$ to $\tau$. 
+\end{proof}
 
-
-The key observation in proving \cref{thm:facets} is that paths between pairs of vertices in a $(2,n)$-tree correspond to $(I,J)$ conditions defining an operadic diagonal (see \cref{sec:cellularDiagonalsPermutahedra}). 
+The $\LA$ and $\SU$ diagonals coincide up to dimension $2$. \Guillaume{Shouldn't we say that before?}
+Their facets for the $2$-dimensional permutahedron are illustrated on the first page of this article.  
 
 \begin{example}
 \label{ex:ECbijection}
-The $(2,7)$-tree $\{15,234,6,7\} \times \{13,2,46,57\}$ (left) is ordered according to \cref{const:orienting-function}, giving a facet of $\LAD$ (right).
+We present the $(2,7)$-tree $\{15,234,6,7\} \times \{13,2,46,57\}$ (left) and its orderings giving facets of the $\LA$ (middle) and $\SU$ (right) diagonals, according to \cref{thm:facet-ordering}.
 \begin{center}
 \begin{tikzpicture}[scale=.7]  
 \node (1) at (-1.5, -1) {$15$};
@@ -2362,71 +2370,34 @@ $\quad$
 \draw[thick] (4) to [in=180, out=0, looseness=0] (6);
 %
 \end{tikzpicture}
+$\quad$
+\begin{tikzpicture}[scale=.7]  
+    \node (1) at (1.5, -4) {$13$};
+    \node (2) at (1.5, -3) {$24$};
+    \node (3) at (1.5, -2) {$57$};
+    \node (4) at (1.5, -1) {$6$};
+    %
+    \node (5) at (-1.5, -4) {$37$};
+    \node (6) at (-1.5, -3) {$1$};
+    \node (7) at (-1.5, -2) {$456$};
+    \node (8) at (-1.5, -1) {$2$};
+    %
+    \draw[thick] (1) to [out=180, in=0, looseness=0] (5);
+    \draw[thick] (1) to [out=180, in=0, looseness=0] (6); 
+    \draw[thick] (2) to [out=180, in=0, looseness=0] (7);
+    \draw[thick] (2) to [out=180, in=0, looseness=0](8);
+    \draw[thick] (3) to [out=180, in=0, looseness=0] (5); 
+    \draw[thick] (3) to [out=180, in=0, looseness=0] (7);
+    \draw[thick] (4) to [out=180, in=0, looseness=0] (7);
+    %
+    \end{tikzpicture}
 \end{center}
 Two paths providing order information are
 \begin{align*}
-	7 < 234 \text{ as } 7 \xrightarrow{7} 57 \xrightarrow{5} 15 \xrightarrow{1=\min(I\cup J)} 13 \xrightarrow{3} 234 \ \text{corresponding to } (I,J)=(\{1,7\},\{3,5\}), \\
-	57 < 46 \text{ as } 57 \xrightarrow{5} 15 \xrightarrow{1=\min(I\cup J)} 13 \xrightarrow{3} 234 \xrightarrow{4} 46 \ \text{corresponding to } (I,J)=(\{1,4\},\{3,5\}).
+    7 < 234 \text{ as } 7 \xrightarrow{7} 57 \xrightarrow{5} 15 \xrightarrow{1=\min(I\cup J)} 13 \xrightarrow{3} 234 \ \text{corresponding to } (I,J)=(\{1,7\},\{3,5\}), \\
+    57 < 46 \text{ as } 57 \xrightarrow{5} 15 \xrightarrow{1=\min(I\cup J)} 13 \xrightarrow{3} 234 \xrightarrow{4} 46 \ \text{corresponding to } (I,J)=(\{1,4\},\{3,5\}).
 \end{align*}
-\end{example}
-
-
-\begin{theorem}
-\label{thm:facets}
-For any operadic diagonal $\triangle$, the ordering function $o:\EC\to \OP$ is a bijection between the set of $(2,n)$-trees and the set of facets of $\triangle$. 
-\end{theorem}
-
-We end this Section by illustrating how the isomorphism $rs\times rs$ from \cref{thm:bijection-operadic-diagonals} relates the $\LA$ and $\SU$ orders. 
-
-\begin{example}
-\label{ex:theta-path-translation}
-Consider the facet of $\LAD$ from \cref{ex:ECbijection}.
-The isomorphism $rs\times rs$ gives the following facet of $\SUD$
-\begin{center}
-\begin{tikzpicture}[scale=.7]  
-\node (1) at (-1.5, -1) {$15$};
-\node (2) at (-1.5, -2) {$7$};
-\node (3) at (-1.5, -3) {$234$};
-\node (4) at (-1.5, -4) {$6$};
-%
-\node (5) at (1.5, -1) {$57$};
-\node (6) at (1.5, -2) {$46$};
-\node (7) at (1.5, -3) {$13$};
-\node (8) at (1.5, -4) {$2$};
-%
-\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
-\draw[thick] (1) to [in=180, out=0, looseness=0] (7);
-\draw[thick] (2) to [in=180, out=0, looseness=0] (5); 
-\draw[thick] (3) to [in=180, out=0, looseness=0] (6); 
-\draw[thick] (3) to [in=180, out=0, looseness=0] (7); 
-\draw[thick] (3) to [in=180, out=0, looseness=0] (8); 
-\draw[thick] (4) to [in=180, out=0, looseness=0] (6);
-%
-\end{tikzpicture}
-\quad
-\raisebox{3em}{$\xrightarrow{rs\times rs}$}
-\quad
-\begin{tikzpicture}[scale=.7]  
-\node (1) at (1.5, -4) {$13$};
-\node (2) at (1.5, -3) {$24$};
-\node (3) at (1.5, -2) {$57$};
-\node (4) at (1.5, -1) {$6$};
-%
-\node (5) at (-1.5, -4) {$37$};
-\node (6) at (-1.5, -3) {$1$};
-\node (7) at (-1.5, -2) {$456$};
-\node (8) at (-1.5, -1) {$2$};
-%
-\draw[thick] (1) to [out=180, in=0, looseness=0] (5);
-\draw[thick] (1) to [out=180, in=0, looseness=0] (6); 
-\draw[thick] (2) to [out=180, in=0, looseness=0] (7);
-\draw[thick] (2) to [out=180, in=0, looseness=0](8);
-\draw[thick] (3) to [out=180, in=0, looseness=0] (5); 
-\draw[thick] (3) to [out=180, in=0, looseness=0] (7);
-\draw[thick] (4) to [out=180, in=0, looseness=0] (7);
-%
-\end{tikzpicture} \ .
-\end{center}
+The isomorphism $rs\times rs$ from \cref{thm:bijection-operadic-diagonals} sends the $\LA$ facet to the $\SU$ one
 Observe that the $\LA(7)$ conditions corresponding to paths, such as $( \{1,4\},\{3,5\})$, which implies that
 \begin{align*}
     57 < 46 \quad \text{  as  } \quad 57 \xrightarrow{5} 15 \xrightarrow{1=\min(I\cup J)} 13 \xrightarrow{3} 234 \xrightarrow{4} 46 \ ,
@@ -2440,8 +2411,6 @@ are mapped to $\SU(7)$ conditions corresponding to paths, e.g. the prior $(I,J)$
 \begin{remark}
     Note that the composite $\LAD \xrightarrow{u} \EC \xrightarrow{o} \SUD$ provides another bijection between facets, however this map is not equal to $rs \times rs$ and is not defined on the other faces.
 \end{remark}
-
-
 
 %%%%%%%%%%%%%%%
 
