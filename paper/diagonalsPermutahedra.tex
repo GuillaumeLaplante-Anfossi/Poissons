@@ -328,11 +328,53 @@ Perspectives:
 -for general diagonal, obtain closed formulas for all the faces
 -for specific diagonals, extend the bijection with bipartite trees
 
+\subsubsection{Consequences of the equivalence between diagonals}
+
+
+This result
+\begin{enumerate}[(i)]
+    \item brings a positive answer to \cite[Rem.~2.19]{LA21}, showing that the original $\SU$ diagonal can indeed be recovered from a choice of chambers in the fundamental hyperplane arrangement of the permutahedron. 
+    Remark that this choice is precisely given by the family of vectors mentioned in \cite[Rem.~4.19]{LA21}, which was already identified to be operadic,
+    \item sets up the analogous question in \cite[Rem.~3.9]{MazuirLA22} for the multiplihedra,
+    \item provides a new proof that all known diagonals on the associahedra coincide \cite{saneblidzeComparingDiagonalsAssociahedra2022}.
+    Indeed, since the family of vectors inducing the $\SU$ diagonal all have strictly decreasing coordinates, the diagonal induced on the associahedron is given by the magical formula \cite[Thm.~2]{masudaDiagonalAssociahedra2021}, see also \cite[Prop.~3.8]{LA21}.
+\end{enumerate}
+
+Moreover, it allows us to obtain alternative descriptions of all four operadic diagonals, in particular
+\begin{enumerate}
+    \item subset shift and $m$-shift definitions of the $\LA$ diagonal,
+    \item matrix description of the $\LA$ diagonal,
+    \item a new realization of the permutahedron as subdivision of the cube, and a conjectural description of the $\LA$ diagonal in terms of this subdivision, 
+\end{enumerate}
+in addition to the new  \Guillaume{add references}
+\begin{enumerate}
+    \item[(4)] geometric construction and $(I,J)$-description of the $\SU$ diagonal,
+    \item[(5)] description of the facets of the $\SU$ diagonal as labelled bipartite trees,
+    \item[(6)] description of the vertices of the $\SU$ diagonal as pattern avoiding permutations,
+    \item[(7)] enumerative results for the facets and vertices of the $\SU$ diagonal. 
+\end{enumerate}
+
+We end this Section by applying the isomorphism between the $\SU$ and $\LA$ diagonal to obtain explicitly the Points (1)-(3) above.
+
+\begin{definition}[$\LA$ diagonals]
+\begin{enumerate}
+    \item subset shift
+    \item $m$-shift
+    \item matrix
+\end{enumerate}
+\end{definition}
+
+\begin{definition}
+    New subdivision of the cube
+\end{definition}
+
+\begin{conjecture}
+    The $\LA$ diagonal is given by the formula...
+\end{conjecture}
+
+This is equivalent, via the isomorphism between $\LA$ and $\SU$ diagonals, to the analogous conjecture for the $\SU$ diagonal, presented as a fact in \cite[Equ.~(1)]{saneblidzeComparingDiagonalsAssociahedra2022}.
+
 %%%%%%%%%%%%%%%
-
-\Guillaume{Please make a new line for each sentence as to facilitate comparison between versions in GitHub}
-
-\Guillaume{Would it be possible to avoid bold letters, use "slash emph\{\}", and also reduce to the maximum possible the use of indices; as soon as the context is clear, drop any extra index}
 
 \begin{table}[h]
 	\centerline{
@@ -2900,7 +2942,7 @@ This proves that $R_{M'_{i_j}}$ is well-defined, completing the inductive proof.
 
 %%%%%%%%%%%%%%%
 
-\subsection{Inversions}
+\subsubsection{Inversions}
 
 In this section, we combinatorially characterise inversions of the $(I,J)$ $\SU$ diagonal as crossings in the bipartite tree.
 We will use this as a tool to prove that the $m$-shift and the $(I,J)$ diagonal coincide in the next section.
@@ -2944,7 +2986,7 @@ An adjacent crossing is clearly a crossing. In the other direction, suppose ther
 
 %%%%%%%%%%%%%%%
 
-\subsection{Second isomorphism: $m$-shift and $(I,J)$ diagonals coincide}\label{sec:Iso m-shifts to IJ}
+\subsubsection{Second isomorphism: $m$-shift and $(I,J)$ diagonals coincide}\label{sec:Iso m-shifts to IJ}
 
 We now aim at showing that the $m$-shift and the $\SU$ diagonal defined via $(I,J)$ conditions coincide (\cref{prop:unique-operad}).
 We first identify that left (right) shift operators are natural inverses to right (resp.~left) shift operators.
@@ -3296,9 +3338,7 @@ This is not typically the case.
     In particular, as shift operators are the inverse of the inverse shift operators, for any given $\SUD$ facet, this provides a $\SCP$ and a sequence of shifts to form it, showing it is a shift $\SUD$ facet.
 \end{proof}
 
-%%%%%%%%%%%%%%%
-
-\subsection{Consequences of the equivalence between diagonals}
+We are now in position to conclude.
 
 \begin{theorem}
     \label{thm:recover-SU}
@@ -3310,48 +3350,9 @@ This is not typically the case.
     Thus, all the different definitions agree with the geometrically defined $\SUD$. 
 \end{proof}
 
-This result
-\begin{enumerate}[(i)]
-    \item brings a positive answer to \cite[Rem.~2.19]{LA21}, showing that the original $\SU$ diagonal can indeed be recovered from a choice of chambers in the fundamental hyperplane arrangement of the permutahedron. 
-    Remark that this choice is precisely given by the family of vectors mentioned in \cite[Rem.~4.19]{LA21}, which was already identified to be operadic,
-    \item sets up the analogous question in \cite[Rem.~3.9]{MazuirLA22} for the multiplihedra,
-    \item provides a new proof that all known diagonals on the associahedra coincide \cite{saneblidzeComparingDiagonalsAssociahedra2022}.
-    Indeed, since the family of vectors inducing the $\SU$ diagonal all have strictly decreasing coordinates, the diagonal induced on the associahedron is given by the magical formula \cite[Thm.~2]{masudaDiagonalAssociahedra2021}, see also \cite[Prop.~3.8]{LA21}.
-\end{enumerate}
+%%%%%%%%%%%%%%%
 
-Moreover, it allows us to obtain alternative descriptions of all four operadic diagonals, in particular
-\begin{enumerate}
-    \item subset shift and $m$-shift definitions of the $\LA$ diagonal,
-    \item matrix description of the $\LA$ diagonal,
-    \item a new realization of the permutahedron as subdivision of the cube, and a conjectural description of the $\LA$ diagonal in terms of this subdivision, 
-\end{enumerate}
-in addition to the new  \Guillaume{add references}
-\begin{enumerate}
-    \item[(4)] geometric construction and $(I,J)$-description of the $\SU$ diagonal,
-    \item[(5)] description of the facets of the $\SU$ diagonal as labelled bipartite trees,
-    \item[(6)] description of the vertices of the $\SU$ diagonal as pattern avoiding permutations,
-    \item[(7)] enumerative results for the facets and vertices of the $\SU$ diagonal. 
-\end{enumerate}
 
-We end this Section by applying the isomorphism between the $\SU$ and $\LA$ diagonal to obtain explicitly the Points (1)-(3) above.
-
-\begin{definition}[$\LA$ diagonals]
-\begin{enumerate}
-    \item subset shift
-    \item $m$-shift
-    \item matrix
-\end{enumerate}
-\end{definition}
-
-\begin{definition}
-    New subdivision of the cube
-\end{definition}
-
-\begin{conjecture}
-    The $\LA$ diagonal is given by the formula...
-\end{conjecture}
-
-This is equivalent, via the isomorphism between $\LA$ and $\SU$ diagonals, to the analogous conjecture for the $\SU$ diagonal, presented as a fact in \cite[Equ.~(1)]{saneblidzeComparingDiagonalsAssociahedra2022}.
 
 %%%%%%%%%%%%%%%
 
@@ -4338,12 +4339,11 @@ This yields an alternate cubical formula for the $\LA$ diagonal.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-\section{Topological operadic structures}
+\section{Higher tensor products}
 
 %%%%%%%%%%%%%%%
 
-\subsection{Operadic diagonals on the operahedra and multiplihedra}
+\subsection{Topological operadic structures on the operahedra and multiplihedra}
 
 The permutahedra are part of a more general family of polytopes called Loday realizations of the \emph{operahedra} \cite[Def.~2.9]{LA21} which encodes the notion of homotopy operad \cite[Def.~4.11]{LA21}.
 For every planar tree $t$, there is a corresponding polytope $P_t$ whose codimension $k$ faces are in bijection with nestings of $t$ with $k$ non-trivial nests.
@@ -4404,7 +4404,7 @@ We shall see now that these different operadic structures are related to one ano
 
 %%%%%%%%%%%%%%%
 
-\subsection{Relating operadic diagonals} 
+\subsection{Relating operadic structures} 
 
 %In this section we show that the four diagonals are isomorphic, and that this induces an isomorphism of the corresponding operadic structures on the operahedra, multiplihedra and associahedra.
 
@@ -4487,8 +4487,14 @@ Note that $\Psi$ is \emph{not} a morphism of ``Hopf" operads, i.e. it does not c
     For instance, it is not the one you would expect...  [compare with the general symmetries]
 \end{example}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\Guillaume{faire direct l'iso topologique, puis traduire?}
+\subsection{Tensor products of homotopy operads and morphims}
+
+Even though the diagonals of the permutahedra are isomorphic, and the operad structures that they induce are as well, the tensor products of homotopy operads and $\Ainf$-morphisms that they define are \emph{not} isomorphic.
+The purpose of this short section is to exhibit counterexamples.
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
