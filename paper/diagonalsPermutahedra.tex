@@ -2537,36 +2537,36 @@ However, as $j_k$ must be dominated by an element of $I$, this forces $w = i_1$ 
 \section{Shifts and the lattice of facets}
 \label{sec:shifts}
 
-\Guillaume{A reecrire plus tard}
-\vincent{This section should be called Shifts.}
-
-In this section we show that $\SUD$, with its $(I,J)$-description, is the same as the original Saneblidze-Umble diagonal \cite{SaneblidzeUmble04}.
-First, we prove that the original $\SU$ diagonal, which we refer to as ``subset $1$-shift $\SUD$", is equivalent to the ``$1$-shift $\SUD$", where shifts a performed on singletons only \Guillaume{REF}. 
-Second, we prove that the $1$-shift $\SUD$ is equivalent to the $m$-shift $\SUD$, where singleton shifts are not restricted to adjacent vertices. 
-Third, we show that the $m$-shift $\SUD$ is equivalent to $\SUD$ with its $(I,J)$-description (\Guillaume{REF}). 
-Through the isomorphism between $\SUD$ and $\LAD$ (\Guillaume{REF}), we obtain new combinatorial descriptions of both $\LAD$ and the original $\SUD$. 
-\begin{center}
-\begin{tikzcd}
-\text{Subset $1$-shift $\SUD$} \arrow[r,leftrightarrow,"\ref{prop:iso-original-shift-diagonals}"]&
-\text{$1$-shift $\SUD$} \arrow[r,leftrightarrow,"\ref{prop:iso-original-shift-diagonals}"]&
-\text{$m$-shift $\SUD$} \arrow[r,leftrightarrow,"\ref{prop:iso-shift-IJ-diagonals}"]&
-\SUD \\
-\text{Subset shift $\LAD$} \arrow[r,dotted,leftrightarrow]&
-\text{$1$-shift $\LAD$} \arrow[r,dotted,leftrightarrow]&
-\text{$m$-shift $\LAD$} \arrow[r,dotted,leftrightarrow] &
-\LAD \arrow[u,leftrightarrow,"REF"]
-\end{tikzcd}
-\end{center}
-Through this Section, we use similar notation to the recent paper \cite{saneblidzeComparingDiagonalsAssociahedra2022}.
+In this section we show that the geometric $\SU$ diagonal $\SUD$ is a topological enhancement of the original Saneblidze-Umble diagonal \cite{SaneblidzeUmble04}.
+This study leads to a natural lattice structure on the set of facets of operadic diagonals, and to alternative combinatorial descriptions such as a matrix and a cubical representations. 
+Throughout this Section, we borrow notation from \cite{saneblidzeComparingDiagonalsAssociahedra2022}.
 
 %%%%%%%%%%%%%%%
 
-\subsection{Strong complementary pairs}
+\subsection{Topological enhancement of the original $\SU$ diagonal}
 
-\begin{definition}[Strong complementary pairs]
+In this section we prove that the geometric $\SU$ diagonal $\SUD$ agrees at the cellular level with the original Saneblidze-Umble diagonal defined in \cite{SaneblidzeUmble04}.
+The proof is technical and procedes in several steps: we introduce two additional combinatorial descriptions of the diagonal, that we call the $1$-shift and $m$-shift $\SU$ diagonals, and show the sequence of equivalences
+\begin{center}
+\begin{tikzcd}
+\text{original $\SUD$} \arrow[r,leftrightarrow,"\ref{prop:iso-original-shift-diagonals}"]&
+\text{$1$-shift $\SUD$} \arrow[r,leftrightarrow,"\ref{prop:iso-1-to-m-shift}"]&
+\text{$m$-shift $\SUD$} \arrow[r,leftrightarrow,"\ref{prop:iso-shift-IJ-diagonals}"]&
+\text{geometric $\SUD$} \ .
+\end{tikzcd}
+\end{center}
+
+%%%%%%%%%%%%%%%
+
+\subsubsection{Strong complementary pairs}
+
+\begin{definition}
 \label{def:strong-complementary-pairs}
-A \emph{strong complementary pair ($\SCP$ for short)} is a pair of ordered partitions $(\sigma,\tau)$ where $\sigma$ is obtained from a permutation by merging the adjacent elements which are decreasing, and $\tau$ is obtained from the same permutation by merging the adjacent elements which are increasing.
+A \defn{strong complementary pair ($\SCP$ for short)} is a pair$(\sigma,\tau)$ of ordered partitions of $[n]$ where $\sigma$ is obtained from a permutation of $[n]$ by merging the adjacent elements which are decreasing, and $\tau$ is obtained from the same permutation by merging the adjacent elements which are increasing.
 \end{definition}
+
+We denote by $\SCP(n)$ the set of $\SCP$s of $[n]$, which is in bijection with the set of permutations of $[n]$.
+As is clear from the definition, the intersection graph of an $\SCP$ is a $(2,n)$-tree.
 
 \begin{example}
 \label{ex:strong-complementary}
@@ -2594,67 +2594,72 @@ The SCP associated to the permutation $3|1|7|4|2|5|6$ is
     %
 \end{tikzpicture}
 \end{center}
-Observe that the permutation can be read off the graph of the SCP by a vertical down slice through the edges of the graph.
+Observe that the permutation can be read off the intersection graph of the SCP by a vertical down slice through the edges.
 \end{example}
 
-As the intersection graph of any pair of essential complementary partitions is a bipartite tree, there is a unique path between any two vertices. 
-
-\begin{notation}[Paths between blocks]
-    For $(\sigma,\tau)$ a pair of essential complementary partitions, we denote by $\sigma_{i,j}$ (resp.~$\tau_{i,j}$) the unique oriented path between blocks $\sigma_{i}$ and $\sigma_j$ (resp.~$\tau_{i}$ and $\tau_j$).
+\begin{notation}
+    For a $(2,n)$-tree $(\sigma,\tau)$, we denote by $\sigma_{i,j}$ (resp.~$\tau_{i,j}$) the unique oriented path between blocks $\sigma_{i}$ and $\sigma_j$ (resp.~$\tau_{i}$ and $\tau_j$).
 \end{notation}
 Note that we make a slight abuse in notation as the path $\sigma_{i,j}$ also depends on $\tau$.
-We can immediately characterise the paths between adjacent blocks of strong complementary partitions.
+We can immediately characterise the paths between adjacent blocks in $\SCP$s.
 
 \begin{proposition} 
 \label{lem:SCP-path-desc}
 For any strong complementary pair $(\sigma,\tau)$, we have that
 \begin{enumerate}
-    \item $ \sigma_{i,i+1} = ( \min \sigma_i, \max \sigma_{i+1} )$ and $\min \sigma_i< \max \sigma_{i+1}$, 
+    \item $ \sigma_{i,i+1} = ( \min \sigma_i, \max \sigma_{i+1} )$ and $\min \sigma_i< \max \sigma_{i+1}$, and
     \item $  \tau_{i,i+1} =  ( \max \tau_i, \min \tau_{i+1} )$ and $\min \tau_{i+1}< \max \tau_{i}$.
 \end{enumerate}
-As a consequence, all strong complementary pairs are in both $\LAD$ and $\SUD$.
+As a consequence, all strong complementary pairs are in both $\LAD$ and $\SUD$, and constitute precisely the set of facets $(\sigma,\tau)$ such that $\max_{\vec v}(\sigma) = \min_{\vec v}(\tau)$.
 \end{proposition}
 \begin{proof}
-The path description of $(\sigma,\tau)$ is a straightforward observation. 
-Since the minima of these paths are traversed from left to right, and the maxima from right to left, \cref{thm:facets} implies that strong complementary partitions are in both $\LAD$ and $\SUD$.
+First, the path description of $(\sigma,\tau)$ is a straightforward observation. 
+Second, since the minima of these paths are traversed from left to right, and the maxima from right to left, \cref{thm:facet-ordering} implies that strong complementary partitions are in both geometric operadic diagonals~$\LAD$ and~$\SUD$.
+Third, the fact that these constitute the facets $(\sigma,\tau) \in \LAD$ or $\SUD$ satisfying $\max_{\vec v}(\sigma) = \min_{\vec v}(\tau)$ can be seen as follows.
+The maximal (resp. minimal) vertex of a face $\sigma$ of the permutahedron with respect to the weak Bruhat order, is obtained by ordering the elements of each block of $\sigma$ in decreasing (resp. increasing) order. 
+Thus, it is clear that the original permutation giving rise to a $\SCP$ $(\sigma,\tau)$ is the permutation $\max_{\vec v}(\sigma)=\min_{\vec v}(\tau)$, for any vector $\vec v$ inducing the weak Bruhat order.
+Since both diagonals agree with this order on the vertices, we have that $\SCP$s are indeed facets of $\LAD$ and $\SUD$ with the desired property. 
+The fact that these are \emph{all} the facets with this property follows from the bijection betweeen $\SCP(n)$ and the permutations of~$[n]$.
 \end{proof}
 
-\vincent{SCP corresponds to pairs~$(F,G)$ with $\max(F) = \min(G)$.}
 
 %%%%%%%%%%%%%%%
 
-\subsection{$\SU$ diagonals}
+\subsubsection{$\SU$ diagonals}
 
-\begin{definition}[Shift operators]
+We recall the definiton of the original $\SU$ diagonal of \cite{SaneblidzeUmble04}, based on the description given in \cite{saneblidzeComparingDiagonalsAssociahedra2022}.
+We introduce two other descriptions, the $1$-shift and $m$-shift $\SU$ diagonals, which will be shown later to be equivalent to the original one.
+
+\begin{definition}
 \label{def:subset shifts}
 Let $\sigma=\sigma_1|\dots|\sigma_k$ be an ordered partition, and let 
 $M_i\subsetneq \sigma_{i}$ be a non-empty subset of the block $\sigma_i$.
-For $m\geq 1$, the \emph{right $m$-shift} moves the subset $M_i$, $m$ blocks to the right  
+For $m\geq 1$, the \defn{right $m$-shift} moves the subset $M_i$, $m$ blocks to the right  
 \begin{align*}
     R_{M_i}(\sigma) \eqdef \sigma_1|\dots|\sigma_i \ssm M_i|\dots | \sigma_{i+m} \cup M_i|\dots|\sigma_k
 \end{align*}
-while the \emph{left $m$-shift} moves it $m$ blocks to the left 
+while the \defn{left $m$-shift} moves it $m$ blocks to the left 
 \begin{align*}
     L_{M_{i}}(\sigma) \eqdef \sigma_1|\dots|\sigma_{i-m} \cup M_{i}| \dots |\sigma_{i} \ssm M_{i}|\dots|\sigma_l \ .
 \end{align*}
 \end{definition}
 
-\begin{definition}[Movable subsets]
+\begin{definition}
     \label{def:movable-subsets}
     Let $(\sigma,\tau) = (\sigma_1|\dots|\sigma_k,\tau_1|\dots|\tau_l)$ be a pair of ordered partitions.
-    For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (resp.~$M_{i}\subset \tau_{i}$) is \emph{$m$-block movable} if 
+    For an integer~$m\geq 1$, a non-empty subset $M_i \subsetneq \sigma_i$ (resp.~$M_{i}\subsetneq \tau_{i}$) is \defn{$m$-block movable} if 
     \begin{enumerate}
         \item $\min \sigma_i \notin M_i$ (resp.~$\min \tau_{i} \notin M_i$), and
-        \item $\min M_i> \max \sigma_{i+1}$ (resp.~$\min M_{i}> \max \tau_{i-1}$).
+        \item $\min M_i> \max \sigma_{i+m}$ (resp.~$\min M_{i}> \max \tau_{i-m}$).
     \end{enumerate}
-    It is \emph{$m$-path movable} if it satisfies $(1)$ above together with
+    It is \defn{$m$-path movable} if it satisfies $(1)$ above together with
     \begin{enumerate}
         \item[(2')] $\min M_i> \max \sigma_{i,i+m}$ (resp.~$\min M_{i}> \max \tau_{i,i-m}$).
     \end{enumerate}
 \end{definition}
 
 \begin{example}
-Performing the $1$-shifts $R_7$ and $L_{5,6}$ on $1$-movable (they are both block and path-movable) subsets of the strong complementary pair~$(\sigma,\tau)$ of \cref{ex:strong-complementary}, one obtains the pair $R_{7}(\sigma) \times L_{5,6}(\tau)$.
+Performing the $1$-shifts $R_7$ and $L_{5,6}$ on $1$-movable subsets (they are both block and path-movable) of the strong complementary pair~$(\sigma,\tau)$ of \cref{ex:strong-complementary}, one obtains the pair~$R_{7}(\sigma) \times L_{56}(\tau)$, as illustrated below.
 \begin{center}
 \begin{tikzpicture}[scale=.7]  
     \node (p) at (0, 0) {$13|247|5|6 \times 3|17|4|256$};
@@ -2678,7 +2683,7 @@ Performing the $1$-shifts $R_7$ and $L_{5,6}$ on $1$-movable (they are both bloc
     %
 \end{tikzpicture}
 \quad
-\raisebox{3em}{$\xrightarrow{R_{7} \times L_{5,6}}$}
+\raisebox{3em}{$\xrightarrow{R_{7} \times L_{56}}$}
 \quad
 \begin{tikzpicture}[scale=.7]  
 \node (p) at (0, 0) {$13|24|57|6 \times 3|17|456|2$};
@@ -2704,53 +2709,32 @@ Performing the $1$-shifts $R_7$ and $L_{5,6}$ on $1$-movable (they are both bloc
 \end{center}
 \end{example}
 
-We shall concentrate on two distinct families of shifts:
-\begin{enumerate}[(a)]
-    \item $1$-shifts of $1$-block movable subsets of various sizes, and
-    \item $m$-shifts of $m$-path movable singletons, for various $m\geq 1$,
-\end{enumerate}
+We shall concentrate on two distinct families of shifts: $1$-shifts of $1$-block movable subsets of various sizes, and $m$-shifts of $m$-path movable singletons, for various $m\geq 1$,
 and show that specific sequences generate the same diagonal. 
 
-\begin{definition}[Admissible sequences of shifts]
-    \label{def:admissible-shift-sequences}
-    Let $(\sigma,\tau)$ be a pair of ordered partitions. 
-    For~$p\geq 1$, a sequence of right shifts $\textbf{M} = (M_{i_1},\dots,M_{i_p}) \in [n]^{p}$ is 
-    \begin{enumerate}[(a)]
-    \item \emph{admissible of original type} if 
-    \begin{enumerate}[(1)]
-        \item we have $1\leq i_1 < i_2 < \dots < i_p \leq k-1$, and
-        \item each $M_{i_j}$ is a $1$-block movable subset of $R_{M_{i_j-1}}\dots R_{M_{i_1}}(\sigma)_{i_j}$.
-    \end{enumerate}
-    The resulting ordered partition is denoted by $R_\mathbf{M}(\sigma) \eqdef R_{M_{i_p}}\dots R_{M_{i_1}}(\sigma)$.
-
-    \item \emph{admissible of $m$-path type} if
-    \begin{enumerate}[(1)]
-        \item each $M_{i_j}$ is a $m$-path movable element of $R_{M_{i_j-1}}\dots R_{M_{i_1}}(\sigma)_{i_j}$, for some $m\geq 1$.
-    \end{enumerate}
-
-    \end{enumerate}
-    Admissible sequences of left shifts are defined similarly and are denoted by $L_\mathbf{N}(\tau)$.
+\begin{definition}
+\label{def:admissible-shift-sequences}
+Let $(\sigma,\tau)$ be a pair of ordered partitions. 
+For~$p\geq 1$, a sequence of right shifts~$\textbf{M} = (M_{i_1},\dots,M_{i_p}) \in [n]^{p}$ is \defn{admissible of original type} if 
+\begin{enumerate}
+    \item we have $1\leq i_1 < i_2 < \dots < i_p \leq k-1$, and
+    \item each $M_{i_j}$ is a $1$-block movable subset of $R_{M_{i_j-1}}\dots R_{M_{i_1}}(\sigma)_{i_j}$.
+\end{enumerate}
+A sequence of right shifts is \defn{admissible of $m$-path type} if each $M_{i_j}$ is a $m$-path movable element of $R_{M_{i_j-1}}\dots R_{M_{i_1}}(\sigma)_{i_j}$, for some $m\geq 1$.
 \end{definition}
 
-\Guillaume{Think about notation: too many indices!! $R_{M_{i_j}}$}
-
+In both cases, the resulting ordered partition is denoted by $R_\mathbf{M}(\sigma) \eqdef R_{M_{i_p}}\dots R_{M_{i_1}}(\sigma)$.
+Admissible sequences of left shifts are defined similarly and are denoted by $L_\mathbf{N}(\tau)$.
 By convention, we declare the empty sequence of shift operators to be admissible, and to act by the identity, i.e. we have $R_{\mathbf{\varnothing}}(\sigma)  \eqdef  \sigma$ and $L_{\mathbf{\varnothing}} (\tau) \eqdef  \tau$.
 
-\begin{definition}[$\SU$ diagonals]
-    \label{def:classical-SU}
-   The facets of 
-   \begin{enumerate}[(a)]
-    \item the \emph{original $\SU$ diagonal},
-    \item the \emph{$m$-shift $\SU$ diagonal}
-   \end{enumerate}
-   are defined by the formula
+\begin{definition}
+\label{def:classical-SU}
+The facets of the \defn{original $\SU$ diagonal} and the \defn{$m$-shift $\SU$ diagonal} are defined by the formula
     \begin{align*}
         \SUD([n]) = \bigcup_{(\sigma,\tau)} \bigcup_{\mathbf{M}, \mathbf{N}} R_\mathbf{M}(\sigma)\times L_\mathbf{N}(\tau)
     \end{align*}
-    where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and over all admissible sequences of shifts $\textbf{M},\textbf{N}$ of the corresponding type.
+where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and over all admissible sequences of shifts $\textbf{M},\textbf{N}$ of the corresponding type.
 \end{definition}
-
-The original $\SU$ diagonal was so defined in \cite{SaneblidzeUmble04}, see also \cite{saneblidzeComparingDiagonalsAssociahedra2022}.
 
 \begin{remark}
     Observe that the left (resp.~right) shifts acts on the right (resp.~left) ordered partition.
@@ -2759,7 +2743,7 @@ The original $\SU$ diagonal was so defined in \cite{SaneblidzeUmble04}, see also
 
 %%%%%%%%%%%%%%%
 
-\subsection{First isomorphism: original and $m$-shift $\SU$ diagonals}
+\subsubsection{First isomorphism between $\SU$ diagonals}
 
 First, we show that the $m$-shift $\SU$ diagonal is equivalent to the \emph{$1$-shift $\SU$ diagonal}, which given by exactly the same definition, but where only $1$-shifts are performed. 
 
@@ -2925,6 +2909,11 @@ Later, we will discuss in \cref{sec:Shift-lattice}, how the inversions are compa
 \begin{definition}
 Let $(\sigma,\tau)$ be a pair of ordered partitions of $[n]$, we say that $(x,y)$, where $x<y$, is an \emph{inversion} if $x$ appears before $y$ in $\sigma$ and $y$ appears before $x$ in $\tau$. 
 \end{definition}
+
+\begin{remark}
+    If $(\sigma,\tau)$ is a pair of permutations, the inversions of $(\sigma,\tau)$ are the classical inversions of $\tau$ which are not inversions of $\sigma$. 
+    In particular, if $\sigma$ is the identity permutation, then the inversions of $(\sigma,\tau)$ coincide with the classical inversions of $\tau$. 
+\end{remark}
 
 \begin{proposition}
 \label{p:crossings}
