@@ -114,6 +114,7 @@
 
 % others
 \newcommand{\ie}{\textit{i.e.}~} % id est
+\newcommand{\resp}{\textit{resp.}~} % id est
 \newcommand{\eg}{\textit{e.g.}~} % exempli gratia
 \newcommand{\Eg}{\textit{E.g.}~} % exempli gratia
 \newcommand{\apriori}{\textit{a priori}} % a priori
@@ -2157,7 +2158,7 @@ The goal of this section is to prove that the $\LA$ and $\SU$ diagonals are the 
 In order to define this special property, we need a weighted version of the standard permutahedron $\Perm$ from \cite[Sec. 2.2]{LA21}. 
 
 \begin{definition}
-For any $\omega \in \N$, the \defn{weight $\omega$ permutahedron} $\Perm[n,\omega] \subset \R^n$ is the convex hull  of the points points~$\sum_{i \in [n]} (\omega + i-1) \, \b{e}_{\sigma(i)}$  for all permutations $\sigma$ of $[n]$. 
+For any $\omega \in \N$, the \defn{weight $\omega$ permutahedron} $\Perm[n,\omega] \subset \R^n$ is the convex hull  of the points ~$\sum_{i \in [n]} (\omega + i-1) \, \b{e}_{\sigma(i)}$  for all permutations $\sigma$ of $[n]$. 
 \vincent{I believe it would be nicer to just translate...}
 \end{definition}
 
@@ -2178,7 +2179,7 @@ A family of diagonals $\triangle \eqdef \{\triangle_n : \Perm \to \Perm \times \
 \end{definition}
 In other words, we require that the diagonal $\triangle$ commutes with the map $\Theta$, see \cite[Section 4.2]{LA21}.
 At the algebraic level, this property is called ``comultiplicativity" in \cite{SaneblidzeUmble04}.
-Note that in particular such an isomorphism respects the poset structures. 
+Note that in particular, such an isomorphism respects the poset structures. 
 
 For a pair $(I,J)$ in an ordering $\Or$, we denote by $\std(I,J)$ the \defn{standardisation function}, e.g. $\std(\{5,9,10\},\{6,8,12\}) = (\{1,4,5\},\{2,3,6\})$.
 By convention, we set $\std(\{\emptyset\},\{\emptyset\}) \eqdef (\{\emptyset\},\{\emptyset\})$.
@@ -2254,29 +2255,29 @@ The only operadic orderings of $\Un=\{\Un(n)\}_{n\geq 1}$ are the $\LA,\SU,\LA^{
 \begin{proof}
 We build operadic orderings inductively, showing that the choices for $\Un(n)$, $n\leq 4$ determine higher ones. 
 We prove the statement for the $\LA$ order, the $\SU$ and opposite orders are similar. 
-First, we decide to order by $(\{1\},\{2\})$ the unique pair of $\Un(2)$.
+First, we decide to order the unique pair of $\Un(2)$ as $(\{1\},\{2\})$.
 The operadic property then determines the orders of all the pairs of $\Un(3)$ and $\Un(4)$, except the pair $\{\{1,4\},\{2,3\}\}$, for which we choose the order $(\{1,4\},\{2,3\})$.
 Now, we claim that all the higher choices are forced by the operadic property. 
 Starting instead with the orders $(\{1\},\{2\})$ and $(\{2,3\},\{1,4\})$ would give the $\SU$ diagonal, and reversing the pairs would give the opposite orders. 
 
 Let $l\geq 2$ and suppose that for all $k\leq l$, we have given the pair $\{I_k,J_k\} \eqdef \{\{1,k+2,k+3,\dots,2k-1,2k\},\{2,3,\dots,k+1\}\}$ the $\LA$ ordering $(I_k,J_k)$.
-Then from \cref{lem:operadic-ordering} we know that the only $\{I,J\}$ pair of order $l+1$ that will not decompose, and hence be specified by the already chosen conditions, is $\{I_{l+1},J_{l+1}\}$.
-As such, the only way we can vary from $\LA$ is to order this elements in the opposite direction $(J_{l+1},I_{l+1})$.
-Let us show that this choice leads to a contradiction in the ordering of the pair $\{I_m,J_m\}$ of order $m \eqdef l+2$ (see \cref{ex:Non-coherent order contradiction}).
-On the one side, we can write $\{I_m,J_m\} = \{I_a \cup I_b, J_a \cup J_b\}$ with $I_a \eqdef  \{1,m+3,\dots,2m\}, J_a \eqdef  \{4,5,\dots,m+2\}, I_b \eqdef \{3\}$ and $J_b \eqdef  \{2\}$. 
-By hypothesis, we have the orders $(J_a,I_a)$ and $(J_b,I_b)$ which imply the order $(J_m,I_m)$ since our ordering is operadic. 
-On the other side, we can write $\{I_m,J_m\} = \{I_c \cup I_d, J_c \cup J_d\}$, where $I_c \eqdef  \{1,m+3,\dots,  2m-1\}, J_c \eqdef \{2,5,\dots,m+1\}, I_d \eqdef \{3, 2m\}$ and $J_d \eqdef  \{4, m+2\}$.
-By hypothesis, we have the orders $(I_c,J_c)$ and $(I_d,J_d)$ which imply that $(I_m,J_m)$, a contradiction.
+Then from \cref{lem:operadic-ordering}, we know that the only $\{I,J\}$ pair of order $l+1$ that will not decompose, and hence be specified by the already chosen conditions, is $\{I_{l+1},J_{l+1}\}$.
+As such, the only way we can vary from $\LA$ is to order this element in the opposite direction $(J_{l+1},I_{l+1})$. 
+We now define a particular decomposable pair $\{I'_m,J'_m\}:= I_m \sqcup \{3\} \setminus \{m+2\}, J_m \sqcup \{m+2\} \setminus \{3\}$, of order $m \eqdef l+2$, that will lead to a contradiction (see \cref{ex:Non-coherent order contradiction}).
+On the one side, we can decompose $\{I'_m,J'_m\} = \{I_a \cup I_b, J_a \cup J_b\}$ with $I_a \eqdef  \{1,m+3,\dots,2m\}, J_a \eqdef  \{4,5,\dots,m+2\}, I_b \eqdef \{3\}$ and $J_b \eqdef  \{2\}$. 
+By hypothesis, we have the orders $(J_a,I_a)$ and $(J_b,I_b)$ which imply the order $(J'_m,I'_m)$ since our ordering is operadic. 
+On the other side, we can decompose $\{I'_m,J'_m\} = \{I_c \cup I_d, J_c \cup J_d\}$, where $I_c \eqdef  \{1,m+3,\dots,  2m-1\}, J_c \eqdef \{2,5,\dots,m+1\}, I_d \eqdef \{3, 2m\}$ and $J_d \eqdef  \{4, m+2\}$.
+By hypothesis, we have the orders $(I_c,J_c)$ and $(I_d,J_d)$ which imply that $(I'_m,J'_m)$, a contradiction.
 Thus, the only possible operadic choice of ordering for $\{I_{l+1},J_{l+1}\}$ is the $\LA$ ordering, which finishes the proof. 
 \end{proof}
 
 \begin{example} 
 \label{ex:Non-coherent order contradiction}
-Suppose that the $\LA$ ordering holds for pairs of order $1$ and $2$, but is reversed for pairs of order $3$, \ie we have 
+Suppose that the $\LA$ ordering holds for pairs of order $1$ and $2$, but is reversed for pairs of order $3$, \ie
 \begin{align*}
     \{1\}<\{2\},\quad \{1,4\}< \{2,3\}, \text{ and } \{1, 5, 6 \} > \{2, 3, 4\} \ .
 \end{align*}
-Then $\{I,J\}=\{\{1, 3, 7, 8\}, \{2, 4, 5, 6\}\}$ admits two different orientations.
+Then $\{I'_4,J'_4\}=\{\{1, 3, 7, 8\}, \{2, 4, 5, 6\}\}$ admits two different orientations.
 In particular, 
 \begin{align*}
     \{1, 7, 8\} > \{ 4, 5, 6 \} \text{ and } \{3\} > \{2\} &\implies \{1, 3, 7, 8\} >\{2, 4, 5, 6\} \ \text{and} \\
@@ -2329,7 +2330,7 @@ As we have already remarked in \cref{subsec:LASUdiagonal}, in the case of the pe
 \end{theorem}
 
 \begin{proof} \Guillaume{Could be rephrased in terms of domination...}
-The result for the transpositions $t$ and the commutativity of the diagram are straighforward, so we prove that $rs\times rs$ is a cellular isomorphism respecting the poset structure. 
+The result for the transpositions $t$ and the commutativity of the diagram are straightforward, so we prove that $rs\times rs$ is a cellular isomorphism respecting the poset structure. 
 First, we observe that the assignment $(I,J) \mapsto (r(J),r(I))$ defines a bijection between $\LA(n)$ and $\SU(n)$. 
 Indeed, we have $r(\min(I\cup J))=\max(I\cup J)$; since $I \cap J = \varnothing$, $r$ is well-defined, and it is a bijection with inverse $r$ itself.  
 Denoting by $N^c$ the complement of a subset $N \subset [n]$, we have that $|N \cap I| > |N\cap J| \iff |N^c \cap I|< |N^c \cap J|$.
@@ -2434,9 +2435,9 @@ $\quad$
     %
     \end{tikzpicture}
 \end{center}
-In the $\LA$ facet (left), we have $7 < 234$ since the minimum $1$ of the path $7 \xrightarrow{7} 57 \xrightarrow{5} 15 \xrightarrow{1} 13 \xrightarrow{3} 234$ between the two vertices is oriented from left to right. 
+In the $\LA$ facet (left), we have $7 < 234$, since in the path between the two vertices $7 \xrightarrow{7} 57 \xrightarrow{5} 15 \xrightarrow{1} 13 \xrightarrow{3} 234$, the minima $1$ oriented from left to right. 
 In this case, we have $(I,J)=(\{1,7\},\{3,5\})$.
-Similarly, the path $57 \xrightarrow{5} 15 \xrightarrow{1} 13 \xrightarrow{3} 234 \xrightarrow{4} 46$ imposes that $57 < 46$, while we have $(I,J)=(\{1,4\},\{3,5\})$.
+Similarly, the path $57 \xrightarrow{5} 15 \xrightarrow{1} 13 \xrightarrow{3} 234 \xrightarrow{4} 46$ imposes that $57 < 46$, for $(I,J)=(\{1,4\},\{3,5\})$.
 \end{example}
 
 \begin{remark}
@@ -2467,7 +2468,7 @@ The isomorphism $rs\times rs$ from \cref{thm:bijection-operadic-diagonals} sends
     \draw[thick] (4) to [in=180, out=0, looseness=0] (6);
     %
 \end{tikzpicture}
-    $\quad$
+\raisebox{3.5em}{$\xrightarrow{rs\times rs}$}
 \begin{tikzpicture}[scale=.7]  
     \node (1) at (1.5, -4) {$13$};
     \node (2) at (1.5, -3) {$24$};
@@ -2492,6 +2493,7 @@ The isomorphism $rs\times rs$ from \cref{thm:bijection-operadic-diagonals} sends
 Moreover, it sends the path $57 \xrightarrow{5} 15 \xrightarrow{1} 13 \xrightarrow{3} 234 \xrightarrow{4} 46 $ to the path $24 \xrightarrow{4} 456 \xrightarrow{5} 57 \xrightarrow{7} 37 \xrightarrow{3} 13$, where the maximum $7$ is oriented from right to left, witnessing the fact that $24 < 13$. 
 The associated $(I,J)=(\{1,4 \},\{3,5\})$ becomes $(r(J),r(I))=(\{3,5 \},\{4,7\})$.
 \end{example}
+
 
 %%%%%%%%%%%%%%%
 
