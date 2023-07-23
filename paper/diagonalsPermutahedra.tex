@@ -4349,9 +4349,9 @@ This yields an alternate cubical formula for the $\LA$ diagonal.
 
 %%%%%%%%%%%%%%%
 
-\subsection{Topological operadic structures on the operahedra and multiplihedra}
+\subsection{Topological operadic structures on the operahedra}
 
-The permutahedra are part of a more general family of polytopes called Loday realizations of the \emph{operahedra} \cite[Def.~2.9]{LA21} which encodes the notion of homotopy operad \cite[Def.~4.11]{LA21}.
+The permutahedra are part of a more general family of polytopes called Loday realizations of the \emph{operahedra} \cite[Def.~2.9]{LA21} which encodes the notion of homotopy operad \cite[Def.~4.11]{LA21}.\Guillaume{Image des trois mousquetaires?}
 For every planar tree $t$, there is a corresponding polytope $P_t$ whose codimension $k$ faces are in bijection with nestings of $t$ with $k$ non-trivial nests.
 Since the operahedra are generalized permutahedra \cite[Coro.~2.16]{LA21}, a choice of diagonal for the permuthedra induces a choice of diagonal for every operahedron \cite[Coro.~1.31]{LA21}.
 Every face of an operahedron is isomorphic to a product of lower-dimensional operahedra, via an isomorphism $\Theta$ which generalizes the one above, see Point (5) of \cite[Prop.~2.3]{LA21}.
@@ -4364,16 +4364,16 @@ Every face of an operahedron is isomorphic to a product of lower-dimensional ope
     \label{thm:operahedra}
 There are exactly 
 \begin{enumerate}
-    \item four operadic diagonals of the Loday operahedra, therefore exactly
-    \item four colored topological cellular operad structures on the Loday operahedra, and incidentally exactly
-    \item four universal tensor products of homotopy operads,
+    \item two operadic diagonals of the Loday operahedra, given by the $\LA$ and $\SU$ diagonals, therefore exactly
+    \item two colored topological cellular operad structures on the Loday operahedra, and incidentally exactly
+    \item two universal tensor products of homotopy operads,
 \end{enumerate}
-two of which (the $\LA$ and $\SU$ diagonals) agree with the generalized Tamari order on fully nested trees. 
+which agree with the generalized Tamari order on fully nested trees. 
 \end{theorem}
 
 \begin{proof}
     Let us first examine Point (1).
-    By \cref{prop:unique-operad}, we know that if one of the four choices $\LAD, (\LAD)^\op, \SUD, (\SUD)^\op$ is made on an operahedron $P_t$, one has to make the same choice on every lower-dimensional operahedron appearing in the decomposition $P_{t_1} \times \cdots \times P_{t_k} \cong F \subset P_t$ of a face $F$ of $P_t$. 
+    By \cref{prop:unique-operad}, we know that if one of the two choices $\LAD$ or $\SUD$ is made on an operahedron $P_t$, one has to make the same choice on every lower-dimensional operahedron appearing in the decomposition $P_{t_1} \times \cdots \times P_{t_k} \cong F \subset P_t$ of a face $F$ of $P_t$. 
     Now suppose that one makes two distinct choices for two operahedra $P_t$ and $P_{t'}$.
     It is easy to find a bigger tree $t''$ of which both $t$ and $t'$ are subtrees.
     Therefore, $P_t$ and $P_{t'}$ appear as facets of $P_{t''}$ and by the preceding remark, any choice of diagonal for $P_{t''}$ will then contradict our initial two choices. 
@@ -4384,35 +4384,30 @@ two of which (the $\LA$ and $\SU$ diagonals) agree with the generalized Tamari o
     Finally, since only vectors with strictly descreasing coordinates induce the generalized Tamari order on the skeleton of the operahedra \cite[Prop.~3.11]{LA21}, we get the last part of the statement. 
 \end{proof}
 
-This answers the first question in \cite[Rem.~3.14]{LA21}.
+This answers a question raised in \cite[Rem.~3.14]{LA21}.
 
+\begin{remark}
 Two other important families of generalized permutahedra are the \emph{Loday associahedra} and \emph{Forcey--Loday multiplihedra}, which encode respectively $\Ainf$-algebras and $\Ainf$-morphisms \cite[Prop.~4.9]{MazuirLA22}, as well as $\Ainf$-categories and $\Ainf$-functors \cite[Sect.~4.3]{MazuirLA22}.
 Using the same techniques as in the case of the operahedra, they were endowed with diagonals and compatible operad and operadic bimodule structures in \cite[Thm.~1]{MazuirLA22}.
 An analogous notion of \emph{operadic diagonal} is available for these polytopes, see \cite[Prop.~2.14]{MazuirLA22}.
+It seems likely that a statement similar to \cref{thm:operahedra} holds for tensor products of $\Ainf$-morphisms. 
+However, it is not immediately clear to the authors how to follow strategy of \cite{MazuirLA22} with a vector inducing the $\SU$ diagonal on the permutahedra.
+\end{remark}
 
-\begin{samepage}
-\begin{theorem}[Operadic structures on the multiplihedra]
-There are exactly 
-\begin{itemize}
-    \item four operadic diagonals of the Forcey--Loday multiplihedra, therefore exactly
-    \item four topological cellular operadic bimodule structures (over the Loday associahedra) on the Forcey--Loday multiplihedra, and incidentally exactly
-    \item four compatible universal tensor products of $\Ainf$-algebras and $\Ainf$-morphisms,
-\end{itemize}
-two of which (the $\LA$ and $\SU$ diagonals) agree with the Tamari(-type) order on ($2$-colored) planar trees. 
-\end{theorem}
-\end{samepage}
+\begin{example}
+    The Loday associahedra correspond to the Loday operahedra associated with linear trees \cite[Sec. 2.2]{LA21}, and define a suboperad.
+    The restriction of the two operad structures of \cref{thm:operahedra} coincide in this case, and both the $\LA$ and $\SU$ diagonals induce the \emph{magical formula} of \cite{MarklShnider06,masudaDiagonalAssociahedra2021,saneblidzeComparingDiagonalsAssociahedra2022} defining a universal tensor product of $\Ainf$-algebras. 
+\end{example}
 
-\begin{proof}
-    The proof is similar to the one of \cref{thm:operahedra}, using the results of \cite{MazuirLA22}.
-\end{proof}
+\begin{example}
+    The restriction of \cref{thm:operahedra} to the permutahedra associated with $2$-leveled trees gives two distinct universal tensor products of homotopy associative \emph{permutads}, as studied in \cite{LodayRonco11,Markl19}.
+\end{example}
 
-We shall see now that these different operadic structures are related to one another in the strongest possible sense: they are all isomorphic as topological cellular operadic structures.
+We shall see now that the two operad structures on the operahedra are related to one another in the strongest possible sense: they are isomorphic as topological cellular colored operads.
 
 %%%%%%%%%%%%%%%
 
 \subsection{Relating operadic structures} 
-
-%In this section we show that the four diagonals are isomorphic, and that this induces an isomorphism of the corresponding operadic structures on the operahedra, multiplihedra and associahedra.
 
 Recall that the topological cellular operad structure on the operahedra \cite[Def.~4.17]{LA21} is given by a family of partial composition maps 
 \[
