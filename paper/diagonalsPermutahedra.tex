@@ -332,7 +332,7 @@ Perspectives:
 
 
 This result
-\begin{enumerate}[(i)]
+\begin{enumerate}[i)]
     \item brings a positive answer to \cite[Rem.~2.19]{LA21}, showing that the original $\SU$ diagonal can indeed be recovered from a choice of chambers in the fundamental hyperplane arrangement of the permutahedron. 
     Remark that this choice is precisely given by the family of vectors mentioned in \cite[Rem.~4.19]{LA21}, which was already identified to be operadic,
     \item sets up the analogous question in \cite[Rem.~3.9]{MazuirLA22} for the multiplihedra,
@@ -2096,11 +2096,9 @@ Hence, by Cayley's formula for spanning trees of~$K_{n+1}$, we obtain that the n
 \section{Operadic diagonals}
 \label{sec:operadicDiagonals}
 
-\Guillaume{Rework Section intros at the end}
-
-This section is devoted to the combinatorics of two specific diagonals of the permutahedra, the LA diagonal and SU diagonal (\cref{subsec:LASUdiagonal}).
-%We will see later in \cref{sec:operadicDiagonals} that these two diagonals are in fact the only two operadic diagonals, and we will provide in \cref{...} alternative descriptions of these two diagonals in terms of strong complementary partitions and shifts (which will in particular connect the present description of the SU diagonal with the original description of \cite{SaneblitzeUmble04}).
-%We will see in Part III \Guillaume{Hyperlink} that these choice of orderings induce operadic structure on the operahedra, multiplihedra and associahedra.
+This section is devoted to the combinatorics of two specific diagonals of the permutahedra, the LA and SU diagonals (\cref{subsec:LASUdiagonal}).
+We show that these are the only two operadic diagonals which induce the weak Bruhat order (\cref{prop:unique-operad}), and that they are isomorphic (\cref{subsec:isos-LA-SU}). 
+Using results from the preceding Section we characterize the facets of these diagonals in terms of paths in $(2,n)$-trees (\cref{subsec:facets-operadic-diags}), and the vertices of these diagonals as pattern-avoiding pairs of permutations (\cref{subsec:vertices-operadic-diags}).
 
 %%%%%%%%%%%%%%%
 
@@ -2154,21 +2152,26 @@ The same holds for the $\SU$ diagonal by replacing $\LAD$ by $\SUD$ and $\LA(n)$
 \subsection{The operadic property}
 
 The goal of this section is to prove that the $\LA$ and $\SU$ diagonals are the only two operadic diagonals which induce the weak Bruhat order the vertices of the permutahedra (\cref{prop:unique-operad}). 
-We first define this special property. 
+In order to define this special property, we need a weighted version of the standard permutahedron $\Perm$ from \cite[Sec. 2.2]{LA21}. 
 
-Recall that each face $A_1 | \ldots | A_k$ of the permutahedron $P_{|A_1|+\cdots + |A_k|-1}$ is isomorphic to the product $P_{|A_1|-1} \times \cdots \times P_{|A_k|-1}$ of lower dimensional permutahedra, via the permutation of coordinates
+\begin{definition}
+    For any $\omega \in \N$, the \defn{permutahedron of weight $\omega$} $\Perm[n,\omega] \subset \R^n$ is the convex hull  of the points points~$\sum_{i \in [n]} (\omega + i-1) \, \b{e}_{\sigma(i)}$  for all permutations $\sigma$ of $[n]$. 
+\end{definition}
+
+Let $A_1 \eqdef \{a_1,\dots,a_p\}, B \eqdef \{b_1,\dots,b_q\}$ be a partition of $[n]$.
+The facet of the permutahedron $\Perm$ corresponding to the ordered partition $B | A$ is isomorphic to the product $\Perm[p,q+1] \times \Perm[q]$ of lower dimensional permutahedra, via the permutation of coordinates
 \begin{equation*}
     \begin{matrix}
-        \Theta & : & \R^{|A_1|} \times \cdots \times \R^{|A_k|} & \overset{\cong}{\longrightarrow} & \R^{|A_1|+\cdots+|A_k|} \\
-         & & (x_1,\ldots,x_{|A_1|}) \times \cdots \times (x_{|A_1|+\cdots +|A_{k-1}|+1}, \ldots, x_{|A_1|+\cdots +|A_k|})  & \mapsto & (x_{\sigma^{-1}(1)},\ldots,x_{\sigma^{-1}(|A_1|+\cdots +|A_k|)})
+        \Theta & : & \R^{p} \times \R^{q} & \overset{\cong}{\longrightarrow} & \R^{n} \\
+         & & (x_1,\ldots,x_p) \times (x_{p+1}, \ldots, x_{n})  & \mapsto & (x_{\sigma^{-1}(1)},\ldots,x_{\sigma^{-1}(n)})
     \end{matrix}
 \end{equation*}
-where $\sigma$ is the $(|A_1|,\ldots,|A_k|)$-shuffle sending the increasingly ordered elements of~$A_1 \cup \ldots \cup A_k$ to the block by block increasingly ordered elements of $A_1 | \ldots | A_k$.
+where $\sigma$ is the $(p,q)$-shuffle defined by $\sigma(i) \eqdef a_i$ for $1 \leq i \leq p$, and $\sigma(p+j)\eqdef b_j$ for $1 \leq j \leq q$.
 Note that this map is a particular instance of the eponym map introduced in Point (5) of \cite[Prop. 2.3]{LA21}.
 
 \begin{definition}
 \label{def:operadic diagonal}
-A family of diagonals $\triangle \eqdef \{\triangle_n : P_n \to P_n \times P_n\}_{n\geq 1}$ of the permutahedra is \defn{operadic} if for every face $A_1 | \ldots | A_k$ of the permutahedron $P_{|A_1|+\cdots + |A_k|-1}$, the map $\Theta$ induces a topological cellular isomorphism \[  \triangle(A_1) \times \ldots \times \triangle(A_k) \cong \triangle(A_1 | \ldots | A_k) \ . \]
+A family of diagonals $\triangle \eqdef \{\triangle_n : P_n \to P_n \times P_n\}_{n\geq 1}$ of the permutahedra is \defn{operadic} if for every face $A_1 | \ldots | A_k$ of the permutahedron $\Perm[|A_1|+\cdots + |A_k|]$, the map $\Theta$ induces a topological cellular isomorphism \[  \triangle(A_1) \times \ldots \times \triangle(A_k) \cong \triangle(A_1 | \ldots | A_k) \ . \]
 \end{definition}
 In other words, we require that the diagonal $\triangle$ commutes with the map $\Theta$, see \cite[Section 4.2]{LA21}.
 At the algebraic level, this property is called ``comultiplicativity" in \cite{SaneblidzeUmble04}.
@@ -2352,6 +2355,7 @@ This second isomorphism has the conceptual benefit of sending left shift operato
 %%%%%%%%%%%%%%%
 
 \subsection{Facets of operadic diagonals}
+\label{subsec:facets-operadic-diags}
 
 We aim at describing the facets of the $\LA$ and $\SU$ diagonals. 
 We have seen in \cref{subsec:multiBraidArrangement} that facets of any diagonal of the permutahedron are in bijection with $(2,n)$-trees, that is, pairs of unordered partitions of $[n]$ whose intersection graph is a tree.
@@ -2490,6 +2494,7 @@ The associated $(I,J)=(\{1,4 \},\{3,5\})$ becomes $(r(J),r(I))=(\{3,5 \},\{4,7\}
 %%%%%%%%%%%%%%%
 
 \subsection{Vertices of operadic diagonals}
+\label{subsec:vertices-operadic-diags}
 
 We are now interested in characterizing the vertices that occur in an operadic diagonal as pattern-avoiding pairs of partitions of $[n]$. 
 These pairs form a strict subset of the weak Bruhat intervals. 
@@ -2506,83 +2511,65 @@ Then, for any $i \in I,j \in J$, we have that $I\setminus i$ dominates $J\setmin
 \end{enumerate}
 \end{lemma}
 
-We are now ready for the characterization. 
+As before, we represent a permutation $\sigma: [n] \to [n]$ by the non-commutative word~$\sigma(1)\cdots \sigma(n)$.
 
 \begin{definition}
-    A \defn{pattern-avoiding permutation} is ...
-    A \defn{pattern-avoiding pair of permutations} is...
+    For $k\leq n$, a permutation $\tau$ of $[k]$ is a \defn{pattern} of a permutation $\sigma$ of $[n]$ if there exists a subset $I \subset [n]$ of size $|I|=k$ such that $\std(I \cap \sigma)=\tau$. 
+    We say that $\sigma$ \defn{avoids} $\tau$ if $\tau$ is not a pattern of $\sigma$. 
 \end{definition}
 
 \begin{example}
-    Pairs of permutations avoiding $(21,12)$ are precisely intervals of the weak Bruhat order. 
+    Pairs of permutations $(\sigma,\tau)$ avoiding the patterns $(21,12)$ are precisely intervals of the weak Bruhat order. 
 \end{example}
 
 \begin{theorem}
 \label{prop: LAD Fish Pattern}
-A pair of permutations of $[n]$ is in the $\LA$ (resp. $\SU$) diagonal if and only if for any~$k\geq 1$ and for any $(I,J) \in \LA(n)$ (resp. $\SU(n)$) of size $|I|=|J|=k$ it avoids the patterns 
+A pair of permutations of $[n]$ is in the $\LA$ (resp. $\SU$) diagonal if and only if for any~$k\geq 1$ and for any $(I,J) \in \LA(k)$ (resp. $\SU(k)$) of size $|I|=|J|=k$ it avoids the patterns 
 \begin{align}
     (j_1 i_1 j_2 i_2 \cdots j_k i_k,\ i_2 j_1 i_3 j_2 \cdots i_k j_{k-1} i_1 j_k) \ , \tag{LA} \label{eq:pattern} \\
     \text{ resp. } (j_1 i_1 j_2 i_2 \cdots j_k i_k, \ i_1 j_k i_2 j_1 \cdots i_{k-1} j_{k-2}i_k j_{k-1}) \ , \tag{SU}
 \end{align}
-where $I=\{i_1,\dots,i_k\}$, $J=\{j_1,\dots,j_k\}$ and $i_1=\min(I\cup J)$ (resp. $j_k=\max(I\cup J)$).
+where $I=\{i_1,\dots,i_k\}$, $J=\{j_1,\dots,j_k\}$ and $i_1=1$ (resp. $j_k=2k$).
 \end{theorem}
 
 \begin{example}
-    In standardized form, there are $(k-1)!k!$ avoided patterns.
-    For $k=1,2$ they are given by $(21,12),(2134,4213)$ and $(3124,4312)$ for the $\LA$ diagonal, and by $(21,12), (1243,2431)$ and $(1342, 3421)$ for the $\SU$ diagonal.
+    There are $(k-1)!k!$ avoided patterns.
+    For $k=1,2$ they are given by $(21,12)$, $(2134,4213)$ and $(3124,4312)$ for the $\LA$ diagonal, and by $(21,12)$, $(1243,2431)$ and $(1342, 3421)$ for the $\SU$ diagonal.
 \end{example}
 
 \begin{proof}
 We give the proof for the $\LA$ diagonal, the one for the $\SU$ diagonal is similar, and can be obtained by applying either of the two isomorphisms of \cref{subsec:isos-LA-SU}.
-
-\Guillaume{C'est la qu'on va obtenir la condition de Hugh;...}
-
-Given the operadic nature of the $\LA$ diagonal (\cref{lem:operadic-ordering}), a pair of permutations $(\sigma,\tau)$ is in~$\LAD$ if and only if it satisfies every $(I,J)$ condition whose standardisation is of the form 
-\begin{align}
-    (I_k,J_k) \eqdef (\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\}) \label{eq:standard}
-\end{align}
-for some $k\geq 1$. Thus, according to, we have that $(\sigma,\tau) \notin \LAD$ if and only if there is an $(I,J)$ of standard form (\ref{eq:standard}) sucht that $J$ dominates $I$ in $\sigma$ and $I$ dominates $J$ in $\tau$.
-It remains to show this last condition is equivalent to the patterns (\ref{eq:pattern}).
-
+According to \cref{thm:IJ-description}, we have that $(\sigma,\tau) \notin \LAD$ if and only if there is an $(I,J)$ such that~$J$ dominates $I$ in $\sigma$ and $I$ dominates $J$ in $\tau$.
+It remains to show this last condition is equivalent to the existence of a pattern of the form (\ref{eq:pattern}).
 It is clear that if a pair of permutations $(\sigma,\tau)$ contains a pattern, then the associated $(I,J)$ satisfies the domination condition; thus we just need to show the reverse implication. 
 We proceed by induction on the cardinality $|I|=|J|$. 
 The case of cardinality $1$ is clear. 
-Now suppose that for all $(I,J)$ of size $|I|=|J|\leq m-1$ with standard form (\ref{eq:standard}), we have that if~$J$ dominates $I$ in $\sigma$ and $I$ dominates $J$ in $\tau$, then $(\sigma,\tau)$ contains a pattern of the form~(\ref{eq:pattern}).
+Now suppose that for all $(I,J)$ of size $|I|=|J|\leq m-1$, we have that if~$J$ dominates $I$ in $\sigma$ and $I$ dominates $J$ in $\tau$, then $(\sigma,\tau)$ contains a pattern of the form~(\ref{eq:pattern}).
 
 We need to show that this is still true for the pairs $(I,J)$ of size $|I|=|J|=m$.
-Let $(\sigma,\tau)$ be permutations, and let $(I,J)$ be such a pair.
-If there exists $(I',J')$ of cardinality $|I'|=|J'|<m$ satisfying the domination condition, we can conclude by the induction hypothesis. 
-Let us consider the case where such a $(I',J')$ does not exist, and suppose that $J$ dominates $I$ in $\sigma$ and $I$ dominates $J$ in $\tau$.
-We want to show that $(\sigma,\tau)$ contains a pattern of the form~(\ref{eq:pattern}) made from the pair $(I,J)$.
+Firstly, suppose that the leftmost element $i_1$ of $I$ in $\sigma$ is not $1$, and let us write $j_1$ for the leftmost element of $J$ in $\tau$.
+Let us consider the pair $(I',J') \eqdef (I\setminus \{i_1\}, J \setminus \{j_1\})$.
+Using both cases of \cref{lem:Coherent Domination}, we have that $J'$ dominates $I'$ in $\sigma$, and $I'$ dominates $J'$ in $\tau$, and we can thus conclude with the induction hypothesis. 
 
-Firstly, suppose that the leftmost element $i_1$ of $I$ in $\sigma$ is not $\min(I\cup J)$, and let us write $j_1$ for the leftmost element of $J$ in $\tau$.
-Since the pair $(I,J)$ is of standard form (\ref{eq:standard}), so is the pair $(I',J') \eqdef (I_k\setminus \{i_1\}, J_k \setminus \{j_1\})$, and one can check using both cases of \cref{lem:Coherent Domination} that $J'$ dominates $I'$ in $\sigma$, and $I'$ dominates $J'$ in $\tau$.
-We can thus conclude with the induction hypothesis. 
-
-Secondly, suppose that the leftmost element $i_1$ of $I$ in $\sigma$ is $\min(I\cup J)$.
+Secondly, suppose that the leftmost element of $I$ in $\sigma$ is $i_1=1$.
 Then, for $n\geq1$ we prove that,
 \begin{enumerate}[(a)]
-    \item If $\sigma = j_1 i_1 j_2 i_2 ... j_{n-1} i_{n-1} w i_{n} w'$, $\tau = i_2 j_1 i_3 j_2 ... i_{n}j_{n-1}w''$, and $j_n$ is the leftmost $J\setminus \{j_1,...,j_{n-1}\}$ in $\tau$, then either we have $w = j_n$, or we can conclude with the induction hypothesis.
-    \item If $\sigma = j_1 i_1 j_2 i_2 ... j_{n-1} i_{n-1} w''$, $\tau = i_2 j_1 i_3 j_2 ... i_{n-1}j_{n-2} w j_{n-1} w''$, and $i_n$ is the leftmost $I\setminus \{i_1,...,i_{n-1}\}$ in $\sigma$, then $w = i_n$.
+    \item if the intersection of $(\sigma,\tau)$ with $I \cup J$ is of the form $$(j_1 i_1 j_2 i_2 ... j_{n-1} i_{n-1} w i_{n} w', \ i_2 j_1 i_3 j_2 ... i_{n}j_{n-1}w'') \ , $$ and $j_n$ is the leftmost element of $J\setminus \{j_1,...,j_{n-1}\}$ in $\tau$, then either we have $w = j_n$, or we can conclude with the induction hypothesis.
+    \item if the intersection of $(\sigma,\tau)$ with $I \cup J$ is of the form $$(j_1 i_1 j_2 i_2 ... j_{n-1} i_{n-1} w'', \ i_2 j_1 i_3 j_2 ... i_{n-1}j_{n-2} w j_{n-1} w'') \ , $$ and $i_n$ is the leftmost $I\setminus \{i_1,...,i_{n-1}\}$ in $\sigma$, then either we have $w = i_n$, or we can conclude with the induction hypothesis.
 \end{enumerate}
 We prove $(a)$, the proof of $(b)$ proceeds similarly. 
 Let $j_n$ be the leftmost element of $J\setminus \{j_1,...,j_{n-1} \}$ in $\tau$.
-Suppose that $w\neq j_n$, then either
-\begin{enumerate}
-    \item $w$ consists of multiple elements of $J$ including $j_n$, or
-    \item $j_n$ comes after $i_n$ in $\sigma$.
-\end{enumerate}
+Suppose that $w\neq j_n$, then either $w$ consists of multiple elements of $J$ including $j_n$, or $j_n$ comes after $i_n$ in $\sigma$.
 Let $(I',J') \eqdef (I_k\setminus \{i_n\}, J_k \setminus \{j_n\})$.
-As was the case for $i_1=1$, $I'$ will dominate $J'$ in $\tau$.
-To prove $J'$ dominates $I'$ in $\sigma$, we split by the cases.
+As was the case for the proof that $i_1=1$, we have that $I'$ dominate $J'$ in $\tau$.
+To prove that $J'$ dominates $I'$ in $\sigma$, we split by the cases.
 In case $(a)$, we may apply condition $(2)$ of \cref{lem:Coherent Domination}.
 In case $(b)$, either $i_n$ comes before $j_n$, in which case we meet condition $(1)$ of \cref{lem:Coherent Domination}, or $j_n$ comes before $i_n$.
-If $j_n$ comes before $i_n$, then as $i_n$ is the leftmost element of $I\setminus \{i_1,...,i_{n-1} \}$ in $\sigma$, this implies condition $(2)$ of \cref{lem:Coherent Domination} holds.
+In this last situation, we have that condition $(2)$ of \cref{lem:Coherent Domination} holds as $i_n$ is the leftmost element of $I\setminus \{i_1,...,i_{n-1} \}$ in $\sigma$.
+Thus, if $w \neq j_n$, we can apply the induction hypothesis. 
 
-
-Consequently, as the leftmost $I$ of $\sigma$ is $1$.
-We can inductively generate the entire permutation, determining $j_1$ via $(a)$, then $i_2$ via $(b)$, then $j_2$ via $(a)$ and so on.
-This inductive process fully generates $\sigma$, and places all elements in $\tau$ except $i_1$, with a final known expression  $\tau = i_2 j_1 i_3 j_2 \cdots i_k j_{k-1} w j_k w''$.
+Having in hand statements (a) and (b) above, we can inductively generate the entire permutation, determining $j_1$ via $(a)$, then $i_2$ via $(b)$, then $j_2$ via $(a)$ and so on.
+This inductive process fully generates the intersection of $I\cup J$ with $\sigma$, and places all elements of the intersection with $\tau$ except $i_1$, with a final known expression of the form $i_2 j_1 i_3 j_2 \cdots i_k j_{k-1} w j_k w''$.
 However, as $j_k$ must be dominated by an element of $I$, this forces $w = i_1$ and $w'' =\varnothing$, completing the proof.
 \end{proof}
 
