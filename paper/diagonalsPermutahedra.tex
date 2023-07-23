@@ -1648,7 +1648,6 @@ In \cref{sec:cellularDiagonals}, we first recall the definition and some know fa
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newpage
 \section{Cellular diagonals}
 \label{sec:cellularDiagonals}
 
@@ -1656,9 +1655,9 @@ In \cref{sec:cellularDiagonals}, we first recall the definition and some know fa
 
 \subsection{Cellular diagonals for polytopes}
 \label{subsec:cellularDiagonalsPolytopes}
-
-We first define the thin diagonal of a polytope and its approximations by cellular diagonals.
-\vincent{Give with one sentence the motivations for these cellular approximations...}
+ 
+Cellular approximations of the thin diagonal for families of polytopes are of fundamental importance in algebraic topology and geometry.
+They allow one to define the cup product and thus define the ring structure on the cohomology groups of a topological space, and combinatorially on the Chow groups of a toric variety. 
 
 \begin{definition} 
 \label{def:thinDiagonal}
@@ -1680,8 +1679,48 @@ A cellular diagonal is said to be \defn{face-coherent} if its restriction to a f
 
 A powerful geometric technique to define face-coherent cellular diagonals on polytopes first appeared in \cite{fultonIntersectionTheoryToric1997a}, was presented in \cite{masudaDiagonalAssociahedra2021}, and was fully developed in \cite{LA21}.
 We provide in \cref{thm:diagonal} the precise (but slightly technical) definition of these diagonals, even though we will only use the characterization of the faces in their image provided in \cref{thm:universalFormula}.
+
 The key idea is that any vector $\b{v}$ in generic position with respect to $P$ defines a cellular diagonal of $P$.
-We denote by~$\min_{\b{v}}(P)$ (resp.~$\max_{\b{v}}(P)$) the unique vertex of~$P$ which minimizes (resp.~maximizes) the scalar product with~$\b{v}$. 
+For $\b{z}$ a point of $P$, let us denote by $\rho_{\b{z}} P \eqdef 2\b{z}-P$ denotes the reflection of $P$ with respect to the point~$\b{z}$.
+
+\begin{definition}
+    The \defn{fundamental hyperplane arrangement}~$\mathcal{H}_P$ of a polytope~$P \subset \R^d$ is the set of all linear hyperplanes of~$\R^d$ orthogonal to the edges of $P\cap \rho_{\b{z}} P$ for all $\b{z} \in P$. 
+    See \cref{fig:examplesHyperplanes}.
+\end{definition}
+
+\begin{figure}[p]
+	\centerline{
+		\includegraphics[scale=.3]{HypSimplex.png}
+		\includegraphics[scale=.35]{HypCube.png}
+        \ \
+		\includegraphics[scale=.3]{HypPermuto.png}
+	}
+	\caption{The fundamental hyperplane arrangements of the $3$-dimensional simplex, cube, and permutahedron.
+    In blue are pictured the hyperplanes which are not perpendicular to actual edges of the polytope $P$, but only to edges of some intersection $P\cap \rho_z P$. 
+    Left and rightmost illustrations from~\cite[Fig.~12]{LA21}.}
+	\label{fig:examplesHyperplanes}
+\end{figure}
+
+A vector is \defn{generic with respect to~$P$} if it does not belong to the union of the hyperplanes of the fundamental hyperplane arrangement~$\mathcal{H}_P$.
+In particular, such a vector is not perpendicular to any edge of $P$, and we denote by~$\min_{\b{v}}(P)$ (resp.~$\max_{\b{v}}(P)$) the unique vertex of~$P$ which minimizes (resp.~maximizes) the scalar product with~$\b{v}$. 
+
+\begin{theorem}
+    \label{thm:diagonal}
+    For any vector $\b{v} \in \R^d$ in generic position with respect to $P$, the tight coherent section~$\triangle_{(P,\b{v})}$ of the projection $P \times P \to P, (\b{x}, \b{y}) \mapsto (\b{x}+\b{y})/2$ selected by the vector~$(-\b{v}, \b{v})$ defines a cellular diagonal of~$P$.
+    More precisely, $\triangle_{(P,\b{v})}$ is given by the explicit formula
+    \begin{align*}
+    \begin{array}{rlcl}
+        \triangle_{(P,\b{v})}\ : & P & \to & P\times P \\
+        & \b{z} & \mapsto & \bigl( \min_{\b{v}}(P\cap \rho_{\b{z}} P), \, \max_{\b{v}}(P\cap \rho_{\b{z}} P) \bigr) \ .
+    \end{array}
+    \end{align*}
+\end{theorem}
+
+\begin{definition}
+    A \defn{geometric diagonal} of a polytope~$P$ is a diagonal of the form~$\triangle_{(P,\b{v})}$ for some vector~$\b{v} \in \R^d$ in generic position with respect to~$P$.
+\end{definition}
+
+A geometric diagonal~$\triangle_{(P,\b{v})}$ only depends on the region of~$\mathcal{H}_P$ containing~$\b{v}$, see~\cite[Prop.~1.23]{LA21}.
 
 \begin{figure}[p]
 	\centerline{\scalebox{1.25}{
@@ -1726,34 +1765,6 @@ We denote by~$\min_{\b{v}}(P)$ (resp.~$\max_{\b{v}}(P)$) the unique vertex of~$P
 	\caption{The subdivisions induced by cellular diagonals of the $3$-dimensional simplex (left), cube (middle), and permutahedron (right). Right illustration from~\cite[Fig.~13]{LA21}.}
 	\label{fig:examplesDiagonals2}
 \end{figure}
-
-\begin{theorem}
-\label{thm:diagonal}
-For any vector $\b{v} \in \R^d$ in generic position with respect to $P$, the tight coherent section~$\triangle_{(P,\b{v})}$ of the projection $P \times P \to P, (\b{x}, \b{y}) \mapsto (\b{x}+\b{y})/2$ selected by the vector~$(-\b{v}, \b{v})$ defines a cellular diagonal of~$P$.
-More precisely, $\triangle_{(P,\b{v})}$ is given by the explicit formula
-\begin{align*}
-\begin{array}{rlcl}
-	\triangle_{(P,\b{v})}\ : & P & \to & P\times P \\
-	& \b{z} & \mapsto & \bigl( \min_{\b{v}}(P\cap \rho_{\b{z}} P), \, \max_{\b{v}}(P\cap \rho_{\b{z}} P) \bigr),
-\end{array}
-\end{align*}
-where $\rho_{\b{z}} P \eqdef 2\b{z}-P$ denotes the reflection of $P$ with respect to the point~$\b{z}$. 
-\end{theorem}
-
-To give the precise meaning of generic with respect~$P$ and the characterization of the faces in the image of~$\triangle_{(P,\b{v})}$, we now consider the following hyperplane arrangement.
-\vincent{add figure of fundamental hyperplane arrangements for simplex, cube, permutahedron.}
-
-\begin{definition}
-The \defn{fundamental hyperplane arrangement}~$\mathcal{H}_P$ of a polytope~$P \subset \R^d$ is the set of all linear hyperplanes of~$\R^d$ orthogonal to the edges of $P\cap \rho_{\b{z}} P$ for all $\b{z} \in P$. 
-\end{definition}
-
-A vector is \defn{generic with respect to~$P$} if it does not belong to the union of the hyperplanes of the fundamental hyperplane arrangement~$\mathcal{H}_P$.
-
-\begin{definition}
-    A \defn{geometric diagonal} of a polytope~$P$ is a diagonal of the form~$\triangle_{(P,\b{v})}$ for some vector~$\b{v} \in \R^d$ in generic position with respect to~$P$.
-\end{definition}
-
-A geometric diagonal~$\triangle_{(P,\b{v})}$ only depends on the region of~$\mathcal{H}_P$ containing~$\b{v}$, see~\cite[Prop.~1.23]{LA21}.
 
 Now the following \defn{universal formula}~\cite[Thm.~1.26]{LA21} expresses combinatorially the faces in the image of the geometric diagonal~$\triangle_{(P,\b{v})}$.
 Recall that the \defn{normal cone} of a face~$F$ of a polytope~$P$ in~$\R^d$ is the cone of directions~$\b{c} \in \R^d$ such that the maximum of the scalar product~$\dotprod{\b{c}}{\b{x}}$ over~$P$ is attained for some~$\b{x}$ in~$F$.
