@@ -302,7 +302,7 @@ The purpose of the first part of this article is to study the combinatorics of t
  The hyperplane arrangement associated with  the cellular diagonal is two generically translated copies of the braid arrangement. 
  Motivated by the beautiful combinatorial formula obtained in our study, we generalize it to the study of $\ell$ generically translated copies of the braid arrangement, which would algebraically corresponds to some cellular $\ell$-gonal.
   We compute the $f$-vector and the $b$-vector of $\ell$-generically translated copies of the braid arrangement, using Zaslavsky's Theorem. 
-  We refine the enumeration of the vertices of the hyperplane arrangement using a combinatorial interpretation in terms of $(\ell, n)$-trees and get the following multiplicative formula stated in Theorem \ref{thm:verticesRefinedMultiBraidArrangement} and recalled here:
+  We refine the enumeration of the vertices of the hyperplane arrangement using a combinatorial interpretation in terms of $(\ell, n)$-partition trees and get the following multiplicative formula stated in Theorem \ref{thm:verticesRefinedMultiBraidArrangement} and recalled here:
 \begin{theorem*}
 For any~$k_1, \dots, k_\ell$ such that~$0 \le k_i \le n-1$ for~$i \in [\ell]$ and~${\sum_{i=1}^\ell k_i = n-1}$, the number of vertices~$v$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ such that the smallest flat of the $i$\ordinal{} copy of~$\braidArrangement$ containing~$v$ has dimension~$n-k_i-1$ is given by
 \[
@@ -720,7 +720,7 @@ We first introduce the main characters of this section, which will describe the 
 
 \begin{definition}
 The \defn{intersection hypergraph} of a $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of set partitions of~$[n]$ is the $\ell$-regular $\ell$-partite hypergraph on all parts of all the partitions~$F_i$ for~${i \in [\ell]}$, with an hyperedge connecting the parts containing~$j$  for each~$j \in [n]$.
-A \defn{$(\ell,n)$-partition forest} (resp.~\defn{$(\ell,n)$-partition tree}) is a $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of set partitions of~$[n]$ whose intersection hypergraph is a hyperforest (resp.~hypertree).
+A \defn{$(\ell,n)$-partition forest} (\resp \defn{$(\ell,n)$-partition tree}) is a $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of set partitions of~$[n]$ whose intersection hypergraph is a hyperforest (\resp hypertree).
 The \defn{dimension} of~$\b{F}$ is~$\smash{{\dim(\b{F}) \eqdef n - 1 - \ell n + \sum_{i \in [\ell]} \#F_i}}$.
 See \cref{fig:forests}.
 The \defn{$(\ell,n)$-partition forest poset} is the poset~$\forestPoset$ on $(\ell,n)$-partition forests ordered by componentwise refinement.
@@ -829,7 +829,7 @@ We have
  &=\sum_{G \in \rainbowForests} y^{n-1-\ell-\#E(G)} \sum_{F \in \rainbowForests, F \leq G } \mu_{\forestPoset}(F,G) \, x^{n-1-\ell-\#E(F)}, \\
  &=\sum_{G \in \forestPoset} y^{n-1-\ell n+\sum_{i=1}^\ell \#G_i} \sum_{F \in \forestPoset, F \leq G } \mu_{\forestPoset}(F,G) \, x^{n-1-\ell n+\sum_{i=1}^\ell \#F_i},
 \end{align*}
-where $E(G)$ (resp.~$E(G,i)$) denotes the set of edges (resp.~of edges of color $i$) in $G$ which satisfies $n-\#E(G,i) =  \#G_i$.
+where $E(G)$ (\resp $E(G,i)$) denotes the set of edges (\resp of edges of color $i$) in $G$ which satisfies $n-\#E(G,i) =  \#G_i$.
 
 Observe that for~$\b{F} \eqdef (F_1, \dots, F_\ell)$ and~$\b{G} \eqdef (G_1, \dots, G_\ell)$ in~$\forestPoset$, we have
 \[
@@ -1104,8 +1104,8 @@ A \defn{$\ell$-rainbow coloring} of a rooted plane forest~$F$ is an assignment o
 \item the colors of siblings are increasing from left to right.
 \end{enumerate}
 We denote by~$\|F\|$ the number of nodes of~$F$ and by~$\#F$ the number of trees of the forest~$F$ (\ie its number of connected components).
-A \defn{$(\ell,n)$-rainbow forest} (resp.~\defn{tree}) is a \mbox{$\ell$-rainbow} colored forest (resp.~tree) with $\|F\| = n$ nodes.
-We denote by~$\rainbowForests$ (resp.~$\rainbowTrees$) the set of $(\ell,n)$-rainbow forests (resp.~trees), and set~$\rainbowForests[][\ell] \eqdef \bigsqcup_n \rainbowForests$ (resp.~$\rainbowTrees[][\ell] \eqdef \bigsqcup_n \rainbowTrees$).
+A \defn{$(\ell,n)$-rainbow forest} (\resp \defn{tree}) is a \mbox{$\ell$-rainbow} colored forest (\resp tree) with $\|F\| = n$ nodes.
+We denote by~$\rainbowForests$ (\resp $\rainbowTrees$) the set of $(\ell,n)$-rainbow forests (\resp trees), and set~$\rainbowForests[][\ell] \eqdef \bigsqcup_n \rainbowForests$ (\resp $\rainbowTrees[][\ell] \eqdef \bigsqcup_n \rainbowTrees$).
 \end{definition}
 
 For instance, we have listed all $(2,4)$-rainbow trees in \cref{fig:rainbowTrees}\,(top).
@@ -1495,7 +1495,7 @@ This section highly depends on the choice of the translation matrix~$\b{a}$.
 We now introduce the combinatorial objects that will be used to encode the faces of the $\b{a}$-braid arrangement~$\multiBraidArrangement(\b{a})$.
 
 \begin{definition}
-An \defn{ordered $(\ell,n)$-partition forest} (resp.~\defn{tree}) is an $\ell$-tuple~$\orient{\b{F}} \eqdef (\orient{F_1}, \dots, \orient{F_\ell})$ of ordered set partitions of~$[n]$ such that the corresponding $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of unordered set partitions of~$[n]$ forms a $(\ell,n)$-partition forest (resp.~tree)
+An \defn{ordered $(\ell,n)$-partition forest} (\resp \defn{tree}) is an $\ell$-tuple~$\orient{\b{F}} \eqdef (\orient{F_1}, \dots, \orient{F_\ell})$ of ordered set partitions of~$[n]$ such that the corresponding $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of unordered set partitions of~$[n]$ forms a $(\ell,n)$-partition forest (\resp tree)
 The \defn{ordered $(\ell,n)$-partition forest poset} is the poset~$\orientedForestPoset$ on ordered $(\ell,n)$-partition forests ordered by componentwise refinement.
 In other words, $\orientedForestPoset$ is the subposet of the $\ell$\ordinal{} Cartesian power of the ordered partition poset~$\orientedPartitionPoset$ induced by ordered $(\ell,n)$-partition forests.
 Note that the maximal elements of~$\orientedForestPoset$ are the ordered $(\ell, n)$-partition trees.
@@ -1659,10 +1659,11 @@ In \cref{sec:cellularDiagonals}, we first recall the definition and some know fa
  
 Cellular approximations of the thin diagonal for families of polytopes are of fundamental importance in algebraic topology and geometry.
 They allow one to define the cup product and thus define the ring structure on the cohomology groups of a topological space, and combinatorially on the Chow groups of a toric variety. 
+We now proceed to define thin, cellular, and geometric diagonals.
 
 \begin{definition} 
 \label{def:thinDiagonal}
-The \defn{thin diagonal} of a set $X$ is the map~$\delta : X \to X \times X$ defined by $\delta(x) \eqdef (x,x)$ for all $x \in X$.
+The \defn{thin diagonal} of a set $X$ is the map~$\delta : X \to X \times X$ defined by $\delta(x) \eqdef (x,x)$ for all $x \in X$.s
 See \cref{fig:examplesDiagonals1}\,(left).
 \end{definition}
 
@@ -1703,7 +1704,7 @@ For $\b{z}$ a point of $P$, let us denote by $\rho_{\b{z}} P \eqdef 2\b{z}-P$ de
 \end{figure}
 
 A vector is \defn{generic with respect to~$P$} if it does not belong to the union of the hyperplanes of the fundamental hyperplane arrangement~$\mathcal{H}_P$.
-In particular, such a vector is not perpendicular to any edge of $P$, and we denote by~$\min_{\b{v}}(P)$ (resp.~$\max_{\b{v}}(P)$) the unique vertex of~$P$ which minimizes (resp.~maximizes) the scalar product with~$\b{v}$. 
+In particular, such a vector is not perpendicular to any edge of $P$, and we denote by~$\min_{\b{v}}(P)$ (\resp $\max_{\b{v}}(P)$) the unique vertex of~$P$ which minimizes (\resp maximizes) the scalar product with~$\b{v}$. 
 
 \begin{theorem}
     \label{thm:diagonal}
@@ -1821,6 +1822,7 @@ We now specialize the statements of \cref{subsec:cellularDiagonalsPolytopes} to 
 We first recall its definition.
 
 \begin{definition}
+\label{def:permutahedron}
 The \defn{permutahedron}~$\Perm$ is the polytope defined equivalently as
 \begin{itemize}
 \item the convex hull of the points~$\sum_{i \in [n]} i \, \b{e}_{\sigma(i)}$ for all permutations~$\sigma$ of~$[n]$, see \cite{Schoute},
@@ -1830,6 +1832,7 @@ The normal fan of the permutahedron~$\Perm$ is the fan defined by the braid arra
 In particular, the faces of~$\Perm$ correspond to the ordered partitions of~$[n]$.
 Moreover, when oriented in a generic direction, the skeleton of the permutahedron~$\Perm$ is isomorphic to the Hasse diagram of the classical weak order on permutations of~$[n]$.
 % when oriented in the direction~${\b{\omega} \eqdef (n,\dots,1) - (1,\dots,n) = \sum_{i \in [n]} (n+1-2i) \, \b{e}_i}$
+\vincent{add picture permutahedron and weak order}
 \end{definition}
 
 The fundamental hyperplane arrangement of the permutahedron~$\Perm$ was described in~\cite[Sect.~3.1]{LA21}.
@@ -1876,10 +1879,15 @@ The inclusion poset on the faces in the image of the diagonal~$\triangle_{(\Perm
 \end{proposition}
 
 \begin{remark}
+\vincent{Connection between~$\b{v}$ and~$\b{a}$.}
+\end{remark}
+
+\begin{remark}
 Similarly, the combinatorics of the $(\ell-1)$\ordinalst{} iteration of a diagonal of the permutahedron~$\Perm$ is given by the combinatorics of the $(\ell,n)$-braid arrangement.
 \end{remark}
 
 Finally, the permutahedron~$\Perm$ is not magical in the sense of \cref{prop:magicalFormula}.
+See \cref{exm:intervalsWeakOrderNotDiagonals}.
 
 \begin{proposition}[{\cite[Sect.~3]{LA21}}]
 For any~$n > 3$ and any generic vector~$\b{v}$, the diagonal~$\triangle_{(\Perm, \b{v})}$ of the permutahedron~$\Perm$ does \emph{not} satisfy the magical formula.
@@ -2098,23 +2106,18 @@ Hence, by Cayley's formula for spanning trees of~$K_{n+1}$, we obtain that the n
 \label{sec:operadicDiagonals}
 
 This section is devoted to the combinatorics of two specific diagonals of the permutahedra, the LA and SU diagonals (\cref{subsec:LASUdiagonal}).
-We show that these are the only two operadic diagonals which induce the weak Bruhat order (\cref{subsec:operadicProperty}), and that they are isomorphic (\cref{subsec:isos-LA-SU}). 
-Using results from \cref{sec:cellularDiagonals}, we characterize the facets of these diagonals in terms of paths in $(2,n)$-trees (\cref{subsec:facets-operadic-diags}), and the vertices of these diagonals as pattern-avoiding pairs of permutations (\cref{subsec:vertices-operadic-diags}).
+We show that these are the only two operadic diagonals which induce the weak order (\cref{subsec:operadicProperty}), and that they are isomorphic (\cref{subsec:isos-LA-SU}). 
+Using results from \cref{sec:cellularDiagonals}, we characterize the facets of these diagonals in terms of paths in $(2,n)$-partition trees (\cref{subsec:facets-operadic-diags}), and the vertices of these diagonals as pattern-avoiding pairs of permutations (\cref{subsec:vertices-operadic-diags}).
 
 %%%%%%%%%%%%%%%
 
 \subsection{The $\LA$ and $\SU$ diagonals}
 \label{subsec:LASUdiagonal}
 
-Recall from \cref{sec:cellularDiagonalsPermutahedra} that a geometric diagonal of the permutahedron~$\Perm$ gives a choice of ordering of the sets
-\[
-\Un(n)  \eqdef  \set{\{I,J\}}{I,J \subset [n] \text{ with } |I|= |J| \text{ and } I\cap J = \varnothing}.
-\]
-As we consider in this section diagonals for all permutahedra, we define~$\Un \eqdef \{\Un(n)\}_{n \geq 1}$.
+Recall from \cref{sec:cellularDiagonalsPermutahedra} that a geometric diagonal of the permutahedron~$\Perm$ gives a choice of ordering of the sets~$\Un(n)$ (see \cref{def:Un}).
+As we consider in this section diagonals for all permutahedra, we now consider families of orderings.
 
 \begin{definition}
-An \defn{ordering} of~$\Un(n)$ is a choice of one of the two ordered pairs $(I,J)$ or $(J,I)$ for each $\{I,J\} \in \Un(n)$.
-\vincent{This definition already appeared, we nee to slightly modify this.}
 An \defn{ordering} of $\Un \eqdef \{\Un(n)\}_{n \ge 1}$ is a family~$\Or \eqdef \{\Or(n)\}_{n \ge 1}$ where~$\Or(n)$ is an ordering of~$\Un(n)$ for each~$n \ge 1$.
 \end{definition}
 
@@ -2126,13 +2129,15 @@ The \defn{$\LA$} and~\defn{$\SU$ orderings} are defined by
 \end{itemize}
 \end{definition}
 
+\vincent{Picture from page 1}
+
 \begin{definition}
 \label{def:LA-and-SU}
-The \defn{$\LA$ diagonal} $\LAD$ (\resp.~\defn{$\SU$ diagonal} $\SUD$) of the permutahedron~$\Perm$ is the geometric diagonal~$\triangle_{(\Perm,\b{v})}$ given by any vector $\b{v} \in \R^n$ satisfying  
+The \defn{$\LA$ diagonal} $\LAD$ (\resp \defn{$\SU$ diagonal} $\SUD$) of the permutahedron~$\Perm$ is the geometric diagonal~$\triangle_{(\Perm,\b{v})}$ given by any vector $\b{v} \in \R^n$ satisfying  
 \[
 \sum_{i \in I} v_i > \sum_{j \in J} v_j,
 \]
-for all~$(I,J) \in \LA(n)$ (resp.~$(I,J) \in \SU(n)$).
+for all~$(I,J) \in \LA(n)$ (\resp $(I,J) \in \SU(n)$).
 \end{definition}
 
 We will prove in \cref{thm:recover-SU} that $\SUD$ is a topological enhancement of the Saneblidze--Umble diagonal from \cite{SaneblidzeUmble04}.
@@ -2154,20 +2159,19 @@ The same holds for the $\SU$ diagonal by replacing $\LAD$ by $\SUD$ and $\LA(n)$
 \subsection{The operadic property}
 \label{subsec:operadicProperty}
 
-The goal of this section is to prove that the $\LA$ and $\SU$ diagonals are the only two operadic diagonals which induce the weak Bruhat order on the vertices of the permutahedra (\cref{prop:unique-operad}). 
-In order to define this special property, we need a weighted version of the standard permutahedron $\Perm$ from \cite[Sec. 2.2]{LA21}. 
+The goal of this section is to prove that the $\LA$ and $\SU$ diagonals are the only two operadic diagonals which induce the weak order on the vertices of the permutahedra (\cref{prop:unique-operad}). 
 
-\begin{definition}
-For any $\omega \in \N$, the \defn{weight $\omega$ permutahedron} $\Perm[n,\omega] \subset \R^n$ is the convex hull  of the points ~$\sum_{i \in [n]} (\omega + i-1) \, \b{e}_{\sigma(i)}$  for all permutations $\sigma$ of $[n]$. 
-\vincent{I believe it would be nicer to just translate...}
-\end{definition}
-
-Let $A_1 \eqdef \{a_1,\dots,a_p\}, B \eqdef \{b_1,\dots,b_q\}$ be a partition of $[n]$.
-The facet of the permutahedron $\Perm$ corresponding to the ordered partition $B | A$ is isomorphic to the product $\Perm[p,q+1] \times \Perm[q]$ of lower dimensional permutahedra, via the permutation of coordinates
+Let~$A \sqcup B = [n]$ be a partition of~$[n]$ where~$A \eqdef \{a_1,\dots,a_p\}$ and~$B \eqdef \{b_1,\dots,b_q\}$.
+Recall that the ordered partition $B | A$ corresponds to a facet of the permutahedron~$\Perm$ defined by the inequality~$\sum_{b \in B} x_b \ge \binom{|B|+1}{2}$.
+This facet is isomorphic to the cartesian product
+\[
+(\Perm[p] +q \one_{[p]}) \times \Perm[q]
+\]
+of lower dimensional permutahedra (where the first factor is translated by~$q \one_{[p]} \eqdef q \sum_{i \in [p]} \b{e}_i$), via the permutation of coordinates
 \begin{equation*}
     \begin{matrix}
         \Theta & : & \R^{p} \times \R^{q} & \overset{\cong}{\longrightarrow} & \R^{n} \\
-         & & (x_1,\ldots,x_p) \times (x_{p+1}, \ldots, x_{n})  & \mapsto & (x_{\sigma^{-1}(1)},\ldots,x_{\sigma^{-1}(n)})
+         & & (x_1,\ldots,x_p) \times (x_{p+1}, \ldots, x_{n})  & \longmapsto & (x_{\sigma^{-1}(1)},\ldots,x_{\sigma^{-1}(n)})
     \end{matrix}
 \end{equation*}
 where $\sigma$ is the $(p,q)$-shuffle defined by $\sigma(i) \eqdef a_i$ for $1 \leq i \leq p$, and $\sigma(p+j)\eqdef b_j$ for $1 \leq j \leq q$.
@@ -2181,19 +2185,26 @@ In other words, we require that the diagonal $\triangle$ commutes with the map $
 At the algebraic level, this property is called ``comultiplicativity" in \cite{SaneblidzeUmble04}.
 Note that in particular, such an isomorphism respects the poset structures. 
 
-For a pair $(I,J)$ in an ordering $\Or$, we denote by $\std(I,J)$ the \defn{standardisation function}, e.g. $\std(\{5,9,10\},\{6,8,12\}) = (\{1,4,5\},\{2,3,6\})$.
-By convention, we set $\std(\{\emptyset\},\{\emptyset\}) \eqdef (\{\emptyset\},\{\emptyset\})$.
+\begin{definition}
+The \defn{standardization} of a pair~$(I,J)$ of disjoint subsets of~$[n]$ is the only partition~$\std(I,J)$ of~$[|I|+|J|]$ where the relative order of the elements is the same as in~$(I,J)$.
+More precisely, it is defined recursively by
+\begin{itemize}
+\item $\std(\varnothing, \varnothing) \eqdef (\varnothing, \varnothing)$, and
+\item if~$k \eqdef |I|+|J|$ and~$\ell \eqdef \max(I \cup J)$ belongs to~$I$ (resp. $J$), then~$\std(I,J) = (U \cup \{k\}, V)$ (resp. $\std(I,J) \! = \! (U, V \cup \{k\})$) where~$(U,V) \! = \! \std(I \ssm \{\ell\}, J)$ (resp. ${(U,V) \! = \! \std(I, J \ssm \{\ell\})}$).
+\end{itemize}
+\end{definition}
+
+For example, $\std(\{5,9,10\},\{6,8,12\}) = (\{1,4,5\},\{2,3,6\})$.
 
 \begin{definition}
 \label{def:operadic-ordering}
 An ordering $\Or$ of $\Un$ is \defn{operadic} if for every $\{I,J\} \in \Un$, the following two conditions hold
 \begin{enumerate}
-\item if $\std(I,J)$ is in $\Or$, then so is $(I,J)$,
-\item if there exists $I'\subset I, J'\subset J$ such that $(I',J')$ and $(I\setminus I',J\setminus J')$ are in $\Or$, then so is $(I,J)$.
+\item $\std(I,J) \in \Or$ implies~$(I,J) \in \Or$,
+\item if there exist~$I'\subset I, J'\subset J$ such that $(I',J') \in \Or$ and $(I\ssm I',J\ssm J') \in \Or$, then~$(I,J) \in \Or$.
 \end{enumerate}
-\end{definition}
-
 We call \defn{indecomposables} of $\Or$ the pairs $(I,J) \in \Or$ for which the only subpair $(I',J')$ satisfying Condition (2) above is the pair $(I,J)$ itself.
+\end{definition}
 
 \begin{proposition}
 \label{prop:equiv-operadic}
@@ -2221,7 +2232,7 @@ The dual orders $\LA^{op}$ and $\SU^{op}$ are also operadic, and generated by th
 We present the proof for the $\LA$ ordering, the proofs for the $\SU$ and opposite orders are similar.
 First, we verify that $\LA$ is operadic. 
 Condition (1) follows from the fact that standardising a pair preserves its minimal element.
-Condition (2) also holds, since whenever $(I',J')$ and its complement are in $\LA$, we have $\min(I)=\min\{\min(I'),\min(I\setminus I')\}$, and thus $(I,J)$ itself is in $\LA$.
+Condition (2) also holds, since whenever $(I',J')$ and its complement are in $\LA$, we have $\min(I)=\min\{\min(I'),\min(I\ssm I')\}$, and thus $(I,J)$ itself is in $\LA$.
 
 Second, we compute the indecomposables. 
 Let $(I,J)$ be a pair with standardisation (\ref{eq:std-LA}).
@@ -2230,11 +2241,11 @@ Thus, the pair~$(I,J)$ is indecomposable.
 
 It remains to show that any pair $(I,J)$ in $\LA$ whose standardisation is not of the form (\ref{eq:std-LA}) can be decomposed as a union of such pairs. 
 Let us denote by $(I_k,J_k)$ the standard form (\ref{eq:std-LA}) and let $(I,J)\in \LA$ be such that $\std(I,J) \neq (I_k,J_k)$.
-Then there exists $i_2 \in I\setminus \min I$ such that $i_2 < \max J$.
+Then there exists $i_2 \in I\ssm \min I$ such that $i_2 < \max J$.
 This means that $(I,J)$ can be decomposed as a union: if we write it as $(\{i_1,\dots,i_k\},\{j_1,\dots,j_k\})$, where each set ordered smallest to largest, then we must have $\min (I\cup J)=i_1<i_2<j_k$, in which case $(\{i_2\},\{j_k\})$ and $(\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\})$ are both smaller $\LA$ pairs.
 Then it must be the case that $\std((\{i_2\},\{j_k\})) = (\{1\},\{2\})$, and $\std((\{i_1,i_3,\dots,i_k\},\{j_1,\dots,j_{k-1}\}))$ is either $(I_{k-1},J_{k-1})$, or we can repeat this decomposition.
 This process must eventually terminate with the right-hand side reducing to $(I_l,J_l)$ for some $1 \leq l \leq k-1$.
-In other words, any $(I,J) = (\{i_1,\dots,i_k\}, \{j_1,\dots,j_k\})$ decomposes as
+In other words, any ${(I,J) = (\{i_1,\dots,i_k\}, \{j_1,\dots,j_k\})}$ decomposes as
 \begin{align*}
 	(I,J) = (\{i_2\},\{j_k\}) \sqcup (\{i_3\},\{j_{k-1}\}) \sqcup \dots \sqcup (\{i_{l+1} \},\{j_{k-l-1} \}) \sqcup (I',J')
 \end{align*}
@@ -2263,7 +2274,7 @@ Starting instead with the orders $(\{1\},\{2\})$ and $(\{2,3\},\{1,4\})$ would g
 Let $l\geq 2$ and suppose that for all $k\leq l$, we have given the pair $\{I_k,J_k\} \eqdef \{\{1,k+2,k+3,\dots,2k-1,2k\},\{2,3,\dots,k+1\}\}$ the $\LA$ ordering $(I_k,J_k)$.
 Then from \cref{lem:operadic-ordering}, we know that the only $\{I,J\}$ pair of order $l+1$ that will not decompose, and hence be specified by the already chosen conditions, is $\{I_{l+1},J_{l+1}\}$.
 As such, the only way we can vary from $\LA$ is to order this element in the opposite direction $(J_{l+1},I_{l+1})$. 
-We now define a particular decomposable pair $\{I'_m,J'_m\}:= I_m \sqcup \{3\} \setminus \{m+2\}, J_m \sqcup \{m+2\} \setminus \{3\}$, of order $m \eqdef l+2$, that will lead to a contradiction (see \cref{ex:Non-coherent order contradiction}).
+We now define a particular decomposable pair $\{I'_m,J'_m\}:= I_m \sqcup \{3\} \ssm \{m+2\}, J_m \sqcup \{m+2\} \ssm \{3\}$, of order $m \eqdef l+2$, that will lead to a contradiction (see \cref{ex:Non-coherent order contradiction}).
 On the one side, we can decompose $\{I'_m,J'_m\} = \{I_a \cup I_b, J_a \cup J_b\}$ with $I_a \eqdef  \{1,m+3,\dots,2m\}, J_a \eqdef  \{4,5,\dots,m+2\}, I_b \eqdef \{3\}$ and $J_b \eqdef  \{2\}$. 
 By hypothesis, we have the orders $(J_a,I_a)$ and $(J_b,I_b)$ which imply the order $(J'_m,I'_m)$ since our ordering is operadic. 
 On the other side, we can decompose $\{I'_m,J'_m\} = \{I_c \cup I_d, J_c \cup J_d\}$, where $I_c \eqdef  \{1,m+3,\dots,  2m-1\}, J_c \eqdef \{2,5,\dots,m+1\}, I_d \eqdef \{3, 2m\}$ and $J_d \eqdef  \{4, m+2\}$.
@@ -2275,23 +2286,23 @@ Thus, the only possible operadic choice of ordering for $\{I_{l+1},J_{l+1}\}$ is
 \label{ex:Non-coherent order contradiction}
 Suppose that the $\LA$ ordering holds for pairs of order $1$ and $2$, but is reversed for pairs of order $3$, \ie
 \begin{align*}
-    \{1\}<\{2\},\quad \{1,4\}< \{2,3\}, \text{ and } \{1, 5, 6 \} > \{2, 3, 4\} \ .
+    (\{1\}, \{2\}) \in \Or, \quad (\{1,4\}, \{2,3\}) \in \Or, \text{ and } (\{2, 3, 4\}, \{1, 5, 6 \}) \in \Or.
 \end{align*}
 Then $\{I'_4,J'_4\}=\{\{1, 3, 7, 8\}, \{2, 4, 5, 6\}\}$ admits two different orientations.
 In particular, 
 \begin{align*}
-    \{1, 7, 8\} > \{ 4, 5, 6 \} \text{ and } \{3\} > \{2\} &\implies \{1, 3, 7, 8\} >\{2, 4, 5, 6\} \ \text{and} \\
-    \{1, 7\}< \{2, 5\} \text{ and } \{3, 8\}< \{4, 6\} &\implies \{1, 3, 7, 8\} <\{2, 4, 5, 6\} \ .
+    (\{ 4, 5, 6 \} , \{1, 7, 8\}) \in \Or \text{ and } (\{2\}, \{3\}) \in \Or & \Longrightarrow (\{2, 4, 5, 6\}, \{1, 3, 7, 8\} ) \in \Or \ \text{and} \\
+    (\{1, 7\}, \{2, 5\}) \in \Or \text{ and } (\{3, 8\}, \{4, 6\}) \in \Or & \Longrightarrow (\{1, 3, 7, 8\}, \{2, 4, 5, 6\}) \in \Or.
 \end{align*}
 \end{example}
 
 Combining \cref{prop:equiv-operadic} with \cref{prop:operadic-ordering}, we get the main result of this section.
-Recall that a vector induces the weak Bruhat order on the vertices of the standard permutahedron if and only if it has strictly decreasing coordinates.\Guillaume{@Vincent: quoi citer?}
+Recall that a vector induces the weak order on the vertices of the standard permutahedron if and only if it has strictly decreasing coordinates (see \cref{def:permutahedron}).
 
 \begin{theorem}
 \label{prop:unique-operad}
 There are exactly four operadic geometric diagonals of the permutahedra, given by the $\LA$ and $\SU$ diagonals, and their opposites. 
-The $\LA$ and $\SU$ diagonals are the only operadic geometric diagonals which induce the weak Bruhat order on the vertices.
+The $\LA$ and $\SU$ diagonals are the only operadic geometric diagonals which induce the weak order on the vertices of the permutahedron.
 \end{theorem}
 
 \begin{remark}
@@ -2305,6 +2316,7 @@ See \cref{sec:shifts} where we prove that the geometric $\SU$ diagonal is a topo
 \label{subsec:isos-LA-SU}
 
 Let $P$ be a centrally symmetric polytope, and let $s : P \to P$ be its involution, given by taking a point $p \in P$ to its reflection $s(p)$ with respect to the center of symmetry of $P$. 
+\vincent{notations}
 Note that this map is cellular, and induces an involution on the face lattice of $P$. 
 For $P$ the permutahedron, this face poset involution is given by the assignment $A_1 | \cdots | A_k \mapsto A_k | \cdots | A_1$. 
 
@@ -2362,14 +2374,14 @@ This second isomorphism has the conceptual benefit of sending left shift operato
 \label{subsec:facets-operadic-diags}
 
 We aim at describing the facets of the $\LA$ and $\SU$ diagonals. 
-We have seen in \cref{subsec:multiBraidArrangement} that facets of any diagonal of the permutahedron are in bijection with $(2,n)$-trees, that is, pairs of unordered partitions of $[n]$ whose intersection graph is a tree.
-These pairs of partitions were first studied and called essential complementary partitions in \cite{chen1969computer,chen1971tables,kajitani1982number}.
+We have seen in \cref{subsec:multiBraidArrangement} that facets of any diagonal of the permutahedron~$\Perm$ are in bijection with $(2,n)$-partition trees, that is, pairs of unordered partitions of $[n]$ whose intersection graph is a tree.
+These pairs of partitions were first studied and called \defn{essential complementary partitions} in \cite{chen1969computer,chen1971tables,kajitani1982number}.
 Specializing \cref{prop:PFtoOPF1}, we now explain how to order these pairs of partitions to get the facets of $\LAD$ and $\SUD$. 
 
 \begin{theorem}
 \label{thm:facet-ordering}
-Let $(\sigma,\tau)$ be two ordered partitions of $[n]$ whose underlying intersection graph is a $(2,n)$-tree.
-We have that $(\sigma,\tau) \in \LAD$ (\resp.~$\SUD$) if and only if the minimum (\resp.~maximum) of every directed path between two consecutive blocks of $\sigma$ or $\tau$ is oriented from $\sigma$ to $\tau$, that is from left to right (\resp.~from $\tau$ to $\sigma$, that is from right to left).
+Let $(\sigma,\tau)$ be two ordered partitions of $[n]$ whose underlying intersection graph is a $(2,n)$-partition tree.
+We have~$(\sigma,\tau) \in \LAD$ (\resp $\SUD$) if and only if the minimum (\resp maximum) of every directed path between two consecutive blocks of $\sigma$ or $\tau$ is oriented from $\sigma$ to $\tau$, that is from left to right (\resp from $\tau$ to $\sigma$, that is from right to left).
 \end{theorem}
 
 \begin{proof}
@@ -2390,50 +2402,48 @@ Their facets for the $2$-dimensional permutahedron are illustrated on the first 
 
 \begin{example}
 \label{ex:ECbijection}
-Below are the two orderings of the $(2,7)$-tree $\{15,234,6,7\} \times \{13,2,46,57\}$ giving facets of the $\LA$ (left) and $\SU$ (right) diagonals, obtained via \cref{thm:facet-ordering}.
-Note that ordered partitions should be read from top to bottom.\Guillaume{Does this fit with previous conventions?}
+Below are the two orderings of the $(2,7)$-partition tree $\{15,234,6,7\} \times \{13,2,46,57\}$ giving facets of the $\LA$ (left) and $\SU$ (right) diagonals, obtained via \cref{thm:facet-ordering}.
+Note that ordered partitions should be read from top to bottom.
 \begin{center}
-\begin{tikzpicture}[scale=.7]  
-\node (1) at (-1.5, -1) {$15$};
-\node (2) at (-1.5, -2) {$7$};
-\node (3) at (-1.5, -3) {$234$};
-\node (4) at (-1.5, -4) {$6$};
-%
-\node (5) at (1.5, -1) {$57$};
-\node (6) at (1.5, -2) {$46$};
-\node (7) at (1.5, -3) {$13$};
-\node (8) at (1.5, -4) {$2$};
-%
-\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
-\draw[thick] (1) to [in=180, out=0, looseness=0] (7);
-\draw[thick] (2) to [in=180, out=0, looseness=0] (5); 
-\draw[thick] (3) to [in=180, out=0, looseness=0] (6); 
-\draw[thick] (3) to [in=180, out=0, looseness=0] (7); 
-\draw[thick] (3) to [in=180, out=0, looseness=0] (8); 
-\draw[thick] (4) to [in=180, out=0, looseness=0] (6);
-%
-\end{tikzpicture}
-$\quad$
-\begin{tikzpicture}[scale=.7]  
-    \node (2) at (1.5, -4) {$2$};
-    \node (13) at (1.5, -3) {$13$};
-    \node (46) at (1.5, -2) {$46$};
-    \node (57) at (1.5, -1) {$57$};
-    %
-    \node (7) at (-1.5, -4) {$7$};
-    \node (6) at (-1.5, -3) {$6$};
-    \node (234) at (-1.5, -2) {$234$};
-    \node (15) at (-1.5, -1) {$15$};
-    %
-    \draw[thick] (2) to [out=180, in=0, looseness=0] (234);
-    \draw[thick] (13) to [out=180, in=0, looseness=0] (15); 
-    \draw[thick] (13) to [out=180, in=0, looseness=0] (234);
-    \draw[thick] (46) to [out=180, in=0, looseness=0] (234);
-    \draw[thick] (46) to [out=180, in=0, looseness=0] (6); 
-    \draw[thick] (57) to [out=180, in=0, looseness=0] (15);
-    \draw[thick] (57) to [out=180, in=0, looseness=0] (7);
-    %
-    \end{tikzpicture}
+	\begin{tikzpicture}[scale=.7]  
+		\node[anchor=east] (1) at (-1.5, -1) {$15$};
+		\node[anchor=east] (2) at (-1.5, -2) {$7$};
+		\node[anchor=east] (3) at (-1.5, -3) {$234$};
+		\node[anchor=east] (4) at (-1.5, -4) {$6$};
+		%
+		\node[anchor=west] (5) at (1.5, -1) {$57$};
+		\node[anchor=west] (6) at (1.5, -2) {$46$};
+		\node[anchor=west] (7) at (1.5, -3) {$13$};
+		\node[anchor=west] (8) at (1.5, -4) {$2$};
+		%
+		\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
+		\draw[thick] (1) to [in=180, out=0, looseness=0] (7);
+		\draw[thick] (2) to [in=180, out=0, looseness=0] (5); 
+		\draw[thick] (3) to [in=180, out=0, looseness=0] (6); 
+		\draw[thick] (3) to [in=180, out=0, looseness=0] (7); 
+		\draw[thick] (3) to [in=180, out=0, looseness=0] (8); 
+		\draw[thick] (4) to [in=180, out=0, looseness=0] (6);
+	\end{tikzpicture}
+	$\quad$
+	\begin{tikzpicture}[scale=.7]  
+		\node[anchor=east] (7) at (-1.5, -4) {$7$};
+		\node[anchor=east] (6) at (-1.5, -3) {$6$};
+		\node[anchor=east] (234) at (-1.5, -2) {$234$};
+		\node[anchor=east] (15) at (-1.5, -1) {$15$};
+		%
+		\node[anchor=west] (2) at (1.5, -4) {$2$};
+		\node[anchor=west] (13) at (1.5, -3) {$13$};
+		\node[anchor=west] (46) at (1.5, -2) {$46$};
+		\node[anchor=west] (57) at (1.5, -1) {$57$};
+		%
+		\draw[thick] (2) to [out=180, in=0, looseness=0] (234);
+		\draw[thick] (13) to [out=180, in=0, looseness=0] (15); 
+		\draw[thick] (13) to [out=180, in=0, looseness=0] (234);
+		\draw[thick] (46) to [out=180, in=0, looseness=0] (234);
+		\draw[thick] (46) to [out=180, in=0, looseness=0] (6); 
+		\draw[thick] (57) to [out=180, in=0, looseness=0] (15);
+		\draw[thick] (57) to [out=180, in=0, looseness=0] (7);
+	\end{tikzpicture}
 \end{center}
 In the $\LA$ facet (left), we have $7 < 234$, since in the path between the two vertices $7 \xrightarrow{7} 57 \xrightarrow{5} 15 \xrightarrow{1} 13 \xrightarrow{3} 234$, the minima $1$ oriented from left to right. 
 In this case, we have $(I,J)=(\{1,7\},\{3,5\})$.
@@ -2441,7 +2451,7 @@ Similarly, the path $57 \xrightarrow{5} 15 \xrightarrow{1} 13 \xrightarrow{3} 23
 \end{example}
 
 \begin{remark}
-Note that forgetting the order in a facet of $\LAD$, and then ordering again the $(2,n)$-tree to obtain a facet of $\SUD$, provides an isomorphism between facets that was not considered in \cref{subsec:isos-LA-SU}.
+Note that forgetting the order in a facet of $\LAD$, and then ordering again the $(2,n)$-partition tree to obtain a facet of $\SUD$, provides a bijection between facets that was not considered in \cref{subsec:isos-LA-SU}.
 However this map is not defined on the other faces.
 \end{remark}
 
@@ -2501,44 +2511,45 @@ The associated $(I,J)=(\{1,4 \},\{3,5\})$ becomes $(r(J),r(I))=(\{3,5 \},\{4,7\}
 \label{subsec:vertices-operadic-diags}
 
 We are now interested in characterizing the vertices that occur in an operadic diagonal as pattern-avoiding pairs of partitions of $[n]$. 
-These pairs form a strict subset of the weak Bruhat intervals. 
+These pairs form a strict subset of the weak order intervals. 
 We first need the following Lemma, which follows directly from the definition of domination (\cref{def:domination}).
 
 \begin{lemma}
 \label{lem:Coherent Domination}
-Let $\sigma$ be an ordered partition of $[n]$ and let $I,J \subseteq [n]$ be such that $I$ dominates $J$ in $\sigma$. 
-For an element $i$ in $I$ or $J$, we denote by $\nu(i)$ the index of the block containing it in $\sigma$. 
-Then, for any $i \in I,j \in J$, we have that $I\setminus i$ dominates $J\setminus j$ in $\sigma$ if and only if either
+Let $\sigma$ be an ordered partition of $[n]$ and let $I,J \subseteq [n]$ be such that $I$ dominates $J$ in~$\sigma$. 
+For an element $i$ in $I$ or $J$, we denote by $\sigma^{-1}(i)$ the index of the block containing it in $\sigma$. 
+Then, for any $i \in I,j \in J$, we have that $I\ssm i$ dominates $J\ssm j$ in $\sigma$ if and only if either
 \begin{enumerate}
-    \item $j$ comes before $i$ in $\sigma$, or 
-    \item for all $k$ between $\nu(i)$ and $\nu(j)$, the first $k$ blocks of $\sigma$ contain stricly more elements of $I$ than of $J$.
+    \item either~$\sigma^{-1}(j) < \sigma^{-1}(i)$ (meaning that $j$ comes strictly before $i$ in $\sigma$),
+    \item or for all $k$ between $\sigma^{-1}(i)$ and $\sigma^{-1}(j)$, the first $k$ blocks of $\sigma$ contain stricly more elements of $I$ than of $J$.
 \end{enumerate}
 \end{lemma}
 
-As before, we represent a permutation $\sigma: [n] \to [n]$ by the non-commutative word~$\sigma(1)\cdots \sigma(n)$.
+% As before, we represent a permutation $\sigma: [n] \to [n]$ by the non-commutative word~$\sigma(1)\cdots \sigma(n)$.
 
 \begin{definition}
-For $k\leq n$, a permutation $\tau$ of $[k]$ is a \defn{pattern} of a permutation $\sigma$ of $[n]$ if there exists a subset $I \subset [n]$ of size $|I|=k$ such that $\std(I \cap \sigma)=\tau$. 
-We say that $\sigma$ \defn{avoids} $\tau$ if $\tau$ is not a pattern of $\sigma$. 
+For $k\leq n$, a permutation $\tau$ of $[k]$ is a \defn{pattern} of a permutation $\sigma$ of $[n]$ if there exists a subset $I \eqdef \{i_1 < \dots < i_k\} \subset [n]$ so that the permutation~$\tau$ gives the relative order of the entries of~$\sigma$ at positions in~$I$, \ie $\tau_u < \tau_v \eqdef \sigma_{i_u} < \sigma_{i_v}$.
+We say that $\sigma$ \defn{avoids} $\tau$ if $\tau$ is not a pattern~of~$\sigma$. 
 \end{definition}
 
 \begin{example}
-Pairs of permutations $(\sigma,\tau)$ avoiding the patterns $(21,12)$ are precisely intervals of the weak Bruhat order. 
+The pairs of permutations $(\sigma,\tau)$ avoiding the patterns $(21,12)$ are precisely the intervals of the weak order. 
 \end{example}
 
 \begin{theorem}
 \label{prop: LAD Fish Pattern}
-A pair of permutations of $[n]$ is in the $\LA$ (\resp.~$\SU$) diagonal if and only if for any~$k\geq 1$ and for any $(I,J) \in \LA(k)$ (\resp.~$\SU(k)$) of size $|I|=|J|=k$ it avoids the patterns 
+A pair of permutations of $[n]$ is in the $\LA$ (\resp $\SU$) diagonal if and only if for any~$k\geq 1$ and for any $(I,J) \in \LA(k)$ (\resp $\SU(k)$) of size $|I|=|J|=k$ it avoids the patterns 
 \begin{align}
-    (j_1 i_1 j_2 i_2 \cdots j_k i_k,\ i_2 j_1 i_3 j_2 \cdots i_k j_{k-1} i_1 j_k) \ , \tag{LA} \label{eq:pattern} \\
-    \text{ \resp.~} (j_1 i_1 j_2 i_2 \cdots j_k i_k, \ i_1 j_k i_2 j_1 \cdots i_{k-1} j_{k-2}i_k j_{k-1}) \ , \tag{SU}
+    (j_1 i_1 j_2 i_2 \cdots j_k i_k,\ i_2 j_1 i_3 j_2 \cdots i_k j_{k-1} i_1 j_k), \tag{LA} \label{eq:pattern} \\
+    \text{ \resp } (j_1 i_1 j_2 i_2 \cdots j_k i_k, \ i_1 j_k i_2 j_1 \cdots i_{k-1} j_{k-2}i_k j_{k-1}), \tag{SU}
 \end{align}
-where $I=\{i_1,\dots,i_k\}$, $J=\{j_1,\dots,j_k\}$ and $i_1=1$ (\resp.~$j_k=2k$).
+where $I=\{i_1,\dots,i_k\}$, $J=\{j_1,\dots,j_k\}$ and $i_1=1$ (\resp $j_k=2k$).
 \end{theorem}
 
 \begin{example}
 There are $(k-1)!k!$ avoided patterns.
 For $k=1,2$ they are given by $(21,12)$, $(2134,4213)$ and $(3124,4312)$ for the $\LA$ diagonal, and by $(21,12)$, $(1243,2431)$ and $(1342, 3421)$ for the $\SU$ diagonal.
+\vincent{Wrong. Kurt will fix it.}
 \end{example}
 
 \begin{proof}
@@ -2552,24 +2563,24 @@ Now suppose that for all $(I,J)$ of size $|I|=|J|\leq m-1$, we have that if~$J$ 
 
 We need to show that this is still true for the pairs $(I,J)$ of size $|I|=|J|=m$.
 Firstly, suppose that the leftmost element $i_1$ of $I$ in $\sigma$ is not $1$, and let us write $j_1$ for the leftmost element of $J$ in $\tau$.
-Let us consider the pair $(I',J') \eqdef (I\setminus \{i_1\}, J \setminus \{j_1\})$.
+Let us consider the pair $(I',J') \eqdef (I\ssm \{i_1\}, J \ssm \{j_1\})$.
 Using both cases of \cref{lem:Coherent Domination}, we have that $J'$ dominates $I'$ in $\sigma$, and $I'$ dominates $J'$ in $\tau$, and we can thus conclude with the induction hypothesis. 
 
 Secondly, suppose that the leftmost element of $I$ in $\sigma$ is $i_1=1$.
 Then, for $n\geq1$ we prove that,
 \begin{enumerate}[(a)]
-    \item if the intersection of $(\sigma,\tau)$ with $I \cup J$ is of the form $$(j_1 i_1 j_2 i_2 ... j_{n-1} i_{n-1} w i_{n} w', \ i_2 j_1 i_3 j_2 ... i_{n}j_{n-1}w'') \ , $$ and $j_n$ is the leftmost element of $J\setminus \{j_1,...,j_{n-1}\}$ in $\tau$, then either we have $w = j_n$, or we can conclude with the induction hypothesis.
-    \item if the intersection of $(\sigma,\tau)$ with $I \cup J$ is of the form $$(j_1 i_1 j_2 i_2 ... j_{n-1} i_{n-1} w'', \ i_2 j_1 i_3 j_2 ... i_{n-1}j_{n-2} w j_{n-1} w'') \ , $$ and $i_n$ is the leftmost $I\setminus \{i_1,...,i_{n-1}\}$ in $\sigma$, then either we have $w = i_n$, or we can conclude with the induction hypothesis.
+    \item if the intersection of $(\sigma,\tau)$ with $I \cup J$ is of the form $$(j_1 i_1 j_2 i_2 ... j_{n-1} i_{n-1} w i_{n} w', \ i_2 j_1 i_3 j_2 ... i_{n}j_{n-1}w'') \ , $$ and $j_n$ is the leftmost element of $J\ssm \{j_1,...,j_{n-1}\}$ in $\tau$, then either we have $w = j_n$, or we can conclude with the induction hypothesis.
+    \item if the intersection of $(\sigma,\tau)$ with $I \cup J$ is of the form $$(j_1 i_1 j_2 i_2 ... j_{n-1} i_{n-1} w'', \ i_2 j_1 i_3 j_2 ... i_{n-1}j_{n-2} w j_{n-1} w'') \ , $$ and $i_n$ is the leftmost $I\ssm \{i_1,...,i_{n-1}\}$ in $\sigma$, then either we have $w = i_n$, or we can conclude with the induction hypothesis.
 \end{enumerate}
 We prove $(a)$, the proof of $(b)$ proceeds similarly. 
-Let $j_n$ be the leftmost element of $J\setminus \{j_1,...,j_{n-1} \}$ in $\tau$.
+Let $j_n$ be the leftmost element of $J\ssm \{j_1,...,j_{n-1} \}$ in $\tau$.
 Suppose that $w\neq j_n$, then either (i) $w$ consists of multiple elements of $J$ including $j_n$, or (ii) $j_n$ comes after $i_n$ in $\sigma$.
-Now consider the pair $(I',J') \eqdef (I_k\setminus \{i_n\}, J_k \setminus \{j_n\})$.
+Now consider the pair $(I',J') \eqdef (I_k\ssm \{i_n\}, J_k \ssm \{j_n\})$.
 As was the case for the proof that $i_1=1$, we have that $I'$ dominate $J'$ in $\tau$.
 To prove that $J'$ dominates $I'$ in $\sigma$, we split by the cases.
 In case (i), we may apply condition $(2)$ of \cref{lem:Coherent Domination}.
 In case (ii), either $i_n$ comes before $j_n$, in which case we meet condition $(1)$ of \cref{lem:Coherent Domination}, or $j_n$ comes before $i_n$.
-In this last situation, we have that condition $(2)$ of \cref{lem:Coherent Domination} holds as $i_n$ is the leftmost element of $I\setminus \{i_1,...,i_{n-1} \}$ in $\sigma$.
+In this last situation, we have that condition $(2)$ of \cref{lem:Coherent Domination} holds as $i_n$ is the leftmost element of $I\ssm \{i_1,...,i_{n-1} \}$ in $\sigma$.
 Thus, if $w \neq j_n$, we can apply the induction hypothesis. 
 
 Having in hand statements (a) and (b) above, we can inductively generate the entire permutation, determining $j_1$ via $(a)$, then $i_2$ via $(b)$, then $j_2$ via $(a)$ and so on.
@@ -2578,13 +2589,10 @@ However, as $j_k$ must be dominated by an element of $I$, this forces $w = i_1$ 
 \end{proof}
 
 \begin{example}
-These are a subset of intervals of the weak Bruhat order...
+\label{exm:intervalsWeakOrderNotDiagonals}
+These are a subset of intervals of the weak order...
 \Guillaume{Give the lists in low dimensions?}
 \end{example}
-
-\begin{remark}
-The avoided patterns resemble a fish, when drawn as... \Guillaume{Make some drawings?!}
-\end{remark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -2621,7 +2629,7 @@ A \defn{strong complementary pair ($\SCP$ for short)} is a pair$(\sigma,\tau)$ o
 \end{definition}
 
 We denote by $\SCP(n)$ the set of $\SCP$s of $[n]$, which is in bijection with the set of permutations of $[n]$.
-As is clear from the definition, the intersection graph of an $\SCP$ is a $(2,n)$-tree.
+As is clear from the definition, the intersection graph of an $\SCP$ is a $(2,n)$-partition tree.
 
 \begin{example}
 \label{ex:strong-complementary}
@@ -2653,7 +2661,7 @@ Observe that the permutation can be read off the intersection graph of the SCP b
 \end{example}
 
 \begin{notation}
-    For a $(2,n)$-tree $(\sigma,\tau)$, we denote by $\sigma_{i,j}$ (resp.~$\tau_{i,j}$) the unique oriented path between blocks $\sigma_{i}$ and $\sigma_j$ (resp.~$\tau_{i}$ and $\tau_j$).
+    For a $(2,n)$-partition tree $(\sigma,\tau)$, we denote by $\sigma_{i,j}$ (\resp $\tau_{i,j}$) the unique oriented path between blocks $\sigma_{i}$ and $\sigma_j$ (\resp $\tau_{i}$ and $\tau_j$).
 \end{notation}
 Note that we make a slight abuse in notation as the path $\sigma_{i,j}$ also depends on $\tau$.
 We can immediately characterise the paths between adjacent blocks in $\SCP$s.
@@ -2671,8 +2679,8 @@ As a consequence, all strong complementary pairs are in both $\LAD$ and $\SUD$, 
 First, the path description of $(\sigma,\tau)$ is a straightforward observation. 
 Second, since the minima of these paths are traversed from left to right, and the maxima from right to left, \cref{thm:facet-ordering} implies that strong complementary partitions are in both geometric operadic diagonals~$\LAD$ and~$\SUD$.
 Third, the fact that these constitute the facets $(\sigma,\tau) \in \LAD$ or $\SUD$ satisfying $\max_{\b{v}}(\sigma) = \min_{\b{v}}(\tau)$ can be seen as follows.
-The maximal (\resp.~minimal) vertex of a face $\sigma$ of the permutahedron with respect to the weak Bruhat order, is obtained by ordering the elements of each block of $\sigma$ in decreasing (\resp.~increasing) order. 
-Thus, it is clear that the original permutation giving rise to a $\SCP$ $(\sigma,\tau)$ is the permutation $\max_{\b{v}}(\sigma)=\min_{\b{v}}(\tau)$, for any vector $\b{v}$ inducing the weak Bruhat order.
+The maximal (\resp minimal) vertex of a face $\sigma$ of the permutahedron with respect to the weak order, is obtained by ordering the elements of each block of $\sigma$ in decreasing (\resp increasing) order. 
+Thus, it is clear that the original permutation giving rise to a $\SCP$ $(\sigma,\tau)$ is the permutation $\max_{\b{v}}(\sigma)=\min_{\b{v}}(\tau)$, for any vector $\b{v}$ inducing the weak order.
 Since both diagonals agree with this order on the vertices, we have that $\SCP$s are indeed facets of $\LAD$ and $\SUD$ with the desired property. 
 The fact that these are \emph{all} the facets with this property follows from the bijection betweeen $\SCP(n)$ and the permutations of~$[n]$.
 \end{proof}
@@ -2701,11 +2709,11 @@ while the \defn{left $m$-shift} moves it $m$ blocks to the left
 
 \begin{definition}
 \label{def:movable-subsets}
-Let $\sigma$ denote either one of the two ordered partitions of $[n]$ in a $(2,n)$-tree, and let $M_i \subsetneq \sigma_i$.
-The right $m$-shift $R_{M_i}$ (resp. the left $m$-shift $L_{M_{i}}$) is 
+Let $\sigma$ denote either one of the two ordered partitions of $[n]$ in a $(2,n)$-partition tree, and let $M_i \subsetneq \sigma_i$.
+The right $m$-shift $R_{M_i}$ (\resp. the left $m$-shift $L_{M_{i}}$) is 
 \begin{enumerate}
-    \item \defn{block-admissible} if $\min \sigma_i \notin M_i$ and $\min M_i> \max \sigma_{i+m}$ (resp.~$\min M_{i}> \max \sigma_{i-m}$),
-    \item \defn{path-admissible} if $\min M_i> \max \sigma_{i,i+m}$ (resp.~$\min M_{i}> \max \sigma_{i,i-m}$).
+    \item \defn{block-admissible} if $\min \sigma_i \notin M_i$ and $\min M_i> \max \sigma_{i+m}$ (\resp $\min M_{i}> \max \sigma_{i-m}$),
+    \item \defn{path-admissible} if $\min M_i> \max \sigma_{i,i+m}$ (\resp $\min M_{i}> \max \sigma_{i,i-m}$).
 \end{enumerate}
 \end{definition}
 
@@ -2787,7 +2795,7 @@ where the unions are taken over all strong complementary partitions $(\sigma, \t
 \end{definition}
 
 \begin{remark}
-    Observe that the left (resp.~right) shifts acts on the right (resp.~left) ordered partition.
+    Observe that the left (\resp right) shifts acts on the right (\resp left) ordered partition.
     In the analogous description for the diagonal $\LAD$ obtained at the end of the Section \Guillaume{[REF]}, left and right shifts act on the left and right ordered partitions, respectively. 
 \end{remark}
 
@@ -2997,7 +3005,7 @@ An adjacent crossing is clearly a crossing. In the other direction, suppose ther
 \subsubsection{Second isomorphism: $m$-shift and $(I,J)$ diagonals coincide}\label{sec:Iso m-shifts to IJ}
 
 We now aim at showing that the $m$-shift and the $\SU$ diagonal defined via $(I,J)$ conditions coincide (\cref{prop:unique-operad}).
-We first identify that left (right) shift operators are natural inverses to right (resp.~left) shift operators.
+We first identify that left (right) shift operators are natural inverses to right (\resp left) shift operators.
 
 \begin{definition} 
 \label{def:inverse-shift}
@@ -3070,7 +3078,7 @@ This adjacent crossing is of the following form (we illustrate the case where th
 \quad
 \begin{tikzpicture}[scale=.6]  
 \node (1) at (-1.5, -1) {$\sigma_i \sqcup \rho$};
-\node (2) at (-1.5, -2) {$\sigma_{i+1}\setminus \rho$};
+\node (2) at (-1.5, -2) {$\sigma_{i+1}\ssm \rho$};
 %
 \node (4) at (1.5, -1) {$\tau_j$};
 \node (5) at (1.5, -2) {$\tau_{k}$};
@@ -3106,7 +3114,7 @@ $\xrightarrow{R_\rho^{-1}}$
 \begin{tikzpicture}[scale=.6]  
 \node (1) at (-1.5, -1) {$\sigma_i$};
 \node (2) at (-1.5, -2) {$\sigma_{i+1}\sqcup \rho$};
-\node (3) at (-1.5, -3) {$\sigma_{i+1+m}\setminus \rho$};
+\node (3) at (-1.5, -3) {$\sigma_{i+1+m}\ssm \rho$};
 %
 \node (4) at (1.5, -1) {$\hphantom{.}$};
 \node (5) at (1.5, -2) {$\hphantom{.}$};
@@ -3145,7 +3153,7 @@ $\xrightarrow{L_\rho^{-1}}$
 \node (2) at (-1.5, -2) {$\sigma_{i+1}$};
 \node (3) at (-1.5, -3) {$\sigma_{i+1+m}$};
 %
-\node (4) at (1.5, -1) {$\tau_{j-m}\setminus \rho$};
+\node (4) at (1.5, -1) {$\tau_{j-m}\ssm \rho$};
 \node (5) at (1.5, -2) {$\tau_j \sqcup \rho$};
 %
 \draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
@@ -3186,7 +3194,7 @@ $\xrightarrow{L_{\rho'}^{-1}}$
 \node (2) at (-1.5, -2) {$\sigma_{i}$};
 \node (3) at (-1.5, -3) {$\sigma_{i+1}$};
 %
-\node (4) at (1.5, -1) {$\tau_{j-m}\setminus \rho'$};
+\node (4) at (1.5, -1) {$\tau_{j-m}\ssm \rho'$};
 \node (5) at (1.5, -2) {$\tau_j \sqcup \rho'$};
 %
 \draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
@@ -3376,14 +3384,14 @@ The indexing of the following definition compared to \cref{def:movable-subsets} 
 \begin{definition}[$\LA$ moveable subsets]
 \label{def:LAD movable-subsets}
 Let $(\sigma,\tau) = (\sigma_1|\dots|\sigma_k,\tau_1|\dots|\tau_l)$ be a pair of ordered partitions.
-For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (resp.~$M_{i}\subset \tau_{i}$) is \emph{$1$-block movable} if 
+For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (\resp $M_{i}\subset \tau_{i}$) is \emph{$1$-block movable} if 
 \begin{enumerate}
-    \item $\max \sigma_i \notin M_i$ (resp.~$\max \tau_{i} \notin M_i$), and
-    \item $\max M_i < \max \sigma_{i-1}$ (resp.~$\min M_{i} < \max \tau_{i+1}$).
+    \item $\max \sigma_i \notin M_i$ (\resp $\max \tau_{i} \notin M_i$), and
+    \item $\max M_i < \max \sigma_{i-1}$ (\resp $\min M_{i} < \max \tau_{i+1}$).
 \end{enumerate}
 It is \emph{$m$-path movable} if it satisfies $(1)$ above and if
 \begin{enumerate}
-    \item[(2')] $\max M_i < \min \sigma_{i,i-m}$ (resp.~$\max M_{i} < \min \tau_{i,i+m}$).
+    \item[(2')] $\max M_i < \min \sigma_{i,i-m}$ (\resp $\max M_{i} < \min \tau_{i,i+m}$).
 \end{enumerate}
 \end{definition}
 With our new definitions of moveable subsets, to obtain the correct definition of an admissible sequence of shifts, simply replace $\sigma$ with $\tau$ in \cref{def:admissible-shift-sequences}. 
@@ -3418,17 +3426,17 @@ where $r\mathbf{M} \eqdef (rM_{i_1},...,rM_{i_p})$ and $r\mathbf{N}$ (defined si
 As reversing the elements then shifting them is the same as shifting the elements then reversing them,
 it is clear that the equality holds if $r\mathbf{M},r\mathbf{N}$ are admissible sequences of $\SU$ shifts.
 As such, we must simply verify the admissibility, and given the equivalence of the various shift definitions, we just do this for $1$-path shifts.
-For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (resp.~$M_{i}\subset \tau_{i}$) is $LA$ $1$-block moveable if
+For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (\resp $M_{i}\subset \tau_{i}$) is $LA$ $1$-block moveable if
 \begin{enumerate}
     \item 
     \begin{enumerate}
         \item $\max \sigma_i \notin M_i$ implies that $ \min r\sigma_i \not \in r M_i$
-        \item (resp.~$\max \tau_{i} \notin M_i$ implies that  $ \min r\tau_{i} \not \in r M_i$)
+        \item (\resp $\max \tau_{i} \notin M_i$ implies that  $ \min r\tau_{i} \not \in r M_i$)
     \end{enumerate}
     \item 
     \begin{enumerate}
         \item $\max M_i < \max \sigma_{i-1}$  implies that $\min r M_i > \min r \sigma_{i+1}$
-        \item (resp.~$\min M_{i} < \max \tau_{i+1}$ implies that $\max rM_{i} > \min r\tau_{i+1}$)
+        \item (\resp $\min M_{i} < \max \tau_{i+1}$ implies that $\max rM_{i} > \min r\tau_{i+1}$)
     \end{enumerate}
 \end{enumerate}
 It is \emph{$m$-path movable} if it satisfies $(1)$ above and if
@@ -3436,7 +3444,7 @@ It is \emph{$m$-path movable} if it satisfies $(1)$ above and if
     \item[(2')] 
     \begin{enumerate}
         \item $\max M_i < \min \sigma_{i,i-m}$ implies that $\min r M_i > \max r \sigma_{i,i-m}$
-        \item (resp.~$\max M_{i} < \min \tau_{i,i+m}$ implies that $\min r M_{i} > \max r\tau_{i,i+m}$)
+        \item (\resp $\max M_{i} < \min \tau_{i,i+m}$ implies that $\min r M_{i} > \max r\tau_{i,i+m}$)
     \end{enumerate}
 \end{enumerate}
 The reader may directly verify from \cref{def:movable-subsets}, that each $rM_i \in r\sigma_i$ meets the conditions of a moveable subset 
@@ -3666,10 +3674,10 @@ where we have aligned each element, of each diagonal, vertically with its dual e
 \subsection{Shift Lattice Structure}\label{sec:Shift-lattice}
 
 In this section, we show that the 1-shifts of each diagonal admit a simple lattice structure, that is to say, each $\SCP$ is the minimal element of a lattice isomorphic to a product of chains, where the partial order is given by shifts.
-We will discuss how this lattice is compatible with a generalised weak Bruhat order, and latter we will use the lattice structure to relate the cubical and shift definitions of the $\SUD$ diagonal (\cref{sec:Cubical}).
+We will discuss how this lattice is compatible with a generalised weak order, and latter we will use the lattice structure to relate the cubical and shift definitions of the $\SUD$ diagonal (\cref{sec:Cubical}).
 
 \begin{definition}
-Let $(\sigma,\tau) \in \LAD$ or $\SUD$. For $\rho \in [n]$, let $r_\rho$ (or $l_\rho$) be the maximal value of $m$ such that $R_\rho$ (resp.~$L_\rho$) is a well-defined $m$-shift of $(\sigma,\tau)$, or $0$ if there are no such $m$-shifts.
+Let $(\sigma,\tau) \in \LAD$ or $\SUD$. For $\rho \in [n]$, let $r_\rho$ (or $l_\rho$) be the maximal value of $m$ such that $R_\rho$ (\resp $L_\rho$) is a well-defined $m$-shift of $(\sigma,\tau)$, or $0$ if there are no such $m$-shifts.
 
 \end{definition}
 
@@ -3818,10 +3826,10 @@ For example, we labelled the rows and columns of the prior step matrix in this f
 With this identification, we can apply \cref{def:movable-subsets}, to identify $1$-block moveable subsets of the matrix $M$, and we can apply \cref{def:admissible-shift-sequences}, to identify sequences of shifts which are admissible of original type.
 We now define a suitable subset shift action on these matrices.
 \begin{definition} [SU Matrix Subset Shifts]
-A non-empty set of elements of a matrix $M_i \subset \sigma_i(A)$ (resp.~$M_{i}\subset \tau_{i}(A)$) is $1$-block right (left) movable if
+A non-empty set of elements of a matrix $M_i \subset \sigma_i(A)$ (\resp $M_{i}\subset \tau_{i}(A)$) is $1$-block right (left) movable if
 \begin{enumerate}
-    \item $\min \sigma_i(A) \notin M_i$ (resp.~$\min \tau_{i}(A) \notin M_i$), and
-    \item $\min M_i> \max \sigma_{i+1}(A)$ (resp.~$\min M_{i}> \max \tau_{i-1}(A)$).
+    \item $\min \sigma_i(A) \notin M_i$ (\resp $\min \tau_{i}(A) \notin M_i$), and
+    \item $\min M_i> \max \sigma_{i+1}(A)$ (\resp $\min M_{i}> \max \tau_{i-1}(A)$).
 \end{enumerate}
 The right matrix subset shift operator $R_{M_i}$ shifts the elements of $M_i$ right one column, \ie if $A_{k,l} \in M_i$ then $(R_{M_i}A)_{k,l+1} = A_{k,l}$, replacing only elements of value $0$, and leaving $0$ elements in their wake.
 The left matrix subset shift operator $L_{M_i}$ shifts the elements of $M_i$ down one row, replacing only elements of value $0$, and leaving $0$ elements in their wake.
@@ -3853,10 +3861,10 @@ As configuration matrices have the same recursive description as the original $\
 
 As a result of the face poset isomorphism $t(r\times r)$ we also immediately obtain a matrix description of the $\LA$ diagonal.
 \begin{definition}[LA Matrix Subset Shifts]
-A non-empty set of elements of a matrix $M_i \subset \sigma_i(A)$ (resp.~$M_{i}\subset \tau_{i}(A)$) is $1$-block right (left) movable if
+A non-empty set of elements of a matrix $M_i \subset \sigma_i(A)$ (\resp $M_{i}\subset \tau_{i}(A)$) is $1$-block right (left) movable if
 \begin{enumerate}
-    \item $\max \sigma_i(A) \notin M_i$ (resp.~$\max \tau_{i}(A) \notin M_i$), and
-    \item $\max M_i < \min \sigma_{i-1}(A)$ (resp.~$\max M_{i} < \min \tau_{i+1}(A)$).
+    \item $\max \sigma_i(A) \notin M_i$ (\resp $\max \tau_{i}(A) \notin M_i$), and
+    \item $\max M_i < \min \sigma_{i-1}(A)$ (\resp $\max M_{i} < \min \tau_{i+1}(A)$).
 \end{enumerate}
 The right matrix subset shift operator $R_{M_i}$ shifts the elements of $M_i$ left one column, replacing only elements of value $0$, and leaving $0$ elements in their wake.
 The left matrix subset shift operator $L_{M_i}$ shifts the elements of $M_i$ up one row, replacing only elements of value $0$, and leaving $0$ elements in their wake.
@@ -3971,7 +3979,7 @@ The weaving of $n$ through $\sigma$ is then defined as follows,
 
 Here is an illustration of this subdivision for the first few-dimensions.
 We indicate, in bold, the embedding $\divcube{n-1}\hookrightarrow \divcube{n}$ that occurs when $I=[0, 0]$. 
-We emphasise, that a consequence of the construction is that each dimension of $\divcube{n}$ corresponds to shifting a particular element of $[n]\setminus \{1\}$.
+We emphasise, that a consequence of the construction is that each dimension of $\divcube{n}$ corresponds to shifting a particular element of $[n]\ssm \{1\}$.
 
 \begin{center}
 {\small
@@ -4012,7 +4020,7 @@ As a trivial example, every $k$-face of $P_n$ is a $k$-subdivision cube of every
 Less trivial examples are provided in \cref{ex:subdivision cubes}.
 
 \begin{lemma}\label{lem:k-subdiv cubes have max/min k faces}
-A $k$-subdivision cube of $e$ has unique maximal and minimal vertices under the weak Bruhat order.
+A $k$-subdivision cube of $e$ has unique maximal and minimal vertices under the weak order.
 \end{lemma}
 
 \begin{proof}
@@ -4153,7 +4161,7 @@ Consequently, not only must $(1)$ be true, but every pair of subdivision cubes $
 
 \begin{lemma}
 Let $C$ be a maximal $k$-subdivision cube with  maximal (minimal) $k$-face $\sigma$ ($\tau$).
-Then $C = \bigcup_{\mathbf{M}} R_\mathbf{M}(\sigma)$ (\resp.~$C=\bigcup_{\mathbf{N}} L_\mathbf{M}(\tau)$), where $\mathbf{M}$ and $\mathbf{N}$ are all admissible sequence of $\SU$ shifts.
+Then $C = \bigcup_{\mathbf{M}} R_\mathbf{M}(\sigma)$ (\resp $C=\bigcup_{\mathbf{N}} L_\mathbf{M}(\tau)$), where $\mathbf{M}$ and $\mathbf{N}$ are all admissible sequence of $\SU$ shifts.
 
 \end{lemma}
 \begin{proof}
