@@ -471,7 +471,7 @@ This is equivalent, via the isomorphism between $\LA$ and $\SU$ diagonals, to th
 In this first part, we study the combinatorics of hyperplane arrangements obtained as unions of generically translated copies of the braid arrangement.
 %Specializing to two copies, we derive enumerative results on the diagonals of the permutahedra.
 In \cref{sec:arrangements}, we first recall some classical facts on the enumeration of hyperplane arrangements (\cref{subsec:arrangements}), present the classical braid arrangement (\cref{subsec:braidArrangement}), and define our multiple braid arrangements (\cref{subsec:multiBraidArrangement}).
-Then in \cref{sec:flatPoset}, we describe their flat posets in terms of partition forests (\cref{subsec:partitionForests}) and rainbow forests (\cref{subsec:rainbowForests}), from which we obtain their M\"obius polynomial (\cref{subsec:MobiusPolynomialMultiBraidArrangement}), and some surprizing formulas for their numbers of vertices (\cref{subsec:verticesMultiBraidArrangement}) and regions ().
+Then in \cref{sec:flatPoset}, we describe their flat posets in terms of partition forests (\cref{subsec:partitionForests}) and rainbow forests (\cref{subsec:rainbowForests}), from which we obtain their M\"obius polynomial (\cref{subsec:MobiusPolynomialMultiBraidArrangement}), and some surprizing formulas for their numbers of vertices (\cref{subsec:verticesMultiBraidArrangement}) and regions (\cref{subsec:regionsMultiBraidArrangement}).
 Finally in \cref{sec:facePoset}, we describe their face posets in terms of ordered partition forests (\cref{subsec:orderedPartitionForests}), and explore some combinatorial criteria to describe the ordered partition forests that appear as faces for a given multiple braid arrangement (\cref{subsec:PFtoOPF,subsec:criterionOPF}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1426,6 +1426,7 @@ Finally, the possible labelings are counted by the multinomial coefficient~$\bin
 
 We finally use the labeled $(\ell,n)$-rainbow forests of \cref{subsec:rainbowForests} to derive more explicit formulas for the number of regions and bounded regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
 The first few values are gathered in \cref{table:regionsMultiBraidArrangement,table:boundedRegionsMultiBraidArrangement}.
+We first compute the characteristic polynomial of~$\multiBraidArrangement$.
 
 \afterpage{
 \begin{table}
@@ -1473,8 +1474,6 @@ The first few values are gathered in \cref{table:regionsMultiBraidArrangement,ta
 \end{table}
 }
 
-We first compute the characteristic polynomial of~$\multiBraidArrangement$.
-
 \begin{theorem}
 \label{thm:characteristicPolynomialMultiBraidArrangement}
 The characteristic polynomial~$\charPol[\multiBraidArrangement]$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is given~by
@@ -1512,7 +1511,7 @@ We conclude that
 \end{align*}
 \end{proof}
 
-From the characteristic polynomial of~$\multiBraidArrangement$ and \cref{rem:characteristicPolynomial}, we obtain the $f$- and $b$-polynomials of~$\multiBraidArrangement$.
+From the characteristic polynomial of~$\multiBraidArrangement$ and \cref{rem:characteristicPolynomial}, we obtain its numbers of regions and bounded regions.
 
 \begin{theorem}
 \label{thm:regionsMultiBraidArrangement}
@@ -2758,7 +2757,7 @@ The proof is technical and procedes in several steps: we introduce two additiona
 
 \begin{definition}
 \label{def:strong-complementary-pairs}
-A \defn{strong complementary pair ($\SCP$ for short)} is a pair $(\sigma,\tau)$ of ordered partitions of $[n]$ where $\sigma$ is obtained from a permutation of $[n]$ by merging the adjacent elements which are decreasing, and $\tau$ is obtained from the same permutation by merging the adjacent elements which are increasing.
+A \defn{strong complementary pair} (or~\defn{$\SCP$} for short) is a pair $(\sigma,\tau)$ of ordered partitions of $[n]$ where $\sigma$ is obtained from a permutation of $[n]$ by merging the adjacent elements which are decreasing, and $\tau$ is obtained from the same permutation by merging the adjacent elements which are increasing.
 \end{definition}
 
 We denote by $\SCP(n)$ the set of $\SCP$s of $[n]$, which is in bijection with the set of permutations of $[n]$.
@@ -3121,13 +3120,8 @@ In the other way around, given a strong complementary pair, one can read-off the
 We say that an edge crossing is an \defn{adjacent crossing} if the two crossing elements are in adjacent blocks of the partition tree (\ie they are of the form $\sigma_i|\sigma_{i+1}$ or $\tau_i|\tau_{i+1}$).
 
 \begin{lemma}
-<<<<<<< HEAD
-	\label{lem:adjacent-crossing}
-A facet $(\sigma,\tau)$ of the $(I,J)$ diagonal has a crossing if and only if it has an adjacent crossing.
-=======
 \label{lem:adjacent-crossing}
 A facet $(\sigma,\tau)$ of the geometric $\SU$ diagonal has a crossing if and only if it has an adjacent crossing.
->>>>>>> 5738b27bb1d13855de7b6a8965f05c2e804f374a
 \end{lemma}
 
 \begin{proof}
