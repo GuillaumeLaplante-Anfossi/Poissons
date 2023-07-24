@@ -247,11 +247,13 @@
 \begin{document}
 
 \begin{abstract}
-We provide a a systematic combinatorial and enumerative study of cellular diagonals on the permutahedra. 
+We provide a a systematic enumerative and combinatorial study of geometric cellular diagonals on the permutahedra. 
+
 The first part of the paper is dedicated to the combinatorics of certain hyperplane arrangements obtained as the union of $\ell$ generically translated copies of the classical braid arrangement.
 Based on Zaslavsky's theory, we derive enumerative results on the faces of these arrangements involving combinatorial objects named partition forests and rainbow forests.
 This yields in particular nice formulas for the number of regions and bounded regions of these arrangements in terms of exponentials of Fuss-Catalan numbers.
 By duality, the specialization of these results to the case $\ell = 2$ gives the enumeration of any geometric diagonal of the permutahedron.
+
 The second part of the paper focusses on more advanced combinatorial properties of the diagonals of the permutahedra.
 We prove that there are only two operadic families of diagonals on the permutahedra, and we give a bijection of their facets with planar bipartite trees and characterize their vertices as pattern-avoiding pairs of permutations.
 We then show that the Saneblidze--Umble diagonal can be recovered by a choice of vectors in the fundamental hyperplane arrangements of the permutahedra, resolving a conjecture of the third-named author.  
@@ -281,8 +283,8 @@ Second, we obtain some (higher) algebraic results via discrete geometry: the alg
 
 \subsection*{Motivation}
 
-The purpose of this article is to study cellular diagonals on the permutahedra, which are cellular maps homotopic to the usual thin diagonal $\triangle : P \to P \times P, x \mapsto (x,x)$.
-Such diagonals, and in particular coherent families that we call \emph{operadic} diagonals (see [DEF] \BDO{Reference ?}), are of interest in algebraic geometry and topology: via the theory of Fulton--Sturmfels \cite{fultonIntersectionTheoryToric1997a}, they give explicit formulas for the cup product on Losev--Manin toric varieties \cite{losevNewModuliSpaces2000}; they define universal tensor products of homotopy operads, and in particular universal tensor products of homotopy associative permutads (shuffle algebras) \cite{LA21}; they allow for the definition of a coproduct on permutahedral sets, which are used to models of two-fold loop spaces \cite{SaneblidzeUmble04}; and their study is moreover needed to pursue the work of Baues aiming at defining explicit combinatorial models for higher iterated loop spaces \cite{bauesGeometryLoopSpaces1980}. 
+The purpose of this article is to study cellular diagonals on the permutahedra, which are cellular maps homotopic to the usual thin diagonal $\triangle : P \to P \times P, x \mapsto (x,x)$ (\cref{def:thinDiagonal,def:cellularDiagonal,def:geometricDiagonal}).
+Such diagonals, and in particular coherent families that we call \emph{operadic} diagonals (\cref{def:operadicDiagonal}), are of interest in algebraic geometry and topology: via the theory of Fulton--Sturmfels \cite{fultonIntersectionTheoryToric1997a}, they give explicit formulas for the cup product on Losev--Manin toric varieties~\cite{losevNewModuliSpaces2000}; they define universal tensor products of homotopy operads, and in particular universal tensor products of homotopy associative permutads (shuffle algebras) \cite{LA21}; they allow for the definition of a coproduct on permutahedral sets, which are used to models of two-fold loop spaces \cite{SaneblidzeUmble04}; and their study is moreover needed to pursue the work of Baues aiming at defining explicit combinatorial models for higher iterated loop spaces \cite{bauesGeometryLoopSpaces1980}. 
 Moreover, using the canonical projections to the multiplihedra and the associahedra, they define universal tensor product of $\Ainf$-algebras and $\Ainf$-morphisms \cite{MazuirLA22}.
 \Guillaume{lien avec les matroides?}
 
@@ -298,24 +300,79 @@ Permutades
 
 %%%%%%%%%%%%%%%
 
-\subsection*{Combinatorics}
+\subsection*{\cref{part:multiBraidArrangements}. Combinatorics of multiple braid arrangement}
 
-The purpose of the first part of this article is to study the combinatorics of the cellular diagonal of the permutohedra, explained in more details in the second part of the introduction.
- To make this part more accessible to non-algebraists, we formulate it in terms of hyperplane arrangements, as \emph{faces} of the cellular diagonal are in bijection with \emph{regions} of the associated hyperplane arrangements. 
- The hyperplane arrangement associated with  the cellular diagonal is two generically translated copies of the braid arrangement. 
- Motivated by the beautiful combinatorial formula obtained in our study, we generalize it to the study of $\ell$ generically translated copies of the braid arrangement, which would algebraically corresponds to some cellular $\ell$-gonal.
-  We compute the $f$-vector and the $b$-vector of $\ell$-generically translated copies of the braid arrangement, using Zaslavsky's Theorem. 
-  We refine the enumeration of the vertices of the hyperplane arrangement using a combinatorial interpretation in terms of $(\ell, n)$-partition trees and get the following multiplicative formula stated in Theorem \ref{thm:verticesRefinedMultiBraidArrangement} and recalled here:
-\begin{theorem*}
+As the dual of the permutahedron~$\Perm$ is the classical braid arrangement~$\braidArrangement$, the dual of a diagonal of the permutahedron~$\Perm$ is an hyperplane arrangement made of $2$ generically translated copies of the braid arrangement~$\braidArrangement$.
+In the first part of the paper, we therefore study the combinatorics of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ defined as the union of $\ell$ generically translated copies of the braid arrangement~$\braidArrangement$ (\cref{def:multiBraidArrangement}).
+We are mainly interested in the~$\ell = 2$ case for the enumeration of the faces of the diagonals of the permutahedron~$\Perm$, but the general $\ell$ case is not much harder and should algebraically correspond to the enumeration of the faces of cellular $\ell$-gonals of the permutahedron~$\Perm$.
+%We observe that the flats of~$\multiBraidArrangement$ are in bijection with forests of partitions and that the faces of~$\multiBraidArrangement$ are in bijection with certain forests of ordered partitions.
+
+\cref{sec:flatPoset} is dedicated to the combinatorial description of the flat poset of~$\multiBraidArrangement$ and its enumerative consequences.
+We first observe that the flats of~$\multiBraidArrangement$ are in bijection with $(\ell,n)$-partition forests, defined as $\ell$-tuples of unordered partitions whose intersection hypergraph is a hyperforest (\cref{def:partitionForests}).
+As the $(\ell,n)$-partition forests are independent of the translations of the different copies (as long as these translations are generic), we obtain by Zaslavsky's theory that the number of $k$-dimensional faces and of bounded faces of~$\multiBraidArrangement$ only depends on~$k$, $\ell$, and~$n$ (and not on the specific translation vectors choosen to construct~$\multiBraidArrangement$).
+In fact, we obtain the following formula for the M\"obius polynomial of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ in terms of pairs of $(\ell,n)$-partition forests.
+
+\begin{theorem*}[\cref{thm:MobiusPolynomialMultiBraidArrangement}]
+The M\"obius polynomial of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is given by
+\[
+\mobPol[\multiBraidArrangement] = x^{n-1-\ell n} y^{n-1-\ell n} \sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i} y^{\#G_i} \prod_{p \in G_i} (-1)^{\#F_i[p]-1} (\# F_i[p]-1)! \; ,
+\]
+where~$\b{F} \le \b{G}$ ranges over all intervals of the $(\ell,n)$-partition forest poset~$\forestPoset$, and~$F_i[p]$ denotes the restriction of the partition~$F_i$ to the part~$p$ of~$G_i$.
+\end{theorem*}
+
+This formula is not particularly easy to handle, but its turns out to simplify to very elegant formulas for the number of vertices, regions, and bounded regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
+Namely, using an alternative combinatorial description of the $(\ell,n)$-partition forests in terms of $(\ell, n)$-rainbow forests and a colored analogue of the classical Pr\"ufer code, we first obtain the number of vertices of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
+
+\begin{theorem*}[\cref{thm:verticesMultiBraidArrangement}]
+The number of vertices of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is
+\[
+f_0(\multiBraidArrangement) = \ell \big( (\ell-1) n + 1 \big)^{n-2}.
+\]
+\end{theorem*}
+
+This result can even be refined according to the dimension of the flats of the different copies used to obtain the vertices of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
+
+\begin{theorem*}[\cref{thm:verticesRefinedMultiBraidArrangement}]
 For any~$k_1, \dots, k_\ell$ such that~$0 \le k_i \le n-1$ for~$i \in [\ell]$ and~${\sum_{i=1}^\ell k_i = n-1}$, the number of vertices~$v$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ such that the smallest flat of the $i$\ordinal{} copy of~$\braidArrangement$ containing~$v$ has dimension~$n-k_i-1$ is given by
 \[
 n^{\ell-1} \binom{n-1}{k_1, \dots, k_\ell} \prod_{i=1}^\ell (n-k_i)^{k_i-1}.
 \]
 \end{theorem*}
 
+We then consider the regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
+We first obtain a very simple exponential formula for its characteristic polynomial.
+
+\begin{theorem*}[\cref{thm:characteristicPolynomialMultiBraidArrangement}]
+The characteristic polynomial~$\charPol[\multiBraidArrangement]$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is given~by
+\[
+\charPol[\multiBraidArrangement] = \frac{(-1)^n n!}{y} \, [z^n] \, \exp \bigg( - \sum_{m \ge 1} \frac{F_{\ell,m} \, y \, z^m}{m} \bigg) ,
+\]
+where~$\displaystyle F_{\ell,m} \eqdef \frac{1}{(\ell-1)m+1} \binom{\ell m}{m}$ is the Fuss-Catalan number.
+\end{theorem*}
+
+Evaluating the characteristic polynomial at~$y = -1$ and~$y = 1$ respectively, we obtain by Zaslavsky's theory the numbers of regions and bounded regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
+
+\begin{theorem*}[\cref{thm:regionsMultiBraidArrangement}]
+The numbers of regions and of bounded regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ are given by
+\begin{align*}
+f_{n-1}(\multiBraidArrangement) 
+& = n! \, [z^n] \exp \Bigg( \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m} \Bigg) \\
+\text{and}\qquad
+b_{n-1}(\multiBraidArrangement)
+%& = - n! \, [z^n] \exp \Bigg( - \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m} \Bigg) 
+& = (n-1)! \, [z^{n-1}] \exp \bigg( (\ell-1) \sum_{m \ge 1} F_{\ell,m} \, z^m \bigg).
+\end{align*}
+where~$\displaystyle F_{\ell,m} \eqdef \frac{1}{(\ell-1)m+1} \binom{\ell m}{m}$ is the Fuss-Catalan number.
+\end{theorem*}
+
+Finally, \cref{sec:facePoset} is dedicated to the combinatorial description of the face poset of~$\multiBraidArrangement$.
+We observe that the faces of~$\multiBraidArrangement$ are in bijection with certain ordered $(\ell,n)$-partition forests, defined as $\ell$-tuples of ordered partitions whose underlying unordered partitions form an (unordered) $(\ell,n)$-partition forest.
+Here, which ordered $(\ell,n)$-partition forests actually appear as faces of~$\multiBraidArrangement$ depends on the choice of the translations of the different copies.
+We provide a combinatorial description of the possible orderings of a $(\ell,n)$-partition forest compatible with some given translations in terms of certain paths in the forest, and a combinatorial characterization of the ordered partition forests which appear for some given translations in terms of the circuits of a certain oriented graph.
+
 %%%%%%%%%%%%%%%
 
-\subsection*{Higher Algebra}
+\subsection*{\cref{part:diagonalsPermutahedra}. Diagonals of permutahedra}
 
 The first cellular diagonal for the permutahedra was defined at the level of chains by S. Saneblidze and R. Umble in \cite{SaneblidzeUmble04}, we will call it the \emph{SU diagonal}. 
 Cellular diagonals for the associahedra and the multiplihedra were also defined there, via projection. 
@@ -380,6 +437,10 @@ This is equivalent, via the isomorphism between $\LA$ and $\SU$ diagonals, to th
 
 %%%%%%%%%%%%%%%
 
+\subsection*{\cref{part:higherAlgebraicStructures}. Higher algebraic structures}
+
+%%%%%%%%%%%%%%%
+
 \begin{table}[h]
 	\centerline{
 		\begin{tabular}{c|c|rrrrrrr|l}
@@ -408,7 +469,7 @@ This is equivalent, via the isomorphism between $\LA$ and $\SU$ diagonals, to th
 In this first part, we study the combinatorics of hyperplane arrangements obtained as unions of generically translated copies of the braid arrangement.
 %Specializing to two copies, we derive enumerative results on the diagonals of the permutahedra.
 In \cref{sec:arrangements}, we first recall some classical facts on the enumeration of hyperplane arrangements (\cref{subsec:arrangements}), present the classical braid arrangement (\cref{subsec:braidArrangement}), and define our multiple braid arrangements (\cref{subsec:multiBraidArrangement}).
-Then in \cref{sec:flatPoset}, we describe their flat posets in terms of partition forests (\cref{subsec:partitionForests}) and rainbow forests (\cref{subsec:rainbowForests}), from which we obtain their M\"obius polynomial (\cref{subsec:MobiusPolynomialMultiBraidArrangement}), and some surprizing formulas for their numbers of vertices and regions (\cref{subsec:verticesFacetsMultiBraidArrangement}).
+Then in \cref{sec:flatPoset}, we describe their flat posets in terms of partition forests (\cref{subsec:partitionForests}) and rainbow forests (\cref{subsec:rainbowForests}), from which we obtain their M\"obius polynomial (\cref{subsec:MobiusPolynomialMultiBraidArrangement}), and some surprizing formulas for their numbers of vertices (\cref{subsec:verticesMultiBraidArrangement}) and regions ().
 Finally in \cref{sec:facePoset}, we describe their face posets in terms of ordered partition forests (\cref{subsec:orderedPartitionForests}), and explore some combinatorial criteria to describe the ordered partition forests that appear as faces for a given multiple braid arrangement (\cref{subsec:PFtoOPF,subsec:criterionOPF}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -693,7 +754,7 @@ For any integers~$\ell,n \geq 1$, and a generic matrix~$\b{a} \eqdef (a_{i,j}) \
 The objective of \cref{part:multiBraidArrangements} is to explore the combinatorics of these multiple braid arrangements.
 We have split our presentation into two sections:
 \begin{itemize}
-\item In \cref{sec:flatPoset}, we describe the flat poset~$\flatPoset[\multiBraidArrangement]$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ in terms of $(\ell,n)$-partition forests (\cref{subsec:partitionForests}) and labeled $(\ell,n)$-rainbow forests (\cref{subsec:rainbowForests}), which enables us to derive its M\"obius, $f$- and $b$- polynomials (\cref{subsec:MobiusPolynomialMultiBraidArrangement}), from which we extract interesting formulas for the number of vertices and regions of~$\multiBraidArrangement$ (\cref{subsec:verticesFacetsMultiBraidArrangement}). Note that all these results are independent of the translation vectors.
+\item In \cref{sec:flatPoset}, we describe the flat poset~$\flatPoset[\multiBraidArrangement]$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ in terms of $(\ell,n)$-partition forests (\cref{subsec:partitionForests}) and labeled $(\ell,n)$-rainbow forests (\cref{subsec:rainbowForests}), which enables us to derive its M\"obius, $f$- and $b$- polynomials (\cref{subsec:MobiusPolynomialMultiBraidArrangement}), from which we extract interesting formulas for the number of vertices (\cref{subsec:verticesMultiBraidArrangement}) and regions (\cref{subsec:regionsMultiBraidArrangement}). Note that all these results are independent of the translation vectors.
 \item In \cref{sec:facePoset}, we describe the face poset~$\facePoset[\multiBraidArrangement(\b{a})]$ of the $\b{a}$-braid  arrangement~$\multiBraidArrangement(\b{a})$ in terms of ordered $(\ell,n)$-partition forests (\cref{subsec:orderedPartitionForests}). In contrast to the flat poset, this description of the face poset depends on the translation vectors. For a given choice of translation matrix~$\b{a}$, we describe in particular the ordered $(\ell,n)$-partitions forests with a given underlying (unordered) $(\ell,n)$-partition forest (\cref{subsec:PFtoOPF}). We then give a criterion to decide whether a given ordered $(\ell,n)$-partition forest corresponds to a face of~$\multiBraidArrangement(\b{a})$ (\cref{subsec:criterionOPF}).
 \end{itemize}
 
@@ -722,6 +783,7 @@ Remarkably, the flat poset (and thus the M\"obius, $f$- and $b$- polynomials) of
 We first introduce the main characters of this section, which will describe the combinatorics of the flat poset of~$\multiBraidArrangement$.
 
 \begin{definition}
+\label{def:partitionForests}
 The \defn{intersection hypergraph} of a $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of set partitions of~$[n]$ is the $\ell$-regular $\ell$-partite hypergraph on all parts of all the partitions~$F_i$ for~${i \in [\ell]}$, with an hyperedge connecting the parts containing~$j$  for each~$j \in [n]$.
 A \defn{$(\ell,n)$-partition forest} (\resp \defn{$(\ell,n)$-partition tree}) is a $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of set partitions of~$[n]$ whose intersection hypergraph is a hyperforest (\resp hypertree).
 The \defn{dimension} of~$\b{F}$ is~$\smash{{\dim(\b{F}) \eqdef n - 1 - \ell n + \sum_{i \in [\ell]} \#F_i}}$.
@@ -1025,7 +1087,7 @@ From \cref{thm:Zaslavsky,thm:MobiusPolynomialMultiBraidArrangement}, we thus obt
 			\end{tabular}
 		\end{tabular}
 	}}
-	\vspace{.3cm}
+%	\vspace{.3cm}
 	\caption{The face numbers (top) and the bounded face numbers (bottom) of the $(\ell,n)$-braid arrangements for~$\ell, n \in [4]$.}
 	\label{table:fvectorMultiBraidArrangements}
 \end{table}
@@ -1097,7 +1159,7 @@ Observe that~$3 \ell^2 + 2 \ell + 1$ is~\OEIS{A056109}, that~$\ell (3 \ell - 2)$
 \subsection{Rainbow forests}
 \label{subsec:rainbowForests}
 
-In order to obtain more explicit formulas for the number of vertices and regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ in \cref{subsec:verticesFacetsMultiBraidArrangement}, we now introduce another combinatorial model for $(\ell,n)$-partition forests which is more adapted to their enumeration.
+In order to obtain more explicit formulas for the number of vertices and regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ in \cref{subsec:verticesMultiBraidArrangement,subsec:regionsMultiBraidArrangement}, we now introduce another combinatorial model for $(\ell,n)$-partition forests which is more adapted to their enumeration.
 
 \begin{definition}
 \label{def:rainbowForest}
@@ -1158,7 +1220,7 @@ F_\ell(z) = 1 + z \, F_\ell(z)^\ell.
 			$9$ & $1$ & $4862$ & $246675$ & $3362260$ & $23950355$ & $115607310$ & $430321633$ & $1329890705$ & $3573805950$
 		\end{tabular}
 	}}
-	\vspace{.3cm}
+%	\vspace{.3cm}
 	\caption{The Fuss-Catalan numbers~$F_{\ell,m} = \frac{1}{(\ell-1)m+1} \binom{\ell m}{m}$ for~$\ell,m \in [9]$. See \OEIS{A062993}.}
 \end{table}
 
@@ -1221,34 +1283,8 @@ Finally, observe that
 \end{gather*}
 \end{proof}
 
-%%%%%%%%%%%%%%%
-
-\subsection{Enumeration of vertices and regions of $\multiBraidArrangement$}
-\label{subsec:verticesFacetsMultiBraidArrangement}
-
-We now use the labeled $(\ell,n)$-rainbow forests of \cref{subsec:rainbowForests} to derive more explicit formulas for the number of vertices and regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
-We first explain the partial order of the flat lattice in terms of rainbow forests before counting the vertices of~$\multiBraidArrangement$, whose first values are gathered in \cref{table:verticesMultiBraidArrangement}.
-
-\begin{table}
-	\centerline{\scalebox{.8}{
-		\begin{tabular}[t]{c|cccccccc}
-			$n \backslash \ell$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ \\ % & $9$ \\
-			\hline
-		$1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ \\ % & $1$ \\
-		$2$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ \\ % & $9$ \\
-		$3$ & $1$ & $8$ & $21$ & $40$ & $65$ & $96$ & $133$ & $176$ \\ % & $225$ \\
-		$4$ & $1$ & $50$ & $243$ & $676$ & $1445$ & $2646$ & $4375$ & $6728$ \\ % & $9801$ \\
-		$5$ & $1$ & $432$ & $3993$ & $16384$ & $46305$ & $105456$ & $208537$ & $373248$ \\ % & $620289$ \\
-		$6$ & $1$ & $4802$ & $85683$ & $521284$ & $1953125$ & $5541126$ & $13119127$ & $27350408$ \\ % & $51883209$ \\
-		$7$ & $1$ & $65536$ & $2278125$ & $20614528$ & $102555745$ & $362797056$ & $1029059101$ & $2500000000$ \\ % & $5415228513$ \\
-		$8$ & $1$ & $1062882$ & $72412707$ & $976562500$ & $6457339845$ & $28500625446$ & $96889010407$ & $274371577992$ \\ % & $678770015625$ \\
-%		$9$ & $1$ & $20000000$ & $2681615217$ & $53971714048$ & $474659385665$ & $2614905943296$ & $10657046640625$ & $35184372088832$ & $99426586671873$
-		\end{tabular}
-	}}
-	\vspace{.3cm}
-	\caption{The numbers $f_0(\multiBraidArrangement) = \ell \big( (\ell-1) n + 1 \big)^{n-2}$ of vertices of~$\multiBraidArrangement$ for~$\ell,n \in [8]$.}
-	\label{table:verticesMultiBraidArrangement}
-\end{table}
+We finally explain the partial order of the flat lattice in terms of rainbow forests.
+\vincent{work this out...}
 
 \begin{proposition}
 The cover relations of the partial order on the flat poset of rainbow forests is given by the following rules. A rainbow forest $F$ is greater than a rainbow forest $G$ if $G$ can be obtained from $F$ by:
@@ -1275,6 +1311,35 @@ By choosing two vertices in different connected components of the rainbow forest
 
 The last point that has to be explained is the link between the condition on the color of $a$ and $b$ and merging two parts in the same partition. If one of the two nodes, say $a$ for instance is of color $c$, then it belongs to the same part of $\pi$ as its parent $z$. The merging is the same if we choose $z$ which is not colored $c$. Moreover, as $b$ is an other connected components, the corresponding two parts are distinct in $\pi$. Finally, a part is just a corolla so the merging corresponds to building a corolla with $a$, $b$ and their children of color $c$.
 \end{proof}
+
+%%%%%%%%%%%%%%%
+
+\subsection{Enumeration of vertices of $\multiBraidArrangement$}
+\label{subsec:verticesMultiBraidArrangement}
+
+We now use the labeled $(\ell,n)$-rainbow forests of \cref{subsec:rainbowForests} to derive more explicit formulas for the number of vertices of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
+The first few values are gathered in \cref{table:verticesMultiBraidArrangement}.
+ 
+\begin{table}
+	\centerline{\scalebox{.8}{
+		\begin{tabular}[t]{c|cccccccc}
+			$n \backslash \ell$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ \\ % & $9$ \\
+			\hline
+		$1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ \\ % & $1$ \\
+		$2$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ \\ % & $9$ \\
+		$3$ & $1$ & $8$ & $21$ & $40$ & $65$ & $96$ & $133$ & $176$ \\ % & $225$ \\
+		$4$ & $1$ & $50$ & $243$ & $676$ & $1445$ & $2646$ & $4375$ & $6728$ \\ % & $9801$ \\
+		$5$ & $1$ & $432$ & $3993$ & $16384$ & $46305$ & $105456$ & $208537$ & $373248$ \\ % & $620289$ \\
+		$6$ & $1$ & $4802$ & $85683$ & $521284$ & $1953125$ & $5541126$ & $13119127$ & $27350408$ \\ % & $51883209$ \\
+		$7$ & $1$ & $65536$ & $2278125$ & $20614528$ & $102555745$ & $362797056$ & $1029059101$ & $2500000000$ \\ % & $5415228513$ \\
+		$8$ & $1$ & $1062882$ & $72412707$ & $976562500$ & $6457339845$ & $28500625446$ & $96889010407$ & $274371577992$ \\ % & $678770015625$ \\
+%		$9$ & $1$ & $20000000$ & $2681615217$ & $53971714048$ & $474659385665$ & $2614905943296$ & $10657046640625$ & $35184372088832$ & $99426586671873$
+		\end{tabular}
+	}}
+	\vspace{.3cm}
+	\caption{The numbers $f_0(\multiBraidArrangement) = \ell \big( (\ell-1) n + 1 \big)^{n-2}$ of vertices of~$\multiBraidArrangement$ for~$\ell,n \in [8]$.}
+	\label{table:verticesMultiBraidArrangement}
+\end{table}
 
 \begin{theorem}
 \label{thm:verticesMultiBraidArrangement}
@@ -1318,8 +1383,60 @@ Using a Pr\"ufer code similar to that of the proof of \cref{thm:verticesMultiBra
 Finally, the possible labelings are counted by the multinomial coefficient~$\binom{n-1}{k_1, \dots, k_\ell}$.
 \end{proof}
 
+%%%%%%%%%%%%%%%
+
+\subsection{Enumeration of regions and bounded regions of $\multiBraidArrangement$}
+\label{subsec:regionsMultiBraidArrangement}
+
+We finally use the labeled $(\ell,n)$-rainbow forests of \cref{subsec:rainbowForests} to derive more explicit formulas for the number of regions and bounded regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
+The first few values are gathered in \cref{table:regionsMultiBraidArrangement,table:boundedRegionsMultiBraidArrangement}.
+
+\begin{table}
+	\centerline{\scalebox{.8}{
+		\begin{tabular}[t]{c|cccccccc}
+			$n \backslash \ell$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ \\ % & $9$ \\
+			\hline
+			$1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ \\ % & $1$ \\
+			$2$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ \\ % & $10$ \\
+			$3$ & $6$ & $17$ & $34$ & $57$ & $86$ & $121$ & $162$ & $209$ \\ % & $262$ \\
+			$4$ & $24$ & $149$ & $472$ & $1089$ & $2096$ & $3589$ & $5664$ & $8417$ \\ % & $11944$ \\
+			$5$ & $120$ & $1809$ & $9328$ & $29937$ & $73896$ & $154465$ & $287904$ & $493473$ \\ % & $793432$ \\
+			$6$ & $720$ & $28399$ & $241888$ & $1085157$ & $3442816$ & $8795635$ & $19376064$ & $38323753$ \\ % & $69841072$ \\
+			$7$ & $5040$ & $550297$ & $7806832$ & $49075065$ & $200320816$ & $625812385$ & $1629858672$ & $3720648337$ \\ % & $7686190000$ \\
+			$8$ & $40320$ & $12732873$ & $302346112$ & $2666534049$ & $14010892416$ & $53536186825$ & $164859458688$ & $434390214657$ \\ % & $1017282905344$ \\
+%			$9$ & $362880$ & $343231361$ & $13682809216$ & $169423639713$ & $1146173002496$ & $5357227099105$ & $19506923076096$ & $59328538244801$ & $157507267166848$
+		\end{tabular}
+	}}
+%	\vspace{.3cm}
+	\caption{The numbers $f_{n-1}(\multiBraidArrangement)$ of regions of~$\multiBraidArrangement$ for~$\ell,n \in [8]$.}
+	\label{table:regionsMultiBraidArrangement}
+\end{table}
+
+\begin{table}
+	\centerline{\scalebox{.8}{
+		\begin{tabular}[t]{c|cccccccc}
+			$n \backslash \ell$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ \\ % & $9$ \\
+			\hline
+			$1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ \\ % & $1$ \\
+			$2$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ \\ % & $8$ \\
+			$3$ & $0$ & $5$ & $16$ & $33$ & $56$ & $85$ & $120$ & $161$ \\ % & $208$ \\
+			$4$ & $0$ & $43$ & $224$ & $639$ & $1384$ & $2555$ & $4248$ & $6559$ \\ % & $9584$ \\
+			$5$ & $0$ & $529$ & $4528$ & $17937$ & $49696$ & $111745$ & $219024$ & $389473$ \\ % & $644032$ \\
+			$6$ & $0$ & $8501$ & $120272$ & $663363$ & $2354624$ & $6455225$ & $14926176$ & $30583847$ \\ % & $57255488$ \\
+			$7$ & $0$ & $169021$ & $3968704$ & $30533409$ & $138995776$ & $464913325$ & $1268796096$ & $2996735329$ \\ % & $6353133184$ \\
+			$8$ & $0$ & $4010455$ & $156745472$ & $1684352799$ & $9841053184$ & $40179437975$ & $129465630720$ & $352560518527$ \\ % & $846588258944$ \\
+%			$9$ & $0$ & $110676833$ & $7216242688$ & $108413745057$ & $813420601856$ & $4055310777025$ & $15431698810368$ & $48461340225473$ & $131823966149632$
+		\end{tabular}
+	}}
+%	\vspace{.3cm}
+	\caption{The numbers $b_{n-1}(\multiBraidArrangement)$ of bounded regions of~$\multiBraidArrangement$ for~$\ell,n \in [8]$.}
+	\label{table:boundedRegionsMultiBraidArrangement}
+\end{table}
+
+We first compute the characteristic polynomial of~$\multiBraidArrangement$.
+
 \begin{theorem}
-\label{thm:topCoefficientMobiusPolynomialMultiBraidArrangement}
+\label{thm:characteristicPolynomialMultiBraidArrangement}
 The characteristic polynomial~$\charPol[\multiBraidArrangement]$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is given~by
 \[
 \charPol[\multiBraidArrangement] = \frac{(-1)^n n!}{y} \, [z^n] \, \exp \bigg( - \sum_{m \ge 1} \frac{F_{\ell,m} \, y \, z^m}{m} \bigg) ,
@@ -1355,49 +1472,7 @@ We conclude that
 \end{align*}
 \end{proof}
 
-By \cref{rem:characteristicPolynomial,thm:topCoefficientMobiusPolynomialMultiBraidArrangement}, we obtain the number of regions and bounded regions of~$\multiBraidArrangement$, whose first values are gathered in \cref{table:regionsMultiBraidArrangement,table:boundedRegionsMultiBraidArrangement}.
-
-\begin{table}
-	\centerline{\scalebox{.8}{
-		\begin{tabular}[t]{c|cccccccc}
-			$n \backslash \ell$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ \\ % & $9$ \\
-			\hline
-			$1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ \\ % & $1$ \\
-			$2$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ \\ % & $10$ \\
-			$3$ & $6$ & $17$ & $34$ & $57$ & $86$ & $121$ & $162$ & $209$ \\ % & $262$ \\
-			$4$ & $24$ & $149$ & $472$ & $1089$ & $2096$ & $3589$ & $5664$ & $8417$ \\ % & $11944$ \\
-			$5$ & $120$ & $1809$ & $9328$ & $29937$ & $73896$ & $154465$ & $287904$ & $493473$ \\ % & $793432$ \\
-			$6$ & $720$ & $28399$ & $241888$ & $1085157$ & $3442816$ & $8795635$ & $19376064$ & $38323753$ \\ % & $69841072$ \\
-			$7$ & $5040$ & $550297$ & $7806832$ & $49075065$ & $200320816$ & $625812385$ & $1629858672$ & $3720648337$ \\ % & $7686190000$ \\
-			$8$ & $40320$ & $12732873$ & $302346112$ & $2666534049$ & $14010892416$ & $53536186825$ & $164859458688$ & $434390214657$ \\ % & $1017282905344$ \\
-%			$9$ & $362880$ & $343231361$ & $13682809216$ & $169423639713$ & $1146173002496$ & $5357227099105$ & $19506923076096$ & $59328538244801$ & $157507267166848$
-		\end{tabular}
-	}}
-	\vspace{.3cm}
-	\caption{The numbers $f_{n-1}(\multiBraidArrangement)$ of regions of~$\multiBraidArrangement$ for~$\ell,n \in [8]$.}
-	\label{table:regionsMultiBraidArrangement}
-\end{table}
-
-\begin{table}
-	\centerline{\scalebox{.8}{
-		\begin{tabular}[t]{c|cccccccc}
-			$n \backslash \ell$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ \\ % & $9$ \\
-			\hline
-			$1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ \\ % & $1$ \\
-			$2$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ \\ % & $8$ \\
-			$3$ & $0$ & $5$ & $16$ & $33$ & $56$ & $85$ & $120$ & $161$ \\ % & $208$ \\
-			$4$ & $0$ & $43$ & $224$ & $639$ & $1384$ & $2555$ & $4248$ & $6559$ \\ % & $9584$ \\
-			$5$ & $0$ & $529$ & $4528$ & $17937$ & $49696$ & $111745$ & $219024$ & $389473$ \\ % & $644032$ \\
-			$6$ & $0$ & $8501$ & $120272$ & $663363$ & $2354624$ & $6455225$ & $14926176$ & $30583847$ \\ % & $57255488$ \\
-			$7$ & $0$ & $169021$ & $3968704$ & $30533409$ & $138995776$ & $464913325$ & $1268796096$ & $2996735329$ \\ % & $6353133184$ \\
-			$8$ & $0$ & $4010455$ & $156745472$ & $1684352799$ & $9841053184$ & $40179437975$ & $129465630720$ & $352560518527$ \\ % & $846588258944$ \\
-%			$9$ & $0$ & $110676833$ & $7216242688$ & $108413745057$ & $813420601856$ & $4055310777025$ & $15431698810368$ & $48461340225473$ & $131823966149632$
-		\end{tabular}
-	}}
-	\vspace{.3cm}
-	\caption{The numbers $b_{n-1}(\multiBraidArrangement)$ of bounded regions of~$\multiBraidArrangement$ for~$\ell,n \in [8]$.}
-	\label{table:boundedRegionsMultiBraidArrangement}
-\end{table}
+From the characteristic polynomial of~$\multiBraidArrangement$ and \cref{rem:characteristicPolynomial}, we obtain the $f$- and $b$-polynomials of~$\multiBraidArrangement$.
 
 \begin{theorem}
 \label{thm:regionsMultiBraidArrangement}
@@ -1414,7 +1489,7 @@ where~$\displaystyle F_{\ell,m} \eqdef \frac{1}{(\ell-1)m+1} \binom{\ell m}{m}$ 
 \end{theorem}
 
 \begin{proof}
-By \cref{rem:characteristicPolynomial}, we obtain from \cref{thm:topCoefficientMobiusPolynomialMultiBraidArrangement} that
+By \cref{rem:characteristicPolynomial}, we obtain from \cref{thm:characteristicPolynomialMultiBraidArrangement} that
 \begin{align*}
 f_{n-1}(\multiBraidArrangement) & = (-1)^{n-1} \charPol[\multiBraidArrangement][-1] = n! \, [z^n]  \, \exp \bigg( \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m} \bigg), \\
 % \text{and}\qquad
@@ -1478,8 +1553,7 @@ W_\ell'(z)
 & = \ell \, F_\ell(z)^{\ell-1} \Big( F_\ell'(z) \big( 1 - (\ell-1) \, z \, F_\ell(z)^\ell \big) - F_\ell(z)^{\ell+1} \Big) \exp \big( \! - G_\ell(z) - (\ell-1) \, z \, G_\ell'(z) \big),
 \end{align*}
 which vanishes by~\eqref{eq:diff}.
-
-\vincent{Can we make a bijective proof of the equality $U_\ell(z) = \frac{\partial}{\partial z} V_\ell(z)$?}
+%\vincent{Can we make a bijective proof of the equality $U_\ell(z) = \frac{\partial}{\partial z} V_\ell(z)$?}
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1696,13 +1770,10 @@ For $\b{z}$ a point of $P$, let us denote by $\rho_{\b{z}} P \eqdef 2\b{z}-P$ de
 \begin{figure}[p]
 	\centerline{
 		\includegraphics[scale=.3]{HypSimplex.png}
-		\includegraphics[scale=.35]{HypCube.png}
-        \ \
+		\includegraphics[scale=.35]{HypCube.png} \ \
 		\includegraphics[scale=.3]{HypPermuto.png}
 	}
-	\caption{The fundamental hyperplane arrangements of the $3$-dimensional simplex, cube, and permutahedron.
-    In blue are pictured the hyperplanes which are not perpendicular to actual edges of the polytope $P$, but only to edges of some intersection $P\cap \rho_z P$. 
-    Left and rightmost illustrations from~\cite[Fig.~12]{LA21}.}
+	\caption{The fundamental hyperplane arrangements of the $3$-dimensional simplex, cube, and permutahedron. In blue are pictured the hyperplanes which are not perpendicular to actual edges of the polytope $P$, but only to edges of some intersection $P\cap \rho_z P$. Left and rightmost illustrations from~\cite[Fig.~12]{LA21}.}
 	\label{fig:examplesHyperplanes}
 \end{figure}
 
@@ -1710,19 +1781,20 @@ A vector is \defn{generic with respect to~$P$} if it does not belong to the unio
 In particular, such a vector is not perpendicular to any edge of $P$, and we denote by~$\min_{\b{v}}(P)$ (\resp $\max_{\b{v}}(P)$) the unique vertex of~$P$ which minimizes (\resp maximizes) the scalar product with~$\b{v}$. 
 
 \begin{theorem}
-    \label{thm:diagonal}
-    For any vector $\b{v} \in \R^d$ in generic position with respect to $P$, the tight coherent section~$\triangle_{(P,\b{v})}$ of the projection $P \times P \to P, (\b{x}, \b{y}) \mapsto (\b{x}+\b{y})/2$ selected by the vector~$(-\b{v}, \b{v})$ defines a cellular diagonal of~$P$.
-    More precisely, $\triangle_{(P,\b{v})}$ is given by the explicit formula
-    \begin{align*}
+\label{thm:diagonal}
+For any vector $\b{v} \in \R^d$ in generic position with respect to $P$, the tight coherent section~$\triangle_{(P,\b{v})}$ of the projection $P \times P \to P, (\b{x}, \b{y}) \mapsto (\b{x}+\b{y})/2$ selected by the vector~$(-\b{v}, \b{v})$ defines a cellular diagonal of~$P$.
+More precisely, $\triangle_{(P,\b{v})}$ is given by the explicit formula
+\begin{align*}
     \begin{array}{rlcl}
         \triangle_{(P,\b{v})}\ : & P & \to & P\times P \\
         & \b{z} & \mapsto & \bigl( \min_{\b{v}}(P\cap \rho_{\b{z}} P), \, \max_{\b{v}}(P\cap \rho_{\b{z}} P) \bigr) \ .
     \end{array}
-    \end{align*}
+\end{align*}
 \end{theorem}
 
 \begin{definition}
-    A \defn{geometric diagonal} of a polytope~$P$ is a diagonal of the form~$\triangle_{(P,\b{v})}$ for some vector~$\b{v} \in \R^d$ in generic position with respect to~$P$.
+\label{def:geometricDiagonal}
+A \defn{geometric diagonal} of a polytope~$P$ is a diagonal of the form~$\triangle_{(P,\b{v})}$ for some vector~$\b{v} \in \R^d$ in generic position with respect to~$P$.
 \end{definition}
 
 A geometric diagonal~$\triangle_{(P,\b{v})}$ only depends on the region of~$\mathcal{H}_P$ containing~$\b{v}$, see~\cite[Prop.~1.23]{LA21}.
@@ -2132,7 +2204,15 @@ The \defn{$\LA$} and~\defn{$\SU$ orderings} are defined by
 \end{itemize}
 \end{definition}
 
-\vincent{Picture from page 1}
+Note that the $\LA$ and $\SU$ diagonals coincide up to dimension $2$ (but differ in dimension~$\ge 3$).
+They are illustrated in dimension~$2$ in \cref{fig:LUSAdiagonals}.
+Their faces for the $2$-dimensional permutahedron are illustrated on the first page of this article.  
+
+\begin{figure}
+	\centerline{\includegraphics[scale=1]{diagonalPermutahedron3}}
+	\caption{The $\LA$ (and~$SU$) diagonal of~$\Perm[3]$ with faces labeled by ordered $(2,3)$-partition forests. (See also \cref{fig:B23a} for the dual hyperplane arrangement.)}
+	\label{fig:LUSAdiagonals}
+\end{figure}
 
 \begin{definition}
 \label{def:LA-and-SU}
@@ -2148,7 +2228,7 @@ Both of these diagonals have opposites $(\LAD)^{\op}$ and $(\SUD)^{\op}$, obtain
 The faces of the $\LA$ and $\SU$ diagonals are described the following specialisation of \cref{thm:IJ-description}.
 
 \begin{theorem}
-\label{p:minimal}
+\label{thm:minimal}
 For a pair $(\sigma,\tau)$ of ordered partitions of $[n]$, we have
 \begin{eqnarray*}
 (\sigma,\tau)\notin \LAD 
@@ -2181,7 +2261,7 @@ where $\sigma$ is the $(p,q)$-shuffle defined by $\sigma(i) \eqdef a_i$ for $1 \
 Note that this map is a particular instance of the eponym map introduced in Point (5) of \cite[Prop. 2.3]{LA21}.
 
 \begin{definition}
-\label{def:operadic diagonal}
+\label{def:operadicDiagonal}
 A family of diagonals $\triangle \eqdef \{\triangle_n : \Perm \to \Perm \times \Perm\}_{n\geq 1}$ of the permutahedra is \defn{operadic} if for every face $A_1 | \ldots | A_k$ of the permutahedron $\Perm[|A_1|+\cdots + |A_k|]$, the map $\Theta$ induces a topological cellular isomorphism \[  \triangle(A_1) \times \ldots \times \triangle(A_k) \cong \triangle(A_1 | \ldots | A_k) \ . \]
 \end{definition}
 In other words, we require that the diagonal $\triangle$ commutes with the map $\Theta$, see \cite[Section 4.2]{LA21}.
@@ -2200,7 +2280,7 @@ More precisely, it is defined recursively by
 For example, $\std(\{5,9,10\},\{6,8,12\}) = (\{1,4,5\},\{2,3,6\})$.
 
 \begin{definition}
-\label{def:operadic-ordering}
+\label{def:operadicOrdering}
 An ordering $\Or$ of $\Un$ is \defn{operadic} if for every $\{I,J\} \in \Un$, the following two conditions hold
 \begin{enumerate}
 \item $\std(I,J) \in \Or$ implies~$(I,J) \in \Or$,
@@ -2349,7 +2429,7 @@ The result for the transpositions $t$ and the commutativity of the diagram are s
 First, we observe that the assignment $(I,J) \mapsto (r(J),r(I))$ defines a bijection between $\LA(n)$ and $\SU(n)$. 
 Indeed, we have $r(\min(I\cup J))=\max(I\cup J)$; since $I \cap J = \varnothing$, $r$ is well-defined, and it is a bijection with inverse $r$ itself.  
 Then, if $\sigma$ is an ordered partition such that $I$ dominates $J$ in $\sigma$ (\cref{def:domination}), it must be the case that $J$ dominates $I$ in $s\sigma$, and consequently $rJ$ dominates $rI$ in $rs\sigma$.
-As such, the domination characterisation of the diagonals (\cref{p:minimal}), tells us  $(\sigma,\tau) \in \LAD$ if and only if $(rs(\sigma),rs(\tau)) \in \SUD$.
+As such, the domination characterisation of the diagonals (\cref{thm:minimal}), tells us  $(\sigma,\tau) \in \LAD$ if and only if $(rs(\sigma),rs(\tau)) \in \SUD$.
 Finally, since both $t,r$ and $s$ preserve the poset structures, so does their composition, which finishes the proof.
 \end{proof}
 
@@ -2395,9 +2475,6 @@ According to \cref{prop:PFtoOPF1}, the order between $A$ and $B$ is determined b
 Thus, the order between $A$ and $B$ is determined by the sign of $\sum_{i \in I} v_i - \sum_{j \in J} v_j$, which according to the definition of $\LAD$ is positive whenever $\min(I\cup J) \in I$. 
 Thus, the pair $(\sigma,\tau) \in \LAD$ if and only if the mimum of every directed path between two consecutive blocks of $\sigma$ or $\tau$ is oriented from $\sigma$ to $\tau$. 
 \end{proof}
-
-The $\LA$ and $\SU$ diagonals coincide up to dimension $2$. \Guillaume{Shouldn't we say that before?}
-Their facets for the $2$-dimensional permutahedron are illustrated on the first page of this article.  
 
 \begin{example}
 \label{ex:ECbijection}
@@ -4136,7 +4213,7 @@ and as a result of it being an operadic diagonal, it extends to all other faces.
 By construction, the diagonal is cellular (\cref{def:cellularDiagonal}).
 This follows, as the image of the map is a union of dim $P$-faces of $P\times P$.
 Furthermore, for every vertex $v$ in $P$, not only is $(v,v) \in \maxsubdivpairsv$, but $\maxsubdivpairsv$ is also contractible to $(v,v)$.
-The diagonal is also operadic (\cref{def:operadic diagonal}), as the presence of vertices $v$ in a cell $e=A_1|...|A_k$ are conserved under the isomorphism $\Theta$. Consequently, \Kurt{Something like this... Or can cop out and just say operadic as a result of LA being operadic...}
+The diagonal is also operadic (\cref{def:operadicDiagonal}), as the presence of vertices $v$ in a cell $e=A_1|...|A_k$ are conserved under the isomorphism $\Theta$. Consequently, \Kurt{Something like this... Or can cop out and just say operadic as a result of LA being operadic...}
 \begin{align*}
     \triangle(A_1|...|A_k) = \bigcup_{v \in V_{A_1|...|A_k}} \maxsubdivpairsev \cong \bigcup_{v \in V_{A_1\times ... \times A_k}} \maxsubdivpairsev
     = \triangle(A_1)\times...\times \triangle(A_k)
@@ -4355,6 +4432,7 @@ This yields an alternate cubical formula for the $\LA$ diagonal.
 \clearpage
 
 \part{Higher algebraic structures}
+\label{part:higherAlgebraicStructures}
 
 %Commented to compile faster.
 
