@@ -2700,18 +2700,17 @@ while the \defn{left $m$-shift} moves it $m$ blocks to the left
 \end{definition}
 
 \begin{definition}
-    \label{def:movable-subsets}
-    Let $(\sigma,\tau) = (\sigma_1|\dots|\sigma_k,\tau_1|\dots|\tau_l)$ be a pair of ordered partitions.
-    For an integer~$m\geq 1$, a non-empty subset $M_i \subsetneq \sigma_i$ (resp.~$M_{i}\subsetneq \tau_{i}$) is \defn{$m$-block movable} if 
-    \begin{enumerate}
-        \item $\min \sigma_i \notin M_i$ (resp.~$\min \tau_{i} \notin M_i$), and
-        \item $\min M_i> \max \sigma_{i+m}$ (resp.~$\min M_{i}> \max \tau_{i-m}$).
-    \end{enumerate}
-    It is \defn{$m$-path movable} if $\min M_i> \max \sigma_{i,i+m}$ (resp.~$\min M_{i}> \max \tau_{i,i-m}$).
+\label{def:movable-subsets}
+Let $\sigma$ denote either one of the two ordered partitions of $[n]$ in a $(2,n)$-tree, and let $M_i \subsetneq \sigma_i$.
+The right $m$-shift $R_{M_i}$ (resp. the left $m$-shift $L_{M_{i}}$) is 
+\begin{enumerate}
+    \item \defn{block-admissible} if $\min \sigma_i \notin M_i$ and $\min M_i> \max \sigma_{i+m}$ (resp.~$\min M_{i}> \max \sigma_{i-m}$),
+    \item \defn{path-admissible} if $\min M_i> \max \sigma_{i,i+m}$ (resp.~$\min M_{i}> \max \sigma_{i,i-m}$).
+\end{enumerate}
 \end{definition}
 
 \begin{example}
-Performing the $1$-shifts $R_7$ and $L_{5,6}$ on $1$-movable subsets (they are both block and path-movable) of the strong complementary pair~$(\sigma,\tau)$ of \cref{ex:strong-complementary}, one obtains the pair~$R_{7}(\sigma) \times L_{56}(\tau)$, as illustrated below.
+Performing the $1$-shifts $R_7$ and $L_{56}$ (they are both block and path admissible) of the strong complementary pair~$(\sigma,\tau)$ of \cref{ex:strong-complementary}, one obtains the pair~$R_{7}(\sigma) \times L_{56}(\tau)$, as illustrated below.
 \begin{center}
 \begin{tikzpicture}[scale=.7]  
     \node (p) at (0, 0) {$13|247|5|6 \times 3|17|4|256$};
@@ -2761,22 +2760,21 @@ Performing the $1$-shifts $R_7$ and $L_{5,6}$ on $1$-movable subsets (they are b
 \end{center}
 \end{example}
 
-We shall concentrate on two distinct families of shifts: $1$-shifts of $1$-block movable subsets of various sizes, and $m$-shifts of $m$-path movable singletons, for various $m\geq 1$,
+We shall concentrate on two distinct families of shifts: block-admissible $1$-shifts of subsets of various sizes, and path-admissible $m$-shifts of singletons, for various $m\geq 1$,
 and show that specific sequences generate the same diagonal. 
 
 \begin{definition}
 \label{def:admissible-shift-sequences}
 Let $(\sigma,\tau)$ be a pair of ordered partitions. 
-For~$p\geq 1$, a sequence of right shifts~$\textbf{M} = (M_{i_1},\dots,M_{i_p}) \in [n]^{p}$ is \defn{admissible of original type} if 
+For~$p\geq 1$, a sequence of right shifts~$\textbf{M} = (M_{i_1},\dots,M_{i_p}) \in [n]^{p}$ is 
 \begin{enumerate}
-    \item we have $1\leq i_1 < i_2 < \dots < i_p \leq k-1$, and
-    \item each $M_{i_j}$ is a $1$-block movable subset of $R_{M_{i_j-1}}\dots R_{M_{i_1}}(\sigma)_{i_j}$.
+    \item \defn{block-admissible} if we have $1\leq i_1 < i_2 < \dots < i_p \leq k-1$, and each $R_{M_{i_j}}$ is a block-admissible $1$-shift.
+    \item \defn{path-admissible} if each $R_{M_{i_j}}$ is a path-admissible $m$-shift, for some $m\geq 1$.
 \end{enumerate}
-A sequence of right shifts is \defn{admissible of $m$-path type} if each $M_{i_j}$ is a $m$-path movable element of $R_{M_{i_j-1}}\dots R_{M_{i_1}}(\sigma)_{i_j}$, for some $m\geq 1$.
-\end{definition}
-
 In both cases, the resulting ordered partition is denoted by $R_\mathbf{M}(\sigma) \eqdef R_{M_{i_p}}\dots R_{M_{i_1}}(\sigma)$.
 Admissible sequences of left shifts are defined similarly and are denoted by $L_\mathbf{N}(\tau)$.
+\end{definition}
+
 By convention, we declare the empty sequence of shift operators to be admissible, and to act by the identity, \ie we have $R_{\mathbf{\varnothing}}(\sigma)  \eqdef  \sigma$ and $L_{\mathbf{\varnothing}} (\tau) \eqdef  \tau$.
 
 \begin{definition}
@@ -2785,7 +2783,7 @@ The facets of the \defn{original $\SU$ diagonal} and the \defn{$m$-shift $\SU$ d
     \begin{align*}
         \SUD([n]) = \bigcup_{(\sigma,\tau)} \bigcup_{\mathbf{M}, \mathbf{N}} R_\mathbf{M}(\sigma)\times L_\mathbf{N}(\tau)
     \end{align*}
-where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and over all admissible sequences of shifts $\textbf{M},\textbf{N}$ of the corresponding type.
+where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and over respectively all block and path-admissible sequences of shifts $\textbf{M},\textbf{N}$.
 \end{definition}
 
 \begin{remark}
