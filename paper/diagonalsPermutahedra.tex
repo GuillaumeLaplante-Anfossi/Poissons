@@ -4424,32 +4424,33 @@ P_t \ .
 \end{tikzcd}
 }}  \]
 Here, the map $\tr$ is the \emph{unique} topological cellular map which commutes with the diagonal~$\LAD$ \cite[Prop.~7]{masudaDiagonalAssociahedra2021}. 
-This partial composition $\circ_i^\LA$ is an isomorphism (in the category $\PolySub$ \cite[Def.~4.13]{LA21}) between the product $P_{t'}\times P_{t''}$ and the facet $t' \circ_i^\LA t''$ of~$P_t$.
+This partial composition $\circ_i^\LA$ is an isomorphism in the category $\PolySub$ \cite[Def.~4.13]{LA21} between the product $P_{t'}\times P_{t''}$ and the facet $t' \circ_i^\LA t''$ of~$P_t$.
 Using the $\SU$ diagonal $\SUD$, one can define similarly a topological operad structure via the same formula, but with a different transition map $\tr$, which commutes with $\SUD$.
 
 Recall that a face $F$ of $P_t$ is represented by a nested tree $(t,\mathcal{N})$, which can be written uniquely as a sequence of substitution of trivially nested trees 
-$(t,\mathcal{N})=t_1\circ_{i_1} t_2 \circ_{i_2} t_3 \cdots \circ_{i_k} t_{k+1}$.
-Note that we do not need to specify a parenthesization of this sequence of $\circ_i$ operations since these form an operad \cite[Def.~4.7]{LA21}.
+$(t,\mathcal{N})=((\cdots((t_1\circ_{i_1} t_2) \circ_{i_2} t_3) \cdots )\circ_{i_k} t_{k+1})$.
+Here we use the increasing order on nestings \cite[Def. 4.5]{LA21}, and observe that any choice of sequence of $\circ_i$ operations yield the same nested, since these form an operad \cite[Def.~4.7]{LA21}.
 At the geometric level, we have an isomorphism
-\[\circ_{i_1}^\LA \circ_{i_2}^\LA \cdots \circ_{i_k}^\LA: P_{t_1} \times P_{t_2} \times \cdots \times P_{t_{k+1}} \overset{\cong}{\longrightarrow} F \subset P_t \]
+\[((\cdots((\circ_{i_1}^\LA) \circ_{i_2}^\LA) \cdots) \circ_{i_k}^\LA): P_{t_1} \times P_{t_2} \times \cdots \times P_{t_{k+1}} \overset{\cong}{\longrightarrow} F \subset P_t \]
 between a uniquely determined product of lower dimensional operahedra, and the face $F=(t,\mathcal{N})$ of~$P_t$.
-Note that we can omit the parentheses in the sequence of $\circ_i^\LA$ operations since they define an operad structure \cite[Thm.~4.18]{LA21}.
+Note that any choice of sequence of $\circ_i^\LA$ operations yield the same isomorphism, since they form an operad \cite[Thm.~4.18]{LA21}.
 The same holds when taking the~$\circ_i^\SU$ operations instead of the $\circ_i^\LA$. 
 
-\begin{definition}
-    For any operahedron $P_t$, the map $\Psi_t : P_t \to P_t$ is defined 
+\begin{construction}
+    \label{const:top-iso}
+    For any operahedron $P_t$, we define a map $\Psi_t : P_t \to P_t$ 
     \begin{itemize}
         \item on the interior of the top face by the identity $\id : \mathring P_t \to \mathring P_t$, and 
-        \item on the interior of the face $F=t_1 \circ_{i_1} t_2 \circ_{i_2} \cdots \circ_{i_k} t_{k+1}$ of~$P_t$ by the composition of the isomorphisms
+        \item on the interior of the face $F=((\cdots((t_1 \circ_{i_1} t_2) \circ_{i_2} t_3) \cdots )\circ_{i_k} t_{k+1})$ of~$P_t$ by the composition of the two isomorphisms
         \[ 
-        (\circ_{i_1}^\SU \circ_{i_2}^\SU \cdots \circ_{i_k}^\SU) (\circ_{i_1}^\LA \circ_{i_2}^\LA \cdots \circ_{i_k}^\LA)^{-1}: F \to F \ . \] 
+        ((\cdots ((\circ_{i_1}^\SU) \circ_{i_2}^\SU) \cdots) \circ_{i_k}^\SU) \ ((\cdots((\circ_{i_1}^\LA) \circ_{i_2}^\LA) \cdots) \circ_{i_k}^\LA)^{-1}: F \to F \ . \] 
     \end{itemize}
-\end{definition}
+\end{construction}
 
-\begin{proposition}
+\begin{theorem}
     \label{thm:top-iso}
-    The map $\Psi \eqdef \{\Psi_t\}$ is an isomorphism of topological cellular symmetric colored operad in the category $\PolySub$.
-\end{proposition}
+    The map $\Psi \eqdef \{\Psi_t\}$ is an isomorphism of topological cellular symmetric colored operad between the $\LA$ and $\SU$ operad structures on the operahedra, in the category $\PolySub$.
+\end{theorem}
 
 \begin{proof}
     By definition, we have that $\Psi$ is an isomorphism in the category $\PolySub$. 
@@ -4466,37 +4467,29 @@ The same holds when taking the~$\circ_i^\SU$ operations instead of the $\circ_i^
     & P_{t}\ .
     \end{tikzcd}
     }}\]
-    For two interior points $(x,y) \in \mathring P_{t'}\times \mathring P_{t''}$, the diagram clearly commutes by definition, since $\Psi_{t'}$ $\Psi_{t''}$ are the identity in that case. 
-    If $x$ is in a face $F=t_1 \circ_{i_1} t_2 \circ_{i_2} \cdots \circ_{i_k} t_{k+1}$ of the boundary of $P_{t'}$, then the lower composite is equal to $\circ_i^\SU (\circ_{i_1}^\SU \circ_{i_2}^\SU \cdots \circ_{i_k}^\SU \times \id)(\circ_{i_1}^\LA \circ_{i_2}^\LA \cdots \circ_{i_k}^\LA \times \id)^{-1}$, and so is the upper composite since $\Psi_t$ starts with the inverse $(\circ_i^\LA)^{-1}$ and the decomposition of $F$ unto $P_{t_1} \times \cdots \times P_{t_{k+1}} \times P_{t''}$ is unique.
+    For two interior points $(x,y) \in \mathring P_{t'}\times \mathring P_{t''}$, the diagram clearly commutes by definition, since $\Psi_{t'}$ and~$\Psi_{t''}$ are the identity in that case. 
+    If $x$ is in a face $F=((\cdots((t_1 \circ_{i_1} t_2) \circ_{i_2} t_3) \cdots )\circ_{i_k} t_{k+1})$ of the boundary of~$P_{t'}$, then the lower composite is equal to $\circ_i^\SU (\circ_{i_1}^\SU \circ_{i_2}^\SU \cdots \circ_{i_k}^\SU \times \id)(\circ_{i_1}^\LA \circ_{i_2}^\LA \cdots \circ_{i_k}^\LA \times \id)^{-1}$, and so is the upper composite since $\Psi_t$ starts with the inverse $(\circ_i^\LA)^{-1}$ and the decomposition of~$F$ into $P_{t_1} \times \cdots \times P_{t_{k+1}} \times P_{t''}$ is unique.
     The case when $y$ is in the boundary of $P_{t''}$ is similar.  
     Finally, the compatibility of $\Psi$ with units and the symmetric group actions are straightfoward to check, see \cite[Def.~4.17 \& Thm.~4.18]{LA21}.
 \end{proof}
 
+\begin{remark}
+    \cref{const:top-iso} and \cref{thm:top-iso} do not depend on a specific choice of operadic diagonals.
+    In this case, however, we do not loose any generality by using specifically the $\LA$ and $\SU$ operad structures. 
+\end{remark}
+
 \begin{example}
 Note that $\Psi$ is \emph{not} a morphism of ``Hopf" operads, i.e. it does not commute with the respective diagonals $\LAD$ and $\SUD$. 
-\end{example}
-
-\begin{corollary}
-    The four topological operad structures on the operahedra are all isomorphic. 
-\end{corollary}
-
-\begin{proof}
-    It is clear that the proof of \cref{thm:top-iso} does not depend on the specific choices of diagonals $\LAD$ and $\SUD$, it can therefore be applied to any pair of diagonals among $\LA, \LA^\op, \SU$ and $\SU^\op$. 
-\end{proof}
-
-\Guillaume{Find an iso which commutes??}
-
-\begin{example}
-    This isomorphism is a highly non-trivial map. 
-    For instance, it is not the one you would expect...  [compare with the general symmetries]
+Consider the two square faces $F \eqdef 12|34$ and $G \eqdef 24|13$ of the $3$-dimensional permutahedron $\Perm[4]$, and choose a point $\b z \in (\mathring F + \mathring G)/2$.
+Then, $\LAD(z)$ and $\SUD(z)$ are two different pair of points on the $1$-skeleton of $\Perm[4]$. 
+Since $\circ_i^\LA$ and $\circ_i^\SU$ are the identity both on the interior of $\Perm[4]$ (by \cref{const:top-iso}) and on the $1$-skeleton of $\Perm[4]$ (see the proof of \cite[Prop. 7]{masudaDiagonalAssociahedra2021}), we directly obtain that $\LAD(z)=(\Psi \times \Psi)\LAD(z) \neq \SUD \Psi(z)=\SUD(z)$. 
 \end{example}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Tensor products of homotopy operads and morphims}
 
-Even though the diagonals of the permutahedra are isomorphic, and the operad structures that they induce are as well, the tensor products of homotopy operads and $\Ainf$-morphisms that they define are \emph{not} isomorphic.
-The purpose of this short section is to exhibit counterexamples.
+Even though the diagonals of the permutahedra are isomorphic, and the operad structures that they induce are as well in the category $\PolySub$, the tensor products of homotopy operads that they define are \emph{not} strictly isomorphic.
 
 \begin{example}
     We have that...
@@ -4505,12 +4498,17 @@ The purpose of this short section is to exhibit counterexamples.
 \Guillaume{Donner une ref pour les infini-morphismes}
 
 \begin{theorem}
-    For any pair of homotopy operads $\mathcal{P},\mathcal{Q}$, the two tensor products~$\mathcal{P} \otimes_\LA \mathcal{Q}$ and~$\mathcal{P} \otimes_\SU \mathcal{Q}$ defined by the $\LA$ and $\SU$ diagonals are not isomorphic in the category of homotopy operads with their $\infty$-morphisms.
+    For any pair of homotopy operads $\mathcal{P},\mathcal{Q}$, the two tensor products~$\mathcal{P} \otimes_\LA \mathcal{Q}$ and~$\mathcal{P} \otimes_\SU \mathcal{Q}$ defined by the $\LA$ and $\SU$ diagonals are not isomorphic in the category of homotopy operads and strict morphisms.
+    However, the morphisms of operads $\LAD$ and $\SUD$ are homotopic, which implies that the two tensor products are isomorphic in the category of homotopy operads and their $\infty$-morphisms.
 \end{theorem}
 
 \begin{proof}
 Il faut voir qu'il ne peut pas exister un infini-isomorphisme entre les deux?? En Effet! Si c'etait un infini-iso, ce serait l'identite en degre zero
 \end{proof}
+
+\begin{remark}
+    None of the two diagonals $\LAD$ or $\SUD$ is cocommutative, or coassociative, as is the special case of $\Ainf$-algebras. 
+\end{remark}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
