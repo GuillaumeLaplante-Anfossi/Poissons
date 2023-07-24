@@ -255,7 +255,7 @@ This yields in particular nice formulas for the number of regions and bounded re
 By duality, the specialization of these results to the case $\ell = 2$ gives the enumeration of any geometric diagonal of the permutahedron.
 
 The second part of the paper focusses on more advanced combinatorial properties of the diagonals of the permutahedra.
-We prove that there are only two operadic families of diagonals on the permutahedra, and we give a bijection of their facets with planar bipartite trees and characterize their vertices as pattern-avoiding pairs of permutations.
+We prove that there are only two operadic families of diagonals on the permutahedra, and we give a bijection between their facets and planar bipartite trees and characterize their vertices as pattern-avoiding pairs of permutations.
 We then show that the Saneblidze--Umble diagonal can be recovered by a choice of vectors in the fundamental hyperplane arrangements of the permutahedra, resolving a conjecture of the third-named author.  
 \end{abstract}
 
@@ -300,16 +300,16 @@ Permutades
 
 %%%%%%%%%%%%%%%
 
-\subsection*{\cref{part:multiBraidArrangements}. Combinatorics of multiple braid arrangement}
+\subsection*{\cref{part:multiBraidArrangements}. Combinatorics of multiple braid arrangements}
 
-As the dual of the permutahedron~$\Perm$ is the classical braid arrangement~$\braidArrangement$, the dual of a diagonal of the permutahedron~$\Perm$ is an hyperplane arrangement made of $2$ generically translated copies of the braid arrangement~$\braidArrangement$.
+As the dual of the permutahedron~$\Perm$ is the classical braid arrangement~$\braidArrangement$, the dual of a diagonal of the permutahedron~$\Perm$ is an hyperplane arrangement~$\multiBraidArrangement[n][2]$ made of $2$ generically translated copies of the braid arrangement~$\braidArrangement$.
 In the first part of the paper, we therefore study the combinatorics of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ defined as the union of $\ell$ generically translated copies of the braid arrangement~$\braidArrangement$ (\cref{def:multiBraidArrangement}).
 We are mainly interested in the~$\ell = 2$ case for the enumeration of the faces of the diagonals of the permutahedron~$\Perm$, but the general $\ell$ case is not much harder and should algebraically correspond to the enumeration of the faces of cellular $\ell$-gonals of the permutahedron~$\Perm$.
 %We observe that the flats of~$\multiBraidArrangement$ are in bijection with forests of partitions and that the faces of~$\multiBraidArrangement$ are in bijection with certain forests of ordered partitions.
 
 \cref{sec:flatPoset} is dedicated to the combinatorial description of the flat poset of~$\multiBraidArrangement$ and its enumerative consequences.
-We first observe that the flats of~$\multiBraidArrangement$ are in bijection with $(\ell,n)$-partition forests, defined as $\ell$-tuples of unordered partitions whose intersection hypergraph is a hyperforest (\cref{def:partitionForests}).
-As the $(\ell,n)$-partition forests are independent of the translations of the different copies (as long as these translations are generic), we obtain by Zaslavsky's theory that the number of $k$-dimensional faces and of bounded faces of~$\multiBraidArrangement$ only depends on~$k$, $\ell$, and~$n$ (and not on the specific translation vectors choosen to construct~$\multiBraidArrangement$).
+We first observe that the flats of~$\multiBraidArrangement$ are in bijection with $(\ell,n)$-partition forests, defined as $\ell$-tuples of (unordered) partitions of~$[n]$ whose intersection hypergraph is a hyperforest (\cref{def:partitionForests}).
+As this description is independent of the translations of the different copies (as long as these translations are generic), we obtain by Zaslavsky's theory that the number of \mbox{$k$-dimensional} faces and of bounded faces of~$\multiBraidArrangement$ only depends on~$k$, $\ell$, and~$n$. % (and not on the specific translation vectors choosen to construct~$\multiBraidArrangement$).
 In fact, we obtain the following formula for the M\"obius polynomial of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ in terms of pairs of $(\ell,n)$-partition forests.
 
 \begin{theorem*}[\cref{thm:MobiusPolynomialMultiBraidArrangement}]
@@ -366,9 +366,9 @@ where~$\displaystyle F_{\ell,m} \eqdef \frac{1}{(\ell-1)m+1} \binom{\ell m}{m}$ 
 \end{theorem*}
 
 Finally, \cref{sec:facePoset} is dedicated to the combinatorial description of the face poset of~$\multiBraidArrangement$.
-We observe that the faces of~$\multiBraidArrangement$ are in bijection with certain ordered $(\ell,n)$-partition forests, defined as $\ell$-tuples of ordered partitions whose underlying unordered partitions form an (unordered) $(\ell,n)$-partition forest.
+We observe that the faces of~$\multiBraidArrangement$ are in bijection with certain ordered $(\ell,n)$-partition forests, defined as $\ell$-tuples of ordered partitions of~$[n]$ whose underlying unordered partitions form an (unordered) $(\ell,n)$-partition forest (\cref{def:orderedPartitionForest}).
 Here, which ordered $(\ell,n)$-partition forests actually appear as faces of~$\multiBraidArrangement$ depends on the choice of the translations of the different copies.
-We provide a combinatorial description of the possible orderings of a $(\ell,n)$-partition forest compatible with some given translations in terms of certain paths in the forest, and a combinatorial characterization of the ordered partition forests which appear for some given translations in terms of the circuits of a certain oriented graph.
+We provide a combinatorial description of the possible orderings of a $(\ell,n)$-partition forest compatible with some given translations in terms of certain paths in the forest (\cref{prop:PFtoOPF1,prop:PFtoOPF2}), and a combinatorial characterization of the ordered partition forests which appear for some given translations in terms of the circuits of a certain oriented graph (\cref{prop:characterizationOPFs}).
 
 %%%%%%%%%%%%%%%
 
@@ -1572,6 +1572,7 @@ This section highly depends on the choice of the translation matrix~$\b{a}$.
 We now introduce the combinatorial objects that will be used to encode the faces of the $\b{a}$-braid arrangement~$\multiBraidArrangement(\b{a})$.
 
 \begin{definition}
+\label{def:orderedPartitionForest}
 An \defn{ordered $(\ell,n)$-partition forest} (\resp \defn{tree}) is an $\ell$-tuple~$\orient{\b{F}} \eqdef (\orient{F_1}, \dots, \orient{F_\ell})$ of ordered set partitions of~$[n]$ such that the corresponding $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of unordered set partitions of~$[n]$ forms a $(\ell,n)$-partition forest (\resp tree)
 The \defn{ordered $(\ell,n)$-partition forest poset} is the poset~$\orientedForestPoset$ on ordered $(\ell,n)$-partition forests ordered by componentwise refinement.
 In other words, $\orientedForestPoset$ is the subposet of the $\ell$\ordinal{} Cartesian power of the ordered partition poset~$\orientedPartitionPoset$ induced by ordered $(\ell,n)$-partition forests.
@@ -1689,6 +1690,7 @@ For an ordered $(\ell,n)$-partition forest~$\orient{\b{F}} \eqdef (\orient{F_1},
 \end{definition}
 
 \begin{proposition}
+\label{prop:characterizationOPFs}
 An ordered $(\ell,n)$-partition forest~$\orient{\b{F}}$ belongs to the upper set~$\orientedForestPoset(\b{a})$ if and only if $\sum_{\alpha \in \gamma} A_{i(\alpha), s(\alpha), t(\alpha)} \ge 0$ for any (simple) oriented cycle~$\gamma$ in~$D_{\orient{\b{F}}}$, where each arc~$\alpha \in \gamma$ has label~$i(\alpha)$, source~$s(\alpha)$, and target~$t(\alpha)$.
 \end{proposition}
 
