@@ -2341,16 +2341,12 @@ As we have already remarked in \cref{subsec:LASUdiagonal}, in the case of the pe
     Moreover, they induce poset isomorphisms at the level of the face lattices. 
 \end{theorem}
 
-\begin{proof} \Guillaume{Could be rephrased in terms of domination...}
+\begin{proof}
 The result for the transpositions $t$ and the commutativity of the diagram are straightforward, so we prove that $rs\times rs$ is a cellular isomorphism respecting the poset structure. 
 First, we observe that the assignment $(I,J) \mapsto (r(J),r(I))$ defines a bijection between $\LA(n)$ and $\SU(n)$. 
 Indeed, we have $r(\min(I\cup J))=\max(I\cup J)$; since $I \cap J = \varnothing$, $r$ is well-defined, and it is a bijection with inverse $r$ itself.  
-Denoting by $N^c$ the complement of a subset $N \subset [n]$, we have that $|N \cap I| > |N\cap J| \iff |N^c \cap I|< |N^c \cap J|$.
-Combining this with the fact that $|N \cap I| > |N\cap J| \iff |r(N) \cap r(I)| > |r(N) \cap r(J)|$, we obtain that 
-\begin{eqnarray*}
-    |N \cap I| > |N\cap J| \iff |r(N)^c \cap r(I)| < |r(N)^c \cap r(J)| \ .
-\end{eqnarray*}
-Similarly, we have $|N' \cap I| < |N'\cap J| \iff |r(N')^c \cap r(I)| > |r(N')^c \cap r(J)|$, so that $(\sigma,\tau) \in \LAD$ if and only if $(rs(\sigma),rs(\tau)) \in \SUD$. 
+Then, if $\sigma$ is an ordered partition such that $I$ dominates $J$ in $\sigma$ (\cref{def:domination}), it must be the case that $J$ dominates $I$ in $s\sigma$, and consequently $rJ$ dominates $rI$ in $rs\sigma$.
+As such, the domination characterisation of the diagonals (\cref{p:minimal}), tells us  $(\sigma,\tau) \in \LAD$ if and only if $(rs(\sigma),rs(\tau)) \in \SUD$.
 Finally, since both $t,r$ and $s$ preserve the poset structures, so does their composition, which finishes the proof.
 \end{proof}
 
@@ -2546,10 +2542,22 @@ A pair of permutations of $[n]$ is in the $\LA$ (\resp $\SU$) diagonal if and on
 where $I=\{i_1,\dots,i_k\}$, $J=\{j_1,\dots,j_k\}$ and $i_1=1$ (\resp $j_k=2k$).
 \end{theorem}
 
-\begin{example}
-There are $(k-1)!k!$ avoided patterns.
-For $k=1,2$ they are given by $(21,12)$, $(2134,4213)$ and $(3124,4312)$ for the $\LA$ diagonal, and by $(21,12)$, $(1243,2431)$ and $(1342, 3421)$ for the $\SU$ diagonal.
-\vincent{Wrong. Kurt will fix it.}
+\begin{example}\label{exm:intervalsWeakOrderNotDiagonals}
+For each $k$, there are $\binom{2k-1}{k-1,k}(k-1)!k!$ avoided patterns.
+For $k=1$ we find that both diagonals avoid $(21,12)$, so consequently the vertices are a subset of intervals the weak order.
+For $k=2$, the $\LA$ diagonal avoid the patterns
+\begin{align*}
+    (4132,2413), (3142,2314),(2143,3214), (4123,3412),
+    (2134,4213), (3124,4312)
+\end{align*}
+and the $\SU$ diagonal avoids the patterns,
+\begin{align*}
+    (1243,2431),(1342,3421)
+    (2143,1432),(2341,3412),
+    (3241,2413),(3142,1423),
+\end{align*}
+As such, for $n\geq4$, the $\LA$ and $\SU$ are strict subsets of intervals of the weak order.
+\Kurt{Picture+Check patterns}
 \end{example}
 
 \begin{proof}
@@ -2587,12 +2595,6 @@ Having in hand statements (a) and (b) above, we can inductively generate the ent
 This inductive process fully generates the intersection of $I\cup J$ with $\sigma$, and places all elements of the intersection with $\tau$ except $i_1$, with a final known expression of the form $i_2 j_1 i_3 j_2 \cdots i_k j_{k-1} w j_k w''$.
 However, as $j_k$ must be dominated by an element of $I$, this forces $w = i_1$ and $w'' =\varnothing$, completing the proof.
 \end{proof}
-
-\begin{example}
-\label{exm:intervalsWeakOrderNotDiagonals}
-These are a subset of intervals of the weak order...
-\Guillaume{Give the lists in low dimensions?}
-\end{example}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
