@@ -145,9 +145,9 @@
 \newcommandx{\charPol}[2][1 = \arrangement, 2 = y]{\b{\chi}_{#1}(#2)} % characteristic polynomial
 \newcommandx{\mobPol}[3][1 = \arrangement, 2 = x, 3 = y]{\b{\mu}_{#1}(#2, #3)} % Mobius polynomial
 \newcommandx{\weirdPol}[2][1 = \arrangement, 2 = x]{\b{\pi}_{#1}(#2)} % weird polynomial
-\newcommandx{\partitionPoset}[1][1 = n]{\mathsf{Pa}_{#1}} % partition poset
-\newcommandx{\forestPoset}[2][1 = n, 2 = \ell]{\mathsf{Fo}_{#1}^{#2}} % partition forest poset
-\newcommandx{\rainbowForests}[2][1 = n, 2 = \ell]{\mathsf{RF}_{#1}^{#2}} % rainbow forests
+\newcommandx{\partitionPoset}[1][1 = n]{\b{\Pi}_{#1}} % partition poset
+\newcommandx{\forestPoset}[2][1 = n, 2 = \ell]{\b{\Phi}_{#1}^{#2}} % partition forest poset
+\newcommandx{\rainbowForests}[2][1 = n, 2 = \ell]{\b{\Psi}_{#1}^{#2}} % rainbow forests
 \newcommandx{\rainbowTrees}[2][1 = n, 2 = \ell]{\mathsf{RT}_{#1}^{#2}} % rainbow trees
 \newcommandx{\Perm}[1][1 = n]{\mathsf{Perm}(#1)} % permutahedron
 \makeatletter
@@ -251,7 +251,7 @@ We provide a a systematic enumerative and combinatorial study of geometric cellu
 
 The first part of the paper is dedicated to the combinatorics of certain hyperplane arrangements obtained as the union of $\ell$ generically translated copies of the classical braid arrangement.
 Based on Zaslavsky's theory, we derive enumerative results on the faces of these arrangements involving combinatorial objects named partition forests and rainbow forests.
-This yields in particular nice formulas for the number of regions and bounded regions of these arrangements in terms of exponentials of Fuss-Catalan numbers.
+This yields in particular nice formulas for the number of regions and bounded regions of these arrangements in terms of exponentials of generating functions of Fuss-Catalan numbers.
 By duality, the specialization of these results to the case $\ell = 2$ gives the enumeration of any geometric diagonal of the permutahedron.
 
 The second part of the paper focusses on more advanced combinatorial properties of the diagonals of the permutahedra.
@@ -262,6 +262,8 @@ We then show that the Saneblidze--Umble diagonal can be recovered by a choice of
 \vspace*{-.5cm}
 \maketitle
 
+%\enlargethispage{2cm}
+\vspace*{-.2cm}
 \centerline{\includegraphics[scale=.85]{diagonalPermutahedron3}}
 
 \newpage
@@ -593,7 +595,6 @@ b_d(\arrangement) = (-1)^d \, \charPol[\arrangement][1].
 \label{subsec:braidArrangement}
 
 We now briefly recall the classical combinatorics of the braid arrangement.
-\vincent{add refs?}
 
 %\begin{figure}
 %	\centerline{\includegraphics[scale=.9]{figures/intersectionPosetBraidArrangement3Full}}
@@ -602,8 +603,8 @@ We now briefly recall the classical combinatorics of the braid arrangement.
 %\end{figure}
 
 \begin{figure}
-%	\centerline{\includegraphics[scale=.9]{figures/facePosetBraidArrangement3}}
-	\caption{The face poset~$\facePoset[{\braidArrangement[3]}]$ of the braid arrangement $\braidArrangement[3]$, where faces are represented as cones (left) or as ordered set partitions of~$[3]$ (right).}
+	\centerline{\includegraphics[scale=.6]{figures/facePosetBraidArrangement3}}
+	\caption{The face poset~$\facePoset[{\braidArrangement[3]}]$ of the braid arrangement $\braidArrangement[3]$ (left), where faces are represented as cones (middle) or as ordered set partitions of~$[3]$ (right).}
 	\label{fig:facePosetBraidArrangement3}
 \end{figure}
 
@@ -649,7 +650,7 @@ The braid arrangement~$\braidArrangement$ has a $k$-dimensional~flat
 \Psi(\pi) \eqdef \set{\b{x} \in \R^n}{x_s = x_t \text{ for all  $s, t$ which belong to the same part of~$\pi$}}
 \]
 for each (unordered) set partition~$\pi$ of~$[n]$ into $k+1$ parts.
-The flat poset~$\flatPoset[\braidArrangement]$ is thus (isomorphic to) the refinement poset~$\partitionPoset$ \BDO{$\Pi_n$ ?} on set partitions of~$[n]$ (where a partition~$\pi$ is smaller than a partition~$\omega$ if each part of~$\pi$ is contained in a part of~$\omega$).
+The flat poset~$\flatPoset[\braidArrangement]$ is thus (isomorphic to) the refinement poset~$\partitionPoset$ on set partitions of~$[n]$ (where a partition~$\pi$ is smaller than a partition~$\omega$ if each part of~$\pi$ is contained in a part of~$\omega$).
 For instance, \cref{fig:intersectionPosetBraidArrangement3,fig:intersectionPosetBraidArrangement4} illustrate the flat posets of the braid arrangements~$\braidArrangement[3]$ and~$\braidArrangement[4]$.
 The M\"obius function of~$\partitionPoset$ is given by
 \[
