@@ -286,13 +286,13 @@ Second, we obtain some (higher) algebraic results via discrete geometry: the alg
 \subsection*{Motivation}
 
 The purpose of this article is to study cellular diagonals on the permutahedra, which are cellular maps homotopic to the usual thin diagonal $\triangle : P \to P \times P, x \mapsto (x,x)$ (\cref{def:thinDiagonal,def:cellularDiagonal,def:geometricDiagonal}).
-Such diagonals, and in particular coherent families that we call \emph{operadic} diagonals (\cref{def:operadicDiagonal}), are of interest in algebraic geometry and topology: via the theory of Fulton--Sturmfels \cite{fultonIntersectionTheoryToric1997a}, they give explicit formulas for the cup product on Losev--Manin toric varieties~\cite{losevNewModuliSpaces2000}; they define universal tensor products of homotopy operads, and in particular universal tensor products of homotopy associative permutads (shuffle algebras) \cite{LA21}; they allow for the definition of a coproduct on permutahedral sets, which are used to models of two-fold loop spaces \cite{SaneblidzeUmble04}; and their study is moreover needed to pursue the work of Baues aiming at defining explicit combinatorial models for higher iterated loop spaces \cite{bauesGeometryLoopSpaces1980}. 
-Moreover, using the canonical projections to the multiplihedra and the associahedra, they define universal tensor product of $\Ainf$-algebras and $\Ainf$-morphisms \cite{MazuirLA22}.
+Such diagonals, and in particular coherent families that we call \emph{operadic} diagonals (\cref{def:operadicDiagonal}), are of interest in algebraic geometry and topology: via the theory of Fulton--Sturmfels \cite{FultonSturmfels}, they give explicit formulas for the cup product on Losev--Manin toric varieties~\cite{LosevManin}; they define universal tensor products of homotopy operads, and in particular universal tensor products of homotopy associative permutads (shuffle algebras) \cite{LaplanteAnfossi}; they allow for the definition of a coproduct on permutahedral sets, which are used to models of two-fold loop spaces \cite{SaneblidzeUmble}; and their study is moreover needed to pursue the work of Baues aiming at defining explicit combinatorial models for higher iterated loop spaces \cite{Baues}. 
+Moreover, using the canonical projections to the multiplihedra and the associahedra, they define universal tensor product of $\Ainf$-algebras and $\Ainf$-morphisms \cite{LaplanteAnfossiMazuir}.
 \Guillaume{lien avec les matroides?}
 
 \Guillaume{Mentionner le travail en cours de Lionel Pournin?}
 
-The toric varieties associated with the permutahedron are called Losev--Manin varieties, introduced in \cite{losevNewModuliSpaces2000}.
+The toric varieties associated with the permutahedron are called Losev--Manin varieties, introduced in \cite{LosevManin}.
 \Guillaume{They are De Concini--Procesi wonderful compactifications of \dots
 They are also brick manifolds?}
 The cohomology ring structure was studied by Losev and Manin, and quite extensively since then. \Guillaume{See for example "Graph cohomology"} 
@@ -376,12 +376,12 @@ We provide a combinatorial description of the possible orderings of a $(\ell,n)$
 
 \subsection*{\cref{part:diagonalsPermutahedra}. Diagonals of permutahedra}
 
-The first cellular diagonal for the permutahedra was defined at the level of chains by S. Saneblidze and R. Umble in \cite{SaneblidzeUmble04}, we will call it the \emph{SU diagonal}. 
+The first cellular diagonal for the permutahedra was defined at the level of chains by S. Saneblidze and R. Umble in \cite{SaneblidzeUmble}, we will call it the \emph{SU diagonal}. 
 Cellular diagonals for the associahedra and the multiplihedra were also defined there, via projection. 
-The first topological map for the permutahedra was given in \cite{LA21} -we will call it the \emph{LA diagonal}, where a general theory of cellular diagonals of polytopes was developed. 
-The LA diagonal, however, is distinct from the SU diagonal at the cellular level \cite[Rem.~3.19]{LA21}. 
+The first topological map for the permutahedra was given in \cite{LaplanteAnfossi} -we will call it the \emph{LA diagonal}, where a general theory of cellular diagonals of polytopes was developed. 
+The LA diagonal, however, is distinct from the SU diagonal at the cellular level \cite[Rem.~3.19]{LaplanteAnfossi}. 
 
-computer program for the SU diagonal \cite{vejdemo-johanssonEnumeratingSaneblidzeUmbleDiagonal2007}; we give a much more effective computer program (however, without the signs)
+computer program for the SU diagonal \cite{VejdemoJohansson}; we give a much more effective computer program (however, without the signs)
 
 corollary: le dernier article de SU!
 corollary: IJ-description of SU diagonal
@@ -396,11 +396,11 @@ Perspectives:
 
 This result
 \begin{enumerate}[i)]
-	\item brings a positive answer to \cite[Rem.~2.19]{LA21}, showing that the original $\SU$ diagonal can indeed be recovered from a choice of chambers in the fundamental hyperplane arrangement of the permutahedron. 
-	Remark that this choice is precisely given by the family of vectors mentioned in \cite[Rem.~4.19]{LA21}, which was already identified to be operadic,
-	\item sets up the analogous question in \cite[Rem.~3.9]{MazuirLA22} for the multiplihedra,
-	\item provides a new proof that all known diagonals on the associahedra coincide \cite{saneblidzeComparingDiagonalsAssociahedra2022}.
-	Indeed, since the family of vectors inducing the $\SU$ diagonal all have strictly decreasing coordinates, the diagonal induced on the associahedron is given by the magical formula \cite[Thm.~2]{masudaDiagonalAssociahedra2021}, see also \cite[Prop.~3.8]{LA21}.
+	\item brings a positive answer to \cite[Rem.~2.19]{LaplanteAnfossi}, showing that the original $\SU$ diagonal can indeed be recovered from a choice of chambers in the fundamental hyperplane arrangement of the permutahedron. 
+	Remark that this choice is precisely given by the family of vectors mentioned in \cite[Rem.~4.19]{LaplanteAnfossi}, which was already identified to be operadic,
+	\item sets up the analogous question in \cite[Rem.~3.9]{LaplanteAnfossiMazuir} for the multiplihedra,
+	\item provides a new proof that all known diagonals on the associahedra coincide \cite{SaneblidzeUmble-comparingDiagonals}.
+	Indeed, since the family of vectors inducing the $\SU$ diagonal all have strictly decreasing coordinates, the diagonal induced on the associahedron is given by the magical formula \cite[Thm.~2]{MasudaThomasTonksVallette}, see also \cite[Prop.~3.8]{LaplanteAnfossi}.
 \end{enumerate}
 
 Moreover, it allows us to obtain alternative descriptions of all four operadic diagonals, in particular
@@ -435,7 +435,7 @@ We end this Section by applying the isomorphism between the $\SU$ and $\LA$ diag
 	The $\LA$ diagonal is given by the formula...
 \end{conjecture}
 
-This is equivalent, via the isomorphism between $\LA$ and $\SU$ diagonals, to the analogous conjecture for the $\SU$ diagonal, presented as a fact in \cite[Equ.~(1)]{saneblidzeComparingDiagonalsAssociahedra2022}.
+This is equivalent, via the isomorphism between $\LA$ and $\SU$ diagonals, to the analogous conjecture for the $\SU$ diagonal, presented as a fact in \cite[Equ.~(1)]{SaneblidzeUmble-comparingDiagonals}.
 
 %%%%%%%%%%%%%%%
 
@@ -1743,7 +1743,7 @@ For each~$i \in [\ell]$, denote by
 \end{itemize}
 Then a point~$\b{x} \in \R^n$ belongs to the face of the $i$\ordinal braid arrangement corresponding to~$\orient{F}_i$ if and only if it satisfies~$M_i \, \b{x} \le \b{z}_i$.
 Hence, $\orient{\b{F}}$ appears as a face of the $\b{a}$-braid arrangement if and only if there exists~$\b{x} \in \R^n$ such that~$M \, \b{x} \le \b{z}$, where~$M$ is the $(m \times n)$-matrix (where~$m \eqdef \sum_{i \in [\ell]} m_i$), obtained by piling the matrices~$M_i$ for~$i \in [\ell]$ and similarly, $\b{z}$ is the column vector obtained by piling the vectors~$\b{z}_i$.
-A direct application of the Farkas lemma (see \eg \cite[Prop.~1.7]{Ziegler-polytopes}), there exists~$\b{x} \in \R^n$ such that~$M \, \b{x} \le \b{z}$ if and only if~$\b{c} \b{z} \ge 0$ for any~$\b{c} \in (\R^m)^*$ with~$\b{c} \ge \b{0}$ and~$\b{c} M = \b{0}$.
+A direct application of the Farkas lemma (see \eg \cite[Prop.~1.7]{Ziegler}), there exists~$\b{x} \in \R^n$ such that~$M \, \b{x} \le \b{z}$ if and only if~$\b{c} \b{z} \ge 0$ for any~$\b{c} \in (\R^m)^*$ with~$\b{c} \ge \b{0}$ and~$\b{c} M = \b{0}$.
 Now it is classical that the left kernel of the incidence matrix of a directed graph is generated by its circuits (non-necessarily oriented cycles), and that the positive cone in this left kernel is generated by its oriented cycles.
 \end{proof}
 
@@ -1799,7 +1799,7 @@ See \cref{fig:examplesDiagonals1}\,(middle left).
 A cellular diagonal is said to be \defn{face-coherent} if its restriction to a face of $P$ is itself a cellular diagonal for that face. 
 \end{definition}
 
-A powerful geometric technique to define face-coherent cellular diagonals on polytopes first appeared in \cite{fultonIntersectionTheoryToric1997a}, was presented in \cite{masudaDiagonalAssociahedra2021}, and was fully developed in \cite{LA21}.
+A powerful geometric technique to define face-coherent cellular diagonals on polytopes first appeared in \cite{FultonSturmfels}, was presented in \cite{MasudaThomasTonksVallette}, and was fully developed in \cite{LaplanteAnfossi}.
 We provide in \cref{thm:diagonal} the precise (but slightly technical) definition of these diagonals, even though we will only use the characterization of the faces in their image provided in \cref{thm:universalFormula}.
 
 The key idea is that any vector $\b{v}$ in generic position with respect to $P$ defines a cellular diagonal of $P$.
@@ -1816,7 +1816,7 @@ For $\b{z}$ a point of $P$, let us denote by $\rho_{\b{z}} P \eqdef 2\b{z}-P$ de
 		\includegraphics[scale=.35]{HypCube.png} \ \
 		\includegraphics[scale=.3]{HypPermuto.png}
 	}
-	\caption{The fundamental hyperplane arrangements of the $3$-dimensional simplex, cube, and permutahedron. In blue are pictured the hyperplanes which are not perpendicular to actual edges of the polytope $P$, but only to edges of some intersection $P\cap \rho_z P$. Left and rightmost illustrations from~\cite[Fig.~12]{LA21}.}
+	\caption{The fundamental hyperplane arrangements of the $3$-dimensional simplex, cube, and permutahedron. In blue are pictured the hyperplanes which are not perpendicular to actual edges of the polytope $P$, but only to edges of some intersection $P\cap \rho_z P$. Left and rightmost illustrations from~\cite[Fig.~12]{LaplanteAnfossi}.}
 	\label{fig:examplesHyperplanes}
 \end{figure}
 
@@ -1840,7 +1840,7 @@ More precisely, $\triangle_{(P,\b{v})}$ is given by the explicit formula
 A \defn{geometric diagonal} of a polytope~$P$ is a diagonal of the form~$\triangle_{(P,\b{v})}$ for some vector~$\b{v} \in \R^d$ in generic position with respect to~$P$.
 \end{definition}
 
-A geometric diagonal~$\triangle_{(P,\b{v})}$ only depends on the region of~$\mathcal{H}_P$ containing~$\b{v}$, see~\cite[Prop.~1.23]{LA21}.
+A geometric diagonal~$\triangle_{(P,\b{v})}$ only depends on the region of~$\mathcal{H}_P$ containing~$\b{v}$, see~\cite[Prop.~1.23]{LaplanteAnfossi}.
 
 \begin{figure}[p]
 	\centerline{\scalebox{1.25}{
@@ -1882,14 +1882,14 @@ A geometric diagonal~$\triangle_{(P,\b{v})}$ only depends on the region of~$\mat
 		\includegraphics[scale=.35]{diagonalCubeGuillaume.png}
 		\includegraphics[scale=.3]{diagonalPermutahedronGuillaume.png}
 	}
-	\caption{The subdivisions induced by cellular diagonals of the $3$-dimensional simplex (left), cube (middle), and permutahedron (right). Right illustration from~\cite[Fig.~13]{LA21}.}
+	\caption{The subdivisions induced by cellular diagonals of the $3$-dimensional simplex (left), cube (middle), and permutahedron (right). Right illustration from~\cite[Fig.~13]{LaplanteAnfossi}.}
 	\label{fig:examplesDiagonals2}
 \end{figure}
 
-Now the following \defn{universal formula}~\cite[Thm.~1.26]{LA21} expresses combinatorially the faces in the image of the geometric diagonal~$\triangle_{(P,\b{v})}$.
+Now the following \defn{universal formula}~\cite[Thm.~1.26]{LaplanteAnfossi} expresses combinatorially the faces in the image of the geometric diagonal~$\triangle_{(P,\b{v})}$.
 Recall that the \defn{normal cone} of a face~$F$ of a polytope~$P$ in~$\R^d$ is the cone of directions~$\b{c} \in \R^d$ such that the maximum of the scalar product~$\dotprod{\b{c}}{\b{x}}$ over~$P$ is attained for some~$\b{x}$ in~$F$.
 
-\begin{theorem}[{\cite[Thm.~1.26]{LA21}}]
+\begin{theorem}[{\cite[Thm.~1.26]{LaplanteAnfossi}}]
 \label{thm:universalFormula}
 Fix a vector $\b{v} \in \R^d$ in generic position with respect to $P$.
 For each hyperplane~$H$ of the fundamental hyperplane arrangement~$\mathcal{H}_P$, denote by~$H^{\b{v}}$ the open half space defined by~$H$ and containing~$\b{v}$.
@@ -1905,14 +1905,14 @@ See \cref{fig:examplesDiagonals1}\,(right).
 Recall that the \defn{normal fan} of~$P$ is the fan formed by the normal cones of all faces of~$P$.
 We thus obtain the following statement.
 
-\begin{proposition}[{\cite[Coro.~1.4]{LA21}}]
+\begin{proposition}[{\cite[Coro.~1.4]{LaplanteAnfossi}}]
 \label{prop:diagonalCommonRefinement}
 The inclusion poset on the faces in the image of the diagonal~$\triangle_{(P,\b{v})}$ is isomorphic to the reverse inclusion poset of the faces of the common refinement of two copies of the normal fan of~$P$, translated from each other by the vector~$\b{v}$. 
 \end{proposition}
 
 Finally, the following statement relates the image of the diagonal~$\triangle_{(P, \b{v})}$ to the intervals of the poset obtained by orienting the skeleton of~$P$ in direction~$\b{v}$.
 
-\begin{proposition}[{\cite[Prop. 1.17]{LA21}}]
+\begin{proposition}[{\cite[Prop. 1.17]{LaplanteAnfossi}}]
 \label{prop:magicalFormula}
 For any polytope $P$ and any generic vector $\b{v}$,
 \begin{equation}
@@ -1922,13 +1922,13 @@ For any polytope $P$ and any generic vector $\b{v}$,
 \end{proposition}
 
 \begin{remark}
-For some polytopes such as the simplices \cite{EilenbergMacLane54}, the cubes \cite{serre1951}, the freehedra \cite{saneblidze2009}, and the associahedra \cite{masudaDiagonalAssociahedra2021}, the reverse inclusion also holds (in the case of the simplices and the cubes, the diagonals are know as \emph{Alexander--Whitney} and \emph{Serre} maps).
-According to \cite{masudaDiagonalAssociahedra2021}, the resulting equality enhancing~(\ref{eq:magique}) was called \defn{magical formula} by J.-L. Loday.
-Polytopes of greater complexity such as the multiplihedra \cite{MazuirLA22} or the operahedra \cite{LA21}, which include the permutahedra, do not possess this exceptional property. 
+For some polytopes such as the simplices \cite{EilenbergMacLane}, the cubes \cite{Serre}, the freehedra \cite{Saneblidze-freeLoopFibration}, and the associahedra \cite{MasudaThomasTonksVallette}, the reverse inclusion also holds (in the case of the simplices and the cubes, the diagonals are know as \emph{Alexander--Whitney} and \emph{Serre} maps).
+According to \cite{MasudaThomasTonksVallette}, the resulting equality enhancing~(\ref{eq:magique}) was called \defn{magical formula} by J.-L. Loday.
+Polytopes of greater complexity such as the multiplihedra \cite{LaplanteAnfossiMazuir} or the operahedra \cite{LaplanteAnfossi}, which include the permutahedra, do not possess this exceptional property. 
 \end{remark}
 
 \begin{remark}
-This is in fact precisely the content of the \emph{Fulton--Sturmfels formula} for the intersection product on toric varieties \cite[Thm.~4.2]{fultonIntersectionTheoryToric1997a}, where the definition of cellular diagonals as tight coherent sections first appeared.
+This is in fact precisely the content of the \emph{Fulton--Sturmfels formula} for the intersection product on toric varieties \cite[Thm.~4.2]{FultonSturmfels}, where the definition of cellular diagonals as tight coherent sections first appeared.
 \end{remark}
 
 %%%%%%%%%%%%%%%
@@ -1963,7 +1963,7 @@ See \cref{fig:permutahedron}.
 \end{figure}
 \end{definition}
 
-The fundamental hyperplane arrangement of the permutahedron~$\Perm$ was described in~\cite[Sect.~3.1]{LA21}.
+The fundamental hyperplane arrangement of the permutahedron~$\Perm$ was described in~\cite[Sect.~3.1]{LaplanteAnfossi}.
 As we will use the following set throughout the paper, we embed it in a definition.
 
 \begin{definition}
@@ -1975,7 +1975,7 @@ For~$n \in \N$, we define
 An \defn{ordering} of~$\Un(n)$ is a set containing exactly one of the two ordered pairs $(I,J)$ or $(J,I)$ for each $\{I,J\} \in \Un(n)$.
 \end{definition}
 
-\begin{proposition}[{\cite[Sect.~3.1]{LA21}}]
+\begin{proposition}[{\cite[Sect.~3.1]{LaplanteAnfossi}}]
 The fundamental hyperplane arrangement of the permutahedron~$\Perm$ is given by the hyperplanes~$\bigset{\b{x} \in \R^n}{\sum\limits_{i \in I} x_i = \sum\limits_{j \in J} x_j}$ for all~$\{I,J\} \in \Un(n)$.
 \end{proposition}
 
@@ -1988,7 +1988,7 @@ For this, the following definition will be convenient.
 For $I,J \subseteq [n]$ and an ordered partition $\sigma$ of~$[n]$ into $k$ blocks, we say that $I$~\defn{dominates} $J$ in~$\sigma$ if for all $\ell \in [k]$, the first~$\ell$ blocks of~$\sigma$ contain more elements of~$I$ than of~$J$, or the same number of elements.
 \end{definition}
 
-\begin{theorem}[{\cite[Thm.~3.16]{LA21}}]
+\begin{theorem}[{\cite[Thm.~3.16]{LaplanteAnfossi}}]
 \label{thm:IJ-description}
 A pair~$(\sigma, \tau)$ of ordered partitions of~$[n]$ corresponds to a face in the image of the geometric diagonal~$\triangle_{(\Perm, \b{v})}$ if and only if, for all~$(I,J) \in \Or(\b{v})$, $J$ does not dominate~$I$ in~$\sigma$ or $I$ does not dominate~$J$ in~$\tau$.
 \end{theorem}
@@ -2018,7 +2018,7 @@ Similarly, the combinatorics of the $(\ell-1)$\ordinalst{} iteration of a diagon
 Finally, the permutahedron~$\Perm$ is not magical in the sense of \cref{prop:magicalFormula}.
 See also \cref{exm:intervalsWeakOrderNotDiagonals}.
 
-\begin{proposition}[{\cite[Sect.~3]{LA21}}]
+\begin{proposition}[{\cite[Sect.~3]{LaplanteAnfossi}}]
 For any~$n > 3$ and any generic vector~$\b{v}$, the diagonal~$\triangle_{(\Perm, \b{v})}$ of the permutahedron~$\Perm$ does \emph{not} satisfy the magical formula.
 Namely, the inclusion	  
 \begin{equation*}
@@ -2275,7 +2275,7 @@ The \defn{$\LA$ diagonal} $\LAD$ (\resp \defn{$\SU$ diagonal} $\SUD$) of the per
 for all~$(I,J) \in \LA(n)$ (\resp $(I,J) \in \SU(n)$).
 \end{definition}
 
-We will prove in \cref{thm:recover-SU} that $\SUD$ is a topological enhancement of the Saneblidze--Umble diagonal from \cite{SaneblidzeUmble04}.
+We will prove in \cref{thm:recover-SU} that $\SUD$ is a topological enhancement of the Saneblidze--Umble diagonal from \cite{SaneblidzeUmble}.
 Both of these diagonals have opposites $(\LAD)^{\op}$ and $(\SUD)^{\op}$, obtained by permuting the factors in every term: at the level of orderings, they are obtained by permuting $I$ and $J$ in the definitions of $\LA(n)$ and $\SU(n)$, while they are given geometrically by taking $-\b{v}$ instead of $\b{v}$ as an orientation vector. 
 The faces of the $\LA$ and $\SU$ diagonals are described the following specialisation of \cref{thm:IJ-description}.
 
@@ -2310,14 +2310,14 @@ of lower dimensional permutahedra (where the first factor is translated by~$q \o
 	\end{matrix}
 \end{equation*}
 where $\sigma$ is the $(p,q)$-shuffle defined by $\sigma(i) \eqdef a_i$ for $1 \leq i \leq p$, and $\sigma(p+j)\eqdef b_j$ for $1 \leq j \leq q$.
-Note that this map is a particular instance of the eponym map introduced in Point (5) of \cite[Prop. 2.3]{LA21}.
+Note that this map is a particular instance of the eponym map introduced in Point (5) of \cite[Prop. 2.3]{LaplanteAnfossi}.
 
 \begin{definition}
 \label{def:operadicDiagonal}
 A family of diagonals $\triangle \eqdef \{\triangle_n : \Perm \to \Perm \times \Perm\}_{n\geq 1}$ of the permutahedra is \defn{operadic} if for every face $A_1 | \ldots | A_k$ of the permutahedron $\Perm[|A_1|+\cdots + |A_k|]$, the map $\Theta$ induces a topological cellular isomorphism \[  \triangle(A_1) \times \ldots \times \triangle(A_k) \cong \triangle(A_1 | \ldots | A_k) \ . \]
 \end{definition}
-In other words, we require that the diagonal $\triangle$ commutes with the map $\Theta$, see \cite[Section 4.2]{LA21}.
-At the algebraic level, this property is called ``comultiplicativity" in \cite{SaneblidzeUmble04}.
+In other words, we require that the diagonal $\triangle$ commutes with the map $\Theta$, see \cite[Section 4.2]{LaplanteAnfossi}.
+At the algebraic level, this property is called ``comultiplicativity" in \cite{SaneblidzeUmble}.
 Note that in particular, such an isomorphism respects the poset structures. 
 
 \begin{definition}
@@ -2347,7 +2347,7 @@ A geometric diagonal of the permutahedra is operadic if and only if its associat
 \end{proposition}
 
 \begin{proof}
-Every operadic diagonal satisfies \cite[Prop.~4.14]{LA21}, which amounts precisely to an operadic ordering of $\Un$ in the above sense. 
+Every operadic diagonal satisfies \cite[Prop.~4.14]{LaplanteAnfossi}, which amounts precisely to an operadic ordering of $\Un$ in the above sense. 
 \end{proof}
 
 We now turn to the study of the $\LA$ and $\SU$ orderings.
@@ -2441,8 +2441,8 @@ The $\LA$ and $\SU$ diagonals are the only operadic geometric diagonals which in
 \end{theorem}
 
 \begin{remark}
-This answers by the negative a conjecture regarding unicity of diagonals on the permutahedra, raised at the beginning of \cite[Sect.~3]{SaneblidzeUmble04}, and could be seen as an alternative statement. 
-See \cref{sec:shifts} where we prove that the geometric $\SU$ diagonal is a topological enhancement of the $\SU$ diagonal from \cite{SaneblidzeUmble04}.
+This answers by the negative a conjecture regarding unicity of diagonals on the permutahedra, raised at the beginning of \cite[Sect.~3]{SaneblidzeUmble}, and could be seen as an alternative statement. 
+See \cref{sec:shifts} where we prove that the geometric $\SU$ diagonal is a topological enhancement of the $\SU$ diagonal from \cite{SaneblidzeUmble}.
 \end{remark}
 
 %%%%%%%%%%%%%%%
@@ -2505,7 +2505,7 @@ This second isomorphism has the conceptual benefit of sending left shift operato
 
 We aim at describing the facets of the $\LA$ and $\SU$ diagonals. 
 We have seen in \cref{subsec:multiBraidArrangement} that facets of any diagonal of the permutahedron~$\Perm$ are in bijection with $(2,n)$-partition trees, that is, pairs of unordered partitions of $[n]$ whose intersection graph is a tree.
-These pairs of partitions were first studied and called \defn{essential complementary partitions} in \cite{chen1969computer,chen1971tables,kajitani1982number}.
+These pairs of partitions were first studied and called \defn{essential complementary partitions} in \cite{Chen, ChenGoyal, KajitaniUenoChen}.
 Specializing \cref{prop:PFtoOPF1}, we now explain how to order these pairs of partitions to get the facets of $\LAD$ and $\SUD$. 
 
 \begin{theorem}
@@ -2732,15 +2732,15 @@ However, as $j_k$ must be dominated by an element of $I$, this forces $w = i_1$ 
 \section{Shifts and the lattice of facets}
 \label{sec:shifts}
 
-In this section we show that the geometric $\SU$ diagonal $\SUD$ is a topological enhancement of the original Saneblidze-Umble diagonal \cite{SaneblidzeUmble04}.
+In this section we show that the geometric $\SU$ diagonal $\SUD$ is a topological enhancement of the original Saneblidze-Umble diagonal \cite{SaneblidzeUmble}.
 This study leads to a natural lattice structure on the set of facets of operadic diagonals, and to alternative combinatorial descriptions such as a matrix and a cubical representations. 
-Throughout this Section, we borrow notation from \cite{saneblidzeComparingDiagonalsAssociahedra2022}.
+Throughout this Section, we borrow notation from \cite{SaneblidzeUmble-comparingDiagonals}.
 
 %%%%%%%%%%%%%%%
 
 \subsection{Topological enhancement of the original $\SU$ diagonal}
 
-In this section we prove that the geometric $\SU$ diagonal $\SUD$ agrees at the cellular level with the original Saneblidze-Umble diagonal defined in \cite{SaneblidzeUmble04}.
+In this section we prove that the geometric $\SU$ diagonal $\SUD$ agrees at the cellular level with the original Saneblidze-Umble diagonal defined in \cite{SaneblidzeUmble}.
 The proof is technical and procedes in several steps: we introduce two additional combinatorial descriptions of the diagonal, that we call the $1$-shift and $m$-shift $\SU$ diagonals, and show the sequence of equivalences
 \begin{center}
 \begin{tikzcd}
@@ -2822,7 +2822,7 @@ The fact that these are \emph{all} the facets with this property follows from th
 
 \subsubsection{$\SU$ diagonals}
 
-We recall the definiton of the original $\SU$ diagonal of \cite{SaneblidzeUmble04}, based on the description given in \cite{saneblidzeComparingDiagonalsAssociahedra2022}.
+We recall the definiton of the original $\SU$ diagonal of \cite{SaneblidzeUmble}, based on the description given in \cite{SaneblidzeUmble-comparingDiagonals}.
 We introduce two other descriptions, the $1$-shift and $m$-shift $\SU$ diagonals, which will be shown later to be equivalent to the original one.
 
 \begin{definition}
@@ -3477,7 +3477,7 @@ The proof that every facet of geometric $\SUD$ is in shift $\SUD$ follows from t
 In particular, for any given facet in geometric $\SUD$, this provides a $\SCP$ and a sequence of shifts to form it, showing it is a facet of shift $\SUD$.
 \end{proof}
 
-Combining \cref{prop:iso-original-shift-diagonals} and \cref{prop:iso-shift-IJ-diagonals} we obtain the desired equivalence between the original $\SU$ diagonal from \cite{SaneblidzeUmble04} and the geometric $\SU$ diagonal from \cref{def:LA-and-SU}.
+Combining \cref{prop:iso-original-shift-diagonals} and \cref{prop:iso-shift-IJ-diagonals} we obtain the desired equivalence between the original $\SU$ diagonal from \cite{SaneblidzeUmble} and the geometric $\SU$ diagonal from \cref{def:LA-and-SU}.
 
 \begin{theorem}
 \label{thm:recover-SU}
@@ -3667,7 +3667,7 @@ We will show in the next section, that these recovered diagrams are the Hasse di
 
 
 \begin{example}
-It was observed in \cite{LA21} that the $LA$ and $SU$ diagonals coincided up until $n=3$, however due to their dual shift structure they generate the non-$SCP$ pairs in a dual fashion.
+It was observed in \cite{LaplanteAnfossi} that the $LA$ and $SU$ diagonals coincided up until $n=3$, however due to their dual shift structure they generate the non-$SCP$ pairs in a dual fashion.
 In particular, the two center faces of the hexagon (\cref{fig:diagonalPermutahedron2}) are generated by 
 \begin{center}
 
@@ -3886,11 +3886,11 @@ For instance $l_\rho^{\SU}(\sigma)$ is the number of consecutive ascending runs,
 
 \subsection{Matrix description}
 
-We first recall the alternate descriptions of the $\SUD$ diagonal from \cite{SaneblidzeUmble04} and\cite{saneblidzeComparingDiagonalsAssociahedra2022}, that we would like to transfer to $\LAD$. 
+We first recall the alternate descriptions of the $\SUD$ diagonal from \cite{SaneblidzeUmble} and\cite{SaneblidzeUmble-comparingDiagonals}, that we would like to transfer to $\LAD$. 
 In particular, we explicitly relate the matrix and cubical descriptions of the $\SUD$ diagonal, to the description of the $\SUD$ diagonal given in \cref{def:classical-SU}.
 \\\\
 We previously saw that SCPs and permutations are in bijection (\cref{def:strong-complementary-pairs}). 
-There is also a third equivalent way to encode this data, the \emph{step matrices} of Definition 6 of \cite{SaneblidzeUmble04}.
+There is also a third equivalent way to encode this data, the \emph{step matrices} of Definition 6 of \cite{SaneblidzeUmble}.
 Informally, given a permutation $\sigma$, start in the bottom left corner of a matrix, and write increasing sequences vertically, and decreasing sequences horizontally. All other entries are $0$. Here is an example permutation, its SCP, and its step matrix, with all $0$ entries omitted.
 {\small
 \begin{center}
@@ -3958,11 +3958,11 @@ However, $n\in \sigma_{i+1}$ so $\max \sigma_{i+1}>n>m>\min M_i $ implies that $
 \end{proof}
 
 
-\begin{definition}[Definition 7. \cite{SaneblidzeUmble04}]
+\begin{definition}[Definition 7. \cite{SaneblidzeUmble}]
 We define the set of \emph{configuration matrices} $\mathcal{C}$, to be those matrices  corresponding to $SCP$s and those generated by admissible sequences of shifts.
 \end{definition}
 
-\begin{proposition}[\cite{SaneblidzeUmble04}]
+\begin{proposition}[\cite{SaneblidzeUmble}]
 The set of $\SU$ configuration matrices are in bijection with the facets of $\SUD$.
 \end{proposition}
 \begin{proof}
@@ -4063,7 +4063,7 @@ The second row is the image of these shifts under isomorphism $t(r\times r)$.
 \subsection{Cubical description}
 \label{sec:Cubical}
 
-In \cite{SaneblidzeUmble04}, Saneblidze and Umble identified that they could use a particular subdivision of the $(n-1)$-cube by $P_{n}$, to construct cellular operadic diagonals of polytopes which admit cellular projections from the permutahedra.
+In \cite{SaneblidzeUmble}, Saneblidze and Umble identified that they could use a particular subdivision of the $(n-1)$-cube by $P_{n}$, to construct cellular operadic diagonals of polytopes which admit cellular projections from the permutahedra.
 In their work, they briefly outline this cubical construction before using it to induce their subset shift description (\cref{def:classical-SU}).
 In this section, we recall their cubical definition of the $\SU$ diagonal and explicitly relate it to their shift description, using a new proof that exploits the lattice description of the diagonal (\cref{sec:Shift-lattice}).
 We finally transfer the cubical formulae to the $\LA$ diagonal via isomorphism.
@@ -4175,7 +4175,7 @@ If there was a larger $(k+1)$-subdivision cube $C'$ enveloping $L\times C$, then
 
 We now define our maximal pairing of subdivision cubes.
 
-\begin{definition} [\cite{saneblidzeComparingDiagonalsAssociahedra2022}]\label{def:subdiv pairs}
+\begin{definition} [\cite{SaneblidzeUmble-comparingDiagonals}]\label{def:subdiv pairs}
 Let $e$ be a cell of $P_n$ and let $\mathcal{V}_e$ be the set of vertices in $e$.
 For a given vertex $v \in \mathcal{V}_e$, we define \defn{$\subdivpairsev$} to be the set of all pairs $(C^v,C_v)$ of $k_1,k_2$ subdivision cubes of $e$ such that
 \begin{enumerate}
@@ -4227,7 +4227,7 @@ The ordered partition $\sigma$ admits three distinct rights shifts, $\red{\mathb
 
 \end{example}
 
-\begin{proposition}[Formula (1) of \cite{saneblidzeComparingDiagonalsAssociahedra2022}]
+\begin{proposition}[Formula (1) of \cite{SaneblidzeUmble-comparingDiagonals}]
 The following formula defines a cellular operadic diagonal of the permutahedra. 
 For every cell $e$ of the permutahedra,
 \begin{align*}
@@ -4307,7 +4307,7 @@ This thus proves that $L\times C = \bigcup_{i=0}^{r_\rho}\bigcup_{\mathbf{M}}R^i
 Applying this lemma to pairs of maximal subdivision cubes yields,
 
 \begin{corollary}\label{prop:Maximal Subdiv Pairs and Shifts}
-[Formula (3) of \cite{saneblidzeComparingDiagonalsAssociahedra2022}]
+[Formula (3) of \cite{SaneblidzeUmble-comparingDiagonals}]
 Let $v$ be a vertex of $P_n$, then
 \begin{align*}
 	\maxsubdivpairsv = \bigcup_{\mathbf{M},\mathbf{N}} R_\mathbf{M}(\sigma) \times L_{\mathbf{N}}(\tau)
@@ -4317,7 +4317,7 @@ where $\mathbf{M},\mathbf{N}$ are admissible sequences of $SU$ shifts.
 
 Which consequently provides an alternate cubical formula for the $\SU$ diagonal,
 
-\begin{proposition}[Formula (1) and (3) \cite{saneblidzeComparingDiagonalsAssociahedra2022}]
+\begin{proposition}[Formula (1) and (3) \cite{SaneblidzeUmble-comparingDiagonals}]
 \begin{align*}
 	\SUD([n]) = \bigcup_{v \in P_n} \maxsubdivpairsv
 \end{align*}
@@ -4477,13 +4477,13 @@ This yields an alternate cubical formula for the $\LA$ diagonal.
 
 \subsection{Topological operadic structures on the operahedra}
 
-The permutahedra are part of a more general family of polytopes called Loday realizations of the \emph{operahedra} \cite[Def.~2.9]{LA21} which encodes the notion of homotopy operad \cite[Def.~4.11]{LA21}.\Guillaume{Image des trois mousquetaires?}
+The permutahedra are part of a more general family of polytopes called Loday realizations of the \emph{operahedra} \cite[Def.~2.9]{LaplanteAnfossi} which encodes the notion of homotopy operad \cite[Def.~4.11]{LaplanteAnfossi}.\Guillaume{Image des trois mousquetaires?}
 For every planar tree $t$, there is a corresponding polytope $P_t$ whose codimension $k$ faces are in bijection with nestings of $t$ with $k$ non-trivial nests.
-Since the operahedra are generalized permutahedra \cite[Coro.~2.16]{LA21}, a choice of diagonal for the permuthedra induces a choice of diagonal for every operahedron \cite[Coro.~1.31]{LA21}.
-Every face of an operahedron is isomorphic to a product of lower-dimensional operahedra, via an isomorphism $\Theta$ which generalizes the one above, see Point (5) of \cite[Prop.~2.3]{LA21}.
+Since the operahedra are generalized permutahedra \cite[Coro.~2.16]{LaplanteAnfossi}, a choice of diagonal for the permuthedra induces a choice of diagonal for every operahedron \cite[Coro.~1.31]{LaplanteAnfossi}.
+Every face of an operahedron is isomorphic to a product of lower-dimensional operahedra, via an isomorphism $\Theta$ which generalizes the one above, see Point (5) of \cite[Prop.~2.3]{LaplanteAnfossi}.
 
 \begin{definition}
-	An \emph{operadic diagonal} for the operahedra is a choice of diagonal $\triangle_t$ for each operahedron~$P_t$, such that $\triangle \eqdef \{\triangle_t\}$ commutes with the map $\Theta$, \ie it satisfies \cite[Prop.~4.14]{LA21}.
+	An \emph{operadic diagonal} for the operahedra is a choice of diagonal $\triangle_t$ for each operahedron~$P_t$, such that $\triangle \eqdef \{\triangle_t\}$ commutes with the map $\Theta$, \ie it satisfies \cite[Prop.~4.14]{LaplanteAnfossi}.
 \end{definition}
 
 \begin{theorem}[Operadic structures on the operahedra] 
@@ -4505,28 +4505,28 @@ which agree with the generalized Tamari order on fully nested trees.
 	Therefore, $P_t$ and $P_{t'}$ appear as facets of $P_{t''}$ and by the preceding remark, any choice of diagonal for $P_{t''}$ will then contradict our initial two choices. 
 	Thus, these had to be the same from the start, which concludes the proof. 
 
-	Point (2) then follows from fact that a choice of diagonal for the Loday realizations of the operahedra \emph{forces} a unique topological cellular colored operad structure on them, see \cite[Thm.~4.18]{LA21}.
-	Since universal tensor products of homotopy operads are induced by a colored operad structure on the operahedra \cite[Coro.~4.24]{LA21}, we obtain Point~(3).
-	Finally, since only vectors with strictly descreasing coordinates induce the generalized Tamari order on the skeleton of the operahedra \cite[Prop.~3.11]{LA21}, we get the last part of the statement. 
+	Point (2) then follows from fact that a choice of diagonal for the Loday realizations of the operahedra \emph{forces} a unique topological cellular colored operad structure on them, see \cite[Thm.~4.18]{LaplanteAnfossi}.
+	Since universal tensor products of homotopy operads are induced by a colored operad structure on the operahedra \cite[Coro.~4.24]{LaplanteAnfossi}, we obtain Point~(3).
+	Finally, since only vectors with strictly descreasing coordinates induce the generalized Tamari order on the skeleton of the operahedra \cite[Prop.~3.11]{LaplanteAnfossi}, we get the last part of the statement. 
 \end{proof}
 
-This answers a question raised in \cite[Rem.~3.14]{LA21}.
+This answers a question raised in \cite[Rem.~3.14]{LaplanteAnfossi}.
 
 \begin{remark}
-Two other important families of generalized permutahedra are the \emph{Loday associahedra} and \emph{Forcey--Loday multiplihedra}, which encode respectively $\Ainf$-algebras and $\Ainf$-morphisms \cite[Prop.~4.9]{MazuirLA22}, as well as $\Ainf$-categories and $\Ainf$-functors \cite[Sect.~4.3]{MazuirLA22}.
-Using the same techniques as in the case of the operahedra, they were endowed with diagonals and compatible operad and operadic bimodule structures in \cite[Thm.~1]{MazuirLA22}.
-An analogous notion of \emph{operadic diagonal} is available for these polytopes, see \cite[Prop.~2.14]{MazuirLA22}.
+Two other important families of generalized permutahedra are the \emph{Loday associahedra} and \emph{Forcey--Loday multiplihedra}, which encode respectively $\Ainf$-algebras and $\Ainf$-morphisms \cite[Prop.~4.9]{LaplanteAnfossiMazuir}, as well as $\Ainf$-categories and $\Ainf$-functors \cite[Sect.~4.3]{LaplanteAnfossiMazuir}.
+Using the same techniques as in the case of the operahedra, they were endowed with diagonals and compatible operad and operadic bimodule structures in \cite[Thm.~1]{LaplanteAnfossiMazuir}.
+An analogous notion of \emph{operadic diagonal} is available for these polytopes, see \cite[Prop.~2.14]{LaplanteAnfossiMazuir}.
 It seems likely that a statement similar to \cref{thm:operahedra} holds for tensor products of $\Ainf$-morphisms. 
-However, it is not immediately clear to the authors how to follow strategy of \cite{MazuirLA22} with a vector inducing the $\SU$ diagonal on the permutahedra.
+However, it is not immediately clear to the authors how to follow strategy of \cite{LaplanteAnfossiMazuir} with a vector inducing the $\SU$ diagonal on the permutahedra.
 \end{remark}
 
 \begin{example}
-	The Loday associahedra correspond to the Loday operahedra associated with linear trees \cite[Sec. 2.2]{LA21}, and define a suboperad.
-	The restriction of the two operad structures of \cref{thm:operahedra} coincide in this case, and both the $\LA$ and $\SU$ diagonals induce the \emph{magical formula} of \cite{MarklShnider06,masudaDiagonalAssociahedra2021,saneblidzeComparingDiagonalsAssociahedra2022} defining a universal tensor product of $\Ainf$-algebras. 
+	The Loday associahedra correspond to the Loday operahedra associated with linear trees \cite[Sec. 2.2]{LaplanteAnfossi}, and define a suboperad.
+	The restriction of the two operad structures of \cref{thm:operahedra} coincide in this case, and both the $\LA$ and $\SU$ diagonals induce the \emph{magical formula} of \cite{MarklShnider, MasudaThomasTonksVallette, SaneblidzeUmble-comparingDiagonals} defining a universal tensor product of $\Ainf$-algebras. 
 \end{example}
 
 \begin{example}
-	The restriction of \cref{thm:operahedra} to the permutahedra associated with $2$-leveled trees gives two distinct universal tensor products of homotopy associative \emph{permutads}, as studied in \cite{LodayRonco11,Markl19}.
+	The restriction of \cref{thm:operahedra} to the permutahedra associated with $2$-leveled trees gives two distinct universal tensor products of homotopy associative \emph{permutads}, as studied in \cite{LodayRonco-permutads,Markl}.
 \end{example}
 
 We shall see now that the two operad structures on the operahedra are related to one another in the strongest possible sense: they are isomorphic as topological cellular colored operads.
@@ -4535,7 +4535,7 @@ We shall see now that the two operad structures on the operahedra are related to
 
 \subsection{Relating operadic structures} 
 
-Recall that the topological cellular operad structure on the operahedra \cite[Def.~4.17]{LA21} is given by a family of partial composition maps 
+Recall that the topological cellular operad structure on the operahedra \cite[Def.~4.17]{LaplanteAnfossi} is given by a family of partial composition maps 
 \[
 \vcenter{\hbox{
 \begin{tikzcd}[column sep=1cm]
@@ -4547,17 +4547,17 @@ Recall that the topological cellular operad structure on the operahedra \cite[De
 P_t \ .
 \end{tikzcd}
 }}  \]
-Here, the map $\tr$ is the \emph{unique} topological cellular map which commutes with the diagonal~$\LAD$ \cite[Prop.~7]{masudaDiagonalAssociahedra2021}. 
-This partial composition $\circ_i^\LA$ is an isomorphism in the category $\PolySub$ \cite[Def.~4.13]{LA21} between the product $P_{t'}\times P_{t''}$ and the facet $t' \circ_i^\LA t''$ of~$P_t$.
+Here, the map $\tr$ is the \emph{unique} topological cellular map which commutes with the diagonal~$\LAD$ \cite[Prop.~7]{MasudaThomasTonksVallette}. 
+This partial composition $\circ_i^\LA$ is an isomorphism in the category $\PolySub$ \cite[Def.~4.13]{LaplanteAnfossi} between the product $P_{t'}\times P_{t''}$ and the facet $t' \circ_i^\LA t''$ of~$P_t$.
 Using the $\SU$ diagonal $\SUD$, one can define similarly a topological operad structure via the same formula, but with a different transition map $\tr$, which commutes with $\SUD$.
 
 Recall that a face $F$ of $P_t$ is represented by a nested tree $(t,\mathcal{N})$, which can be written uniquely as a sequence of substitution of trivially nested trees 
 $(t,\mathcal{N})=((\cdots((t_1\circ_{i_1} t_2) \circ_{i_2} t_3) \cdots )\circ_{i_k} t_{k+1})$.
-Here we use the increasing order on nestings \cite[Def. 4.5]{LA21}, and observe that any choice of sequence of $\circ_i$ operations yield the same nested, since these form an operad \cite[Def.~4.7]{LA21}.
+Here we use the increasing order on nestings \cite[Def. 4.5]{LaplanteAnfossi}, and observe that any choice of sequence of $\circ_i$ operations yield the same nested, since these form an operad \cite[Def.~4.7]{LaplanteAnfossi}.
 At the geometric level, we have an isomorphism
 \[((\cdots((\circ_{i_1}^\LA) \circ_{i_2}^\LA) \cdots) \circ_{i_k}^\LA): P_{t_1} \times P_{t_2} \times \cdots \times P_{t_{k+1}} \overset{\cong}{\longrightarrow} F \subset P_t \]
 between a uniquely determined product of lower dimensional operahedra, and the face $F=(t,\mathcal{N})$ of~$P_t$.
-Note that any choice of sequence of $\circ_i^\LA$ operations yield the same isomorphism, since they form an operad \cite[Thm.~4.18]{LA21}.
+Note that any choice of sequence of $\circ_i^\LA$ operations yield the same isomorphism, since they form an operad \cite[Thm.~4.18]{LaplanteAnfossi}.
 The same holds when taking the~$\circ_i^\SU$ operations instead of the $\circ_i^\LA$. 
 
 \begin{construction}
@@ -4594,7 +4594,7 @@ The same holds when taking the~$\circ_i^\SU$ operations instead of the $\circ_i^
 	For two interior points $(x,y) \in \mathring P_{t'}\times \mathring P_{t''}$, the diagram clearly commutes by definition, since $\Psi_{t'}$ and~$\Psi_{t''}$ are the identity in that case. 
 	If $x$ is in a face $F=((\cdots((t_1 \circ_{i_1} t_2) \circ_{i_2} t_3) \cdots )\circ_{i_k} t_{k+1})$ of the boundary of~$P_{t'}$, then the lower composite is equal to $\circ_i^\SU (\circ_{i_1}^\SU \circ_{i_2}^\SU \cdots \circ_{i_k}^\SU \times \id)(\circ_{i_1}^\LA \circ_{i_2}^\LA \cdots \circ_{i_k}^\LA \times \id)^{-1}$, and so is the upper composite since $\Psi_t$ starts with the inverse $(\circ_i^\LA)^{-1}$ and the decomposition of~$F$ into $P_{t_1} \times \cdots \times P_{t_{k+1}} \times P_{t''}$ is unique.
 	The case when $y$ is in the boundary of $P_{t''}$ is similar.  
-	Finally, the compatibility of $\Psi$ with units and the symmetric group actions are straightfoward to check, see \cite[Def.~4.17 \& Thm.~4.18]{LA21}.
+	Finally, the compatibility of $\Psi$ with units and the symmetric group actions are straightfoward to check, see \cite[Def.~4.17 \& Thm.~4.18]{LaplanteAnfossi}.
 \end{proof}
 
 \begin{remark}
@@ -4606,7 +4606,7 @@ The same holds when taking the~$\circ_i^\SU$ operations instead of the $\circ_i^
 Note that $\Psi$ is \emph{not} a morphism of ``Hopf" operads, i.e. it does not commute with the respective diagonals $\LAD$ and $\SUD$. 
 Consider the two square faces $F \eqdef 12|34$ and $G \eqdef 24|13$ of the $3$-dimensional permutahedron $\Perm[4]$, and choose a point $\b z \in (\mathring F + \mathring G)/2$.
 Then, $\LAD(z)$ and $\SUD(z)$ are two different pair of points on the $1$-skeleton of $\Perm[4]$. 
-Since $\circ_i^\LA$ and $\circ_i^\SU$ are the identity both on the interior of $\Perm[4]$ (by \cref{const:top-iso}) and on the $1$-skeleton of $\Perm[4]$ (see the proof of \cite[Prop. 7]{masudaDiagonalAssociahedra2021}), we directly obtain that $\LAD(z)=(\Psi \times \Psi)\LAD(z) \neq \SUD \Psi(z)=\SUD(z)$. 
+Since $\circ_i^\LA$ and $\circ_i^\SU$ are the identity both on the interior of $\Perm[4]$ (by \cref{const:top-iso}) and on the $1$-skeleton of $\Perm[4]$ (see the proof of \cite[Prop. 7]{MasudaThomasTonksVallette}), we directly obtain that $\LAD(z)=(\Psi \times \Psi)\LAD(z) \neq \SUD \Psi(z)=\SUD(z)$. 
 \end{example}
 
 %%%%%%%%%%%%%%%
