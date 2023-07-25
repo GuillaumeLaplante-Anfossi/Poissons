@@ -2605,7 +2605,7 @@ The isomorphism $rs\times rs$ from \cref{thm:bijection-operadic-diagonals} sends
 		\draw[thick] (4) to [in=180, out=0, looseness=0] (6);
 		%
 	\end{tikzpicture}
-	\raisebox{3.5em}{$\xrightarrow{rs\times rs}$}
+	\raisebox{3.4em}{$\xrightarrow{rs\times rs}$}
 	\begin{tikzpicture}[scale=.7]  
 		\node[anchor=east] (5) at (-1.5, -4) {$37$};
 		\node[anchor=east] (6) at (-1.5, -3) {$1$};
@@ -2673,56 +2673,128 @@ where $I=\{i_1,\dots,i_k\}$, $J=\{j_1,\dots,j_k\}$ and $i_1=1$ (\resp $j_k=2k$).
 \end{theorem}
 
 \begin{example}\label{exm:intervalsWeakOrderNotDiagonals}
-For each $k$, there are $\binom{2k-1}{k-1,k}(k-1)!k!$ avoided patterns.
-For $k=1$ we find that both diagonals avoid $(21,12)$, so consequently the vertices are a subset of intervals the weak order.
-For $k=2$, the $\LA$ diagonal avoid the patterns
-\begin{align*}
-	(4132,2413), (3142,2314),(2143,3214), (4123,3412),
-	(2134,4213), (3124,4312)
-\end{align*}
-and the $\SU$ diagonal avoids the patterns,
-\begin{align*}
-	(1243,2431),(1342,3421)
-	(2143,1432),(2341,3412),
-	(3241,2413),(3142,1423),
-\end{align*}
-As such, for $n\geq4$, the $\LA$ and $\SU$ are strict subsets of intervals of the weak order.
-\Kurt{Picture+Check patterns}
+For each $k$, there are $\binom{2k-1}{k-1,k}(k-1)!k!$ avoided standardised patterns.
+For $k=1$, both diagonals avoid $(21,12)$, so the vertices are intervals of the weak order.
+For $k=2$, 
+\begin{itemize}
+    \item $\LA$ avoids 
+    $(3142,2314), (4132,2413),
+    (2143,3214), (4123,3412),
+    (2134,4213), (3124,4312)$.
+    \item $\SU$ avoids 
+    $(1243,2431),(1342,3421),
+    (2143,1432),(2341,3412),
+    (3142,1423),(3241,2413)$.
+\end{itemize}
+As such, the vertices of $\LA$ and $\SU$ are a strict subset of all intervals of the weak order.
+Here is an illustration of the patterns avoided for $k=4$.
+The $\LA$ pattern is drawn on the left, the $\SU$ pattern is drawn on the right, and they are in bijection under the isomorphism $t(r\times r)$ (\cref{subsec:isos-LA-SU}), where the bijection between elements is $(i_1,i_2,i_3,i_4)\mapsto ({j'}_4,{j'}_1,{j'}_2,{j'}_3)$ and $(j_1,j_2,j_3,j_4)\mapsto ({i'}_1,{i'}_2,{i'}_3,{i'}_4)$.
+\begin{center}
+\begin{tikzpicture}[scale=.7]  
+\node[anchor=east] (0) at (-1.5, 0) {$j_1$};
+\node[anchor=east] (1) at (-1.5, -1) {$i_1$};
+\node[anchor=east] (2) at (-1.5, -2) {$j_2$};
+\node[anchor=east] (3) at (-1.5, -3) {$i_2$};
+\node[anchor=east] (4) at (-1.5, -4) {$j_3$};
+\node[anchor=east] (5) at (-1.5, -5) {$i_3$};
+\node[anchor=east] (6) at (-1.5, -6) {$j_4$};
+\node[anchor=east] (7) at (-1.5, -7) {$i_4$};
+%
+\node[anchor=west] (8) at (1.5, 0) {$i_2$};
+\node[anchor=west] (9) at (1.5, -1) {$j_1$};
+\node[anchor=west] (10) at (1.5, -2) {$i_3$};
+\node[anchor=west] (11) at (1.5, -3) {$j_2$};
+\node[anchor=west] (12) at (1.5, -4) {$i_4$};
+\node[anchor=west] (13) at (1.5, -5) {$j_3$};
+\node[anchor=west] (14) at (1.5, -6) {$i_1$};
+\node[anchor=west] (15) at (1.5, -7) {$j_4$};
+%
+\draw[thick, green] (0) to [in=180, out=0, looseness=0] (9);
+\draw[thick, blue, dashed] (1) to [in=180, out=0, looseness=0] (14);
+\draw[thick, green] (2) to [in=180, out=0, looseness=0] (11);
+\draw[thick, blue] (3) to [in=180, out=0, looseness=0] (8);
+\draw[thick, green] (4) to [in=180, out=0, looseness=0] (13);
+\draw[thick, blue] (5) to [in=180, out=0, looseness=0] (10);
+\draw[thick, green] (6) to [in=180, out=0, looseness=0] (15);
+\draw[thick, blue] (7) to [in=180, out=0, looseness=0] (12);
+%
+\end{tikzpicture}
+\raisebox{7em}{$\xrightarrow{t(r\times r)}$}
+\begin{tikzpicture}[scale=.7]  
+\node[anchor=east] (0) at (-1.5, 0) {$j'_1$};
+\node[anchor=east] (1) at (-1.5, -1) {$i'_1$};
+\node[anchor=east] (2) at (-1.5, -2) {$j'_2$};
+\node[anchor=east] (3) at (-1.5, -3) {$i'_2$};
+\node[anchor=east] (4) at (-1.5, -4) {$j'_3$};
+\node[anchor=east] (5) at (-1.5, -5) {$i'_3$};
+\node[anchor=east] (6) at (-1.5, -6) {$j'_4$};
+\node[anchor=east] (7) at (-1.5, -7) {$i'_4$};
+%
+\node[anchor=west] (8) at (1.5, 0) {$i'_1$};
+\node[anchor=west] (9) at (1.5, -1) {$j'_4$};
+\node[anchor=west] (10) at (1.5, -2) {$i'_2$};
+\node[anchor=west] (11) at (1.5, -3) {$j'_1$};
+\node[anchor=west] (12) at (1.5, -4) {$i'_3$};
+\node[anchor=west] (13) at (1.5, -5) {$j'_2$};
+\node[anchor=west] (14) at (1.5, -6) {$i'_4$};
+\node[anchor=west] (15) at (1.5, -7) {$j'_3$};
+%
+\draw[thick, green] (0) to [in=180, out=0, looseness=0] (11);
+\draw[thick, blue] (1) to [in=180, out=0, looseness=0] (8);
+\draw[thick, green] (2) to [in=180, out=0, looseness=0] (13);
+\draw[thick, blue] (3) to [in=180, out=0, looseness=0] (10);
+\draw[thick, green] (4) to [in=180, out=0, looseness=0] (15);
+\draw[thick, blue] (5) to [in=180, out=0, looseness=0] (12);
+\draw[thick, green, dashed] (6) to [in=180, out=0, looseness=0] (9);
+\draw[thick, blue] (7) to [in=180, out=0, looseness=0] (14);
+%
+\end{tikzpicture}
+\end{center}
+The alternate isomorphism $t(s\times s)$, provides an alternate way to establish a bijection between these two patterns.
+The avoided patterns for higher $k$ extend this crisscrossing shape.
+
 \end{example}
 
 \begin{proof}
 We give the proof for the $\LA$ diagonal, the one for the $\SU$ diagonal is similar, and can be obtained by applying either of the two isomorphisms of \cref{subsec:isos-LA-SU}.
 According to \cref{thm:IJ-description}, we have that $(\sigma,\tau) \notin \LAD$ if and only if there is an $(I,J)$ such that~$J$ dominates $I$ in $\sigma$ and $I$ dominates $J$ in $\tau$.
-It remains to show this last condition is equivalent to the existence of a pattern of the form (\ref{eq:pattern}).
-It is clear that if a pair of permutations $(\sigma,\tau)$ contains a pattern, then the associated $(I,J)$ satisfies the domination condition; thus we just need to show the reverse implication. 
+It is clear that if a pair of permutations $(\sigma,\tau)$ contains a pattern of the form (\ref{eq:pattern}), then the associated $(I,J)$ satisfies the domination condition.
+Thus, we just need to show the reverse implication. 
 We proceed by induction on the cardinality $|I|=|J|$. 
 The case of cardinality $1$ is clear. 
 Now suppose that for all $(I,J)$ of size $|I|=|J|\leq m-1$, we have that if~$J$ dominates $I$ in $\sigma$ and $I$ dominates $J$ in $\tau$, then $(\sigma,\tau)$ contains a pattern of the form~(\ref{eq:pattern}).
 
 We need to show that this is still true for the pairs $(I,J)$ of size $|I|=|J|=m$.
-Firstly, suppose that the leftmost element $i_1$ of $I$ in $\sigma$ is not $1$, and let us write $j_1$ for the leftmost element of $J$ in $\tau$.
-Let us consider the pair $(I',J') \eqdef (I\ssm \{i_1\}, J \ssm \{j_1\})$.
-Using both cases of \cref{lem:Coherent Domination}, we have that $J'$ dominates $I'$ in $\sigma$, and $I'$ dominates $J'$ in $\tau$, and we can thus conclude with the induction hypothesis. 
+Firstly, we need only consider standardised $I,J$ conditions, and pairs of permutations of $[2m]$.
+Why?
+If we define $(\sigma',\tau') := \std(\sigma \cap (I\cup J),\tau \cap (I\cup J))$, and $(I',J'):=\std(I',J')$, 
+then if $(\sigma,\tau)$ satisfies the $(I,J)$ domination condition, this implies $(\sigma',\tau')$ satisfies $(I',J')$.
+Conversely, if $(\sigma',\tau')$ has a pattern, then this implies $(\sigma,\tau)$ has the same pattern.
+Which yields the indicated simplification.
 
-Secondly, suppose that the leftmost element of $I$ in $\sigma$ is $i_1=1$.
-Then, for $n\geq1$ we prove that,
+Let $(\sigma,\tau)$ be such a pair of permutations.
+Suppose the leftmost element $i_1$ of $I$ in $\sigma$ is not $1$, and let us write $j_1$ for the leftmost element of $J$ in $\tau$.
+Let us consider the pair $(I',J') \eqdef (I\ssm \{i_1\}, J \ssm \{j_1\})$.
+Using both cases of \cref{lem:Coherent Domination}, we have that $J'$ dominates $I'$ in $\sigma$, and $I'$ dominates $J'$ in $\tau$, and we can thus conclude by induction that $(\sigma,\tau)$ contains a smaller pattern.
+
+So, we assume the leftmost element of $I$ in $\sigma$ is $i_1=1$, and for $n\geq1$ we prove that,
 \begin{enumerate}[(a)]
-	\item if the intersection of $(\sigma,\tau)$ with $I \cup J$ is of the form $$(j_1 i_1 j_2 i_2 ... j_{n-1} i_{n-1} w i_{n} w', \ i_2 j_1 i_3 j_2 ... i_{n}j_{n-1}w'') \ , $$ and $j_n$ is the leftmost element of $J\ssm \{j_1,...,j_{n-1}\}$ in $\tau$, then either we have $w = j_n$, or we can conclude with the induction hypothesis.
-	\item if the intersection of $(\sigma,\tau)$ with $I \cup J$ is of the form $$(j_1 i_1 j_2 i_2 ... j_{n-1} i_{n-1} w'', \ i_2 j_1 i_3 j_2 ... i_{n-1}j_{n-2} w j_{n-1} w'') \ , $$ and $i_n$ is the leftmost $I\ssm \{i_1,...,i_{n-1}\}$ in $\sigma$, then either we have $w = i_n$, or we can conclude with the induction hypothesis.
+    \item If $(\sigma,\tau)=(j_1 i_1 j_2 i_2 ... j_{n-1} i_{n-1} w i_{n} w', \ i_2 j_1 i_3 j_2 ... i_{n}j_{n-1}w'') $, and $j_n$ is the leftmost element of $J\ssm \{j_1,...,j_{n-1}\}$ in $\tau$, then either $w = j_n$, or it matches a smaller pattern.
+    \item If $(\sigma,\tau)=(j_1 i_1 j_2 i_2 ... j_{n-1} i_{n-1} w'', \ i_2 j_1 i_3 j_2 ... i_{n-1}j_{n-2} w j_{n-1} w'')$, and $i_n$ is the leftmost $I\ssm \{i_1,...,i_{n-1}\}$ in $\sigma$, then either $w = i_n$, or it matches a smaller pattern.
 \end{enumerate}
 We prove $(a)$, the proof of $(b)$ proceeds similarly. 
 Let $j_n$ be the leftmost element of $J\ssm \{j_1,...,j_{n-1} \}$ in $\tau$.
-Suppose that $w\neq j_n$, then either (i) $w$ consists of multiple elements of $J$ including $j_n$, or (ii) $j_n$ comes after $i_n$ in $\sigma$.
-Now consider the pair $(I',J') \eqdef (I_k\ssm \{i_n\}, J_k \ssm \{j_n\})$.
-As was the case for the proof that $i_1=1$, we have that $I'$ dominate $J'$ in $\tau$.
+If $w\neq j_n$, then either (i) $w$ consists of multiple elements of $J$ including $j_n$, or (ii) $j_n$ comes after $i_n$ in $\sigma$.
+Now consider the pair $(I',J') \eqdef (I\ssm \{i_n\}, J \ssm \{j_n\})$.
+As was the case for the proof that $i_1=1$, we have that $I'$ dominates $J'$ in $\tau$.
 To prove that $J'$ dominates $I'$ in $\sigma$, we split by the cases.
 In case (i), we may apply condition $(2)$ of \cref{lem:Coherent Domination}.
 In case (ii), either $i_n$ comes before $j_n$, in which case we meet condition $(1)$ of \cref{lem:Coherent Domination}, or $j_n$ comes before $i_n$.
 In this last situation, we have that condition $(2)$ of \cref{lem:Coherent Domination} holds as $i_n$ is the leftmost element of $I\ssm \{i_1,...,i_{n-1} \}$ in $\sigma$.
-Thus, if $w \neq j_n$, we can apply the induction hypothesis. 
+Thus, if $w \neq j_n$, by the inductive hypothesis, we match a smaller pattern.
 
-Having in hand statements (a) and (b) above, we can inductively generate the entire permutation, determining $j_1$ via $(a)$, then $i_2$ via $(b)$, then $j_2$ via $(a)$ and so on.
-This inductive process fully generates the intersection of $I\cup J$ with $\sigma$, and places all elements of the intersection with $\tau$ except $i_1$, with a final known expression of the form $i_2 j_1 i_3 j_2 \cdots i_k j_{k-1} w j_k w''$.
+Finally, using statements (a) and (b) above, we can inductively generate $(\sigma,\tau)$, determining $j_1$ via $(a)$, then $i_2$ via $(b)$, then $j_2$ via $(a)$ and so on.
+This inductive process fully generates $\sigma$, and places all elements of $\tau$ except $i_1$, yielding $\tau=i_2 j_1 i_3 j_2 \cdots i_k j_{k-1} w j_k w''$.
 However, as $j_k$ must be dominated by an element of $I$, this forces $w = i_1$ and $w'' =\varnothing$, completing the proof.
 \end{proof}
 
@@ -2840,7 +2912,7 @@ while the \defn{left $m$-shift} moves it $m$ blocks to the left
 \end{definition}
 
 \begin{definition}
-\label{def:movable-subsets}
+\label{def:SU-admissible}
 Let $\sigma$ denote either one of the two ordered partitions of $[n]$ in a $(2,n)$-partition tree, and let $M_i \subsetneq \sigma_i$.
 The right $m$-shift $R_{M_i}$ (\resp. the left $m$-shift $L_{M_{i}}$) is 
 \begin{enumerate}
@@ -2879,7 +2951,7 @@ Performing the $1$-shifts $R_7$ and $L_{56}$ (they are both block and path admis
 		\draw[thick] (4) to [in=180, out=0, looseness=0] (8);
 	\end{tikzpicture}
 	\quad
-	\raisebox{3em}{$\xrightarrow{R_{7} \times L_{56}}$}
+	\raisebox{3.4em}{$\xrightarrow{R_{7} \times L_{56}}$}
 	\quad
 	\begin{tikzpicture}[scale=.7]  
 		\node (p) at (0, 0) {$13|24|57|6 \times 3|17|456|2$};
@@ -2932,7 +3004,7 @@ where the unions are taken over all strong complementary partitions $(\sigma, \t
 
 \begin{remark}
 	Observe that the left (\resp right) shifts acts on the right (\resp left) ordered partition.
-	In the analogous description for the diagonal $\LAD$ obtained at the end of the Section \Guillaume{[REF]}, left and right shifts act on the left and right ordered partitions, respectively. 
+	In the analogous description for the $\LA$ diagonal $\LAD$ obtained at in \cref{subsec:shifts-under-iso}, left and right shifts act on the left and right ordered partitions, respectively. 
 \end{remark}
 
 %%%%%%%%%%%%%%%
@@ -3183,32 +3255,35 @@ In Case $(1)$, if the facet $(\sigma,\tau)$ is not a $\SCP$ then it must have a 
 This adjacent crossing is of the following form (we illustrate the case where the crossing happens on the left, the case when it happens on the right is similar): 
 \begin{center}
 \begin{tikzpicture}[scale=.6]  
-\node (1) at (-1.5, -1) {$\sigma_i$};
-\node (2) at (-1.5, -2) {$\sigma_{i+1}$};
+\node[anchor=east] (1) at (-1.5, -1) {$\sigma_i$};
+\node[anchor=east] (2) at (-1.5, -2) {$\sigma_{i+1}$};
 %
-\node (4) at (1.5, -1) {$\tau_j$};
-\node (5) at (1.5, -2) {$\tau_{k}$};
+\node[anchor=west] (4) at (1.5, -1) {$\tau_j$};
+\node[anchor=west] (5) at (1.5, -2) {$\tau_{k}$};
 %
 \draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
 \draw[thick] (2) to [in=180, out=0, looseness=0] (5);
 \draw[thick] (2) to [in=180, out=0, looseness=0] (4);
-\node (6) at (0.9, -0.7) {$\rho$};
+\node (6) at (0.9, -0.8) {$\rho$};
 \node (7) at (0, -2.3) {$b$};
-\node (8) at (-0.9, -0.7) {$c$};
+\node (8) at (-0.9, -0.8) {$c$};
 \end{tikzpicture}
 \quad
-\raisebox{1em}{$\xrightarrow{R^{-1}_{\rho}}$}
+\raisebox{1.9em}{$\xrightarrow{R^{-1}_{\rho}}$}
 \quad
 \begin{tikzpicture}[scale=.6]  
-\node (1) at (-1.5, -1) {$\sigma_i \sqcup \rho$};
-\node (2) at (-1.5, -2) {$\sigma_{i+1}\ssm \rho$};
+\node[anchor=east] (1) at (-1.5, -1) {$\sigma_i \sqcup \rho$};
+\node[anchor=east] (2) at (-1.5, -2) {$\sigma_{i+1}\ssm \rho$};
 %
-\node (4) at (1.5, -1) {$\tau_j$};
-\node (5) at (1.5, -2) {$\tau_{k}$};
+\node[anchor=west] (4) at (1.5, -1) {$\tau_j$};
+\node[anchor=west] (5) at (1.5, -2) {$\tau_{k}$};
 %
 \draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
 \draw[thick] (1) to [in=180, out=0, looseness=0] (5);
 \draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\node (6) at (0.9, -0.75) {$\rho$};
+\node (7) at (0, -2.3) {$b$};
+\node (8) at (-0.9, -1.45) {$c$};
 \end{tikzpicture}
 \end{center}
 By definition of the geometric $\SU$ diagonal, the fact that $\tau_j < \tau_k$ implies that $\rho > b$, and the fact that $\sigma_i < \sigma_{i+1}$ implies that $b>c$.
@@ -3219,66 +3294,65 @@ Since $\max \sigma_{i,i+1+m} = \max \sigma_{i,i+1}= \rho$ the definition of the 
 Thus, we know that $m > 1$, and using dashed lines to denote paths of length $\geq 1$ we have the following picture
 \begin{center}
 \begin{tikzpicture}[scale=.6]  
-\node (1) at (-1.5, -1) {$\sigma_i$};
-\node (2) at (-1.5, -2) {$\sigma_{i+1}$};
-\node (3) at (-1.5, -3) {$\sigma_{i+1+m}$};
+\node[anchor=east] (1) at (-1.5, -1) {$\sigma_i$};
+\node[anchor=east] (2) at (-1.5, -2) {$\sigma_{i+1}$};
+\node[anchor=east] (3) at (-1.5, -3) {$\sigma_{i+1+m}$};
 %
-\node (4) at (1.5, -1) {$\hphantom{.}$};
-\node (5) at (1.5, -2) {$\hphantom{.}$};
+\node[anchor=west](4) at (1.5, -1) {$\hphantom{.}$};
+\node[anchor=west](5) at (1.5, -2) {$\hphantom{.}$};
 %
 \draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
 \draw[thick,dashed] (2) to [in=180, out=0, looseness=0] (5);
 \draw[thick] (3) to [in=180, out=0, looseness=0] (4);
 \draw[thick,dashed] (3) to [in=180, out=0, looseness=0] (5);
 %
-\node (6) at (1.3, -1.3) {$\rho$};
+\node (6) at (1.3, -1.4) {$\rho$};
 \end{tikzpicture}
-$\xrightarrow{R_\rho^{-1}}$
+\raisebox{2.15em}{$\xrightarrow{R^{-1}_{\rho}}$}
 \begin{tikzpicture}[scale=.6]  
-\node (1) at (-1.5, -1) {$\sigma_i$};
-\node (2) at (-1.5, -2) {$\sigma_{i+1}\sqcup \rho$};
-\node (3) at (-1.5, -3) {$\sigma_{i+1+m}\ssm \rho$};
+\node[anchor=east] (1) at (-1.5, -1) {$\sigma_i$};
+\node[anchor=east] (2) at (-1.5, -2) {$\sigma_{i+1}\sqcup \rho$};
+\node[anchor=east] (3) at (-1.5, -3) {$\sigma_{i+1+m}\ssm \rho$};
 %
-\node (4) at (1.5, -1) {$\hphantom{.}$};
-\node (5) at (1.5, -2) {$\hphantom{.}$};
+\node[anchor=west] (4) at (1.5, -1) {$\hphantom{.}$};
+\node[anchor=west] (5) at (1.5, -2) {$\hphantom{.}$};
 %
 \draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
 \draw[thick,dashed] (2) to [in=180, out=0, looseness=0] (5);
 \draw[thick] (2) to [in=180, out=0, looseness=0] (4);
 \draw[thick,dashed] (3) to [in=180, out=0, looseness=0] (5);
 %
-\node (6) at (1.3, -1.3) {$\rho$};
+\node (6) at (1.3, -1.4) {$\rho$};
 \end{tikzpicture}
 \end{center}
 As we have $\rho=\max \sigma_{i,i+1} > \max\sigma_{i+1+m,i+1}$, an inverse $m$-shift operation can be performed.
-\Guillaume{@Kurt, can you align the nodes + put the arrow in the middle of the picture?}
 
 In the Case $(2.b.i)$, there exists $j,m>0$ such that $\tau_{j-m}$ is the block of $\tau$ which contains the maximal element $\rho$, and $\tau_j$ is any greater block on the path from $\sigma_i$ to $\sigma_{i+1}$. 
 Then we may apply the following inverse $m$-shift operator.
 \begin{center}
 \begin{tikzpicture}[scale=.6]  
-\node (1) at (-1.5, -1) {$\sigma_i$};
-\node (2) at (-1.5, -2) {$\sigma_{i+1}$};
-\node (3) at (-1.5, -3) {$\sigma_{i+1+m}$};
+\node[anchor=east] (1) at (-1.5, -1) {$\sigma_i$};
+\node[anchor=east] (2) at (-1.5, -2) {$\sigma_{i+1}$};
+\node[anchor=east] (3) at (-1.5, -3) {$\sigma_{i+1+m}$};
 %
-\node (4) at (1.5, -1) {$\tau_{j-m}$};
-\node (5) at (1.5, -2) {$\tau_j$};
+\node[anchor=west] (4) at (1.5, -1) {$\tau_{j-m}$};
+\node[anchor=west] (5) at (1.5, -2) {$\tau_j$};
 %
 \draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
 \draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (5);
 \draw[thick,dashed] (2) to [in=180, out=0, looseness=0] (5);
 \draw[thick] (3) to [in=180, out=0, looseness=0] (4);
 %
-\node (6) at (0.3, -2.8) {$\rho$};
+\node (6) at (-0.5, -2.8) {$\rho$};
 \end{tikzpicture}
-$\xrightarrow{L_\rho^{-1}}$
+\raisebox{2.15em}{$\xrightarrow{L_\rho^{-1}}$}
 \begin{tikzpicture}[scale=.6]  
-\node (1) at (-1.5, -1) {$\sigma_i$};
-\node (2) at (-1.5, -2) {$\sigma_{i+1}$};
-\node (3) at (-1.5, -3) {$\sigma_{i+1+m}$};
+\node[anchor=east] (1) at (-1.5, -1) {$\sigma_i$};
+\node[anchor=east] (2) at (-1.5, -2) {$\sigma_{i+1}$};
+\node[anchor=east] (3) at (-1.5, -3) {$\sigma_{i+1+m}$};
 %
-\node (4) at (1.5, -1) {$\tau_{j-m}\ssm \rho$};
-\node (5) at (1.5, -2) {$\tau_j \sqcup \rho$};
+\node[anchor=west] (4) at (1.5, -1) {$\tau_{j-m}\ssm \rho$};
+\node[anchor=west] (5) at (1.5, -2) {$\tau_j \sqcup \rho$};
 %
 \draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
 \draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (5);
@@ -3297,37 +3371,37 @@ We must have $n>1$, since $\rho$ is the last step and $\sigma_i|\sigma_{i+1}$ ar
 The situation can be pictured as on the left.
 \begin{center}
 \begin{tikzpicture}[scale=.6]  
-\node (1) at (-1.5, -1) {$\sigma_{i-n}$};
-\node (2) at (-1.5, -2) {$\sigma_{i}$};
-\node (3) at (-1.5, -3) {$\sigma_{i+1}$};
+\node[anchor=east] (1) at (-1.5, -1) {$\sigma_{i-n}$};
+\node[anchor=east] (2) at (-1.5, -2) {$\sigma_{i}$};
+\node[anchor=east] (3) at (-1.5, -3) {$\sigma_{i+1}$};
 %
-\node (4) at (1.5, -1) {$\tau_{j-m}$};
-\node (5) at (1.5, -2) {$\tau_j$};
+\node[anchor=west] (4) at (1.5, -1) {$\tau_{j-m}$};
+\node[anchor=west] (5) at (1.5, -2) {$\tau_j$};
 %
 \draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
 \draw[thick] (1) to [in=180, out=0, looseness=0] (5);
 \draw[thick,dashed] (2) to [in=180, out=0, looseness=0] (4);
 \draw[thick] (3) to [in=180, out=0, looseness=0] (5);
 %
-\node (6) at  (0.8, -2.5) {$\rho$};
-\node (7) at  (0.8, -1.5) {$i_k$};
+\node (6) at  (1.1, -2.5) {$\rho$};
+\node (7) at  (1.1, -1.5) {$i_k$};
 \end{tikzpicture}
-$\xrightarrow{L_{\rho'}^{-1}}$
+\raisebox{2.15em}{$\xrightarrow{L_{\rho'}^{-1}}$}
 \begin{tikzpicture}[scale=.6]  
-\node (1) at (-1.5, -1) {$\sigma_{i-n}$};
-\node (2) at (-1.5, -2) {$\sigma_{i}$};
-\node (3) at (-1.5, -3) {$\sigma_{i+1}$};
+\node[anchor=east] (1) at (-1.5, -1) {$\sigma_{i-n}$};
+\node[anchor=east] (2) at (-1.5, -2) {$\sigma_{i}$};
+\node[anchor=east] (3) at (-1.5, -3) {$\sigma_{i+1}$};
 %
-\node (4) at (1.5, -1) {$\tau_{j-m}\ssm \rho'$};
-\node (5) at (1.5, -2) {$\tau_j \sqcup \rho'$};
+\node[anchor=west] (4) at (1.5, -1) {$\tau_{j-m}\ssm \rho'$};
+\node[anchor=west] (5) at (1.5, -2) {$\tau_j \sqcup \rho'$};
 %
 \draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
 \draw[thick] (1) to [in=180, out=0, looseness=0] (5);
 \draw[thick,dashed] (2) to [in=180, out=0, looseness=0] (5);
 \draw[thick] (3) to [in=180, out=0, looseness=0] (5);
 %
-\node (6) at  (0.45, -2.5) {$\rho$};
-\node (7) at  (0.45, -1.5) {$i_k$};
+\node (6) at  (1.1, -2.5) {$\rho$};
+\node (7) at  (1.1, -1.5) {$i_k$};
 \end{tikzpicture}
 \end{center}
 Now let $\rho' \eqdef \max\sigma_{i,i-n}$ be the maximum of the path $\sigma_{i,i-n}=(i_1,j_1,i_2,...,i_{k-1},j_{k-1})$, and let~$\tau_{j-m}$, $m\geq 1$ be the block of $\tau$ containing $\rho'$.
@@ -3344,39 +3418,39 @@ Here are examples of each of the cases in the proof of \cref{lem:inverse-to-SCP}
 We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading the diagrams from top-left to bottom-right. 
 
 \begin{center}
-\begin{tikzpicture}[scale=.6]  
-\node (1) at (-1.5, -1) {$1$};
-\node (2) at (-1.5, -2) {$23$};
+\begin{tikzpicture}[scale=.6,xscale=0.8]  
+\node[anchor=east] (1) at (-1.5, -1) {$1$};
+\node[anchor=east] (2) at (-1.5, -2) {$23$};
 %
-\node (4) at (1.5, -1) {$3$};
-\node (5) at (1.5, -2) {$12$};
+\node[anchor=west] (4) at (1.5, -1) {$3$};
+\node[anchor=west] (5) at (1.5, -2) {$12$};
 %
 \draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
 \draw[thick] (2) to [in=180, out=0, looseness=0] (5);
 \draw[thick] (2) to [in=180, out=0, looseness=0] (4);
 \end{tikzpicture}
 \quad
-\raisebox{1em}{$\xrightarrow{R^{-1}_{3}}$}
+\raisebox{1.3em}{$\xrightarrow{R^{-1}_{3}}$}
 \quad
-\begin{tikzpicture}[scale=.6]  
-\node (1) at (-1.5, -1) {$13$};
-\node (2) at (-1.5, -2) {$2$};
+\begin{tikzpicture}[scale=.6,xscale=0.8]  
+\node[anchor=east] (1) at (-1.5, -1) {$13$};
+\node[anchor=east] (2) at (-1.5, -2) {$2$};
 %
-\node (4) at (1.5, -1) {$3$};
-\node (5) at (1.5, -2) {$12$};
+\node[anchor=west] (4) at (1.5, -1) {$3$};
+\node[anchor=west] (5) at (1.5, -2) {$12$};
 %
 \draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
 \draw[thick] (1) to [in=180, out=0, looseness=0] (5);
 \draw[thick] (2) to [in=180, out=0, looseness=0] (5);
 \end{tikzpicture}
 ,
-\begin{tikzpicture}[scale=.6]  
-\node (1) at (-1.5, -1) {$1$};
-\node (2) at (-1.5, -2) {$2$};
-\node (3) at (-1.5, -3) {$34$};
+\begin{tikzpicture}[scale=.6,xscale=0.8] 
+\node[anchor=east] (1) at (-1.5, -1) {$1$};
+\node[anchor=east] (2) at (-1.5, -2) {$2$};
+\node[anchor=east] (3) at (-1.5, -3) {$34$};
 %
-\node (4) at (1.5, -1) {$14$};
-\node (5) at (1.5, -2) {$23$};
+\node[anchor=west] (4) at (1.5, -1) {$14$};
+\node[anchor=west] (5) at (1.5, -2) {$23$};
 %
 \draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
 \draw[thick] (2) to [in=180, out=0, looseness=0] (5); 
@@ -3384,15 +3458,15 @@ We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading
 \draw[thick] (3) to [in=180, out=0, looseness=0] (5);
 \end{tikzpicture}
 \quad
-\raisebox{1.5em}{$\xrightarrow{R^{-1}_{4}}$}
+\raisebox{2.15em}{$\xrightarrow{R^{-1}_{4}}$}
 \quad
-\begin{tikzpicture}[scale=.6]  
-\node (1) at (-1.5, -1) {$1$};
-\node (2) at (-1.5, -2) {$24$};
-\node (3) at (-1.5, -3) {$3$};
+\begin{tikzpicture}[scale=.6,xscale=0.8]  
+\node[anchor=east] (1) at (-1.5, -1) {$1$};
+\node[anchor=east] (2) at (-1.5, -2) {$24$};
+\node[anchor=east] (3) at (-1.5, -3) {$3$};
 %
-\node (4) at (1.5, -1) {$14$};
-\node (5) at (1.5, -2) {$23$};
+\node[anchor=west] (4) at (1.5, -1) {$14$};
+\node[anchor=west] (5) at (1.5, -2) {$23$};
 %
 \draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
 \draw[thick] (2) to [in=180, out=0, looseness=0] (4);
@@ -3401,13 +3475,13 @@ We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading
 \end{tikzpicture}
 \end{center}
 \begin{center}
-\begin{tikzpicture}[scale=.6]  
-\node (1) at (-1.5, -1) {$13$};
-\node (2) at (-1.5, -2) {$2$};
-\node (3) at (-1.5, -3) {$4$};
+\begin{tikzpicture}[scale=.6,xscale=0.8]    
+\node[anchor=east] (1) at (-1.5, -1) {$13$};
+\node[anchor=east] (2) at (-1.5, -2) {$2$};
+\node[anchor=east] (3) at (-1.5, -3) {$4$};
 %
-\node (4) at (1.5, -1) {$34$};
-\node (5) at (1.5, -2) {$12$};
+\node[anchor=west] (4) at (1.5, -1) {$34$};
+\node[anchor=west] (5) at (1.5, -2) {$12$};
 %
 \draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
 \draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
@@ -3415,15 +3489,15 @@ We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading
 \draw[thick] (3) to [in=180, out=0, looseness=0] (4);
 \end{tikzpicture}
 \quad
-\raisebox{1.5em}{$\xrightarrow{L^{-1}_{4}}$}
+\raisebox{2.15em}{$\xrightarrow{L^{-1}_{4}}$}
 \quad
-\begin{tikzpicture}[scale=.6]  
-\node (1) at (-1.5, -1) {$13$};
-\node (2) at (-1.5, -2) {$2$};
-\node (3) at (-1.5, -3) {$4$};
+\begin{tikzpicture}[scale=.6,xscale=0.8]    
+\node[anchor=east] (1) at (-1.5, -1) {$13$};
+\node[anchor=east] (2) at (-1.5, -2) {$2$};
+\node[anchor=east] (3) at (-1.5, -3) {$4$};
 %
-\node (4) at (1.5, -1) {$3$};
-\node (5) at (1.5, -2) {$124$};
+\node[anchor=west] (4) at (1.5, -1) {$3$};
+\node[anchor=west] (5) at (1.5, -2) {$124$};
 %
 \draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
 \draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
@@ -3431,13 +3505,13 @@ We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading
 \draw[thick] (3) to [in=180, out=0, looseness=0] (5);
 \end{tikzpicture}
 ,
-\begin{tikzpicture}[scale=.6]  
-\node (1) at (-1.5, -1) {$12$};
-\node (2) at (-1.5, -2) {$3$};
-\node (3) at (-1.5, -3) {$4$};
+\begin{tikzpicture}[scale=.6,xscale=0.8]   
+\node[anchor=east] (1) at (-1.5, -1) {$12$};
+\node[anchor=east] (2) at (-1.5, -2) {$3$};
+\node[anchor=east] (3) at (-1.5, -3) {$4$};
 %
-\node (4) at (1.5, -1) {$23$};
-\node (5) at (1.5, -2) {$14$};
+\node[anchor=west] (4) at (1.5, -1) {$23$};
+\node[anchor=west] (5) at (1.5, -2) {$14$};
 %
 \draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
 \draw[thick] (1) to [in=180, out=0, looseness=0] (5);
@@ -3445,15 +3519,15 @@ We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading
 \draw[thick] (3) to [in=180, out=0, looseness=0] (5);
 \end{tikzpicture}
 \quad
-\raisebox{1.5em}{$\xrightarrow{L^{-1}_{3}}$}
+\raisebox{2.15em}{$\xrightarrow{L^{-1}_{3}}$}
 \quad
-\begin{tikzpicture}[scale=.6]  
-\node (1) at (-1.5, -1) {$12$};
-\node (2) at (-1.5, -2) {$3$};
-\node (3) at (-1.5, -3) {$4$};
+\begin{tikzpicture}[scale=.6,xscale=0.8]    
+\node[anchor=east] (1) at (-1.5, -1) {$12$};
+\node[anchor=east] (2) at (-1.5, -2) {$3$};
+\node[anchor=east] (3) at (-1.5, -3) {$4$};
 %
-\node (4) at (1.5, -1) {$2$};
-\node (5) at (1.5, -2) {$134$};
+\node[anchor=west] (4) at (1.5, -1) {$2$};
+\node[anchor=west] (5) at (1.5, -2) {$134$};
 %
 \draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
 \draw[thick] (1) to [in=180, out=0, looseness=0] (5);
@@ -3486,49 +3560,39 @@ The original and geometric $\SU$ diagonals coincide.
 
 %%%%%%%%%%%%%%%
 
-\subsection{Shifts Under the Face Poset Isomorphism}
+\subsection{Shifts under the face poset isomorphism}
+\label{subsec:shifts-under-iso}
 
-Previously in \cref{thm:bijection-operadic-diagonals}, we constructed an isomorphism of face-posets $sr\times sr:\LAD\to\SUD$.
-In addition, we showed in \cref{rem:Alternate Isomorphism}, that $t(r\times r):\LAD\to\SUD$ is also an isomorphism.
-In this section, we use this second isomorphism to directly translate the known shift results for the $\SU$ diagonal to the $\LA$ diagonal. 
-We first explicitly define all $\LA$ shift diagonals before establishing this connection.
-We note that in the $\LA$ diagonal, for $(\sigma,\tau)\in \LAD$, the left shift operators $L_\mathbf{N}$ will act on $\sigma$ and the right shift operators $R_\mathbf{M}$ will act on $\tau$, the opposite of $\SU$.
-The indexing of the following definition compared to \cref{def:movable-subsets} accounts for this fact.
+Now that we have the equivalence between the original and geometric $\SU$ diagonals in hand, we can use the face poset isomorphisms between the geometric $\LA$ and $\SU$ diagonals from \cref{subsec:isos-LA-SU} to translate results and combinatorial descriptions from one to the other. 
+Under the isomorphism $t(r\times r):\LAD\to\SUD$ from \cref{rem:Alternate Isomorphism}, we get a straighforward analogue of \cref{def:SU-admissible} for the $\LA$ diagonal.
+Specifically, the morphism $r \times r$ exchanges $\max$ and $\min$, giving the following ``dual" notions of admissibility.
 
-\begin{definition}[$\LA$ moveable subsets]
-\label{def:LAD movable-subsets}
-Let $(\sigma,\tau) = (\sigma_1|\dots|\sigma_k,\tau_1|\dots|\tau_l)$ be a pair of ordered partitions.
-For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (\resp $M_{i}\subset \tau_{i}$) is \emph{$1$-block movable} if 
+\begin{definition}
+\label{def:LA-admissible}
+Let $\sigma$ denote either one of the two ordered partitions of $[n]$ in a $(2,n)$-partition tree, and let $M_i \subsetneq \sigma_i$.
+The right $m$-shift $R_{M_i}$ (\resp. the left $m$-shift $L_{M_{i}}$) is 
 \begin{enumerate}
-	\item $\max \sigma_i \notin M_i$ (\resp $\max \tau_{i} \notin M_i$), and
-	\item $\max M_i < \max \sigma_{i-1}$ (\resp $\min M_{i} < \max \tau_{i+1}$).
-\end{enumerate}
-It is \emph{$m$-path movable} if it satisfies $(1)$ above and if
-\begin{enumerate}
-	\item[(2')] $\max M_i < \min \sigma_{i,i-m}$ (\resp $\max M_{i} < \min \tau_{i,i+m}$).
+	\item \defn{block-admissible} if $\max \sigma_i \notin M_i$ and $\max M_i < \min \sigma_{i+m}$ (\resp $\max M_{i} < \min \sigma_{i-m}$),
+	\item \defn{path-admissible} if $\max M_i< \min \sigma_{i,i+m}$ (\resp $\max M_{i} < \min \sigma_{i,i-m}$).
 \end{enumerate}
 \end{definition}
-With our new definitions of moveable subsets, to obtain the correct definition of an admissible sequence of shifts, simply replace $\sigma$ with $\tau$ in \cref{def:admissible-shift-sequences}. 
-Similar definitions hold for admissible sequence of left shifts.
 
-\begin{definition}[$\LA$ diagonals]
-	\label{def:shift-LA}
-   The facets of 
-   \begin{enumerate}[(a)]
-	\item the \emph{1-subset-shift $\LA$ diagonal},
-	\item the \emph{$1$-shift $\LA$ diagonal},
-	\item the \emph{$m$-shift $\LA$ diagonal}
-   \end{enumerate}
-   are defined by the formula
-	\begin{align*}
-		\LAD([n]) = \bigcup_{(\sigma,\tau)} \bigcup_{\mathbf{M}, \mathbf{N}} L_\mathbf{N}(\sigma)\times R_\mathbf{M}(\tau)
-	\end{align*}
-	where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and over all admissible sequences of shifts $\textbf{M},\textbf{N}$ of the corresponding type.
-\end{definition}
+Admissible sequence of shifts are defined similarly (simply replace $\sigma$ with $\tau$ in \cref{def:admissible-shift-sequences}).
+The morphism $t$ permutes the terms, providing the following analogue of \cref{def:classical-SU} for the $\LA$ diagonal. 
 
-We again stress that compared to the $\SU$ diagonals (\cref{def:classical-SU}), the left shift operators now act on the left ordered partition, and the right shift operators on the right ordered partition.
+\begin{proposition}
+\label{def:classical-LA}
+The facets of the $\LA$ diagonal are given defined by the formula
+\begin{align*}
+\LAD([n]) = \bigcup_{(\sigma,\tau)} \bigcup_{\mathbf{M}, \mathbf{N}} L_\mathbf{M}(\sigma)\times R_\mathbf{N}(\tau)
+\end{align*}
+where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and over all block-admissible sequences of subset $1$-shifts $\textbf{M},\textbf{N}$, or over all path-admissible sequences of $1$-shifts, or over all path-admissible sequences of singleton $m$-shifts, for various $m\geq 1$.
+\end{proposition}
 
-\begin{proposition} \label{prop:trr is an isomorphism of shifts}
+It turns out that the isomorphism $t(r \times r)$ between the $\LA$ and $\SU$ diagonals has the agreable property of sending left shifts to left shifts, and right shifts to right shifts. 
+
+\begin{proposition} 
+\label{prop:trr is an isomorphism of shifts}
 Let $(\sigma,\tau) \in \LAD$.
 For each type of $\LA$ shift, let $\textbf{M},\textbf{N}$ be admissible sequences of this type, then 
 \begin{align*}
@@ -3539,32 +3603,11 @@ where $r\mathbf{M} \eqdef (rM_{i_1},...,rM_{i_p})$ and $r\mathbf{N}$ (defined si
 \begin{proof}
 As reversing the elements then shifting them is the same as shifting the elements then reversing them,
 it is clear that the equality holds if $r\mathbf{M},r\mathbf{N}$ are admissible sequences of $\SU$ shifts.
-As such, we must simply verify the admissibility, and given the equivalence of the various shift definitions, we just do this for $1$-path shifts.
-For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (\resp $M_{i}\subset \tau_{i}$) is $LA$ $1$-block moveable if
-\begin{enumerate}
-	\item 
-	\begin{enumerate}
-		\item $\max \sigma_i \notin M_i$ implies that $ \min r\sigma_i \not \in r M_i$
-		\item (\resp $\max \tau_{i} \notin M_i$ implies that  $ \min r\tau_{i} \not \in r M_i$)
-	\end{enumerate}
-	\item 
-	\begin{enumerate}
-		\item $\max M_i < \max \sigma_{i-1}$  implies that $\min r M_i > \min r \sigma_{i+1}$
-		\item (\resp $\min M_{i} < \max \tau_{i+1}$ implies that $\max rM_{i} > \min r\tau_{i+1}$)
-	\end{enumerate}
-\end{enumerate}
-It is \emph{$m$-path movable} if it satisfies $(1)$ above and if
-\begin{enumerate}
-	\item[(2')] 
-	\begin{enumerate}
-		\item $\max M_i < \min \sigma_{i,i-m}$ implies that $\min r M_i > \max r \sigma_{i,i-m}$
-		\item (\resp $\max M_{i} < \min \tau_{i,i+m}$ implies that $\min r M_{i} > \max r\tau_{i,i+m}$)
-	\end{enumerate}
-\end{enumerate}
-The reader may directly verify from \cref{def:movable-subsets}, that each $rM_i \in r\sigma_i$ meets the conditions of a moveable subset 
-if it is interpreted as being in a block of the right partition ($\tau$ in the notation of the definition).
-So, if $\mathbf{M} = (M_{i_1},...,M_{i_p})$, define $r(\mathbf{M}) \eqdef (rM_{i_1},...,rM_{i_p})$, and from the prior it is clear this is an admissible sequence of $SU$ shifts.
-
+As such, we must simply verify the admissibility, and given the equivalence of the various shift definitions, we just do this for path-admissibility of $1$-shifts.
+Consider a right shift $R_{M_i}$ which is path-admissible in the $\LA$ sense (\cref{def:LA-admissible}). 
+Then, we have that $\max \sigma_i \notin M_i$ implies that $ \min r\sigma_i \not \in r M_i$ and $\max M_i < \min \sigma_{i+m}$  implies that $\min r M_i > \max r \sigma_{i+m}$, and thus the right shift $R_{rM_i}$ is path-admissible in the $\SU$ sense (\cref{def:SU-admissible}).
+Here, $rM_i \in r\sigma_i$ is interpreted as being in a block of the right partition ($\tau$ in the notation of the definition).
+So, if $\mathbf{M} = (M_{i_1},...,M_{i_p})$, define $r(\mathbf{M}) \eqdef (rM_{i_1},...,rM_{i_p})$, and from the prior it is clear this is a path-admissible sequence of $\SU$ shifts, finishing the proof.
 \end{proof}
 
 \begin{remark}
@@ -3574,20 +3617,21 @@ The $\LA^{op}$ and $\SU^{op}$ diagonals also admit obvious dual shift descriptio
 
 We now explore in example how the isomorphism $t(r\times r)$ translates the shift operators.
 
-\begin{example} \label{ex:shift translation by theta}
-The $\SCP$s $(\sigma,\tau)  \eqdef  5|17|4|236 \times 57|146|3|2$, and $(\sigma',\tau')  \eqdef  13|247|5|6 \times 3|17|4|156$, are in bijection through $t(r\times r)$. Graphically, this bijection has a clear symmetry,
-
+\begin{example} 
+	\label{ex:shift translation by theta}
+The isomorphism $t(r\times r)$ sends the $\SCP$ $(\sigma,\tau)  \eqdef  (5|17|4|236,57|146|3|2)$ to the $\SCP$ $(\sigma',\tau')  \eqdef  (13|247|5|6,3|17|4|156)$. 
+The corresponding $(2,n)$-partition trees present a clear symmetry
 \begin{center}
 \begin{tikzpicture}[scale=.7]  
-\node (1) at (-1.5, -1) {$5$};
-\node (2) at (-1.5, -2) {$17$};
-\node (3) at (-1.5, -3) {$4$};
-\node (4) at (-1.5, -4) {$236$};
+\node[anchor=east] (1) at (-1.5, -1) {$5$};
+\node[anchor=east] (2) at (-1.5, -2) {$17$};
+\node[anchor=east] (3) at (-1.5, -3) {$4$};
+\node[anchor=east] (4) at (-1.5, -4) {$236$};
 %
-\node (5) at (1.5, -1) {$57$};
-\node (6) at (1.5, -2) {$146$};
-\node (7) at (1.5, -3) {$3$};
-\node (8) at (1.5, -4) {$2$};
+\node[anchor=west] (5) at (1.5, -1) {$57$};
+\node[anchor=west] (6) at (1.5, -2) {$146$};
+\node[anchor=west] (7) at (1.5, -3) {$3$};
+\node[anchor=west] (8) at (1.5, -4) {$2$};
 %
 \draw[thick] (1) to [in=180, out=0, looseness=0](5); 
 \draw[thick] (2) to [in=180, out=0, looseness=0](5); 
@@ -3598,17 +3642,17 @@ The $\SCP$s $(\sigma,\tau)  \eqdef  5|17|4|236 \times 57|146|3|2$, and $(\sigma'
 \draw[thick] (4) to [in=180, out=0, looseness=0](8);
 %
 \end{tikzpicture}
-$\xrightarrow{t(r\times r)}$
+\raisebox{3.4em}{$\xrightarrow{t(r\times r)}$}
 \begin{tikzpicture}[scale=.7]  
-\node (1) at (-1.5, -1) {$13$};
-\node (2) at (-1.5, -2) {$247$};
-\node (3) at (-1.5, -3) {$5$};
-\node (4) at (-1.5, -4) {$6$};
+\node[anchor=east] (1) at (-1.5, -1) {$13$};
+\node[anchor=east] (2) at (-1.5, -2) {$247$};
+\node[anchor=east] (3) at (-1.5, -3) {$5$};
+\node[anchor=east] (4) at (-1.5, -4) {$6$};
 %
-\node (5) at (1.5, -1) {$3$};
-\node (6) at (1.5, -2) {$17$};
-\node (7) at (1.5, -3) {$4$};
-\node (8) at (1.5, -4) {$256$};
+\node[anchor=west] (5) at (1.5, -1) {$3$};
+\node[anchor=west] (6) at (1.5, -2) {$17$};
+\node[anchor=west] (7) at (1.5, -3) {$4$};
+\node[anchor=west] (8) at (1.5, -4) {$256$};
 %
 \draw[thick] (1) to [in=180, out=0, looseness=0](5); 
 \draw[thick] (2) to [in=180, out=0, looseness=0](5); 
@@ -3620,7 +3664,7 @@ $\xrightarrow{t(r\times r)}$
 %
 \end{tikzpicture}
 \end{center}
-We now illustrate all possible $\LA$ $1$-shifts of the left $\SCP$ and all possible $\SU$ $1$-shifts of the right $\SCP$. 
+We now illustrate all possible $\LA$ singleton $1$-shifts of $(\sigma,\tau)$ and all possible $\SU$ singleton $1$-shifts of $(\sigma',\tau')$. 
 We first display how the $\LA$ left shifts act on $\sigma$, and the $\SU$ left shifts act on $\tau'$.
 The $LA$ shifts have been drawn so that the leftmost arrow shifts the smallest element, and the $SU$ shifts have been drawn so that the leftmost arrow shifts the largest element.
 As such, the face poset isomorphism $t(r\times r)$ directly translates one diagram to the other.
@@ -3649,74 +3693,72 @@ The specific element being shifted can be inferred by the source and target of t
 \end{tikzcd}
 }
 \end{center}
-The possible $\LAD$ right shifts (acting on $\tau$)  are,
+We now illustrate all the possible $\LAD$ right shifts acting on $\tau$
 \begin{center}
 \begin{tikzcd}
 \sigma \times 57|146|3|2 \arrow[r,"\rho=1"] & \sigma \times 57|46|13|2 \arrow[r,"\rho=1"] & \sigma \times 57|46|3|12
 \end{tikzcd}
 \end{center}
-The possible $\SUD$ right shifts (acting on $\sigma'$) are,
+and all possible $\SUD$ right shifts acting on $\sigma'$
 \begin{center}
 \begin{tikzcd}
-13|247|5|6 \times \tau' \arrow[r,"\rho=7"] & 13|24|57|6 \arrow[r,"\rho=7"] \times \tau' & 13|24|5|67 \times \tau'
+13|247|5|6 \times \tau' \arrow[r,"\rho=7"] & 13|24|57|6 \arrow[r,"\rho=7"] \times \tau' & 13|24|5|67 \times \tau' \ .
 \end{tikzcd}
 \end{center}
-No other shifts are possible, observe for instance that we cannot perform the $\LAD$ left shift $15|7|234|6 \times 57|46|13|2 \xrightarrow{\rho=2} 15|27|34|6 \times 57|46|13|2$ as the minimal path connecting $234$ and $7$ contains $1$ which is smaller than $2$ (see \cref{ex:ECbijection}).
-We will show in the next section, that these recovered diagrams are the Hasse diagrams of lattices.
+No other shifts are possible; observe for instance that we cannot perform the $\LAD$ left shift $15|7|234|6 \times 57|46|13|2 \xrightarrow{\rho=2} 15|27|34|6 \times 57|46|13|2$ as the minimal path connecting $234$ and $7$ contains $1$ which is smaller than $2$ (see \cref{ex:ECbijection}).
+We shall see in \cref{sec:Shift-lattice}, that these diagrams are the Hasse diagrams of lattices.
 \end{example}
 
-
 \begin{example}
-It was observed in \cite{LaplanteAnfossi} that the $LA$ and $SU$ diagonals coincided up until $n=3$, however due to their dual shift structure they generate the non-$SCP$ pairs in a dual fashion.
-In particular, the two center faces of the hexagon (\cref{fig:diagonalPermutahedron2}) are generated by 
+It was observed in \cite{LaplanteAnfossi} that the $\LA$ and $\SU$ diagonals coincided up until $n=3$, however due to their dual shift structure they generate the non-$\SCP$ pairs in a dual fashion.
+In particular, the two center faces of the subdivided hexagon of \cref{fig:LUSAdiagonals} are generated by 
 \begin{center}
-
-\begin{tikzpicture}[scale=.6]  
-\node (1) at (-1.5, -1) {$13$};
-\node (2) at (-1.5, -2) {$2$};
+\begin{tikzpicture}[scale=.6,xscale=0.6]  
+\node[anchor=east] (1) at (-1.5, -1) {$13$};
+\node[anchor=east] (2) at (-1.5, -2) {$2$};
 %
-\node (4) at (1.5, -1) {$3$};
-\node (5) at (1.5, -2) {$12$};
+\node[anchor=west] (4) at (1.5, -1) {$3$};
+\node[anchor=west] (5) at (1.5, -2) {$12$};
 %
 \draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
 \draw[thick] (1) to [in=180, out=0, looseness=0] (5);
 \draw[thick] (2) to [in=180, out=0, looseness=0] (5);
 \end{tikzpicture}
 \quad
-\raisebox{1em}{$\xrightarrow{R^{SU}_{3}}$}
+\raisebox{1.3em}{$\xrightarrow{R^{SU}_{3}}$}
 \quad
-\begin{tikzpicture}[scale=.6]  
-\node (1) at (-1.5, -1) {$1$};
-\node (2) at (-1.5, -2) {$23$};
+\begin{tikzpicture}[scale=.6,xscale=0.6]  
+\node[anchor=east] (1) at (-1.5, -1) {$1$};
+\node[anchor=east] (2) at (-1.5, -2) {$23$};
 %
-\node (4) at (1.5, -1) {$3$};
-\node (5) at (1.5, -2) {$12$};
+\node[anchor=west] (4) at (1.5, -1) {$3$};
+\node[anchor=west] (5) at (1.5, -2) {$12$};
 %
 \draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
 \draw[thick] (2) to [in=180, out=0, looseness=0] (5);
 \draw[thick] (2) to [in=180, out=0, looseness=0] (4);
 \end{tikzpicture}
 ,\quad \quad
-\begin{tikzpicture}[scale=.6]  
-\node (1) at (-1.5, -1) {$12$};
-\node (2) at (-1.5, -2) {$3$};
+\begin{tikzpicture}[scale=.6,xscale=0.6]  
+\node[anchor=east] (1) at (-1.5, -1) {$12$};
+\node[anchor=east] (2) at (-1.5, -2) {$3$};
 %
-\node (4) at (1.5, -1) {$2$};
-\node (5) at (1.5, -2) {$13$};
+\node[anchor=west] (4) at (1.5, -1) {$2$};
+\node[anchor=west] (5) at (1.5, -2) {$13$};
 %
 \draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
 \draw[thick] (2) to [in=180, out=0, looseness=0] (5);
 \draw[thick] (1) to [in=180, out=0, looseness=0] (5);
 \end{tikzpicture}
 \quad
-\raisebox{1em}{$\xrightarrow{L^{SU}_{3}}$}
+\raisebox{1.3em}{$\xrightarrow{L^{SU}_{3}}$}
 \quad
-\begin{tikzpicture}[scale=.6]  
-\node (1) at (-1.5, -1) {$12$};
-\node (2) at (-1.5, -2) {$3$};
+\begin{tikzpicture}[scale=.6,xscale=0.6]  
+\node[anchor=east] (1) at (-1.5, -1) {$12$};
+\node[anchor=east] (2) at (-1.5, -2) {$3$};
 %
-\node (4) at (1.5, -1) {$23$};
-\node (5) at (1.5, -2) {$1$};
+\node[anchor=west] (4) at (1.5, -1) {$23$};
+\node[anchor=west] (5) at (1.5, -2) {$1$};
 %
 \draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
 \draw[thick] (2) to [in=180, out=0, looseness=0] (4);
@@ -3726,52 +3768,52 @@ In particular, the two center faces of the hexagon (\cref{fig:diagonalPermutahed
 \end{center}
 and
 \begin{center}
-\begin{tikzpicture}[scale=.6]  
-\node (1) at (-1.5, -1) {$1$};
-\node (2) at (-1.5, -2) {$23$};
+\begin{tikzpicture}[scale=.6,xscale=0.6]  
+\node[anchor=east] (1) at (-1.5, -1) {$1$};
+\node[anchor=east] (2) at (-1.5, -2) {$23$};
 %
-\node (4) at (1.5, -1) {$13$};
-\node (5) at (1.5, -2) {$2$};
+\node[anchor=west] (4) at (1.5, -1) {$13$};
+\node[anchor=west] (5) at (1.5, -2) {$2$};
 %
 \draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
 \draw[thick] (2) to [in=180, out=0, looseness=0] (4);
 \draw[thick] (2) to [in=180, out=0, looseness=0] (5);
 \end{tikzpicture}
 \quad
-\raisebox{1em}{$\xrightarrow{R^{LA}_{1}}$}
+\raisebox{1.3em}{$\xrightarrow{R^{LA}_{1}}$}
 \quad
-\begin{tikzpicture}[scale=.6]  
-\node (1) at (-1.5, -1) {$1$};
-\node (2) at (-1.5, -2) {$23$};
+\begin{tikzpicture}[scale=.6,xscale=0.6]  
+\node[anchor=east] (1) at (-1.5, -1) {$1$};
+\node[anchor=east] (2) at (-1.5, -2) {$23$};
 %
-\node (4) at (1.5, -1) {$3$};
-\node (5) at (1.5, -2) {$12$};
+\node[anchor=west] (4) at (1.5, -1) {$3$};
+\node[anchor=west] (5) at (1.5, -2) {$12$};
 %
 \draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
 \draw[thick] (2) to [in=180, out=0, looseness=0] (4);
 \draw[thick] (2) to [in=180, out=0, looseness=0] (5);
 \end{tikzpicture}
 ,\quad \quad
-\begin{tikzpicture}[scale=.6]  
-\node (1) at (-1.5, -1) {$2$};
-\node (2) at (-1.5, -2) {$13$};
+\begin{tikzpicture}[scale=.6,xscale=0.6]  
+\node[anchor=east] (1) at (-1.5, -1) {$2$};
+\node[anchor=east] (2) at (-1.5, -2) {$13$};
 %
-\node (4) at (1.5, -1) {$23$};
-\node (5) at (1.5, -2) {$1$};
+\node[anchor=west] (4) at (1.5, -1) {$23$};
+\node[anchor=west] (5) at (1.5, -2) {$1$};
 %
 \draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
 \draw[thick] (2) to [in=180, out=0, looseness=0] (4);
 \draw[thick] (2) to [in=180, out=0, looseness=0] (5);
 \end{tikzpicture}
 \quad
-\raisebox{1em}{$\xrightarrow{L^{LA}_{1}}$}
+\raisebox{1.3em}{$\xrightarrow{L^{LA}_{1}}$}
 \quad
-\begin{tikzpicture}[scale=.6]  
-\node (1) at (-1.5, -1) {$12$};
-\node (2) at (-1.5, -2) {$3$};
+\begin{tikzpicture}[scale=.6,xscale=0.6]  
+\node[anchor=east] (1) at (-1.5, -1) {$12$};
+\node[anchor=east] (2) at (-1.5, -2) {$3$};
 %
-\node (4) at (1.5, -1) {$23$};
-\node (5) at (1.5, -2) {$1$};
+\node[anchor=west] (4) at (1.5, -1) {$23$};
+\node[anchor=west] (5) at (1.5, -2) {$1$};
 %
 \draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
 \draw[thick] (2) to [in=180, out=0, looseness=0] (4);
@@ -3780,7 +3822,6 @@ and
 
 \end{center}
 where we have aligned each element, of each diagonal, vertically with its dual element.
-
 \end{example}
 
 %%%%%%%%%%%%%%%
@@ -3897,15 +3938,15 @@ Informally, given a permutation $\sigma$, start in the bottom left corner of a m
 \raisebox{3em}{$6524713$}
 $\quad \quad$
 \begin{tikzpicture}[scale=.7]  
-\node (1) at (-1.5, -1) {$256$};
-\node (2) at (-1.5, -2) {$4$};
-\node (3) at (-1.5, -3) {$17$};
-\node (4) at (-1.5, -4) {$3$};
+\node[anchor=east] (1) at (-1.5, -1) {$256$};
+\node[anchor=east] (2) at (-1.5, -2) {$4$};
+\node[anchor=east] (3) at (-1.5, -3) {$17$};
+\node[anchor=east] (4) at (-1.5, -4) {$3$};
 %
-\node (5) at (1.5, -1) {$6$};
-\node (6) at (1.5, -2) {$5$};
-\node (7) at (1.5, -3) {$247$};
-\node (8) at (1.5, -4) {$13$};
+\node[anchor=west] (5) at (1.5, -1) {$6$};
+\node[anchor=west] (6) at (1.5, -2) {$5$};
+\node[anchor=west] (7) at (1.5, -3) {$247$};
+\node[anchor=west] (8) at (1.5, -4) {$13$};
 %
 \draw[thick] (1) to [in=180, out=0, looseness=0](5);
 \draw[thick] (1) to [in=180, out=0, looseness=0](6); 
@@ -3933,7 +3974,7 @@ $
 }
 Given a $l\times k$ matrix $A$ with all non-zero entries drawn without replacement from $[n]$, let $\sigma_i(A)$ denote the non-zero entries of the $i$\ordinal{} column, and $\tau_j(A)$ the non-zero entries of the $(l-j+1)$\ordinalst{} row. 
 For example, we labelled the rows and columns of the prior step matrix in this fashion.
-With this identification, we can apply \cref{def:movable-subsets}, to identify $1$-block moveable subsets of the matrix $M$, and we can apply \cref{def:admissible-shift-sequences}, to identify sequences of shifts which are admissible of original type.
+With this identification, we can apply \cref{def:SU-admissible}, to identify $1$-block moveable subsets of the matrix $M$, and we can apply \cref{def:admissible-shift-sequences}, to identify sequences of shifts which are admissible of original type.
 We now define a suitable subset shift action on these matrices.
 \begin{definition} [SU Matrix Subset Shifts]
 A non-empty set of elements of a matrix $M_i \subset \sigma_i(A)$ (\resp $M_{i}\subset \tau_{i}(A)$) is $1$-block right (left) movable if
