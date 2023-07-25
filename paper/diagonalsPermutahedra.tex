@@ -1931,6 +1931,13 @@ Polytopes of greater complexity such as the multiplihedra \cite{LaplanteAnfossiM
 This is in fact precisely the content of the \emph{Fulton--Sturmfels formula} for the intersection product on toric varieties \cite[Thm.~4.2]{FultonSturmfels}, where the definition of cellular diagonals as tight coherent sections first appeared.
 \end{remark}
 
+To conclude, we define the opposite of a geometric diagonal.
+\vincent{Not sure we want to define it here.}
+
+\begin{definition}
+The \defn{opposite} of a geometric diagonal~$\triangle \eqdef \triangle_{(P, \b{v})}$ is the geometric diagonal~$\triangle^{\op} \eqdef \triangle_{(P, -\b{v})}$.
+\end{definition}
+
 %%%%%%%%%%%%%%%
 
 \subsection{Cellular diagonals for the permutahedra}
@@ -2026,6 +2033,13 @@ Namely, the inclusion
 \end{equation*}
 is strict.
 \end{proposition}
+
+\begin{remark}
+\label{rem:oppositeDiagonals}
+Opposite of a geometric diagonal.
+Switch faces, switch ordering.
+\vincent{Not sure we want to define it here.}
+\end{remark}
 
 %%%%%%%%%%%%%%%
 
@@ -2248,6 +2262,8 @@ As we consider in this section diagonals for all permutahedra, we now consider f
 An \defn{ordering} of $\Un \eqdef \{\Un(n)\}_{n \ge 1}$ is a family~$\Or \eqdef \{\Or(n)\}_{n \ge 1}$ where~$\Or(n)$ is an ordering of~$\Un(n)$ for each~$n \ge 1$.
 \end{definition}
 
+The orderings define the following diagonals.
+
 \begin{definition}
 The \defn{$\LA$} and~\defn{$\SU$ orderings} are defined by
 \begin{itemize} 
@@ -2255,16 +2271,6 @@ The \defn{$\LA$} and~\defn{$\SU$ orderings} are defined by
 	\item $\SU(n) \eqdef \set{(I,J)}{\{I,J\} \in \Un(n) \text{ and } \max(I\cup J) = \max J}$.
 \end{itemize}
 \end{definition}
-
-Note that the $\LA$ and $\SU$ diagonals coincide up to dimension $2$ (but differ in dimension~$\ge 3$).
-They are illustrated in dimension~$2$ in \cref{fig:LUSAdiagonals}.
-Their faces for the $2$-dimensional permutahedron are illustrated on the first page of this article.  
-
-\begin{figure}
-	\centerline{\includegraphics[scale=1]{diagonalPermutahedron3}}
-	\caption{The $\LA$ (and~$SU$) diagonal of~$\Perm[3]$ with faces labeled by ordered $(2,3)$-partition forests. (See also \cref{fig:B23a} for the dual hyperplane arrangement.)}
-	\label{fig:LUSAdiagonals}
-\end{figure}
 
 \begin{definition}
 \label{def:LA-and-SU}
@@ -2275,8 +2281,17 @@ The \defn{$\LA$ diagonal} $\LAD$ (\resp \defn{$\SU$ diagonal} $\SUD$) of the per
 for all~$(I,J) \in \LA(n)$ (\resp $(I,J) \in \SU(n)$).
 \end{definition}
 
+Note that the $\LA$ and $\SU$ diagonals coincide up to dimension $2$ (but differ in dimension~$\ge 3$).
+They are illustrated in dimension~$2$ in \cref{fig:LUSAdiagonals}.
+%Their faces for the $2$-dimensional permutahedron are illustrated on the first page of this article.  
+
+\begin{figure}
+	\centerline{\includegraphics[scale=1]{diagonalPermutahedron3}}
+	\caption{The $\LA$ (and~$SU$) diagonal of~$\Perm[3]$ with faces labeled by ordered $(2,3)$-partition forests. (See also \cref{fig:B23a} for the dual hyperplane arrangement.)}
+	\label{fig:LUSAdiagonals}
+\end{figure}
+
 We will prove in \cref{thm:recover-SU} that $\SUD$ is a topological enhancement of the Saneblidze--Umble diagonal from \cite{SaneblidzeUmble}.
-Both of these diagonals have opposites $(\LAD)^{\op}$ and $(\SUD)^{\op}$, obtained by permuting the factors in every term: at the level of orderings, they are obtained by permuting $I$ and $J$ in the definitions of $\LA(n)$ and $\SU(n)$, while they are given geometrically by taking $-\b{v}$ instead of $\b{v}$ as an orientation vector. 
 The faces of the $\LA$ and $\SU$ diagonals are described the following specialisation of \cref{thm:IJ-description}.
 
 \begin{theorem}
@@ -2288,6 +2303,11 @@ For a pair $(\sigma,\tau)$ of ordered partitions of $[n]$, we have
 \end{eqnarray*}
 The same holds for the $\SU$ diagonal by replacing $\LAD$ by $\SUD$ and $\LA(n)$ by $\SU(n)$.
 \end{theorem}
+
+\begin{remark}
+Both of these diagonals have opposites $(\LAD)^{\op}$ and $(\SUD)^{\op}$, obtained by permuting the factors in every term: at the level of orderings, they are obtained by permuting $I$ and $J$ in the definitions of $\LA(n)$ and $\SU(n)$, while they are given geometrically by taking $-\b{v}$ instead of $\b{v}$ as an orientation vector. 
+\vincent{Refer to \cref{rem:oppositeDiagonals}.}
+\end{remark}
 
 %%%%%%%%%%%%%%%
 
@@ -2309,16 +2329,19 @@ of lower dimensional permutahedra (where the first factor is translated by~$q \o
 		 & & (x_1,\ldots,x_p) \times (x_{p+1}, \ldots, x_{n})  & \longmapsto & (x_{\sigma^{-1}(1)},\ldots,x_{\sigma^{-1}(n)})
 	\end{matrix}
 \end{equation*}
-where $\sigma$ is the $(p,q)$-shuffle defined by $\sigma(i) \eqdef a_i$ for $1 \leq i \leq p$, and $\sigma(p+j)\eqdef b_j$ for $1 \leq j \leq q$.
-Note that this map is a particular instance of the eponym map introduced in Point (5) of \cite[Prop. 2.3]{LaplanteAnfossi}.
+where $\sigma$ is the $(p,q)$-shuffle defined by $\sigma(i) \eqdef a_i$ for~$i \in [p]$, and $\sigma(p+j)\eqdef b_j$ for~$j \in [q]$.
+Note that this map is a particular instance of the eponym map introduced in Point (5) of \cite[Prop.~2.3]{LaplanteAnfossi}.
 
 \begin{definition}
 \label{def:operadicDiagonal}
 A family of diagonals $\triangle \eqdef \{\triangle_n : \Perm \to \Perm \times \Perm\}_{n\geq 1}$ of the permutahedra is \defn{operadic} if for every face $A_1 | \ldots | A_k$ of the permutahedron $\Perm[|A_1|+\cdots + |A_k|]$, the map $\Theta$ induces a topological cellular isomorphism \[  \triangle(A_1) \times \ldots \times \triangle(A_k) \cong \triangle(A_1 | \ldots | A_k) \ . \]
 \end{definition}
-In other words, we require that the diagonal $\triangle$ commutes with the map $\Theta$, see \cite[Section 4.2]{LaplanteAnfossi}.
+In other words, we require that the diagonal $\triangle$ commutes with the map $\Theta$, see \cite[Sect.~4.2]{LaplanteAnfossi}.
 At the algebraic level, this property is called ``comultiplicativity" in \cite{SaneblidzeUmble}.
 Note that in particular, such an isomorphism respects the poset structures. 
+
+We will now translate this operadic property for geometric diagonals to the corresponding orderings~$\Or$ of~$\Un$.
+We need the following standardization map (this map is classical for permutations or words, but we use it here for pairs of sets).
 
 \begin{definition}
 The \defn{standardization} of a pair~$(I,J)$ of disjoint subsets of~$[n]$ is the only partition~$\std(I,J)$ of~$[|I|+|J|]$ where the relative order of the elements is the same as in~$(I,J)$.
@@ -2333,7 +2356,7 @@ For example, $\std(\{5,9,10\},\{6,8,12\}) = (\{1,4,5\},\{2,3,6\})$.
 
 \begin{definition}
 \label{def:operadicOrdering}
-An ordering $\Or$ of $\Un$ is \defn{operadic} if for every $\{I,J\} \in \Un$, the following two conditions hold
+An ordering $\Or$ of $\Un$ is \defn{operadic} if every $\{I,J\} \in \Un$ satisfies the following two conditions
 \begin{enumerate}
 \item $\std(I,J) \in \Or$ implies~$(I,J) \in \Or$,
 \item if there exist~$I'\subset I, J'\subset J$ such that $(I',J') \in \Or$ and $(I\ssm I',J\ssm J') \in \Or$, then~$(I,J) \in \Or$.
@@ -2343,7 +2366,7 @@ We call \defn{indecomposables} of $\Or$ the pairs $(I,J) \in \Or$ for which the 
 
 \begin{proposition}
 \label{prop:equiv-operadic}
-A geometric diagonal of the permutahedra is operadic if and only if its associated ordering is. 
+A geometric diagonal~$\triangle \eqdef \bigl( \triangle_{(\Perm, \b{v}_n)} \bigr)_{n \in \N}$ of the permutahedra is operadic if and only if its associated ordering~$\Or \eqdef \bigl( \Or(\b{v}_n) \bigr)_{n \in \N}$ is operadic. 
 \end{proposition}
 
 \begin{proof}
@@ -2359,8 +2382,8 @@ The $\LA$ and $\SU$ orderings are operadic, and their indecomposables are the pa
 (\{1,k+2,k+3,\dots,2k-1,2k\}, \{2,3,\dots,k+1\}) \tag{$\LA$} \label{eq:std-LA} \\
 (\{k,k+1,\dots,2k-1\},\{1,2,3,\dots,k-1,2k\}) \tag{$\SU$}
 \end{align} 
-for $k\geq 1$. 
-The dual orders $\LA^{op}$ and $\SU^{op}$ are also operadic, and generated by the opposite pairs.
+for all~$k\geq 1$. 
+The opposite orderings $\LA^{op}$ and $\SU^{op}$ are also operadic, and generated by the opposite pairs.
 \end{lemma}
 
 \begin{proof}
@@ -2389,7 +2412,7 @@ where $\std((I',J')) = (I_l,J_l)$, and $1\leq l \leq k$.
 
 \begin{remark}
 We note that the decomposition in \cref{lem:operadic-ordering} is one of potentially many different decompositions of the pair $(I,J)$. 
-However, by definition of the $\LA$ order, for any decomposition $(I,J) = (\sqcup_{a\in A} I_a, \sqcup_{a \in A} J_a)$, we have that $\forall a \in A, \std(I_a, J_a) \in \LA$.
+However, by definition of the $\LA$ order, for any decomposition $(I,J) = (\bigsqcup_{a\in A} I_a, \bigsqcup_{a \in A} J_a)$, we have that $\std(I_a, J_a) \in \LA$ for all~$a \in A$.
 As such all decompositions of a pair $(I,J)$ order it the same way.
 \end{remark}
 
@@ -2436,7 +2459,7 @@ Recall that a vector induces the weak order on the vertices of the standard perm
 
 \begin{theorem}
 \label{prop:unique-operad}
-There are exactly four operadic geometric diagonals of the permutahedra, given by the $\LA$ and $\SU$ diagonals, and their opposites. 
+There are exactly four operadic geometric diagonals of the permutahedra, given by the $\LA$ and $\SU$ diagonals, and their opposites~$\LA^{\op}$ and $\SU^{\op}$. 
 The $\LA$ and $\SU$ diagonals are the only operadic geometric diagonals which induce the weak order on the vertices of the permutahedron.
 \end{theorem}
 
@@ -2466,9 +2489,9 @@ As we have already remarked in \cref{subsec:LASUdiagonal}, in the case of the pe
 	For $P$ the permutahedron, the involutions $t$ and $rs \times rs$ are cellular isomorphisms between the four operadic diagonals, through the following commutative diagram
 	\begin{center}
 		\begin{tikzcd}
-		\LAD \arrow[r,"t"] \arrow[d,"rs \times rs"]&
+		\LAD \arrow[r,"t"] \arrow[d,"rs \times rs"']&
 		(\LAD)^{\op}\arrow[d,"rs \times rs"]\\
-		\SUD \arrow[r,"t"] &
+		\SUD \arrow[r,"t"'] &
 		(\SUD)^\op \ .
 		\end{tikzcd}
 		\end{center}
@@ -2479,6 +2502,7 @@ As we have already remarked in \cref{subsec:LASUdiagonal}, in the case of the pe
 The result for the transpositions $t$ and the commutativity of the diagram are straightforward, so we prove that $rs\times rs$ is a cellular isomorphism respecting the poset structure. 
 First, we observe that the assignment $(I,J) \mapsto (r(J),r(I))$ defines a bijection between $\LA(n)$ and $\SU(n)$. 
 Indeed, we have $r(\min(I\cup J))=\max(I\cup J)$; since $I \cap J = \varnothing$, $r$ is well-defined, and it is a bijection with inverse $r$ itself.  
+\vincent{involution}
 Then, if $\sigma$ is an ordered partition such that $I$ dominates $J$ in $\sigma$ (\cref{def:domination}), it must be the case that $J$ dominates $I$ in $s\sigma$, and consequently $rJ$ dominates $rI$ in $rs\sigma$.
 As such, the domination characterisation of the diagonals (\cref{thm:minimal}), tells us  $(\sigma,\tau) \in \LAD$ if and only if $(rs(\sigma),rs(\tau)) \in \SUD$.
 Finally, since both $t,r$ and $s$ preserve the poset structures, so does their composition, which finishes the proof.
@@ -2543,13 +2567,13 @@ Note that ordered partitions should be read from top to bottom.
 		\node[anchor=west] (7) at (1.5, -3) {$13$};
 		\node[anchor=west] (8) at (1.5, -4) {$2$};
 		%
-		\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
-		\draw[thick] (1) to [in=180, out=0, looseness=0] (7);
-		\draw[thick] (2) to [in=180, out=0, looseness=0] (5); 
-		\draw[thick] (3) to [in=180, out=0, looseness=0] (6); 
-		\draw[thick] (3) to [in=180, out=0, looseness=0] (7); 
-		\draw[thick] (3) to [in=180, out=0, looseness=0] (8); 
-		\draw[thick] (4) to [in=180, out=0, looseness=0] (6);
+		\draw[thick] (1.east) -- (5.west); 
+		\draw[thick] (1.east) -- (7.west);
+		\draw[thick] (2.east) -- (5.west); 
+		\draw[thick] (3.east) -- (6.west); 
+		\draw[thick] (3.east) -- (7.west); 
+		\draw[thick] (3.east) -- (8.west); 
+		\draw[thick] (4.east) -- (6.west);
 	\end{tikzpicture}
 	$\quad$
 	\begin{tikzpicture}[scale=.7]  
@@ -2563,13 +2587,13 @@ Note that ordered partitions should be read from top to bottom.
 		\node[anchor=west] (46) at (1.5, -2) {$46$};
 		\node[anchor=west] (57) at (1.5, -1) {$57$};
 		%
-		\draw[thick] (2) to [out=180, in=0, looseness=0] (234);
-		\draw[thick] (13) to [out=180, in=0, looseness=0] (15); 
-		\draw[thick] (13) to [out=180, in=0, looseness=0] (234);
-		\draw[thick] (46) to [out=180, in=0, looseness=0] (234);
-		\draw[thick] (46) to [out=180, in=0, looseness=0] (6); 
-		\draw[thick] (57) to [out=180, in=0, looseness=0] (15);
-		\draw[thick] (57) to [out=180, in=0, looseness=0] (7);
+		\draw[thick] (2.west) -- (234.east);
+		\draw[thick] (13.west) -- (15.east); 
+		\draw[thick] (13.west) -- (234.east);
+		\draw[thick] (46.west) -- (234.east);
+		\draw[thick] (46.west) -- (6.east); 
+		\draw[thick] (57.west) -- (15.east);
+		\draw[thick] (57.west) -- (7.east);
 	\end{tikzpicture}
 \end{center}
 In the $\LA$ facet (left), we have $7 < 234$, since in the path between the two vertices $7 \xrightarrow{7} 57 \xrightarrow{5} 15 \xrightarrow{1} 13 \xrightarrow{3} 234$, the minima $1$ oriented from left to right. 
@@ -2596,13 +2620,13 @@ The isomorphism $rs\times rs$ from \cref{thm:bijection-operadic-diagonals} sends
 		\node[anchor=west] (7) at (1.5, -3) {$13$};
 		\node[anchor=west] (8) at (1.5, -4) {$2$};
 		%
-		\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
-		\draw[thick] (1) to [in=180, out=0, looseness=0] (7);
-		\draw[thick] (2) to [in=180, out=0, looseness=0] (5); 
-		\draw[thick] (3) to [in=180, out=0, looseness=0] (6); 
-		\draw[thick] (3) to [in=180, out=0, looseness=0] (7); 
-		\draw[thick] (3) to [in=180, out=0, looseness=0] (8); 
-		\draw[thick] (4) to [in=180, out=0, looseness=0] (6);
+		\draw[thick] (1.east) -- (5.west); 
+		\draw[thick] (1.east) -- (7.west);
+		\draw[thick] (2.east) -- (5.west); 
+		\draw[thick] (3.east) -- (6.west); 
+		\draw[thick] (3.east) -- (7.west); 
+		\draw[thick] (3.east) -- (8.west); 
+		\draw[thick] (4.east) -- (6.west);
 		%
 	\end{tikzpicture}
 	\raisebox{3.4em}{$\xrightarrow{rs\times rs}$}
@@ -2617,13 +2641,13 @@ The isomorphism $rs\times rs$ from \cref{thm:bijection-operadic-diagonals} sends
 		\node[anchor=west] (3) at (1.5, -2) {$57$};
 		\node[anchor=west] (4) at (1.5, -1) {$6$};
 		%
-		\draw[thick] (1) to [out=180, in=0, looseness=0] (5);
-		\draw[thick] (1) to [out=180, in=0, looseness=0] (6); 
-		\draw[thick] (2) to [out=180, in=0, looseness=0] (7);
-		\draw[thick] (2) to [out=180, in=0, looseness=0](8);
-		\draw[thick] (3) to [out=180, in=0, looseness=0] (5); 
-		\draw[thick] (3) to [out=180, in=0, looseness=0] (7);
-		\draw[thick] (4) to [out=180, in=0, looseness=0] (7);
+		\draw[thick] (1.west) -- (5.east);
+		\draw[thick] (1.west) -- (6.east); 
+		\draw[thick] (2.west) -- (7.east);
+		\draw[thick] (2.west) -- (8.east);
+		\draw[thick] (3.west) -- (5.east); 
+		\draw[thick] (3.west) -- (7.east);
+		\draw[thick] (4.west) -- (7.east);
 	\end{tikzpicture}
 \end{center}
 Moreover, it sends the path $57 \xrightarrow{5} 15 \xrightarrow{1} 13 \xrightarrow{3} 234 \xrightarrow{4} 46 $ to the path $24 \xrightarrow{4} 456 \xrightarrow{5} 57 \xrightarrow{7} 37 \xrightarrow{3} 13$, where the maximum $7$ is oriented from right to left, witnessing the fact that $24 < 13$. 
@@ -2688,7 +2712,7 @@ For $k=2$,
 \end{itemize}
 As such, the vertices of $\LA$ and $\SU$ are a strict subset of all intervals of the weak order.
 Here is an illustration of the patterns avoided for $k=4$.
-The $\LA$ pattern is drawn on the left, the $\SU$ pattern is drawn on the right, and they are in bijection under the isomorphism $t(r\times r)$ (\cref{subsec:isos-LA-SU}), where the bijection between elements is $(i_1,i_2,i_3,i_4)\mapsto ({j'}_4,{j'}_1,{j'}_2,{j'}_3)$ and $(j_1,j_2,j_3,j_4)\mapsto ({i'}_1,{i'}_2,{i'}_3,{i'}_4)$.
+The $\LA$ pattern is drawn on the left, the $\SU$ pattern is drawn on the right, and they are in bijection under the isomorphism $t(r\times r)$ (\cref{subsec:isos-LA-SU}), where the bijection between elements is $(i_1,i_2,i_3,i_4)\mapsto (j'_4,j'_1,j'_2,j'_3)$ and $(j_1,j_2,j_3,j_4)\mapsto (i'_1,i'_2,i'_3,i'_4)$.
 \begin{center}
 \begin{tikzpicture}[scale=.7]  
 \node[anchor=east] (0) at (-1.5, 0) {$j_1$};
@@ -2709,14 +2733,14 @@ The $\LA$ pattern is drawn on the left, the $\SU$ pattern is drawn on the right,
 \node[anchor=west] (14) at (1.5, -6) {$i_1$};
 \node[anchor=west] (15) at (1.5, -7) {$j_4$};
 %
-\draw[thick, green] (0) to [in=180, out=0, looseness=0] (9);
-\draw[thick, blue, dashed] (1) to [in=180, out=0, looseness=0] (14);
-\draw[thick, green] (2) to [in=180, out=0, looseness=0] (11);
-\draw[thick, blue] (3) to [in=180, out=0, looseness=0] (8);
-\draw[thick, green] (4) to [in=180, out=0, looseness=0] (13);
-\draw[thick, blue] (5) to [in=180, out=0, looseness=0] (10);
-\draw[thick, green] (6) to [in=180, out=0, looseness=0] (15);
-\draw[thick, blue] (7) to [in=180, out=0, looseness=0] (12);
+\draw[thick, green] (0.east) -- (9.west);
+\draw[thick, blue, dashed] (1.east) -- (14.west);
+\draw[thick, green] (2.east) -- (11.west);
+\draw[thick, blue] (3.east) -- (8.west);
+\draw[thick, green] (4.east) -- (13.west);
+\draw[thick, blue] (5.east) -- (10.west);
+\draw[thick, green] (6.east) -- (15.west);
+\draw[thick, blue] (7.east) -- (12.west);
 %
 \end{tikzpicture}
 \raisebox{7em}{$\xrightarrow{t(r\times r)}$}
@@ -2739,14 +2763,14 @@ The $\LA$ pattern is drawn on the left, the $\SU$ pattern is drawn on the right,
 \node[anchor=west] (14) at (1.5, -6) {$i'_4$};
 \node[anchor=west] (15) at (1.5, -7) {$j'_3$};
 %
-\draw[thick, green] (0) to [in=180, out=0, looseness=0] (11);
-\draw[thick, blue] (1) to [in=180, out=0, looseness=0] (8);
-\draw[thick, green] (2) to [in=180, out=0, looseness=0] (13);
-\draw[thick, blue] (3) to [in=180, out=0, looseness=0] (10);
-\draw[thick, green] (4) to [in=180, out=0, looseness=0] (15);
-\draw[thick, blue] (5) to [in=180, out=0, looseness=0] (12);
-\draw[thick, green, dashed] (6) to [in=180, out=0, looseness=0] (9);
-\draw[thick, blue] (7) to [in=180, out=0, looseness=0] (14);
+\draw[thick, green] (0.east) -- (11.west);
+\draw[thick, blue] (1.east) -- (8.west);
+\draw[thick, green] (2.east) -- (13.west);
+\draw[thick, blue] (3.east) -- (10.west);
+\draw[thick, green] (4.east) -- (15.west);
+\draw[thick, blue] (5.east) -- (12.west);
+\draw[thick, green, dashed] (6.east) -- (9.west);
+\draw[thick, blue] (7.east) -- (14.west);
 %
 \end{tikzpicture}
 \end{center}
@@ -2757,8 +2781,8 @@ The avoided patterns for higher $k$ extend this crisscrossing shape.
 
 \begin{proof}
 We give the proof for the $\LA$ diagonal, the one for the $\SU$ diagonal is similar, and can be obtained by applying either of the two isomorphisms of \cref{subsec:isos-LA-SU}.
-According to \cref{thm:IJ-description}, we have that $(\sigma,\tau) \notin \LAD$ if and only if there is an $(I,J)$ such that~$J$ dominates $I$ in $\sigma$ and $I$ dominates $J$ in $\tau$.
-It is clear that if a pair of permutations $(\sigma,\tau)$ contains a pattern of the form (\ref{eq:pattern}), then the associated $(I,J)$ satisfies the domination condition.
+According to \cref{thm:IJ-description}, we have that $(\sigma,\tau) \notin \LAD$ if and only if there is an $(I,J)$ such that~$J$ dominates $I$ in $\sigma$ and~$I$ dominates $J$ in $\tau$.
+It is clear that if a pair of permutations $(\sigma,\tau)$ contains a pattern of the form~(\ref{eq:pattern}), then the associated $(I,J)$ satisfies the domination condition.
 Thus, we just need to show the reverse implication. 
 We proceed by induction on the cardinality $|I|=|J|$. 
 The case of cardinality $1$ is clear. 
@@ -2774,13 +2798,13 @@ Which yields the indicated simplification.
 
 Let $(\sigma,\tau)$ be such a pair of permutations.
 Suppose the leftmost element $i_1$ of $I$ in $\sigma$ is not $1$, and let us write $j_1$ for the leftmost element of $J$ in $\tau$.
-Let us consider the pair $(I',J') \eqdef (I\ssm \{i_1\}, J \ssm \{j_1\})$.
+Consider the pair ${(I',J') \eqdef (I\ssm \{i_1\}, J \ssm \{j_1\})}$.
 Using both cases of \cref{lem:Coherent Domination}, we have that $J'$ dominates $I'$ in $\sigma$, and $I'$ dominates $J'$ in $\tau$, and we can thus conclude by induction that $(\sigma,\tau)$ contains a smaller pattern.
 
 So, we assume the leftmost element of $I$ in $\sigma$ is $i_1=1$, and for $n\geq1$ we prove that,
 \begin{enumerate}[(a)]
     \item If $(\sigma,\tau)=(j_1 i_1 j_2 i_2 ... j_{n-1} i_{n-1} w i_{n} w', \ i_2 j_1 i_3 j_2 ... i_{n}j_{n-1}w'') $, and $j_n$ is the leftmost element of $J\ssm \{j_1,...,j_{n-1}\}$ in $\tau$, then either $w = j_n$, or it matches a smaller pattern.
-    \item If $(\sigma,\tau)=(j_1 i_1 j_2 i_2 ... j_{n-1} i_{n-1} w'', \ i_2 j_1 i_3 j_2 ... i_{n-1}j_{n-2} w j_{n-1} w'')$, and $i_n$ is the leftmost $I\ssm \{i_1,...,i_{n-1}\}$ in $\sigma$, then either $w = i_n$, or it matches a smaller pattern.
+    \item If $(\sigma,\tau)=(j_1 i_1 j_2 i_2 ... j_{n-1} i_{n-1} w'', \ i_2 j_1 i_3 j_2 ... i_{n-1}j_{n-2} w j_{n-1} w'')$, and $i_n$ is the leftmost element of ${I\ssm \{i_1,...,i_{n-1}\}}$ in $\sigma$, then either $w = i_n$, or it matches a smaller pattern.
 \end{enumerate}
 We prove $(a)$, the proof of $(b)$ proceeds similarly. 
 Let $j_n$ be the leftmost element of $J\ssm \{j_1,...,j_{n-1} \}$ in $\tau$.
@@ -2789,8 +2813,8 @@ Now consider the pair $(I',J') \eqdef (I\ssm \{i_n\}, J \ssm \{j_n\})$.
 As was the case for the proof that $i_1=1$, we have that $I'$ dominates $J'$ in $\tau$.
 To prove that $J'$ dominates $I'$ in $\sigma$, we split by the cases.
 In case (i), we may apply condition $(2)$ of \cref{lem:Coherent Domination}.
-In case (ii), either $i_n$ comes before $j_n$, in which case we meet condition $(1)$ of \cref{lem:Coherent Domination}, or $j_n$ comes before $i_n$.
-In this last situation, we have that condition $(2)$ of \cref{lem:Coherent Domination} holds as $i_n$ is the leftmost element of $I\ssm \{i_1,...,i_{n-1} \}$ in $\sigma$.
+In case (ii), either $i_n$ comes before~$j_n$, in which case we meet condition $(1)$ of \cref{lem:Coherent Domination}, or $j_n$ comes before $i_n$.
+In this last situation, we have that condition $(2)$ of \cref{lem:Coherent Domination} holds as $i_n$ is the leftmost element of~${I\ssm \{i_1,...,i_{n-1}\}}$ in $\sigma$.
 Thus, if $w \neq j_n$, by the inductive hypothesis, we match a smaller pattern.
 
 Finally, using statements (a) and (b) above, we can inductively generate $(\sigma,\tau)$, determining $j_1$ via $(a)$, then $i_2$ via $(b)$, then $j_2$ via $(a)$ and so on.
@@ -2851,13 +2875,13 @@ The SCP associated to the permutation $3|1|7|4|2|5|6$ is
 		\node[anchor=west] (7) at (1.5, -3) {$4$};
 		\node[anchor=west] (8) at (1.5, -4) {$256$};
 		%
-		\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
-		\draw[thick] (1) to [in=180, out=0, looseness=0] (6); 
-		\draw[thick] (2) to [in=180, out=0, looseness=0] (6); 
-		\draw[thick] (2) to [in=180, out=0, looseness=0] (7); 
-		\draw[thick] (2) to [in=180, out=0, looseness=0] (8); 
-		\draw[thick] (3) to [in=180, out=0, looseness=0] (8); 
-		\draw[thick] (4) to [in=180, out=0, looseness=0] (8);
+		\draw[thick] (1.east) -- (5.west); 
+		\draw[thick] (1.east) -- (6.west); 
+		\draw[thick] (2.east) -- (6.west); 
+		\draw[thick] (2.east) -- (7.west); 
+		\draw[thick] (2.east) -- (8.west); 
+		\draw[thick] (3.east) -- (8.west); 
+		\draw[thick] (4.east) -- (8.west);
 		%
 	\end{tikzpicture}
 \end{center}
@@ -2942,13 +2966,13 @@ Performing the $1$-shifts $R_7$ and $L_{56}$ (they are both block and path admis
 		\node[anchor=west] (7) at (1.5, -3) {$4$};
 		\node[anchor=west] (8) at (1.5, -4) {$256$};
 		%
-		\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
-		\draw[thick] (1) to [in=180, out=0, looseness=0] (6); 
-		\draw[thick] (2) to [in=180, out=0, looseness=0] (6); 
-		\draw[thick] (2) to [in=180, out=0, looseness=0] (7); 
-		\draw[thick] (2) to [in=180, out=0, looseness=0] (8); 
-		\draw[thick] (3) to [in=180, out=0, looseness=0] (8); 
-		\draw[thick] (4) to [in=180, out=0, looseness=0] (8);
+		\draw[thick] (1.east) -- (5.west); 
+		\draw[thick] (1.east) -- (6.west); 
+		\draw[thick] (2.east) -- (6.west); 
+		\draw[thick] (2.east) -- (7.west); 
+		\draw[thick] (2.east) -- (8.west); 
+		\draw[thick] (3.east) -- (8.west); 
+		\draw[thick] (4.east) -- (8.west);
 	\end{tikzpicture}
 	\quad
 	\raisebox{3.4em}{$\xrightarrow{R_{7} \times L_{56}}$}
@@ -2965,13 +2989,13 @@ Performing the $1$-shifts $R_7$ and $L_{56}$ (they are both block and path admis
 		\node[anchor=west] (7) at (1.5, -3) {$456$};
 		\node[anchor=west] (8) at (1.5, -4) {$2$};
 		%
-		\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
-		\draw[thick] (1) to [in=180, out=0, looseness=0] (6); 
-		\draw[thick] (3) to [in=180, out=0, looseness=0] (6); 
-		\draw[thick] (2) to [in=180, out=0, looseness=0] (7); 
-		\draw[thick] (2) to [in=180, out=0, looseness=0] (8); 
-		\draw[thick] (3) to [in=180, out=0, looseness=0] (7); 
-		\draw[thick] (4) to [in=180, out=0, looseness=0] (7);
+		\draw[thick] (1.east) -- (5.west); 
+		\draw[thick] (1.east) -- (6.west); 
+		\draw[thick] (3.east) -- (6.west); 
+		\draw[thick] (2.east) -- (7.west); 
+		\draw[thick] (2.east) -- (8.west); 
+		\draw[thick] (3.east) -- (7.west); 
+		\draw[thick] (4.east) -- (7.west);
 	\end{tikzpicture}
 \end{center}
 \end{example}
@@ -3261,9 +3285,9 @@ This adjacent crossing is of the following form (we illustrate the case where th
 \node[anchor=west] (4) at (1.5, -1) {$\tau_j$};
 \node[anchor=west] (5) at (1.5, -2) {$\tau_{k}$};
 %
-\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
-\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
-\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
+\draw[thick] (1.east) -- (5.west); 
+\draw[thick] (2.east) -- (5.west);
+\draw[thick] (2.east) -- (4.west);
 \node (6) at (0.9, -0.8) {$\rho$};
 \node (7) at (0, -2.3) {$b$};
 \node (8) at (-0.9, -0.8) {$c$};
@@ -3278,9 +3302,9 @@ This adjacent crossing is of the following form (we illustrate the case where th
 \node[anchor=west] (4) at (1.5, -1) {$\tau_j$};
 \node[anchor=west] (5) at (1.5, -2) {$\tau_{k}$};
 %
-\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
-\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
-\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (1.east) -- (4.west); 
+\draw[thick] (1.east) -- (5.west);
+\draw[thick] (2.east) -- (5.west);
 \node (6) at (0.9, -0.75) {$\rho$};
 \node (7) at (0, -2.3) {$b$};
 \node (8) at (-0.9, -1.45) {$c$};
@@ -3301,10 +3325,10 @@ Thus, we know that $m > 1$, and using dashed lines to denote paths of length $\g
 \node[anchor=west](4) at (1.5, -1) {$\hphantom{.}$};
 \node[anchor=west](5) at (1.5, -2) {$\hphantom{.}$};
 %
-\draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
-\draw[thick,dashed] (2) to [in=180, out=0, looseness=0] (5);
-\draw[thick] (3) to [in=180, out=0, looseness=0] (4);
-\draw[thick,dashed] (3) to [in=180, out=0, looseness=0] (5);
+\draw[thick,dashed] (1.east) -- (4.west); 
+\draw[thick,dashed] (2.east) -- (5.west);
+\draw[thick] (3.east) -- (4.west);
+\draw[thick,dashed] (3.east) -- (5.west);
 %
 \node (6) at (1.3, -1.4) {$\rho$};
 \end{tikzpicture}
@@ -3317,10 +3341,10 @@ Thus, we know that $m > 1$, and using dashed lines to denote paths of length $\g
 \node[anchor=west] (4) at (1.5, -1) {$\hphantom{.}$};
 \node[anchor=west] (5) at (1.5, -2) {$\hphantom{.}$};
 %
-\draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
-\draw[thick,dashed] (2) to [in=180, out=0, looseness=0] (5);
-\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
-\draw[thick,dashed] (3) to [in=180, out=0, looseness=0] (5);
+\draw[thick,dashed] (1.east) -- (4.west); 
+\draw[thick,dashed] (2.east) -- (5.west);
+\draw[thick] (2.east) -- (4.west);
+\draw[thick,dashed] (3.east) -- (5.west);
 %
 \node (6) at (1.3, -1.4) {$\rho$};
 \end{tikzpicture}
@@ -3338,10 +3362,10 @@ Then we may apply the following inverse $m$-shift operator.
 \node[anchor=west] (4) at (1.5, -1) {$\tau_{j-m}$};
 \node[anchor=west] (5) at (1.5, -2) {$\tau_j$};
 %
-\draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
-\draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (5);
-\draw[thick,dashed] (2) to [in=180, out=0, looseness=0] (5);
-\draw[thick] (3) to [in=180, out=0, looseness=0] (4);
+\draw[thick,dashed] (1.east) -- (4.west); 
+\draw[thick,dashed] (1.east) -- (5.west);
+\draw[thick,dashed] (2.east) -- (5.west);
+\draw[thick] (3.east) -- (4.west);
 %
 \node (6) at (-0.5, -2.8) {$\rho$};
 \end{tikzpicture}
@@ -3354,10 +3378,10 @@ Then we may apply the following inverse $m$-shift operator.
 \node[anchor=west] (4) at (1.5, -1) {$\tau_{j-m}\ssm \rho$};
 \node[anchor=west] (5) at (1.5, -2) {$\tau_j \sqcup \rho$};
 %
-\draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
-\draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (5);
-\draw[thick,dashed] (2) to [in=180, out=0, looseness=0] (5);
-\draw[thick] (3) to [in=180, out=0, looseness=0] (5);
+\draw[thick,dashed] (1.east) -- (4.west); 
+\draw[thick,dashed] (1.east) -- (5.west);
+\draw[thick,dashed] (2.east) -- (5.west);
+\draw[thick] (3.east) -- (5.west);
 %
 \node (6) at (0.3, -2.8) {$\rho$};
 \end{tikzpicture}
@@ -3378,10 +3402,10 @@ The situation can be pictured as on the left.
 \node[anchor=west] (4) at (1.5, -1) {$\tau_{j-m}$};
 \node[anchor=west] (5) at (1.5, -2) {$\tau_j$};
 %
-\draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
-\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
-\draw[thick,dashed] (2) to [in=180, out=0, looseness=0] (4);
-\draw[thick] (3) to [in=180, out=0, looseness=0] (5);
+\draw[thick,dashed] (1.east) -- (4.west); 
+\draw[thick] (1.east) -- (5.west);
+\draw[thick,dashed] (2.east) -- (4.west);
+\draw[thick] (3.east) -- (5.west);
 %
 \node (6) at  (1.1, -2.5) {$\rho$};
 \node (7) at  (1.1, -1.5) {$i_k$};
@@ -3395,10 +3419,10 @@ The situation can be pictured as on the left.
 \node[anchor=west] (4) at (1.5, -1) {$\tau_{j-m}\ssm \rho'$};
 \node[anchor=west] (5) at (1.5, -2) {$\tau_j \sqcup \rho'$};
 %
-\draw[thick,dashed] (1) to [in=180, out=0, looseness=0] (4); 
-\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
-\draw[thick,dashed] (2) to [in=180, out=0, looseness=0] (5);
-\draw[thick] (3) to [in=180, out=0, looseness=0] (5);
+\draw[thick,dashed] (1.east) -- (4.west); 
+\draw[thick] (1.east) -- (5.west);
+\draw[thick,dashed] (2.east) -- (5.west);
+\draw[thick] (3.east) -- (5.west);
 %
 \node (6) at  (1.1, -2.5) {$\rho$};
 \node (7) at  (1.1, -1.5) {$i_k$};
@@ -3425,9 +3449,9 @@ We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading
 \node[anchor=west] (4) at (1.5, -1) {$3$};
 \node[anchor=west] (5) at (1.5, -2) {$12$};
 %
-\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
-\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
-\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
+\draw[thick] (1.east) -- (5.west); 
+\draw[thick] (2.east) -- (5.west);
+\draw[thick] (2.east) -- (4.west);
 \end{tikzpicture}
 \quad
 \raisebox{1.3em}{$\xrightarrow{R^{-1}_{3}}$}
@@ -3439,9 +3463,9 @@ We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading
 \node[anchor=west] (4) at (1.5, -1) {$3$};
 \node[anchor=west] (5) at (1.5, -2) {$12$};
 %
-\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
-\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
-\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (1.east) -- (4.west); 
+\draw[thick] (1.east) -- (5.west);
+\draw[thick] (2.east) -- (5.west);
 \end{tikzpicture}
 ,
 \begin{tikzpicture}[scale=.6,xscale=0.8] 
@@ -3452,10 +3476,10 @@ We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading
 \node[anchor=west] (4) at (1.5, -1) {$14$};
 \node[anchor=west] (5) at (1.5, -2) {$23$};
 %
-\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
-\draw[thick] (2) to [in=180, out=0, looseness=0] (5); 
-\draw[thick] (3) to [in=180, out=0, looseness=0] (4);
-\draw[thick] (3) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (1.east) -- (4.west); 
+\draw[thick] (2.east) -- (5.west); 
+\draw[thick] (3.east) -- (4.west);
+\draw[thick] (3.east) -- (5.west);
 \end{tikzpicture}
 \quad
 \raisebox{2.15em}{$\xrightarrow{R^{-1}_{4}}$}
@@ -3468,10 +3492,10 @@ We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading
 \node[anchor=west] (4) at (1.5, -1) {$14$};
 \node[anchor=west] (5) at (1.5, -2) {$23$};
 %
-\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
-\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
-\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
-\draw[thick] (3) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (1.east) -- (4.west); 
+\draw[thick] (2.east) -- (4.west);
+\draw[thick] (2.east) -- (5.west);
+\draw[thick] (3.east) -- (5.west);
 \end{tikzpicture}
 \end{center}
 \begin{center}
@@ -3483,10 +3507,10 @@ We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading
 \node[anchor=west] (4) at (1.5, -1) {$34$};
 \node[anchor=west] (5) at (1.5, -2) {$12$};
 %
-\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
-\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
-\draw[thick] (2) to [in=180, out=0, looseness=0] (5); 
-\draw[thick] (3) to [in=180, out=0, looseness=0] (4);
+\draw[thick] (1.east) -- (4.west); 
+\draw[thick] (1.east) -- (5.west); 
+\draw[thick] (2.east) -- (5.west); 
+\draw[thick] (3.east) -- (4.west);
 \end{tikzpicture}
 \quad
 \raisebox{2.15em}{$\xrightarrow{L^{-1}_{4}}$}
@@ -3499,10 +3523,10 @@ We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading
 \node[anchor=west] (4) at (1.5, -1) {$3$};
 \node[anchor=west] (5) at (1.5, -2) {$124$};
 %
-\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
-\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
-\draw[thick] (2) to [in=180, out=0, looseness=0] (5); 
-\draw[thick] (3) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (1.east) -- (4.west); 
+\draw[thick] (1.east) -- (5.west); 
+\draw[thick] (2.east) -- (5.west); 
+\draw[thick] (3.east) -- (5.west);
 \end{tikzpicture}
 ,
 \begin{tikzpicture}[scale=.6,xscale=0.8]   
@@ -3513,10 +3537,10 @@ We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading
 \node[anchor=west] (4) at (1.5, -1) {$23$};
 \node[anchor=west] (5) at (1.5, -2) {$14$};
 %
-\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
-\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
-\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
-\draw[thick] (3) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (1.east) -- (4.west); 
+\draw[thick] (1.east) -- (5.west);
+\draw[thick] (2.east) -- (4.west);
+\draw[thick] (3.east) -- (5.west);
 \end{tikzpicture}
 \quad
 \raisebox{2.15em}{$\xrightarrow{L^{-1}_{3}}$}
@@ -3529,10 +3553,10 @@ We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading
 \node[anchor=west] (4) at (1.5, -1) {$2$};
 \node[anchor=west] (5) at (1.5, -2) {$134$};
 %
-\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
-\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
-\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
-\draw[thick] (3) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (1.east) -- (4.west); 
+\draw[thick] (1.east) -- (5.west);
+\draw[thick] (2.east) -- (5.west);
+\draw[thick] (3.east) -- (5.west);
 \end{tikzpicture}
 \end{center}
 Note that, as we have chosen minimal illustrative examples, each inverse $m$-shift is an inverse $1$-shift, and after each shift we obtain a $SCP$. 
@@ -3720,9 +3744,9 @@ In particular, the two center faces of the subdivided hexagon of \cref{fig:LUSAd
 \node[anchor=west] (4) at (1.5, -1) {$3$};
 \node[anchor=west] (5) at (1.5, -2) {$12$};
 %
-\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
-\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
-\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (1.east) -- (4.west); 
+\draw[thick] (1.east) -- (5.west);
+\draw[thick] (2.east) -- (5.west);
 \end{tikzpicture}
 \quad
 \raisebox{1.3em}{$\xrightarrow{R^{SU}_{3}}$}
@@ -3734,9 +3758,9 @@ In particular, the two center faces of the subdivided hexagon of \cref{fig:LUSAd
 \node[anchor=west] (4) at (1.5, -1) {$3$};
 \node[anchor=west] (5) at (1.5, -2) {$12$};
 %
-\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
-\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
-\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
+\draw[thick] (1.east) -- (5.west); 
+\draw[thick] (2.east) -- (5.west);
+\draw[thick] (2.east) -- (4.west);
 \end{tikzpicture}
 ,\quad \quad
 \begin{tikzpicture}[scale=.6,xscale=0.6]  
@@ -3746,9 +3770,9 @@ In particular, the two center faces of the subdivided hexagon of \cref{fig:LUSAd
 \node[anchor=west] (4) at (1.5, -1) {$2$};
 \node[anchor=west] (5) at (1.5, -2) {$13$};
 %
-\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
-\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
-\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (1.east) -- (4.west); 
+\draw[thick] (2.east) -- (5.west);
+\draw[thick] (1.east) -- (5.west);
 \end{tikzpicture}
 \quad
 \raisebox{1.3em}{$\xrightarrow{L^{SU}_{3}}$}
@@ -3760,9 +3784,9 @@ In particular, the two center faces of the subdivided hexagon of \cref{fig:LUSAd
 \node[anchor=west] (4) at (1.5, -1) {$23$};
 \node[anchor=west] (5) at (1.5, -2) {$1$};
 %
-\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
-\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
-\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (1.east) -- (4.west); 
+\draw[thick] (2.east) -- (4.west);
+\draw[thick] (1.east) -- (5.west);
 \end{tikzpicture}
 
 \end{center}
@@ -3775,9 +3799,9 @@ and
 \node[anchor=west] (4) at (1.5, -1) {$13$};
 \node[anchor=west] (5) at (1.5, -2) {$2$};
 %
-\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
-\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
-\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (1.east) -- (4.west); 
+\draw[thick] (2.east) -- (4.west);
+\draw[thick] (2.east) -- (5.west);
 \end{tikzpicture}
 \quad
 \raisebox{1.3em}{$\xrightarrow{R^{LA}_{1}}$}
@@ -3789,9 +3813,9 @@ and
 \node[anchor=west] (4) at (1.5, -1) {$3$};
 \node[anchor=west] (5) at (1.5, -2) {$12$};
 %
-\draw[thick] (1) to [in=180, out=0, looseness=0] (5); 
-\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
-\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (1.east) -- (5.west); 
+\draw[thick] (2.east) -- (4.west);
+\draw[thick] (2.east) -- (5.west);
 \end{tikzpicture}
 ,\quad \quad
 \begin{tikzpicture}[scale=.6,xscale=0.6]  
@@ -3801,9 +3825,9 @@ and
 \node[anchor=west] (4) at (1.5, -1) {$23$};
 \node[anchor=west] (5) at (1.5, -2) {$1$};
 %
-\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
-\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
-\draw[thick] (2) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (1.east) -- (4.west); 
+\draw[thick] (2.east) -- (4.west);
+\draw[thick] (2.east) -- (5.west);
 \end{tikzpicture}
 \quad
 \raisebox{1.3em}{$\xrightarrow{L^{LA}_{1}}$}
@@ -3815,9 +3839,9 @@ and
 \node[anchor=west] (4) at (1.5, -1) {$23$};
 \node[anchor=west] (5) at (1.5, -2) {$1$};
 %
-\draw[thick] (1) to [in=180, out=0, looseness=0] (4); 
-\draw[thick] (2) to [in=180, out=0, looseness=0] (4);
-\draw[thick] (1) to [in=180, out=0, looseness=0] (5);
+\draw[thick] (1.east) -- (4.west); 
+\draw[thick] (2.east) -- (4.west);
+\draw[thick] (1.east) -- (5.west);
 \end{tikzpicture}
 
 \end{center}
