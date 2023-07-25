@@ -3655,13 +3655,13 @@ The corresponding $(2,n)$-partition trees present a clear symmetry
 \node[anchor=west] (7) at (1.5, -3) {$3$};
 \node[anchor=west] (8) at (1.5, -4) {$2$};
 %
-\draw[thick] (1) to [in=180, out=0, looseness=0](5); 
-\draw[thick] (2) to [in=180, out=0, looseness=0](5); 
-\draw[thick] (2) to [in=180, out=0, looseness=0](6); 
-\draw[thick] (3) to [in=180, out=0, looseness=0](6); 
-\draw[thick] (4) to [in=180, out=0, looseness=0](6); 
-\draw[thick] (4) to [in=180, out=0, looseness=0](7); 
-\draw[thick] (4) to [in=180, out=0, looseness=0](8);
+\draw[thick] (1.east) -- (5.west); 
+\draw[thick] (2.east) -- (5.west); 
+\draw[thick] (2.east) -- (6.west); 
+\draw[thick] (3.east) -- (6.west); 
+\draw[thick] (4.east) -- (6.west); 
+\draw[thick] (4.east) -- (7.west); 
+\draw[thick] (4.east) -- (8.west);
 %
 \end{tikzpicture}
 \raisebox{3.4em}{$\xrightarrow{t(r\times r)}$}
@@ -3676,13 +3676,13 @@ The corresponding $(2,n)$-partition trees present a clear symmetry
 \node[anchor=west] (7) at (1.5, -3) {$4$};
 \node[anchor=west] (8) at (1.5, -4) {$256$};
 %
-\draw[thick] (1) to [in=180, out=0, looseness=0](5); 
-\draw[thick] (2) to [in=180, out=0, looseness=0](5); 
-\draw[thick] (2) to [in=180, out=0, looseness=0](6); 
-\draw[thick] (3) to [in=180, out=0, looseness=0](6); 
-\draw[thick] (4) to [in=180, out=0, looseness=0](6); 
-\draw[thick] (4) to [in=180, out=0, looseness=0](7); 
-\draw[thick] (4) to [in=180, out=0, looseness=0](8);
+\draw[thick] (1.east) -- (5.west); 
+\draw[thick] (2.east) -- (5.west); 
+\draw[thick] (2.east) -- (6.west); 
+\draw[thick] (3.east) -- (6.west); 
+\draw[thick] (4.east) -- (6.west); 
+\draw[thick] (4.east) -- (7.west); 
+\draw[thick] (4.east) -- (8.west);
 %
 \end{tikzpicture}
 \end{center}
@@ -3970,13 +3970,13 @@ $\quad \quad$
 \node[anchor=west] (7) at (1.5, -3) {$247$};
 \node[anchor=west] (8) at (1.5, -4) {$13$};
 %
-\draw[thick] (1) to [in=180, out=0, looseness=0](5);
-\draw[thick] (1) to [in=180, out=0, looseness=0](6); 
-\draw[thick] (1) to [in=180, out=0, looseness=0](7); 
-\draw[thick] (2) to [in=180, out=0, looseness=0](7); 
-\draw[thick] (3) to [in=180, out=0, looseness=0](7); 
-\draw[thick] (3) to [in=180, out=0, looseness=0](8); 
-\draw[thick] (4) to [in=180, out=0, looseness=0](8);
+\draw[thick] (1.east) -- (5.west);
+\draw[thick] (1.east) -- (6.west); 
+\draw[thick] (1.east) -- (7.west); 
+\draw[thick] (2.east) -- (7.west); 
+\draw[thick] (3.east) -- (7.west); 
+\draw[thick] (3.east) -- (8.west); 
+\draw[thick] (4.east) -- (8.west);
 \end{tikzpicture}
 $\quad \quad$
 \raisebox{3em}{
