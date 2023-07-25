@@ -2912,7 +2912,7 @@ while the \defn{left $m$-shift} moves it $m$ blocks to the left
 \end{definition}
 
 \begin{definition}
-\label{def:movable-subsets}
+\label{def:SU-admissible}
 Let $\sigma$ denote either one of the two ordered partitions of $[n]$ in a $(2,n)$-partition tree, and let $M_i \subsetneq \sigma_i$.
 The right $m$-shift $R_{M_i}$ (\resp. the left $m$-shift $L_{M_{i}}$) is 
 \begin{enumerate}
@@ -3004,7 +3004,7 @@ where the unions are taken over all strong complementary partitions $(\sigma, \t
 
 \begin{remark}
 	Observe that the left (\resp right) shifts acts on the right (\resp left) ordered partition.
-	In the analogous description for the diagonal $\LAD$ obtained at the end of the Section \Guillaume{[REF]}, left and right shifts act on the left and right ordered partitions, respectively. 
+	In the analogous description for the $\LA$ diagonal $\LAD$ obtained at in \cref{subsec:shifts-under-iso}, left and right shifts act on the left and right ordered partitions, respectively. 
 \end{remark}
 
 %%%%%%%%%%%%%%%
@@ -3560,49 +3560,39 @@ The original and geometric $\SU$ diagonals coincide.
 
 %%%%%%%%%%%%%%%
 
-\subsection{Shifts Under the Face Poset Isomorphism}
+\subsection{Shifts under the face poset isomorphism}
+\label{subsec:shifts-under-iso}
 
-Previously in \cref{thm:bijection-operadic-diagonals}, we constructed an isomorphism of face-posets $sr\times sr:\LAD\to\SUD$.
-In addition, we showed in \cref{rem:Alternate Isomorphism}, that $t(r\times r):\LAD\to\SUD$ is also an isomorphism.
-In this section, we use this second isomorphism to directly translate the known shift results for the $\SU$ diagonal to the $\LA$ diagonal. 
-We first explicitly define all $\LA$ shift diagonals before establishing this connection.
-We note that in the $\LA$ diagonal, for $(\sigma,\tau)\in \LAD$, the left shift operators $L_\mathbf{N}$ will act on $\sigma$ and the right shift operators $R_\mathbf{M}$ will act on $\tau$, the opposite of $\SU$.
-The indexing of the following definition compared to \cref{def:movable-subsets} accounts for this fact.
+Now that we have the equivalence between the original and geometric $\SU$ diagonals in hand, we can use the face poset isomorphisms between the geometric $\LA$ and $\SU$ diagonals from \cref{subsec:isos-LA-SU} to translate results and combinatorial descriptions from one to the other. 
+Under the isomorphism $t(r\times r):\LAD\to\SUD$ from \cref{rem:Alternate Isomorphism}, we get a straighforward analogue of \cref{def:SU-admissible} for the $\LA$ diagonal.
+Specifically, the morphism $r \times r$ exchanges $\max$ and $\min$, giving the following ``dual" notions of admissibility.
 
-\begin{definition}[$\LA$ moveable subsets]
-\label{def:LAD movable-subsets}
-Let $(\sigma,\tau) = (\sigma_1|\dots|\sigma_k,\tau_1|\dots|\tau_l)$ be a pair of ordered partitions.
-For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (\resp $M_{i}\subset \tau_{i}$) is \emph{$1$-block movable} if 
+\begin{definition}
+\label{def:LA-admissible}
+Let $\sigma$ denote either one of the two ordered partitions of $[n]$ in a $(2,n)$-partition tree, and let $M_i \subsetneq \sigma_i$.
+The right $m$-shift $R_{M_i}$ (\resp. the left $m$-shift $L_{M_{i}}$) is 
 \begin{enumerate}
-	\item $\max \sigma_i \notin M_i$ (\resp $\max \tau_{i} \notin M_i$), and
-	\item $\max M_i < \max \sigma_{i-1}$ (\resp $\min M_{i} < \max \tau_{i+1}$).
-\end{enumerate}
-It is \emph{$m$-path movable} if it satisfies $(1)$ above and if
-\begin{enumerate}
-	\item[(2')] $\max M_i < \min \sigma_{i,i-m}$ (\resp $\max M_{i} < \min \tau_{i,i+m}$).
+	\item \defn{block-admissible} if $\max \sigma_i \notin M_i$ and $\max M_i < \min \sigma_{i+m}$ (\resp $\max M_{i} < \min \sigma_{i-m}$),
+	\item \defn{path-admissible} if $\max M_i< \min \sigma_{i,i+m}$ (\resp $\max M_{i} < \min \sigma_{i,i-m}$).
 \end{enumerate}
 \end{definition}
-With our new definitions of moveable subsets, to obtain the correct definition of an admissible sequence of shifts, simply replace $\sigma$ with $\tau$ in \cref{def:admissible-shift-sequences}. 
-Similar definitions hold for admissible sequence of left shifts.
 
-\begin{definition}[$\LA$ diagonals]
-	\label{def:shift-LA}
-   The facets of 
-   \begin{enumerate}[(a)]
-	\item the \emph{1-subset-shift $\LA$ diagonal},
-	\item the \emph{$1$-shift $\LA$ diagonal},
-	\item the \emph{$m$-shift $\LA$ diagonal}
-   \end{enumerate}
-   are defined by the formula
-	\begin{align*}
-		\LAD([n]) = \bigcup_{(\sigma,\tau)} \bigcup_{\mathbf{M}, \mathbf{N}} L_\mathbf{N}(\sigma)\times R_\mathbf{M}(\tau)
-	\end{align*}
-	where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and over all admissible sequences of shifts $\textbf{M},\textbf{N}$ of the corresponding type.
-\end{definition}
+Admissible sequence of shifts are defined similarly (simply replace $\sigma$ with $\tau$ in \cref{def:admissible-shift-sequences}).
+The morphism $t$ permutes the terms, providing the following analogue of \cref{def:classical-SU} for the $\LA$ diagonal. 
 
-We again stress that compared to the $\SU$ diagonals (\cref{def:classical-SU}), the left shift operators now act on the left ordered partition, and the right shift operators on the right ordered partition.
+\begin{proposition}
+\label{def:classical-LA}
+The facets of the $\LA$ diagonal are given defined by the formula
+\begin{align*}
+\LAD([n]) = \bigcup_{(\sigma,\tau)} \bigcup_{\mathbf{M}, \mathbf{N}} L_\mathbf{M}(\sigma)\times R_\mathbf{N}(\tau)
+\end{align*}
+where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and over all block-admissible sequences of subset $1$-shifts $\textbf{M},\textbf{N}$, or over all path-admissible sequences of $1$-shifts, or over all path-admissible sequences of singleton $m$-shifts, for various $m\geq 1$.
+\end{proposition}
 
-\begin{proposition} \label{prop:trr is an isomorphism of shifts}
+It turns out that the isomorphism $t(r \times r)$ between the $\LA$ and $\SU$ diagonals has the agreable property of sending left shifts to left shifts, and right shifts to right shifts. 
+
+\begin{proposition} 
+\label{prop:trr is an isomorphism of shifts}
 Let $(\sigma,\tau) \in \LAD$.
 For each type of $\LA$ shift, let $\textbf{M},\textbf{N}$ be admissible sequences of this type, then 
 \begin{align*}
@@ -3613,32 +3603,11 @@ where $r\mathbf{M} \eqdef (rM_{i_1},...,rM_{i_p})$ and $r\mathbf{N}$ (defined si
 \begin{proof}
 As reversing the elements then shifting them is the same as shifting the elements then reversing them,
 it is clear that the equality holds if $r\mathbf{M},r\mathbf{N}$ are admissible sequences of $\SU$ shifts.
-As such, we must simply verify the admissibility, and given the equivalence of the various shift definitions, we just do this for $1$-path shifts.
-For an integer $m\geq 1$, a non-empty subset $M_i \subset \sigma_i$ (\resp $M_{i}\subset \tau_{i}$) is $LA$ $1$-block moveable if
-\begin{enumerate}
-	\item 
-	\begin{enumerate}
-		\item $\max \sigma_i \notin M_i$ implies that $ \min r\sigma_i \not \in r M_i$
-		\item (\resp $\max \tau_{i} \notin M_i$ implies that  $ \min r\tau_{i} \not \in r M_i$)
-	\end{enumerate}
-	\item 
-	\begin{enumerate}
-		\item $\max M_i < \max \sigma_{i-1}$  implies that $\min r M_i > \min r \sigma_{i+1}$
-		\item (\resp $\min M_{i} < \max \tau_{i+1}$ implies that $\max rM_{i} > \min r\tau_{i+1}$)
-	\end{enumerate}
-\end{enumerate}
-It is \emph{$m$-path movable} if it satisfies $(1)$ above and if
-\begin{enumerate}
-	\item[(2')] 
-	\begin{enumerate}
-		\item $\max M_i < \min \sigma_{i,i-m}$ implies that $\min r M_i > \max r \sigma_{i,i-m}$
-		\item (\resp $\max M_{i} < \min \tau_{i,i+m}$ implies that $\min r M_{i} > \max r\tau_{i,i+m}$)
-	\end{enumerate}
-\end{enumerate}
-The reader may directly verify from \cref{def:movable-subsets}, that each $rM_i \in r\sigma_i$ meets the conditions of a moveable subset 
-if it is interpreted as being in a block of the right partition ($\tau$ in the notation of the definition).
-So, if $\mathbf{M} = (M_{i_1},...,M_{i_p})$, define $r(\mathbf{M}) \eqdef (rM_{i_1},...,rM_{i_p})$, and from the prior it is clear this is an admissible sequence of $SU$ shifts.
-
+As such, we must simply verify the admissibility, and given the equivalence of the various shift definitions, we just do this for path-admissibility of $1$-shifts.
+Consider a right shift $R_{M_i}$ which is path-admissible in the $\LA$ sense (\cref{def:LA-admissible}). 
+Then, we have that $\max \sigma_i \notin M_i$ implies that $ \min r\sigma_i \not \in r M_i$ and $\max M_i < \min \sigma_{i+m}$  implies that $\min r M_i > \max r \sigma_{i+m}$, and thus the right shift $R_{rM_i}$ is path-admissible in the $\SU$ sense (\cref{def:SU-admissible}).
+Here, $rM_i \in r\sigma_i$ is interpreted as being in a block of the right partition ($\tau$ in the notation of the definition).
+So, if $\mathbf{M} = (M_{i_1},...,M_{i_p})$, define $r(\mathbf{M}) \eqdef (rM_{i_1},...,rM_{i_p})$, and from the prior it is clear this is a path-admissible sequence of $\SU$ shifts, finishing the proof.
 \end{proof}
 
 \begin{remark}
@@ -3648,9 +3617,10 @@ The $\LA^{op}$ and $\SU^{op}$ diagonals also admit obvious dual shift descriptio
 
 We now explore in example how the isomorphism $t(r\times r)$ translates the shift operators.
 
-\begin{example} \label{ex:shift translation by theta}
-The $\SCP$s $(\sigma,\tau)  \eqdef  5|17|4|236 \times 57|146|3|2$, and $(\sigma',\tau')  \eqdef  13|247|5|6 \times 3|17|4|156$, are in bijection through $t(r\times r)$. Graphically, this bijection has a clear symmetry,
-
+\begin{example} 
+	\label{ex:shift translation by theta}
+The isomorphism $t(r\times r)$ sends the $\SCP$ $(\sigma,\tau)  \eqdef  (5|17|4|236,57|146|3|2)$ to the $\SCP$ $(\sigma',\tau')  \eqdef  (13|247|5|6,3|17|4|156)$. 
+The corresponding $(2,n)$-partition trees present a clear symmetry
 \begin{center}
 \begin{tikzpicture}[scale=.7]  
 \node[anchor=east] (1) at (-1.5, -1) {$5$};
@@ -3694,7 +3664,7 @@ The $\SCP$s $(\sigma,\tau)  \eqdef  5|17|4|236 \times 57|146|3|2$, and $(\sigma'
 %
 \end{tikzpicture}
 \end{center}
-We now illustrate all possible $\LA$ $1$-shifts of the left $\SCP$ and all possible $\SU$ $1$-shifts of the right $\SCP$. 
+We now illustrate all possible $\LA$ singleton $1$-shifts of $(\sigma,\tau)$ and all possible $\SU$ singleton $1$-shifts of $(\sigma',\tau')$. 
 We first display how the $\LA$ left shifts act on $\sigma$, and the $\SU$ left shifts act on $\tau'$.
 The $LA$ shifts have been drawn so that the leftmost arrow shifts the smallest element, and the $SU$ shifts have been drawn so that the leftmost arrow shifts the largest element.
 As such, the face poset isomorphism $t(r\times r)$ directly translates one diagram to the other.
@@ -3723,28 +3693,26 @@ The specific element being shifted can be inferred by the source and target of t
 \end{tikzcd}
 }
 \end{center}
-The possible $\LAD$ right shifts (acting on $\tau$)  are,
+We now illustrate all the possible $\LAD$ right shifts acting on $\tau$
 \begin{center}
 \begin{tikzcd}
 \sigma \times 57|146|3|2 \arrow[r,"\rho=1"] & \sigma \times 57|46|13|2 \arrow[r,"\rho=1"] & \sigma \times 57|46|3|12
 \end{tikzcd}
 \end{center}
-The possible $\SUD$ right shifts (acting on $\sigma'$) are,
+and all possible $\SUD$ right shifts acting on $\sigma'$
 \begin{center}
 \begin{tikzcd}
-13|247|5|6 \times \tau' \arrow[r,"\rho=7"] & 13|24|57|6 \arrow[r,"\rho=7"] \times \tau' & 13|24|5|67 \times \tau'
+13|247|5|6 \times \tau' \arrow[r,"\rho=7"] & 13|24|57|6 \arrow[r,"\rho=7"] \times \tau' & 13|24|5|67 \times \tau' \ .
 \end{tikzcd}
 \end{center}
-No other shifts are possible, observe for instance that we cannot perform the $\LAD$ left shift $15|7|234|6 \times 57|46|13|2 \xrightarrow{\rho=2} 15|27|34|6 \times 57|46|13|2$ as the minimal path connecting $234$ and $7$ contains $1$ which is smaller than $2$ (see \cref{ex:ECbijection}).
-We will show in the next section, that these recovered diagrams are the Hasse diagrams of lattices.
+No other shifts are possible; observe for instance that we cannot perform the $\LAD$ left shift $15|7|234|6 \times 57|46|13|2 \xrightarrow{\rho=2} 15|27|34|6 \times 57|46|13|2$ as the minimal path connecting $234$ and $7$ contains $1$ which is smaller than $2$ (see \cref{ex:ECbijection}).
+We shall see in \cref{sec:Shift-lattice}, that these diagrams are the Hasse diagrams of lattices.
 \end{example}
 
-
 \begin{example}
-It was observed in \cite{LaplanteAnfossi} that the $LA$ and $SU$ diagonals coincided up until $n=3$, however due to their dual shift structure they generate the non-$SCP$ pairs in a dual fashion.
-In particular, the two center faces of the hexagon (\cref{fig:LUSAdiagonals}) are generated by 
+It was observed in \cite{LaplanteAnfossi} that the $\LA$ and $\SU$ diagonals coincided up until $n=3$, however due to their dual shift structure they generate the non-$\SCP$ pairs in a dual fashion.
+In particular, the two center faces of the subdivided hexagon of \cref{fig:LUSAdiagonals} are generated by 
 \begin{center}
-
 \begin{tikzpicture}[scale=.6,xscale=0.6]  
 \node[anchor=east] (1) at (-1.5, -1) {$13$};
 \node[anchor=east] (2) at (-1.5, -2) {$2$};
@@ -3854,7 +3822,6 @@ and
 
 \end{center}
 where we have aligned each element, of each diagonal, vertically with its dual element.
-
 \end{example}
 
 %%%%%%%%%%%%%%%
@@ -4007,7 +3974,7 @@ $
 }
 Given a $l\times k$ matrix $A$ with all non-zero entries drawn without replacement from $[n]$, let $\sigma_i(A)$ denote the non-zero entries of the $i$\ordinal{} column, and $\tau_j(A)$ the non-zero entries of the $(l-j+1)$\ordinalst{} row. 
 For example, we labelled the rows and columns of the prior step matrix in this fashion.
-With this identification, we can apply \cref{def:movable-subsets}, to identify $1$-block moveable subsets of the matrix $M$, and we can apply \cref{def:admissible-shift-sequences}, to identify sequences of shifts which are admissible of original type.
+With this identification, we can apply \cref{def:SU-admissible}, to identify $1$-block moveable subsets of the matrix $M$, and we can apply \cref{def:admissible-shift-sequences}, to identify sequences of shifts which are admissible of original type.
 We now define a suitable subset shift action on these matrices.
 \begin{definition} [SU Matrix Subset Shifts]
 A non-empty set of elements of a matrix $M_i \subset \sigma_i(A)$ (\resp $M_{i}\subset \tau_{i}(A)$) is $1$-block right (left) movable if
