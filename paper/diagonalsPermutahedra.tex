@@ -114,7 +114,7 @@
 
 % others
 \newcommand{\ie}{\textit{i.e.}~} % id est
-\newcommand{\resp}{\textit{resp.}~} % id est
+\newcommand{\resp}{resp.~} % id est
 \newcommand{\eg}{\textit{e.g.}~} % exempli gratia
 \newcommand{\Eg}{\textit{E.g.}~} % exempli gratia
 \newcommand{\apriori}{\textit{a priori}} % a priori
@@ -1830,7 +1830,7 @@ More precisely, $\triangle_{(P,\b{v})}$ is given by the explicit formula
 \begin{align*}
 	\begin{array}{rlcl}
 		\triangle_{(P,\b{v})}\ : & P & \to & P\times P \\
-		& \b{z} & \mapsto & \bigl( \min_{\b{v}}(P\cap \rho_{\b{z}} P), \, \max_{\b{v}}(P\cap \rho_{\b{z}} P) \bigr) \ .
+		& \b{z} & \mapsto & \bigl( \min_{\b{v}}(P\cap \rho_{\b{z}} P), \, \max_{\b{v}}(P\cap \rho_{\b{z}} P) \bigr) .
 	\end{array}
 \end{align*}
 \end{theorem}
@@ -1917,7 +1917,7 @@ Finally, the following statement relates the image of the diagonal~$\triangle_{(
 For any polytope $P$ and any generic vector $\b{v}$,
 \begin{equation}
 \label{eq:magique}
-\Ima\triangle_{(P, \b{v})} \quad \subseteq \bigcup_{\substack{F,G \text{ faces of } P \\ \max_{\b{v}}(F) \, \le \, \min_{\b{v}}(G)}} F \times G \ .
+\Ima\triangle_{(P, \b{v})} \quad \subseteq \bigcup_{\substack{F,G \text{ faces of } P \\ \max_{\b{v}}(F) \, \le \, \min_{\b{v}}(G)}} F \times G .
 \end{equation}
 \end{proposition}
 
@@ -2296,11 +2296,10 @@ The faces of the $\LA$ and $\SU$ diagonals are described the following specialis
 
 \begin{theorem}
 \label{thm:minimal}
-For a pair $(\sigma,\tau)$ of ordered partitions of $[n]$, we have
-\begin{eqnarray*}
-(\sigma,\tau)\notin \LAD 
-& \iff & \exists (I,J) \in \LA(n) \ , J \text{ dominates } I \text{ in } \sigma \text{ and } I \text{ dominates } J \text{ in } \tau \ .
-\end{eqnarray*}
+For a pair $(\sigma,\tau)$ of ordered partitions of $[n]$, we have~$(\sigma,\tau) \notin \LAD$ if and only if there is~$(I,J) \in \LA(n)$ such that~$J$ dominates~$I$ in~$\sigma$ and~$I$ dominates~$J$ in~$\tau$.
+%\[
+%(\sigma,\tau) \notin \LAD \iff \text{there is } (I,J) \in \LA(n) \text{ such that } J \text{ dominates } I \text{ in } \sigma \text{ and } I \text{ dominates } J \text{ in } \tau.
+%\]
 The same holds for the $\SU$ diagonal by replacing $\LAD$ by $\SUD$ and $\LA(n)$ by $\SU(n)$.
 \end{theorem}
 
@@ -2334,7 +2333,7 @@ Note that this map is a particular instance of the eponym map introduced in Poin
 
 \begin{definition}
 \label{def:operadicDiagonal}
-A family of diagonals $\triangle \eqdef \{\triangle_n : \Perm \to \Perm \times \Perm\}_{n\geq 1}$ of the permutahedra is \defn{operadic} if for every face $A_1 | \ldots | A_k$ of the permutahedron $\Perm[|A_1|+\cdots + |A_k|]$, the map $\Theta$ induces a topological cellular isomorphism \[  \triangle(A_1) \times \ldots \times \triangle(A_k) \cong \triangle(A_1 | \ldots | A_k) \ . \]
+A family of diagonals $\triangle \eqdef \{\triangle_n : \Perm \to \Perm \times \Perm\}_{n\geq 1}$ of the permutahedra is \defn{operadic} if for every face $A_1 | \ldots | A_k$ of the permutahedron $\Perm[|A_1|+\cdots + |A_k|]$, the map $\Theta$ induces a topological cellular isomorphism \[  \triangle(A_1) \times \ldots \times \triangle(A_k) \cong \triangle(A_1 | \ldots | A_k) . \]
 \end{definition}
 In other words, we require that the diagonal $\triangle$ commutes with the map $\Theta$, see \cite[Sect.~4.2]{LaplanteAnfossi}.
 At the algebraic level, this property is called ``comultiplicativity" in \cite{SaneblidzeUmble}.
@@ -2477,7 +2476,7 @@ Let $P$ be a centrally symmetric polytope, and let $s : P \to P$ be its involuti
 Note that this map is cellular, and induces an involution on the face lattice of $P$. 
 For $P$ the permutahedron, this face poset involution is given by the assignment $A_1 | \cdots | A_k \mapsto A_k | \cdots | A_1$. 
 
-The permutahedron possesses another symmetry: the cellular involution $r : P \to P$ which sends a point $p \in P$ to its reflection with respect to the hyperplane of equation \[ \sum_{i=1}^{\lfloor n/2 \rfloor}x_i = \sum_{i=1}^{\lfloor n/2 \rfloor}x_{n-i+1} \ . \]
+The permutahedron possesses another symmetry: the cellular involution $r : P \to P$ which sends a point $p \in P$ to its reflection with respect to the hyperplane of equation \[ \sum_{i=1}^{\lfloor n/2 \rfloor}x_i = \sum_{i=1}^{\lfloor n/2 \rfloor}x_{n-i+1} . \]
 This involution also respects the face poset structure. 
 In terms of ordered partitions, it replaces each block $A_j$ in $A_1 | \cdots | A_k$ by the block $r(A_j) \eqdef \{n-i+1 \ | \ i \in A_j\}$.
 
@@ -2492,7 +2491,7 @@ As we have already remarked in \cref{subsec:LASUdiagonal}, in the case of the pe
 		\LAD \arrow[r,"t"] \arrow[d,"rs \times rs"']&
 		(\LAD)^{\op}\arrow[d,"rs \times rs"]\\
 		\SUD \arrow[r,"t"'] &
-		(\SUD)^\op \ .
+		(\SUD)^\op
 		\end{tikzcd}
 		\end{center}
 	Moreover, they induce poset isomorphisms at the level of the face lattices. 
@@ -2843,13 +2842,15 @@ The proof is technical and proceeds in several steps: we introduce two additiona
 \text{original $\SUD$} \arrow[r,leftrightarrow,"\ref{prop:iso-original-shift-diagonals}"]&
 \text{$1$-shift $\SUD$} \arrow[r,leftrightarrow,"\ref{prop:iso-1-to-m-shift}"]&
 \text{$m$-shift $\SUD$} \arrow[r,leftrightarrow,"\ref{prop:iso-shift-IJ-diagonals}"]&
-\text{geometric $\SUD$} \ .
+\text{geometric $\SUD$} .
 \end{tikzcd}
 \end{center}
 
 %%%%%%%%%%%%%%%
 
 \subsubsection{Strong complementary pairs}
+
+\vincent{add a sentence here}
 
 \begin{definition}
 \label{def:strong-complementary-pairs}
@@ -2925,13 +2926,14 @@ We introduce two other descriptions, the $1$-shift and $m$-shift $\SU$ diagonals
 \label{def:subset shifts}
 Let $\sigma=\sigma_1|\dots|\sigma_k$ be an ordered partition, and let 
 $M_i\subsetneq \sigma_{i}$ be a non-empty subset of the block $\sigma_i$.
+\vincent{Je le noterais plutôt $M$...}
 For $m\geq 1$, the \defn{right $m$-shift} moves the subset $M_i$, $m$ blocks to the right  
 \begin{align*}
 	R_{M_i}(\sigma) \eqdef \sigma_1|\dots|\sigma_i \ssm M_i|\dots | \sigma_{i+m} \cup M_i|\dots|\sigma_k
 \end{align*}
 while the \defn{left $m$-shift} moves it $m$ blocks to the left 
 \begin{align*}
-	L_{M_{i}}(\sigma) \eqdef \sigma_1|\dots|\sigma_{i-m} \cup M_{i}| \dots |\sigma_{i} \ssm M_{i}|\dots|\sigma_l \ .
+	L_{M_{i}}(\sigma) \eqdef \sigma_1|\dots|\sigma_{i-m} \cup M_{i}| \dots |\sigma_{i} \ssm M_{i}|\dots|\sigma_l .
 \end{align*}
 \end{definition}
 
@@ -3013,6 +3015,7 @@ For~$p\geq 1$, a sequence of right shifts~$\textbf{M} = (M_{i_1},\dots,M_{i_p}) 
 \end{enumerate}
 In both cases, the resulting ordered partition is denoted by $R_\mathbf{M}(\sigma) \eqdef R_{M_{i_p}}\dots R_{M_{i_1}}(\sigma)$.
 Admissible sequences of left shifts are defined similarly and are denoted by $L_\mathbf{N}(\tau)$.
+\vincent{pourquoi N?}
 \end{definition}
 
 By convention, we declare the empty sequence of shift operators to be admissible, and to act by the identity, \ie we have $R_{\mathbf{\varnothing}}(\sigma)  \eqdef  \sigma$ and $L_{\mathbf{\varnothing}} (\tau) \eqdef  \tau$.
@@ -3073,7 +3076,7 @@ In particular, for a pair of ordered partitions $(R_{\mathbf{M}}(\sigma),L_{\mat
 and consequently that
 \begin{align}
 	\label{eq:max-2}
-	\max R_{\mathbf{M}}(\sigma)_{i,i+1} = \max \sigma_{i+1} \text{ and } \max L_{\mathbf{N}}(\tau)_{i,i+1} = \max \tau_{i}  \ .
+	\max R_{\mathbf{M}}(\sigma)_{i,i+1} = \max \sigma_{i+1} \text{ and } \max L_{\mathbf{N}}(\tau)_{i,i+1} = \max \tau_{i}  .
 \end{align}
 \end{proposition}
 
@@ -3090,7 +3093,7 @@ As $R_{M_k}$ is an admissible operator, we know two things: firstly that $\min M
 So combining these, we know that
 \begin{align}
 	\label{eq:shift-subset-dominates}
-	\min M_k > \max R_{\mathbf{M}}(\sigma)_{k+1} = \max \sigma_{k+1} = \max R_{\mathbf{M}}(\sigma)_{k,k+1} \ . 
+	\min M_k > \max R_{\mathbf{M}}(\sigma)_{k+1} = \max \sigma_{k+1} = \max R_{\mathbf{M}}(\sigma)_{k,k+1} . 
 \end{align}
 A key consequence of this inequality is that the intersection graph of $(R_{M_k}R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$ is a bipartite tree conditional on $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$ being a bipartite tree: the shift will not disconnect the graph as none of the shifted elements are in the path $R_{\mathbf{M}}(\sigma)_{k,k+1}$. 
 So, it is legitimate to speak of unique paths between blocks. 
@@ -3144,7 +3147,7 @@ Path-admissible sequences of $m$-shifts, defining the $m$-shift $\SU$ diagonal, 
 In particular, if a pair of ordered partitions $(\sigma',\tau')$ is generated from a strong complementary pair~$(\sigma,\tau)$ by path-admissible $m$-shifts, then we have
 \begin{align}
 	\label{eq:max-3}
-	\max \sigma'_{i,i+m} = \max \sigma_{i+m} \text{ and } \max \tau'_{i,i+m} = \max \tau_{i} \ .
+	\max \sigma'_{i,i+m} = \max \sigma_{i+m} \text{ and } \max \tau'_{i,i+m} = \max \tau_{i} .
 \end{align}
 \end{corollary}
 
@@ -3730,7 +3733,7 @@ We now illustrate all the possible $\LAD$ right shifts acting on $\tau$
 and all possible $\SUD$ right shifts acting on $\sigma'$
 \begin{center}
 \begin{tikzcd}
-13|247|5|6 \times \tau' \arrow[r,"\rho=7"] & 13|24|57|6 \arrow[r,"\rho=7"] \times \tau' & 13|24|5|67 \times \tau' \ .
+13|247|5|6 \times \tau' \arrow[r,"\rho=7"] & 13|24|57|6 \arrow[r,"\rho=7"] \times \tau' & 13|24|5|67 \times \tau' .
 \end{tikzcd}
 \end{center}
 No other shifts are possible; observe for instance that we cannot perform the $\LAD$ left shift $15|7|234|6 \times 57|46|13|2 \xrightarrow{\rho=2} 15|27|34|6 \times 57|46|13|2$ as the minimal path connecting $234$ and $7$ contains $1$ which is smaller than $2$ (see \cref{ex:ECbijection}).
@@ -4613,7 +4616,7 @@ Recall that the topological cellular operad structure on the operahedra \cite[De
 & P_{(t',\omega)}\times P_{t''}
  \arrow[r,hookrightarrow, "\Theta"]
 &
-P_t \ .
+P_t .
 \end{tikzcd}
 }}  \]
 Here, the map $\tr$ is the \emph{unique} topological cellular map which commutes with the diagonal~$\LAD$ \cite[Prop.~7]{MasudaThomasTonksVallette}. 
@@ -4636,7 +4639,7 @@ The same holds when taking the~$\circ_i^\SU$ operations instead of the $\circ_i^
 		\item on the interior of the top face by the identity $\id : \mathring P_t \to \mathring P_t$, and 
 		\item on the interior of the face $F=((\cdots((t_1 \circ_{i_1} t_2) \circ_{i_2} t_3) \cdots )\circ_{i_k} t_{k+1})$ of~$P_t$ by the composition of the two isomorphisms
 		\[ 
-		((\cdots ((\circ_{i_1}^\SU) \circ_{i_2}^\SU) \cdots) \circ_{i_k}^\SU) \ ((\cdots((\circ_{i_1}^\LA) \circ_{i_2}^\LA) \cdots) \circ_{i_k}^\LA)^{-1}: F \to F \ . \] 
+		((\cdots ((\circ_{i_1}^\SU) \circ_{i_2}^\SU) \cdots) \circ_{i_k}^\SU) \ ((\cdots((\circ_{i_1}^\LA) \circ_{i_2}^\LA) \cdots) \circ_{i_k}^\LA)^{-1}: F \to F . \] 
 	\end{itemize}
 \end{construction}
 
@@ -4657,7 +4660,7 @@ The same holds when taking the~$\circ_i^\SU$ operations instead of the $\circ_i^
 	& P_{t} \arrow[d,  "\Psi_t"] \\
 	P_{t'}\times P_{t''}  
 	\arrow[r,  "\circ_i^\SU"]
-	& P_{t}\ .
+	& P_{t}
 	\end{tikzcd}
 	}}\]
 	For two interior points $(x,y) \in \mathring P_{t'}\times \mathring P_{t''}$, the diagram clearly commutes by definition, since $\Psi_{t'}$ and~$\Psi_{t''}$ are the identity in that case. 
