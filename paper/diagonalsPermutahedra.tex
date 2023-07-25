@@ -1932,10 +1932,10 @@ This is in fact precisely the content of the \emph{Fulton--Sturmfels formula} fo
 \end{remark}
 
 To conclude, we define the opposite of a geometric diagonal.
-\vincent{Not sure we want to define it here.}
 
 \begin{definition}
 The \defn{opposite} of a geometric diagonal~$\triangle \eqdef \triangle_{(P, \b{v})}$ is the geometric diagonal~$\triangle^{\op} \eqdef \triangle_{(P, -\b{v})}$.
+Note that~$F \times G \in \Ima \triangle$ if and only if~$G \times F \in \Ima \triangle^{\op}$.
 \end{definition}
 
 %%%%%%%%%%%%%%%
@@ -2036,9 +2036,8 @@ is strict.
 
 \begin{remark}
 \label{rem:oppositeDiagonals}
-Opposite of a geometric diagonal.
-Switch faces, switch ordering.
-\vincent{Not sure we want to define it here.}
+Note that opposite diagonals have opposite orderings.
+Namely, $\Or(-\b{v}) = \Or(\b{v})^{\op}$ where~$\Or^{\op} \eqdef \set{(J,I)}{(I,J) \in \Or}$.
 \end{remark}
 
 %%%%%%%%%%%%%%%
@@ -2303,11 +2302,6 @@ For a pair $(\sigma,\tau)$ of ordered partitions of $[n]$, we have~$(\sigma,\tau
 The same holds for the $\SU$ diagonal by replacing $\LAD$ by $\SUD$ and $\LA(n)$ by $\SU(n)$.
 \end{theorem}
 
-\begin{remark}
-Both of these diagonals have opposites $(\LAD)^{\op}$ and $(\SUD)^{\op}$, obtained by permuting the factors in every term: at the level of orderings, they are obtained by permuting $I$ and $J$ in the definitions of $\LA(n)$ and $\SU(n)$, while they are given geometrically by taking $-\b{v}$ instead of $\b{v}$ as an orientation vector. 
-\vincent{Refer to \cref{rem:oppositeDiagonals}.}
-\end{remark}
-
 %%%%%%%%%%%%%%%
 
 \subsection{The operadic property}
@@ -2478,7 +2472,7 @@ For $P$ the permutahedron, this face poset involution is given by the assignment
 
 The permutahedron possesses another symmetry: the cellular involution $r : P \to P$ which sends a point $p \in P$ to its reflection with respect to the hyperplane of equation \[ \sum_{i=1}^{\lfloor n/2 \rfloor}x_i = \sum_{i=1}^{\lfloor n/2 \rfloor}x_{n-i+1} . \]
 This involution also respects the face poset structure. 
-In terms of ordered partitions, it replaces each block $A_j$ in $A_1 | \cdots | A_k$ by the block $r(A_j) \eqdef \{n-i+1 \ | \ i \in A_j\}$.
+In terms of ordered partitions, it replaces each block $A_j$ in $A_1 | \cdots | A_k$ by the block $r(A_j) \eqdef \{r(i) \ | \ i \in A_j\}$ where~$r(i) \eqdef n-i+1$.
 
 The involution $t : P \times P \to P \times P$ sending $(x,y)$ to~$(y,x)$ takes a cellular diagonal to another cellular diagonal.
 As we have already remarked in \cref{subsec:LASUdiagonal}, in the case of the permutahedron it sends $\LAD$ to $(\LAD)^\op$ and $\SUD$ to $(\SUD)^\op$.
@@ -2499,11 +2493,9 @@ As we have already remarked in \cref{subsec:LASUdiagonal}, in the case of the pe
 
 \begin{proof}
 The result for the transpositions $t$ and the commutativity of the diagram are straightforward, so we prove that $rs\times rs$ is a cellular isomorphism respecting the poset structure. 
-First, we observe that the assignment $(I,J) \mapsto (r(J),r(I))$ defines a bijection between $\LA(n)$ and $\SU(n)$. 
-Indeed, we have $r(\min(I\cup J))=\max(I\cup J)$; since $I \cap J = \varnothing$, $r$ is well-defined, and it is a bijection with inverse $r$ itself.  
-\vincent{involution}
+First, since $r(\min(I\cup J))=\max(r(I) \cup r(J))$, we observe that the map $(I,J) \mapsto (r(J),r(I))$ defines a bijection between $\LA(n)$ and $\SU(n)$.
 Then, if $\sigma$ is an ordered partition such that $I$ dominates $J$ in $\sigma$ (\cref{def:domination}), it must be the case that $J$ dominates $I$ in $s\sigma$, and consequently $rJ$ dominates $rI$ in $rs\sigma$.
-As such, the domination characterisation of the diagonals (\cref{thm:minimal}), tells us  $(\sigma,\tau) \in \LAD$ if and only if $(rs(\sigma),rs(\tau)) \in \SUD$.
+As such, the domination characterisation of the diagonals (\cref{thm:minimal}), tells us~$(\sigma,\tau) \in \LAD$ if and only if $(rs(\sigma),rs(\tau)) \in \SUD$.
 Finally, since both $t,r$ and $s$ preserve the poset structures, so does their composition, which finishes the proof.
 \end{proof}
 
@@ -2850,7 +2842,7 @@ The proof is technical and proceeds in several steps: we introduce two additiona
 
 \subsubsection{Strong complementary pairs}
 
-\vincent{add a sentence here}
+We start by the following definition.
 
 \begin{definition}
 \label{def:strong-complementary-pairs}
@@ -2924,32 +2916,30 @@ We introduce two other descriptions, the $1$-shift and $m$-shift $\SU$ diagonals
 
 \begin{definition}
 \label{def:subset shifts}
-Let $\sigma=\sigma_1|\dots|\sigma_k$ be an ordered partition, and let 
-$M_i\subsetneq \sigma_{i}$ be a non-empty subset of the block $\sigma_i$.
-\vincent{Je le noterais plutôt $M$...}
-For $m\geq 1$, the \defn{right $m$-shift} moves the subset $M_i$, $m$ blocks to the right  
+Let $\sigma=\sigma_1|\dots|\sigma_k$ be an ordered partition, and let~$M \subsetneq \sigma_{i}$ be a non-empty subset of the block $\sigma_i$.
+For $m\geq 1$, the \defn{right $m$-shift} moves $m$ blocks to the right the subset $M$, \ie
 \begin{align*}
-	R_{M_i}(\sigma) \eqdef \sigma_1|\dots|\sigma_i \ssm M_i|\dots | \sigma_{i+m} \cup M_i|\dots|\sigma_k
+	R_M(\sigma) \eqdef \sigma_1 | \dots | \sigma_i \ssm M | \dots | \sigma_{i+m} \cup M | \dots | \sigma_k
 \end{align*}
-while the \defn{left $m$-shift} moves it $m$ blocks to the left 
+while the \defn{left $m$-shift} moves $m$ blocks to the left the subset $M$, \ie
 \begin{align*}
-	L_{M_{i}}(\sigma) \eqdef \sigma_1|\dots|\sigma_{i-m} \cup M_{i}| \dots |\sigma_{i} \ssm M_{i}|\dots|\sigma_l .
+	L_M(\sigma) \eqdef \sigma_1 | \dots | \sigma_{i-m} \cup M | \dots | \sigma_{i} \ssm M | \dots | \sigma_k .
 \end{align*}
 \end{definition}
 
 \begin{definition}
 \label{def:movable-subsets}
-Let $\sigma$ denote either one of the two ordered partitions of $[n]$ in a $(2,n)$-partition tree, and let $M_i \subsetneq \sigma_i$.
-The right $m$-shift $R_{M_i}$ (\resp the left $m$-shift $L_{M_{i}}$) is 
+Let $\sigma$ denote either one of the two ordered partitions of $[n]$ in a ordered $(2,n)$-partition tree, and let $M \subsetneq \sigma_i$.
+The right $m$-shift $R_M$ (\resp the left $m$-shift $L_M$) is 
 \begin{enumerate}
-	\item \defn{block-admissible} if $\min \sigma_i \notin M_i$ and $\min M_i> \max \sigma_{i+m}$ (\resp $\min M_{i}> \max \sigma_{i-m}$),
-	\item \defn{path-admissible} if $\min M_i> \max \sigma_{i,i+m}$ (\resp $\min M_{i}> \max \sigma_{i,i-m}$).
+	\item \defn{block-admissible} if $\min \sigma_i \notin M$ and $\min M > \max \sigma_{i+m}$ (\resp $\min M > \max \sigma_{i-m}$),
+	\item \defn{path-admissible} if $\min M > \max \sigma_{i,i+m}$ (\resp $\min M > \max \sigma_{i,i-m}$).
 \end{enumerate}
 \end{definition}
 
 \begin{remark}
 \label{rem:inverses}
-Observe that for a given subset $M_i$, an inverse to the right $m$-shift $R_{M_i}$ (\resp left $m$-shift $L_{M_i}$) is given by the left $m$-shift $L_{M_{i+m}}$ (\resp right $m$-shift $R_{M_{i-m}}$), where $M_{i+m}=M_i$ (\resp $M_{i-m}=M_i$).
+Observe that for a given subset $M$, an inverse to the right $m$-shift $R_M$ (\resp left $m$-shift $L_M$) is given by the left $m$-shift $L_M$ (\resp right $m$-shift $R_M$).
 Moreover, one $m$-shift is path-admissible if and only if its inverse is. 
 \end{remark}
 
@@ -3007,15 +2997,13 @@ and show that specific sequences generate the same diagonal.
 
 \begin{definition}
 \label{def:admissible-shift-sequences}
-Let $(\sigma,\tau)$ be a pair of ordered partitions. 
-For~$p\geq 1$, a sequence of right shifts~$\textbf{M} = (M_{i_1},\dots,M_{i_p}) \in [n]^{p}$ is 
+Let $\sigma$ denote either one of the two ordered partitions of $[n]$ in an ordered $(2,n)$-partition tree, and let~$\b{M} = (M_1,\dots,M_p)$ with $M_1 \subsetneq \sigma_{i_1}, \dots, M_p \subsetneq \sigma_{i_p}$ for some~$p \ge 1$.
+Then the sequence of right shifts~$R_\mathbf{M}(\sigma) \eqdef R_{M_p} \dots R_{M_1}(\sigma)$ is 
 \begin{enumerate}
-	\item \defn{block-admissible} if we have $1\leq i_1 < i_2 < \dots < i_p \leq k-1$, and each $R_{M_{i_j}}$ is a block-admissible $1$-shift.
-	\item \defn{path-admissible} if each $R_{M_{i_j}}$ is a path-admissible $m$-shift, for some $m\geq 1$.
+	\item \defn{block-admissible} if we have $1\leq i_1 < i_2 < \dots < i_p \leq k-1$, and each $R_{M_j}$ is a block-admissible $1$-shift,
+	\item \defn{path-admissible} if each $R_{M_j}$ is a path-admissible $m_j$-shift, for some $m_j \geq 1$.
 \end{enumerate}
-In both cases, the resulting ordered partition is denoted by $R_\mathbf{M}(\sigma) \eqdef R_{M_{i_p}}\dots R_{M_{i_1}}(\sigma)$.
-Admissible sequences of left shifts are defined similarly and are denoted by $L_\mathbf{N}(\tau)$.
-\vincent{pourquoi N?}
+Admissible sequences of left shifts are defined similarly and are denoted by $L_\mathbf{M}(\tau)$.
 \end{definition}
 
 By convention, we declare the empty sequence of shift operators to be admissible, and to act by the identity, \ie we have $R_{\mathbf{\varnothing}}(\sigma)  \eqdef  \sigma$ and $L_{\mathbf{\varnothing}} (\tau) \eqdef  \tau$.
@@ -3026,13 +3014,15 @@ The facets of the \defn{original $\SU$ diagonal} (\resp the \defn{$m$-shift $\SU
 \begin{align*}
 \SUD([n]) = \bigcup_{(\sigma,\tau)} \bigcup_{\mathbf{M}, \mathbf{N}} R_\mathbf{M}(\sigma)\times L_\mathbf{N}(\tau)
 \end{align*}
-where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and over all block-admissible sequences of subset $1$-shifts $\textbf{M},\textbf{N}$ (\resp over all path-admissible sequences of singleton $m$-shifts, for various $m\geq 1$).
+where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and over all block-admissible sequences of subset $1$-shifts $\b{M},\b{N}$ (\resp over all path-admissible sequences of singleton $m_j$-shifts, for various $m_j \ge 1$).
 \end{definition}
 
 \begin{remark}
 	Observe that the left (\resp right) shifts acts on the right (\resp left) ordered partition.
 	In the analogous description for the $\LA$ diagonal $\LAD$ obtained at in \cref{subsec:shifts-under-iso}, left and right shifts act on the left and right ordered partitions, respectively.
 \end{remark}
+
+\vincent{Change the notations everywhere...}
 
 %%%%%%%%%%%%%%%
 
@@ -3164,6 +3154,7 @@ The original and $m$-shift $\SU$ diagonals coincide.
 \end{theorem}
 
 \begin{proof}
+\vincent{Change the notations in this proof}
 Since $m$-shift and $1$-shift diagonals are equivalent (\cref{prop:iso-1-to-m-shift}), it suffices to show that the $1$-shift and original $\SU$ diagonals coincide. 
 We analyze the right shift operator, the case of the left shift is similar. 
 First, we observe that any block-admissible right shift $R_{M_k}(\sigma)$ can be decomposed into a series of singleton right shifts: since $\min M_k > \max \sigma_{k,k+1}$ by the proof of \cref{prop:SU-preserves-max}, we can shift the elements of $M_k$ to the right, one after the other (in any order!).
@@ -3617,7 +3608,7 @@ The facets of the $\LA$ diagonal are given defined by the formula
 \begin{align*}
 \LAD([n]) = \bigcup_{(\sigma,\tau)} \bigcup_{\mathbf{M}, \mathbf{N}} L_\mathbf{M}(\sigma)\times R_\mathbf{N}(\tau)
 \end{align*}
-where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and over all block-admissible sequences of subset $1$-shifts $\textbf{M},\textbf{N}$, or over all path-admissible sequences of $1$-shifts, or over all path-admissible sequences of singleton $m$-shifts, for various $m\geq 1$.
+where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and over all block-admissible sequences of subset $1$-shifts $\b{M},\b{N}$, or over all path-admissible sequences of $1$-shifts, or over all path-admissible sequences of singleton $m$-shifts, for various $m\geq 1$.
 \end{proposition}
 
 It turns out that the isomorphism $t(r \times r)$ between the $\LA$ and $\SU$ diagonals has the agreable property of sending left shifts to left shifts, and right shifts to right shifts. 
@@ -3625,7 +3616,7 @@ It turns out that the isomorphism $t(r \times r)$ between the $\LA$ and $\SU$ di
 \begin{proposition} 
 \label{prop:trr is an isomorphism of shifts}
 Let $(\sigma,\tau) \in \LAD$.
-For each type of $\LA$ shift, let $\textbf{M},\textbf{N}$ be admissible sequences of this type, then 
+For each type of $\LA$ shift, let $\b{M},\b{N}$ be admissible sequences of this type, then 
 \begin{align*}
 	t(r,r)(L_\mathbf{N}(\sigma), R_\mathbf{M}(\tau)) = (R_{r\mathbf{M}}(r\tau), L_{r\mathbf{N}}(r\sigma))
 \end{align*}
@@ -3907,7 +3898,7 @@ Let $(\sigma,\tau)$ be an $\SCP$, and define
 \begin{align*}
 	L^{\LA}(\sigma,\tau) \eqdef \bigcup_{\mathbf{M}, \mathbf{N}} L_\mathbf{N}(\sigma)\times R_\mathbf{M}(\tau), \quad L^{\SU}(\sigma,\tau) \eqdef \bigcup_{\mathbf{M}, \mathbf{N}} R_\mathbf{M}(\sigma)\times L_\mathbf{N}(\tau)
 \end{align*}
-where the union is taken over all admissible sequences of $1$-shifts $\textbf{M},\textbf{N}$, for each diagonal.
+where the union is taken over all admissible sequences of $1$-shifts $\b{M},\b{N}$, for each diagonal.
 Then each set is isomorphic as a lattice to a product of chains
 \begin{align*}
 	L^{\LA}(\sigma,\tau) \cong \prod_{\rho \in [n]} [l_\rho]
