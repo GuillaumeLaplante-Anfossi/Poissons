@@ -2673,56 +2673,128 @@ where $I=\{i_1,\dots,i_k\}$, $J=\{j_1,\dots,j_k\}$ and $i_1=1$ (\resp $j_k=2k$).
 \end{theorem}
 
 \begin{example}\label{exm:intervalsWeakOrderNotDiagonals}
-For each $k$, there are $\binom{2k-1}{k-1,k}(k-1)!k!$ avoided patterns.
-For $k=1$ we find that both diagonals avoid $(21,12)$, so consequently the vertices are a subset of intervals the weak order.
-For $k=2$, the $\LA$ diagonal avoid the patterns
-\begin{align*}
-	(4132,2413), (3142,2314),(2143,3214), (4123,3412),
-	(2134,4213), (3124,4312)
-\end{align*}
-and the $\SU$ diagonal avoids the patterns,
-\begin{align*}
-	(1243,2431),(1342,3421)
-	(2143,1432),(2341,3412),
-	(3241,2413),(3142,1423),
-\end{align*}
-As such, for $n\geq4$, the $\LA$ and $\SU$ are strict subsets of intervals of the weak order.
-\Kurt{Picture+Check patterns}
+For each $k$, there are $\binom{2k-1}{k-1,k}(k-1)!k!$ avoided standardised patterns.
+For $k=1$, both diagonals avoid $(21,12)$, so the vertices are intervals of the weak order.
+For $k=2$, 
+\begin{itemize}
+    \item $\LA$ avoids 
+    $(3142,2314), (4132,2413),
+    (2143,3214), (4123,3412),
+    (2134,4213), (3124,4312)$.
+    \item $\SU$ avoids 
+    $(1243,2431),(1342,3421),
+    (2143,1432),(2341,3412),
+    (3142,1423),(3241,2413)$.
+\end{itemize}
+As such, the vertices of $\LA$ and $\SU$ are a strict subset of all intervals of the weak order.
+Here is an illustration of the patterns avoided for $k=4$.
+The $\LA$ pattern is drawn on the left, the $\SU$ pattern is drawn on the right, and they are in bijection under the isomorphism $t(r\times r)$ (\cref{subsec:isos-LA-SU}), where the bijection between elements is $(i_1,i_2,i_3,i_4)\mapsto ({j'}_4,{j'}_1,{j'}_2,{j'}_3)$ and $(j_1,j_2,j_3,j_4)\mapsto ({i'}_1,{i'}_2,{i'}_3,{i'}_4)$.
+\begin{center}
+\begin{tikzpicture}[scale=.7]  
+\node[anchor=east] (0) at (-1.5, 0) {$j_1$};
+\node[anchor=east] (1) at (-1.5, -1) {$i_1$};
+\node[anchor=east] (2) at (-1.5, -2) {$j_2$};
+\node[anchor=east] (3) at (-1.5, -3) {$i_2$};
+\node[anchor=east] (4) at (-1.5, -4) {$j_3$};
+\node[anchor=east] (5) at (-1.5, -5) {$i_3$};
+\node[anchor=east] (6) at (-1.5, -6) {$j_4$};
+\node[anchor=east] (7) at (-1.5, -7) {$i_4$};
+%
+\node[anchor=west] (8) at (1.5, 0) {$i_2$};
+\node[anchor=west] (9) at (1.5, -1) {$j_1$};
+\node[anchor=west] (10) at (1.5, -2) {$i_3$};
+\node[anchor=west] (11) at (1.5, -3) {$j_2$};
+\node[anchor=west] (12) at (1.5, -4) {$i_4$};
+\node[anchor=west] (13) at (1.5, -5) {$j_3$};
+\node[anchor=west] (14) at (1.5, -6) {$i_1$};
+\node[anchor=west] (15) at (1.5, -7) {$j_4$};
+%
+\draw[thick, green] (0) to [in=180, out=0, looseness=0] (9);
+\draw[thick, blue, dashed] (1) to [in=180, out=0, looseness=0] (14);
+\draw[thick, green] (2) to [in=180, out=0, looseness=0] (11);
+\draw[thick, blue] (3) to [in=180, out=0, looseness=0] (8);
+\draw[thick, green] (4) to [in=180, out=0, looseness=0] (13);
+\draw[thick, blue] (5) to [in=180, out=0, looseness=0] (10);
+\draw[thick, green] (6) to [in=180, out=0, looseness=0] (15);
+\draw[thick, blue] (7) to [in=180, out=0, looseness=0] (12);
+%
+\end{tikzpicture}
+\raisebox{7em}{$\xrightarrow{t(r\times r)}$}
+\begin{tikzpicture}[scale=.7]  
+\node[anchor=east] (0) at (-1.5, 0) {$j'_1$};
+\node[anchor=east] (1) at (-1.5, -1) {$i'_1$};
+\node[anchor=east] (2) at (-1.5, -2) {$j'_2$};
+\node[anchor=east] (3) at (-1.5, -3) {$i'_2$};
+\node[anchor=east] (4) at (-1.5, -4) {$j'_3$};
+\node[anchor=east] (5) at (-1.5, -5) {$i'_3$};
+\node[anchor=east] (6) at (-1.5, -6) {$j'_4$};
+\node[anchor=east] (7) at (-1.5, -7) {$i'_4$};
+%
+\node[anchor=west] (8) at (1.5, 0) {$i'_1$};
+\node[anchor=west] (9) at (1.5, -1) {$j'_4$};
+\node[anchor=west] (10) at (1.5, -2) {$i'_2$};
+\node[anchor=west] (11) at (1.5, -3) {$j'_1$};
+\node[anchor=west] (12) at (1.5, -4) {$i'_3$};
+\node[anchor=west] (13) at (1.5, -5) {$j'_2$};
+\node[anchor=west] (14) at (1.5, -6) {$i'_4$};
+\node[anchor=west] (15) at (1.5, -7) {$j'_3$};
+%
+\draw[thick, green] (0) to [in=180, out=0, looseness=0] (11);
+\draw[thick, blue] (1) to [in=180, out=0, looseness=0] (8);
+\draw[thick, green] (2) to [in=180, out=0, looseness=0] (13);
+\draw[thick, blue] (3) to [in=180, out=0, looseness=0] (10);
+\draw[thick, green] (4) to [in=180, out=0, looseness=0] (15);
+\draw[thick, blue] (5) to [in=180, out=0, looseness=0] (12);
+\draw[thick, green, dashed] (6) to [in=180, out=0, looseness=0] (9);
+\draw[thick, blue] (7) to [in=180, out=0, looseness=0] (14);
+%
+\end{tikzpicture}
+\end{center}
+The alternate isomorphism $t(s\times s)$, provides an alternate way to establish a bijection between these two patterns.
+The avoided patterns for higher $k$ extend this crisscrossing shape.
+
 \end{example}
 
 \begin{proof}
 We give the proof for the $\LA$ diagonal, the one for the $\SU$ diagonal is similar, and can be obtained by applying either of the two isomorphisms of \cref{subsec:isos-LA-SU}.
 According to \cref{thm:IJ-description}, we have that $(\sigma,\tau) \notin \LAD$ if and only if there is an $(I,J)$ such that~$J$ dominates $I$ in $\sigma$ and $I$ dominates $J$ in $\tau$.
-It remains to show this last condition is equivalent to the existence of a pattern of the form (\ref{eq:pattern}).
-It is clear that if a pair of permutations $(\sigma,\tau)$ contains a pattern, then the associated $(I,J)$ satisfies the domination condition; thus we just need to show the reverse implication. 
+It is clear that if a pair of permutations $(\sigma,\tau)$ contains a pattern of the form (\ref{eq:pattern}), then the associated $(I,J)$ satisfies the domination condition.
+Thus, we just need to show the reverse implication. 
 We proceed by induction on the cardinality $|I|=|J|$. 
 The case of cardinality $1$ is clear. 
 Now suppose that for all $(I,J)$ of size $|I|=|J|\leq m-1$, we have that if~$J$ dominates $I$ in $\sigma$ and $I$ dominates $J$ in $\tau$, then $(\sigma,\tau)$ contains a pattern of the form~(\ref{eq:pattern}).
 
 We need to show that this is still true for the pairs $(I,J)$ of size $|I|=|J|=m$.
-Firstly, suppose that the leftmost element $i_1$ of $I$ in $\sigma$ is not $1$, and let us write $j_1$ for the leftmost element of $J$ in $\tau$.
-Let us consider the pair $(I',J') \eqdef (I\ssm \{i_1\}, J \ssm \{j_1\})$.
-Using both cases of \cref{lem:Coherent Domination}, we have that $J'$ dominates $I'$ in $\sigma$, and $I'$ dominates $J'$ in $\tau$, and we can thus conclude with the induction hypothesis. 
+Firstly, we need only consider standardised $I,J$ conditions, and pairs of permutations of $[2m]$.
+Why?
+If we define $(\sigma',\tau') := \std(\sigma \cap (I\cup J),\tau \cap (I\cup J))$, and $(I',J'):=\std(I',J')$, 
+then if $(\sigma,\tau)$ satisfies the $(I,J)$ domination condition, this implies $(\sigma',\tau')$ satisfies $(I',J')$.
+Conversely, if $(\sigma',\tau')$ has a pattern, then this implies $(\sigma,\tau)$ has the same pattern.
+Which yields the indicated simplification.
 
-Secondly, suppose that the leftmost element of $I$ in $\sigma$ is $i_1=1$.
-Then, for $n\geq1$ we prove that,
+Let $(\sigma,\tau)$ be such a pair of permutations.
+Suppose the leftmost element $i_1$ of $I$ in $\sigma$ is not $1$, and let us write $j_1$ for the leftmost element of $J$ in $\tau$.
+Let us consider the pair $(I',J') \eqdef (I\ssm \{i_1\}, J \ssm \{j_1\})$.
+Using both cases of \cref{lem:Coherent Domination}, we have that $J'$ dominates $I'$ in $\sigma$, and $I'$ dominates $J'$ in $\tau$, and we can thus conclude by induction that $(\sigma,\tau)$ contains a smaller pattern.
+
+So, we assume the leftmost element of $I$ in $\sigma$ is $i_1=1$, and for $n\geq1$ we prove that,
 \begin{enumerate}[(a)]
-	\item if the intersection of $(\sigma,\tau)$ with $I \cup J$ is of the form $$(j_1 i_1 j_2 i_2 ... j_{n-1} i_{n-1} w i_{n} w', \ i_2 j_1 i_3 j_2 ... i_{n}j_{n-1}w'') \ , $$ and $j_n$ is the leftmost element of $J\ssm \{j_1,...,j_{n-1}\}$ in $\tau$, then either we have $w = j_n$, or we can conclude with the induction hypothesis.
-	\item if the intersection of $(\sigma,\tau)$ with $I \cup J$ is of the form $$(j_1 i_1 j_2 i_2 ... j_{n-1} i_{n-1} w'', \ i_2 j_1 i_3 j_2 ... i_{n-1}j_{n-2} w j_{n-1} w'') \ , $$ and $i_n$ is the leftmost $I\ssm \{i_1,...,i_{n-1}\}$ in $\sigma$, then either we have $w = i_n$, or we can conclude with the induction hypothesis.
+    \item If $(\sigma,\tau)=(j_1 i_1 j_2 i_2 ... j_{n-1} i_{n-1} w i_{n} w', \ i_2 j_1 i_3 j_2 ... i_{n}j_{n-1}w'') $, and $j_n$ is the leftmost element of $J\ssm \{j_1,...,j_{n-1}\}$ in $\tau$, then either $w = j_n$, or it matches a smaller pattern.
+    \item If $(\sigma,\tau)=(j_1 i_1 j_2 i_2 ... j_{n-1} i_{n-1} w'', \ i_2 j_1 i_3 j_2 ... i_{n-1}j_{n-2} w j_{n-1} w'')$, and $i_n$ is the leftmost $I\ssm \{i_1,...,i_{n-1}\}$ in $\sigma$, then either $w = i_n$, or it matches a smaller pattern.
 \end{enumerate}
 We prove $(a)$, the proof of $(b)$ proceeds similarly. 
 Let $j_n$ be the leftmost element of $J\ssm \{j_1,...,j_{n-1} \}$ in $\tau$.
-Suppose that $w\neq j_n$, then either (i) $w$ consists of multiple elements of $J$ including $j_n$, or (ii) $j_n$ comes after $i_n$ in $\sigma$.
-Now consider the pair $(I',J') \eqdef (I_k\ssm \{i_n\}, J_k \ssm \{j_n\})$.
-As was the case for the proof that $i_1=1$, we have that $I'$ dominate $J'$ in $\tau$.
+If $w\neq j_n$, then either (i) $w$ consists of multiple elements of $J$ including $j_n$, or (ii) $j_n$ comes after $i_n$ in $\sigma$.
+Now consider the pair $(I',J') \eqdef (I\ssm \{i_n\}, J \ssm \{j_n\})$.
+As was the case for the proof that $i_1=1$, we have that $I'$ dominates $J'$ in $\tau$.
 To prove that $J'$ dominates $I'$ in $\sigma$, we split by the cases.
 In case (i), we may apply condition $(2)$ of \cref{lem:Coherent Domination}.
 In case (ii), either $i_n$ comes before $j_n$, in which case we meet condition $(1)$ of \cref{lem:Coherent Domination}, or $j_n$ comes before $i_n$.
 In this last situation, we have that condition $(2)$ of \cref{lem:Coherent Domination} holds as $i_n$ is the leftmost element of $I\ssm \{i_1,...,i_{n-1} \}$ in $\sigma$.
-Thus, if $w \neq j_n$, we can apply the induction hypothesis. 
+Thus, if $w \neq j_n$, by the inductive hypothesis, we match a smaller pattern.
 
-Having in hand statements (a) and (b) above, we can inductively generate the entire permutation, determining $j_1$ via $(a)$, then $i_2$ via $(b)$, then $j_2$ via $(a)$ and so on.
-This inductive process fully generates the intersection of $I\cup J$ with $\sigma$, and places all elements of the intersection with $\tau$ except $i_1$, with a final known expression of the form $i_2 j_1 i_3 j_2 \cdots i_k j_{k-1} w j_k w''$.
+Finally, using statements (a) and (b) above, we can inductively generate $(\sigma,\tau)$, determining $j_1$ via $(a)$, then $i_2$ via $(b)$, then $j_2$ via $(a)$ and so on.
+This inductive process fully generates $\sigma$, and places all elements of $\tau$ except $i_1$, yielding $\tau=i_2 j_1 i_3 j_2 \cdots i_k j_{k-1} w j_k w''$.
 However, as $j_k$ must be dominated by an element of $I$, this forces $w = i_1$ and $w'' =\varnothing$, completing the proof.
 \end{proof}
 
@@ -3670,7 +3742,7 @@ We will show in the next section, that these recovered diagrams are the Hasse di
 
 \begin{example}
 It was observed in \cite{LaplanteAnfossi} that the $LA$ and $SU$ diagonals coincided up until $n=3$, however due to their dual shift structure they generate the non-$SCP$ pairs in a dual fashion.
-In particular, the two center faces of the hexagon (\cref{fig:fig:LUSAdiagonals}) are generated by 
+In particular, the two center faces of the hexagon (\cref{fig:LUSAdiagonals}) are generated by 
 \begin{center}
 
 \begin{tikzpicture}[scale=.6,xscale=0.6]  
