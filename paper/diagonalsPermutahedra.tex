@@ -279,7 +279,7 @@ Finally, we use the preceding results to show that there are precisely two isomo
 \label{s:introduction}
 
 The purpose of this article is to study cellular diagonals on the permutahedra, which are cellular maps homotopic to the usual thin diagonal $\triangle : P \to P \times P, x \mapsto (x,x)$ (\cref{def:thinDiagonal,def:cellularDiagonal,def:geometricDiagonal}).
-Such diagonals, and in particular coherent families that we call \emph{operadic} diagonals (\cref{def:operadicDiagonal}), are of interest in algebraic geometry and topology: via the theory of Fulton--Sturmfels~\cite{FultonSturmfels}, they give explicit formulas for the cup product on Losev--Manin toric varieties~\cite{LosevManin}; they define universal tensor products of homotopy operads, and in particular universal tensor products of homotopy associative permutads (shuffle algebras)~\cite{LaplanteAnfossi}; they define a coproduct on permutahedral sets, which are models of two-fold loop spaces~\cite{SaneblidzeUmble}, and their study is needed to pursue the work of Baues aiming at defining explicit combinatorial models for higher iterated loop spaces~\cite{Baues}. 
+Such diagonals, and in particular coherent families that we call \emph{operadic diagonals} (\cref{def:operadicDiagonal}), are of interest in algebraic geometry and topology: via the theory of Fulton--Sturmfels~\cite{FultonSturmfels}, they give explicit formulas for the cup product on Losev--Manin toric varieties~\cite{LosevManin}; they define universal tensor products of homotopy operads, and in particular universal tensor products of homotopy associative permutads (shuffle algebras)~\cite{LaplanteAnfossi}; they define a coproduct on permutahedral sets, which are models of two-fold loop spaces~\cite{SaneblidzeUmble}, and their study is needed to pursue the work of Baues aiming at defining explicit combinatorial models for higher iterated loop spaces~\cite{Baues}. 
 Moreover, using the canonical projections to the multiplihedra and the associahedra, they define universal tensor product of $\Ainf$-algebras and $\Ainf$-morphisms~\cite{LaplanteAnfossiMazuir}.
 
 %L'idée de cohérence opéradique
@@ -292,15 +292,14 @@ These two diagonals are also needed in the study of iterated loop spaces~\cite{B
 Diagonals of the freehedra and associahedra are of interest in the study of the homology of fibered spaces~\cite{Saneblidze-freeLoopFibration,SaneblidzeRivera, Proute}. 
 In another direction, cellular diagonals allow one to define universal tensor products in homotopical algebra. 
 The seminal case of the associahedra has a rich history: the first algebraic diagonal was found by Saneblidze--Umble~\cite{SaneblidzeUmble}, followed by a second one by Markl--Shnider~\cite{MarklShnider}, which was conjectured to coincide with the first one. 
-This has recently been shown to hold~\cite{SaneblidzeUmble-comparingDiagonals}, while a topological enhancement of the ``magical formula" of~\cite{MarklShnider} was provided by Masuda--Tonks--Thomas--Vallette~\cite{MasudaThomasTonksVallette}.
-\vincent{Enumeration?}
+This has recently been shown to hold~\cite{SaneblidzeUmble-comparingDiagonals}, while a topological enhancement of the ``magical formula'' of~\cite{MarklShnider} was provided by Masuda--Tonks--Thomas--Vallette~\cite{MasudaThomasTonksVallette}.
 \vincent{-- between names}
 
-In~\cite{MasudaThomasTonksVallette}, the four authors re-introduced the powerful technique of Fulton--Sturmfels~\cite{FultonSturmfels}, which came from the theory of fiber polytopes of~\cite{BilleraSturmfels}, to define a topological cellular diagonal of the associahedra (we shall call such a diagonal a \defn{geometric diagonal}).
-\vincent{defn?}
+In~\cite{MasudaThomasTonksVallette}, the four authors re-introduced the powerful technique of Fulton--Sturmfels~\cite{FultonSturmfels}, which came from the theory of fiber polytopes of~\cite{BilleraSturmfels}, to define a topological cellular diagonal of the associahedra (we shall call such a diagonal a \emph{geometric diagonal}).
+\vincent{ref to definition}
 There are two remarkable features of this diagonal, or more precisely this family of diagonals, one for the Loday associahedron in each dimension.
 First, it respects the operadic structure of the associahedra (in fact, forces a unique topological cellular operad structure on them!), that is, the fact that each face of an associahedron is isomorphic to a product of lower-dimensional associahedra.
-Second, it satisfies the magical formula of J.-L. Loday: the faces in the image of the diagonal are given by the pairs of faces which are comparable under the Tamari order (see \cref{sec:cellularDiagonals} for a precise statement). 
+Second, it satisfies the magical formula of J.-L. Loday: the faces in the image of the diagonal are given by the pairs of faces which are comparable under the Tamari order (see \cref{sec:cellularDiagonals,rem:magicalFormula} for a precise statement). 
 This magical formula for the associahedra lead recently to new enumerative results for Tamari intervals~\cite{BostanChyzakPilaud}.
 
 Building on the work of Masuda--Tonks--Thomas--Vallette, a general theory of topological cellular diagonals was developed in~\cite{LaplanteAnfossi}.
@@ -320,6 +319,7 @@ Associahedra
 \end{tabular}
 \end{center}
 \end{figure}
+\vincent{make a sentence out of the table.}
 
 An important feature of the operahedra is that they are all obtained from the permutahedra by projection (they are generalized permutahedra in the sense of~\cite{Postnikov}), and it was shown in~\cite[Sect.~1.6]{LaplanteAnfossi} that to understand their diagonals, it suffices to understand operadic diagonals of permutahedra, which is the purpose of the present paper. 
 
@@ -421,6 +421,7 @@ These are families of diagonals of the permutahedra which are compatible with th
 \begin{theorem*}[\cref{thm:unique-operadic,thm:bijection-operadic-diagonals}]
 There are exactly two operadic geometric diagonals of the permutahedra, the geometric $\LA$ and $\SU$ diagonals, which respect the weak order on permutations.
 Moreover, there is a poset isomorphism between their cellular images.
+\vincent{seem weaker than what we have.}
 \end{theorem*}
 
 It turns out that their facets and vertices admit elegant combinatorial descriptions. 
@@ -435,7 +436,6 @@ They admit an analogous description in terms of pattern-avoidance.
 
 \begin{theorem*}[\cref{thm:patterns}]
 A pair of permutations of $[n]$ is in the $\LA$ (\resp $\SU$) diagonal if and only if for any~$k\geq 1$ and for any $I=\{i_1,\dots,i_k\},J=\{j_1,\dots,j_k\} \subset [k]$ such that $i_1=1$ (\resp $j_k=2k$) it avoids the patterns 
-\vincent{image of?}
 \begin{align}
 	(j_1 i_1 j_2 i_2 \cdots j_k i_k,\ i_2 j_1 i_3 j_2 \cdots i_k j_{k-1} i_1 j_k), \tag{LA} \\
 	\text{ \resp } (j_1 i_1 j_2 i_2 \cdots j_k i_k, \ i_1 j_k i_2 j_1 \cdots i_{k-1} j_{k-2}i_k j_{k-1}), \tag{SU}
@@ -485,7 +485,7 @@ The above theorem also allows us to translate the different combinatorial descri
 \end{figure}
 \Guillaume{Complete refs}
 
-In \cref{sec:Shift-lattice} we show that the facets of operadic diagonals admit a natural lattice structure that we call the \defn{shift lattice}.\Guillaume{@Kurt, do you want to highlight a feature of this lattice? Should we call it "cubical"?}
+In \cref{sec:Shift-lattice} we show that the facets of operadic diagonals admit a natural lattice structure that we call the \emph{shift lattice}.\Guillaume{@Kurt, do you want to highlight a feature of this lattice? Should we call it "cubical"?}
 We devote the last two subsections of \cref{sec:shifts} to the representation of the facets of operadic diagonals as matrices, and as pairs of subcubes in a cubical representation of the permutahedra.
 Both of these descriptions come from~\cite{SaneblidzeUmble}.
 Along the way, we provide proofs of some results\Guillaume{Cite them here} that were presented there as facts.
@@ -1971,6 +1971,7 @@ For any polytope $P$ and any generic vector $\b{v}$,
 \end{proposition}
 
 \begin{remark}
+\label{rem:magicalFormula}
 For some polytopes such as the simplices~\cite{EilenbergMacLane}, the cubes~\cite{Serre}, the freehedra~\cite{Saneblidze-freeLoopFibration}, and the associahedra~\cite{MasudaThomasTonksVallette}, the reverse inclusion also holds (in the case of the simplices and the cubes, the diagonals are know as \emph{Alexander--Whitney} and \emph{Serre} maps).
 According to~\cite{MasudaThomasTonksVallette}, the resulting equality enhancing~(\ref{eq:magique}) was called \defn{magical formula} by J.-L. Loday.
 Polytopes of greater complexity such as the multiplihedra~\cite{LaplanteAnfossiMazuir} or the operahedra~\cite{LaplanteAnfossi}, which include the permutahedra, do not possess this exceptional property. 
