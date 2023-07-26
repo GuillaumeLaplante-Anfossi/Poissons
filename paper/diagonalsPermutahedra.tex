@@ -461,8 +461,8 @@ The above theorem also allows us to translate the different combinatorial descri
 	\begin{tabular}{c|c|c}
 	Description & $\SU$ diagonal & $\LA$ diagonal \\
 	\hline
-	Subset shifts & \cite{SaneblidzeUmble} & \cref{def:classical-LA} \\
-	$(I,J)$ conditions & \cref{thm:minimal} & \cite{LaplanteAnfossi} \\
+	Original & \cite{SaneblidzeUmble} & \cref{def:classical-LA} \\
+	Geometric & \cref{thm:minimal} & \cite{LaplanteAnfossi} \\
 	Path extrema & \cref{thm:facet-ordering} & \cref{thm:facet-ordering} \\
 	$1$-shifts & \cref{def:classical-SU} & \cref{def:classical-LA} \\
 	$m$-shifts & \cref{def:classical-SU} & \cref{def:classical-LA} \\
@@ -3033,7 +3033,7 @@ We shall concentrate on two distinct families of shifts: block-admissible $1$-sh
 and show that specific sequences generate the same diagonal. 
 
 \begin{definition}
-\label{def:admissible-shift-sequences}
+\label{def:SU-admissible}
 Let $\sigma$ denote either one of the two ordered partitions of $[n]$ in an ordered $(2,n)$-partition tree, and let~$\b{M} = (M_1,\dots,M_p)$ with $M_1 \subsetneq \sigma_{i_1}, \dots, M_p \subsetneq \sigma_{i_p}$ for some~$p \ge 1$.
 Then the sequence of right shifts~$R_\mathbf{M}(\sigma) \eqdef R_{M_p} \dots R_{M_1}(\sigma)$ is 
 \begin{enumerate}
@@ -3631,7 +3631,7 @@ The original and geometric $\SU$ diagonals coincide.
 \label{subsec:shifts-under-iso}
 
 Now that we have the equivalence between the original and geometric $\SU$ diagonals in hand, we can use the face poset isomorphisms between the geometric $\LA$ and $\SU$ diagonals from \cref{subsec:isos-LA-SU} to translate results and combinatorial descriptions from one to the other. 
-Under the isomorphism $t(r\times r):\LAD\to\SUD$ from \cref{rem:Alternate Isomorphism}, we get a straighforward analogue of \cref{def:SU-admissible} for the $\LA$ diagonal.
+Under the isomorphism $t(r\times r):\LAD\to\SUD$ from \cref{rem:Alternate Isomorphism}, we get a straightforward analogue of \cref{def:SU-admissible} for the $\LA$ diagonal.
 Specifically, the morphism $r \times r$ exchanges $\max$ and $\min$, giving the following ``dual" notions of admissibility.
 
 \begin{definition}
@@ -3644,7 +3644,7 @@ The right $m$-shift $R_{M_i}$ (\resp. the left $m$-shift $L_{M_{i}}$) is
 \end{enumerate}
 \end{definition}
 
-Admissible sequence of shifts are defined similarly (simply replace $\sigma$ with $\tau$ in \cref{def:admissible-shift-sequences}).
+Admissible sequence of shifts are defined similarly (simply replace $\sigma$ with $\tau$ in \cref{def:SU-admissible}).
 The morphism $t$ permutes the terms, providing the following analogue of \cref{def:classical-SU} for the $\LA$ diagonal. 
 
 \begin{proposition}
@@ -4044,7 +4044,7 @@ $
 }
 Given a $l\times k$ matrix $A$ with all non-zero entries drawn without replacement from $[n]$, let $\sigma_i(A)$ denote the non-zero entries of the $i$\ordinal{} column, and $\tau_j(A)$ the non-zero entries of the $(l-j+1)$\ordinalst{} row. 
 For example, we labelled the rows and columns of the prior step matrix in this fashion.
-With this identification, we can apply \cref{def:SU-admissible}, to identify $1$-block moveable subsets of the matrix $M$, and we can apply \cref{def:admissible-shift-sequences}, to identify sequences of shifts which are admissible of original type.
+With this identification, we can apply \cref{def:SU-admissible}, to identify $1$-block moveable subsets of the matrix $M$, and we can apply \cref{def:SU-admissible}, to identify sequences of shifts which are admissible of original type.
 We now define a suitable subset shift action on these matrices.
 \begin{definition} [SU Matrix Subset Shifts]
 A non-empty set of elements of a matrix $M_i \subset \sigma_i(A)$ (\resp $M_{i}\subset \tau_{i}(A)$) is $1$-block right (left) movable if
