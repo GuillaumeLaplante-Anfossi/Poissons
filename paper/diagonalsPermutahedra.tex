@@ -295,7 +295,7 @@ This has recently been shown to hold \cite{SaneblidzeUmble-comparingDiagonals}, 
 
 In \cite{MasudaThomasTonksVallette}, the four authors re-introduced the powerful technique of Fulton--Sturmfels \cite{FultonSturmfels}, which came from the theory of fiber polytopes of \cite{BilleraSturmfels}, to define a topological cellular diagonal of the associahedra (we shall call such a diagonal a \defn{geometric diagonal}).
 There are two remarkable features of this diagonal, or more precisely this family of diagonals, one for the Loday associahedron in each dimension.
-First, it respects the operadic structure of the associahedra (in fact, forces a unique topological cellular operad structure!), that is, the fact that each face of an associahedron is isomorphic to a product of lower-dimensional associahedra.
+First, it respects the operadic structure of the associahedra (in fact, forces a unique topological cellular operad structure on them!), that is, the fact that each face of an associahedron is isomorphic to a product of lower-dimensional associahedra.
 Second, it satisfies the magical formula of J.-L. Loday: the faces in the image of the diagonal are given by the pairs of faces which are comparable under the Tamari order (see \cref{sec:cellularDiagonals} for a precise statement). 
 This magical formula for the associahedra lead recently to new enumerative results for Tamari intervals \cite{BostanChyzakPilaud}.
 
@@ -405,67 +405,97 @@ We provide a combinatorial description of the possible orderings of a $(\ell,n)$
 
 \subsection*{\cref{part:diagonalsPermutahedra}. Diagonals of permutahedra}
 
-The first cellular diagonal for the permutahedra was defined at the level of chains by S. Saneblidze and R. Umble in \cite{SaneblidzeUmble}. 
+We present cellular diagonals, the Fulton--Sturmfels method, the magical formula and specialize the results of Part I to the permutahedra in \cref{sec:cellularDiagonals}.
+Then, we initiate the study of operadic diagonals (\cref{def:operadicDiagonal}) in \cref{sec:operadicDiagonals}.
+These are families of diagonals of the permutahedra which are compatible with the property that the faces of permutahedra are product of lower-dimensional permutahedra. 
 
-corollary: le dernier article de SU!
-corollary: IJ-description of SU diagonal
-corollary: left and right shifts for LA, decomposition of the cube associated to LA diagonal
+\begin{theorem*}[\cref{thm:unique-operadic,thm:bijection-operadic-diagonals}]
+	There are exactly two operadic geometric diagonals of the permutahedra, the geometric $\LA$ and $\SU$ diagonals, which respect the weak order on permutations.
+	Moreover, there is a poset isomorphism between their cellular images.
+\end{theorem*}
 
-Perspectives: 
--for general diagonal, obtain closed formulas for all the faces
--for specific diagonals, extend the bijection with bipartite trees
+It turns out that their facets and vertices admit elegant combinatorial descriptions. 
+The following is a consequence of a general geometrical result, that holds for any diagonal (\cref{prop:PFtoOPF1}).
 
-\subsubsection{Consequences of the equivalence between diagonals}
+\begin{theorem*}[\cref{thm:facet-ordering}]
+	A pair of ordered partitions $(\sigma,\tau)$ forming a partition tree is a facet of the $\LA$ (\resp $\SU$) geometric diagonal if and only if the minimum (\resp maximum) of every directed path between two consecutive blocks of $\sigma$ or $\tau$ is oriented from $\sigma$ to $\tau$, that is from left to right (\resp from $\tau$ to $\sigma$, that is from right to left).
+\end{theorem*}
 
-an algorithm computing its facets was provided in \cite{VejdemoJohansson}
+Vertices of operadic diagonals are pairs of permutations, and form a strict subset of intervals of the weak order. 
+They admit an analogous description in terms of pattern-avoidance. 
 
-This result
-\begin{enumerate}[i)]
-	\item brings a positive answer to \cite[Rem.~2.19]{LaplanteAnfossi}, showing that the original $\SU$ diagonal can indeed be recovered from a choice of chambers in the fundamental hyperplane arrangement of the permutahedron. 
-	Remark that this choice is precisely given by the family of vectors mentioned in \cite[Rem.~4.19]{LaplanteAnfossi}, which was already identified to be operadic,
-	\item sets up the analogous question in \cite[Rem.~3.9]{LaplanteAnfossiMazuir} for the multiplihedra,
-	\item provides a new proof that all known diagonals on the associahedra coincide \cite{SaneblidzeUmble-comparingDiagonals}.
-	Indeed, since the family of vectors inducing the $\SU$ diagonal all have strictly decreasing coordinates, the diagonal induced on the associahedron is given by the magical formula \cite[Thm.~2]{MasudaThomasTonksVallette}, see also \cite[Prop.~3.8]{LaplanteAnfossi}.
-\end{enumerate}
-
-Moreover, it allows us to obtain alternative descriptions of all four operadic diagonals, in particular
+\begin{theorem*}[\cref{thm:patterns}]
+A pair of permutations of $[n]$ is in the $\LA$ (\resp $\SU$) diagonal if and only if for any~$k\geq 1$ and for any $I=\{i_1,\dots,i_k\},J=\{j_1,\dots,j_k\} \subset [k]$ such that $i_1=1$ (\resp $j_k=2k$) it avoids the patterns 
+\begin{align}
+	(j_1 i_1 j_2 i_2 \cdots j_k i_k,\ i_2 j_1 i_3 j_2 \cdots i_k j_{k-1} i_1 j_k), \tag{LA} \\
+	\text{ \resp } (j_1 i_1 j_2 i_2 \cdots j_k i_k, \ i_1 j_k i_2 j_1 \cdots i_{k-1} j_{k-2}i_k j_{k-1}), \tag{SU}
+\end{align}
+For each $k$, there are $\binom{2k-1}{k-1,k}(k-1)!k!$ such patterns, which are $(21,12)$ for $k=1$, and the following for $k=2$
 \begin{enumerate}
-	\item subset shift and $m$-shift definitions of the $\LA$ diagonal,
-	\item matrix description of the $\LA$ diagonal,
-	\item a new realization of the permutahedron as subdivision of the cube, and a conjectural description of the $\LA$ diagonal in terms of this subdivision, 
+	\item $\LA$ avoids 
+	$(3142,2314), (4132,2413),
+	(2143,3214), (4123,3412),
+	(2134,4213), (3124,4312)$,
+	\item $\SU$ avoids 
+	$(1243,2431),(1342,3421),
+	(2143,1432),(2341,3412),
+	(3142,1423),(3241,2413)$.
 \end{enumerate}
-in addition to the new  \Guillaume{add references}
-\begin{enumerate}
-	\item[(4)] geometric construction and $(I,J)$-description of the $\SU$ diagonal,
-	\item[(5)] description of the facets of the $\SU$ diagonal as labelled bipartite trees,
-	\item[(6)] description of the vertices of the $\SU$ diagonal as pattern avoiding permutations,
-	\item[(7)] enumerative results for the facets and vertices of the $\SU$ diagonal. 
-\end{enumerate}
+\end{theorem*}
+	
+\cref{sec:shifts} is technical, devoted to the proof that the geometric $\SU$ diagonal is a topological enhancement of the original $\SU$ diagonal.
 
-We end this Section by applying the isomorphism between the $\SU$ and $\LA$ diagonal to obtain explicitly the Points (1)-(3) above.
+\begin{theorem*}[\cref{thm:recover-SU}]
+	The original and geometric $\SU$ diagonals coincide. 
+\end{theorem*}
 
-\begin{definition}[$\LA$ diagonals]
-\begin{enumerate}
-	\item subset shift
-	\item $m$-shift
-	\item matrix
-\end{enumerate}
-\end{definition}
+This brings a positive answer to \cite[Rem.~2.19]{LaplanteAnfossi}, showing that the original $\SU$ diagonal can indeed be recovered from a choice of chambers in the fundamental hyperplane arrangement of the permutahedron. 
+Our count of facets also agrees with the one made in \cite{VejdemoJohansson}.
+Moreover, it provides a new proof that all known diagonals on the associahedra coincide \cite{SaneblidzeUmble-comparingDiagonals}.
+Indeed, since the family of vectors inducing the geometric $\SU$ diagonal all have strictly decreasing coordinates, the diagonal induced on the associahedron is given by the magical formula \cite[Thm.~2]{MasudaThomasTonksVallette}, see also \cite[Prop.~3.8]{LaplanteAnfossi}.
 
-\begin{definition}
-	New subdivision of the cube
-\end{definition}
+The above theorem also allows us to translate the different combinatorial descriptions of the facets of operadic diagonals from one to the other, compiled in the following table. 
 
-\begin{conjecture}
-	The $\LA$ diagonal is given by the formula...
-\end{conjecture}
+\begin{figure}[h!]
+	\begin{center}
+	\begin{tabular}{c|c|c}
+	Description & $\SU$ diagonal & $\LA$ diagonal \\
+	\hline
+	Subset shifts & \cite{SaneblidzeUmble} & New \\
+	$(I,J)$ conditions & New & \cite{LaplanteAnfossi} \\
+	Path extrema & New & New \\
+	$1$-shifts & New & New \\
+	$m$-shifts & New & New \\
+	Lattice & New & New \\
+	Matrix & \cite{SaneblidzeUmble} & New \\
+	Cubical& \cite{SaneblidzeUmble} & New
+	\end{tabular}
+	\end{center}
+\end{figure}
 
-This is equivalent, via the isomorphism between $\LA$ and $\SU$ diagonals, to the analogous conjecture for the $\SU$ diagonal, presented as a fact in \cite[Equ.~(1)]{SaneblidzeUmble-comparingDiagonals}.
+In \cref{sec:Shift-lattice} we show that the facets of operadic diagonals admit a natural lattice structure that we call the \defn{shift lattice}.\Guillaume{@Kurt, do you want to highlight a feature of this lattice? Should we call it "cubical"?}
+We devote the last two subsections of \cref{sec:shifts} to the representation of the facets of operadic diagonals as matrices, and as pairs of subcubes in a cubical representation of the permutahedra.
+Both of these descriptions come from \cite{SaneblidzeUmble}.
+Along the way, we present proofs of some results\Guillaume{Cite them here} that were presented there as facts.
 
 %%%%%%%%%%%%%%%
 
 \subsection*{\cref{part:higherAlgebraicStructures}. Higher algebraic structures}
 
+In this last Part, we use the results of \cref{sec:operadicDiagonals} 
+
+\begin{theorem*}[\cref{thm:operahedra,thm:top-iso}] 
+There are exactly 
+\begin{enumerate}
+	\item two operadic diagonals of the Loday operahedra, given by the $\LA$ and $\SU$ diagonals, 
+	\item two colored topological cellular operad structures on the Loday operahedra, and
+	\item two universal tensor products of homotopy operads,
+\end{enumerate}
+which agree with the generalized Tamari order on fully nested trees. 
+Moreover, the two topological operad structures are isomorphic and the two tensor products are not strictly isomorphic, but are related by an $\infty$-isotopy. 
+\end{theorem*}
+
+Observe however that this isomorphism of topological operads in the category of polytopes (REF) does not commute with the diagonal maps (\cref{ex:iso-not-Hopf}), and that the pairs of faces in the image of the two operadic diagonals are not in bijection, yielding different (but $\infty$-isomorphic) tensor products of homotopy operads (\cref{subsec:tensor-products}).  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2313,7 +2343,7 @@ The same holds for the $\SU$ diagonal by replacing $\LAD$ by $\SUD$ and $\LA(n)$
 \subsection{The operadic property}
 \label{subsec:operadicProperty}
 
-The goal of this section is to prove that the $\LA$ and $\SU$ diagonals are the only two operadic diagonals which induce the weak order on the vertices of the permutahedra (\cref{prop:unique-operad}). 
+The goal of this section is to prove that the $\LA$ and $\SU$ diagonals are the only two operadic diagonals which induce the weak order on the vertices of the permutahedra (\cref{thm:unique-operadic}). 
 
 Let~$A \sqcup B = [n]$ be a partition of~$[n]$ where~$A \eqdef \{a_1,\dots,a_p\}$ and~$B \eqdef \{b_1,\dots,b_q\}$.
 Recall that the ordered partition $B | A$ corresponds to a facet of the permutahedron~$\Perm$ defined by the inequality~$\sum_{b \in B} x_b \ge \binom{|B|+1}{2}$.
@@ -2457,7 +2487,7 @@ Combining \cref{prop:equiv-operadic} with \cref{prop:operadic-ordering}, we get 
 Recall that a vector induces the weak order on the vertices of the standard permutahedron if and only if it has strictly decreasing coordinates (see \cref{def:permutahedron}).
 
 \begin{theorem}
-\label{prop:unique-operad}
+\label{thm:unique-operadic}
 There are exactly four operadic geometric diagonals of the permutahedra, given by the $\LA$ and $\SU$ diagonals, and their opposites~$\LA^{\op}$ and $\SU^{\op}$. 
 The $\LA$ and $\SU$ diagonals are the only operadic geometric diagonals which induce the weak order on the vertices of the permutahedron.
 \end{theorem}
@@ -2684,7 +2714,7 @@ The pairs of permutations $(\sigma,\tau)$ avoiding the patterns $(21,12)$ are pr
 \end{example}
 
 \begin{theorem}
-\label{prop: LAD Fish Pattern}
+\label{thm:patterns}
 A pair of permutations of $[n]$ is in the $\LA$ (\resp $\SU$) diagonal if and only if for any~$k\geq 1$ and for any $(I,J) \in \LA(k)$ (\resp $\SU(k)$) of size $|I|=|J|=k$ it avoids the patterns 
 \begin{align}
 	(j_1 i_1 j_2 i_2 \cdots j_k i_k,\ i_2 j_1 i_3 j_2 \cdots i_k j_{k-1} i_1 j_k), \tag{LA} \label{eq:pattern} \\
@@ -2822,7 +2852,7 @@ However, as $j_k$ must be dominated by an element of $I$, this forces $w = i_1$ 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
-\section{Shifts and the lattice of facets}
+\section{Shift lattice}
 \label{sec:shifts}
 
 In this section we show that the geometric $\SU$ diagonal $\SUD$ is a topological enhancement of the original Saneblidze-Umble diagonal \cite{SaneblidzeUmble}.
@@ -3249,8 +3279,8 @@ Consequently, $(\sigma,\tau)$ has inversions $I = I_\tau \setminus I_\sigma = \{
 \subsubsection{Second isomorphism between $\SU$ diagonals}
 \label{sec:Iso m-shifts to IJ}
 
-We now aim at showing that the $m$-shift and the geometric $\SU$ diagonal coincide (\cref{prop:unique-operad}).
-Recall from \cref{rem:inverses}, that left and right path-admissible $m$-shifts are inverses to one another. 
+We now aim at showing that the $m$-shift and the geometric $\SU$ diagonal coincide (\cref{thm:unique-operadic}).
+Recall from \cref{rem:inverses} that left and right path-admissible $m$-shifts are inverses to one another. 
 
 \begin{proposition} 
 \label{lem:IJ-closed-under-shifts}
@@ -4579,7 +4609,7 @@ which agree with the generalized Tamari order on fully nested trees.
 
 \begin{proof}
 	Let us first examine Point (1).
-	By \cref{prop:unique-operad}, we know that if one of the two choices $\LAD$ or $\SUD$ is made on an operahedron $P_t$, one has to make the same choice on every lower-dimensional operahedron appearing in the decomposition $P_{t_1} \times \cdots \times P_{t_k} \cong F \subset P_t$ of a face $F$ of $P_t$. 
+	By \cref{thm:unique-operadic}, we know that if one of the two choices $\LAD$ or $\SUD$ is made on an operahedron $P_t$, one has to make the same choice on every lower-dimensional operahedron appearing in the decomposition $P_{t_1} \times \cdots \times P_{t_k} \cong F \subset P_t$ of a face $F$ of $P_t$. 
 	Now suppose that one makes two distinct choices for two operahedra $P_t$ and $P_{t'}$.
 	It is easy to find a bigger tree $t''$ of which both $t$ and $t'$ are subtrees.
 	Therefore, $P_t$ and $P_{t'}$ appear as facets of $P_{t''}$ and by the preceding remark, any choice of diagonal for $P_{t''}$ will then contradict our initial two choices. 
@@ -4683,6 +4713,7 @@ The same holds when taking the~$\circ_i^\SU$ operations instead of the $\circ_i^
 \end{remark}
 
 \begin{example}
+	\label{ex:iso-not-Hopf}
 Note that $\Psi$ is \emph{not} a morphism of ``Hopf" operads, i.e. it does not commute with the respective diagonals $\LAD$ and $\SUD$. 
 Consider the two square faces $F \eqdef 12|34$ and $G \eqdef 24|13$ of the $3$-dimensional permutahedron $\Perm[4]$, and choose a point $\b z \in (\mathring F + \mathring G)/2$.
 Then, $\LAD(z)$ and $\SUD(z)$ are two different pair of points on the $1$-skeleton of $\Perm[4]$. 
@@ -4692,6 +4723,7 @@ Since $\circ_i^\LA$ and $\circ_i^\SU$ are the identity both on the interior of $
 %%%%%%%%%%%%%%%
 
 \subsection{Tensor products of homotopy operads}
+\label{subsec:tensor-products}
 
 Even though the diagonals of the permutahedra are isomorphic, and the operad structures that they induce are as well in the category $\PolySub$, the tensor products of homotopy operads that they define are \emph{not} strictly isomorphic.
 
