@@ -2949,7 +2949,7 @@ Observe that for a given subset $M$, an inverse to the right $m$-shift $R_M$ (\r
 Moreover, one $m$-shift is path-admissible if and only if its inverse is. 
 \end{remark}
 
-\begin{example}
+\begin{example}\label{ex:1-shift example}
 Performing the $1$-shifts $R_7$ and $L_{56}$ (they are both block and path admissible) of the strong complementary pair~$(\sigma,\tau)$ of \cref{ex:strong-complementary}, one obtains the pair~$R_{7}(\sigma) \times L_{56}(\tau)$, as illustrated below.
 \begin{center}
 	\begin{tikzpicture}[scale=.7]  
@@ -3048,7 +3048,11 @@ We proceed by induction.
 For the case $m=1$, there is nothing to prove.
 Let $(\sigma,\tau)$ be a pair of ordered partitions in the $m$-shift diagonal. 
 Suppose now that for an element $\rho \in \sigma_i$, the right $m$-shift $R_\rho$ is path-admissible, \ie $\rho > \max \sigma_{i,i+m}$.
-Since $\sigma_{i,i+m}=\sigma_{i,i+1}\sigma_{i+1,i+m}$ we have that $\max \sigma_{i,i+m}\geq \max \sigma_{i,i+1}$,\Kurt{} which means that the $1$-shift $R_\rho$ is path-admissible.
+Since $\sigma_{i,i+m}=\sigma_{i,i+1}\sigma_{i+1,i+m}$ we have that $\max \sigma_{i,i+m}\geq \max \sigma_{i,i+1}$,
+\Kurt{can you see a quick way to prove this? (given that $\sigma_{i,i+m}=\sigma_{i,i+1}\sigma_{i+1,i+m}$ only if you cancel steps traversed in the opposite direction).
+(We know the max cannot be in the overlap in the geometric def as it would be traversed in opposite directions.)
+}
+which means that the $1$-shift $R_\rho$ is path-admissible.
 We will show in \cref{cor:SU-shift-preserves-max} that $1$-shifts conserve the maximal element of paths between adjacent blocks, and its directions.
 \Kurt{Need this, probably not worth re-ordering for.}
 Consequently, the following $(m-1)$-shift $R_\rho$ is path-admissible, and we can thus apply the induction hypothesis. 
@@ -3083,7 +3087,9 @@ and consequently that
 \begin{proof}
 We consider the right shift operator; the left shift operator proceeds similarly.
 Let us start with Point $(1)$.
-As $\SCP$s trivially meet the above conditions, we will prove the result inductively by assuming that the result holds for $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$, and then showing that applying a block-admissible operator $R_{M_k}$ conserves the maximal elements of paths.
+As $\SCP$s trivially meet the above conditions, we will prove the result inductively by assuming that the result holds for $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$, and then showing that applying a block-admissible operator $R_{M_k}$, for $M_k\subsetneq \sigma_k$,
+\Kurt{$M$ is too similar to $\mathbf{M}$, so didn't alter. Maybe could use $M'$}
+conserves the maximal elements of paths.
 By the inductive hypothesis, we know that $\max R_{\mathbf{M}}(\sigma)_{k,k+1}= \max \sigma_{k+1}$.
 As $R_{M_k}$ is an admissible operator, we know two things: firstly that $\min M_k > \max R_{\mathbf{M}}(\sigma)_{k+1}$, and secondly that $\max \sigma_{k+1} = \max R_{\mathbf{M}}(\sigma)_{k+1}$, as $k$ is greater than the maximal index used by $\mathbf{M}$.
 So combining these, we know that
@@ -3149,10 +3155,11 @@ In particular, if a pair of ordered partitions $(\sigma',\tau')$ is generated fr
 
 \begin{proof}
 By \cref{prop:iso-1-to-m-shift}, it suffices to treat the case of $1$-shifts. 
-By definition of the path-admissible $1$-shifts, \cref{eq:shift-subset-dominates} holds, and we can run the proof of \cref{prop:SU-preserves-max} \emph{mutatis mutandis}.
+By the definition of path-admissible $1$-shifts (\cref{path-admissible}), the outer inequality of \cref{eq:shift-subset-dominates} holds by assumption.
+As such, can run the proof of \cref{prop:SU-preserves-max} \emph{mutatis mutandis}.
 \end{proof}
 
-We have now dropped the assumption that $\min M_k > \max R_{\mathbf{M}}(\sigma)_{k+1}$, and the assumption that we need to perform shifts in an increasing order; once this is done, we can generate all subset shifts by chains of singleton set shifts.
+We stress that \cref{eq:shift-subset-dominates} holds for $m$-shifts without us needing to perform shifts in increasing order, or requiring $\min M_k > \max R_{\mathbf{M}}(\sigma)_{k+1}$.
 
 \begin{theorem}
 \label{prop:iso-original-shift-diagonals}
@@ -3160,10 +3167,9 @@ The original and $m$-shift $\SU$ diagonals coincide.
 \end{theorem}
 
 \begin{proof}
-\vincent{Change the notations in this proof}
 Since $m$-shift and $1$-shift diagonals are equivalent (\cref{prop:iso-1-to-m-shift}), it suffices to show that the $1$-shift and original $\SU$ diagonals coincide. 
 We analyze the right shift operator, the case of the left shift is similar. 
-First, we observe that any block-admissible right shift $R_{M_k}(\sigma)$ can be decomposed into a series of singleton right shifts: since $\min M_k > \max \sigma_{k,k+1}$ by the proof of \cref{prop:SU-preserves-max}, we can shift the elements of $M_k$ to the right, one after the other (in any order!).
+First, we observe that any block-admissible right shift $R_{M}(\sigma)$, for $M\subsetneq\sigma_k$, can be decomposed into a series of singleton right $1$-shifts; since $\min M > \max \sigma_{k,k+1}$ by the proof of \cref{prop:SU-preserves-max}, we can shift the elements of $M$ to the right, one after the other (in any order!).
 This shows that any facet of the original $\SU$ diagonal is also a facet in the $1$-shift $\SU$ diagonal.
 
 For the reverse inclusion, we proceed by induction. 
@@ -3173,34 +3179,33 @@ Suppose that prior to the $1$-shift, the element $\rho$ lives in block $l$, then
 	1 \leq i_1 < \dots < i_j \leq l < i_{j+1} <\dots< i_p \leq k-1
 \end{align*}
 for some $j$. 
-If $i_j < l$, then we have $R_{\rho}R_{\mathbf{M}}(\sigma) = R_{M_{i_p}}\dots R_{\{\rho\}_{l}}R_{M_{i_j}}\dots R_{M_{i_1}}(\sigma)$, and we are done.
-Otherwise, if $i_j = l$, we set $M'_{i_j} \eqdef M_{i_j} \cup \{\rho \}$. 
-It is clear that we have $R_{\rho}R_{\mathbf{M}}(\sigma) = R_{M_{i_p}}\dots R_{M'_{i_j}}\dots R_{M_{i_1}}(\sigma)$, however, we need to check that $R_{M'_{i_j}}$ is block-admissible. 
-That is, we need to check that $\min M_{i_j}' > \max (R_{M_{i_{j-1}}}\dots R_{M_{i_1}}(\sigma))_{i_j+1}$.
-If we have~$\rho > \min M_{i_j}$, then we are done since in this case $\min M_{i_j}'=\min M_{i_j}$ and $R_{M_{i_j}}$ is block-admissible.
-Otherwise, we have that $\rho=\min M_{i_j}'$. 
-Since by definition block-admissible shift operators do not move the minimal element of a block, we have that $\rho > \min R_{\mathbf{M}}(\sigma)_{i_j}= \min (R_{M_{i_{j-1}}}\dots R_{M_{i_1}}(\sigma))_{i_j}$.
-Then, using the induction hypothesis, \cref{prop:SU-preserves-max} shows that $\rho>\max \sigma_{i_j+1} = \max (R_{M_{i_{j-1}}}\dots R_{M_{i_1}}(\sigma))_{i_j + 1}$, where the equality follows as $i_1<\dots<i_{j-1}<i_j$. 
-This proves that $R_{M'_{i_j}}$ is block-admissible, completing the inductive proof.
+If $i_j < l$, then we have $R_{\rho}R_{\mathbf{M}}(\sigma) = R_{M_{p}}\dots R_{\{\rho\}}R_{M_{j}}\dots R_{M_{1}}(\sigma)$, and we are done.
+Otherwise, if $i_j = l$, we set $M'_{j} \eqdef M_{j} \cup \{\rho \}$. 
+It is clear that we have $R_{\rho}R_{\mathbf{M}}(\sigma) = R_{M_{p}}\dots R_{M'_{j}}\dots R_{M_{1}}(\sigma)$, however, we need to check that $R_{M'_{j}}$ is block-admissible. 
+That is, we need to check that $\min M_{j}' > \max (R_{M_{j-1}}\dots R_{M_{1}}(\sigma))_{i_j+1}$.
+If we have~$\rho > \min M_{j}$, then we are done since in this case $\min M_{j}'=\min M_{j}$ and $R_{M_{j}}$ is block-admissible.
+Otherwise, we have that $\rho=\min M_{j}'$. 
+Since by definition block-admissible shift operators do not move the minimal element of a block, we have that $\rho > \min R_{\mathbf{M}}(\sigma)_{i_j}= \min (R_{M_{j-1}}\dots R_{M_{1}}(\sigma))_{i_j}$.
+Then, by induction, \cref{prop:SU-preserves-max} shows that $\rho>\max \sigma_{i_j+1} = \max (R_{M_{j-1}}\dots R_{M_{1}}(\sigma))_{i_j + 1}$, where the equality follows as $i_1<\dots<i_j$. 
+This proves that $R_{M'_{j}}$ is block-admissible, completing the inductive proof.
 \end{proof}
-
-\Kurt{Finished proof reading to here.}
 
 %%%%%%%%%%%%%%%
 
 \subsubsection{Inversions}
 
 Our next goal is to prove the equivalence between the $m$-shift and geometric $\SU$ diagonals (\cref{prop:iso-shift-IJ-diagonals}).
-As a tool for this proof, we study here \emph{inversions}, or crossings in the partition trees of the geometric $\SU$ diagonal.
+As a tool for this proof, we now study \emph{inversions}, or crossings in the partition trees of the geometric $\SU$ diagonal.
 In addition, we shall see later (\cref{sec:Shift-lattice}) that these inversions are compatible with a lattice structure on the set of facets. 
 
 \begin{definition}
-Let $(\sigma,\tau)$ be a pair of ordered partitions of $[n]$, we say that $(x,y)$, where $x<y$, is an \defn{inversion} if $x$ appears before $y$ in $\sigma$ and $y$ appears before $x$ in $\tau$. 
+Let $\sigma$ be an ordered partition of $[n]$.
+For $i,j\in [n]$, such that $i<j$, we define $(i,j)$ to be an inversion of $\sigma$ if $\sigma^{-1}(j)\leq\sigma^{-1}(i)$ (\ie $j$ is either before $i$, or in the same block).
+We say that $(i,j)$ is an inversion of a pair of ordered partitions $(\sigma,\tau)$, if $(i,j)$ is an inversion of $\tau$, and $(i,j)$ is not an inversion of $\sigma$.
 \end{definition}
 
 \begin{remark}
-	If $(\sigma,\tau)$ is a pair of permutations, the inversions of $(\sigma,\tau)$ are the classical inversions of $\tau$ which are not inversions of $\sigma$. 
-	In particular, if $\sigma$ is the identity permutation, then the inversions of $(\sigma,\tau)$ coincide with the classical inversions of $\tau$. 
+If $\sigma$ is a permutation, then this recovers the classical definition of an inversion of a permutation.
 \end{remark}
 
 \begin{proposition}
@@ -3230,7 +3235,14 @@ In the other direction, suppose there is a crossing between an element of $\sigm
 If $\sigma_i$ and $\sigma_j$ are not adjacent, then the ``triangle" produced by the crossing elements encloses other $\sigma_k$ such that $i<k<j$, and this produces other crossings. We may repeat this process until an adjacent crossing is found.
 \end{proof}
 
-\Guillaume{Add example of inversions and picture of crossings?}
+\begin{example}
+For $(\sigma,\tau) = 13|24|57|6 \times 3|17|456|2$, the right ordered $(2,n)$-tree from \cref{ex:1-shift example},
+\begin{itemize}
+    \item $\sigma$ has inversions $I_\sigma = \{(1,3),(2,3),(2,4),(5,6),(5,7),(6,7)\}$, and
+    \item $\tau$ has inversions $I_\tau = \{(1,3), (2,3), (2,4), (2,5), (2,6), (2,7), (4,7), (5,7), (6,7)\}$.
+\end{itemize}
+Consequently, $(\sigma,\tau)$ has inversions $I = I_\tau \setminus I_\sigma = \{(2,5), (2,6), (2,7), (4,7)\}$, and these are precisely the crossings of the ordered $(2,n)$-tree.
+\end{example}
 
 %%%%%%%%%%%%%%%
 
@@ -3238,7 +3250,7 @@ If $\sigma_i$ and $\sigma_j$ are not adjacent, then the ``triangle" produced by 
 \label{sec:Iso m-shifts to IJ}
 
 We now aim at showing that the $m$-shift and the geometric $\SU$ diagonal coincide (\cref{prop:unique-operad}).
-Recall from \cref{rem:inverses} that left and right path-admissible $m$-shifts are inverses to one another. 
+Recall from \cref{rem:inverses}, that left and right path-admissible $m$-shifts are inverses to one another. 
 
 \begin{proposition} 
 \label{lem:IJ-closed-under-shifts}
@@ -3253,9 +3265,10 @@ Dually, applying inverse $m$-shifts strictly decreases the number of inversions.
 
 \begin{proof}
 We consider a right path-admissible shift $R_\rho$ for the primary statement, the left shift and dual result proceeds similarly. 
-By \cref{cor:SU-shift-preserves-max}, we have that the maxima of paths between consecutive vertices in $(R_{\rho}(\sigma),\tau)$ are the same as the ones in $(\sigma,\tau)$, and are moreover traversed in the same direction.
+By \cref{cor:SU-shift-preserves-max}, the maxima of paths between consecutive vertices in $(R_{\rho}(\sigma),\tau)$ are the same as the ones in $(\sigma,\tau)$, and are moreover traversed in the same direction.
 Thus, all maxima of paths in $(R_{\rho}(\sigma),\tau)$ are traversed from right to left, and hence by \cref{thm:facet-ordering}, we have that $(R_{\rho}(\sigma),\tau)$ is in the geometric $\SU$ diagonal, which proves Point (1).
-For Point (2), we observe that the $(I,J)$ conditions for $|I|=|J|=1$ (\cref{p:minimal}) imply that $\rho$ must appear before $\min \sigma_i$ in $\tau$; as a result, after the $m$-shift these two edges will create a new intersection.
+For Point (2), the $(I,J)$ conditions for $|I|=|J|=1$ imply that $\rho$ must appear before $\min \sigma_i$ in $\tau$ (\cref{thm:IJ-description}).
+Therefor, the $m$-shift creates a new crossing between these two edges.
 \end{proof}
 
 \begin{lemma}
@@ -3314,8 +3327,8 @@ This adjacent crossing is of the following form (we illustrate the case where th
 \node (8) at (-0.9, -1.45) {$c$};
 \end{tikzpicture}
 \end{center}
-By definition of the geometric $\SU$ diagonal, the fact that $\tau_j < \tau_k$ implies that $\rho > b$, and the fact that $\sigma_i < \sigma_{i+1}$ implies that $b>c$.
-Thus, we have $\rho > \max \sigma_{i,i+1}$ which implies that a path-admissible left shift $R_\rho^{-1}$ can be performed.
+By the path characterization of the geometric $\SU$ diagonal (\cref{thm:facet-ordering}), the fact that $\tau_j < \tau_k$ implies that $\rho > b$, and the fact that $\sigma_i < \sigma_{i+1}$ implies that $b>c$.
+Thus, we have $\rho > \max \sigma_{i,i+1}$, which implies that a path-admissible left shift $R_\rho^{-1}$ can be performed.
 
 In Case $(2.a)$, consider the two adjacent blocks say $\sigma_i|\sigma_{i+1}$ (the $\tau$ case is similar), let $\rho \eqdef \max \sigma_{i,i+1}$ denote the maximum of the path between them, and let $m\geq 1$ be such that $\rho$ steps into $\sigma_{i+1+m}$. 
 Since $\max \sigma_{i,i+1+m} = \max \sigma_{i,i+1}= \rho$ the definition of the geometric $\SU$ diagonal implies that the block $\sigma_{i+1+m}$ comes after the block $\sigma_{i}$, and by assumption after the block $\sigma_{i+1}$. 
@@ -3361,33 +3374,27 @@ Then we may apply the following inverse $m$-shift operator.
 \begin{tikzpicture}[scale=.6]  
 \node[anchor=east] (1) at (-1.5, -1) {$\sigma_i$};
 \node[anchor=east] (2) at (-1.5, -2) {$\sigma_{i+1}$};
-\node[anchor=east] (3) at (-1.5, -3) {$\sigma_{i+1+m}$};
 %
-\node[anchor=west] (4) at (1.5, -1) {$\tau_{j-m}$};
-\node[anchor=west] (5) at (1.5, -2) {$\tau_j$};
+\node[anchor=west] (3) at (1.5, -1) {$\tau_{j-m}$};
+\node[anchor=west] (4) at (1.5, -2) {$\tau_{j}$};
 %
-\draw[thick,dashed] (1.east) -- (4.west); 
-\draw[thick,dashed] (1.east) -- (5.west);
-\draw[thick,dashed] (2.east) -- (5.west);
-\draw[thick] (3.east) -- (4.west);
-%
-\node (6) at (-0.5, -2.8) {$\rho$};
+\draw[thick, dashed] (1.east) -- (4.west); 
+\draw[thick] (2.east) -- (3.west);
+\draw[thick, dashed] (3.west) -- (4.west);
+\node (6) at (-0.9, -2.3) {$\rho$};
 \end{tikzpicture}
-\raisebox{2.15em}{$\xrightarrow{L_\rho^{-1}}$}
+\raisebox{1.8em}{$\xrightarrow{L_\rho^{-1}}$}
 \begin{tikzpicture}[scale=.6]  
 \node[anchor=east] (1) at (-1.5, -1) {$\sigma_i$};
 \node[anchor=east] (2) at (-1.5, -2) {$\sigma_{i+1}$};
-\node[anchor=east] (3) at (-1.5, -3) {$\sigma_{i+1+m}$};
 %
-\node[anchor=west] (4) at (1.5, -1) {$\tau_{j-m}\ssm \rho$};
-\node[anchor=west] (5) at (1.5, -2) {$\tau_j \sqcup \rho$};
+\node[anchor=west] (3) at (1.5, -1) {$\tau_{j-m}\setminus \rho$};
+\node[anchor=west] (4) at (1.5, -2) {$\tau_{j}\sqcup \rho$};
 %
-\draw[thick,dashed] (1.east) -- (4.west); 
-\draw[thick,dashed] (1.east) -- (5.west);
-\draw[thick,dashed] (2.east) -- (5.west);
-\draw[thick] (3.east) -- (5.west);
-%
-\node (6) at (0.3, -2.8) {$\rho$};
+\draw[thick, dashed] (1.east) -- (4.west); 
+\draw[thick] (2.east) -- (4.west);
+\draw[thick, dashed] (3.west) -- (4.west);
+\node (6) at (-0.9, -2.3) {$\rho$};
 \end{tikzpicture}
 \end{center}
 
@@ -3433,9 +3440,8 @@ The situation can be pictured as on the left.
 \end{tikzpicture}
 \end{center}
 Now let $\rho' \eqdef \max\sigma_{i,i-n}$ be the maximum of the path $\sigma_{i,i-n}=(i_1,j_1,i_2,...,i_{k-1},j_{k-1})$, and let~$\tau_{j-m}$, $m\geq 1$ be the block of $\tau$ containing $\rho'$.
-We want to show that an inverse left $m$-shift can bring $\rho'$ back to $\tau_j$.  
-We just need to show that $\rho' > i_k$, since the path $\tau_{j-m,j}$ is a subset of the path $\sigma_{i,i+1}$. 
-This would imply that both $\rho' > \max \tau_{j-m,j}$ and $\rho' > i_k \geq \min \tau_j$, and thus that an inverse left shift $L_{\rho'}^{-1}$ can be performed.
+We want to show that an inverse left $m$-shift can bring $\rho'$ back to $\tau_j$, \ie we need $\rho' > \max \tau_{j-m,j}$.
+As $\rho':= \max \sigma_{i,i-n}$, and apart from the step $i_k$ we have that $\tau_{j-m,j}\subset \sigma_{i,i-n}$, we just need to show that $\rho' > i_k$.
 To see that this is indeed the case, it suffices to look at the last steps $$\tau_l \overset{j_{k-1}}{\longrightarrow} \sigma_{i-n} \overset{i_{k}}{\longrightarrow} \tau_j \overset{\rho}{\longrightarrow} \sigma_{i+1}$$ of the path $\sigma_{i,i+1}$. 
 By the definition of the geometric $\SU$ diagonal, the fact that $\tau_l < \tau_j$ implies that $j_{k-1} > i_k$, and thus that $\rho' > i_k$, which finishes the proof. 
 \end{proof}
@@ -3579,12 +3585,14 @@ The proof that every facet of geometric $\SUD$ is in shift $\SUD$ follows from t
 In particular, for any given facet in geometric $\SUD$, this provides a $\SCP$ and a sequence of shifts to form it, showing it is a facet of shift $\SUD$.
 \end{proof}
 
-Combining \cref{prop:iso-original-shift-diagonals} and \cref{prop:iso-shift-IJ-diagonals} we obtain the desired equivalence between the original $\SU$ diagonal from \cite{SaneblidzeUmble} and the geometric $\SU$ diagonal from \cref{def:LA-and-SU}.
+Combining \cref{prop:iso-original-shift-diagonals} and \cref{prop:iso-shift-IJ-diagonals}, we obtain the desired equivalence between the original $\SU$ diagonal from \cite{SaneblidzeUmble} and the geometric $\SU$ diagonal from \cref{def:LA-and-SU}.
 
 \begin{theorem}
 \label{thm:recover-SU}
 The original and geometric $\SU$ diagonals coincide.
 \end{theorem}
+
+\Kurt{Finished proof reading to here.}
 
 %%%%%%%%%%%%%%%
 
