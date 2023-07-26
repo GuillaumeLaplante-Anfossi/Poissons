@@ -4746,6 +4746,775 @@ The morphisms of operads $\LAD$ and $\SUD$ are homotopic,
 	None of the two diagonals $\LAD$ or $\SUD$ is cocommutative, or coassociative, as is the special case of $\Ainf$-algebras. 
 \end{remark}
 
+\Kurt{The definitions I'll need.}
+
+\begin{definition}
+Let $T_n$ be the set of planar trees with $n$ internal edges, which are labelled by $[n]$ using the infix order.
+A nest 2.1 of \cite{LaplanteAnfossi}.
+A nesting 2.2 of \cite{LaplanteAnfossi}.
+Let $\sigma=\sigma_1|...\sigma_k$ be an ordered partition of $n$. 
+We say that $\sigma$ is valid for $T$, if $\{\sigma_1, \sigma_1 \cup \sigma_2,...,\bigcup_{i=1}^k \sigma_i\}$ is a nesting of $T$.
+We say that a tuple of ordered partitions is valid for $T$, if all the ordered partitions are valid.
+For $t \in T_n$, we define $\LAD_t$ (\resp $\SUD_t$) to be the elements of $\LAD$ ($\SUD$) which are valid nests of $t$.
+\end{definition}
+
+\begin{example}
+\Kurt{Look at one particular tree in detail.}
+\end{example}
+
+\begin{proposition}
+For $n\leq 4$, for every $t\in T_n$, $|\LAD_t| = |\SUD_t|$.
+For $n>4$, there exists $t \in T_n$, such that $|\LAD_t| \neq |\SUD_t|$.
+\end{proposition}
+\begin{proof}
+This was checked via code, however, here are the $24$ planar trees with $5$ internal edges for which $|\LAD_t| \neq |\SUD_t|$.
+Note that $|\LAD_t|,|\SUD_t|\leq |\LAD_5|=|\SUD_5|=432 $ (\cref{table:enumerationDiagonalPermutahedra1}).
+We display each tree $t$ with $(|\LAD_t|,|\SUD_t|)$ above it, and arrange them symmetrically to help emphasize notable missing elements. 
+\Kurt{Will align better, but something like this.
+Re-checking code, the numbers are bizarre, but might really be what it is.}
+
+\begin{center}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};
+        [.\node{};]
+    ]
+    [.\node{};]
+    [.\node{};]
+    [.\node{};]
+]
+\node(1) at (0,0.5) {$(266,263)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};]
+    [.\node{};
+        [.\node{};]
+    ]
+    [.\node{};]
+    [.\node{};]
+]
+\node(1) at (0,0.5) {$(256,254)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};]
+    [.\node{};]
+    [.\node{};
+        [.\node{};]
+    ]
+    [.\node{};]
+]
+\node(1) at (0,0.5) {$(255,254)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};]
+    [.\node{};]
+    [.\node{};]
+    [.\node{};
+        [.\node{};]
+    ]
+]
+\node(1) at (0,0.5) {$(263,266)$};
+\end{tikzpicture}
+\end{center}
+\begin{center}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};
+        [.\node{};]
+         [.\node{};]
+    ]
+    [.\node{};]
+    [.\node{};]
+]
+\node(1) at (0,0.5) {$(214,216)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};
+        [.\node{};]
+    ]
+    [.\node{};
+        [.\node{};]
+    ]
+    [.\node{};]
+]
+\node(1) at (0,0.5) {$(162,161)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};]
+    [.\node{};
+        [.\node{};]
+        [.\node{};]
+    ]
+    [.\node{};]
+]
+\node(1) at (0,0.5) {$(212,213)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};]
+    [.\node{};
+        [.\node{};]
+    ]
+    [.\node{};
+        [.\node{};]
+    ]
+]
+\node(1) at (0,0.5) {$(160,161)$};
+\end{tikzpicture}
+\phantom{
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};
+        [.\node{};]
+         [.\node{};]
+    ]
+    [.\node{};]
+    [.\node{};]
+]
+\node(1) at (0,0.5) {$(214,216)$};
+\end{tikzpicture}
+}
+\end{center}
+\begin{center}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};]
+    [.\node{};
+        [.\node{};
+            [.\node{};]
+        ]
+    ]
+    [.\node{};]
+]
+\node(1) at (0,0.5) {$(129,127)$};
+\end{tikzpicture}
+\end{center}
+\begin{center}
+\phantom{
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{};]
+    [.\node{};
+        [.\node{};]
+        [.\node{};]
+        [.\node{};]
+    ]
+]
+\node(1) at (0,0.5) {$(266,263)$};
+\end{tikzpicture}
+}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};  
+        [.\node{};  
+            [.\node{};]
+        ]
+        [.\node{};] 
+    ]
+    [.\node{};]
+]
+\node(1) at (0,0.5) {$(142,141)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};  
+        [.\node{};]
+        [.\node{};] 
+    ]
+    [.\node{};  
+        [.\node{};] 
+    ]
+]
+\node(1) at (0,0.5) {$(141,144)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};  
+        [.\node{};  
+            [.\node{};] 
+        ]
+    ]
+    [.\node{};  
+        [.\node{};] 
+    ]
+]
+\node(1) at (0,0.5) {$(91,92)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{};  
+        [.\node{};] 
+    ]
+    [.\node{};  
+        [.\node{};  
+            [.\node{};] 
+        ]
+    ]
+]
+\node(1) at (0,0.5) {$(98,97)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{};  
+        [.\node{};] 
+    ]
+    [.\node{};  
+        [.\node{};]
+        [.\node{};] 
+    ]
+]
+\node(1) at (0,0.5) {$(155,152)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{};]
+    [.\node{};
+        [.\node{};  
+            [.\node{};] 
+        ]
+        [.\node{};]
+    ]
+]
+\node(1) at (0,0.5) {$(157,154)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{};]
+    [.\node{};
+        [.\node{};]
+        [.\node{};]
+        [.\node{};]
+    ]
+]
+\node(1) at (0,0.5) {$(266,263)$};
+\end{tikzpicture}
+\end{center}
+\begin{center}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{};
+        [.\node{};
+            [.\node{};]
+        ]
+        [.\node{};]
+        [.\node{};]
+    ]
+]
+\node(1) at (0,0.5) {$(256,255)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{};
+        [.\node{};]
+        [.\node{};
+            [.\node{};]
+        ]
+        [.\node{};]
+    ]
+]
+\node(1) at (0,0.5) {$(255,254)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{};
+        [.\node{};]
+        [.\node{};]
+        [.\node{};
+            [.\node{};]
+        ] 
+    ]
+]
+\node(1) at (0,0.5) {$(263,266)$};
+\end{tikzpicture}
+\end{center}
+\begin{center}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{};
+        [.\node{}; 
+            [.\node{}; 
+                [.\node{}; ]
+            ]
+        ] 
+        [.\node{};]
+    ]
+]
+\node(1) at (0,0.5) {$(129,127)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{};
+        [.\node{}; 
+            [.\node{};]
+            [.\node{};]
+        ] 
+        [.\node{};]
+    ]
+]
+\node(1) at (0,0.5) {$(212,213)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{}; 
+        [.\node{};  
+            [.\node{};] 
+        ]
+        [.\node{};  
+            [.\node{};] 
+        ]
+    ]
+]
+\node(1) at (0,0.5) {$(160,161)$};
+\end{tikzpicture}
+\phantom{
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{};
+        [.\node{};]
+        [.\node{}; 
+            [.\node{};]
+            [.\node{};]
+        ] 
+    ]
+]
+\node(1) at (0,0.5) {$(212,213)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{};
+        [.\node{};]
+        [.\node{}; 
+            [.\node{}; 
+                [.\node{}; ]
+            ]
+        ] 
+    ]
+]
+\node(1) at (0,0.5) {$(129,127)$};
+\end{tikzpicture}
+}
+\end{center}
+\begin{center}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{}; 
+        [.\node{};
+            [.\node{};  
+                [.\node{};] 
+            ]
+            [.\node{};]
+        ]
+    ]
+]
+\node(1) at (0,0.5) {$(154,157)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{}; 
+        [.\node{};
+            [.\node{};]
+            [.\node{};]
+            [.\node{};] 
+        ]
+    ]
+]
+\node(1) at (0,0.5) {$(266,263)$};
+\end{tikzpicture}
+\phantom{
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{}; 
+        [.\node{};
+            [.\node{};  
+                [.\node{};] 
+            ]
+            [.\node{};]
+        ]
+    ]
+]
+\node(1) at (0,0.5) {$(154,157)$};
+\end{tikzpicture}
+}
+\end{center}
+\end{proof}
+
+A sufficient condition for a tree $t$ to satisfy $|\LAD_t|=|\SUD_t|$ is for $rN$ to be a nesting iff $N$ is a nesting. This includes trees such as the linear tree and
+
+\begin{center}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+[.\node{};
+    [.\node{};]
+]
+[.\node{};]
+[.\node{};
+    [.\node{};]
+]
+]
+\end{tikzpicture}
+\end{center}
+
+
+\begin{proposition}[Proposition 3.20 \cite{LaplanteAnfossi}]
+...
+\end{proposition}
+
+
+\Kurt{Old arrangement of trees which mirror code will remove later.}
+\begin{center}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{}; 
+        [.\node{};
+            [.\node{};  
+                [.\node{};] 
+            ]
+            [.\node{};]
+        ]
+    ]
+]
+\node(1) at (0,0.5) {$(154,157)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{}; 
+        [.\node{};
+            [.\node{};]
+            [.\node{};]
+            [.\node{};] 
+        ]
+    ]
+]
+\node(1) at (0,0.5) {$(266,263)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{}; 
+        [.\node{};  
+            [.\node{};] 
+        ]
+        [.\node{};  
+            [.\node{};] 
+        ]
+    ]
+]
+\node(1) at (0,0.5) {$(160,161)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{};
+        [.\node{};]
+        [.\node{};]
+        [.\node{};
+            [.\node{};]
+        ] 
+    ]
+]
+\node(1) at (0,0.5) {$(263,266)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{};
+        [.\node{}; 
+            [.\node{}; 
+                [.\node{}; ]
+            ]
+        ] 
+        [.\node{};]
+    ]
+]
+\node(1) at (0,0.5) {$(129,127)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{};
+        [.\node{}; 
+            [.\node{};]
+            [.\node{};]
+        ] 
+        [.\node{};]
+    ]
+]
+\node(1) at (0,0.5) {$(212,213)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{};
+        [.\node{};]
+        [.\node{};
+            [.\node{};]
+        ]
+        [.\node{};]
+    ]
+]
+\node(1) at (0,0.5) {$(255,254)$};
+\end{tikzpicture}
+\end{center}
+\begin{center}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{};
+        [.\node{};
+            [.\node{};]
+        ]
+        [.\node{};]
+        [.\node{};]
+    ]
+]
+\node(1) at (0,0.5) {$(256,255)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{};]
+    [.\node{};
+        [.\node{};  
+            [.\node{};] 
+        ]
+        [.\node{};]
+    ]
+]
+\node(1) at (0,0.5) {$(157,154)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{};]
+    [.\node{};
+        [.\node{};]
+        [.\node{};]
+        [.\node{};]
+    ]
+]
+\node(1) at (0,0.5) {$(266,263)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{};  
+        [.\node{};] 
+    ]
+    [.\node{};  
+        [.\node{};  
+            [.\node{};] 
+        ]
+    ]
+]
+\node(1) at (0,0.5) {$(98,97)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{}; 
+    [.\node{};  
+        [.\node{};] 
+    ]
+    [.\node{};  
+        [.\node{};]
+        [.\node{};] 
+    ]
+]
+\node(1) at (0,0.5) {$(155,152)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};  
+        [.\node{};  
+            [.\node{};] 
+        ]
+    ]
+    [.\node{};  
+        [.\node{};] 
+    ]
+]
+\node(1) at (0,0.5) {$(91,92)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};  
+        [.\node{};]
+        [.\node{};] 
+    ]
+    [.\node{};  
+        [.\node{};] 
+    ]
+]
+\node(1) at (0,0.5) {$(141,144)$};
+\end{tikzpicture}
+\end{center}
+\begin{center}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};]
+    [.\node{};
+        [.\node{};]
+    ]
+    [.\node{};
+        [.\node{};]
+    ]
+]
+\node(1) at (0,0.5) {$(160,161)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};]
+    [.\node{};]
+    [.\node{};]
+    [.\node{};
+        [.\node{};]
+    ]
+]
+\node(1) at (0,0.5) {$(263,266)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};  
+        [.\node{};  
+            [.\node{};]
+        ]
+        [.\node{};] 
+    ]
+    [.\node{};]
+]
+\node(1) at (0,0.5) {$(142,141)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};]
+    [.\node{};
+        [.\node{};
+            [.\node{};]
+        ]
+    ]
+    [.\node{};]
+]
+\node(1) at (0,0.5) {$(129,127)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};]
+    [.\node{};
+        [.\node{};]
+        [.\node{};]
+    ]
+    [.\node{};]
+]
+\node(1) at (0,0.5) {$(212,213)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};
+        [.\node{};]
+    ]
+    [.\node{};
+        [.\node{};]
+    ]
+    [.\node{};]
+]
+\node(1) at (0,0.5) {$(162,161)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};]
+    [.\node{};]
+    [.\node{};
+        [.\node{};]
+    ]
+    [.\node{};]
+]
+\node(1) at (0,0.5) {$(255,254)$};
+\end{tikzpicture}
+\end{center}
+\begin{center}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};
+        [.\node{};]
+         [.\node{};]
+    ]
+    [.\node{};]
+    [.\node{};]
+]
+\node(1) at (0,0.5) {$(214,216)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};]
+    [.\node{};
+        [.\node{};]
+    ]
+    [.\node{};]
+    [.\node{};]
+]
+\node(1) at (0,0.5) {$(256,254)$};
+\end{tikzpicture}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{};
+    [.\node{};
+        [.\node{};]
+    ]
+    [.\node{};]
+    [.\node{};]
+    [.\node{};]
+]
+\node(1) at (0,0.5) {$(266,263)$};
+\end{tikzpicture}
+\end{center}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
