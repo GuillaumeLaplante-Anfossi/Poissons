@@ -248,15 +248,16 @@
 
 \begin{abstract}
 We provide a a systematic enumerative and combinatorial study of geometric cellular diagonals on the permutahedra. 
-
 The first part of the paper is dedicated to the combinatorics of certain hyperplane arrangements obtained as the union of $\ell$ generically translated copies of the classical braid arrangement.
 Based on Zaslavsky's theory, we derive enumerative results on the faces of these arrangements involving combinatorial objects named partition forests and rainbow forests.
 This yields in particular nice formulas for the number of regions and bounded regions of these arrangements in terms of exponentials of generating functions of Fuss-Catalan numbers.
 By duality, the specialization of these results to the case $\ell = 2$ gives the enumeration of any geometric diagonal of the permutahedron.
 
-The second part of the paper focusses on more advanced combinatorial properties of the diagonals of the permutahedra.
-We prove that there are only two operadic families of diagonals on the permutahedra, and we give a bijection between their facets and planar bipartite trees and characterize their vertices as pattern-avoiding pairs of permutations.
-We then show that the Saneblidze--Umble diagonal can be recovered by a choice of vectors in the fundamental hyperplane arrangements of the permutahedra, resolving a conjecture of the third-named author.  
+In the second part of the paper, we study diagonals which respect the operadic structure on the family of permutahedra.
+We show that there are exactly two such diagonals, which are moreover isomorphic.
+We describe their facets by a simple rule on paths in partition trees, and their vertices as pattern-avoiding pairs of permutations.
+We show that one of these diagonals is a topological enhancement of the Sanbeblidze--Umble diagonal, and unravel a natural lattice structure on their sets of facets.
+Finally, we use the preceding results to show that there are precisely two isomorphic topological cellular operad structures on the family of operahedra, and exactly two infinity-isomorphic universal tensor products of homotopy operads.
 \end{abstract}
 
 \vspace*{-.5cm}
@@ -264,7 +265,7 @@ We then show that the Saneblidze--Umble diagonal can be recovered by a choice of
 
 %\enlargethispage{2cm}
 \vspace*{-.2cm}
-\centerline{\includegraphics[scale=.85]{diagonalPermutahedron3}}
+\centerline{\includegraphics[scale=.8]{diagonalPermutahedron3}}
 
 \newpage
 \enlargethispage{1cm}
@@ -276,29 +277,57 @@ We then show that the Saneblidze--Umble diagonal can be recovered by a choice of
 \section*{Introduction} 
 \label{s:introduction}
 
-In this article, discrete geometry \emph{informs} higher algebra.
-First, we obtain some purely combinatorial results, whose study is motivated by higher algebra: the combinatorially inclined reader can read the first part of this introduction, and go directly to Section 1.
-Second, we obtain some (higher) algebraic results via discrete geometry: the algebraically inclined reader can read the second part of this introduction, and go directly to Section 2.
-\Guillaume{I am not sure this is the way to go anymore}
-
-%%%%%%%%%%%%%%%
-
-\subsection*{Motivation}
-
 The purpose of this article is to study cellular diagonals on the permutahedra, which are cellular maps homotopic to the usual thin diagonal $\triangle : P \to P \times P, x \mapsto (x,x)$ (\cref{def:thinDiagonal,def:cellularDiagonal,def:geometricDiagonal}).
-Such diagonals, and in particular coherent families that we call \emph{operadic} diagonals (\cref{def:operadicDiagonal}), are of interest in algebraic geometry and topology: via the theory of Fulton--Sturmfels \cite{FultonSturmfels}, they give explicit formulas for the cup product on Losev--Manin toric varieties~\cite{LosevManin}; they define universal tensor products of homotopy operads, and in particular universal tensor products of homotopy associative permutads (shuffle algebras) \cite{LaplanteAnfossi}; they allow for the definition of a coproduct on permutahedral sets, which are used to models of two-fold loop spaces \cite{SaneblidzeUmble}; and their study is moreover needed to pursue the work of Baues aiming at defining explicit combinatorial models for higher iterated loop spaces \cite{Baues}. 
+Such diagonals, and in particular coherent families that we call \emph{operadic} diagonals (\cref{def:operadicDiagonal}), are of interest in algebraic geometry and topology: via the theory of Fulton--Sturmfels \cite{FultonSturmfels}, they give explicit formulas for the cup product on Losev--Manin toric varieties~\cite{LosevManin}; they define universal tensor products of homotopy operads, and in particular universal tensor products of homotopy associative permutads (shuffle algebras) \cite{LaplanteAnfossi}; they define a coproduct on permutahedral sets, which are models of two-fold loop spaces \cite{SaneblidzeUmble}, and their study is needed to pursue the work of Baues aiming at defining explicit combinatorial models for higher iterated loop spaces \cite{Baues}. 
 Moreover, using the canonical projections to the multiplihedra and the associahedra, they define universal tensor product of $\Ainf$-algebras and $\Ainf$-morphisms \cite{LaplanteAnfossiMazuir}.
-\Guillaume{lien avec les matroides?}
 
-\Guillaume{Mentionner le travail en cours de Lionel Pournin?}
+%L'idée de cohérence opéradique
+%L'idée de l'importance en topologie algébrique
+
+
+Cellular diagonals for coherent families of polytopes are a fundamental object in algebraic topology. 
+The Alexander--Whitney diagonal for simplices \cite{EilenbergMacLane}, and the Serre map for cubes \cite{Serre}, allow one to define the cup product in singular simplicial and cubical cohomology. 
+These two diagonals are also needed in the study of iterated loop spaces \cite{Baues}.
+Diagonals of the freehedra and associahedra are of interest in the study of the homology of fibered spaces \cite{Saneblidze-freeLoopFibration,SaneblidzeRivera, Proute}. 
+In another direction, cellular diagonals allow one to define universal tensor products in homotopical algebra. 
+The seminal case of the associahedra has a rich history: the first algebraic diagonal was found by Saneblidze--Umble \cite{SaneblidzeUmble}, followed by a second one by Markl--Shnider \cite{MarklShnider}, which was conjectured to coincide with the first one. 
+This has recently been shown to hold \cite{SaneblidzeUmble-comparingDiagonals}, while a topological enhancement of the ``magical formula" of \cite{MarklShnider} was provided by Masuda--Tonks--Thomas--Vallette \cite{MasudaThomasTonksVallette}.
+
+In \cite{MasudaThomasTonksVallette}, the four authors re-introduced the powerful technique of Fulton--Sturmfels \cite{FultonSturmfels}, which came from the theory of fiber polytopes of \cite{BilleraSturmfels}, to define a topological cellular diagonal of the associahedra (we shall call such a diagonal a \defn{geometric diagonal}).
+There are two remarkable features of this diagonal, or more precisely this family of diagonals, one for the Loday associahedron in each dimension.
+First, it respects the operadic structure of the associahedra (in fact, forces a unique topological cellular operad structure!), that is, the fact that each face of an associahedron is isomorphic to a product of lower-dimensional associahedra.
+Second, it satisfies the magical formula of J.-L. Loday: the faces in the image of the diagonal are given by the pairs of faces which are comparable under the Tamari order (see \cref{sec:cellularDiagonals} for a precise statement). 
+This magical formula for the associahedra lead recently to new enumerative results for Tamari intervals \cite{BostanChyzakPilaud}.
+
+Building on the work of Masuda--Tonks--Thomas--Vallette, a general theory of topological cellular diagonals was developed in \cite{LaplanteAnfossi}.
+In particular, a combinatorial formula describing the image of the diagonal of any polytope was given \cite[Thm. 1.26]{LaplanteAnfossi}.
+The topological operad structure of \cite{MasudaThomasTonksVallette} on the associahedra was generalized to the family of operahedra, which comprise the family of permutahedra, and encode the notion of homotopy operad.
+Cellular diagonals of the operahedra do \emph{not} satisfy the magical formula, and the difficulty to describe combinatorially their image is what prompted the development of theory in \cite{LaplanteAnfossi}.
+\begin{figure}[h!]
+\begin{center}
+\begin{tabular}{c|c}
+\emph{Magical formula} & \emph{Non-magical formula} \\
+\hline
+Simplices, Cubes, Freehedra, Associahedra & Multiplihedra, Operahedra, Permutahedra 
+\end{tabular}
+\end{center}
+\end{figure}
+An important feature of the operahedra is that they are all obtained from the permutahedra by projection (they are generalized permutahedra in the sense of \cite{Postnikov}), and it turns out that to understand their diagonals, it suffices to understand operadic diagonals of permutahedra, which is the purpose of the present paper. 
+
+The first cellular diagonal of the permutahedra was obtained at the algebraic level by Saneblidze--Umble \cite{SaneblidzeUmble}.
+We shall call this diagonal the \emph{original $\SU$ diagonal} in the rest of the paper. 
+The first topological cellular diagonal of the permutahedra was defined in \cite{LaplanteAnfossi}, we shall call it the \emph{geometric $\LA$ diagonal}.
+Both of these families of diagonals are \emph{operadic}, \ie they respect the product structure on the faces of permutahedra (this property is called ``comultiplicativity" in \cite{SaneblidzeUmble}).
+More precisely, the algebraic structure encoded by the permutahedra is that of a homotopy associative permutad \cite{LodayRonco-permutads,Markl}.
 
 The toric varieties associated with the permutahedron are called Losev--Manin varieties, introduced in \cite{LosevManin}.
-\Guillaume{They are De Concini--Procesi wonderful compactifications of \dots
-They are also brick manifolds?}
-The cohomology ring structure was studied by Losev and Manin, and quite extensively since then. \Guillaume{See for example "Graph cohomology"} 
-Our current work brings a completely combinatorially explicit description of the cup product, it would be interesting to know if this new description can lead to new results, or how it can be used to recover existing ones.
+At this level, the operadic structure is that of a reconnectad \cite{DotsenkoKeilthyLyskov}. 
+The cohomology ring structure was studied by Losev and Manin, and quite extensively since then, see for instance \cite{BergstromMinabe, Lin}. 
+Our current work brings a completely combinatorially explicit description of the cup product; it would be interesting to know if this new description can lead to new results, or how it can be used to recover existing ones.
 
-Permutades
+The first part of the paper derives enumerative results for the iterations of any geometric diagonal of the permutahedra. 
+According to the Fulton--Sturmfels formula \cite{FultonSturmfels}, this amounts to the study of hyperplane arrangements made of generically translated copies of the braid arrangement.
+The second part studies in depth the combinatorics of operadic diagonals of the permutahedra, providing in particular a topological enhancement of the original $\SU$ diagonal, while the third part derives consequences of this combinatorial study in the field of homotopical algebra.
 
 %%%%%%%%%%%%%%%
 
@@ -376,12 +405,7 @@ We provide a combinatorial description of the possible orderings of a $(\ell,n)$
 
 \subsection*{\cref{part:diagonalsPermutahedra}. Diagonals of permutahedra}
 
-The first cellular diagonal for the permutahedra was defined at the level of chains by S. Saneblidze and R. Umble in \cite{SaneblidzeUmble}, we will call it the \emph{SU diagonal}. 
-Cellular diagonals for the associahedra and the multiplihedra were also defined there, via projection. 
-The first topological map for the permutahedra was given in \cite{LaplanteAnfossi} -we will call it the \emph{LA diagonal}, where a general theory of cellular diagonals of polytopes was developed. 
-The LA diagonal, however, is distinct from the SU diagonal at the cellular level \cite[Rem.~3.19]{LaplanteAnfossi}. 
-
-computer program for the SU diagonal \cite{VejdemoJohansson}; we give a much more effective computer program (however, without the signs)
+The first cellular diagonal for the permutahedra was defined at the level of chains by S. Saneblidze and R. Umble in \cite{SaneblidzeUmble}. 
 
 corollary: le dernier article de SU!
 corollary: IJ-description of SU diagonal
@@ -393,6 +417,7 @@ Perspectives:
 
 \subsubsection{Consequences of the equivalence between diagonals}
 
+an algorithm computing its facets was provided in \cite{VejdemoJohansson}
 
 This result
 \begin{enumerate}[i)]
@@ -3829,40 +3854,39 @@ where we have aligned each element, of each diagonal, vertically with its dual e
 
 %%%%%%%%%%%%%%%
 
-\subsection{Shift lattice structure}\label{sec:Shift-lattice}
+\subsection{Shift lattice structure}
+\label{sec:Shift-lattice}
 
-In this section, we show that the 1-shifts of each diagonal admit a simple lattice structure, that is to say, each $\SCP$ is the minimal element of a lattice isomorphic to a product of chains, where the partial order is given by shifts.
-We will discuss how this lattice is compatible with a generalised weak order, and latter we will use the lattice structure to relate the cubical and shift definitions of the $\SUD$ diagonal (\cref{sec:Cubical}).
+In this section, we show that the singleton $1$-shifts defining the operadic diagonal $\LAD$ or $\SUD$ define a lattice structure on the set of facets.
+More precisely, each $\SCP$ is the minimal element of a lattice isomorphic to a product of chains, where the partial order is given by shifts.
+We will discuss how this lattice is compatible with a generalised weak order, and latter we will use it to relate the cubical and shift definitions of the $\SUD$ diagonal in \cref{sec:Cubical}.
 
 \begin{definition}
-Let $(\sigma,\tau) \in \LAD$ or $\SUD$. For $\rho \in [n]$, let $r_\rho$ (or $l_\rho$) be the maximal value of $m$ such that $R_\rho$ (\resp $L_\rho$) is a well-defined $m$-shift of $(\sigma,\tau)$, or $0$ if there are no such $m$-shifts.
-
+Let $\sigma$ denote any one of the two ordered partitions in a $(2,n)$-partition tree.
+The \defn{right $\LA$ height} (\resp \defn{left $\LA$ height}) of $\rho \in [n]$ is the maximal value $r_\rho^\LA(\sigma)$ (\resp $l_\rho^\LA(\sigma)$) of the natural number $m \geq 1$ for which the right $m$-shift of $\rho$ (\resp the left $m$-shift of $\rho$) is path-admissible in the $\LA$ sense, or $0$ if there are no such $m$-shifts.
+The $\SU$ right and left $\SU$ heights are defined similarly. 
 \end{definition}
+\Guillaume{Maybe we can think of a simpler notation?}
 
-The maximal $m$-shift for an element $\rho$ of a $SCP$ can be explicitly calculated as follows. 
+The height of an element $\rho$ in a $\SCP$ can be explicitly calculated as follows. 
 
-\begin{proposition}\label{prop:maximal m-shift formulae}
-Let $(\sigma,\tau)$ be a SCP. Then the  maximal $\LAD$ shifts admit the following formulae.
-\begin{itemize}
-	\item For $\rho \in \sigma_i$, $l_\rho = \# $ consecutive blocks to the left of $i$ whose minima is larger than $\rho$.
-	\item For $\rho \in \tau_i$, $r_\rho = \# $ consecutive blocks to the right of $i$ whose minima is larger than $\rho$.
-\end{itemize}
-The maximal $\SUD$ shifts admit the following formulae.
-\begin{itemize}
-	\item For $\rho \in \sigma_i$, $r_\rho = \# $ consecutive blocks to the right of $i$ whose maxima is smaller than $\rho$.
-	\item For $\rho \in \tau_i$, $l_\rho = \# $ consecutive blocks to the left of $i$ whose maxima is smaller than $\rho$.
-\end{itemize}
-\end{proposition}
+\begin{lemma}
+\label{prop:maximal m-shift formulae}
+Let $\sigma$ denote one of the ordered partition of a strong complementary pair. 
+Then, the right $\LA$ height $r_\rho^\LA(\sigma)$ (\resp the left $\LA$ height $l_\rho^\LA(\tau)$) of $\rho \in [n]$ is given by the number of consecutive blocks to the right (\resp left) of the one containing $\rho$ whose minima are larger than $\rho$.
+The $\SU$ heights are obtained similarly by considering blocks whose maxima are smaller than $\rho$. 
+\end{lemma}
 
 \begin{proof}
-We show the formula holds in $\SUD$ for $r_\rho$, the other cases are similar. 
-As $(\sigma,\tau)$ is a SCP, $\max \sigma_{k,k+1} = \max \sigma_{k+1}$. 
-From the equivalence of $1$-shifts and $m$-shifts there exists an $m$-shift of $\rho$ from $\sigma_i$, if, and only if, there exists a sequence of $m$ consecutive $1$-shifts each satisfying $\rho > \max \sigma_{j,j+1}=\max \sigma_{j+1}$.
-These iterated one shifts will be well-defined until the first failure at $j=r_\rho+1$.
+We consider the right $\SU$ height, the other cases are similar. 
+As $\sigma$ is a part of a $\SCP$, we have that $\max \sigma_{k,k+1} = \max \sigma_{k+1}$ for all $k\geq 1$. 
+Moreover, from the equivalence between $1$-shifts and $m$-shifts (\cref{prop:iso-1-to-m-shift}), there exists an $m$-shift of $\rho$ from $\sigma_i$ if and only if there exists a sequence of $m$ consecutive $1$-shifts, each satisfying $\rho > \max \sigma_{j,j+1}=\max \sigma_{j+1}$.
+Thus, these iterated $1$-shifts will be path-admissible until the first failure at $j=r_\rho^\SU(\sigma)+1$.
 \end{proof}
 
-\begin{lemma}[$m$-shifts commute] \label{lem:m-shifts commute}
-Let $(\sigma,\tau) \in \LAD$ or $\SUD$.
+\begin{lemma}[Shifts commute] 
+\label{lem:m-shifts commute}
+Let $(\sigma,\tau)$ be a facet of $\LAD$ or $\SUD$.
 If either side of the following equations are  well-defined sequences of $m_1,m_2$ shift operators, then the other side is a well-defined sequence of $m_2,m_1$ shift operators, and their outputs are equal.
 \begin{align*}
 	R_{\rho} L_{\rho'}(\sigma,\tau) = L_{\rho'} R_{\rho}(\sigma,\tau), \quad R_{\rho} R_{\rho'}(\sigma,\tau) = R_{\rho'} R_{\rho}(\sigma,\tau), \quad L_{\rho} L_{\rho'}(\sigma,\tau) = L_{\rho'} L_{\rho}(\sigma,\tau)
@@ -3873,6 +3897,10 @@ A $\SUD$ ($\LAD$) $m$-shift is defined when $\rho$ is greater (smaller) than the
 From \cref{cor:SU-shift-preserves-max}, we know $m$-shifts conserve the maximal (minimal) elements of paths and their directions.
 As such, we can commute any two shift operators.
 \end{proof}
+
+\begin{definition}
+The \defn{shift lattice} on the set of facets of the $\LA$ (\resp $\SU$) diagonal is the partial order given by inclusion of their inversion sets. 
+\end{definition}
 
 \begin{proposition} \label{prop:shift lattice}
 Let $(\sigma,\tau)$ be an $\SCP$, and define
