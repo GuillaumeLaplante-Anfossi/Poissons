@@ -278,7 +278,7 @@ Finally, we use the preceding results to show that there are precisely two isomo
 \section*{Introduction} 
 \label{s:introduction}
 
-The purpose of this article is to study \emph{cellular diagonals on the permutahedra}, which are cellular maps homotopic to the usual \emph{thin diagonal} $\triangle : P \to P \times P, x \mapsto (x,x)$ (\cref{def:thinDiagonal,def:cellularDiagonal}).
+The purpose of this article is to study \emph{cellular diagonals on the permutahedra}, which are cellular maps homotopic to the usual \emph{thin diagonal} $\triangle : P \to P \times P,~ x \mapsto (x,x)$ (\cref{def:thinDiagonal,def:cellularDiagonal}).
 Such diagonals, and in particular coherent families that we call \emph{operadic diagonals} (\cref{def:operadicDiagonal}), are of interest in algebraic geometry and topology: via the theory of Fulton--Sturmfels~\cite{FultonSturmfels}, they give explicit formulas for the cup product on Losev--Manin toric varieties~\cite{LosevManin}; they define universal tensor products of homotopy operads, and in particular universal tensor products of homotopy associative permutads (shuffle algebras)~\cite{LaplanteAnfossi}; they define a coproduct on permutahedral sets, which are models of two-fold loop spaces~\cite{SaneblidzeUmble}, and their study is needed to pursue the work of Baues aiming at defining explicit combinatorial models for higher iterated loop spaces~\cite{Baues}; using the canonical projections to the multiplihedra and the associahedra, they define universal tensor product of $\Ainf$-algebras and $\Ainf$-morphisms~\cite{LaplanteAnfossiMazuir}.
 
 %L'idée de cohérence opéradique
@@ -304,7 +304,7 @@ Building on~\cite{MasudaThomasTonksVallette}, a general theory of topological ce
 \vincent{I would say geometric here, rather than topological cellular.}
 In particular, a combinatorial formula describing the image of the diagonal of any polytope was given~\cite[Thm.~1.26]{LaplanteAnfossi}.
 The topological operad structure of~\cite{MasudaThomasTonksVallette} on the associahedra was generalized to the family of operahedra, which comprise the family of permutahedra, and encodes the notion of homotopy operad.
-Cellular diagonals of the operahedra do \emph{not} satisfy the magical formula, and the difficulty to describe combinatorially their image is what prompted the development of the theory in~\cite{LaplanteAnfossi}.
+Cellular diagonals of the operahedra do \emph{not} satisfy the magical formula, and the combinatorial difficulty of describing their image is what prompted the development of the theory in~\cite{LaplanteAnfossi}.
 In fact, there is an interesting dichotomy between the families of polytopes which satisfy the magical formula (simplices, cubes, freehedra, associahedra) and those who do not (permutahedra, multiplihedra, operahedra).
 %\begin{figure}[h!]
 %\begin{center}
@@ -342,8 +342,8 @@ The second part studies in depth the combinatorics of operadic diagonals of the 
 
 \subsection*{\cref{part:multiBraidArrangements}. Combinatorics of multiple braid arrangements}
 
-As the dual of the permutahedron~$\Perm$ is the classical braid arrangement~$\braidArrangement$, the dual of a diagonal of the permutahedron~$\Perm$ is an hyperplane arrangement~$\multiBraidArrangement[n][2]$ made of $2$ generically translated copies of the braid arrangement~$\braidArrangement$.
-In the first part of the paper, we therefore study the combinatorics of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ defined as the union of $\ell$ generically translated copies of the braid arrangement~$\braidArrangement$ (\cref{def:multiBraidArrangement}).
+As the dual of the permutahedron~$\Perm$ is the classical braid arrangement~$\braidArrangement$, the dual of a diagonal of the permutahedron~$\Perm$ is a hyperplane arrangement~$\multiBraidArrangement[n][2]$ made of $2$ generically translated copies of the braid arrangement~$\braidArrangement$.
+In the first part of the paper, we therefore study the combinatorics of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$, defined as the union of $\ell$ generically translated copies of the braid arrangement~$\braidArrangement$ (\cref{def:multiBraidArrangement}).
 We are mainly interested in the~$\ell = 2$ case for the enumeration of the faces of the diagonals of the permutahedron~$\Perm$, but the general $\ell$ case is not much harder and should algebraically correspond to the enumeration of the faces of cellular $\ell$-gonals of the permutahedron~$\Perm$.
 %We observe that the flats of~$\multiBraidArrangement$ are in bijection with forests of partitions and that the faces of~$\multiBraidArrangement$ are in bijection with certain forests of ordered partitions.
 
@@ -360,7 +360,7 @@ The M\"obius polynomial of the $(\ell,n)$-braid arrangement~$\multiBraidArrangem
 where~$\b{F} \le \b{G}$ ranges over all intervals of the $(\ell,n)$-partition forest poset~$\forestPoset$, and~$F_i[p]$ denotes the restriction of the partition~$F_i$ to the part~$p$ of~$G_i$.
 \end{theorem*}
 
-This formula is not particularly easy to handle, but its turns out to simplify to very elegant formulas for the number of vertices, regions, and bounded regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
+This formula is not particularly easy to handle, but it turns out to simplify to very elegant formulas for the number of vertices, regions, and bounded regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
 Namely, using an alternative combinatorial description of the $(\ell,n)$-partition forests in terms of $(\ell, n)$-rainbow forests and a colored analogue of the classical Pr\"ufer code, we first obtain the number of vertices of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
 
 \begin{theorem*}[\cref{thm:verticesMultiBraidArrangement}]
@@ -451,8 +451,11 @@ For each $k$, there are $\binom{2k-1}{k-1,k}(k-1)!k!$ such patterns, which are $
 	(3142,1423),(3241,2413)$.
 \end{enumerate}
 \end{theorem*}
-	
-\cref{sec:shifts} is technical, mostly devoted to the proof that the geometric $\SU$ diagonal is a topological enhancement of the original $\SU$ diagonal.
+
+\cref{sec:shifts} is devoted to the study of alternate formulae for the operadic diagonals of the permutahedra.
+We prove that the geometric $\SU$ diagonal is a topological enhancement of the original $\SU$ diagonal.
+We then transfer all known definitions for both operadic diagonals via isomorphism, and show their facets admit a simple lattice structure.
+Our main result is,
 \vincent{would say a little more here...}
 
 \begin{theorem*}[\cref{thm:recover-SU}]
