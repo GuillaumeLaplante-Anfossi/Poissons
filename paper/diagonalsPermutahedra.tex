@@ -278,9 +278,8 @@ Finally, we use the preceding results to show that there are precisely two isomo
 \section*{Introduction} 
 \label{s:introduction}
 
-The purpose of this article is to study cellular diagonals on the permutahedra, which are cellular maps homotopic to the usual thin diagonal $\triangle : P \to P \times P, x \mapsto (x,x)$ (\cref{def:thinDiagonal,def:cellularDiagonal,def:geometricDiagonal}).
-Such diagonals, and in particular coherent families that we call \emph{operadic diagonals} (\cref{def:operadicDiagonal}), are of interest in algebraic geometry and topology: via the theory of Fulton--Sturmfels~\cite{FultonSturmfels}, they give explicit formulas for the cup product on Losev--Manin toric varieties~\cite{LosevManin}; they define universal tensor products of homotopy operads, and in particular universal tensor products of homotopy associative permutads (shuffle algebras)~\cite{LaplanteAnfossi}; they define a coproduct on permutahedral sets, which are models of two-fold loop spaces~\cite{SaneblidzeUmble}, and their study is needed to pursue the work of Baues aiming at defining explicit combinatorial models for higher iterated loop spaces~\cite{Baues}. 
-Moreover, using the canonical projections to the multiplihedra and the associahedra, they define universal tensor product of $\Ainf$-algebras and $\Ainf$-morphisms~\cite{LaplanteAnfossiMazuir}.
+The purpose of this article is to study \emph{cellular diagonals on the permutahedra}, which are cellular maps homotopic to the usual \emph{thin diagonal} $\triangle : P \to P \times P, x \mapsto (x,x)$ (\cref{def:thinDiagonal,def:cellularDiagonal}).
+Such diagonals, and in particular coherent families that we call \emph{operadic diagonals} (\cref{def:operadicDiagonal}), are of interest in algebraic geometry and topology: via the theory of Fulton--Sturmfels~\cite{FultonSturmfels}, they give explicit formulas for the cup product on Losev--Manin toric varieties~\cite{LosevManin}; they define universal tensor products of homotopy operads, and in particular universal tensor products of homotopy associative permutads (shuffle algebras)~\cite{LaplanteAnfossi}; they define a coproduct on permutahedral sets, which are models of two-fold loop spaces~\cite{SaneblidzeUmble}, and their study is needed to pursue the work of Baues aiming at defining explicit combinatorial models for higher iterated loop spaces~\cite{Baues}; using the canonical projections to the multiplihedra and the associahedra, they define universal tensor product of $\Ainf$-algebras and $\Ainf$-morphisms~\cite{LaplanteAnfossiMazuir}.
 
 %L'idée de cohérence opéradique
 %L'idée de l'importance en topologie algébrique
@@ -291,39 +290,40 @@ The Alexander--Whitney diagonal for simplices~\cite{EilenbergMacLane}, and the S
 These two diagonals are also needed in the study of iterated loop spaces~\cite{Baues}.
 Diagonals of the freehedra and associahedra are of interest in the study of the homology of fibered spaces~\cite{Saneblidze-freeLoopFibration,SaneblidzeRivera, Proute}. 
 In another direction, cellular diagonals allow one to define universal tensor products in homotopical algebra. 
-The seminal case of the associahedra has a rich history: the first algebraic diagonal was found by Saneblidze--Umble~\cite{SaneblidzeUmble}, followed by a second one by Markl--Shnider~\cite{MarklShnider}, which was conjectured to coincide with the first one. 
-This has recently been shown to hold~\cite{SaneblidzeUmble-comparingDiagonals}, while a topological enhancement of the ``magical formula'' of~\cite{MarklShnider} was provided by Masuda--Tonks--Thomas--Vallette~\cite{MasudaThomasTonksVallette}.
-\vincent{-- between names}
+The seminal case of the associahedra has a rich history: the first algebraic diagonal was found by S.~Saneblidze and R.~Umble~\cite{SaneblidzeUmble}, followed by a second one by M.~Markl and S.~Shnider~\cite{MarklShnider}, which was conjectured to coincide with the first one. 
+This has recently been shown to hold~\cite{SaneblidzeUmble-comparingDiagonals}, while a topological enhancement of the ``magical formula'' of~\cite{MarklShnider} was provided by N.~Masuda, H.~Thomas, A.~Tonks and B.~Vallette~\cite{MasudaThomasTonksVallette}.
 
-In~\cite{MasudaThomasTonksVallette}, the four authors re-introduced the powerful technique of Fulton--Sturmfels~\cite{FultonSturmfels}, which came from the theory of fiber polytopes of~\cite{BilleraSturmfels}, to define a topological cellular diagonal of the associahedra (we shall call such a diagonal a \emph{geometric diagonal}).
-\vincent{ref to definition}
-There are two remarkable features of this diagonal, or more precisely this family of diagonals, one for the Loday associahedron in each dimension.
+In~\cite{MasudaThomasTonksVallette}, the authors re-introduced the powerful technique of Fulton--Sturmfels~\cite{FultonSturmfels}, which came from the theory of fiber polytopes of~\cite{BilleraSturmfels}, to define a topological cellular diagonal of the associahedra.
+We shall call such a diagonal a \emph{geometric diagonal} (\cref{def:geometricDiagonal}).
+There are two remarkable features of this diagonal (or more precisely this family of diagonals, one for the Loday associahedron in each dimension).
 First, it respects the operadic structure of the associahedra (in fact, forces a unique topological cellular operad structure on them!), that is, the fact that each face of an associahedron is isomorphic to a product of lower-dimensional associahedra.
-Second, it satisfies the magical formula of J.-L. Loday: the faces in the image of the diagonal are given by the pairs of faces which are comparable under the Tamari order (see \cref{sec:cellularDiagonals,rem:magicalFormula} for a precise statement). 
+Second, it satisfies the \emph{magical formula} of J.-L. Loday: the faces in the image of the diagonal are given by the pairs of faces which are comparable under the Tamari order (see \cref{sec:cellularDiagonals,rem:magicalFormula} for a precise statement). 
 This magical formula for the associahedra lead recently to new enumerative results for Tamari intervals~\cite{BostanChyzakPilaud}.
 
-Building on the work of Masuda--Tonks--Thomas--Vallette, a general theory of topological cellular diagonals was developed in~\cite{LaplanteAnfossi}.
+Building on~\cite{MasudaThomasTonksVallette}, a general theory of topological cellular diagonals was developed in~\cite{LaplanteAnfossi}.
+\vincent{I would say geometric here, rather than topological cellular.}
 In particular, a combinatorial formula describing the image of the diagonal of any polytope was given~\cite[Thm.~1.26]{LaplanteAnfossi}.
-The topological operad structure of~\cite{MasudaThomasTonksVallette} on the associahedra was generalized to the family of operahedra, which comprise the family of permutahedra, and encode the notion of homotopy operad.
+The topological operad structure of~\cite{MasudaThomasTonksVallette} on the associahedra was generalized to the family of operahedra, which comprise the family of permutahedra, and encodes the notion of homotopy operad.
 Cellular diagonals of the operahedra do \emph{not} satisfy the magical formula, and the difficulty to describe combinatorially their image is what prompted the development of the theory in~\cite{LaplanteAnfossi}.
-\begin{figure}[h!]
-\begin{center}
-\begin{tabular}{c|c}
-\textbf{Magical formula} & \textbf{Non-magical formula} \\
-\hline
-%Simplices, Cubes, Freehedra, Associahedra & Multiplihedra, Operahedra, Permutahedra 
-Simplices & Multiplihedra \\
-Cubes & Operahedra \\
-Freehedra & Permutahedra \\
-Associahedra 
-\end{tabular}
-\end{center}
-\end{figure}
-\vincent{make a sentence out of the table.}
+In fact, there is an interesting dichotomy between the families of polytopes which satisfy the magical formula (simplices, cubes, freehedra, associahedra) and those who do not (permutahedra, multiplihedra, operahedra).
+%\begin{figure}[h!]
+%\begin{center}
+%\begin{tabular}{c|c}
+%\textbf{Magical formula} & \textbf{Non-magical formula} \\
+%\hline
+%%Simplices, Cubes, Freehedra, Associahedra & Multiplihedra, Operahedra, Permutahedra 
+%Simplices & Multiplihedra \\
+%Cubes & Operahedra \\
+%Freehedra & Permutahedra \\
+%Associahedra 
+%\end{tabular}
+%\end{center}
+%\end{figure}
 
-An important feature of the operahedra is that they are all obtained from the permutahedra by projection (they are generalized permutahedra in the sense of~\cite{Postnikov}), and it was shown in~\cite[Sect.~1.6]{LaplanteAnfossi} that to understand their diagonals, it suffices to understand operadic diagonals of permutahedra, which is the purpose of the present paper. 
+An important feature of the operahedra is that they are all obtained from the permutahedra by projection (they are generalized permutahedra in the sense of~\cite{Postnikov}), and it was shown in~\cite[Sect.~1.6]{LaplanteAnfossi} that to understand their diagonals, it suffices to understand operadic diagonals of permutahedra, which is the purpose of the present paper.
+\vincent{This is incorrect. A generalized permutahedron is a deformation of the permutahedron, not a projection...}
 
-The first cellular diagonal of the permutahedra was obtained at the algebraic level by Saneblidze--Umble~\cite{SaneblidzeUmble}.
+The first cellular diagonal of the permutahedra was obtained at the algebraic level by S.~Saneblidze and R.~Umble~\cite{SaneblidzeUmble}.
 We shall call this diagonal the \emph{original $\SU$ diagonal} in the rest of the paper. 
 The first topological cellular diagonal of the permutahedra was defined in~\cite{LaplanteAnfossi}, we shall call it the \emph{geometric $\LA$ diagonal}.
 Both of these families of diagonals are \emph{operadic}, \ie they respect the product structure on the faces of permutahedra (this property is called ``comultiplicativity" in~\cite{SaneblidzeUmble}).
@@ -331,7 +331,7 @@ More precisely, the algebraic structure encoded by the permutahedra is that of h
 
 The toric varieties associated with the permutahedra are called Losev--Manin varieties, introduced in~\cite{LosevManin}.
 At this level, the operadic structure is that of a reconnectad~\cite{DotsenkoKeilthyLyskov}. 
-The cohomology ring structure was studied by Losev and Manin, and quite extensively since then, see for instance~\cite{BergstromMinabe, Lin}. 
+The cohomology ring structure was studied by A.~Losev and Y.~Manin, and quite extensively since then, see for instance~\cite{BergstromMinabe, Lin}. 
 Our current work brings a completely combinatorially explicit description of the cup product; it would be interesting to know if this new description can lead to new results, or how it can be used to recover existing ones.
 
 The first part of the paper derives enumerative results for the iterations of any geometric diagonal of the permutahedra. 
@@ -349,7 +349,7 @@ We are mainly interested in the~$\ell = 2$ case for the enumeration of the faces
 
 \cref{sec:flatPoset} is dedicated to the combinatorial description of the flat poset of~$\multiBraidArrangement$ and its enumerative consequences.
 We first observe that the flats of~$\multiBraidArrangement$ are in bijection with $(\ell,n)$-partition forests, defined as $\ell$-tuples of (unordered) partitions of~$[n]$ whose intersection hypergraph is a hyperforest (\cref{def:partitionForests}).
-As this description is independent of the translations of the different copies (as long as these translations are generic), we obtain by Zaslavsky's theory that the number of \mbox{$k$-dimensional} faces and of bounded faces of~$\multiBraidArrangement$ only depends on~$k$, $\ell$, and~$n$. % (and not on the specific translation vectors choosen to construct~$\multiBraidArrangement$).
+As this description is independent of the translations of the different copies (as long as these translations are generic), we obtain by T.~Zaslavsky's theory that the number of \mbox{$k$-dimensional} faces and of bounded faces of~$\multiBraidArrangement$ only depends on~$k$, $\ell$, and~$n$. % (and not on the specific translation vectors choosen to construct~$\multiBraidArrangement$).
 In fact, we obtain the following formula for the M\"obius polynomial of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ in terms of pairs of $(\ell,n)$-partition forests.
 
 \begin{theorem*}[\cref{thm:MobiusPolynomialMultiBraidArrangement}]
@@ -419,9 +419,8 @@ Then, we initiate in \cref{sec:operadicDiagonals} the study of operadic diagonal
 These are families of diagonals of the permutahedra which are compatible with the property that faces of permutahedra are product of lower-dimensional permutahedra. 
 
 \begin{theorem*}[\cref{thm:unique-operadic,thm:bijection-operadic-diagonals}]
-There are exactly two operadic geometric diagonals of the permutahedra, the geometric $\LA$ and $\SU$ diagonals, which respect the weak order on permutations.
-Moreover, there is a poset isomorphism between their cellular images.
-\vincent{seem weaker than what we have.}
+There are exactly four operadic geometric diagonals of the permutahedra, the geometric $\LA$ and $\SU$ diagonals and their opposites, and only the first two respect the weak order on permutations.
+Moreover, there are poset isomorphisms between their cellular images.
 \end{theorem*}
 
 It turns out that their facets and vertices admit elegant combinatorial descriptions. 
@@ -4722,7 +4721,7 @@ The same holds when taking the~$\circ_i^\SU$ operations instead of the $\circ_i^
 
 \begin{example}
 	\label{ex:iso-not-Hopf}
-Note that $\Psi$ is \emph{not} a morphism of ``Hopf" operads, i.e. it does not commute with the respective diagonals $\LAD$ and $\SUD$. 
+Note that $\Psi$ is \emph{not} a morphism of ``Hopf" operads, \ie it does not commute with the respective diagonals $\LAD$ and $\SUD$. 
 Consider the two square faces $F \eqdef 12|34$ and $G \eqdef 24|13$ of the $3$-dimensional permutahedron $\Perm[4]$, and choose a point $\b z \in (\mathring F + \mathring G)/2$.
 Then, $\LAD(z)$ and $\SUD(z)$ are two different pair of points on the $1$-skeleton of $\Perm[4]$. 
 Since $\circ_i^\LA$ and $\circ_i^\SU$ are the identity both on the interior of $\Perm[4]$ (by \cref{const:top-iso}) and on the $1$-skeleton of $\Perm[4]$ (see the proof of~\cite[Prop. 7]{MasudaThomasTonksVallette}), we directly obtain that $\LAD(z)=(\Psi \times \Psi)\LAD(z) \neq \SUD \Psi(z)=\SUD(z)$. 
