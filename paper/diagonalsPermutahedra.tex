@@ -3224,6 +3224,7 @@ This proves that $R_{M'_{j}}$ is block-admissible, completing the inductive proo
 %%%%%%%%%%%%%%%
 
 \subsubsection{Inversions}
+\label{subsec:inversions}
 
 Our next goal is to prove the equivalence between the $m$-shift and geometric $\SU$ diagonals (\cref{prop:iso-shift-IJ-diagonals}).
 As a tool for this proof, we now study \emph{inversions}, or crossings in the partition trees of the geometric $\SU$ diagonal.
@@ -3923,62 +3924,53 @@ Moreover, from the equivalence between $1$-shifts and $m$-shifts (\cref{prop:iso
 Thus, these iterated $1$-shifts will be path-admissible until the first failure at $j=r_\rho^\SU(\sigma)+1$.
 \end{proof}
 
-\begin{lemma}[Shifts commute] 
+\begin{lemma}
 \label{lem:m-shifts commute}
-Let $(\sigma,\tau)$ be a facet of $\LAD$ or $\SUD$.
-If either side of the following equations are  well-defined sequences of $m_1,m_2$ shift operators, then the other side is a well-defined sequence of $m_2,m_1$ shift operators, and their outputs are equal.
-\begin{align*}
-	R_{\rho} L_{\rho'}(\sigma,\tau) = L_{\rho'} R_{\rho}(\sigma,\tau), \quad R_{\rho} R_{\rho'}(\sigma,\tau) = R_{\rho'} R_{\rho}(\sigma,\tau), \quad L_{\rho} L_{\rho'}(\sigma,\tau) = L_{\rho'} L_{\rho}(\sigma,\tau)
-\end{align*}
+The $m$-shift operators defining the facets of an operadic diagonal ($\LA$ or $\SU$) commute. 
+That is, whenever the successive composition of two (right or left) $m_1$, $m_2$-shifts is defined on a facet of the $\LA$ or $\SU$ diagonal, the reverse order of composition is also defined, and the two yield the same facet. 
 \end{lemma}
 \begin{proof}
-A $\SUD$ ($\LAD$) $m$-shift is defined when $\rho$ is greater (smaller) than the (minimal) maximal element of the connecting path.
+A $\SUD$ (\resp $\LAD$) $m$-shift is defined when $\rho$ is greater (\resp smaller) than the maximal (\resp minimal) element of the connecting path.
 From \cref{cor:SU-shift-preserves-max}, we know $m$-shifts conserve the maximal (minimal) elements of paths and their directions.
 As such, we can commute any two shift operators.
 \end{proof}
+
+Recall from \cref{subsec:inversions}
 
 \begin{definition}
 The \defn{shift lattice} on the set of facets of the $\LA$ (\resp $\SU$) diagonal is the partial order given by inclusion of their inversion sets. 
 \end{definition}
 
-\begin{proposition} \label{prop:shift lattice}
-Let $(\sigma,\tau)$ be an $\SCP$, and define
+Thus the shift lattice structure is by definition compatible with a generalised Bruhat order.\Guillaume{Ref? L'ordre de Ronco?? Si oui mettre dans l'intro!}
+
+\begin{proposition} 
+\label{prop:shift lattice}
+The shift lattices on the sets of facets of the operadic diagonals are indeed lattices, isomorphic to the product over all strong complementary pairs $(\sigma,\tau)$ of the following lattices
 \begin{align*}
-	L^{\LA}(\sigma,\tau) \eqdef \bigcup_{\mathbf{M}, \mathbf{N}} L_\mathbf{N}(\sigma)\times R_\mathbf{M}(\tau), \quad L^{\SU}(\sigma,\tau) \eqdef \bigcup_{\mathbf{M}, \mathbf{N}} R_\mathbf{M}(\sigma)\times L_\mathbf{N}(\tau)
+	 \prod_{\rho \in [n]} [0,l_\rho^\LA(\sigma)]
+	\times \prod_{\rho \in [n]} [0,r_\rho^\LA(\tau)] \ , \quad \text{ and }  \prod_{\rho \in [n]} [0,r_\rho^\SU(\sigma)]
+	\times \prod_{\rho \in [n]} [0,l_\rho^\SU(\tau)] \ .
 \end{align*}
-where the union is taken over all admissible sequences of $1$-shifts $\b{M},\b{N}$, for each diagonal.
-Then each set is isomorphic as a lattice to a product of chains
-\begin{align*}
-	L^{\LA}(\sigma,\tau) \cong \prod_{\rho \in [n]} [l_\rho]
-	\times \prod_{\rho \in [n]} [r_\rho], \quad L^{\SU}(\sigma,\tau) \cong \prod_{\rho \in [n]} [r_\rho]
-	\times \prod_{\rho \in [n]} [l_\rho]
-\end{align*}
-where the maximal shifts $r_\rho,l_\rho$, are calculated with respect to $(\sigma,\tau)$, for each diagonal.
 \end{proposition}
-
 \begin{proof}
-
-We identify $(0,0,...,0)$ with the SCP $(\sigma,\tau)$ and every other element $(r_1,...,r_n,l_1,...l_n)$, with 
-$R^{r_n}_{n}...R^{r_{1}}_{1}
-L^{l_n}_{n}...L^{l_{1}}_{1}(\sigma,\tau)$.
-Given \cref{lem:m-shifts commute}, it is straightforward to confirm that the join (meet) of any two elements is given by their element wise maximum (minimum).
+We identify $(0,0,\ldots,0)$ with the strong complementary pair $(\sigma,\tau)$ and every other element $(r_1,\ldots,r_n,l_1,\ldots,l_n)$, with 
+$R^{r_n}_{n}\cdots R^{r_{1}}_{1}
+L^{l_n}_{n} \cdots L^{l_{1}}_{1}(\sigma,\tau)$.
+Given \cref{lem:m-shifts commute}, it is straightforward to confirm that the join (\resp meet) of any two elements is given by their element wise maximum (\resp minimum). 
 In particular, the maximal element of the lattice is given by shifting each element of $(\sigma,\tau)$ by its maximal shift.
 \end{proof}
-
-The Hasse diagram of the lattice corresponds to $1$-shifts, and we can step backwards in the diagram by applying inverse $1$-shifts.
-Furthermore, we saw in \cref{lem:IJ-closed-under-shifts}, that shifts increase the number of inversions, and inverse shifts decrease the number of inversions.
-As such, this lattice structure is compatible with ordering these pairs of ordered partitions by their inversions sets, \ie it is compatible with a generalised Bruhat order.\Guillaume{@Vincent, est-ce que ca coincide avec l'ordre de Ronco?}
-For a clear example of the Hasse diagram we direct the reader back to
-\cref{ex:shift translation by theta}.
+ 
+The Hasse diagram of the lattice corresponds to singleton $1$-shifts, and we can step backwards in the diagram by applying their inverse (\cref{rem:inverses}).
+For a clear example of the Hasse diagram we direct the reader back to \cref{ex:shift translation by theta}.
 
 Given our previously obtained formulae for the number of elements in the diagonal (\cref{subsec:enumerationDiagonalPermutahedra}), and the results of this section we obtain the following statistics on permutations.
 \begin{corollary}
-Let $l_\rho^{\LA}(\sigma)$ be the result of calculating $l_\rho$ for the $\LA$ diagonal for the the $\SCP$ resulting from the permutation $\sigma$, and similarly for variants of this notation. Then,
+We have the following statistics on permutations in terms of heights
 \begin{align*}
 	2(n+1)^{n-2} = \sum_{\sigma \in \mathbb{S}_n} \prod_{\rho=1}^n (l_\rho^{\LA}(\sigma)+1)(r_\rho^{\LA}(\sigma)+1) 
-	= \sum_{\sigma \in \mathbb{S}_n} \prod_{\rho=1}^n (r_\rho^{\SU}(\sigma)+1)(l_\rho^{\SU}(\sigma)+1)
+	= \sum_{\sigma \in \mathbb{S}_n} \prod_{\rho=1}^n (r_\rho^{\SU}(\sigma)+1)(l_\rho^{\SU}(\sigma)+1) \ .
 \end{align*}
-Let $P_{k_1,k_2}^n\subseteq \mathbb{S}_n$ be those permutations with $k_1/k_2$ ascending/descending runs ($k_1+k_2=n-1$). Then,
+Moreover, denoting by $P_{k_1,k_2}^n\subseteq \mathbb{S}_n$ the set of permutations with $k_1$ ascending and $k_2$ descending runs ($k_1+k_2=n-1$), we have 
 \begin{align*}
 	n \binom{n-1}{k_1} (n-k_1)^{k_1-1} (n-k_2)^{k_2-1} &= \sum_{\sigma \in P_{k_1,k_2}^n} \prod_{\rho=1}^n (l_\rho^{\LA}(\sigma)+1)(r_\rho^{\LA}(\sigma)+1)\\
 	&= \sum_{\sigma \in P_{k_1,k_2}^n} \prod_{\rho=1}^n (r_\rho^{\SU}(\sigma)+1)(l_\rho^{\SU}(\sigma)+1)
@@ -3987,9 +3979,10 @@ Let $P_{k_1,k_2}^n\subseteq \mathbb{S}_n$ be those permutations with $k_1/k_2$ a
 \begin{proof}
 This follows directly from \cref{coro:enumerationDiagonalPermutahedra}, with the observation that shifts conserve the number of blocks, and hence the dimensions of the faces.
 \end{proof}
+\Guillaume{Easier or standard notation for $P_{k_1,k_2}^n$?}
 
 \begin{remark}
-Whilst each $l_\rho^{\SU}(\sigma)$ and similar can be calculated from the $\SCP$ they can also be reformulated directly in terms of the permutation.
+Whilst each height can be calculated from the $\SCP$ they can also be reformulated directly in terms of the permutation.
 For instance $l_\rho^{\SU}(\sigma)$ is the number of consecutive ascending runs, to the right of the ascending run containing $\rho$, whose maximal element is smaller than $\rho$.
 \end{remark}
 
