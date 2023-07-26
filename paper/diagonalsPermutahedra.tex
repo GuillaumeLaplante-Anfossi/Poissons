@@ -3954,6 +3954,8 @@ Recall from \cref{subsec:inversions} that the inversions of an ordered $(2,n)$-p
 The \defn{shift lattice} on the set of facets of the $\LA$ (\resp $\SU$) diagonal is the partial order given by inclusion of their inversion sets. 
 \end{definition}
 
+\Kurt{Actually, I had originally defined $L(\sigma,\tau)$, as on the set of all facets, we have a disjoint union of lattices. (There are ways to make this a lattice, [Use weak order lattice to order SCPs, then use this lattice on all facets associated to the SCP. This nested lattice is a lattice], but bit artificial. ) Happy to chat tomorrow.}
+
 Thus the shift lattice structure is by definition compatible with a generalised Bruhat order.\Guillaume{Ref? L'ordre de Ronco?? Si oui mettre dans l'intro!}
 
 \begin{proposition} 
@@ -3969,8 +3971,14 @@ The shift lattices on the sets of facets of the operadic diagonals are indeed la
 We identify $(0,0,\ldots,0)$ with the strong complementary pair $(\sigma,\tau)$ and every other element $(r_1,\ldots,r_n,l_1,\ldots,l_n)$, with 
 $R^{r_n}_{n}\cdots R^{r_{1}}_{1}
 L^{l_n}_{n} \cdots L^{l_{1}}_{1}(\sigma,\tau)$.
-Given \cref{lem:m-shifts commute}, it is straightforward to confirm that the join (\resp meet) of any two elements is given by their element wise maximum (\resp minimum). 
-In particular, the maximal element of the lattice is given by shifting each element of $(\sigma,\tau)$ by its maximal shift.
+Given \cref{lem:m-shifts commute}, it is straightforward to confirm that the join (\resp meet) of any two elements is given by their element wise maximum (\resp minimum). Explicitly,
+{\small
+\begin{align*}
+	(r_1,\ldots,r_n,l_1,\ldots,l_n)\lor (r'_1,\ldots,r'_n,l'_1,\ldots,l'_n) &= (\max\{r_1,r'_1\},\ldots,\max\{r_n,r'_n\},\max\{l_1,1'_1\},\ldots,\max\{l_n,l'_n\})\\
+	(r_1,\ldots,r_n,l_1,\ldots,l_n)\land (r'_1,\ldots,r'_n,l'_1,\ldots,l'_n) &= (\min\{r_1,r'_1\},\ldots,\min\{r_n,r'_n\},\min\{l_1,1'_1\},\ldots,\min\{l_n,l'_n\})
+\end{align*}
+}
+We note that the maximal element of the lattice is given by shifting each element of $(\sigma,\tau)$ by its maximal shift.
 \end{proof}
  
 The Hasse diagram of the lattice corresponds to singleton $1$-shifts, and we can step backwards in the diagram by applying their inverse (\cref{rem:inverses}).
