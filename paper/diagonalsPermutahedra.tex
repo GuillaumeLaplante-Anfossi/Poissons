@@ -3751,7 +3751,7 @@ The corresponding $(2,n)$-partition trees present a clear symmetry
 %
 \end{tikzpicture}
 \end{center}
-We now illustrate all possible $\LA$ singleton $1$-shifts of $(\sigma,\tau)$ and all possible $\SU$ singleton $1$-shifts of $(\sigma',\tau')$. 
+We now illustrate all possible path admissible $\LA$ $1$-shifts of $(\sigma,\tau)$ and all possible path admissible $\SU$ $1$-shifts of $(\sigma',\tau')$. 
 We first display how the $\LA$ left shifts act on $\sigma$, and the $\SU$ left shifts act on $\tau'$.
 The $LA$ shifts have been drawn so that the leftmost arrow shifts the smallest element, and the $SU$ shifts have been drawn so that the leftmost arrow shifts the largest element.
 As such, the face poset isomorphism $t(r\times r)$ directly translates one diagram to the other.
@@ -3913,28 +3913,34 @@ where we have aligned each element, of each diagonal, vertically with its dual e
 
 %%%%%%%%%%%%%%%
 
-\Kurt{Proof read to here.}
-
 \subsection{Shift lattice structure}
 \label{sec:Shift-lattice}
 
 In this section, we show that the $1$-shifts of the operadic diagonals $\LAD$ and $\SUD$, define a lattice structure on the set of facets.
-More precisely, each $\SCP$ is the minimal element of a lattice isomorphic to a product of chains, where the partial order is given by shifts.
-Latter, we will use the lattice structure to relate the cubical and shift definitions of the $\SUD$ diagonal in \cref{sec:Cubical}.
+More precisely, we show each $\SCP$ is the minimal element of a lattice isomorphic to a product of chains, where the partial order is given by shifts, or equivalently inversions.
+One initial consequence is given the bijection between SCPs and permutations, and our prior enumeration of the facets of the diagonal, this produces two new statistics on permutations.
+In addition, later in \cref{sec:Cubical}, we will use the lattice structure to relate the cubical and shift definitions of the $\SUD$ diagonal.
+
+Prior to defining the lattice structure, we produce two useful lemmas for characterizing it.
 
 \begin{definition}
-Let $\sigma$ denote any one of the two ordered partitions in a $(2,n)$-partition tree.
-The \defn{right height} (\resp \defn{left height}) of $\rho \in [n]$ for the $\LA$ diagonal is the maximal value $r_\rho^\LA(\sigma)$ (\resp $l_\rho^\LA(\sigma)$) of the natural number $m \geq 1$ for which the right $m$-shift of $\rho$ (\resp the left $m$-shift of $\rho$) is path-admissible in the $\LA$ sense, or $0$ if there are no such $m$-shifts.
-The right and left heights for the $\SU$ diagonal are defined similarly. 
+Let $v$ be a permutation of $[n]$, and $(\sigma,\tau)$ the SCP corresponding to $v$.
+For $\rho \in [n]$, we define the $\LA$ \defn{left height} and \defn{right height} of $\rho$ to be 
+\begin{align*}
+    l_v(\rho) := \max (\{0\}\cup \{m>0: L_{\rho}(\sigma) \text{ is a path admissible $\LA$ $m$-shift} \})\\
+    r_v(\rho) := \max (\{0\}\cup \{m>0: R_{\rho}(\tau) \text{ is a path admissible $\LA$ $m$-shift} \})
+\end{align*}
+The left and right heights for the $\SU$ diagonal are defined similarly. 
 \end{definition}
 \Guillaume{Maybe we can think of a simpler notation?}
+\Kurt{Maybe just drop LA/SU like so?}
 
 The height of an element $\rho$ in a $\SCP$ can be explicitly calculated as follows. 
 
 \begin{lemma}
 \label{prop:maximal m-shift formulae}
-Let $\sigma$ denote one of the ordered partition of a strong complementary pair. 
-Then, the right $\LA$ height $r_\rho^\LA(\sigma)$ (\resp the left $\LA$ height $l_\rho^\LA(\tau)$) of $\rho \in [n]$ is given by the number of consecutive blocks to the right (\resp left) of the one containing $\rho$ whose minima are larger than $\rho$.
+Let $(\sigma,\tau)$ be the SCP corresponding to $v$.
+Then, the right $\LA$ height $r_v(\rho)$ (\resp the left $\LA$ height $l_v(\rho)$) of $\rho \in [n]$ is given by the number of consecutive blocks of $\sigma$ ($\tau$) to the right (\resp left) of the one containing $\rho$ whose minima are larger than $\rho$.
 The $\SU$ heights are obtained similarly by considering blocks whose maxima are smaller than $\rho$. 
 \end{lemma}
 
@@ -3943,8 +3949,13 @@ The $\SU$ heights are obtained similarly by considering blocks whose maxima are 
 We consider the right $\SU$ height, the other cases are similar. 
 As $\sigma$ is a part of a $\SCP$, we have that $\max \sigma_{k,k+1} = \max \sigma_{k+1}$ for all $k\geq 1$. 
 Moreover, from the equivalence between $1$-shifts and $m$-shifts (\cref{prop:iso-1-to-m-shift}), there exists an $m$-shift of $\rho$ from $\sigma_i$ if and only if there exists a sequence of $m$ consecutive $1$-shifts, each satisfying $\rho > \max \sigma_{j,j+1}=\max \sigma_{j+1}$.
-Thus, these iterated $1$-shifts will be path-admissible until the first failure at $j=r_\rho^\SU(\sigma)+1$.
+Thus, these iterated $1$-shifts will be path-admissible until the first failure at $j=r_v(\rho)+1$.
 \end{proof}
+
+\begin{remark}
+The calculation of each height can also be reformulated directly in terms of the permutation.
+For instance, for the $\SU$ diagonal $r_v(\rho)$ is the number of consecutive descending runs, to the right of the descending run containing $\rho$, whose maximal element is smaller than $\rho$.
+\end{remark}
 
 \begin{lemma}
 \label{lem:m-shifts commute}
@@ -3957,66 +3968,72 @@ From \cref{cor:SU-shift-preserves-max}, we know $m$-shifts conserve the maximal 
 As such, we can commute any two shift operators.
 \end{proof}
 
-Recall from \cref{subsec:inversions} that the inversions of an ordered $(2,n)$-partition tree are the pair of edges that intersect. 
+Recall from \cref{subsec:inversions} that the inversions of an ordered $(2,n)$-partition tree are the set of edge crossings. 
 
 \begin{definition}
-The \defn{shift lattice} on the set of facets of the $\LA$ (\resp $\SU$) diagonal is the partial order given by inclusion of their inversion sets. 
+For each permutation $v$ of $[n]$, let $T_v^\LA$ (\resp $T_v^\SU$) be the set of ordered $(2,n)$-partition trees, resulting from applying all $\LA$ ($\SU$) shifts to the SCP $(\sigma,\tau)$.
+We define the \defn{shift lattices}, also denoted $T_v^\LA$ ($T_v^\SU$), to be these sets partially ordered by the inclusion of their inversions sets. 
 \end{definition}
-
-\Kurt{Actually, I had originally defined $L(\sigma,\tau)$, as on the set of all facets, we have a disjoint union of lattices. (There are ways to make this a lattice, [Use weak order lattice to order SCPs, then use this lattice on all facets associated to the SCP. This nested lattice is a lattice], but bit artificial. ) Happy to chat tomorrow.}
-
-Thus the shift lattice structure is by definition compatible with a generalised Bruhat order.\Guillaume{Ref? L'ordre de Ronco?? Si oui mettre dans l'intro!}
 
 \begin{proposition} 
 \label{prop:shift lattice}
-The shift lattices on the sets of facets of the operadic diagonals are indeed lattices, isomorphic to the product over all strong complementary pairs $(\sigma,\tau)$ of the following lattices
+The shift lattices are indeed lattices, and are isomorphic to products of chains.
 \begin{align*}
-	 \prod_{\rho \in [n]} [0,l_\rho^\LA(\sigma)]
-	\times \prod_{\rho \in [n]} [0,r_\rho^\LA(\tau)] \ , \quad \text{ and }  \prod_{\rho \in [n]} [0,r_\rho^\SU(\sigma)]
-	\times \prod_{\rho \in [n]} [0,l_\rho^\SU(\tau)] \ .
+    T_v^\LA \cong \prod_{\rho \in [n]} [0,l_v(\rho)]
+	\times \prod_{\rho \in [n]} [0,r_v(\rho)] \ , \quad \text{ and }  T_v^\SU \cong \prod_{\rho \in [n]} [0,r_v(\rho)]
+	\times \prod_{\rho \in [n]} [0,l_v(\rho)] \ .
 \end{align*}
 \end{proposition}
+where $[0,k]$ is the chain lattice $0<1<...<k$, for $k\geq 0$.
 \begin{proof}
-We identify $(0,0,\ldots,0)$ with the strong complementary pair $(\sigma,\tau)$ and every other element $(r_1,\ldots,r_n,l_1,\ldots,l_n)$, with 
-$R^{r_n}_{n}\cdots R^{r_{1}}_{1}
-L^{l_n}_{n} \cdots L^{l_{1}}_{1}(\sigma,\tau)$.
-Given \cref{lem:m-shifts commute}, it is straightforward to confirm that the join (\resp meet) of any two elements is given by their element wise maximum (\resp minimum). Explicitly,
+We define $L_\rho^m$ (\resp $R_\rho^m$) to be a $m$-left (right) shift of $\rho$ for $m>0$, and the identity for $m=0$.
+By the commutativity of $m$-shift operators (\cref{lem:m-shifts commute}), and the existence of unique heights for each element (\cref{prop:maximal m-shift formulae}), every element of $T_v^\LA$ admits a unique shift description $(L^{l_n}_{n}...L^{l_1}_{1}\sigma,
+R^{r_n}_{n}\cdots R^{r_{1}}_{1}\tau)$, where $0\leq l_\rho\leq l_v(\rho)$ and $0\leq r_\rho\leq r_v(\rho)$.
+Thus, we identify each element with the pair of tuples $(l_1,\ldots,l_n)\times (r_1,\ldots,r_n)$.
+As shifts strictly increase the number of crossings, and inverse shifts strictly decrease the number of crossings (\cref{lem:IJ-closed-under-shifts}), this identification is an isomorphism of lattices.
+\end{proof}
+
+Note that the maximal element of $T_v$ (for either diagonal) is given by shifting each element of $(\sigma,\tau)$ by its maximal shift.
+The joins and meets of any two elements are also thus given by isomorphism to the product of chains.
+For instance, in the case of meets,
 {\small
 \begin{align*}
-	(r_1,\ldots,r_n,l_1,\ldots,l_n)\lor (r'_1,\ldots,r'_n,l'_1,\ldots,l'_n) &= (\max\{r_1,r'_1\},\ldots,\max\{r_n,r'_n\},\max\{l_1,1'_1\},\ldots,\max\{l_n,l'_n\})\\
-	(r_1,\ldots,r_n,l_1,\ldots,l_n)\land (r'_1,\ldots,r'_n,l'_1,\ldots,l'_n) &= (\min\{r_1,r'_1\},\ldots,\min\{r_n,r'_n\},\min\{l_1,1'_1\},\ldots,\min\{l_n,l'_n\})
+	(l_1,\ldots,l_n,r_1,\ldots,r_n)\land (l'_1,\ldots,l'_n,r'_1,\ldots,r'_n) &= (\min\{l_1,1'_1\},\ldots,\min\{l_n,l'_n\},\min\{r_1,r'_1\},\ldots,\min\{r_n,r'_n\})
 \end{align*}
 }
-We note that the maximal element of the lattice is given by shifting each element of $(\sigma,\tau)$ by its maximal shift.
-\end{proof}
- 
 The Hasse diagram of the lattice corresponds to singleton $1$-shifts, and we can step backwards in the diagram by applying their inverse (\cref{rem:inverses}).
-For a clear example of the Hasse diagram we direct the reader back to \cref{ex:shift translation by theta}.
+For a clear example of the Hasse diagram, we direct the reader back to \cref{ex:shift translation by theta}.
 
-Given our previously obtained formulae for the number of elements in the diagonal (\cref{subsec:enumerationDiagonalPermutahedra}), and the results of this section we obtain the following statistics on permutations.
+\begin{remark}
+As a consequence of \cref{prop:shift lattice}, the facets of the operadic diagonal are a disjoint union of lattices.
+We note however that any lattice $L$ on permutations will induce a lattice on the facets.
+In particular, for every $v \in L$, we can substitute the lattice $T_v^\LA$ (or $T_v^\SU$) into the permutation $v$.
+In particular, every element which was covered by $v$ is now covered by the minimal element of $T_v^\LA$, and every element which was covering $v$ now covers the maximal element of $T_v^\LA$.
+
+\end{remark}
+
+
+Given our previously obtained formulae for the number of elements in the diagonal (\cref{subsec:enumerationDiagonalPermutahedra}), and the results of this section, we obtain the following statistics on permutations.
 \begin{corollary}
-We have the following statistics on permutations in terms of heights
+Using the heights of either diagonal,
 \begin{align*}
-	2(n+1)^{n-2} = \sum_{\sigma \in \mathbb{S}_n} \prod_{\rho=1}^n (l_\rho^{\LA}(\sigma)+1)(r_\rho^{\LA}(\sigma)+1) 
-	= \sum_{\sigma \in \mathbb{S}_n} \prod_{\rho=1}^n (r_\rho^{\SU}(\sigma)+1)(l_\rho^{\SU}(\sigma)+1) \ .
+    2(n+1)^{n-2} = \sum_{v \in \mathbb{S}_n} \prod_{\rho=1}^n (l_v(\rho)+1)(r_v(\rho)+1)
 \end{align*}
-Moreover, denoting by $P_{k_1,k_2}^n\subseteq \mathbb{S}_n$ the set of permutations with $k_1$ ascending and $k_2$ descending runs ($k_1+k_2=n-1$), we have 
+Moreover, denoting by $\mathbb{S}_n^{k_1} \subseteq \mathbb{S}_n$ the set of permutations with $k_1$ ascending runs, and consequently $k_2 = n-1-k_1$ descending runs, we have 
 \begin{align*}
-	n \binom{n-1}{k_1} (n-k_1)^{k_1-1} (n-k_2)^{k_2-1} &= \sum_{\sigma \in P_{k_1,k_2}^n} \prod_{\rho=1}^n (l_\rho^{\LA}(\sigma)+1)(r_\rho^{\LA}(\sigma)+1)\\
-	&= \sum_{\sigma \in P_{k_1,k_2}^n} \prod_{\rho=1}^n (r_\rho^{\SU}(\sigma)+1)(l_\rho^{\SU}(\sigma)+1)
+	n \binom{n-1}{k_1} (n-k_1)^{k_1-1} (n-k_2)^{k_2-1} = \sum_{v \in \mathbb{S}_n^{k_1}} \prod_{\rho=1}^n (l_v(\rho)+1)(r_v(\rho)+1)
 \end{align*}
 \end{corollary}
 \begin{proof}
 This follows directly from \cref{coro:enumerationDiagonalPermutahedra}, with the observation that shifts conserve the number of blocks, and hence the dimensions of the faces.
 \end{proof}
 \Guillaume{Easier or standard notation for $P_{k_1,k_2}^n$?}
-
-\begin{remark}
-Whilst each height can be calculated from the $\SCP$ they can also be reformulated directly in terms of the permutation.
-For instance $l_\rho^{\SU}(\sigma)$ is the number of consecutive ascending runs, to the right of the ascending run containing $\rho$, whose maximal element is smaller than $\rho$.
-\end{remark}
+\Kurt{Better?}
 
 %%%%%%%%%%%%%%%
+
+
+\Kurt{Proof read to here}
 
 \subsection{Matrix description}
 
