@@ -4902,14 +4902,14 @@ Consequently,
 
 \begin{proposition}
 The $\LA$ and $\SU$ diagonals of the operahedra associated with trees that have less than $4$ internal edges have the same number of facets. 
-For every $n\geq 4$, there is a tree $t \in \PT_n$ such that the number of facets of the $\LA$ and $\SU$ diagonals are distinct. 
+There exists $n>4$, and a tree $t \in \PT_n$, such that the number of facets of the $\LA$ and $\SU$ diagonals are distinct. 
 \end{proposition}
 
 \begin{proof}
 As shown in \cite[Sec. 1.6]{LaplanteAnfossi}, diagonals of the permutahedra induce diagonals of the operahedra. 
 \cref{def:valid} above is borrowed from \cite[Prop. 3.20]{LaplanteAnfossi}.
 Thus, the statement is equivalent to the following: for $n\leq 4$, and for every tree $t\in \PT_n$, we have $\card{\LAD_t} = \card{\SUD_t}$; while for $n>4$, there exists $t \in \PT_n$, such that $\card{\LAD_t} \neq \card{\SUD_t}$.
-This was checked via code and the first few counterexamples are displayed in \cref{ex:SU-LA-operahedra} below.
+This was checked via code and the first few counterexamples for $n=5$ are displayed in \cref{ex:SU-LA-operahedra}.
 \end{proof}
 
 \begin{example}
@@ -5011,20 +5011,6 @@ We display each tree $t$ with the counts $(\card{\LAD_t},\card{\SUD_t})$ above i
 		]
 		\node(1) at (0,0.5) {$(212,213)$};
 		\end{tikzpicture}}
-		&
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-		\Tree 
-		[.\node{};
-		    [.\node{};]
-		    [.\node{};
-		        [.\node{};]
-		    ]
-		    [.\node{};
-		        [.\node{};]
-		    ]
-		]
-		\node(1) at (0,0.5) {$(160,161)$};
-		\end{tikzpicture}}
 		&	
 		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
 		\Tree 
@@ -5038,6 +5024,20 @@ We display each tree $t$ with the counts $(\card{\LAD_t},\card{\SUD_t})$ above i
 		    [.\node{};]
 		]
 		\node(1) at (0,0.5) {$(129,127)$};
+		\end{tikzpicture}}
+            &
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{};
+		    [.\node{};]
+		    [.\node{};
+		        [.\node{};]
+		    ]
+		    [.\node{};
+		        [.\node{};]
+		    ]
+		]
+		\node(1) at (0,0.5) {$(160,161)$};
 		\end{tikzpicture}}
 		&
 		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
@@ -5090,40 +5090,26 @@ We display each tree $t$ with the counts $(\card{\LAD_t},\card{\SUD_t})$ above i
 		        [.\node{};] 
 		    ]
 		    [.\node{};  
-		        [.\node{};  
-		            [.\node{};] 
-		        ]
-		    ]
-		]
-		\node(1) at (0,0.5) {$(98,97)$};
-		\end{tikzpicture}}
-		&
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-		\Tree 
-		[.\node{}; 
-		    [.\node{};  
-		        [.\node{};] 
-		    ]
-		    [.\node{};  
 		        [.\node{};]
 		        [.\node{};] 
 		    ]
 		]
 		\node(1) at (0,0.5) {$(155,152)$};
 		\end{tikzpicture}}
-		&
+            &
 		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
 		\Tree 
 		[.\node{}; 
-		    [.\node{};]
-		    [.\node{};
+		    [.\node{};  
+		        [.\node{};] 
+		    ]
+		    [.\node{};  
 		        [.\node{};  
 		            [.\node{};] 
 		        ]
-		        [.\node{};]
 		    ]
 		]
-		\node(1) at (0,0.5) {$(157,154)$};
+		\node(1) at (0,0.5) {$(98,97)$};
 		\end{tikzpicture}}
 		&
 		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
@@ -5137,6 +5123,20 @@ We display each tree $t$ with the counts $(\card{\LAD_t},\card{\SUD_t})$ above i
 		    ]
 		]
 		\node(1) at (0,0.5) {$(266,263)$};
+		\end{tikzpicture}}
+		&  
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{}; 
+		    [.\node{};]
+		    [.\node{};
+		        [.\node{};  
+		            [.\node{};] 
+		        ]
+		        [.\node{};]
+		    ]
+		]
+		\node(1) at (0,0.5) {$(157,154)$};
 		\end{tikzpicture}}
 		&
 		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
@@ -5186,6 +5186,20 @@ We display each tree $t$ with the counts $(\card{\LAD_t},\card{\SUD_t})$ above i
 		[.\node{}; 
 		    [.\node{};
 		        [.\node{}; 
+		            [.\node{};]
+		            [.\node{};]
+		        ] 
+		        [.\node{};]
+		    ]
+		]
+		\node(1) at (0,0.5) {$(212,213)$};
+		\end{tikzpicture}}  
+		&
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{}; 
+		    [.\node{};
+		        [.\node{}; 
 		            [.\node{}; 
 		                [.\node{}; ]
 		            ]
@@ -5194,20 +5208,6 @@ We display each tree $t$ with the counts $(\card{\LAD_t},\card{\SUD_t})$ above i
 		    ]
 		]
 		\node(1) at (0,0.5) {$(129,127)$};
-		\end{tikzpicture}}
-		&
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-		\Tree 
-		[.\node{}; 
-		    [.\node{};
-		        [.\node{}; 
-		            [.\node{};]
-		            [.\node{};]
-		        ] 
-		        [.\node{};]
-		    ]
-		]
-		\node(1) at (0,0.5) {$(212,213)$};
 		\end{tikzpicture}}
 		&
 		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
@@ -5230,6 +5230,20 @@ We display each tree $t$ with the counts $(\card{\LAD_t},\card{\SUD_t})$ above i
 		[.\node{}; 
 		    [.\node{}; 
 		        [.\node{};
+		            [.\node{};]
+		            [.\node{};]
+		            [.\node{};] 
+		        ]
+		    ]
+		]
+		\node(1) at (0,0.5) {$(266,263)$};
+		\end{tikzpicture}}
+		&
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{}; 
+		    [.\node{}; 
+		        [.\node{};
 		            [.\node{};  
 		                [.\node{};] 
 		            ]
@@ -5239,27 +5253,13 @@ We display each tree $t$ with the counts $(\card{\LAD_t},\card{\SUD_t})$ above i
 		]
 		\node(1) at (0,0.5) {$(154,157)$};
 		\end{tikzpicture}}
-		&
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-		\Tree 
-		[.\node{}; 
-		    [.\node{}; 
-		        [.\node{};
-		            [.\node{};]
-		            [.\node{};]
-		            [.\node{};] 
-		        ]
-		    ]
-		]
-		\node(1) at (0,0.5) {$(266,263)$};
-		\end{tikzpicture}}
 	\end{tabular}
 	\caption{The $24$ planar trees with $5$ internal edges for which $\card{\LAD_t} \neq \card{\SUD_t}$.}
 	\label{fig:trees}
 \end{figure}
 \end{example}
 
-We note that one sufficient condition for a tree $t$ to satisfy $\card{\LAD_t} = \card{\SUD_t}$ is, $N$ is a nesting of $t$ to be a nesting if, and only if, $rN$ is a nesting of $t$.
+We note that one sufficient condition for a tree $t$ to satisfy $\card{\LAD_t} = \card{\SUD_t}$ is, $N$ is a nesting of $t$ if, and only if, $rN$ is a nesting of $t$.
 This includes trees such as the linear tree and
 
 \begin{center}
@@ -5277,11 +5277,11 @@ This includes trees such as the linear tree and
 \end{tikzpicture}
 \end{center}
 
-The lack of symmetry in the trees above and $(\card{\LAD_t},\card{\SUD_t})$ arises from the lack of symmetry inherent in the infix order, and in how the $\LA$ and $\SU$ diagonal treat maximal and minimal elements.
+The lack of symmetry in the trees in \cref{table:enumerationDiagonalPermutahedra1} (and $(\card{\LAD_t},\card{\SUD_t})$) arises from the lack of symmetry inherent in the infix order, and in how the $\LA$ and $\SU$ diagonal treat maximal and minimal elements.
 It is possible to resolve this breakdown in symmetry by using alternate labellings of trees.
 
 \begin{remark}
-Observe that $\sigma$ is a valid nesting for $t$ if, and only if $r\sigma$ is a valid nesting for $rt$, where $rt$ is the relabelling of $t$ with minimal edge label sent to maximal and so on.
+Observe that $N$ is a nesting for $t$ if, and only if $rN$ is a nesting for $rt$, where $rt$ is the relabelling of $t$ with minimal edge label sent to maximal and so on.
 Consequently, $(\sigma,\tau)$ is a valid nesting for $t$ if, and only if $t(r\times r)(\sigma,\tau)$ is a valid nesting for $rt$.
 Therefore, for~$t \in PT_n$ in $\card{\LAD_t} = \card{\SUD_{rt}}$ and $\card{\SUD_t} = \card{\LAD_{rt}}$.
 \end{remark}
