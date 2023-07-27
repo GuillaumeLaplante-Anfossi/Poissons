@@ -87,6 +87,8 @@
 \newcommand{\Un}{\mathrm{U}} % unordered IJ
 \newcommand{\Or}{\mathrm{O}} % ordered IJ
 
+\newcommand{\PT}{\mathrm{PT}} %planar trees
+
 % math commands
 \newcommand{\set}[2]{\left\{ #1 \;\middle|\; #2 \right\}} % set notation
 \newcommand{\bigset}[2]{\big\{ #1 \;\big|\; #2 \big\}} % big set notation
@@ -479,9 +481,9 @@ The above theorem also allows us to translate the different combinatorial descri
 	Path extrema & \cref{thm:facet-ordering} & \cref{thm:facet-ordering} \\
 	$1$-shifts & \cref{def:classical-SU} & \cref{def:classical-LA} \\
 	$m$-shifts & \cref{def:classical-SU} & \cref{def:classical-LA} \\
-	Lattice & New & New \\
-	Matrix & \cite{SaneblidzeUmble} & New \\
-	Cubical & \cite{SaneblidzeUmble} & New
+	Lattice & \cref{def:shift-lattice} & \cref{def:shift-lattice} \\
+	Matrix & \cite{SaneblidzeUmble} & \cref{subsec:matrix} \\
+	Cubical & \cite{SaneblidzeUmble} & \cref{prop:LA-cubical}
 	\end{tabular}
 	\end{center}
 \end{figure}
@@ -4036,6 +4038,7 @@ This follows directly from \cref{coro:enumerationDiagonalPermutahedra}, with the
 \Kurt{Proof read to here}
 
 \subsection{Matrix description}
+\label{subsec:matrix}
 
 For completeness, we recall from \cite{SaneblidzeUmble} the matrix description of facets of the $\SU$ diagonal.
 We previously saw that $\SCP$s and permutations are in bijection (\cref{def:strong-complementary-pairs}). 
@@ -4409,7 +4412,7 @@ This thus proves that $L\times C = \bigcup_{i=0}^{r_\rho}\bigcup_{\mathbf{M}}R^i
 Applying this lemma to pairs of maximal subdivision cubes yields the following equivalent description of the $\SU$ diagonal.
 
 \begin{corollary}[{\cite[Form.~(1)~\&~(3)]{SaneblidzeUmble-comparingDiagonals}}]
-\label{prop:Maximal Subdiv Pairs and Shifts}
+\label{prop:SU-cubical}
 For $v$ be a vertex of $\Perm$ with associated $\SCP$ $(\sigma,\tau)$, we have
 \begin{align*}
 	\maxsubdivpairsv = \bigcup_{\mathbf{M},\mathbf{N}} R_\mathbf{M}(\sigma) \times L_{\mathbf{N}}(\tau)
@@ -4422,7 +4425,7 @@ Thus, the facets of the $\SU$ diagonal are given by
 where the union is taken over all vertices $v$ of the permutahedron $\Perm$. 
 \end{corollary}
 
-\subsubsection{LA Cubical Description}
+\subsubsection{LA cubical description}
 
 The $\LA$ diagonal also admits a similar cubical description, which we may quickly induce by isomorphism.
 We first define inductively a subdivision $\divcube{n-1}^{\LA}$ of the $(n-1)$-dimensional cube which is combinatorially isomorphic to the permutahedron $\Perm$, analogous to the one of the preceding sections. 
@@ -4531,6 +4534,7 @@ Its image under $r$ is the maximal $\LA$ $2$-subdivision cube with minimal verte
 As the example suggests, we have the following cubical description of the $\LA$ diagonal.
 
 \begin{proposition}
+\label{prop:LA-cubical}
 For $v$ be a vertex of $\Perm$ with associated $\SCP$ $(\sigma,\tau)$, we have
 \begin{align*}
 	\maxsubdivpairsv = \bigcup_{\mathbf{M},\mathbf{N}} L_\mathbf{M}(\sigma) \times R_{\mathbf{N}}(\tau)
@@ -4573,7 +4577,7 @@ where the vertical arrows are the defining bijection between SCPs and permutatio
 
 \subsection{Topological operadic structures on the operahedra}
 
-The permutahedra are part of a more general family of polytopes called Loday realizations of the \emph{operahedra}~\cite[Def.~2.9]{LaplanteAnfossi} which encodes the notion of homotopy operad~\cite[Def.~4.11]{LaplanteAnfossi}.\Guillaume{Image des trois mousquetaires?}
+The permutahedra are part of a more general family of polytopes called Loday realizations of the \emph{operahedra}~\cite[Def.~2.9]{LaplanteAnfossi} which encodes the notion of homotopy operad~\cite[Def.~4.11]{LaplanteAnfossi} (we consider here only \emph{non-symmetric non-unital} homotopy operads).
 For every planar tree $t$, there is a corresponding polytope $P_t$ whose codimension $k$ faces are in bijection with nestings of $t$ with $k$ non-trivial nests.
 Since the operahedra are generalized permutahedra~\cite[Coro.~2.16]{LaplanteAnfossi}, a choice of diagonal for the permuthedra induces a choice of diagonal for every operahedron~\cite[Coro.~1.31]{LaplanteAnfossi}.
 Every face of an operahedron is isomorphic to a product of lower-dimensional operahedra, via an isomorphism $\Theta$ which generalizes the one above, see Point (5) of~\cite[Prop.~2.3]{LaplanteAnfossi}.
@@ -4710,55 +4714,65 @@ Since $\circ_i^\LA$ and $\circ_i^\SU$ are the identity both on the interior of $
 
 \subsection{Tensor products of homotopy operads}
 \label{subsec:tensor-products}
-
-Even though the diagonals of the permutahedra are isomorphic, and the operad structures that they induce are as well in the category $\PolySub$, the tensor products of homotopy operads that they define are \emph{not} strictly isomorphic.
-
-\begin{example}
-	We have that...
-\end{example}
-
-\Guillaume{Donner une ref pour les infini-morphismes}
+Recall that a homotopy operad $\mathcal{P}$ is a family of vector spaces $\{\mathcal{P}(n)\}_{n \geq 1}$ together with a family of operations $\{\mu_t\}$ indexed by planar trees $t$ \cite[Def. 4.11]{LaplanteAnfossi}.
+One can consider the category of homotopy operads with strict morphisms, that is morphisms of the underlying vector spaces which commute strictly with all the higher operations $\mu_t$, or with their $\infty$-morphisms, made of a tower of homotopies controlling the lack of commutativity of their first component \cite[Sec. 10.5.2]{LodayVallette}.
 
 \begin{theorem}
-For any pair of homotopy operads $\mathcal{P},\mathcal{Q}$, the two tensor products~$\mathcal{P} \otimes_\LA \mathcal{Q}$ and~$\mathcal{P} \otimes_\SU \mathcal{Q}$ defined by the $\LA$ and $\SU$ diagonals are not isomorphic in the category of homotopy operads and strict morphisms.
-However, the two tensor products are isomorphic in the category of homotopy operads and their $\infty$-morphisms.
+For any pair of homotopy operads $\mathcal{P},\mathcal{Q}$, the two tensor products~$\mathcal{P} \otimes_\LA \mathcal{Q}$ and~$\mathcal{P}~\otimes_\SU~\mathcal{Q}$ defined by the $\LA$ and $\SU$ diagonals are not isomorphic in the category of homotopy operads and strict morphisms.
+However, they are isomorphic in the category of homotopy operads and their $\infty$-morphisms.
 \end{theorem}
 
 \begin{proof}
-The morphisms of operads $\LAD$ and $\SUD$ are homotopic,
+Since the two morphisms of topological operads $\LAD$ and $\SUD$ do not have the same cellular image, the tensor products that they define are not strictly isomorphic.
+However, they are both homotopic to the usual thing diagonal.
+Recall that homotopy operads are algebras over the colored operad $\mathcal{O}_\infty$, which is the minimal model of the operad $\mathcal{O}$ encoding (non-symmetric non-unital) operads \cite[Prop. 4.9]{LaplanteAnfossi}. 
+Using the universal property of the minimal model $\mathcal{O}_\infty$, one can show that the algebraic diagonals $\LAD,\SUD : \mathcal{O}_\infty \to \mathcal{O}_\infty \otimes \mathcal{O}_\infty$ are homotopic, in the sense of \cite{MarklShniderStasheff}[Sec. 3.10], see \cite[Prop. 3.136]{MarklShniderStasheff}.
+Thus, there exists an $\infty$-morphism between the two homotopy operad structures on the tensor product $\mathcal{P} \otimes \mathcal{Q}$.
+Actually, this $\infty$-morphism is even an isomorphism whose first component is the identity, that is, an $\infty$-isotopy. 
 \end{proof}
 
 \begin{remark}
-	None of the two diagonals $\LAD$ or $\SUD$ is cocommutative, or coassociative, as is the special case of $\Ainf$-algebras. 
+	None of the two diagonals $\LAD$ or $\SUD$ is cocommutative, or coassociative, as is the special case of $\Ainf$-algebras \cite[Thm. 13]{MarklShnider}. 
 \end{remark}
 
-\Kurt{The definitions I'll need.}
+Note that restricting to linear trees, the two tensor products of $\Ainf$-algebras induced by the $\LA$ and $\SU$ diagonals coincide (and are thus strictly isomorphic).
+Restricting to $2$-leveled trees, we obtain two tensor product of homotopy associative permutads whose terms are in bijection.
+For the operahedra in general, such a bijection does not exist, as the following computations show. 
+
+Let $\PT_n$ be the set of planar trees with $n$ internal edges, which are labelled by $[n]$ using the infix order.
+Recall that a \defn{nest} of $t \in \PT_n$ is a subset of internal edges which induce a subtree, and a \defn{nesting} of $t$ is a family of nests which are either included in one another, or disjoint \cite[Def. 2.1 \& 2.22]{LaplanteAnfossi}.
 
 \begin{definition}
-Let $T_n$ be the set of planar trees with $n$ internal edges, which are labelled by $[n]$ using the infix order.
-A nest 2.1 of \cite{LaplanteAnfossi}.
-A nesting 2.2 of \cite{LaplanteAnfossi}.
-Let $\sigma=\sigma_1|...\sigma_k$ be an ordered partition of $n$. 
-We say that $\sigma$ is valid for $T$, if $\{\sigma_1, \sigma_1 \cup \sigma_2,...,\bigcup_{i=1}^k \sigma_i\}$ is a nesting of $T$.
-We say that a tuple of ordered partitions is valid for $T$, if all the ordered partitions are valid.
-For $t \in T_n$, we define $\LAD_t$ (\resp $\SUD_t$) to be the elements of $\LAD$ ($\SUD$) which are valid nests of $t$.
+\label{def:valid}
+Let $\sigma=\sigma_1|...\sigma_k$ be an ordered partition of $[n]$. 
+We say that $\sigma$ is \defn{valid} for $t \in \PT_n$, if the subsets of internal edges $\{\sigma_1, \sigma_1 \cup \sigma_2,...,\bigcup_{i=1}^k \sigma_i\}$ form a nesting of $t$.
+We say that a pair of ordered partitions is \defn{valid} for $t$, if the two ordered partitions are.
+For $t \in \PT_n$, we define $\LAD_t$ (\resp $\SUD_t$) to be the elements of $\LAD$ ($\SUD$) which are valid nests of $t$.
 \end{definition}
 
-\begin{example}
 \Kurt{Look at one particular tree in detail.}
-\end{example}
 
 \begin{proposition}
-For $n\leq 4$, for every $t\in T_n$, $|\LAD_t| = |\SUD_t|$.
-For $n>4$, there exists $t \in T_n$, such that $|\LAD_t| \neq |\SUD_t|$.
+The $\LA$ and $\SU$ diagonals of the operahedra associated with trees that have less than $4$ internal edges have the same number of facets. 
+For every $n\geq 4$, there is a tree $t \in \PT_n$ such that the number of facets of the $\LA$ and $\SU$ diagonals are distinct. 
 \end{proposition}
-\begin{proof}
-This was checked via code, however, here are the $24$ planar trees with $5$ internal edges for which $|\LAD_t| \neq |\SUD_t|$.
-Note that $|\LAD_t|,|\SUD_t|\leq |\LAD_5|=|\SUD_5|=432 $ (\cref{table:enumerationDiagonalPermutahedra1}).
-We display each tree $t$ with $(|\LAD_t|,|\SUD_t|)$ above it, and arrange them symmetrically to help emphasize notable missing elements. 
-\Kurt{Will align better, but something like this.
-Re-checking code, the numbers are bizarre, but might really be what it is.}
 
+\begin{proof}
+As shown in \cite[Sec. 1.6]{LaplanteAnfossi}, diagonals of the permutahedra induce diagonals of the operahedra. 
+\cref{def:valid} above is borrowed from \cite[Prop. 3.20]{LaplanteAnfossi}.
+Thus, the statement is equivalent to the following: for $n\leq 4$, and for every tree $t\in \PT_n$, we have $|\LAD_t| = |\SUD_t|$; while for $n>4$, there exists $t \in \PT_n$, such that $|\LAD_t| \neq |\SUD_t|$.
+This was checked via code and the few first counterexamples are displayed in \cref{ex:SU-LA-operahedra} below.
+\end{proof}
+
+\begin{remark}
+	Changing infix order inertwines the counts \Guillaume{@Kurt can you complete?}
+\end{remark}
+
+\begin{example}
+\label{ex:SU-LA-operahedra}
+We present herethe $24$ planar trees with $5$ internal edges for which $|\LAD_t| \neq |\SUD_t|$.
+Note that $|\LAD_t|,|\SUD_t| \leq |\LAD_5|=|\SUD_5|=432 $ (\cref{table:enumerationDiagonalPermutahedra1}), the number of facets in the permutahedron diagonals.
+We display each tree $t$ with the counts $(|\LAD_t|,|\SUD_t|)$ above it, and arrange them symmetrically to help emphasize notable missing elements. 
 \begin{center}
 \begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
 \Tree 
@@ -5156,7 +5170,7 @@ Re-checking code, the numbers are bizarre, but might really be what it is.}
 \end{tikzpicture}
 }
 \end{center}
-\end{proof}
+\end{example}
 
 A sufficient condition for a tree $t$ to satisfy $|\LAD_t|=|\SUD_t|$ is for $rN$ to be a nesting iff $N$ is a nesting. This includes trees such as the linear tree and
 
@@ -5175,11 +5189,7 @@ A sufficient condition for a tree $t$ to satisfy $|\LAD_t|=|\SUD_t|$ is for $rN$
 \end{tikzpicture}
 \end{center}
 
-
-\begin{proposition}[Proposition 3.20 \cite{LaplanteAnfossi}]
-...
-\end{proposition}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \Kurt{Old arrangement of trees which mirror code will remove later.}
 \begin{center}
