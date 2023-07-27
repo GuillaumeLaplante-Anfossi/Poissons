@@ -2961,7 +2961,7 @@ The fact that these are \emph{all} the facets with this property follows from th
 
 %%%%%%%%%%%%%%%
 
-\subsubsection{$\SU$ diagonals}
+\subsubsection{$\SU$ diagonals}\label{subsec:SU-shifts}
 
 We recall the definition of the original $\SU$ diagonal of~\cite{SaneblidzeUmble}, based on the description given in~\cite{SaneblidzeUmble-comparingDiagonals}.
 We introduce two other descriptions, the $1$-shift and $m$-shift $\SU$ diagonals, which will be shown later to be equivalent to the original one.
@@ -3246,13 +3246,14 @@ As a tool for this proof, we now study \emph{inversions}, or crossings in the pa
 In addition, we shall see later (\cref{sec:Shift-lattice}) that these inversions are compatible with a lattice structure on the set of facets. 
 
 \begin{definition}
-Let $\sigma$ be an ordered partition of $[n]$.
-For $i,j\in [n]$, such that $i<j$, we define $(i,j)$ to be an inversion of $\sigma$ if $\sigma^{-1}(j)\leq\sigma^{-1}(i)$ (\ie $j$ is either before $i$, or in the same block).
-We say that $(i,j)$ is an inversion of a pair of ordered partitions $(\sigma,\tau)$, if $(i,j)$ is an inversion of $\tau$, and $(i,j)$ is not an inversion of $\sigma$.
+Let $i,j$ be elements of $[n]$, such that $i<j$.
+We define $(i,j)$ to be an \defn{inversion of an ordered partition} $\sigma$ if $\sigma^{-1}(j)\leq\sigma^{-1}(i)$ (\ie $j$ is either before $i$, or in the same block).
+We define $(i,j)$ to be an \defn{inversion of a pair of ordered partitions} $(\sigma,\tau)$, if $(i,j)$ is an inversion of $\tau$, and $(i,j)$ is not an inversion of $\sigma$.
 \end{definition}
 
 \begin{remark}
-If $\sigma$ is a permutation, then this recovers the classical definition of an inversion of a permutation.
+Our definition of an inversion of an ordered partition specializes to the classical definition of an inversion.
+It is similar to existing definitions, 
 \end{remark}
 
 \begin{proposition}
@@ -3639,40 +3640,39 @@ Combining \cref{prop:iso-original-shift-diagonals} and \cref{prop:iso-shift-IJ-d
 The original and geometric $\SU$ diagonals coincide.
 \end{theorem}
 
-\Kurt{Finished proof reading to here.}
-
 %%%%%%%%%%%%%%%
 
 \subsection{Shifts under the face poset isomorphism}
 \label{subsec:shifts-under-iso}
 
-Now that we have the equivalence between the original and geometric $\SU$ diagonals in hand, we can use the face poset isomorphisms between the geometric $\LA$ and $\SU$ diagonals from \cref{subsec:isos-LA-SU} to translate results and combinatorial descriptions from one to the other. 
+Having proven the equivalence of the original and geometric $\SU$ diagonals, we now use the face poset isomorphisms between the geometric $\LA$ and $\SU$ diagonals from \cref{subsec:isos-LA-SU} to translate results and combinatorial descriptions from one to the other. 
 Under the isomorphism $t(r\times r):\LAD\to\SUD$ from \cref{rem:Alternate Isomorphism}, we get a straightforward analogue of \cref{def:SU-admissible} for the $\LA$ diagonal.
-Specifically, the morphism $r \times r$ exchanges $\max$ and $\min$, giving the following ``dual" notions of admissibility.
+Firstly, the morphism $r \times r$ exchanges $\max$ and $\min$, which yields the following ``dual" notions of admissibility.
 
 \begin{definition}
 \label{def:LA-admissible}
-Let $\sigma$ denote either one of the two ordered partitions of $[n]$ in a $(2,n)$-partition tree, and let $M_i \subsetneq \sigma_i$.
-The right $m$-shift $R_{M_i}$ (\resp. the left $m$-shift $L_{M_{i}}$) is 
+Let $\sigma$ denote either one of the two ordered partitions of $[n]$ in a $(2,n)$-partition tree, and let $M \subsetneq \sigma_i$.
+The right $m$-shift $R_{M}$ (\resp the left $m$-shift $L_{M}$) is 
 \begin{enumerate}
-	\item \defn{block-admissible} if $\max \sigma_i \notin M_i$ and $\max M_i < \min \sigma_{i+m}$ (\resp $\max M_{i} < \min \sigma_{i-m}$),
-	\item \defn{path-admissible} if $\max M_i< \min \sigma_{i,i+m}$ (\resp $\max M_{i} < \min \sigma_{i,i-m}$).
+	\item \defn{block-admissible} if $\max \sigma_i \notin M$ and $\max M < \min \sigma_{i+m}$ (\resp $\max M < \min \sigma_{i-m}$),
+	\item \defn{path-admissible} if $\max M< \min \sigma_{i,i+m}$ (\resp $\max M < \min \sigma_{i,i-m}$).
 \end{enumerate}
 \end{definition}
 
-Admissible sequence of shifts are defined similarly (simply replace $\sigma$ with $\tau$ in \cref{def:SU-admissible}).
-The morphism $t$ permutes the terms, providing the following analogue of \cref{def:classical-SU} for the $\LA$ diagonal. 
+Secondly, as the morphism $t$ switches our ordered partitions, this means that the $\LA$ lefts shifts will act on the left ordered partition, and the $\LA$ right shifts will act on the right ordered partition.
+Consequently, admissible sequences of $\LA$ shifts are defined similarly to \cref{def:SU-admissible} (simply replace $\sigma$ with $\tau$).
+Which provides an analogue of \cref{def:classical-SU} for the $\LA$ diagonal. 
 
-\begin{proposition}
+\begin{definition}
 \label{def:classical-LA}
-The facets of the $\LA$ diagonal are given defined by the formula
+The facets of the shift $\LA$ diagonals are defined by the formula
 \begin{align*}
 \LAD([n]) = \bigcup_{(\sigma,\tau)} \bigcup_{\mathbf{M}, \mathbf{N}} L_\mathbf{M}(\sigma)\times R_\mathbf{N}(\tau)
 \end{align*}
-where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and over all block-admissible sequences of subset $1$-shifts $\b{M},\b{N}$, or over all path-admissible sequences of $1$-shifts, or over all path-admissible sequences of singleton $m$-shifts, for various $m\geq 1$.
-\end{proposition}
+where the unions are taken over all strong complementary partitions $(\sigma, \tau)$ of $[n]$, and over all block-admissible sequences of subset $1$-shifts $\b{M},\b{N}$ (\resp over all path-admissible sequences of singleton $m_j$-shifts, for various $m_j \ge 1$).
+\end{definition}
 
-It turns out that the isomorphism $t(r \times r)$ between the $\LA$ and $\SU$ diagonals has the agreable property of sending left shifts to left shifts, and right shifts to right shifts. 
+We now formally verify that the isomorphism $t(r\times r)$ relates these shift definitions as claimed.
 
 \begin{proposition} 
 \label{prop:trr is an isomorphism of shifts}
@@ -3681,20 +3681,24 @@ For each type of $\LA$ shift, let $\b{M},\b{N}$ be admissible sequences of this 
 \begin{align*}
 	t(r,r)(L_\mathbf{N}(\sigma), R_\mathbf{M}(\tau)) = (R_{r\mathbf{M}}(r\tau), L_{r\mathbf{N}}(r\sigma))
 \end{align*}
-where $r\mathbf{M} \eqdef (rM_{i_1},...,rM_{i_p})$ and $r\mathbf{N}$ (defined similarly) are admissible sequences of $\SU$ shifts of the same type.
+where $r\mathbf{M} \eqdef (rM_{1},...,rM_{p})$ and $r\mathbf{N}$ (defined similarly) are admissible sequences of $\SU$ shifts of the same type.
 \end{proposition}
 \begin{proof}
 As reversing the elements then shifting them is the same as shifting the elements then reversing them,
 it is clear that the equality holds if $r\mathbf{M},r\mathbf{N}$ are admissible sequences of $\SU$ shifts.
 As such, we must simply verify the admissibility, and given the equivalence of the various shift definitions, we just do this for path-admissibility of $1$-shifts.
-Consider a right shift $R_{M_i}$ which is path-admissible in the $\LA$ sense (\cref{def:LA-admissible}). 
-Then, we have that $\max \sigma_i \notin M_i$ implies that $ \min r\sigma_i \not \in r M_i$ and $\max M_i < \min \sigma_{i+m}$  implies that $\min r M_i > \max r \sigma_{i+m}$, and thus the right shift $R_{rM_i}$ is path-admissible in the $\SU$ sense (\cref{def:SU-admissible}).
-Here, $rM_i \in r\sigma_i$ is interpreted as being in a block of the right partition ($\tau$ in the notation of the definition).
-So, if $\mathbf{M} = (M_{i_1},...,M_{i_p})$, define $r(\mathbf{M}) \eqdef (rM_{i_1},...,rM_{i_p})$, and from the prior it is clear this is a path-admissible sequence of $\SU$ shifts, finishing the proof.
+Consider a right shift $R_{M}$, for $M \in \sigma_i$, which is path-admissible in the $\LA$ sense (\cref{def:LA-admissible}). 
+Then, we have that $\max M < \min \sigma_{i,i+1}$ which implies that $\min r M > \max r \sigma_{i,i+1}$, and thus the right shift $R_{rM}$ is path-admissible in the $\SU$ sense (\cref{def:SU-admissible}).
+Here, $rM \in r\sigma_i$ is interpreted as being in a block of the right partition ($\tau$ in the notation of the definition).
+So, if $\mathbf{M} = (M_{i_1},...,M_{i_p})$, define $r(\mathbf{M}) \eqdef (rM_{1},...,rM_{p})$, and from the prior it is clear this is a path-admissible sequence of $\SU$ shifts, finishing the proof.
 \end{proof}
+Thus, given $t(r\times r)$ is an isomorphism of the geometric diagonals (\cref{rem:Alternate Isomorphism}), and the geometric $\SU$ diagonal coincides with the shift $\SU$ diagonals (\cref{subsec:SU-shifts}), it is immediate that
+\begin{proposition}
+The geometric $\LA$ diagonal and all shift $\LA$ diagonals coincide.
+\end{proposition}
 
 \begin{remark}
-The isomorphism $rs\times rs:\LAD \to \SUD$ identified in \cref{thm:bijection-operadic-diagonals}, also sends shifts operators to shift operators, but it sends left shift operators to right shift operators and vice versa.
+The isomorphism $rs\times rs:\LAD \to \SUD$, identified in \cref{thm:bijection-operadic-diagonals}, also sends shifts operators to shift operators, but it sends left shift operators to right shift operators and vice versa.
 The $\LA^{op}$ and $\SU^{op}$ diagonals also admit obvious dual shift descriptions.
 \end{remark}
 
@@ -3909,12 +3913,14 @@ where we have aligned each element, of each diagonal, vertically with its dual e
 
 %%%%%%%%%%%%%%%
 
+\Kurt{Proof read to here.}
+
 \subsection{Shift lattice structure}
 \label{sec:Shift-lattice}
 
-In this section, we show that the singleton $1$-shifts defining the operadic diagonal $\LAD$ or $\SUD$ define a lattice structure on the set of facets.
+In this section, we show that the $1$-shifts of the operadic diagonals $\LAD$ and $\SUD$, define a lattice structure on the set of facets.
 More precisely, each $\SCP$ is the minimal element of a lattice isomorphic to a product of chains, where the partial order is given by shifts.
-We will discuss how this lattice is compatible with a generalised weak order\Guillaume{What is this generalized weak order? Where is it defined?}, and latter we will use it to relate the cubical and shift definitions of the $\SUD$ diagonal in \cref{sec:Cubical}.
+Latter, we will use the lattice structure to relate the cubical and shift definitions of the $\SUD$ diagonal in \cref{sec:Cubical}.
 
 \begin{definition}
 Let $\sigma$ denote any one of the two ordered partitions in a $(2,n)$-partition tree.
