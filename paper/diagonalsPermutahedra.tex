@@ -155,9 +155,9 @@
 \newcommand{\overrightharpoonup}{%
 \mathpalette{\overarrow@\rightharpoonupfill@}}
 \makeatother
-\newcommandx{\orient}[1]{\smash{\overrightharpoonup{#1}}} % ordered
-\newcommandx{\orientedPartitionPoset}[1][1 = n]{\orient{\mathsf{Pa}}_{#1}} % oriented partition poset
-\newcommandx{\orientedForestPoset}[2][1 = n, 2 = \ell]{\orient{\mathsf{Fo}}_{#1}^{#2}} % oriented partition forest poset
+\newcommandx{\order}[1]{\smash{\overrightharpoonup{#1}}} % ordered
+\newcommandx{\orderedPartitionPoset}[1][1 = n]{\order{\b{\Pi}}_{#1}} % oriented partition poset
+\newcommandx{\orderedForestPoset}[2][1 = n, 2 = \ell]{\order{\b{\Phi}}_{#1}^{#2}} % oriented partition forest poset
 
 %Operadic diagonals
 \newcommand{\SU}{\mathrm{SU}}
@@ -570,13 +570,13 @@ A (finite affine real) \defn{hyperplane arrangement} is a finite set~$\arrangeme
 
 \begin{definition}
 A \defn{region} of~$\arrangement$ is a connected component of~$\R^d \ssm \bigcup_{H \in \arrangement} H$.
-A \defn{face} of~$\arrangement$ is the intersection of the closure of a region of~$\arrangement$ with an hyperplane of~$\arrangement$.
+The \defn{faces} of~$\arrangement$ are the closures of the regions of~$\arrangement$ and all their intersections with an hyperplane of~$\arrangement$.
 The \defn{face poset} of~$\arrangement$ is the poset~$\facePoset$ of faces of~$\arrangement$ ordered by inclusion.
-The \defn{$f$-polynomial}~$\fPol$ and \defn{$b$-polynomial}~$\bPol$ of~$\arrangement$ are the polynomial
+The \defn{$f$-polynomial}~$\fPol$ and \defn{$b$-polynomial}~$\bPol$ of~$\arrangement$ are the polynomials
 \[
 \fPol \eqdef \sum_{k = 0}^d f_k(\arrangement) \, x^k
 \qquad\text{and}\qquad
-\bPol \eqdef \sum_{k = 0}^d b_k(\arrangement) \, x^k \, ,
+\bPol \eqdef \sum_{k = 0}^d b_k(\arrangement) \, x^k ,
 \]
 where~$f_k(\arrangement)$ denotes the number of $k$-dimensional faces of~$\arrangement$, while~$b_k(\arrangement)$ denotes the number of bounded $k$-dimensional faces of~$\arrangement$.
 \end{definition}
@@ -594,7 +594,7 @@ The \defn{flat poset} of~$\arrangement$ is poset~$\flatPoset$ of flats of~$\arra
 %\quad\text{and}\quad
 %\mobPol \eqdef \sum_{F \le G \in \flatPoset} \mu_{\flatPoset}(F,G) \, x^{\dim(F)} \, y^{\dim(G)}
 %\]
-The \defn{M\"obius polynomial}~$\mu_{\arrangement}(x,y)$ is the polynomial defined by
+The \defn{M\"obius polynomial}~$\mu_{\arrangement}(x,y)$ of~$\arrangement$ is the polynomial defined by
 \[
 \mobPol \eqdef \sum_{F \le G} \mu_{\flatPoset}(F,G) \, x^{\dim(F)} \, y^{\dim(G)},
 \]
@@ -604,7 +604,7 @@ where~$F \le G$ ranges over all intervals of the flat poset~$\flatPoset$, and~$\
 \qquad\text{and}\qquad
 \sum_{F \le G \le H} \mu_{\flatPoset}(F,G) = 0
 \]
-for all~$F, G, H \in \flatPoset$.
+for all~$F < H$ in~$\flatPoset$.
 \end{definition}
 
 \begin{remark}
@@ -613,7 +613,7 @@ Our definition of the M\"obius polynomial slightly differs from that of~\cite{Za
 
 \begin{theorem}[{\cite[Thm.~A]{Zaslavsky}}]
 \label{thm:Zaslavsky}
-The $f$-polynomial, the $b$-polynomial, and the M\"obius polynomial of an arrangement~$\arrangement$ are related by
+The $f$-polynomial, the $b$-polynomial, and the M\"obius polynomial of the hyperplane arrangement~$\arrangement$ are related by
 \[
 \fPol = \mobPol[\arrangement][-x][-1]
 \qquad\text{and}\qquad
@@ -622,16 +622,6 @@ The $f$-polynomial, the $b$-polynomial, and the M\"obius polynomial of an arrang
 \end{theorem}
 
 \begin{example}
-For the arrangement~$\arrangement$ of $5$ hyperplanes of \cref{fig:arrangement}, we have
-\[
-\mobPol = x^2y^2 - 5x^2y + 6x^2 + 5xy - 10x + 4 \, ,
-\]
-so that
-\begin{align*}
-\fPol & = \mobPol[\arrangement][-x][-1] = 12 \, x^2 + 15 \, x + 4 \\
-\text{and}\qquad
-\bPol & = \mobPol[\arrangement][-x][1] = 2 \, x^2 + 5 \, x + 4.
-\end{align*}
 %
 \begin{figure}
 %	\begin{overpic}[scale=.9]{intersectionPoset}
@@ -651,13 +641,24 @@ so that
 	\caption{A hyperplane arrangement (left) and its intersection poset (right).}
 	\label{fig:arrangement}
 \end{figure}
+%
+For the arrangement~$\arrangement$ of $5$ hyperplanes of \cref{fig:arrangement}, we have
+\[
+\mobPol = x^2y^2 - 5x^2y + 6x^2 + 5xy - 10x + 4 ,
+\]
+so that
+\begin{align*}
+\fPol & = \mobPol[\arrangement][-x][-1] = 12 \, x^2 + 15 \, x + 4 \\
+\text{and}\qquad
+\bPol & = \mobPol[\arrangement][-x][1] = 2 \, x^2 + 5 \, x + 4 .
+\end{align*}
 \end{example}
 
 \begin{remark}
 \label{rem:characteristicPolynomial}
 The coefficient of~$x^d$ in the M\"obius polynomial~$\mobPol$ gives the more classical \defn{characteristic polynomial}
 \[
-\charPol \eqdef [x^d] \, \mobPol = \sum_F \mu_{\flatPoset}(\R^d,F) \, y^{\dim(F)}.
+\charPol \eqdef [x^d] \, \mobPol = \sum_F \mu_{\flatPoset}(\R^d,F) \, y^{\dim(F)} .
 \]
 By \cref{thm:Zaslavsky}, we thus have
 \[
@@ -706,29 +707,29 @@ See \cref{fig:facePosetBraidArrangement3,fig:intersectionPosetBraidArrangement3,
 }
 
 \begin{definition}
-Fix~$n \ge 1$ and denote by~$\HH$ the hyperplane of~$\R^n$ defined by~$\sum_{s = 1}^n x_s = 0$.
+Fix~$n \ge 1$ and denote by~$\HH$ the hyperplane of~$\R^n$ defined by~$\sum_{s \in [n]} x_s = 0$.
 The \defn{braid arrangement}~$\braidArrangement$ is the arrangement of the hyperplanes~$\set{\b{x} \in \HH}{x_s = x_t}$ for all~$1 \le s < t \le n$.
 \end{definition}
 
 \begin{remark}
 \label{rem:essential}
 Note that we have decided to work in the space~$\HH$ rather than in the space~$\R^n$.
-The advantage is that the braid arrangement~$\braidArrangement$ is essential, so that we can speak of its vertices.
+The advantage is that the braid arrangement~$\braidArrangement$ in~$\HH$ is essential, so that we can speak of its vertices.
 Working in~$\R^n$ would change vertices to rays, and would multiply all M\"obius polynomials by a factor~$xy$.
 \end{remark}
 
 The combinatorics of the braid arrangement~$\braidArrangement$ is well-known.
 The descriptions of its face and flat posets involve both ordered and unordered set partitions.
 To avoid confusions, we will always mark with an arrow the ordered structures (ordered set partitions, ordered partition forests, etc.).
-Hence, $\pi$ denotes an unordered set partition (the order is irrelevant, neither inside each part, nor between two distinct part), while~$\orient{\pi}$ denotes an ordered set partition (the order inside each part is irrelevant, but the order between distinct parts is relevant).
+Hence, $\pi$ denotes an unordered set partition (the order is irrelevant, neither inside each part, nor between two distinct part), while~$\order{\pi}$ denotes an ordered set partition (the order inside each part is irrelevant, but the order between distinct parts is relevant).
 
 The braid arrangement~$\braidArrangement$ has a $k$-dimensional face
 \[
-\Phi(\orient{\pi}) \eqdef \set{\b{x} \in \R^n}{x_s \le x_t \text{ for all $s,t$ such that the part of~$s$ is weakly before the part of~$t$ in $\pi$}}
+\Phi(\order{\pi}) \eqdef \set{\b{x} \in \R^n}{x_s \le x_t \text{ for all $s,t$ such that the part of~$s$ is weakly before the part of~$t$ in $\order{\pi}$}}
 \]
-for each ordered set partition~$\orient{\pi}$ of~$[n]$ into~$k+1$ parts (or equivalently, for each surjection from~$[n]$ to~$[k+1]$).
-The face poset~$\facePoset[\braidArrangement]$ is thus (isomorphic to) the refinement poset~$\orientedPartitionPoset$ on ordered set partitions (where an ordered partition~$\orient{\pi}$ is smaller than an ordered partition~$\orient{\omega}$ if each part of~$\orient{\omega}$ is the union of an interval of consecutive parts in~$\orient{\pi}$).
-In particular, it has a single vertex corresponding to the ordered partition~$[n]$, $2^n-2$ rays corresponding to the proper nonempty subsets of~$[n]$ (ordered partitions of~$[n]$ into~$2$ parts), and $n!$ regions corresponding to the permutations of~$[n]$ (ordered partitions of~$[n]$ into~$n-1$ parts).
+for each ordered set partition~$\order{\pi}$ of~$[n]$ into~$k+1$ parts (or equivalently, for each surjection from~$[n]$ to~$[k+1]$).
+The face poset~$\facePoset[\braidArrangement]$ is thus (isomorphic to) the refinement poset~$\orderedPartitionPoset$ on ordered set partitions (where an ordered partition~$\order{\pi}$ is smaller than an ordered partition~$\order{\omega}$ if each part of~$\order{\pi}$ is the union of an interval of consecutive parts in~$\order{\omega}$).
+In particular, it has a single vertex corresponding to the ordered partition~$[n]$, $2^n-2$ rays corresponding to the proper nonempty subsets of~$[n]$ (ordered partitions of~$[n]$ into~$2$ parts), and $n!$ regions corresponding to the permutations of~$[n]$ (ordered partitions of~$[n]$ into~$n$ parts).
 For instance, \cref{fig:facePosetBraidArrangement3} illustrates the face poset of the braid arrangement~$\braidArrangement[3]$.
 
 The braid arrangement~$\braidArrangement$ has a $k$-dimensional~flat
@@ -738,16 +739,17 @@ The braid arrangement~$\braidArrangement$ has a $k$-dimensional~flat
 for each (unordered) set partition~$\pi$ of~$[n]$ into $k+1$ parts.
 The flat poset~$\flatPoset[\braidArrangement]$ is thus (isomorphic to) the refinement poset~$\partitionPoset$ on set partitions of~$[n]$ (where a partition~$\pi$ is smaller than a partition~$\omega$ if each part of~$\pi$ is contained in a part of~$\omega$).
 For instance, \cref{fig:intersectionPosetBraidArrangement3,fig:intersectionPosetBraidArrangement4} illustrate the flat posets of the braid arrangements~$\braidArrangement[3]$ and~$\braidArrangement[4]$.
+(Note that the refinement in~$\orderedPartitionPoset$ and in~$\partitionPoset$ is in opposite direction.)
 
 The M\"obius function of~$\partitionPoset$ is given by
 \[
-\mu_{\partitionPoset}(\pi, \omega) = \prod_{p \in \omega} (-1)^{\#\pi[p]-1}(\#\pi[p]-1)! \, ,
+\mu_{\partitionPoset}(\pi, \omega) = \prod_{p \in \omega} (-1)^{\#\pi[p]-1}(\#\pi[p]-1)! ,
 \]
 where~$\pi[p]$ denotes the restriction of the partition~$\pi$ to the part~$p$ of the partition~$\omega$, and $\#\pi[p]$ denotes its number of parts.
 See for instance~\cite{Birkhoff, Rota}.
 The M\"obius polynomial of the braid arrangement~$\braidArrangement$ is given by
 \[
-\mobPol[\braidArrangement] = \sum_{k \in [n]} x^{k-1} S(n,k) \prod_{i \in [k-1]} (y-i) \, ,
+\mobPol[\braidArrangement] = \sum_{k \in [n]} x^{k-1} S(n,k) \prod_{i \in [k-1]} (y-i) ,
 \]
 where~$S(n,k)$ denotes the Stirling number of second kind \OEIS{A008277}, \ie the number of set partitions of~$[n]$ into~$k$ parts.
 For instance
@@ -762,7 +764,7 @@ In particular, the characteristic polynomial of the braid arrangement~$\braidArr
 \[
 \charPol[\braidArrangement] = (y-1) (y-2) \dots (y-n-1).
 \]
-Working in~$\R^n$ rather than in~$\HH$ would lead to an additional~$y$ factor in this formula, which might be more familiar to the reader
+Working in~$\R^n$ rather than in~$\HH$ would lead to an additional~$y$ factor in this formula, which might be more familiar to the reader.
 See \cref{rem:essential}.
 
 Finally, we will consider the evaluation of the M\"obius polynomial~$\mobPol[\braidArrangement]$ at~$y = 0$:
@@ -777,7 +779,7 @@ We have~$\weirdPol[n] = (1-x) \, \fPol[\braidArrangement]$.
 \end{lemma}
 
 \begin{proof}
-This lemma is equivalent to the following equality:
+This lemma is equivalent to the equality
 \begin{equation*}
 \sum_{k=1}^n (-1)^{k-1} (k-1)! \, S(n,k) \, x^{k-1} = (1-x) \sum_{k=1}^{n-1} (-1)^{k-1} \, k! \, S(n-1,k) \, x^{k-1}.
 \end{equation*}
@@ -790,7 +792,7 @@ Distributing $(1-x)$ in the right hand side gives:
 \end{gather*}
 The result thus follows from the inductive formula on Stirling numbers of the second kind
 \[
-S(n+1,k) = k S(n,k) + S(n,k-1)
+S(n+1,k) = k \, S(n,k) + S(n,k-1)
 \]
 for $0<k<n$.
 \end{proof}
@@ -801,6 +803,7 @@ for $0<k<n$.
 \label{subsec:multiBraidArrangement}
 
 We now focus on the following specific hyperplane arrangements, illustrated in \cref{fig:multiBraidArrangements}.
+We still denote by~$\HH$ the hyperplane of~$\R^n$ defined by~$\sum_{s \in [n]} x_s = 0$.
 
 \begin{figure}[t]
 	\centerline{
@@ -822,12 +825,12 @@ We now focus on the following specific hyperplane arrangements, illustrated in \
 
 \begin{definition}
 \label{def:multiBraidArrangement}
-The \defn{$(\ell,n)$-braid arrangement}~$\multiBraidArrangement$ is the arrangement obtained as the union of $\ell$ generically translated copies of the braid arrangement~$\braidArrangement$.
+The \defn{$(\ell,n)$-braid arrangement}~$\multiBraidArrangement$ is the arrangement in~$\HH$ obtained as the union of $\ell$ generically translated copies of the braid arrangement~$\braidArrangement$.
 \end{definition}
 
 This definition is slightly misleading, as the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ a priori depends on the (generic) translation vectors chosen for each copy.
 We will see that many combinatorial aspects of~$\multiBraidArrangement$ are in fact independent of the translation vectors, in particular the flat poset and thus the $f$-vector of~$\multiBraidArrangement$.
-However, the combinatorial description of the face poset of~$\multiBraidArrangement$ will depend on the translation vectors, so that we introduce the following more precise notation recording of the translations.
+However, the combinatorial description of the face poset of~$\multiBraidArrangement$ will depend on the translation vectors, so that we introduce the following more precise notation recording the translations.
 
 \begin{definition}
 \label{def:multiBraidArrangementPrecise}
@@ -953,13 +956,13 @@ Recall that the M\"obius function is multiplicative:
 for all~$p, p' \in P$ and~$q, q' \in Q$.
 Hence, we obtain that
 \[
-\mu_{\forestPoset}(\b{F}, \b{G}) = \prod_{i \in [\ell]} \prod_{p \in G_i} (-1)^{\#F_i[p]-1} (\# F_i[p]-1)! \, .
+\mu_{\forestPoset}(\b{F}, \b{G}) = \prod_{i \in [\ell]} \prod_{p \in G_i} (-1)^{\#F_i[p]-1} (\# F_i[p]-1)! .
 \]
 Hence, we derive from \cref{def:MobiusPolynomial,prop:flatPosetMultiBraidArrangement} that
 \begin{align*}
 \mobPol[\multiBraidArrangement] 
 & = \sum_{\b{F} \le \b{G}} \mu_{\forestPoset}(\b{F}, \b{G}) \, x^{\dim(\b{F})} \, y^{\dim(\b{G})} \\
-& = x^{n-1-\ell n} y^{n-1-\ell n} \sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i} y^{\#G_i} \prod_{p \in G_i} (-1)^{\#F_i[p]-1} (\# F_i[p]-1)! \, .
+& = x^{n-1-\ell n} y^{n-1-\ell n} \sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i} y^{\#G_i} \prod_{p \in G_i} (-1)^{\#F_i[p]-1} (\# F_i[p]-1)! .
 \qedhere
 \end{align*}
 \end{proof}
@@ -1211,7 +1214,7 @@ The $f$- and $b$-polynomials of the $(\ell,n)$-braid arrangement~$\multiBraidArr
 \begin{align*}
 \fPol[\multiBraidArrangement] & = x^{n-1-\ell n}\sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i} \prod_{p \in G_i} (\# F_i[p]-1)!\\
 \text{and}\qquad
-\bPol[\multiBraidArrangement] & = (-1)^\ell x^{n-1-\ell n} \sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i} \prod_{p \in G_i} -(\# F_i[p]-1)! \, ,
+\bPol[\multiBraidArrangement] & = (-1)^\ell x^{n-1-\ell n} \sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\#F_i} \prod_{p \in G_i} -(\# F_i[p]-1)! ,
 \end{align*}
 where~$\b{F} \le \b{G}$ ranges over all intervals of the $(\ell,n)$-partition forest poset~$\forestPoset$, and~$F_i[p]$ denotes the restriction of the partition~$F_i$ to the part~$p$ of~$G_i$.
 \end{corollary}
@@ -1340,7 +1343,7 @@ F_\ell(z) = 1 + z \, F_\ell(z)^\ell.
 \begin{definition}
 For a rainbow forest~$F$, we define
 \[
-\omega(F) \eqdef \prod_{i \in [\ell]} \prod_{N \in F} \#C_i(N)! \, ,
+\omega(F) \eqdef \prod_{i \in [\ell]} \prod_{N \in F} \#C_i(N)! ,
 \]
 where~$N$ ranges over all nodes of~$F$ and~$C_i(N)$ denotes the children of~$N$ colored by~$i$.
 \end{definition}
@@ -1358,7 +1361,7 @@ A \defn{labeling} of a $(\ell,n)$-rainbow forest~$F$ is a bijective map between 
 \label{lem:labelingRainbowForest}
 The number~$\lambda(F)$ of labelings of a $(\ell,n)$-rainbow forest~$F$ is given by
 \[
-\lambda(F) = \frac{n!}{\omega(F) \prod\limits_{T \in F} \|T\|} \, .
+\lambda(F) = \frac{n!}{\omega(F) \prod\limits_{T \in F} \|T\|} .
 \]
 \end{lemma}
 
@@ -1568,7 +1571,7 @@ By \cref{thm:MobiusPolynomialMultiBraidArrangement,prop:bijectionForests}, the c
 \]
 From \cref{lem:labelingRainbowForest}, we observe that
 \[
-\frac{\lambda(F) \, \omega(F) \, (-y)^{\#F} \, z^{\|F\|}}{\|F\|!} = \prod_{T \in F} \frac{-y \, z^{\|T\|}}{\|T\|} \, ,
+\frac{\lambda(F) \, \omega(F) \, (-y)^{\#F} \, z^{\|F\|}}{\|F\|!} = \prod_{T \in F} \frac{-y \, z^{\|T\|}}{\|T\|} ,
 \]
 where $T$ ranges over the trees of~$F$.
 Now using that rainbow forests are exactly sets of rainbow trees, we obtain that
@@ -1690,17 +1693,17 @@ We now introduce the combinatorial objects that will be used to encode the faces
 
 \begin{definition}
 \label{def:orderedPartitionForest}
-An \defn{ordered $(\ell,n)$-partition forest} (\resp \defn{tree}) is an $\ell$-tuple~$\orient{\b{F}} \eqdef (\orient{F_1}, \dots, \orient{F_\ell})$ of ordered set partitions of~$[n]$ such that the corresponding $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of unordered set partitions of~$[n]$ forms a $(\ell,n)$-partition forest (\resp tree)
-The \defn{ordered $(\ell,n)$-partition forest poset} is the poset~$\orientedForestPoset$ on ordered $(\ell,n)$-partition forests ordered by componentwise refinement.
-In other words, $\orientedForestPoset$ is the subposet of the $\ell$\ordinal{} Cartesian power of the ordered partition poset~$\orientedPartitionPoset$ induced by ordered $(\ell,n)$-partition forests.
-Note that the maximal elements of~$\orientedForestPoset$ are the ordered $(\ell, n)$-partition trees.
+An \defn{ordered $(\ell,n)$-partition forest} (\resp \defn{tree}) is an $\ell$-tuple~$\order{\b{F}} \eqdef (\order{F_1}, \dots, \order{F_\ell})$ of ordered set partitions of~$[n]$ such that the corresponding $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of unordered set partitions of~$[n]$ forms a $(\ell,n)$-partition forest (\resp tree)
+The \defn{ordered $(\ell,n)$-partition forest poset} is the poset~$\orderedForestPoset$ on ordered $(\ell,n)$-partition forests ordered by componentwise refinement.
+In other words, $\orderedForestPoset$ is the subposet of the $\ell$\ordinal{} Cartesian power of the ordered partition poset~$\orderedPartitionPoset$ induced by ordered $(\ell,n)$-partition forests.
+Note that the maximal elements of~$\orderedForestPoset$ are the ordered $(\ell, n)$-partition trees.
 \end{definition}
 
 The following statement is the analogue of \cref{prop:flatPosetMultiBraidArrangement}, and is illustrated in \cref{fig:B23a,fig:B23b}.
 
 \begin{proposition}
 \label{prop:facePosetMultiBraidArrangement}
-The face poset~$\facePoset[\multiBraidArrangement(\b{a})]$ of the $\b{a}$-braid arrangement~$\multiBraidArrangement(\b{a})$ is isomorphic to an upper set~$\orientedForestPoset(\b{a})$ of the ordered $(\ell,n)$-partition forest poset~$\orientedForestPoset$.
+The face poset~$\facePoset[\multiBraidArrangement(\b{a})]$ of the $\b{a}$-braid arrangement~$\multiBraidArrangement(\b{a})$ is isomorphic to an upper set~$\orderedForestPoset(\b{a})$ of the ordered $(\ell,n)$-partition forest poset~$\orderedForestPoset$.
 \end{proposition}
 
 \begin{proof}
@@ -1727,8 +1730,8 @@ Finally, by genericity, it is immediate that we obtain an upper set of this comp
 We now fix a generic translation matrix~$\b{a} \eqdef (a_{i,j})$ and still denote by~$A_{i,s,t} \eqdef \smash{\sum_{s \le j < t} a_{i,j}}$ for all~$1 \le s < t \le n$ and~$i \in [\ell]$ (and often write~$A_{i,t,s}$ for~$-A_{i,s,t}$).
 The objective of this section is to describe
 \begin{itemize}
-\item the ordered $(\ell,n)$-partitions forests of the upper set~$\orientedForestPoset(\b{a})$ with a given underlying (unordered) $(\ell,n)$-partition forest (\cref{subsec:PFtoOPF}),
-\item a criterion to decide whether a given ordered $(\ell,n)$-partition forest belongs to the upper set~$\orientedForestPoset(\b{a})$, \ie corresponds to a face of~$\multiBraidArrangement(\b{a})$ (\cref{subsec:criterionOPF}).
+\item the ordered $(\ell,n)$-partitions forests of the upper set~$\orderedForestPoset(\b{a})$ with a given underlying (unordered) $(\ell,n)$-partition forest (\cref{subsec:PFtoOPF}),
+\item a criterion to decide whether a given ordered $(\ell,n)$-partition forest belongs to the upper set~$\orderedForestPoset(\b{a})$, \ie corresponds to a face of~$\multiBraidArrangement(\b{a})$ (\cref{subsec:criterionOPF}).
 \end{itemize}
 
 %%%%%%%%%%%%%%%
@@ -1736,7 +1739,7 @@ The objective of this section is to describe
 \subsection{From partition forests to ordered partition forests}
 \label{subsec:PFtoOPF}
 
-In this section, we describe the ordered $(\ell,n)$-partitions forests~$\orient{\b{F}}$ of the upper set~$\orientedForestPoset(\b{a})$ with a given underlying $(\ell,n)$-partition forest~$\b{F}$.
+In this section, we describe the ordered $(\ell,n)$-partitions forests~$\order{\b{F}}$ of the upper set~$\orderedForestPoset(\b{a})$ with a given underlying $(\ell,n)$-partition forest~$\b{F}$.
 We denote by~$cc(\b{F})$ the connected components of~$\b{F}$, meaning the partition of~$[n]$ given by the hyperedge labels of the connected components of the intersection hypergraph of~$\b{F}$.
 We first observe that the choice of~$\b{a}$ fixes the order of the parts in a common connected component of~$\b{F}$.
 
@@ -1744,17 +1747,17 @@ We first observe that the choice of~$\b{a}$ fixes the order of the parts in a co
 \label{prop:PFtoOPF1}
 Consider an $(\ell,n)$-partition forest~$\b{F} \eqdef (F_1, \dots, F_\ell)$, and two integers~$s,t \in [n]$ labeling two hyperedges in the same connected component of the intersection hypergraph of~$\b{F}$.
 Assume that the unique path from~$s$ to~$t$ in the hypergraph of~$\b{F}$ passes through the hyperedges labeled by~$s = r_0, \dots, r_q = t$ and through parts of the partitions~$F_{i_1}, \dots, F_{i_q}$.
-Then for any ordered $(\ell,n)$-partition forest~$\orient{\b{F}} \eqdef (\orient{F_1}, \dots, \orient{F_\ell})$ of the upper set~$\orientedForestPoset(\b{a})$ with underlying $(\ell,n)$-partition forest~$\b{F}$ and any~$i \in [\ell]$, the order of~$s$ and~$t$ in~$\orient{F}_i$ is given by the sign of~$A_{i,s,t} - \sum_{p \in [q]} A_{i_p, r_{p-1}, r_p}$.
+Then for any ordered $(\ell,n)$-partition forest~$\order{\b{F}} \eqdef (\order{F_1}, \dots, \order{F_\ell})$ of the upper set~$\orderedForestPoset(\b{a})$ with underlying $(\ell,n)$-partition forest~$\b{F}$ and any~$i \in [\ell]$, the order of~$s$ and~$t$ in~$\order{F}_i$ is given by the sign of~$A_{i,s,t} - \sum_{p \in [q]} A_{i_p, r_{p-1}, r_p}$.
 \end{proposition}
 
 \begin{proof}
-Consider any point~$\b{x}$ in the face of~$\multiBraidArrangement(\b{a})$ corresponding to~$\orient{\b{F}}$.
+Consider any point~$\b{x}$ in the face of~$\multiBraidArrangement(\b{a})$ corresponding to~$\order{\b{F}}$.
 Along the path from~$s$ to~$t$, we have~$x_{r_{p-1}} - x_{r_p} = A_{i_p, r_{p-1}, r_p}$ for each~$p \in [q]$.
 Hence, we obtain that
 \[
 x_s - x_t = \sum_{p \in [q]}  (x_{r_{p-1}} - x_{r_p}) = \sum_{p \in [q]} A_{i_p, r_{p-1}, r_p}.
 \]
-The order of~$s,t$ in~$\orient{F}_i$ is given by the sign of~$A_{i,s,t} - (x_s - x_t)$, hence of~$A_{i,s,t} - \sum_{p \in [q]} A_{i_p, r_{p-1}, r_p}$.
+The order of~$s,t$ in~$\order{F}_i$ is given by the sign of~$A_{i,s,t} - (x_s - x_t)$, hence of~$A_{i,s,t} - \sum_{p \in [q]} A_{i_p, r_{p-1}, r_p}$.
 \end{proof}
 
 We now describe the different ways to order the parts in distinct connected components of~$\b{F}$.
@@ -1770,26 +1773,26 @@ We say that a subset~$X$ of~$\Inv(\b{F}, \b{a})$ is antisymmetric if~$(i,s,t) \i
 
 \begin{proposition}
 \label{prop:PFtoOPF2}
-The ordered $(\ell,n)$-partition forests of the upper set~$\orientedForestPoset(\b{a})$ with a given underlying $(\ell,n)$-partition forest~$\b{F}$ are in bijection with the antisymmetric lower sets of the inversion poset~$\Inv(\b{F}, \b{a})$.
+The ordered $(\ell,n)$-partition forests of the upper set~$\orderedForestPoset(\b{a})$ with a given underlying $(\ell,n)$-partition forest~$\b{F}$ are in bijection with the antisymmetric lower sets of the inversion poset~$\Inv(\b{F}, \b{a})$.
 \end{proposition}
 
 \begin{proof}
-Consider an ordered $(\ell,n)$-partition forest~$\orient{\b{F}}$ of the upper set~$\orientedForestPoset(\b{a})$.
-Let~$\b{x}$ be any point of the face of~$\multiBraidArrangement(\b{a})$ corresponding to~$\orient{\b{F}}$.
-For each pair~$s,t \in [n]$ in distinct connected components of~$cc(\b{F})$, let~$I_{s,t}(\orient{\b{F}})$ be the set of indices~$i \in [\ell]$ such that~$x_s - x_t < A_{i,s,t}$.
+Consider an ordered $(\ell,n)$-partition forest~$\order{\b{F}}$ of the upper set~$\orderedForestPoset(\b{a})$.
+Let~$\b{x}$ be any point of the face of~$\multiBraidArrangement(\b{a})$ corresponding to~$\order{\b{F}}$.
+For each pair~$s,t \in [n]$ in distinct connected components of~$cc(\b{F})$, let~$I_{s,t}(\order{\b{F}})$ be the set of indices~$i \in [\ell]$ such that~$x_s - x_t < A_{i,s,t}$.
 Note that~$I_{s,t}$ is by definition a lower set of the chain~$<_{s,t}$ of~$\Inv(\b{F}, \b{a})$.
-Hence, $I(\orient{F}) \eqdef \bigcup_{s,t} I_{s,t} / {\equiv}$ is a lower set of~$\Inv(\b{F}, \b{a})$.
+Hence, $I(\order{F}) \eqdef \bigcup_{s,t} I_{s,t} / {\equiv}$ is a lower set of~$\Inv(\b{F}, \b{a})$.
 Moreover, it is clearly antisymmetric since
 \[
-(i,s,t) \in I(\orient{F}) \iff x_s - x_t < A_{i,s,t} \iff x_t - x_s > A_{i,t,s} \iff (i,t,s) \notin I(\orient{F}).
+(i,s,t) \in I(\order{F}) \iff x_s - x_t < A_{i,s,t} \iff x_t - x_s > A_{i,t,s} \iff (i,t,s) \notin I(\order{F}).
 \]
 
-Conversely, given an antisymmetric lower set~$I$ of~$\Inv(\b{F}, \b{a})$, we can reconstruct an ordered $(\ell,n)$-partition forest~$\orient{\b{F}}$ by ordering each pair~$s,t \in [n]$ in~$\orient{F}_i$ 
+Conversely, given an antisymmetric lower set~$I$ of~$\Inv(\b{F}, \b{a})$, we can reconstruct an ordered $(\ell,n)$-partition forest~$\order{\b{F}}$ by ordering each pair~$s,t \in [n]$ in~$\order{F}_i$ 
 \begin{itemize}
 \item according to \cref{prop:PFtoOPF1} (hence independently of~$I$) if $s$ and~$t$ belong to the same connected component of~$\b{F}$,
-\item according to~$I$ if~$s$ and~$t$ belong to distinct connected components of~$\b{F}$. Namely, we place the block of~$\orient{F}_i$ containing~$s$ before the block of~$\orient{F}_i$ containing~$t$ if and only if~$(i,s,t) \in I$.
+\item according to~$I$ if~$s$ and~$t$ belong to distinct connected components of~$\b{F}$. Namely, we place the block of~$\order{F}_i$ containing~$s$ before the block of~$\order{F}_i$ containing~$t$ if and only if~$(i,s,t) \in I$.
 \end{itemize}
-It is then straightforward to check that the resulting ordered $(\ell,n)$-partition forest belongs to the upper set~$\orientedForestPoset(\b{a})$, by exhibiting a point~$\b{x}$ in of the corresponding face of~$\multiBraidArrangement(\b{a})$.
+It is then straightforward to check that the resulting ordered $(\ell,n)$-partition forest belongs to the upper set~$\orderedForestPoset(\b{a})$, by exhibiting a point~$\b{x}$ in of the corresponding face of~$\multiBraidArrangement(\b{a})$.
 \end{proof}
 
 %%%%%%%%%%%%%%%
@@ -1797,38 +1800,38 @@ It is then straightforward to check that the resulting ordered $(\ell,n)$-partit
 \subsection{A criterion for ordered partition forests}
 \label{subsec:criterionOPF}
 
-We now consider a given ordered $(\ell,n)$-partition forest~$\orient{F}$ and provide a criterion to decide if it belongs to the upper set~$\orientedForestPoset(\b{a})$ corresponding to the faces of~$\multiBraidArrangement(\b{a})$.
-For this, we need the following directed graph associated to~$\orient{\b{F}}$.
+We now consider a given ordered $(\ell,n)$-partition forest~$\order{F}$ and provide a criterion to decide if it belongs to the upper set~$\orderedForestPoset(\b{a})$ corresponding to the faces of~$\multiBraidArrangement(\b{a})$.
+For this, we need the following directed graph associated to~$\order{\b{F}}$.
 
 \begin{definition}
-For an ordered partition~$\orient{\pi} \eqdef \orient{\pi}_1 | \dots | \orient{\pi}_k$ of~$[n]$, we denote by~$D_{\orient{\pi}}$ the directed graph on~$[n]$ with an arc~$\max(\orient{\pi}_j) \to \min(\orient{\pi}_{j+1})$ for each~$j \in [k-1]$ and a cycle~${x_1 \to \dots \to x_p \to x_1}$ for each part~$\orient{\pi}_j = \{x_1 < \dots < x_p\}$.
-Note that~$D_{\orient{\pi}}$ has~$n$ vertices and~$n + k$ arcs.
-For an ordered $(\ell,n)$-partition forest~$\orient{\b{F}} \eqdef (\orient{F_1}, \dots, \orient{F_\ell})$, we denote by~$D_{\orient{\b{F}}}$ the superposition of the directed graphs~$D_{\orient{F}_i}$ for~$i \in [\ell]$, where the arcs of~$D_{\orient{F}_i}$ are labeled by~$i$.
+For an ordered partition~$\order{\pi} \eqdef \order{\pi}_1 | \dots | \order{\pi}_k$ of~$[n]$, we denote by~$D_{\order{\pi}}$ the directed graph on~$[n]$ with an arc~$\max(\order{\pi}_j) \to \min(\order{\pi}_{j+1})$ for each~$j \in [k-1]$ and a cycle~${x_1 \to \dots \to x_p \to x_1}$ for each part~$\order{\pi}_j = \{x_1 < \dots < x_p\}$.
+Note that~$D_{\order{\pi}}$ has~$n$ vertices and~$n + k$ arcs.
+For an ordered $(\ell,n)$-partition forest~$\order{\b{F}} \eqdef (\order{F_1}, \dots, \order{F_\ell})$, we denote by~$D_{\order{\b{F}}}$ the superposition of the directed graphs~$D_{\order{F}_i}$ for~$i \in [\ell]$, where the arcs of~$D_{\order{F}_i}$ are labeled by~$i$.
 \end{definition}
 
 \begin{proposition}
 \label{prop:characterizationOPFs}
-An ordered $(\ell,n)$-partition forest~$\orient{\b{F}}$ belongs to the upper set~$\orientedForestPoset(\b{a})$ if and only if $\sum_{\alpha \in \gamma} A_{i(\alpha), s(\alpha), t(\alpha)} \ge 0$ for any (simple) oriented cycle~$\gamma$ in~$D_{\orient{\b{F}}}$, where each arc~$\alpha \in \gamma$ has label~$i(\alpha)$, source~$s(\alpha)$, and target~$t(\alpha)$.
+An ordered $(\ell,n)$-partition forest~$\order{\b{F}}$ belongs to the upper set~$\orderedForestPoset(\b{a})$ if and only if $\sum_{\alpha \in \gamma} A_{i(\alpha), s(\alpha), t(\alpha)} \ge 0$ for any (simple) oriented cycle~$\gamma$ in~$D_{\order{\b{F}}}$, where each arc~$\alpha \in \gamma$ has label~$i(\alpha)$, source~$s(\alpha)$, and target~$t(\alpha)$.
 \end{proposition}
 
 \begin{proof}
-Consider an ordered $(\ell,n)$-partition forest~$\orient{\b{F}} \eqdef (\orient{F}_1, \dots, \orient{F}_\ell)$.
+Consider an ordered $(\ell,n)$-partition forest~$\order{\b{F}} \eqdef (\order{F}_1, \dots, \order{F}_\ell)$.
 For each~$i \in [\ell]$, denote by
 \begin{itemize}
-\item $m_i$ the number of arcs of~$D_{\orient{F}_i}$
-\item $M_i$ the incidence matrix of~$D_{\orient{F}_i}$, with $m_i$ rows and $n$ columns, with a row for each arc~$\alpha$ of~$D_{\orient{F}_i}$ containing a $-1$ in column~$s(\alpha)$, a $1$ in column~$t(\alpha)$, and $0$ elsewhere,
-\item $\b{z}_i$ the column vector in~$\R^{m_i}$ with a row for each arc~$\alpha$ of~$D_{\orient{F}_i}$ containing the value~$A_{i(\alpha), s(\alpha), t(\alpha)}$.
+\item $m_i$ the number of arcs of~$D_{\order{F}_i}$
+\item $M_i$ the incidence matrix of~$D_{\order{F}_i}$, with $m_i$ rows and $n$ columns, with a row for each arc~$\alpha$ of~$D_{\order{F}_i}$ containing a $-1$ in column~$s(\alpha)$, a $1$ in column~$t(\alpha)$, and $0$ elsewhere,
+\item $\b{z}_i$ the column vector in~$\R^{m_i}$ with a row for each arc~$\alpha$ of~$D_{\order{F}_i}$ containing the value~$A_{i(\alpha), s(\alpha), t(\alpha)}$.
 \end{itemize}
-Then a point~$\b{x} \in \R^n$ belongs to the face of the $i$\ordinal braid arrangement corresponding to~$\orient{F}_i$ if and only if it satisfies~$M_i \, \b{x} \le \b{z}_i$.
-Hence, $\orient{\b{F}}$ appears as a face of the $\b{a}$-braid arrangement if and only if there exists~$\b{x} \in \R^n$ such that~$M \, \b{x} \le \b{z}$, where~$M$ is the $(m \times n)$-matrix (where~$m \eqdef \sum_{i \in [\ell]} m_i$), obtained by piling the matrices~$M_i$ for~$i \in [\ell]$ and similarly, $\b{z}$ is the column vector obtained by piling the vectors~$\b{z}_i$.
+Then a point~$\b{x} \in \R^n$ belongs to the face of the $i$\ordinal braid arrangement corresponding to~$\order{F}_i$ if and only if it satisfies~$M_i \, \b{x} \le \b{z}_i$.
+Hence, $\order{\b{F}}$ appears as a face of the $\b{a}$-braid arrangement if and only if there exists~$\b{x} \in \R^n$ such that~$M \, \b{x} \le \b{z}$, where~$M$ is the $(m \times n)$-matrix (where~$m \eqdef \sum_{i \in [\ell]} m_i$), obtained by piling the matrices~$M_i$ for~$i \in [\ell]$ and similarly, $\b{z}$ is the column vector obtained by piling the vectors~$\b{z}_i$.
 A direct application of the Farkas lemma (see \eg \cite[Prop.~1.7]{Ziegler}), there exists~$\b{x} \in \R^n$ such that~$M \, \b{x} \le \b{z}$ if and only if~$\b{c} \b{z} \ge 0$ for any~$\b{c} \in (\R^m)^*$ with~$\b{c} \ge \b{0}$ and~$\b{c} M = \b{0}$.
 Now it is classical that the left kernel of the incidence matrix of a directed graph is generated by its circuits (non-necessarily oriented cycles), and that the positive cone in this left kernel is generated by its oriented cycles.
 \end{proof}
 
 \begin{remark}
-Note that we made some arbitrary choices here by choosing the arc from~$\max(\orient{\pi}_j)$ to~$\min(\orient{\pi}_{j+1})$ between two consecutive parts~$\orient{\pi}_j$ and~$\orient{\pi}_{j+1}$ and a cycle inside each part~$\orient{\pi}_j$ (while we said that the order in each part is irrelevant).
+Note that we made some arbitrary choices here by choosing the arc from~$\max(\order{\pi}_j)$ to~$\min(\order{\pi}_{j+1})$ between two consecutive parts~$\order{\pi}_j$ and~$\order{\pi}_{j+1}$ and a cycle inside each part~$\order{\pi}_j$ (while we said that the order in each part is irrelevant).
 We could instead have considered all arcs connecting two elements of two consecutive parts, or two elements inside the same part.
-Our choices just limit the amount of oriented cycles in~$D_{\orient{\pi}}$.
+Our choices just limit the amount of oriented cycles in~$D_{\order{\pi}}$.
 \end{remark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2134,11 +2137,11 @@ Relying on \cref{prop:diagonalPermutahedraMultiBraidArrangements}, we now specia
 Observe that one can easily compute the full M\"obius polynomials of the $(2,n)$-braid arrangements~$\multiBraidArrangement[n][2]$ from \cref{thm:MobiusPolynomialMultiBraidArrangement}:
 \begin{align*}
 \allowdisplaybreaks
-\mobPol[{\multiBraidArrangement[1][2]}] & = 1 \, , \\
-\mobPol[{\multiBraidArrangement[2][2]}] & = x y - 2 x + 2 \, , \\
-\mobPol[{\multiBraidArrangement[3][2]}] & = x^2 y^2 - 6 x^2 y + 10 x^2 + 6 x y - 18 x + 8 \, , \\
-\mobPol[{\multiBraidArrangement[4][2]}] & = x^3 y^3 - 12 x^3 y^2 + 52 x^3 y - 84 x^3 + 12 x^2 y^2 - 96 x^2 y + 216 x^2 + 44 x y - 182 x + 50 \, , \\
-\mobPol[{\multiBraidArrangement[5][2]}] & = x^4 y^4 - 20 x^4 y^3 + 160 x^4 y^2 - 620 x^4 y + 1008 x^4 \\ & \quad+ 20 x^3 y^3 - 300 x^3 y^2 + 1640 x^3 y - 3360 x^3 \\ & \quad+ 140 x^2 y^2 - 1430 x^2 y + 4130 x^2 + 410 x y - 2210 x + 432 \, .
+\mobPol[{\multiBraidArrangement[1][2]}] & = 1 , \\
+\mobPol[{\multiBraidArrangement[2][2]}] & = x y - 2 x + 2 , \\
+\mobPol[{\multiBraidArrangement[3][2]}] & = x^2 y^2 - 6 x^2 y + 10 x^2 + 6 x y - 18 x + 8 , \\
+\mobPol[{\multiBraidArrangement[4][2]}] & = x^3 y^3 - 12 x^3 y^2 + 52 x^3 y - 84 x^3 + 12 x^2 y^2 - 96 x^2 y + 216 x^2 + 44 x y - 182 x + 50 , \\
+\mobPol[{\multiBraidArrangement[5][2]}] & = x^4 y^4 - 20 x^4 y^3 + 160 x^4 y^2 - 620 x^4 y + 1008 x^4 \\ & \quad+ 20 x^3 y^3 - 300 x^3 y^2 + 1640 x^3 y - 3360 x^3 \\ & \quad+ 140 x^2 y^2 - 1430 x^2 y + 4130 x^2 + 410 x y - 2210 x + 432 .
 \end{align*}
 %which can be encoded in matrices as
 %{\small
