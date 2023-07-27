@@ -3097,32 +3097,7 @@ where the unions are taken over all strong complementary partitions $(\sigma, \t
 
 \subsubsection{First isomorphism between $\SU$ diagonals}
 
-First, we show that the $m$-shift $\SU$ diagonal is equivalent to the $1$-shift $\SU$ diagonal, which is given by exactly the same definition, but where only $1$-shifts are performed. 
-
-\begin{proposition}
-	\label{prop:iso-1-to-m-shift}
-	The $1$-shift and $m$-shift $\SU$ diagonals coincide.
-\end{proposition}
-
-\begin{proof}
-It is clear that any path-admissible sequence of $1$-shifts is a path-admissible sequence of $m$-shifts, and thus that the facets of the $1$-shift $\SU$ diagonal are facets of the $m$-shift $\SU$ diagonal. 
-For the reverse inclusion, we need to show that any $m$-shift can be re-expressed as a path-admissible sequence of $1$-shifts. 
-We proceed by induction.
-For the case $m=1$, there is nothing to prove.
-Let $(\sigma,\tau)$ be a pair of ordered partitions in the $m$-shift diagonal. 
-Suppose now that for an element $\rho \in \sigma_i$, the right $m$-shift $R_\rho$ is path-admissible, \ie $\rho > \max \sigma_{i,i+m}$.
-Since $\sigma_{i,i+m}=\sigma_{i,i+1}\sigma_{i+1,i+m}$ we have that $\max \sigma_{i,i+m}\geq \max \sigma_{i,i+1}$,
-\Kurt{can you see a quick way to prove this? (given that $\sigma_{i,i+m}=\sigma_{i,i+1}\sigma_{i+1,i+m}$ only if you cancel steps traversed in the opposite direction).
-(We know the max cannot be in the overlap in the geometric def as it would be traversed in opposite directions.)
-}
-which means that the $1$-shift $R_\rho$ is path-admissible.
-We will show in \cref{cor:SU-shift-preserves-max} that $1$-shifts conserve the maximal element of paths between adjacent blocks, and its directions.
-\Kurt{Need this, probably not worth re-ordering for.}
-Consequently, the following $(m-1)$-shift $R_\rho$ is path-admissible, and we can thus apply the induction hypothesis. 
-\end{proof}
-
-We will now compare the $1$-shift and original $\SU$ diagonals. 
-The key to the equivalence is the following technical result. 
+We start by analyzing the $1$-shift $\SU$ diagonal, which is given by exactly the same definition as the $m$-shift diagonal, but where only $1$-shifts are performed. 
 
 \begin{proposition} 
 \label{prop:SU-preserves-max}
@@ -3204,25 +3179,57 @@ For the case (2b) it follows from the observation that the number of steps of $\
 
 \begin{corollary} 
 \label{cor:SU-shift-preserves-max}
+Path-admissible sequences of $1$-shifts, defining the $1$-shift $\SU$ diagonal, conserve 
+\begin{enumerate}
+	\item the maximal element of any path between two blocks of the same ordered partition,
+	\item the direction in which this element is traversed. 
+\end{enumerate}
+In particular, if a pair of ordered partitions $(\sigma',\tau')$ is generated from a strong complementary pair~$(\sigma,\tau)$ by path-admissible $1$-shifts, then we have
+\begin{align*}
+	\max \sigma'_{i,i+1} = \max \sigma_{i+1} \text{ and } \max \tau'_{i,i+1} = \max \tau_{i} .
+\end{align*}
+\end{corollary}
+
+\begin{proof}
+By the definition of path-admissible $1$-shifts (\cref{def:SU-admissible}), the outer inequality of \cref{eq:shift-subset-dominates} holds by assumption.
+As such, can run the proof of \cref{prop:SU-preserves-max} \emph{mutatis mutandis}.
+\end{proof}
+
+We are how in position to show that the $1$-shift and $m$-shift descriptions are equivalent. 
+
+\begin{proposition}
+	\label{prop:iso-1-to-m-shift}
+	The $1$-shift and $m$-shift $\SU$ diagonals coincide.
+\end{proposition}
+
+\begin{proof}
+It is clear that any path-admissible sequence of $1$-shifts is a path-admissible sequence of $m$-shifts, and thus that the facets of the $1$-shift $\SU$ diagonal are facets of the $m$-shift $\SU$ diagonal. 
+For the reverse inclusion, we need to show that any $m$-shift can be re-expressed as a path-admissible sequence of $1$-shifts. 
+We proceed by induction.
+For the case $m=1$, there is nothing to prove.
+Let $(\sigma,\tau)$ be a pair of ordered partitions in the $m$-shift diagonal. 
+Suppose now that for an element $\rho \in \sigma_i$, the right $m$-shift $R_\rho$ is path-admissible, \ie $\rho > \max \sigma_{i,i+m}$.
+Since $\sigma_{i,i+m}=\sigma_{i,i+1}\sigma_{i+1,i+m}$ we have that $\max \sigma_{i,i+m}\geq \max \sigma_{i,i+1}$, which means that the $1$-shift $R_\rho$ is path-admissible.
+According to \cref{cor:SU-shift-preserves-max}, $1$-shifts conserve the maximal element of paths between adjacent blocks, and its directions.
+Consequently, the following $(m-1)$-shift $R_\rho$ is path-admissible, and we can thus apply the induction hypothesis. 
+\end{proof}
+
+This isomorphism provides us with the following analogue of \cref{prop:iso-1-to-m-shift} for $m$-shifts. 
+
+\begin{corollary} 
 Path-admissible sequences of $m$-shifts, defining the $m$-shift $\SU$ diagonal, conserve 
 \begin{enumerate}
 	\item the maximal element of any path between two blocks of the same ordered partition,
 	\item the direction in which this element is traversed. 
 \end{enumerate}
 In particular, if a pair of ordered partitions $(\sigma',\tau')$ is generated from a strong complementary pair~$(\sigma,\tau)$ by path-admissible $m$-shifts, then we have
-\begin{align}
-	\label{eq:max-3}
+\begin{align*}
 	\max \sigma'_{i,i+m} = \max \sigma_{i+m} \text{ and } \max \tau'_{i,i+m} = \max \tau_{i} .
-\end{align}
+\end{align*}
 \end{corollary}
 
-\begin{proof}
-By \cref{prop:iso-1-to-m-shift}, it suffices to treat the case of $1$-shifts. 
-By the definition of path-admissible $1$-shifts (\cref{path-admissible}), the outer inequality of \cref{eq:shift-subset-dominates} holds by assumption.
-As such, can run the proof of \cref{prop:SU-preserves-max} \emph{mutatis mutandis}.
-\end{proof}
-
 We stress that \cref{eq:shift-subset-dominates} holds for $m$-shifts without us needing to perform shifts in increasing order, or requiring $\min M_k > \max R_{\mathbf{M}}(\sigma)_{k+1}$.
+We are now ready to prove that the $m$-shift description is equivalent to the original one. 
 
 \begin{theorem}
 \label{prop:iso-original-shift-diagonals}
