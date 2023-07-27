@@ -2056,7 +2056,7 @@ As we will use the following set throughout the paper, we embed it in a definiti
 \label{def:Un}
 For~$n \in \N$, we define
 \[
-\Un(n) \eqdef \{ \{I,J\} \ | \ I,J \subset [n] \text{ with } |I|=|J| \text{ and } I \cap J = \varnothing\}.
+\Un(n) \eqdef \bigset{\{I,J\}}{I,J \subset [n] \text{ with } |I|=|J| \text{ and } I \cap J = \varnothing}.
 \]
 An \defn{ordering} of~$\Un(n)$ is a set containing exactly one of the two ordered pairs $(I,J)$ or $(J,I)$ for each $\{I,J\} \in \Un(n)$.
 \end{definition}
@@ -2505,7 +2505,7 @@ Starting instead with the orders $(\{1\},\{2\})$ and $(\{2,3\},\{1,4\})$ would g
 Let $l\geq 2$ and suppose that for all $k\leq l$, we have given the pair $\{I_k,J_k\} \eqdef \{\{1,k+2,k+3,\dots,2k-1,2k\},\{2,3,\dots,k+1\}\}$ the $\LA$ ordering $(I_k,J_k)$.
 Then from \cref{lem:operadic-ordering}, we know that the only $\{I,J\}$ pair of order $l+1$ that will not decompose, and hence be specified by the already chosen conditions, is $\{I_{l+1},J_{l+1}\}$.
 As such, the only way we can vary from $\LA$ is to order this element in the opposite direction $(J_{l+1},I_{l+1})$. 
-We now define a particular decomposable pair $\{I'_m,J'_m\}:= I_m \sqcup \{3\} \ssm \{m+2\}, J_m \sqcup \{m+2\} \ssm \{3\}$, of order $m \eqdef l+2$, that will lead to a contradiction (see \cref{ex:Non-coherent order contradiction}).
+We now define a particular decomposable pair $\{I'_m,J'_m\}\eqdef I_m \sqcup \{3\} \ssm \{m+2\}, J_m \sqcup \{m+2\} \ssm \{3\}$, of order $m \eqdef l+2$, that will lead to a contradiction (see \cref{ex:Non-coherent order contradiction}).
 On the one side, we can decompose $\{I'_m,J'_m\} = \{I_a \cup I_b, J_a \cup J_b\}$ with $I_a \eqdef  \{1,m+3,\dots,2m\}, J_a \eqdef  \{4,5,\dots,m+2\}, I_b \eqdef \{3\}$ and $J_b \eqdef  \{2\}$. 
 By hypothesis, we have the orders $(J_a,I_a)$ and $(J_b,I_b)$ which imply the order $(J'_m,I'_m)$ since our ordering is operadic. 
 On the other side, we can decompose $\{I'_m,J'_m\} = \{I_c \cup I_d, J_c \cup J_d\}$, where $I_c \eqdef  \{1,m+3,\dots,  2m-1\}, J_c \eqdef \{2,5,\dots,m+1\}, I_d \eqdef \{3, 2m\}$ and $J_d \eqdef  \{4, m+2\}$.
@@ -2552,7 +2552,7 @@ For $P$ the permutahedron, this face poset involution is given by the assignment
 
 The permutahedron possesses another symmetry: the cellular involution $r : P \to P$ which sends a point $p \in P$ to its reflection with respect to the hyperplane of equation \[ \sum_{i=1}^{\lfloor n/2 \rfloor}x_i = \sum_{i=1}^{\lfloor n/2 \rfloor}x_{n-i+1} . \]
 This involution also respects the face poset structure. 
-In terms of ordered partitions, it replaces each block $A_j$ in $A_1 | \cdots | A_k$ by the block $r(A_j) \eqdef \{r(i) \ | \ i \in A_j\}$ where~$r(i) \eqdef n-i+1$.
+In terms of ordered partitions, it replaces each block $A_j$ in $A_1 | \cdots | A_k$ by the block $r(A_j) \eqdef \set{r(i)}{i \in A_j}$ where~$r(i) \eqdef n-i+1$.
 
 The involution $t : P \times P \to P \times P$ sending $(x,y)$ to~$(y,x)$ takes a cellular diagonal to another cellular diagonal.
 As we have already remarked in \cref{subsec:LASUdiagonal}, in the case of the permutahedron it sends $\LAD$ to $(\LAD)^\op$ and $\SUD$ to $(\SUD)^\op$.
@@ -2863,7 +2863,7 @@ Now suppose that for all $(I,J)$ of size $|I|=|J|\leq m-1$, we have that if~$J$ 
 We need to show that this is still true for the pairs $(I,J)$ of size $|I|=|J|=m$.
 Firstly, we need only consider standardised $I,J$ conditions, and pairs of permutations of $[2m]$.
 Why?
-If we define $(\sigma',\tau') := \std(\sigma \cap (I\cup J),\tau \cap (I\cup J))$, and $(I',J'):=\std(I',J')$, 
+If we define $(\sigma',\tau') \eqdef \std(\sigma \cap (I\cup J),\tau \cap (I\cup J))$, and $(I',J')\eqdef\std(I',J')$, 
 then if $(\sigma,\tau)$ satisfies the $(I,J)$ domination condition, this implies $(\sigma',\tau')$ satisfies $(I',J')$.
 Conversely, if $(\sigma',\tau')$ has a pattern, then this implies $(\sigma,\tau)$ has the same pattern.
 Which yields the indicated simplification.
@@ -3325,7 +3325,7 @@ For $(\sigma,\tau) = 13|24|57|6 \times 3|17|456|2$, the right ordered $(2,n)$-tr
     \item $\sigma$ has inversions $I_\sigma = \{(1,3),(2,3),(2,4),(5,6),(5,7),(6,7)\}$, and
     \item $\tau$ has inversions $I_\tau = \{(1,3), (2,3), (2,4), (2,5), (2,6), (2,7), (4,7), (5,7), (6,7)\}$.
 \end{itemize}
-Consequently, $(\sigma,\tau)$ has inversions $I = I_\tau \setminus I_\sigma = \{(2,5), (2,6), (2,7), (4,7)\}$, and these are precisely the crossings of the ordered $(2,n)$-tree.
+Consequently, $(\sigma,\tau)$ has inversions $I = I_\tau \ssm I_\sigma = \{(2,5), (2,6), (2,7), (4,7)\}$, and these are precisely the crossings of the ordered $(2,n)$-tree.
 \end{example}
 
 %%%%%%%%%%%%%%%
@@ -3472,8 +3472,8 @@ Then we may apply the following inverse $m$-shift operator.
 \node[anchor=east] (1) at (-1.5, -1) {$\sigma_i$};
 \node[anchor=east] (2) at (-1.5, -2) {$\sigma_{i+1}$};
 %
-\node[anchor=west] (3) at (1.5, -1) {$\tau_{j-m}\setminus \rho$};
-\node[anchor=west] (4) at (1.5, -2) {$\tau_{j}\sqcup \rho$};
+\node[anchor=west] (3) at (1.5, -1) {$\tau_{j-m} \ssm \rho$};
+\node[anchor=west] (4) at (1.5, -2) {$\tau_{j} \sqcup \rho$};
 %
 \draw[thick, dashed] (1.east) -- (4.west); 
 \draw[thick] (2.east) -- (4.west);
@@ -3525,7 +3525,7 @@ The situation can be pictured as on the left.
 \end{center}
 Now let $\rho' \eqdef \max\sigma_{i,i-n}$ be the maximum of the path $\sigma_{i,i-n}=(i_1,j_1,i_2,...,i_{k-1},j_{k-1})$, and let~$\tau_{j-m}$, $m\geq 1$ be the block of $\tau$ containing $\rho'$.
 We want to show that an inverse left $m$-shift can bring $\rho'$ back to $\tau_j$, \ie we need $\rho' > \max \tau_{j-m,j}$.
-As $\rho':= \max \sigma_{i,i-n}$, and apart from the step $i_k$ we have that $\tau_{j-m,j}\subset \sigma_{i,i-n}$, we just need to show that $\rho' > i_k$.
+As $\rho'\eqdef \max \sigma_{i,i-n}$, and apart from the step $i_k$ we have that $\tau_{j-m,j}\subset \sigma_{i,i-n}$, we just need to show that $\rho' > i_k$.
 To see that this is indeed the case, it suffices to look at the last steps $$\tau_l \overset{j_{k-1}}{\longrightarrow} \sigma_{i-n} \overset{i_{k}}{\longrightarrow} \tau_j \overset{\rho}{\longrightarrow} \sigma_{i+1}$$ of the path $\sigma_{i,i+1}$. 
 By the definition of the geometric $\SU$ diagonal, the fact that $\tau_l < \tau_j$ implies that $j_{k-1} > i_k$, and thus that $\rho' > i_k$, which finishes the proof. 
 \end{proof}
@@ -3861,7 +3861,7 @@ In particular, the two center faces of the subdivided hexagon of \cref{fig:LUSAd
 \draw[thick] (2.east) -- (5.west);
 \draw[thick] (2.east) -- (4.west);
 \end{tikzpicture}
-,\quad \quad
+\qquad \qquad
 \begin{tikzpicture}[scale=.6,xscale=0.6]  
 \node[anchor=east] (1) at (-1.5, -1) {$12$};
 \node[anchor=east] (2) at (-1.5, -2) {$3$};
@@ -3887,7 +3887,6 @@ In particular, the two center faces of the subdivided hexagon of \cref{fig:LUSAd
 \draw[thick] (2.east) -- (4.west);
 \draw[thick] (1.east) -- (5.west);
 \end{tikzpicture}
-
 \end{center}
 and
 \begin{center}
@@ -3916,7 +3915,7 @@ and
 \draw[thick] (2.east) -- (4.west);
 \draw[thick] (2.east) -- (5.west);
 \end{tikzpicture}
-,\quad \quad
+\qquad \qquad
 \begin{tikzpicture}[scale=.6,xscale=0.6]  
 \node[anchor=east] (1) at (-1.5, -1) {$2$};
 \node[anchor=east] (2) at (-1.5, -2) {$13$};
@@ -3942,7 +3941,6 @@ and
 \draw[thick] (2.east) -- (4.west);
 \draw[thick] (1.east) -- (5.west);
 \end{tikzpicture}
-
 \end{center}
 where we have aligned each element, of each diagonal, vertically with its dual element.
 \end{example}
@@ -3963,8 +3961,8 @@ Prior to defining the lattice structure, we produce two useful lemmas for charac
 Let $v$ be a permutation of $[n]$, and $(\sigma,\tau)$ the SCP corresponding to $v$.
 For $\rho \in [n]$, we define the $\LA$ \defn{left height} and \defn{right height} of $\rho$ to be 
 \begin{align*}
-    l_v(\rho) := \max (\{0\}\cup \{m>0: L_{\rho}(\sigma) \text{ is a path admissible $\LA$ $m$-shift} \})\\
-    r_v(\rho) := \max (\{0\}\cup \{m>0: R_{\rho}(\tau) \text{ is a path admissible $\LA$ $m$-shift} \})
+    l_v(\rho) \eqdef \max (\{0\}\cup \{m>0: L_{\rho}(\sigma) \text{ is a path admissible $\LA$ $m$-shift} \})\\
+    r_v(\rho) \eqdef \max (\{0\}\cup \{m>0: R_{\rho}(\tau) \text{ is a path admissible $\LA$ $m$-shift} \})
 \end{align*}
 The left and right heights for the $\SU$ diagonal are defined similarly. 
 \end{definition}
@@ -4018,12 +4016,13 @@ The following proof makes both these interpretations clear.
 \label{prop:shift lattice}
 The shift lattices are indeed lattices, and are isomorphic to products of chains.
 \begin{align*}
-    T_v^\LA \cong \prod_{\rho \in [n]} [0,l_v(\rho)]
-	\times \prod_{\rho \in [n]} [0,r_v(\rho)] \ , \quad \text{ and }  T_v^\SU \cong \prod_{\rho \in [n]} [0,r_v(\rho)]
-	\times \prod_{\rho \in [n]} [0,l_v(\rho)] \ .
+T_v^\LA \cong \prod_{\rho \in [n]} [0,l_v(\rho)] \times \prod_{\rho \in [n]} [0,r_v(\rho)] \ , 
+\quad \text{ and } \quad
+T_v^\SU \cong \prod_{\rho \in [n]} [0,r_v(\rho)] \times \prod_{\rho \in [n]} [0,l_v(\rho)] .
 \end{align*}
-\end{proposition}
 where $[0,k]$ is the chain lattice $0<1<...<k$, for $k\geq 0$.
+\end{proposition}
+
 \begin{proof}
 We define $L_\rho^m$ (\resp $R_\rho^m$) to be a left (right) $m$-shift of $\rho$ for $m>0$, and the identity for $m=0$.
 By the commutativity of $m$-shift operators (\cref{lem:m-shifts commute}), and the existence of unique heights for each element (\cref{prop:maximal m-shift formulae}), every element of $T_v^\LA$ admits a unique shift description $(L^{l_n}_{n}...L^{l_1}_{1}\sigma,
@@ -4233,8 +4232,8 @@ We define inductively a subdivision $\divcube{n-1}$ of the $(n-1)$-dimensional c
 Let $\divcube{0}$ be the $0$-cube (a point), trivially subdivided by the sole element $1$ of $\Perm[1]$.
 Then, assuming we have constructed $\divcube{n-1}$, we construct $\divcube{n}$ by weaving the element $n$ through the ordered partition defining every face $\sigma = \sigma_1|...|\sigma_k \in \Perm[n]$, using an interval description.
 For $0<j<k$ we define
-$n_j := |\sigma_{k-j+1}\cup...\cup \sigma_k|$, $I_j := [1 - \frac{1}{2^{n_j}}, 1 - \frac{1}{2^{n_{j+1}}}]$, and boundary cases $I_0:= [0,1 - \frac{1}{2^{n_1}}]$, $I_k:= [1 - \frac{1}{2^{n_k}},1]$.
-This defines a partition of the interval $[0,1]$, which we denote $I := I_0 \cup ... \cup I_k$.
+$n_j \eqdef |\sigma_{k-j+1}\cup...\cup \sigma_k|$, $I_j \eqdef [1 - \frac{1}{2^{n_j}}, 1 - \frac{1}{2^{n_{j+1}}}]$, and boundary cases $I_0\eqdef [0,1 - \frac{1}{2^{n_1}}]$, $I_k\eqdef [1 - \frac{1}{2^{n_k}},1]$.
+This defines a partition of the interval $[0,1]$, which we denote $I \eqdef I_0 \cup ... \cup I_k$.
 The weaving of $n$ through $\sigma$ is then defined as follows,
 \begin{align} \label{eq:SU cube inductive def}
 	\sigma \times I \mapsto 
@@ -4322,7 +4321,7 @@ The face $\sigma$ is trivially one such cube.
 Consider the $k+1$ elements of $[n]$, which correspond to dimensions spanned by $\sigma$, and let $\rho$ be the largest such element.
 Let $\sigma_L$ be the $1$-face, with maximal vertex $v$, whose only non-trivial dimension corresponds to $\rho$.
 Then, there exists a unique maximal $1$-subdivision line with maximal $1$-face $\sigma_L$, which we denote $L$.
-In particular, if $v'$ is the minimal vertex of $L$, and $v_\rho, v'_\rho$ are the indices of $\rho$ in $v,v'$, then under the inductive description of $\divcube{n-1}$ (\cref{eq:SU cube inductive def}) the line $L$ corresponds to $\sigma_L \times I'$ where $I':=[1-\frac{1}{2^{n-v'_\rho}},1-\frac{1}{2^{n-v_\rho}}]$.
+In particular, if $v'$ is the minimal vertex of $L$, and $v_\rho, v'_\rho$ are the indices of $\rho$ in $v,v'$, then under the inductive description of $\divcube{n-1}$ (\cref{eq:SU cube inductive def}) the line $L$ corresponds to $\sigma_L \times I'$ where $I'\eqdef[1-\frac{1}{2^{n-v'_\rho}},1-\frac{1}{2^{n-v_\rho}}]$.
 
 Let $\sigma_C$ be the $k$-face which results from taking $\sigma$, and setting the dimension corresponding to~$\rho$ to $1-\frac{1}{2^{n-v_\rho}}$.
 This corresponds to shifting $\rho$ from its current block, into a singleton block above it, so consequently the maximal vertex of $\sigma_C$ is also $v$.
@@ -4472,8 +4471,8 @@ We first define inductively a subdivision $\divcube{n-1}^{\LA}$ of the $(n-1)$-d
 Let $\divcube{0}^{\LA}$ be the $0$-cube (a point), trivially subdivided by the sole element $1$ of $\Perm[1]$.
 Then, assuming we have constructed $\divcube{n-1}^{\LA}$, we construct $\divcube{n}^{\LA}$ by weaving $1$ through every face of $\sigma = \sigma_1|...|\sigma_k \in \Perm[n]$, using an interval description.
 For $0<j<k$ we define
-$n_j := |\sigma_{k-j+1}\cup...\cup \sigma_k|$, $I_j := [1 - \frac{1}{2^{n_j}}, 1 - \frac{1}{2^{n_{j+1}}}]$, and boundary cases $I_0:= [0,1 - \frac{1}{2^{n_1}}]$, $I_k:= [1 - \frac{1}{2^{n_k}},1]$.
-This defines a partition of the interval $[0,1]$, which we denote $I := I_0 \cup ... \cup I_k$.
+$n_j \eqdef |\sigma_{k-j+1}\cup...\cup \sigma_k|$, $I_j \eqdef [1 - \frac{1}{2^{n_j}}, 1 - \frac{1}{2^{n_{j+1}}}]$, and boundary cases $I_0\eqdef [0,1 - \frac{1}{2^{n_1}}]$, $I_k\eqdef [1 - \frac{1}{2^{n_k}},1]$.
+This defines a partition of the interval $[0,1]$, which we denote $I \eqdef I_0 \cup ... \cup I_k$.
 The weaving of $1$ through $\sigma$ is then defined as follows,
 \begin{align}
 \label{eq:In LA inductive def}
@@ -4526,7 +4525,7 @@ where~$\sigma'_i = \{x+1:x\in \sigma_i\}$.
 The appropriate base definitions for the $\LA$ diagonal of $k$-subdivision cubes (\ref{def:Subdivisions}), sandglasses of subdivision cubes ${\subdivpairsv}$ (\ref{def:sandglass}), and maximal pairs of subdivision cubes $\maxsubdivpairsv$ are all the same as in the $\SU$ case.
 We relate these definitions to those in the $\SU$ case with the following result.
 \begin{proposition}\label{prop:r is a k-subdiv cube isomorphism}
-Let $r:P\to P$ be the face poset isomorphism of the permutahedra which acts on $A_1|...|A_k$, by replacing each block $A_j$ by the block $r(A_j):=\{n-i+1 \ | \ i \in A_j\}$.
+Let $r:P\to P$ be the face poset isomorphism of the permutahedra which acts on $A_1|...|A_k$, by replacing each block $A_j$ by the block $r(A_j)\eqdef\set{n-i+1}{i \in A_j}$.
 Then the induced map $r:\divcube{n}^{\SU}\to \divcube{n}^{\LA}$,
 \begin{enumerate}
 	\item is a face poset isomorphism,
