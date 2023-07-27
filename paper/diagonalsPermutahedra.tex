@@ -83,10 +83,8 @@
 \newcommand{\bb}[1]{\mathbb{#1}} % bb letters
 \newcommand{\f}[1]{\mathfrak{#1}} % frak letters
 \newcommand{\h}{\widehat} % hat letters
-
 \newcommand{\Un}{\mathrm{U}} % unordered IJ
 \newcommand{\Or}{\mathrm{O}} % ordered IJ
-
 \newcommand{\PT}{\mathrm{PT}} %planar trees
 
 % math commands
@@ -220,7 +218,12 @@
 
 \title{Cellular diagonals of permutahedra}
 
-\thanks{}
+\thanks{
+BDO was partially supported by the French ANR grants ALCOHOL (ANR-19-CE40-0006), CARPLO (ANR-20-CE40-0007), HighAGT (ANR-20-CE40-0016) and S3 (ANR-20-CE48-0010). 
+GLA and KS were supported by the Australian Research Council Future Fellowship FT210100256. 
+KS was supported by an Australian Government Research Training Program (RTP) Scholarship.
+VP was partially supported by the French ANR grant CHARMS (ANR-19-CE40-0017) and by the French--Austrian project PAGCAP (ANR-21-CE48-0020 \& FWF I 5788).
+}
 
 \author[B. Delcroix-Oger]{B\'er\'enice Delcroix-Oger}
 \address[B\'{e}r\'{e}nice Delcroix-Oger]{Institut Montpelli\'erain Alexander Grothendieck, Universit\'e de Montpellier, France}
@@ -263,12 +266,13 @@ We show that one of these diagonals is a topological enhancement of the Sanbebli
 Finally, we use the preceding results to show that there are precisely two isomorphic topological cellular operad structures on the family of operahedra, and exactly two infinity-isomorphic universal tensor products of homotopy operads.
 \end{abstract}
 
-\vspace*{-.5cm}
+\vspace*{-1.2cm}
 \maketitle
 
-%\enlargethispage{2cm}
+%\enlargethispage{.2cm}
+\vspace*{-.4cm}
+\centerline{\includegraphics[scale=.75]{diagonalPermutahedron3}}
 \vspace*{-.2cm}
-\centerline{\includegraphics[scale=.8]{diagonalPermutahedron3}}
 
 \newpage
 \enlargethispage{1cm}
@@ -521,7 +525,14 @@ As the associahedra and the permutahedra are part of the family of operahedra, w
 However, the isomorphism of topological operads, which takes place in the category of polytopes $\PolySub$ (for which the morphisms are \emph{not} affine maps, see \cite[Def. 4.13]{LaplanteAnfossi}) does \emph{not} commute with the diagonal maps (\cref{ex:iso-not-Hopf}).
 Moreover, the pairs of faces in the image of the two operadic diagonals are in general not in bijection (see \cref{ex:SU-LA-operahedra}), yielding different (but $\infty$-isomorphic) tensor products of homotopy operads.  
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section*{Aknowledgements}
+
+GLA is grateful to Hugh Thomas for raising the question to count the facets of the $\LA$ diagonal and for preliminary discussions during a visit at the LACIM in the summer of 2021 where the project started, and the Max Planck Insitute for Mathematics in Bonn where part of this work was carried out.
+We are grateful to Sylvie Corteel for pointing out the relevance of the dual perspective for the purpose of counting.
+VP is grateful to the organizers (Karim Adiprasito, Alexey Glazyrin, Isabella Novic, and Igor Pak) of the workshop ``Combinatorics and Geometry of Convex Polyhedra'' held at the Simons Center for Geometry and Physics in March 2023 for the opportunity to present a preliminary version of our enumerative results, and to  Pavel Galashin for asking about the characteristic polynomial of the multi braid arrangement during this presentation.
+We thank Samson Saneblidze and Ron Umble for useful correspondence.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1822,12 +1833,15 @@ Our choices just limit the amount of oriented cycles in~$D_{\orient{\pi}}$.
 \part{Diagonals of permutahedra}
 \label{part:diagonalsPermutahedra}
 
-This second part is devoted to the study of the combinatorics of the diagonals of the permutahedra.
+In this second part, we study of the combinatorics of the diagonals of the permutahedra.
 In \cref{sec:cellularDiagonals}, we first recall the definition and some know facts about diagonals of polytopes (\cref{subsec:cellularDiagonalsPolytopes}), which we immediately specialize to the classical permutahedron (\cref{sec:cellularDiagonalsPermutahedra}), and connect to \cref{part:multiBraidArrangements} to derive enumerative statements on the diagonals of permutahedra (\cref{subsec:enumerationDiagonalPermutahedra}).
 In \cref{sec:operadicDiagonals}, we consider two particular diagonals, the $\LA$ and $\SU$ diagonals (\cref{subsec:LASUdiagonal}), show that these are the only two operadic diagonals which induce the weak order (\cref{subsec:operadicProperty}), and that they are isomorphic (\cref{subsec:isos-LA-SU}). 
 Using results from \cref{sec:cellularDiagonals}, we then characterize their facets in terms of paths in $(2,n)$-partition trees (\cref{subsec:facets-operadic-diags}), and their vertices as pattern-avoiding pairs of permutations (\cref{subsec:vertices-operadic-diags}).
-
-\vincent{To complete}
+Finally, in \cref{sec:shifts}, we show that the geometric $\SU$ diagonal $\SUD$ is a topological enhancement of the original Saneblidze-Umble diagonal~\cite{SaneblidzeUmble} (\cref{subsec:topological-SU}).
+In order to prove this result, we define different types of shifts that can be performed on the facets of the $\SU$ diagonal, and give several new equivalent definitions of it. 
+These descriptions are directly translated to the $\LA$ diagonal via isomorphism (\cref{subsec:shifts-under-iso}).
+Moreover, we observe that the shifts define a natural lattice structure on the set of facets of operadic diagonals, that we call the \emph{shift lattice} (\cref{sec:Shift-lattice}).
+Finally, we present the alternative matrix (\cref{subsec:matrix}) and cubical (\cref{sec:Cubical}) descriptions of the $\SU$ diagonal from \cite{SaneblidzeUmble,SaneblidzeUmble-comparingDiagonals}, provide proofs of their equivalence with the other descriptions, and give their $\LA$ counterparts. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1874,9 +1888,9 @@ For $\b{z}$ a point of $P$, let us denote by $\rho_{\b{z}} P \eqdef 2\b{z}-P$ de
 
 \begin{figure}[p]
 	\centerline{
-		\includegraphics[scale=.3]{HypSimplex.png}
-		\includegraphics[scale=.35]{HypCube.png} \ \
-		\includegraphics[scale=.3]{HypPermuto.png}
+		\includegraphics[scale=.4]{HypSimplex.png} \hspace{-.6cm}
+		\includegraphics[scale=.45]{HypCube.png} \hspace{-.3cm}
+		\includegraphics[scale=.4]{HypPermuto.png}
 	}
 	\caption{The fundamental hyperplane arrangements of the $3$-dimensional simplex, cube, and permutahedron. In blue are pictured the hyperplanes which are not perpendicular to actual edges of the polytope $P$, but only to edges of some intersection $P\cap \rho_z P$. Left and rightmost illustrations from~\cite[Fig.~12]{LaplanteAnfossi}.}
 	\label{fig:examplesHyperplanes}
@@ -1884,6 +1898,8 @@ For $\b{z}$ a point of $P$, let us denote by $\rho_{\b{z}} P \eqdef 2\b{z}-P$ de
 
 A vector is \defn{generic with respect to~$P$} if it does not belong to the union of the hyperplanes of the fundamental hyperplane arrangement~$\mathcal{H}_P$.
 In particular, such a vector is not perpendicular to any edge of $P$, and we denote by~$\min_{\b{v}}(P)$ (\resp $\max_{\b{v}}(P)$) the unique vertex of~$P$ which minimizes (\resp maximizes) the scalar product with~$\b{v}$. 
+
+\pagebreak
 
 \begin{theorem}
 \label{thm:diagonal}
@@ -2186,7 +2202,7 @@ Observe that one can easily compute the full M\"obius polynomials of the $(2,n)$
 We now focus on the number of vertices, regions, and bounded regions of the $(2,n)$-braid arrangement~$\multiBraidArrangement[n][2]$, to obtain the number of facets, vertices, and internal vertices of the diagonal of the permutahedron~$\Perm$.
 The first few values are gathered in \cref{table:enumerationDiagonalPermutahedra1,table:enumerationDiagonalPermutahedra2}.
 
-\begin{table}
+\begin{table}[b]
 	\centerline{\scalebox{1}{
 		\begin{tabular}[t]{c|ccccccccccc}
 			$n$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $\dots$ & OEIS \\
@@ -2307,12 +2323,11 @@ Hence, by Cayley's formula for spanning trees of~$K_{n+1}$, we obtain that the n
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\pagebreak
 \section{Operadic diagonals}
 \label{sec:operadicDiagonals}
 
-This section is devoted to the combinatorics of two specific diagonals of the permutahedra, the $\LA$ and $\SU$ diagonals (\cref{subsec:LASUdiagonal}).
-We show that these are the only two diagonals which respect the product structure on the faces of the permutahedra (\cref{subsec:operadicProperty}), and that they are isomorphic (\cref{subsec:isos-LA-SU}). 
-Finally, we describe their facets by a simple combinatorial rule (\cref{subsec:facets-operadic-diags}), and their vertices as pattern-avoiding pairs of permutations (\cref{subsec:vertices-operadic-diags}). 
+This section is devoted to the combinatorics of two specific diagonals of the permutahedra, the $\LA$ and $\SU$ diagonals, which are shown to be the only operadic diagonals of the permutahedra.
 
 %%%%%%%%%%%%%%%
 
@@ -2350,7 +2365,7 @@ They are illustrated in dimension~$2$ in \cref{fig:LUSAdiagonals}.
 %Their faces for the $2$-dimensional permutahedron are illustrated on the first page of this article.  
 
 \begin{figure}
-	\centerline{\includegraphics[scale=1]{diagonalPermutahedron3}}
+	\centerline{\includegraphics[scale=.85]{diagonalPermutahedron3}}
 	\caption{The $\LA$ (and~$SU$) diagonal of~$\Perm[3]$ with faces labeled by ordered $(2,3)$-partition forests. (See also \cref{fig:B23a} for the dual hyperplane arrangement.)}
 	\label{fig:LUSAdiagonals}
 \end{figure}
@@ -2753,6 +2768,7 @@ where $I=\{i_1,\dots,i_k\}$, $J=\{j_1,\dots,j_k\}$ and $i_1=1$ (\resp $j_k=2k$).
 \end{theorem}
 
 \begin{example}\label{exm:intervalsWeakOrderNotDiagonals}
+\enlargethispage{.5cm}
 For each $k$, there are $\binom{2k-1}{k-1,k}(k-1)!k!$ avoided standardised patterns.
 For $k=1$, both diagonals avoid $(21,12)$, so the vertices are intervals of the weak order.
 For $k=2$, 
@@ -2770,7 +2786,7 @@ As such, the vertices of $\LA$ and $\SU$ are a strict subset of all intervals of
 Here is an illustration of the patterns avoided for $k=4$.
 The $\LA$ pattern is drawn on the left, the $\SU$ pattern is drawn on the right, and they are in bijection under the isomorphism $t(r\times r)$ (\cref{subsec:isos-LA-SU}), where the bijection between elements is $(i_1,i_2,i_3,i_4)\mapsto (j'_4,j'_1,j'_2,j'_3)$ and $(j_1,j_2,j_3,j_4)\mapsto (i'_1,i'_2,i'_3,i'_4)$.
 \begin{center}
-\begin{tikzpicture}[scale=.7]  
+\begin{tikzpicture}[scale=.65]  
 \node[anchor=east] (0) at (-1.5, 0) {$j_1$};
 \node[anchor=east] (1) at (-1.5, -1) {$i_1$};
 \node[anchor=east] (2) at (-1.5, -2) {$j_2$};
@@ -2800,7 +2816,7 @@ The $\LA$ pattern is drawn on the left, the $\SU$ pattern is drawn on the right,
 %
 \end{tikzpicture}
 \raisebox{7em}{$\xrightarrow{t(r\times r)}$}
-\begin{tikzpicture}[scale=.7]  
+\begin{tikzpicture}[scale=.65]  
 \node[anchor=east] (0) at (-1.5, 0) {$j'_1$};
 \node[anchor=east] (1) at (-1.5, -1) {$i'_1$};
 \node[anchor=east] (2) at (-1.5, -2) {$j'_2$};
@@ -2884,19 +2900,8 @@ However, as $j_k$ must be dominated by an element of $I$, this forces $w = i_1$ 
 \section{Shift lattice}
 \label{sec:shifts}
 
-In this section we show that the geometric $\SU$ diagonal $\SUD$ is a topological enhancement of the original Saneblidze-Umble diagonal~\cite{SaneblidzeUmble} (\cref{subsec:topological-SU}).
-In order to prove this result, we define different types of shifts that can be performed on the facets of the $\SU$ diagonal, and give several new equivalent definitions of it. 
-These descriptions are directly translated to the $\LA$ diagonal via isomorphism (\cref{subsec:shifts-under-iso}).
-Moreover, we observe that the shifts define a natural lattice structure on the set of facets of operadic diagonals, that we call the \emph{shift lattice} (\cref{sec:Shift-lattice}).
-Finally, we present the alternative matrix (\cref{subsec:matrix}) and cubical (\cref{sec:Cubical}) descriptions of the $\SU$ diagonal from \cite{SaneblidzeUmble,SaneblidzeUmble-comparingDiagonals}, provide proofs of their equivalence with the other descriptions, and give their $\LA$ counterparts. 
-Throughout this Section, we borrow notation from~\cite{SaneblidzeUmble-comparingDiagonals}.
-
-%%%%%%%%%%%%%%%
-
-\subsection{Topological enhancement of the original $\SU$ diagonal}
-\label{subsec:topological-SU}
-
 In this section, we prove that the geometric $\SU$ diagonal $\SUD$ agrees at the cellular level with the original Saneblidze-Umble diagonal defined in~\cite{SaneblidzeUmble}.
+This involves some shift operations on facets of the diagonal, which are interesting on their own right, and lead to lattice and cubic structures.
 The proof is technical and proceeds in several steps: we introduce two additional combinatorial descriptions of the diagonal, that we call the $1$-shift and $m$-shift $\SU$ diagonals, and show the sequence of equivalences
 \begin{center}
 \begin{tikzcd}
@@ -2906,6 +2911,14 @@ The proof is technical and proceeds in several steps: we introduce two additiona
 \text{geometric $\SUD$} .
 \end{tikzcd}
 \end{center}
+Throughout this Section, we borrow notation from~\cite{SaneblidzeUmble-comparingDiagonals}.
+
+%%%%%%%%%%%%%%%
+
+\subsection{Topological enhancement of the original $\SU$ diagonal}
+\label{subsec:topological-SU}
+
+We proceed to introduce different versions of the $\SU$ diagonal, and to prove that all these notions coincide.
 
 %%%%%%%%%%%%%%%
 
@@ -2978,7 +2991,8 @@ The fact that these are \emph{all} the facets with this property follows from th
 
 %%%%%%%%%%%%%%%
 
-\subsubsection{$\SU$ diagonals}\label{subsec:SU-shifts}
+\subsubsection{Shifts and the $\SU$ diagonals}
+\label{subsec:SU-shifts}
 
 We recall the definition of the original $\SU$ diagonal of~\cite{SaneblidzeUmble}, based on the description given in~\cite{SaneblidzeUmble-comparingDiagonals}.
 We introduce two other descriptions, the $1$-shift and $m$-shift $\SU$ diagonals, which will be shown later to be equivalent to the original one.
@@ -3091,8 +3105,6 @@ where the unions are taken over all strong complementary partitions $(\sigma, \t
 	In the analogous description for the $\LA$ diagonal $\LAD$ obtained at in \cref{subsec:shifts-under-iso}, left and right shifts act on the left and right ordered partitions, respectively.
 \end{remark}
 
-\vincent{Change the notations everywhere...}
-
 %%%%%%%%%%%%%%%
 
 \subsubsection{First isomorphism between $\SU$ diagonals}
@@ -3126,7 +3138,6 @@ and consequently that
 We consider the right shift operator; the left shift operator proceeds similarly.
 Let us start with Point $(1)$.
 As $\SCP$s trivially meet the above conditions, we will prove the result inductively by assuming that the result holds for $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$, and then showing that applying a block-admissible operator $R_{M_k}$, for $M_k\subsetneq \sigma_k$,
-\Kurt{$M$ is too similar to $\mathbf{M}$, so didn't alter. Maybe could use $M'$}
 conserves the maximal elements of paths.
 By the inductive hypothesis, we know that $\max R_{\mathbf{M}}(\sigma)_{k,k+1}= \max \sigma_{k+1}$.
 As $R_{M_k}$ is an admissible operator, we know two things: firstly that $\min M_k > \max R_{\mathbf{M}}(\sigma)_{k+1}$, and secondly that $\max \sigma_{k+1} = \max R_{\mathbf{M}}(\sigma)_{k+1}$, as $k$ is greater than the maximal index used by $\mathbf{M}$.
@@ -3145,7 +3156,7 @@ There are four cases to consider.
 \begin{enumerate}
 \item the path $\gamma$ does not contain an element of $M_k$.
 In this case, it is unaffected by the shift, so $\gamma' = \gamma$.
-We note that in light of \cref{eq:shift-subset-dominates}, the path $\delta_{k,k+1}$ meets this case. \Kurt{Maybe more natural here, but also a repeat of above so maybe cut sentence.}
+We note that in light of \cref{eq:shift-subset-dominates}, the path $\delta_{k,k+1}$ meets this case.
 
 \item the path $\gamma$ contains one element $m\in M_k$, \ie it is of the form $\gamma = \alpha m \beta$, with $\alpha$ or $\beta$ possibly empty.
 We assume that $m$ is incoming to $R_\mathbf{M}(\sigma)_{k}$, the case when it is outgoing is similar.
@@ -3178,7 +3189,7 @@ For the case (2b) it follows from the observation that the number of steps of $\
 \end{proof}
 
 \begin{corollary} 
-\label{cor:SU-shift-preserves-max}
+\label{cor:SU-1-shift-preserves-max}
 Path-admissible sequences of $1$-shifts, defining the $1$-shift $\SU$ diagonal, conserve 
 \begin{enumerate}
 	\item the maximal element of any path between two blocks of the same ordered partition,
@@ -3210,22 +3221,23 @@ For the case $m=1$, there is nothing to prove.
 Let $(\sigma,\tau)$ be a pair of ordered partitions in the $m$-shift diagonal. 
 Suppose now that for an element $\rho \in \sigma_i$, the right $m$-shift $R_\rho$ is path-admissible, \ie $\rho > \max \sigma_{i,i+m}$.
 Since $\sigma_{i,i+m}=\sigma_{i,i+1}\sigma_{i+1,i+m}$ we have that $\max \sigma_{i,i+m}\geq \max \sigma_{i,i+1}$, which means that the $1$-shift $R_\rho$ is path-admissible.
-According to \cref{cor:SU-shift-preserves-max}, $1$-shifts conserve the maximal element of paths between adjacent blocks, and its directions.
+According to \cref{cor:SU-1-shift-preserves-max}, $1$-shifts conserve the maximal element of paths between adjacent blocks, and its directions.
 Consequently, the following $(m-1)$-shift $R_\rho$ is path-admissible, and we can thus apply the induction hypothesis. 
 \end{proof}
 
-This isomorphism provides us with the following analogue of \cref{prop:iso-1-to-m-shift} for $m$-shifts. 
+This isomorphism provides us with the following analogue of \cref{cor:SU-1-shift-preserves-max} for $m$-shifts. 
 
 \begin{corollary} 
+\label{cor:SU-shift-preserves-max}
 Path-admissible sequences of $m$-shifts, defining the $m$-shift $\SU$ diagonal, conserve 
 \begin{enumerate}
 	\item the maximal element of any path between two blocks of the same ordered partition,
 	\item the direction in which this element is traversed. 
 \end{enumerate}
-In particular, if a pair of ordered partitions $(\sigma',\tau')$ is generated from a strong complementary pair~$(\sigma,\tau)$ by path-admissible $m$-shifts, then we have
-\begin{align*}
-	\max \sigma'_{i,i+m} = \max \sigma_{i+m} \text{ and } \max \tau'_{i,i+m} = \max \tau_{i} .
-\end{align*}
+%In particular, if a pair of ordered partitions $(\sigma',\tau')$ is generated from a strong complementary pair~$(\sigma,\tau)$ by path-admissible $m$-shifts, then we have
+%\begin{align*}
+%	\max \sigma'_{i,i+m} = \max \sigma_{i+m} \text{ and } \max \tau'_{i,i+m} = \max \tau_{i} .
+%\end{align*}
 \end{corollary}
 
 We stress that \cref{eq:shift-subset-dominates} holds for $m$-shifts without us needing to perform shifts in increasing order, or requiring $\min M_k > \max R_{\mathbf{M}}(\sigma)_{k+1}$.
@@ -3956,8 +3968,6 @@ For $\rho \in [n]$, we define the $\LA$ \defn{left height} and \defn{right heigh
 \end{align*}
 The left and right heights for the $\SU$ diagonal are defined similarly. 
 \end{definition}
-\Guillaume{Maybe we can think of a simpler notation?}
-\Kurt{Maybe just drop LA/SU like so?}
 
 The height of an element $\rho$ in a $\SCP$ can be explicitly calculated as follows. 
 
@@ -4056,8 +4066,6 @@ Moreover, denoting by $\mathbb{S}_n^{k_1} \subseteq \mathbb{S}_n$ the set of per
 \begin{proof}
 This follows directly from \cref{coro:enumerationDiagonalPermutahedra}, with the observation that shifts conserve the number of blocks, and hence the dimensions of the faces.
 \end{proof}
-\Guillaume{Easier or standard notation for $P_{k_1,k_2}^n$?}
-\Kurt{Better?}
 
 %%%%%%%%%%%%%%%
 
@@ -4221,6 +4229,7 @@ We define an analogous encoding the permutahedron as a subdivision of the cube, 
 We define inductively a subdivision $\divcube{n-1}$ of the $(n-1)$-dimensional cube  which is combinatorially isomorphic to the permutahedron $\Perm$.
 
 \begin{construction}
+\label{constr:cubicPermutahedron1}
 Let $\divcube{0}$ be the $0$-cube (a point), trivially subdivided by the sole element $1$ of $\Perm[1]$.
 Then, assuming we have constructed $\divcube{n-1}$, we construct $\divcube{n}$ by weaving the element $n$ through the ordered partition defining every face $\sigma = \sigma_1|...|\sigma_k \in \Perm[n]$, using an interval description.
 For $0<j<k$ we define
@@ -4230,48 +4239,52 @@ The weaving of $n$ through $\sigma$ is then defined as follows,
 \begin{align} \label{eq:SU cube inductive def}
 	\sigma \times I \mapsto 
 	\begin{cases}
-		\sigma_1|...|\sigma_k| n, &I = [0, 0]\\
-		\sigma_1|...|\sigma_j \cup n|...|\sigma_k, &I = I_j\\
-		\sigma_1|...|\sigma_j|n|\sigma_{j+1}|...|\sigma_k, &I = I_j \cap I_{j+1}\\
-		n|\sigma_1|...|\sigma_k, &I = [1, 1]
+		\sigma_1|...|\sigma_k| n, & \text{if } I = [0, 0], \\
+		\sigma_1|...|\sigma_j \cup n|...|\sigma_k, & \text{if } I = I_j, \\
+		\sigma_1|...|\sigma_j|n|\sigma_{j+1}|...|\sigma_k, & \text{if } I = I_j \cap I_{j+1}, \\
+		n|\sigma_1|...|\sigma_k, & \text{if } I = [1, 1].
 	\end{cases}
 \end{align}
 \end{construction}
 
-Here is an illustration of this subdivision for the first few-dimensions.
+\cref{fig:cubicPermutahedron1} illustrates this subdivision for the first few dimensions.
 We indicate, in bold, the embedding $\divcube{n-1}\hookrightarrow \divcube{n}$ that occurs when $I=[0, 0]$. 
-We emphasise, that a consequence of the construction is that each dimension of $\divcube{n}$ corresponds to shifting a particular element of $[n]\ssm \{1\}$.
-
-\begin{center}
-{\small
-\begin{tikzcd}[sep=0.3cm]
-\mathbf{1|2} \arrow[r,dash, "12"] & 2|1
-\end{tikzcd}
-}
-$\hookrightarrow$
-{\small
-\begin{tikzcd}[column sep=0.3cm]
-3|1|2 \arrow[r,dash, "3|12"] \arrow[d,dash, "13|2"]& 3|2|1 \arrow[d,dash, "13|2"]\\
-1|3|2 \arrow[d,dash, "1|23"] & 2|3|1 \arrow[d,dash, "2|13"]\\
-\mathbf{1|2|3} \arrow[r,dash,thick, "12|3"] & \mathbf{2|1|3}
-\end{tikzcd}
-}
-$\hookrightarrow$
-{\small
-\begin{tikzcd}[sep=0.15cm,scale=0.8]
-& 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] & & 4|2|3|1 \arrow [dd, dash,dotted] \arrow[rr,dash] & & 4|3|2|1 \arrow[dd,dash] \arrow[dl,dash]\\
-4|1|2|3 \arrow [rr,dash] \arrow [dd,dash] & & 4|1|3|2 \arrow[rr,dash] \arrow[dd,dash] & & 4|3|1|2 \arrow[dd,dash]  & \\
-& 2|4|1|3 \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 2|4|3|1  \arrow[dd,dash,dotted] & & 3|4|2|1 \arrow [dl,dash] \arrow[dd,dash]\\
-1|4|2|3 \arrow [rr,dash] \arrow [dd,dash]& & 1|4|3|2  \arrow[dd,dash] & & 3|4|1|2 \arrow[dd,dash]\\
-& 2|1|4|3 \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] & & 2|3|4|1 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] & & 3|2|4|1 \arrow[dd,dash] \\
-1|2|4|3 \arrow [dd,dash] & & 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash] & & 3|1|4|2 \arrow[dd,dash] & \\
-& \mathbf{2|1|3|4} \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] & & \mathbf{2|3|1|4} \arrow [rr,dash,dotted] & & \mathbf{3|2|1|4} \arrow [dl,dash] \\
-\mathbf{1|2|3|4} \arrow [rr,dash] & & \mathbf{1|3|2|4} \arrow [rr,dash] & & \mathbf{3|1|2|4} \\
-\end{tikzcd}
-}
-\end{center}
+We emphasize, that a consequence of the construction is that each dimension of $\divcube{n}$ corresponds to shifting a particular element of $[n]\ssm \{1\}$.
 We have only labelled the vertices of $\divcube{3}$, but its edges, facets and outer face are all identified with the expected elements of $\Perm[4]$.
 The cubical formula for the diagonal is constructed through maximal pairings of $k$-subdivision cubes of $\divcube{n}$, which we now define, and prove the existence of.
+
+\begin{figure}
+	\begin{center}
+	{\small
+	\begin{tikzcd}[sep=0.3cm]
+	\mathbf{1|2} \arrow[r,dash, "12"] & 2|1
+	\end{tikzcd}
+	}
+	$\hookrightarrow$
+	{\small
+	\begin{tikzcd}[column sep=0.3cm]
+	3|1|2 \arrow[r,dash, "3|12"] \arrow[d,dash, "13|2"]& 3|2|1 \arrow[d,dash, "13|2"]\\
+	1|3|2 \arrow[d,dash, "1|23"] & 2|3|1 \arrow[d,dash, "2|13"]\\
+	\mathbf{1|2|3} \arrow[r,dash,thick, "12|3"] & \mathbf{2|1|3}
+	\end{tikzcd}
+	}
+	$\hookrightarrow$
+	{\small
+	\begin{tikzcd}[sep=0.15cm,scale=0.8]
+	& 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] & & 4|2|3|1 \arrow [dd, dash,dotted] \arrow[rr,dash] & & 4|3|2|1 \arrow[dd,dash] \arrow[dl,dash]\\
+	4|1|2|3 \arrow [rr,dash] \arrow [dd,dash] & & 4|1|3|2 \arrow[rr,dash] \arrow[dd,dash] & & 4|3|1|2 \arrow[dd,dash]  & \\
+	& 2|4|1|3 \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 2|4|3|1  \arrow[dd,dash,dotted] & & 3|4|2|1 \arrow [dl,dash] \arrow[dd,dash]\\
+	1|4|2|3 \arrow [rr,dash] \arrow [dd,dash]& & 1|4|3|2  \arrow[dd,dash] & & 3|4|1|2 \arrow[dd,dash]\\
+	& 2|1|4|3 \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] & & 2|3|4|1 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] & & 3|2|4|1 \arrow[dd,dash] \\
+	1|2|4|3 \arrow [dd,dash] & & 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash] & & 3|1|4|2 \arrow[dd,dash] & \\
+	& \mathbf{2|1|3|4} \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] & & \mathbf{2|3|1|4} \arrow [rr,dash,dotted] & & \mathbf{3|2|1|4} \arrow [dl,dash] \\
+	\mathbf{1|2|3|4} \arrow [rr,dash] & & \mathbf{1|3|2|4} \arrow [rr,dash] & & \mathbf{3|1|2|4} \\
+	\end{tikzcd}
+	}
+	\end{center}
+	\caption{Cubic realization of the permutahedra~$\Perm[2]$, $\Perm[3]$ and $\Perm[4]$ from \cref{constr:cubicPermutahedron1}.}
+	\label{fig:cubicPermutahedron1}
+\end{figure}
 
 \begin{definition} 
 \label{def:Subdivisions}
@@ -4311,12 +4324,12 @@ Let $\sigma_L$ be the $1$-face, with maximal vertex $v$, whose only non-trivial 
 Then, there exists a unique maximal $1$-subdivision line with maximal $1$-face $\sigma_L$, which we denote $L$.
 In particular, if $v'$ is the minimal vertex of $L$, and $v_\rho, v'_\rho$ are the indices of $\rho$ in $v,v'$, then under the inductive description of $\divcube{n-1}$ (\cref{eq:SU cube inductive def}) the line $L$ corresponds to $\sigma_L \times I'$ where $I':=[1-\frac{1}{2^{n-v'_\rho}},1-\frac{1}{2^{n-v_\rho}}]$.
 
-Let $\sigma_C$ be the $k$-face which results from taking $\sigma$, and setting the dimension corresponding to $\rho$ to $1-\frac{1}{2^{n-v_\rho}}$.
+Let $\sigma_C$ be the $k$-face which results from taking $\sigma$, and setting the dimension corresponding to~$\rho$ to $1-\frac{1}{2^{n-v_\rho}}$.
 This corresponds to shifting $\rho$ from its current block, into a singleton block above it, so consequently the maximal vertex of $\sigma_C$ is also $v$.
 Thus, by the inductive assumption, there exists a unique maximal $k$-subdivision cube with maximal $k$-face $\sigma_C$, which we denote $C$.
 The product $L\times C$ is then clearly a $(k+1)$-cube with maximal vertex $v$.
-In addition, every $k$-face in $C$ must have its corresponding $\rho$ coordinate be $1-\frac{1}{2^{n-v_\rho}}$.
-Consequently, as $\rho$ was the maximal element corresponding to dimensions of the $(k+1)$-cube, and the line $\sigma_L \times I'$ was well-defined, we know the product $C\times L$ will correspond to the union of intervals $\sqcup_{f\in C}f \times I'$ (\cref{eq:SU cube inductive def}), which spans the $(k+1)$-cube with $(k+1)$-faces resulting from shifting $\rho$ through $C$.
+In addition, every $k$-face in~$C$ must have its corresponding $\rho$ coordinate be $1-\frac{1}{2^{n-v_\rho}}$.
+Consequently, as $\rho$ was the maximal element corresponding to dimensions of the $(k+1)$-cube, and the line $\sigma_L \times I'$ was well-defined, we know the product $C\times L$ will correspond to the union of intervals $\bigsqcup_{f\in C}f \times I'$ (\cref{eq:SU cube inductive def}), which spans the $(k+1)$-cube with $(k+1)$-faces resulting from shifting $\rho$ through $C$.
 Thus, $L\times C$ is a $(k+1)$-subdivision cube of $F$.
 Finally, $L\times C$ must be maximal under inclusion.
 If there was a larger $(k+1)$-subdivision cube $C'$ enveloping $L\times C$, then one of its projections would be a $1,k$ subdivision cube enveloping $L$ or $C$, which contradicts the assumption they were maximal.
@@ -4325,54 +4338,61 @@ If there was a larger $(k+1)$-subdivision cube $C'$ enveloping $L\times C$, then
 We now define our maximal pairing of subdivision cubes.
 
 \begin{definition} 
-\label{def:subdiv pairs}
+\label{def:sandglass}
 Let $F$ be a face of $\Perm$, and let $v$ be a vertex of $F$. 
-The \defn{ballot of $F$ at $v$} is the set $\subdivpairsev(F)$ of all pairs $(C^v,C_v)$ of $(k_1,k_2)$-subdivision cubes of $F$ such that
+The \defn{sandglass} of $F$ at $v$ is the set $\subdivpairsev(F)$ of all pairs $(C^v,C_v)$ of $(k_1,k_2)$-subdivision cubes of $F$ such that
 \begin{enumerate}
 	\item $C^v$ has maximal vertex $v$,
 	\item $C_v$ has minimal vertex $v$, and
 	\item $k_1+k_2 = \dim F$.
 \end{enumerate}
-If $F$ is the maximal face of $\Perm$, then we denote the ballot of $F$ simply by $\subdivpairsv$.
-The \defn{maximal pair} of the ballot $\maxsubdivpairsev(F)$ (\resp $\maxsubdivpairsv$) is the unique maximal pair of $\subdivpairsev(F)$ (\resp $\subdivpairsev$) with respect to inclusion.
+If $F$ is the maximal face of $\Perm$, then we denote the sandglass of $F$ simply by $\subdivpairsv$.
+The \defn{maximal pair} of the sandglass $\maxsubdivpairsev(F)$ (\resp $\maxsubdivpairsv$) is the unique maximal pair of $\subdivpairsev(F)$ (\resp $\subdivpairsev$) with respect to inclusion.
 \end{definition}
 We note that the uniqueness of the maximal pair is a corollary of \cref{lem:Unique maximal subdivcubes}.
 
 \begin{example}
 \label{ex:subdivision cubes}
-We clarify the previous section with examples that are visually verifiable from the diagram of $\divcube{3}$ below.
-The following sets of faces are all $k$-subdivision cubes of the maximal face $F$ of $\Perm[4]$, (for varying $k$),
+We clarify the previous section with examples that are visually verifiable from the diagram of $\divcube{3}$ of \cref{fig:sandglass1}.
+The sets of faces 
 \begin{align*}
-	\{1234\},\quad \{1|234\},\quad \{1|234, 14|23\},\quad \{1|3|24,1|34|2\}.
+	\{1234\},\quad \{1|234\},\quad \{1|234, 14|23\},\quad \{1|3|24,1|34|2\}
 \end{align*}
+are all subdivision cubes of the face $F = \Perm[4]$.
 Note, that $\{1|3|24,1|34|2\}$ is also a $1$-subdivision cube of the face $1|234$.
-The following three sets of faces are not subdivision cubes of $F$,
+In contrast, the sets of faces
 \begin{align*}
-	\{134|2, 14|23\},\quad \{1|234, 134|2, 14|23\}, \quad \{1|2|34,1|23|4\}. 
+	\{134|2, 14|23\},\quad \{1|234, 134|2, 14|23\}, \quad \{1|2|34,1|23|4\}
 \end{align*}
+are not subdivision cubes of $F$.
 For $v = \blue{\mathbf{4|3|1|2}}$, the only $1$-subdivision cube with minimal vertex $v$ is $4|3|12$, and the three $2$-subdivision cubes with maximal vertex $v$ are
 \begin{align*}
 	\{134|2\}, \quad \{13|24, 134|2\}, \quad \{ 1|234, 13|24, 14|23, 134|2\}.
 \end{align*}
-This defines the ballot $\subdivpairsv$, whose maximal pair of subvision cubes is $\maxsubdivpairsv=\{ 1|234, 13|24, 14|23, 134|2\} \times \{4|3|12\}$.
+This defines the sandglass $\subdivpairsv$, whose maximal pair of subvision cubes is $\maxsubdivpairsv=\{ 1|234, 13|24, 14|23, 134|2\} \times \{4|3|12\}$.
 Let us observe that the $\SCP$ corresponding to $v$ is $(\sigma,\tau) = (\blue{\mathbf{134|2}},\blue{\mathbf{4|3|12}} )$.
 The ordered partition $\sigma$ admits three distinct rights shifts, $\red{\mathbf{13|24}}$, $\red{\mathbf{14|23}}$, $\red{\mathbf{1|234}}$, and $\tau$ admits no left shifts.
 In the next section, we will show that $\maxsubdivpairsv$ is generated by all shifts of the strong complementary pair corresponding to $v$.
-
-\begin{center}
-{\small
-\begin{tikzcd}[sep=0.1cm, scale=0.3]
-& 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] & & 4|2|3|1 \arrow [dd, dash,dotted] \arrow[rr,dash] & & 4|3|2|1 \arrow[dd,dash] \arrow[dl,dash, near end, "\mathbf{\blue{4|3|12}}"']\\
-4|1|2|3 \arrow [rr,dash] \arrow [dd,dash] & & 4|1|3|2 \arrow[rr,dash] \arrow[dd,dash] & & \mathbf{\blue{4|3|1|2}} \arrow[dd,dash]  & \\
-& \red{\mathbf{14|23}} \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 2|4|3|1  \arrow[dd,dash,dotted] & & 3|4|2|1 \arrow [dl,dash] \arrow[dd,dash]\\
-1|4|2|3 \arrow [rr,dash] \arrow [dd,dash]& & 1|4|3|2  \arrow[dd,dash] \arrow[rr, phantom, "\blue{\mathbf{134|2}}" description,crossing over] & & 3|4|1|2 \arrow[dd,dash]\\
-& 2|1|4|3 \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] & & 2|3|4|1 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] & & 3|2|4|1 \arrow[dd,dash] \\
-1|2|4|3 \arrow [dd,dash] \arrow[rr, phantom, "\red{\mathbf{1|234}}" description,crossing over] & & 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash] & & 3|1|4|2 \arrow[dd,dash] & \\
-& 2|1|3|4 \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] & & \red{\mathbf{13|24}} \arrow [rr,dash,dotted] & & 3|2|1|4 \arrow [dl,dash] \\
-1|2|3|4 \arrow [rr,dash] & & 1|3|2|4 \arrow [rr,dash] & & 3|1|2|4 \\
-\end{tikzcd}
-}
-\end{center}
+%
+\begin{figure}
+	\begin{center}
+	{\small
+	\begin{tikzcd}[sep=0.1cm, scale=0.3]
+	& 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] & & 4|2|3|1 \arrow [dd, dash,dotted] \arrow[rr,dash] & & 4|3|2|1 \arrow[dd,dash] \arrow[dl,dash, near end, "\mathbf{\blue{4|3|12}}"']\\
+	4|1|2|3 \arrow [rr,dash] \arrow [dd,dash] & & 4|1|3|2 \arrow[rr,dash] \arrow[dd,dash] & & \mathbf{\blue{4|3|1|2}} \arrow[dd,dash]  & \\
+	& \red{\mathbf{14|23}} \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 2|4|3|1  \arrow[dd,dash,dotted] & & 3|4|2|1 \arrow [dl,dash] \arrow[dd,dash]\\
+	1|4|2|3 \arrow [rr,dash] \arrow [dd,dash]& & 1|4|3|2  \arrow[dd,dash] \arrow[rr, phantom, "\blue{\mathbf{134|2}}" description,crossing over] & & 3|4|1|2 \arrow[dd,dash]\\
+	& 2|1|4|3 \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] & & 2|3|4|1 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] & & 3|2|4|1 \arrow[dd,dash] \\
+	1|2|4|3 \arrow [dd,dash] \arrow[rr, phantom, "\red{\mathbf{1|234}}" description,crossing over] & & 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash] & & 3|1|4|2 \arrow[dd,dash] & \\
+	& 2|1|3|4 \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] & & \red{\mathbf{13|24}} \arrow [rr,dash,dotted] & & 3|2|1|4 \arrow [dl,dash] \\
+	1|2|3|4 \arrow [rr,dash] & & 1|3|2|4 \arrow [rr,dash] & & 3|1|2|4 \\
+	\end{tikzcd}
+	}
+	\end{center}
+	\caption{The sandglass~$S_v(F)$ of $F = \Perm[4]$ at~$v = \blue{\mathbf{4|3|1|2}}$.}
+	\label{fig:sandglass1}
+\end{figure}
+%
 \end{example}
 
 \subsubsection{The Cubical-Shift Equivalence}
@@ -4383,7 +4403,7 @@ Our first observation relating subdivision cubes to shifts is the following.
 
 \begin{proposition}\label{prop:ev properties}
 Let $v$ be a vertex of $\Perm$.
-The set of pairs of subdivision cubes in the ballot $\subdivpairsv$ of $v$ satisfies the following properties
+The set of pairs of subdivision cubes in the sandglass $\subdivpairsv$ of $v$ satisfies the following properties
 \begin{enumerate}
 	\item The strong complementary pair $(\sigma,\tau)$ corresponding to $v$ is in $\subdivpairsv$,
 	\item All pairs in $\subdivpairsv$ have the same pair of dimensions $(k_1,k_2)$,
@@ -4404,14 +4424,12 @@ Then, we have $C = \bigcup_{\mathbf{M}} R_\mathbf{M}(\sigma)$ (\resp $C=\bigcup_
 \begin{proof}
 Compared to \cref{lem:Unique maximal subdivcubes}, we now have the additional assumption that $C$ is a $k$-subdivision cube of the maximal face of $\Perm$.
 The benefit of this assumption, is that the maximal face just corresponds to the $(n-1)$ cube $[0,1]^{n-1}$, and is not a more generic $m$-cube subspace. 
-\Guillaume{What does generic mean??}
-\Kurt{Clearer?}
 We prove the result inductively from lines, and consider just the case of the maximal $k$-face $\sigma$, as the minimal $k$-face $\tau$ proceeds similarly.
 If $L$ is a maximal $1$-subdivision cube with maximal $1$-face $\sigma$, then its faces are generated by $\bigcup_{i=0}^{r_\rho} R_\rho^i(\sigma)$, where $r_\rho$ is calculated using the maximal shift-indices of \cref{prop:maximal m-shift formulae}.
 This is because the maximal $1$-face $\sigma$ uniquely determines the element $\rho$ being shifted, and the inductive description of $\divcube{n-1}$ (\cref{eq:SU cube inductive def}) coincides with the $\SU$ lattice description (see \cref{sec:Shift-lattice}) given the maximal face $\sigma$ can be interpreted as the left ordered partition of an $\SCP$.
 Note in both formulae, $\rho$ is simply right shifted until it reaches the final block, or is blocked by a larger element.
 
-Let $C^\sigma$ be the unique maximal $(k+1)$-subdivision cube of $\Perm$ with maximal $(k+1)$-face $\sigma$.
+Let $C^\sigma$ be the unique maximal $(k+1)$-subdivision cube of $\Perm$ with maximal $(k+1)$-face~$\sigma$.
 Given the proof of \cref{lem:Unique maximal subdivcubes}, we know $C^\sigma = L\times C$, \ie the $(k+1)$-subdivision cube is a product of a line corresponding to $\rho$, and a $k$-cube $C$ corresponding to all other elements.
 We know that the line $L$, with maximal $1$-face $\sigma_L$ satisfies $L=\bigcup_{i=0}^{r_\rho} R_\rho^i(\sigma_L)$, and we make the inductive assumption that $C$ with maximal $k$-face $\sigma_C$ satisfies $C = \bigcup_{\mathbf{M}}R_\mathbf{M}(\sigma_C)$, where $\mathbf{M}$ is the set of all admissible right shifts of $\sigma_C$.
 
@@ -4444,62 +4462,68 @@ Thus, the facets of the $\SU$ diagonal are given by
 where the union is taken over all vertices $v$ of the permutahedron $\Perm$. 
 \end{corollary}
 
-\subsubsection{LA cubical description}
+\subsubsection{$\LA$ cubical description}
 
 The $\LA$ diagonal also admits a similar cubical description, which we may quickly induce by isomorphism.
 We first define inductively a subdivision $\divcube{n-1}^{\LA}$ of the $(n-1)$-dimensional cube which is combinatorially isomorphic to the permutahedron $\Perm$, analogous to the one of the preceding sections. 
 
-\begin{definition}
+\begin{construction}
+\label{constr:cubicPermutahedron2}
 Let $\divcube{0}^{\LA}$ be the $0$-cube (a point), trivially subdivided by the sole element $1$ of $\Perm[1]$.
 Then, assuming we have constructed $\divcube{n-1}^{\LA}$, we construct $\divcube{n}^{\LA}$ by weaving $1$ through every face of $\sigma = \sigma_1|...|\sigma_k \in \Perm[n]$, using an interval description.
 For $0<j<k$ we define
 $n_j := |\sigma_{k-j+1}\cup...\cup \sigma_k|$, $I_j := [1 - \frac{1}{2^{n_j}}, 1 - \frac{1}{2^{n_{j+1}}}]$, and boundary cases $I_0:= [0,1 - \frac{1}{2^{n_1}}]$, $I_k:= [1 - \frac{1}{2^{n_k}},1]$.
 This defines a partition of the interval $[0,1]$, which we denote $I := I_0 \cup ... \cup I_k$.
 The weaving of $1$ through $\sigma$ is then defined as follows,
-\begin{align} \label{eq:In LA inductive def}
+\begin{align}
+\label{eq:In LA inductive def}
 	\sigma \times I \mapsto 
 	\begin{cases}
-		\sigma'_1|...|\sigma'_k| 1, &I = [0, 0]\\
-		\sigma'_1|...|\sigma'_j \cup 1|...|\sigma'_k, &I = I_j\\
-		\sigma'_1|...|\sigma'_j|1|\sigma'_{j+1}|...|\sigma'_k, &I = I_j \cap I_{j+1}\\
-		1|\sigma'_1|...|\sigma'_k, &I = [1, 1]
+		\sigma'_1|...|\sigma'_k| 1, & \text{if } I = [0, 0], \\
+		\sigma'_1|...|\sigma'_j \cup 1|...|\sigma'_k, & \text{if } I = I_j, \\
+		\sigma'_1|...|\sigma'_j|1|\sigma'_{j+1}|...|\sigma'_k, & \text{if } I = I_j \cap I_{j+1}, \\
+		1|\sigma'_1|...|\sigma'_k, & \text{if } I = [1, 1],
 	\end{cases}
-	, \text{where } \sigma'_i = \{x+1:x\in \sigma_i\}
 \end{align}
-\end{definition}
+where~$\sigma'_i = \{x+1:x\in \sigma_i\}$.
+\end{construction}
 
-We illustrate the first few generations of $\divcube{n}^{\LA}$, indicating in bold, the embedding $\divcube{n-1}^{\LA}\hookrightarrow \divcube{n}^{\LA}$ that occurs when $I = [0, 0]$.
+\cref{fig:cubicPermutahedron2} illustrates the first few generations of $\divcube{n}^{\LA}$, indicating in bold, the embedding $\divcube{n-1}^{\LA}\hookrightarrow \divcube{n}^{\LA}$ that occurs when $I = [0, 0]$.
 
-\begin{center}
-{\small
-\begin{tikzcd}[sep=0.3cm]
-\mathbf{2|1} \arrow[r,dash, "12"] & 1|2
-\end{tikzcd}
-}
-$\hookrightarrow$
-{\small
-\begin{tikzcd}[column sep=0.3cm]
-1|3|2 \arrow[r,dash, "1|23"] \arrow[d,dash, "13|2"]& 1|2|3 \arrow[d,dash, "13|2"]\\
-3|1|2 \arrow[d,dash, "3|12"] & 2|1|3 \arrow[d,dash, "2|13"]\\
-\mathbf{3|2|1} \arrow[r,dash,thick, "23|1"] & \mathbf{2|3|1}
-\end{tikzcd}
-}
-$\hookrightarrow$
-{\small
-\begin{tikzcd}[sep=0.15cm,scale=0.8]
-& 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] & & 1|3|2|4 \arrow [dd, dash,dotted] \arrow[rr,dash] & & 1|2|3|4 \arrow[dd,dash] \arrow[dl,dash]\\
-1|4|3|2 \arrow [rr,dash] \arrow [dd,dash] & & 1|4|2|3 \arrow[rr,dash] \arrow[dd,dash] & & 1|2|4|3 \arrow[dd,dash]  & \\
-& 3|1|4|2 \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 3|1|2|4  \arrow[dd,dash,dotted] & & 2|1|3|4 \arrow [dl,dash] \arrow[dd,dash]\\
-4|1|3|2 \arrow [rr,dash] \arrow [dd,dash]& & 4|1|2|3  \arrow[dd,dash] & & 2|1|4|3 \arrow[dd,dash]\\
-& 3|4|1|2 \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] & & 3|2|1|4 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] & & 2|3|1|4 \arrow[dd,dash] \\
-4|3|1|2 \arrow [dd,dash] & & 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash] & & 2|4|1|3 \arrow[dd,dash] & \\
-& \mathbf{3|4|2|1} \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] & & \mathbf{3|2|4|1} \arrow [rr,dash,dotted] & & \mathbf{2|3|4|1} \arrow [dl,dash] \\
-\mathbf{4|3|2|1} \arrow [rr,dash] & & \mathbf{4|2|3|1} \arrow [rr,dash] & & \mathbf{2|4|3|1} \\
-\end{tikzcd}
-}
-\end{center}
+\begin{figure}
+	\begin{center}
+	{\small
+	\begin{tikzcd}[sep=0.3cm]
+	\mathbf{2|1} \arrow[r,dash, "12"] & 1|2
+	\end{tikzcd}
+	}
+	$\hookrightarrow$
+	{\small
+	\begin{tikzcd}[column sep=0.3cm]
+	1|3|2 \arrow[r,dash, "1|23"] \arrow[d,dash, "13|2"]& 1|2|3 \arrow[d,dash, "13|2"]\\
+	3|1|2 \arrow[d,dash, "3|12"] & 2|1|3 \arrow[d,dash, "2|13"]\\
+	\mathbf{3|2|1} \arrow[r,dash,thick, "23|1"] & \mathbf{2|3|1}
+	\end{tikzcd}
+	}
+	$\hookrightarrow$
+	{\small
+	\begin{tikzcd}[sep=0.15cm,scale=0.8]
+	& 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] & & 1|3|2|4 \arrow [dd, dash,dotted] \arrow[rr,dash] & & 1|2|3|4 \arrow[dd,dash] \arrow[dl,dash]\\
+	1|4|3|2 \arrow [rr,dash] \arrow [dd,dash] & & 1|4|2|3 \arrow[rr,dash] \arrow[dd,dash] & & 1|2|4|3 \arrow[dd,dash]  & \\
+	& 3|1|4|2 \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 3|1|2|4  \arrow[dd,dash,dotted] & & 2|1|3|4 \arrow [dl,dash] \arrow[dd,dash]\\
+	4|1|3|2 \arrow [rr,dash] \arrow [dd,dash]& & 4|1|2|3  \arrow[dd,dash] & & 2|1|4|3 \arrow[dd,dash]\\
+	& 3|4|1|2 \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] & & 3|2|1|4 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] & & 2|3|1|4 \arrow[dd,dash] \\
+	4|3|1|2 \arrow [dd,dash] & & 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash] & & 2|4|1|3 \arrow[dd,dash] & \\
+	& \mathbf{3|4|2|1} \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] & & \mathbf{3|2|4|1} \arrow [rr,dash,dotted] & & \mathbf{2|3|4|1} \arrow [dl,dash] \\
+	\mathbf{4|3|2|1} \arrow [rr,dash] & & \mathbf{4|2|3|1} \arrow [rr,dash] & & \mathbf{2|4|3|1} \\
+	\end{tikzcd}
+	}
+	\end{center}
+	\caption{Cubic realization of the permutahedra~$\Perm[2]$, $\Perm[3]$ and $\Perm[4]$ from \cref{constr:cubicPermutahedron2}.}
+	\label{fig:cubicPermutahedron2}
+\end{figure}
 
-The appropriate base definitions for the $\LA$ diagonal of $k$-subdivision cubes (\ref{def:Subdivisions}), ballots of subdivision cubes ${\subdivpairsv}$ (\ref{def:subdiv pairs}), and maximal pairs of subdivision cubes $\maxsubdivpairsv$ are all the same as in the $\SU$ case.
+The appropriate base definitions for the $\LA$ diagonal of $k$-subdivision cubes (\ref{def:Subdivisions}), sandglasses of subdivision cubes ${\subdivpairsv}$ (\ref{def:sandglass}), and maximal pairs of subdivision cubes $\maxsubdivpairsv$ are all the same as in the $\SU$ case.
 We relate these definitions to those in the $\SU$ case with the following result.
 \begin{proposition}\label{prop:r is a k-subdiv cube isomorphism}
 Let $r:P\to P$ be the face poset isomorphism of the permutahedra which acts on $A_1|...|A_k$, by replacing each block $A_j$ by the block $r(A_j):=\{n-i+1 \ | \ i \in A_j\}$.
@@ -4517,37 +4541,41 @@ The third then follows from the first and the second.
 \end{proof}
 
 \begin{example}
-Applying the isomorphism $r$ to \cref{ex:subdivision cubes} yields,
-\begin{center}
-{\scriptsize
-\begin{tikzcd}[sep=0.1cm, scale=0.3]
-& 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] & & 4|2|3|1 \arrow [dd, dash,dotted] \arrow[rr,dash] & & 4|3|2|1 \arrow[dd,dash] \arrow[dl,dash, near end, "\mathbf{\blue{4|3|12}}"']\\
-4|1|2|3 \arrow [rr,dash] \arrow [dd,dash] & & 4|1|3|2 \arrow[rr,dash] \arrow[dd,dash] & & \mathbf{\blue{4|3|1|2}} \arrow[dd,dash]  & \\
-& \red{\mathbf{14|23}} \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 2|4|3|1  \arrow[dd,dash,dotted] & & 3|4|2|1 \arrow [dl,dash] \arrow[dd,dash]\\
-1|4|2|3 \arrow [rr,dash] \arrow [dd,dash]& & 1|4|3|2  \arrow[dd,dash] \arrow[rr, phantom, "\blue{\mathbf{134|2}}" description,crossing over] & & 3|4|1|2 \arrow[dd,dash]\\
-& 2|1|4|3 \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] & & 2|3|4|1 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] & & 3|2|4|1 \arrow[dd,dash] \\
-1|2|4|3 \arrow [dd,dash] \arrow[rr, phantom, "\red{\mathbf{1|234}}" description,crossing over] & & 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash] & & 3|1|4|2 \arrow[dd,dash] & \\
-& 2|1|3|4 \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] & & \red{\mathbf{13|24}} \arrow [rr,dash,dotted] & & 3|2|1|4 \arrow [dl,dash] \\
-1|2|3|4 \arrow [rr,dash] & & 1|3|2|4 \arrow [rr,dash] & & 3|1|2|4 \\
-\end{tikzcd}
-}
-$\xrightarrow{r}$
-{\scriptsize
-\begin{tikzcd}[sep=0.1cm, scale=0.3]
-& 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] & & 1|3|2|4 \arrow [dd, dash,dotted] \arrow[rr,dash] & & 1|2|3|4 \arrow[dd,dash] \arrow[dl,dash, near end, "\mathbf{\blue{1|2|34}}"']\\
-1|4|3|2 \arrow [rr,dash] \arrow [dd,dash] & & 1|4|2|3 \arrow[rr,dash] \arrow[dd,dash] & & \mathbf{\blue{1|2|4|3}} \arrow[dd,dash]  & \\
-& \red{\mathbf{14|23}} \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 3|1|2|4  \arrow[dd,dash,dotted] & & 2|1|3|4 \arrow [dl,dash] \arrow[dd,dash]\\
-4|1|3|2 \arrow [rr,dash] \arrow [dd,dash]& & 4|1|2|3  \arrow[dd,dash] \arrow[rr, phantom, "\blue{\mathbf{124|3}}" description,crossing over] & & 2|1|4|3 \arrow[dd,dash]\\
-& 3|4|1|2 \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] & & 3|2|1|4 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] & & 2|3|1|4 \arrow[dd,dash] \\
-4|3|1|2 \arrow [dd,dash] \arrow[rr, phantom, "\red{\mathbf{4|123}}" description,crossing over] & & 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash] & & 2|4|1|3 \arrow[dd,dash] & \\
-& 3|4|2|1 \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] & & \red{\mathbf{24|13}} \arrow [rr,dash,dotted] & & 2|3|4|1 \arrow [dl,dash] \\
-4|3|2|1 \arrow [rr,dash] & & 4|2|3|1 \arrow [rr,dash] & & 2|4|3|1 \\
-\end{tikzcd}
-}
-\end{center}
+Applying the isomorphism $r$ to \cref{ex:subdivision cubes} yields the illustration of \cref{fig:sandglass2}.
 As $r$ is an isomorphism of $k$-subdivision cubes, the maximal pair of $\SU$ subdivision cubes has been mapped to a maximal pair of $\LA$ subdivision cubes.
 Note that the maximal $\SU$ $2$-subdivision cube with maximal vertex $4|3|1|2$ was generated by $\SU$ right shifts.
 Its image under $r$ is the maximal $\LA$ $2$-subdivision cube with minimal vertex $1|2|4|3$, and it is generated by $\LA$ right shifts.
+\begin{figure}
+	\centerline{
+	{\small
+	\begin{tikzcd}[sep=0.1cm, scale=0.3, ampersand replacement=\&]
+	\& 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] \& \& 4|2|3|1 \arrow [dd, dash,dotted] \arrow[rr,dash] \& \& 4|3|2|1 \arrow[dd,dash] \arrow[dl,dash, near end, "\mathbf{\blue{4|3|12}}"']\\
+	4|1|2|3 \arrow [rr,dash] \arrow [dd,dash] \& \& 4|1|3|2 \arrow[rr,dash] \arrow[dd,dash] \& \& \mathbf{\blue{4|3|1|2}} \arrow[dd,dash]  \& \\
+	\& \red{\mathbf{14|23}} \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  \& \& 2|4|3|1  \arrow[dd,dash,dotted] \& \& 3|4|2|1 \arrow [dl,dash] \arrow[dd,dash]\\
+	1|4|2|3 \arrow [rr,dash] \arrow [dd,dash]\& \& 1|4|3|2  \arrow[dd,dash] \arrow[rr, phantom, "\blue{\mathbf{134|2}}" description,crossing over] \& \& 3|4|1|2 \arrow[dd,dash]\\
+	\& 2|1|4|3 \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] \& \& 2|3|4|1 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] \& \& 3|2|4|1 \arrow[dd,dash] \\
+	1|2|4|3 \arrow [dd,dash] \arrow[rr, phantom, "\red{\mathbf{1|234}}" description,crossing over] \& \& 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash] \& \& 3|1|4|2 \arrow[dd,dash] \& \\
+	\& 2|1|3|4 \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] \& \& \red{\mathbf{13|24}} \arrow [rr,dash,dotted] \& \& 3|2|1|4 \arrow [dl,dash] \\
+	1|2|3|4 \arrow [rr,dash] \& \& 1|3|2|4 \arrow [rr,dash] \& \& 3|1|2|4 \\
+	\end{tikzcd}
+	}
+	$\xrightarrow{r}$
+	{\small
+	\begin{tikzcd}[sep=0.1cm, scale=0.3, ampersand replacement=\&]
+	\& 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] \& \& 1|3|2|4 \arrow [dd, dash,dotted] \arrow[rr,dash] \& \& 1|2|3|4 \arrow[dd,dash] \arrow[dl,dash, near end, "\mathbf{\blue{1|2|34}}"']\\
+	1|4|3|2 \arrow [rr,dash] \arrow [dd,dash] \& \& 1|4|2|3 \arrow[rr,dash] \arrow[dd,dash] \& \& \mathbf{\blue{1|2|4|3}} \arrow[dd,dash]  \& \\
+	\& \red{\mathbf{14|23}} \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  \& \& 3|1|2|4  \arrow[dd,dash,dotted] \& \& 2|1|3|4 \arrow [dl,dash] \arrow[dd,dash]\\
+	4|1|3|2 \arrow [rr,dash] \arrow [dd,dash]\& \& 4|1|2|3  \arrow[dd,dash] \arrow[rr, phantom, "\blue{\mathbf{124|3}}" description,crossing over] \& \& 2|1|4|3 \arrow[dd,dash]\\
+	\& 3|4|1|2 \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] \& \& 3|2|1|4 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] \& \& 2|3|1|4 \arrow[dd,dash] \\
+	4|3|1|2 \arrow [dd,dash] \arrow[rr, phantom, "\red{\mathbf{4|123}}" description,crossing over] \& \& 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash] \& \& 2|4|1|3 \arrow[dd,dash] \& \\
+	\& 3|4|2|1 \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] \& \& \red{\mathbf{24|13}} \arrow [rr,dash,dotted] \& \& 2|3|4|1 \arrow [dl,dash] \\
+	4|3|2|1 \arrow [rr,dash] \& \& 4|2|3|1 \arrow [rr,dash] \& \& 2|4|3|1 \\
+	\end{tikzcd}
+	}
+	}
+	\caption{The isomorphism~$r$ applied to \cref{fig:sandglass1}.}
+	\label{fig:sandglass2}
+\end{figure}
 \end{example}
 
 As the example suggests, we have the following cubical description of the $\LA$ diagonal.
@@ -4584,18 +4612,16 @@ where the vertical arrows are the defining bijection between SCPs and permutatio
 \part{Higher algebraic structures}
 \label{part:higherAlgebraicStructures}
 
-%Commented to compile faster.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Higher tensor products}
-
-In this Section we derive some higher algebaic consequences of the results obtained in \cref{part:diagonalsPermutahedra}.
+In this third part, we derive some higher algebaic consequences of the results obtained in \cref{part:diagonalsPermutahedra}.
 We first prove that there are exactly two topological operad structures on the family of operahedra which are compatible with the generalized Tamari order, and thus two geometric universal tensor products of (non-symmetric non-unital) homotopy operads (\cref{subsec:top-operadic-structures}).
 Then, we show that these topological operad structures are isomorphic (\cref{subsec:iso-top-operads}).
 However, note this isomorphism does not commute with the diagonal maps (\cref{ex:iso-not-Hopf}).
 Finally, we show that contrary to the case of permutahedra, the faces of the $\LA$ and $\SU$ diagonals of the operahedra are in general not in bijection (\cref{subsec:tensor-products}).
 However, from a homotopical point of view the two tensor products of homotopy operads that they define are $\infty$-isomorphic (\cref{thm:infinity-iso}). 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Higher tensor products}
 
 %%%%%%%%%%%%%%%
 
@@ -4821,406 +4847,349 @@ This was checked via code and the first few counterexamples are displayed in \cr
 
 \begin{example}
 \label{ex:SU-LA-operahedra}
-We present here the $24$ planar trees with $5$ internal edges for which $|\LAD_t| \neq |\SUD_t|$.
+We present in \cref{fig:trees} the $24$ planar trees with $5$ internal edges for which ${|\LAD_t| \neq |\SUD_t|}$.
 Note that $|\LAD_t|,|\SUD_t| \leq |\LAD_5|=|\SUD_5|=432 $ (\cref{table:enumerationDiagonalPermutahedra1}), the number of facets in the permutahedron diagonals.
-We display each tree $t$ with the counts $(|\LAD_t|,|\SUD_t|)$ above it, and arrange them symmetrically to help emphasize notable missing elements. \Kurt{easy way to make centrally symmetric, or alternate arrangement?}
-\begin{center}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};
-        [.\node{};]
-    ]
-    [.\node{};]
-    [.\node{};]
-    [.\node{};]
-]
-\node(1) at (0,0.5) {$(266,263)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};]
-    [.\node{};
-        [.\node{};]
-    ]
-    [.\node{};]
-    [.\node{};]
-]
-\node(1) at (0,0.5) {$(256,254)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};]
-    [.\node{};]
-    [.\node{};
-        [.\node{};]
-    ]
-    [.\node{};]
-]
-\node(1) at (0,0.5) {$(255,254)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};]
-    [.\node{};]
-    [.\node{};]
-    [.\node{};
-        [.\node{};]
-    ]
-]
-\node(1) at (0,0.5) {$(263,266)$};
-\end{tikzpicture}
-\end{center}
-\begin{center}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};
-        [.\node{};]
-         [.\node{};]
-    ]
-    [.\node{};]
-    [.\node{};]
-]
-\node(1) at (0,0.5) {$(214,216)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};
-        [.\node{};]
-    ]
-    [.\node{};
-        [.\node{};]
-    ]
-    [.\node{};]
-]
-\node(1) at (0,0.5) {$(162,161)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};]
-    [.\node{};
-        [.\node{};]
-        [.\node{};]
-    ]
-    [.\node{};]
-]
-\node(1) at (0,0.5) {$(212,213)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};]
-    [.\node{};
-        [.\node{};]
-    ]
-    [.\node{};
-        [.\node{};]
-    ]
-]
-\node(1) at (0,0.5) {$(160,161)$};
-\end{tikzpicture}
-\phantom{
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};]
-    [.\node{};]
-    [.\node{};
-        [.\node{};]
-        [.\node{};]
-    ]
-]
-\node(1) at (0,0.5) {$(214,216)$};
-\end{tikzpicture}
-}
-\end{center}
-\begin{center}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};]
-    [.\node{};
-        [.\node{};
-            [.\node{};]
-        ]
-    ]
-    [.\node{};]
-]
-\node(1) at (0,0.5) {$(129,127)$};
-\end{tikzpicture}
-\end{center}
-\begin{center}
-\phantom{
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{};]
-    [.\node{};
-        [.\node{};]
-        [.\node{};]
-        [.\node{};]
-    ]
-]
-\node(1) at (0,0.5) {$(266,263)$};
-\end{tikzpicture}
-}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};  
-        [.\node{};  
-            [.\node{};]
-        ]
-        [.\node{};] 
-    ]
-    [.\node{};]
-]
-\node(1) at (0,0.5) {$(142,141)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};  
-        [.\node{};]
-        [.\node{};] 
-    ]
-    [.\node{};  
-        [.\node{};] 
-    ]
-]
-\node(1) at (0,0.5) {$(141,144)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};  
-        [.\node{};  
-            [.\node{};] 
-        ]
-    ]
-    [.\node{};  
-        [.\node{};] 
-    ]
-]
-\node(1) at (0,0.5) {$(91,92)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{};  
-        [.\node{};] 
-    ]
-    [.\node{};  
-        [.\node{};  
-            [.\node{};] 
-        ]
-    ]
-]
-\node(1) at (0,0.5) {$(98,97)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{};  
-        [.\node{};] 
-    ]
-    [.\node{};  
-        [.\node{};]
-        [.\node{};] 
-    ]
-]
-\node(1) at (0,0.5) {$(155,152)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{};]
-    [.\node{};
-        [.\node{};  
-            [.\node{};] 
-        ]
-        [.\node{};]
-    ]
-]
-\node(1) at (0,0.5) {$(157,154)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{};]
-    [.\node{};
-        [.\node{};]
-        [.\node{};]
-        [.\node{};]
-    ]
-]
-\node(1) at (0,0.5) {$(266,263)$};
-\end{tikzpicture}
-\end{center}
-\begin{center}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{};
-        [.\node{};
-            [.\node{};]
-        ]
-        [.\node{};]
-        [.\node{};]
-    ]
-]
-\node(1) at (0,0.5) {$(256,255)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{};
-        [.\node{};]
-        [.\node{};
-            [.\node{};]
-        ]
-        [.\node{};]
-    ]
-]
-\node(1) at (0,0.5) {$(255,254)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{};
-        [.\node{};]
-        [.\node{};]
-        [.\node{};
-            [.\node{};]
-        ] 
-    ]
-]
-\node(1) at (0,0.5) {$(263,266)$};
-\end{tikzpicture}
-\end{center}
-\begin{center}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{};
-        [.\node{}; 
-            [.\node{}; 
-                [.\node{}; ]
-            ]
-        ] 
-        [.\node{};]
-    ]
-]
-\node(1) at (0,0.5) {$(129,127)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{};
-        [.\node{}; 
-            [.\node{};]
-            [.\node{};]
-        ] 
-        [.\node{};]
-    ]
-]
-\node(1) at (0,0.5) {$(212,213)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{}; 
-        [.\node{};  
-            [.\node{};] 
-        ]
-        [.\node{};  
-            [.\node{};] 
-        ]
-    ]
-]
-\node(1) at (0,0.5) {$(160,161)$};
-\end{tikzpicture}
-\phantom{
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{};
-        [.\node{};]
-        [.\node{}; 
-            [.\node{};]
-            [.\node{};]
-        ] 
-    ]
-]
-\node(1) at (0,0.5) {$(212,213)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{};
-        [.\node{};]
-        [.\node{}; 
-            [.\node{}; 
-                [.\node{}; ]
-            ]
-        ] 
-    ]
-]
-\node(1) at (0,0.5) {$(129,127)$};
-\end{tikzpicture}
-}
-\end{center}
-\begin{center}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{}; 
-        [.\node{};
-            [.\node{};  
-                [.\node{};] 
-            ]
-            [.\node{};]
-        ]
-    ]
-]
-\node(1) at (0,0.5) {$(154,157)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{}; 
-        [.\node{};
-            [.\node{};]
-            [.\node{};]
-            [.\node{};] 
-        ]
-    ]
-]
-\node(1) at (0,0.5) {$(266,263)$};
-\end{tikzpicture}
-\phantom{
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{}; 
-        [.\node{};
-            [.\node{};  
-                [.\node{};] 
-            ]
-            [.\node{};]
-        ]
-    ]
-]
-\node(1) at (0,0.5) {$(154,157)$};
-\end{tikzpicture}
-}
-\end{center}
+We display each tree $t$ with the counts $(|\LAD_t|,|\SUD_t|)$ above it, and arrange them symmetrically to help emphasize notable missing elements.
+
+\begin{figure}[p]
+	\begin{tabular}{cccccc}
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{};
+		    [.\node{};
+		        [.\node{};]
+		    ]
+		    [.\node{};]
+		    [.\node{};]
+		    [.\node{};]
+		]
+		\node(1) at (0,0.5) {$(266,263)$};
+		\end{tikzpicture}}
+		&
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{};
+		    [.\node{};]
+		    [.\node{};
+		        [.\node{};]
+		    ]
+		    [.\node{};]
+		    [.\node{};]
+		]
+		\node(1) at (0,0.5) {$(256,254)$};
+		\end{tikzpicture}}
+		&
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{};
+		    [.\node{};]
+		    [.\node{};]
+		    [.\node{};
+		        [.\node{};]
+		    ]
+		    [.\node{};]
+		]
+		\node(1) at (0,0.5) {$(255,254)$};
+		\end{tikzpicture}}
+		&
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{};
+		    [.\node{};]
+		    [.\node{};]
+		    [.\node{};]
+		    [.\node{};
+		        [.\node{};]
+		    ]
+		]
+		\node(1) at (0,0.5) {$(263,266)$};
+		\end{tikzpicture}}
+		&
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{};
+		    [.\node{};
+		        [.\node{};]
+		         [.\node{};]
+		    ]
+		    [.\node{};]
+		    [.\node{};]
+		]
+		\node(1) at (0,0.5) {$(214,216)$};
+		\end{tikzpicture}}
+		&
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{};
+		    [.\node{};
+		        [.\node{};]
+		    ]
+		    [.\node{};
+		        [.\node{};]
+		    ]
+		    [.\node{};]
+		]
+		\node(1) at (0,0.5) {$(162,161)$};
+		\end{tikzpicture}}
+		\\[2.5cm]
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{};
+		    [.\node{};]
+		    [.\node{};
+		        [.\node{};]
+		        [.\node{};]
+		    ]
+		    [.\node{};]
+		]
+		\node(1) at (0,0.5) {$(212,213)$};
+		\end{tikzpicture}}
+		&
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{};
+		    [.\node{};]
+		    [.\node{};
+		        [.\node{};]
+		    ]
+		    [.\node{};
+		        [.\node{};]
+		    ]
+		]
+		\node(1) at (0,0.5) {$(160,161)$};
+		\end{tikzpicture}}
+		&	
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{};
+		    [.\node{};]
+		    [.\node{};
+		        [.\node{};
+		            [.\node{};]
+		        ]
+		    ]
+		    [.\node{};]
+		]
+		\node(1) at (0,0.5) {$(129,127)$};
+		\end{tikzpicture}}
+		&
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{};
+		    [.\node{};  
+		        [.\node{};  
+		            [.\node{};]
+		        ]
+		        [.\node{};] 
+		    ]
+		    [.\node{};]
+		]
+		\node(1) at (0,0.5) {$(142,141)$};
+		\end{tikzpicture}}
+		&
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{};
+		    [.\node{};  
+		        [.\node{};]
+		        [.\node{};] 
+		    ]
+		    [.\node{};  
+		        [.\node{};] 
+		    ]
+		]
+		\node(1) at (0,0.5) {$(141,144)$};
+		\end{tikzpicture}}
+		&
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{};
+		    [.\node{};  
+		        [.\node{};  
+		            [.\node{};] 
+		        ]
+		    ]
+		    [.\node{};  
+		        [.\node{};] 
+		    ]
+		]
+		\node(1) at (0,0.5) {$(91,92)$};
+		\end{tikzpicture}}
+		\\[3.2cm]
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{}; 
+		    [.\node{};  
+		        [.\node{};] 
+		    ]
+		    [.\node{};  
+		        [.\node{};  
+		            [.\node{};] 
+		        ]
+		    ]
+		]
+		\node(1) at (0,0.5) {$(98,97)$};
+		\end{tikzpicture}}
+		&
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{}; 
+		    [.\node{};  
+		        [.\node{};] 
+		    ]
+		    [.\node{};  
+		        [.\node{};]
+		        [.\node{};] 
+		    ]
+		]
+		\node(1) at (0,0.5) {$(155,152)$};
+		\end{tikzpicture}}
+		&
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{}; 
+		    [.\node{};]
+		    [.\node{};
+		        [.\node{};  
+		            [.\node{};] 
+		        ]
+		        [.\node{};]
+		    ]
+		]
+		\node(1) at (0,0.5) {$(157,154)$};
+		\end{tikzpicture}}
+		&
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{}; 
+		    [.\node{};]
+		    [.\node{};
+		        [.\node{};]
+		        [.\node{};]
+		        [.\node{};]
+		    ]
+		]
+		\node(1) at (0,0.5) {$(266,263)$};
+		\end{tikzpicture}}
+		&
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{}; 
+		    [.\node{};
+		        [.\node{};
+		            [.\node{};]
+		        ]
+		        [.\node{};]
+		        [.\node{};]
+		    ]
+		]
+		\node(1) at (0,0.5) {$(256,255)$};
+		\end{tikzpicture}}
+		&
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{}; 
+		    [.\node{};
+		        [.\node{};]
+		        [.\node{};
+		            [.\node{};]
+		        ]
+		        [.\node{};]
+		    ]
+		]
+		\node(1) at (0,0.5) {$(255,254)$};
+		\end{tikzpicture}}
+		\\[3.2cm]
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{}; 
+		    [.\node{};
+		        [.\node{};]
+		        [.\node{};]
+		        [.\node{};
+		            [.\node{};]
+		        ] 
+		    ]
+		]
+		\node(1) at (0,0.5) {$(263,266)$};
+		\end{tikzpicture}}
+		&
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{}; 
+		    [.\node{};
+		        [.\node{}; 
+		            [.\node{}; 
+		                [.\node{}; ]
+		            ]
+		        ] 
+		        [.\node{};]
+		    ]
+		]
+		\node(1) at (0,0.5) {$(129,127)$};
+		\end{tikzpicture}}
+		&
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{}; 
+		    [.\node{};
+		        [.\node{}; 
+		            [.\node{};]
+		            [.\node{};]
+		        ] 
+		        [.\node{};]
+		    ]
+		]
+		\node(1) at (0,0.5) {$(212,213)$};
+		\end{tikzpicture}}
+		&
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{}; 
+		    [.\node{}; 
+		        [.\node{};  
+		            [.\node{};] 
+		        ]
+		        [.\node{};  
+		            [.\node{};] 
+		        ]
+		    ]
+		]
+		\node(1) at (0,0.5) {$(160,161)$};
+		\end{tikzpicture}}
+		&
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{}; 
+		    [.\node{}; 
+		        [.\node{};
+		            [.\node{};  
+		                [.\node{};] 
+		            ]
+		            [.\node{};]
+		        ]
+		    ]
+		]
+		\node(1) at (0,0.5) {$(154,157)$};
+		\end{tikzpicture}}
+		&
+		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\Tree 
+		[.\node{}; 
+		    [.\node{}; 
+		        [.\node{};
+		            [.\node{};]
+		            [.\node{};]
+		            [.\node{};] 
+		        ]
+		    ]
+		]
+		\node(1) at (0,0.5) {$(266,263)$};
+		\end{tikzpicture}}
+	\end{tabular}
+	\caption{The $24$ planar trees with $5$ internal edges for which $|\LAD_t| \neq |\SUD_t|$.}
+	\label{fig:trees}
+\end{figure}
 \end{example}
 
 We note that one sufficient condition for a tree $t$ to satisfy $|\LAD_t|=|\SUD_t|$ is, $N$ is a nesting of $t$ to be a nesting if, and only if, $rN$ is a nesting of $t$.
@@ -5252,23 +5221,7 @@ Therefore, for $t \in PT_n$ in $|\LAD_t| = |\SUD_{rt}|$ and $|\SUD_t| = |\LAD_{r
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section*{Aknowledgements}
-
-We would like to thank Hugh Thomas, who first asked about the counts of facets of the $\LA$ diagonal and designed the first code to compute them, during a visit of GLA at the LACIM in Montr\'eal, in the summer of 2021.
-We are grateful to Sylvie Corteel for pointing out the relevance of the dual perspective for the purpose of counting, and to Samson Saneblidze and Ron Umble for useful correspondence.
-\Guillaume{Galashin (asked about characteristic polynomials). 
-Organizers of the Simon Center conference....}
-
-GLA would like to thank the Max Planck Insitute for Mathematics in Bonn where part of this work was carried out. 
-BDO was partially supported by the French ANR grants ALCOHOL (ANR-19-CE40-0006), CARPLO (ANR-20-CE40-0007), HighAGT (ANR-20-CE40-0016) and S3 (ANR-20-CE48-0010). 
-GLA and KS were supported by the Australian Research Council Future Fellowship FT210100256. 
-KS was supported by an Australian Government Research Training Program (RTP) Scholarship.
-VP was partially supported by the French ANR grant CHARMS (ANR-19-CE40-0017) and by the French--Austrian project PAGCAP (ANR-21-CE48-0020 \& FWF I 5788). 
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\cleardoublepage
 \bibliographystyle{alpha}
 \bibliography{diagonalsPermutahedra}
 \label{sec:biblio}
