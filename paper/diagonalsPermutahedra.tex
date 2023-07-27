@@ -4764,13 +4764,41 @@ Recall that a \defn{nest} of $t \in \PT_n$ is a subset of internal edges which i
 
 \begin{definition}
 \label{def:valid}
-Let $\sigma=\sigma_1|...\sigma_k$ be an ordered partition of $[n]$. 
+Let $\sigma=\sigma_1|...|\sigma_k$ be an ordered partition of $[n]$. 
 We say that $\sigma$ is \defn{valid} for $t \in \PT_n$, if the subsets of internal edges $\{\sigma_1, \sigma_1 \cup \sigma_2,...,\bigcup_{i=1}^k \sigma_i\}$ form a nesting of $t$.
 We say that a pair of ordered partitions is \defn{valid} for $t$, if the two ordered partitions are.
 For $t \in \PT_n$, we define $\LAD_t$ (\resp $\SUD_t$) to be the elements of $\LAD$ ($\SUD$) which are valid nests of $t$.
 \end{definition}
 
-\Kurt{Look at one particular tree in detail.}
+\begin{example}\label{ex:Validity example}
+Consider the following planar tree with $5$ internal edges.
+We label each internal edge in infix order by labelling the vertex directly below it.
+\begin{center}
+\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.9cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\Tree 
+[.\node{0};
+    [.\node{1};]
+    [.\node{2};
+        [.\node{3};
+            [.\node{4};]
+        ]
+    ]
+    [.\node{5};]
+]
+\end{tikzpicture}
+\end{center}
+For this tree, the ordered partitions,
+\begin{itemize}
+    \item $12|3|45, 2|35|14, 25|13|4, 25|4|13, 3|12|45$ are all valid. 
+    \item $12|45|3, 35|1|24$ are both invalid. 
+\end{itemize}
+Consequently,
+\begin{itemize}
+    \item $12|3|45 \times 2|35|14 \in \LAD$ and $12|3|45 \times 25|13|4 \in \SUD$ are both valid.
+    \item $\mathbf{\red{12|45|3}} \times 25|4|13 \in \LAD$ and $3|12|45 \times \mathbf{\red{35|1|24}} \in \SUD$ are both invalid.
+\end{itemize}
+
+\end{example}
 
 \begin{proposition}
 The $\LA$ and $\SU$ diagonals of the operahedra associated with trees that have less than $4$ internal edges have the same number of facets. 
@@ -4781,18 +4809,14 @@ For every $n\geq 4$, there is a tree $t \in \PT_n$ such that the number of facet
 As shown in \cite[Sec. 1.6]{LaplanteAnfossi}, diagonals of the permutahedra induce diagonals of the operahedra. 
 \cref{def:valid} above is borrowed from \cite[Prop. 3.20]{LaplanteAnfossi}.
 Thus, the statement is equivalent to the following: for $n\leq 4$, and for every tree $t\in \PT_n$, we have $|\LAD_t| = |\SUD_t|$; while for $n>4$, there exists $t \in \PT_n$, such that $|\LAD_t| \neq |\SUD_t|$.
-This was checked via code and the few first counterexamples are displayed in \cref{ex:SU-LA-operahedra} below.
+This was checked via code and the first few counterexamples are displayed in \cref{ex:SU-LA-operahedra} below.
 \end{proof}
-
-\begin{remark}
-	Changing infix order inertwines the counts \Guillaume{@Kurt can you complete?}
-\end{remark}
 
 \begin{example}
 \label{ex:SU-LA-operahedra}
-We present herethe $24$ planar trees with $5$ internal edges for which $|\LAD_t| \neq |\SUD_t|$.
+We present here the $24$ planar trees with $5$ internal edges for which $|\LAD_t| \neq |\SUD_t|$.
 Note that $|\LAD_t|,|\SUD_t| \leq |\LAD_5|=|\SUD_5|=432 $ (\cref{table:enumerationDiagonalPermutahedra1}), the number of facets in the permutahedron diagonals.
-We display each tree $t$ with the counts $(|\LAD_t|,|\SUD_t|)$ above it, and arrange them symmetrically to help emphasize notable missing elements. 
+We display each tree $t$ with the counts $(|\LAD_t|,|\SUD_t|)$ above it, and arrange them symmetrically to help emphasize notable missing elements. \Kurt{easy way to make centrally symmetric, or alternate arrangement?}
 \begin{center}
 \begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
 \Tree 
@@ -4898,12 +4922,12 @@ We display each tree $t$ with the counts $(|\LAD_t|,|\SUD_t|)$ above it, and arr
 \begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
 \Tree 
 [.\node{};
+    [.\node{};]
+    [.\node{};]
     [.\node{};
         [.\node{};]
-         [.\node{};]
+        [.\node{};]
     ]
-    [.\node{};]
-    [.\node{};]
 ]
 \node(1) at (0,0.5) {$(214,216)$};
 \end{tikzpicture}
@@ -5192,7 +5216,8 @@ We display each tree $t$ with the counts $(|\LAD_t|,|\SUD_t|)$ above it, and arr
 \end{center}
 \end{example}
 
-A sufficient condition for a tree $t$ to satisfy $|\LAD_t|=|\SUD_t|$ is for $rN$ to be a nesting iff $N$ is a nesting. This includes trees such as the linear tree and
+We note that one sufficient condition for a tree $t$ to satisfy $|\LAD_t|=|\SUD_t|$ is, $N$ is a nesting of $t$ to be a nesting if, and only if, $rN$ is a nesting of $t$.
+This includes trees such as the linear tree and
 
 \begin{center}
 \begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
@@ -5209,328 +5234,14 @@ A sufficient condition for a tree $t$ to satisfy $|\LAD_t|=|\SUD_t|$ is for $rN$
 \end{tikzpicture}
 \end{center}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The lack of symmetry in the trees above and $(|\LAD_t|,|\SUD_t|)$ arises from the lack of symmetry inherent in the infix order, and in how the $\LA$ and $\SU$ diagonal treat maximal and minimal elements.
+It is possible to resolve this breakdown in symmetry by using alternate labellings of trees.
 
-\Kurt{Old arrangement of trees which mirror code will remove later.}
-\begin{center}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{}; 
-        [.\node{};
-            [.\node{};  
-                [.\node{};] 
-            ]
-            [.\node{};]
-        ]
-    ]
-]
-\node(1) at (0,0.5) {$(154,157)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{}; 
-        [.\node{};
-            [.\node{};]
-            [.\node{};]
-            [.\node{};] 
-        ]
-    ]
-]
-\node(1) at (0,0.5) {$(266,263)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{}; 
-        [.\node{};  
-            [.\node{};] 
-        ]
-        [.\node{};  
-            [.\node{};] 
-        ]
-    ]
-]
-\node(1) at (0,0.5) {$(160,161)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{};
-        [.\node{};]
-        [.\node{};]
-        [.\node{};
-            [.\node{};]
-        ] 
-    ]
-]
-\node(1) at (0,0.5) {$(263,266)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{};
-        [.\node{}; 
-            [.\node{}; 
-                [.\node{}; ]
-            ]
-        ] 
-        [.\node{};]
-    ]
-]
-\node(1) at (0,0.5) {$(129,127)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{};
-        [.\node{}; 
-            [.\node{};]
-            [.\node{};]
-        ] 
-        [.\node{};]
-    ]
-]
-\node(1) at (0,0.5) {$(212,213)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{};
-        [.\node{};]
-        [.\node{};
-            [.\node{};]
-        ]
-        [.\node{};]
-    ]
-]
-\node(1) at (0,0.5) {$(255,254)$};
-\end{tikzpicture}
-\end{center}
-\begin{center}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{};
-        [.\node{};
-            [.\node{};]
-        ]
-        [.\node{};]
-        [.\node{};]
-    ]
-]
-\node(1) at (0,0.5) {$(256,255)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{};]
-    [.\node{};
-        [.\node{};  
-            [.\node{};] 
-        ]
-        [.\node{};]
-    ]
-]
-\node(1) at (0,0.5) {$(157,154)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{};]
-    [.\node{};
-        [.\node{};]
-        [.\node{};]
-        [.\node{};]
-    ]
-]
-\node(1) at (0,0.5) {$(266,263)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{};  
-        [.\node{};] 
-    ]
-    [.\node{};  
-        [.\node{};  
-            [.\node{};] 
-        ]
-    ]
-]
-\node(1) at (0,0.5) {$(98,97)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{}; 
-    [.\node{};  
-        [.\node{};] 
-    ]
-    [.\node{};  
-        [.\node{};]
-        [.\node{};] 
-    ]
-]
-\node(1) at (0,0.5) {$(155,152)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};  
-        [.\node{};  
-            [.\node{};] 
-        ]
-    ]
-    [.\node{};  
-        [.\node{};] 
-    ]
-]
-\node(1) at (0,0.5) {$(91,92)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};  
-        [.\node{};]
-        [.\node{};] 
-    ]
-    [.\node{};  
-        [.\node{};] 
-    ]
-]
-\node(1) at (0,0.5) {$(141,144)$};
-\end{tikzpicture}
-\end{center}
-\begin{center}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};]
-    [.\node{};
-        [.\node{};]
-    ]
-    [.\node{};
-        [.\node{};]
-    ]
-]
-\node(1) at (0,0.5) {$(160,161)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};]
-    [.\node{};]
-    [.\node{};]
-    [.\node{};
-        [.\node{};]
-    ]
-]
-\node(1) at (0,0.5) {$(263,266)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};  
-        [.\node{};  
-            [.\node{};]
-        ]
-        [.\node{};] 
-    ]
-    [.\node{};]
-]
-\node(1) at (0,0.5) {$(142,141)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};]
-    [.\node{};
-        [.\node{};
-            [.\node{};]
-        ]
-    ]
-    [.\node{};]
-]
-\node(1) at (0,0.5) {$(129,127)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};]
-    [.\node{};
-        [.\node{};]
-        [.\node{};]
-    ]
-    [.\node{};]
-]
-\node(1) at (0,0.5) {$(212,213)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};
-        [.\node{};]
-    ]
-    [.\node{};
-        [.\node{};]
-    ]
-    [.\node{};]
-]
-\node(1) at (0,0.5) {$(162,161)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};]
-    [.\node{};]
-    [.\node{};
-        [.\node{};]
-    ]
-    [.\node{};]
-]
-\node(1) at (0,0.5) {$(255,254)$};
-\end{tikzpicture}
-\end{center}
-\begin{center}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};
-        [.\node{};]
-         [.\node{};]
-    ]
-    [.\node{};]
-    [.\node{};]
-]
-\node(1) at (0,0.5) {$(214,216)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};]
-    [.\node{};
-        [.\node{};]
-    ]
-    [.\node{};]
-    [.\node{};]
-]
-\node(1) at (0,0.5) {$(256,254)$};
-\end{tikzpicture}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{};
-    [.\node{};
-        [.\node{};]
-    ]
-    [.\node{};]
-    [.\node{};]
-    [.\node{};]
-]
-\node(1) at (0,0.5) {$(266,263)$};
-\end{tikzpicture}
-\end{center}
-
+\begin{remark}
+Observe that $\sigma$ is a valid nesting for $t$ if, and only if $r\sigma$ is a valid nesting for $rt$, where $rt$ is the relabelling of $t$ with minimal edge label sent to maximal and so on.
+Consequently, $(\sigma,\tau)$ is a valid nesting for $t$ if, and only if $t(r\times r)(\sigma,\tau)$ is a valid nesting for $rt$.
+Therefore, for $t \in PT_n$ in $|\LAD_t| = |\SUD_{rt}|$ and $|\SUD_t| = |\LAD_{rt}|$.
+\end{remark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
