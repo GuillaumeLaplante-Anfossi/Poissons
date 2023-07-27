@@ -3920,7 +3920,7 @@ where we have aligned each element, of each diagonal, vertically with its dual e
 
 In this section, we show that the $1$-shifts of the operadic diagonals $\LAD$ and $\SUD$, define a lattice structure on the set of facets.
 More precisely, we show each $\SCP$ is the minimal element of a lattice isomorphic to a product of chains, where the partial order is given by shifts, or equivalently inversions.
-One initial consequence is given the bijection between SCPs and permutations, and our prior enumeration of the facets of the diagonal, this produces two new statistics on permutations.
+One initial consequence is that given the bijection between SCPs and permutations, and our prior enumeration of the facets of the diagonal, this produces two new statistics on permutations.
 In addition, later in \cref{sec:Cubical}, we will use the lattice structure to relate the cubical and shift definitions of the $\SUD$ diagonal.
 
 Prior to defining the lattice structure, we produce two useful lemmas for characterizing it.
@@ -3955,7 +3955,7 @@ Thus, these iterated $1$-shifts will be path-admissible until the first failure 
 \end{proof}
 
 \begin{remark}
-The calculation of each height can also be reformulated directly in terms of the permutation.
+The height calculations can also be reformulated directly in terms of the permutation.
 For instance, for the $\SU$ diagonal $r_v(\rho)$ is the number of consecutive descending runs, to the right of the descending run containing $\rho$, whose maximal element is smaller than $\rho$.
 \end{remark}
 
@@ -3970,12 +3970,16 @@ From \cref{cor:SU-shift-preserves-max}, we know $m$-shifts conserve the maximal 
 As such, we can commute any two shift operators.
 \end{proof}
 
-Recall from \cref{subsec:inversions} that the inversions of an ordered $(2,n)$-partition tree are the set of edge crossings. 
+We now define our lattices.
 
 \begin{definition}
 For each permutation $v$ of $[n]$, let $T_v^\LA$ (\resp $T_v^\SU$) be the set of ordered $(2,n)$-partition trees, resulting from applying all $\LA$ ($\SU$) shifts to the SCP $(\sigma,\tau)$.
 We define the \defn{shift lattices}, also denoted $T_v^\LA$ ($T_v^\SU$), to be these sets partially ordered by the inclusion of their inversions sets. 
 \end{definition}
+
+The partial order can also be defined in terms of crossings, given inversions are in bijection with crossings (\cref{subsec:inversions}).
+Alternatively, it can be directly defined by shifts, \ie $(\sigma,\tau)\leq (\sigma',\tau')$ if there exists a sequence of admissible path shifts that turns $(\sigma,\tau)$ into $(\sigma',\tau')$.
+The following proof makes both these interpretations clear.
 
 \begin{proposition} 
 \label{prop:shift lattice}
@@ -3988,7 +3992,7 @@ The shift lattices are indeed lattices, and are isomorphic to products of chains
 \end{proposition}
 where $[0,k]$ is the chain lattice $0<1<...<k$, for $k\geq 0$.
 \begin{proof}
-We define $L_\rho^m$ (\resp $R_\rho^m$) to be a $m$-left (right) shift of $\rho$ for $m>0$, and the identity for $m=0$.
+We define $L_\rho^m$ (\resp $R_\rho^m$) to be a left (right) $m$-shift of $\rho$ for $m>0$, and the identity for $m=0$.
 By the commutativity of $m$-shift operators (\cref{lem:m-shifts commute}), and the existence of unique heights for each element (\cref{prop:maximal m-shift formulae}), every element of $T_v^\LA$ admits a unique shift description $(L^{l_n}_{n}...L^{l_1}_{1}\sigma,
 R^{r_n}_{n}\cdots R^{r_{1}}_{1}\tau)$, where $0\leq l_\rho\leq l_v(\rho)$ and $0\leq r_\rho\leq r_v(\rho)$.
 Thus, we identify each element with the pair of tuples $(l_1,\ldots,l_n)\times (r_1,\ldots,r_n)$.
@@ -4008,8 +4012,8 @@ For a clear example of the Hasse diagram, we direct the reader back to \cref{ex:
 
 \begin{remark}
 As a consequence of \cref{prop:shift lattice}, the facets of the operadic diagonal are a disjoint union of lattices.
-We note however that any lattice $L$ on permutations will induce a lattice on the facets.
-In particular, for every $v \in L$, we can substitute the lattice $T_v^\LA$ (or $T_v^\SU$) into the permutation $v$.
+However, any lattice $L$ on permutations (such as the weak order), will induce a lattice on the facets.
+For every $v \in L$, we can substitute the lattice $T_v^\LA$ (or $T_v^\SU$) into the permutation $v$.
 In particular, every element which was covered by $v$ is now covered by the minimal element of $T_v^\LA$, and every element which was covering $v$ now covers the maximal element of $T_v^\LA$.
 
 \end{remark}
@@ -4033,9 +4037,6 @@ This follows directly from \cref{coro:enumerationDiagonalPermutahedra}, with the
 \Kurt{Better?}
 
 %%%%%%%%%%%%%%%
-
-
-\Kurt{Proof read to here}
 
 \subsection{Matrix description}
 \label{subsec:matrix}
@@ -4087,41 +4088,33 @@ $
 \label{fig:step-matrix}
 \end{figure}
 
-Given a matrix $A$ with all non-zero entries the elements $[n]$, let $\sigma_i(A)$ denote the non-zero entries of the $i$\ordinal{} column, and $\tau_j(A)$ the non-zero entries of the $(l-j+1)$\ordinalst{} row, see the labelling in \cref{fig:step-matrix}.
+Given a matrix $A$ whose only non-zero entries are the elements $[n]$, let $\sigma_i(A)$ denote the non-zero entries of the $i$\ordinal{} column, and $\tau_j(A)$ the non-zero entries of the $(l-j+1)$\ordinalst{} row, see the labelling in \cref{fig:step-matrix}.
 With this identification, the definitions of the shift operators can be translated directly:
 the right shift operator $R_{M}$ shifts the elements of a subset $M \subset \sigma_i(A)$ one column to the right, or one row up, replacing only elements of value $0$, and leaving $0$ elements in their wake, while the left shift operator $L_{M}$ shifts the elements of $M$ to the left, or down one row.
-The translation of admissibility of sequence of shifts (\cref{def:SU-admissible,def:LA-admissible}) is also straightforward.
-We work here with the original $\SU$ diagonal.
-
-\begin{definition}
-	A right shift $R_M$ of a non-empty set of elements of a matrix $M \subset \sigma_i(A)$ (\resp $M_{i}\subset \tau_{i}(A)$) \defn{block-admissible} if
-	\begin{enumerate}
-		\item $\max \sigma_i(A) \notin M_i$ (\resp $\max \tau_{i}(A) \notin M_i$), and
-		\item $\max M_i < \min \sigma_{i-1}(A)$ (\resp $\max M_{i} < \min \tau_{i+1}(A)$).
-\end{enumerate}
-\end{definition}
+The fact that the shifts avoid collisions with other elements is a consequence of their admissibility.
+Recall from \cref{def:movable-subsets}, that a right $\SU$ $1$-shift $R_M$ is \defn{block-admissible} if $\min \sigma_i \notin M$ and $\min M > \max \sigma_{i+1}$ (\resp $\min M > \max \sigma_{i-1}$), and that admissible sequence of right shifts proceed in increasing order \cref{def:SU-admissible}.
 
 \begin{proposition}
-The matrix shift operators are well-defined.
+Admissible sequences of matrix shift operators are well-defined.
 \end{proposition}
 \begin{proof}
-We verify the claim that the matrix shift operators never replace non-zero elements.
+We verify the claim that the admissible sequences of matrix shift operators never replace non-zero elements.
 It is straightforward to show that this is true when a shift operator is applied to a $\SCP$ $(\sigma,\tau)$.
 From here we proceed inductively.
 We assume that all prior shift operators have been well-defined, and we then check that applying another admissible shift operator is also well-defined.
-Suppose that an admissible right shift $R_{M}$ is not well-defined as it tries to move a value $m$ into a non-zero matrix entry $n$.
+Suppose that an admissible right shift $R_{M}$ is not well-defined, as it tries to move a value $m$ into a non-zero matrix entry $n$.
 Then, $n$ must have been placed into that column by a prior left shift operator $L_{N_j}$, and consequently $n>\min N_j > \max \tau_{j-1}> m$.
 However, $n\in \sigma_{i+1}$ so $\max \sigma_{i+1}>n>m>\min M_i $ implies that $M$ is not block-admissible, a contradiction.
 \end{proof}
 
-The \defn{configuration matrices} \cite[Def. 7]{SaneblidzeUmble} are the matrices corresponding to $\SCP$s and those generated by admissible sequences of shifts.
-From the definitions we get that the set of $\SU$ configuration matrices are in bijection with the facets of the $\SU$ diagnonal.
+\defn{Configuration matrices} \cite[Def. 7]{SaneblidzeUmble} are the matrices corresponding to $\SCP$s and those generated by admissible sequences of shifts.
+Consequently, they are in bijection with the facets of the $\SU$ diagonal.
 The translation of these results for the $\LA$ diagonal is clear.
 One can use, the isomorphism $t(r\times r)$ as in the following example. 
 
 \begin{example}
 The first row of the following diagram contains a sequence of admissible $\SU$ subset shifts applied to the matrix encoding of the SCP $256|4|17|3\times 6|5|147|13$ (see \cref{ex:shift translation by theta} for other encodings of shifts acting on this element). 
-The second row is the image of these shifts under isomorphism $t(r\times r)$.
+The second row is the image of these shifts under the isomorphism $t(r\times r)$.
 \begin{center}
 {\footnotesize
 \begin{tikzcd}[column sep = 0.5cm]
@@ -4192,6 +4185,8 @@ The second row is the image of these shifts under isomorphism $t(r\times r)$.
 \end{example}
 
 %%%%%%%%%%%%%%%
+
+\Kurt{Proof read to here}
 
 \subsection{Cubical description}
 \label{sec:Cubical}
