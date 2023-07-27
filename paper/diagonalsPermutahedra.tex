@@ -309,7 +309,7 @@ In~\cite{MasudaThomasTonksVallette}, the authors re-introduced the powerful tech
 We shall call such a diagonal a \emph{geometric diagonal} (\cref{def:geometricDiagonal}).
 There are two remarkable features of this diagonal (or more precisely this family of diagonals, one for the Loday associahedron in each dimension).
 First, it respects the operadic structure of the associahedra (in fact, forces a unique topological cellular operad structure on them!), that is, the fact that each face of an associahedron is isomorphic to a product of lower-dimensional associahedra.
-Second, it satisfies the \emph{magical formula} of J.-L. Loday: the faces in the image of the diagonal are given by the pairs of faces which are comparable under the Tamari order (see \cref{sec:cellularDiagonals,rem:magicalFormula} for a precise statement). 
+Second, it satisfies the \emph{magical formula} of J.-L. Loday: the faces in the image of the diagonal are given by the pairs of faces which are comparable in the Tamari order (see \cref{sec:cellularDiagonals,rem:magicalFormula} for a precise statement). 
 This magical formula for the associahedra recently lead to new enumerative results for Tamari intervals~\cite{BostanChyzakPilaud}.
 
 Building on~\cite{MasudaThomasTonksVallette}, a general theory of geometric diagonals was developed in~\cite{LaplanteAnfossi}.
@@ -446,7 +446,7 @@ Vertices of operadic diagonals are pairs of permutations, and form a strict subs
 They admit an analogous description in terms of pattern-avoidance. 
 
 \begin{theorem*}[\cref{thm:patterns}]
-A pair of permutations of $[n]$ is a vertex of the $\LA$ (\resp $\SU$) diagonal if and only if for any~$k\geq 1$ and for any $I=\{i_1,\dots,i_k\},J=\{j_1,\dots,j_k\} \subset [k]$ such that $i_1=1$ (\resp $j_k=2k$) it avoids the patterns 
+A pair of permutations of $[n]$ is a vertex of the $\LA$ (\resp $\SU$) diagonal if and only if for any~$k\geq 1$ and for any $I=\{i_1, \dots, i_k\},J=\{j_1, \dots, j_k\} \subset [k]$ such that $i_1=1$ (\resp $j_k=2k$) it avoids the patterns 
 \begin{align}
 	(j_1 i_1 j_2 i_2 \cdots j_k i_k,\ i_2 j_1 i_3 j_2 \cdots i_k j_{k-1} i_1 j_k), \tag{LA} \\
 	\text{ \resp } (j_1 i_1 j_2 i_2 \cdots j_k i_k, \ i_1 j_k i_2 j_1 \cdots i_{k-1} j_{k-2}i_k j_{k-1}), \tag{SU}
@@ -1792,7 +1792,7 @@ We now consider a given ordered $(\ell,n)$-partition forest~$\order{F}$ and prov
 For this, we need the following directed graph associated to~$\order{\b{F}}$.
 
 \begin{definition}
-For an ordered partition~$\order{\pi} \eqdef \order{\pi}_1 | \dots | \order{\pi}_k$ of~$[n]$, we denote by~$D_{\order{\pi}}$ the directed graph on~$[n]$ with an arc~$\max(\order{\pi}_j) \to \min(\order{\pi}_{j+1})$ for each~$j \in [k-1]$ and a cycle~${x_1 \to \dots \to x_p \to x_1}$ for each part~$\order{\pi}_j = \{x_1 < \dots < x_p\}$.
+For an ordered partition~$\order{\pi} \eqdef \order{\pi}_1 | \cdots | \order{\pi}_k$ of~$[n]$, we denote by~$D_{\order{\pi}}$ the directed graph on~$[n]$ with an arc~$\max(\order{\pi}_j) \to \min(\order{\pi}_{j+1})$ for each~$j \in [k-1]$ and a cycle~${x_1 \to \dots \to x_p \to x_1}$ for each part~$\order{\pi}_j = \{x_1 < \dots < x_p\}$.
 Note that~$D_{\order{\pi}}$ has~$n$ vertices and~$n + k$ arcs.
 For an ordered $(\ell,n)$-partition forest~$\order{\b{F}} \eqdef (\order{F_1}, \dots, \order{F_\ell})$, we denote by~$D_{\order{\b{F}}}$ the superposition of the directed graphs~$D_{\order{F}_i}$ for~$i \in [\ell]$, where the arcs of~$D_{\order{F}_i}$ are labeled by~$i$.
 \end{definition}
@@ -2512,7 +2512,7 @@ Then it must be the case that $\std((\{i_2\},\{j_k\})) = (\{1\},\{2\})$, and $\s
 
 \begin{remark}
 We note that the decomposition in \cref{lem:operadic-ordering} is one of potentially many different decompositions of the pair $(I,J)$. 
-However, by definition of the $\LA$ order, for any decomposition $(I,J) = (\bigsqcup_{a\in A} I_a, \bigsqcup_{a \in A} J_a)$, we have that $\std(I_a, J_a) \in \LA$ for all~$a \in A$.
+However, by definition of the $\LA$ order, for any decomposition $(I,J) = (\bigsqcup_{a\in A} I_a, \bigsqcup_{a \in A} J_a)$, we have $\std(I_a, J_a) \in \LA$ for all~$a \in A$.
 As such all decompositions of a pair $(I,J)$ order it the same way.
 \end{remark}
 
@@ -2545,13 +2545,13 @@ Thus, the only possible operadic choice of ordering for $\{I_{\ell+1},J_{\ell+1}
 \label{ex:Non-coherent order contradiction}
 To illustrate our proof of \cref{prop:operadicOrdering}, suppose that the $\LA$ ordering holds for pairs of order $1$ and $2$, but is reversed for pairs of order $3$, \ie
 \begin{align*}
-	(\{1\}, \{2\}) \in \Or, \quad (\{1,4\}, \{2,3\}) \in \Or, \text{ and } (\{2, 3, 4\}, \{1, 5, 6 \}) \in \Or.
+(\{1\}, \{2\}) \in \Or, \quad (\{1,4\}, \{2,3\}) \in \Or, \text{ and } (\{2, 3, 4\}, \{1, 5, 6 \}) \in \Or.
 \end{align*}
 Then $\{I'_4,J'_4\}=\{\{1, 3, 7, 8\}, \{2, 4, 5, 6\}\}$ admits two different orientations.
 In particular, 
 \begin{align*}
-	(\{ 4, 5, 6 \} , \{1, 7, 8\}) \in \Or \text{ and } (\{2\}, \{3\}) \in \Or & \Longrightarrow (\{2, 4, 5, 6\}, \{1, 3, 7, 8\} ) \in \Or \ \text{and} \\
-	(\{1, 7\}, \{2, 5\}) \in \Or \text{ and } (\{3, 8\}, \{4, 6\}) \in \Or & \Longrightarrow (\{1, 3, 7, 8\}, \{2, 4, 5, 6\}) \in \Or.
+(\{ 4, 5, 6 \} , \{1, 7, 8\}) \in \Or \text{ and } (\{2\}, \{3\}) \in \Or & \Longrightarrow (\{2, 4, 5, 6\}, \{1, 3, 7, 8\} ) \in \Or \ \text{and} \\
+(\{1, 7\}, \{2, 5\}) \in \Or \text{ and } (\{3, 8\}, \{4, 6\}) \in \Or & \Longrightarrow (\{1, 3, 7, 8\}, \{2, 4, 5, 6\}) \in \Or.
 \end{align*}
 \end{example}
 
@@ -2588,17 +2588,17 @@ As we have already remarked in \cref{def:oppositeDiagonal}, this involution send
 
 \pagebreak
 \begin{theorem}
-	\label{thm:bijection-operadic-diagonals}
-	For the permutahedron~$\Perm$, the involutions $t$ and $rs \times rs$ are cellular isomorphisms between the four operadic diagonals, through the following commutative diagram
-	\begin{center}
-		\begin{tikzcd}
+\label{thm:bijection-operadic-diagonals}
+For the permutahedron~$\Perm$, the involutions $t$ and $rs \times rs$ are cellular isomorphisms between the four operadic diagonals, through the following commutative diagram
+\begin{center}
+	\begin{tikzcd}
 		\LAD \arrow[r,"t"] \arrow[d,"rs \times rs"']&
 		(\LAD)^{\op}\arrow[d,"rs \times rs"]\\
 		\SUD \arrow[r,"t"'] &
 		(\SUD)^\op
-		\end{tikzcd}
-		\end{center}
-	Moreover, they induce poset isomorphisms at the level of the face lattices. 
+	\end{tikzcd}
+\end{center}
+Moreover, they induce poset isomorphisms at the level of the face lattices. 
 \end{theorem}
 
 \begin{proof}
@@ -2769,10 +2769,10 @@ We first need the following Lemma, which follows directly from the definition of
 \label{lem:Coherent Domination}
 Let $\sigma$ be an ordered partition of $[n]$ and let $I,J \subseteq [n]$ be such that $I$ dominates $J$ in~$\sigma$. 
 For an element $i$ in $I$ or $J$, we denote by $\sigma^{-1}(i)$ the index of the block containing it in $\sigma$. 
-Then, for any $i \in I,j \in J$, we have that $I\ssm i$ dominates $J\ssm j$ in $\sigma$ if and only if either
+Then, for any $i \in I,j \in J$, we have $I\ssm i$ dominates $J\ssm j$ in $\sigma$ if and only if either
 \begin{enumerate}
-	\item either~$\sigma^{-1}(j) < \sigma^{-1}(i)$ (meaning that $j$ comes strictly before $i$ in $\sigma$),
-	\item or for all $k$ between $\sigma^{-1}(i)$ and $\sigma^{-1}(j)$, the first $k$ blocks of $\sigma$ contain stricly more elements of $I$ than of $J$.
+\item either~$\sigma^{-1}(j) < \sigma^{-1}(i)$ (meaning that $j$ comes strictly before $i$ in $\sigma$),
+\item or for all $k$ between $\sigma^{-1}(i)$ and $\sigma^{-1}(j)$, the first $k$ blocks of $\sigma$ contain stricly more elements of $I$ than of $J$.
 \end{enumerate}
 \end{lemma}
 
@@ -2791,8 +2791,8 @@ The pairs of permutations $(\sigma,\tau)$ avoiding the patterns $(21,12)$ are pr
 \label{thm:patterns}
 A pair of permutations of $[n]$ is a vertex of the $\LA$ (\resp $\SU$) diagonal if and only if for any~$k\geq 1$ and for any $(I,J) \in \LA(k)$ (\resp $\SU(k)$) of size $\card{I}=\card{J}=k$ it avoids~the~patterns 
 \begin{align}
-	(j_1 i_1 j_2 i_2 \cdots j_k i_k,\ i_2 j_1 i_3 j_2 \cdots i_k j_{k-1} i_1 j_k), \tag{LA} \label{eq:pattern} \\
-	\text{ \resp } (j_1 i_1 j_2 i_2 \cdots j_k i_k, \ i_1 j_k i_2 j_1 \cdots i_{k-1} j_{k-2}i_k j_{k-1}), \tag{SU}
+(j_1 i_1 j_2 i_2 \cdots j_k i_k,\ i_2 j_1 i_3 j_2 \cdots i_k j_{k-1} i_1 j_k), \tag{LA} \label{eq:pattern} \\
+\text{ \resp } (j_1 i_1 j_2 i_2 \cdots j_k i_k, \ i_1 j_k i_2 j_1 \cdots i_{k-1} j_{k-2}i_k j_{k-1}), \tag{SU}
 \end{align}
 where $I=\{i_1,\dots,i_k\}$, $J=\{j_1,\dots,j_k\}$ and $i_1=1$ (\resp $j_k=2k$).
 \end{theorem}
@@ -2883,12 +2883,12 @@ The avoided patterns for higher $k$ extend this crisscrossing shape.
 
 \begin{proof}[Proof of \cref{thm:patterns}]
 We give the proof for the $\LA$ diagonal, the one for the $\SU$ diagonal is similar, and can be obtained by applying either of the two isomorphisms of \cref{subsec:isos-LA-SU}.
-According to \cref{thm:IJ-description}, we have that $(\sigma,\tau) \notin \LAD$ if and only if there is an $(I,J)$ such that~$J$ dominates~$I$ in $\sigma$ and~$I$ dominates $J$ in $\tau$.
+According to \cref{thm:IJ-description}, we have $(\sigma,\tau) \notin \LAD$ if and only if there is an $(I,J)$ such that~$J$ dominates~$I$ in $\sigma$ and~$I$ dominates $J$ in $\tau$.
 It is clear that if a pair of permutations $(\sigma,\tau)$ contains a pattern of the form~(\ref{eq:pattern}), then the associated $(I,J)$ satisfies the domination condition.
 Thus, we just need to show the reverse implication. 
 We proceed by induction on the cardinality $\card{I} = \card{J}$. 
 The case of cardinality $1$ is clear. 
-Now suppose that for all $(I,J)$ of size $\card{I} = \card{J} \le m-1$, we have that if~$J$ dominates $I$ in $\sigma$ and $I$ dominates $J$ in $\tau$, then $(\sigma,\tau)$ contains a pattern of the form~(\ref{eq:pattern}).
+Now suppose that for all $(I,J)$ of size $\card{I} = \card{J} \le m-1$, we have if~$J$ dominates $I$ in $\sigma$ and $I$ dominates $J$ in $\tau$, then $(\sigma,\tau)$ contains a pattern of the form~(\ref{eq:pattern}).
 
 We need to show that this is still true for the pairs $(I,J)$ of size $\card{I} = \card{J} = m$.
 Firstly, we need only consider standardised $I,J$ conditions, and pairs of permutations of $[2m]$.
@@ -2901,22 +2901,22 @@ Which yields the indicated simplification.
 Let $(\sigma,\tau)$ be such a pair of permutations.
 Suppose the leftmost element $i_1$ of $I$ in $\sigma$ is not $1$, and let us write $j_1$ for the leftmost element of $J$ in $\tau$.
 Consider the pair ${(I',J') \eqdef (I\ssm \{i_1\}, J \ssm \{j_1\})}$.
-Using both cases of \cref{lem:Coherent Domination}, we have that $J'$ dominates $I'$ in $\sigma$, and $I'$ dominates $J'$ in $\tau$, and we can thus conclude by induction that $(\sigma,\tau)$ contains a smaller pattern.
+Using both cases of \cref{lem:Coherent Domination}, we have $J'$ dominates $I'$ in $\sigma$, and $I'$ dominates $J'$ in $\tau$, and we can thus conclude by induction that $(\sigma,\tau)$ contains a smaller pattern.
 
 So, we assume the leftmost element of $I$ in $\sigma$ is $i_1=1$, and for $n\geq1$ we prove that,
 \begin{enumerate}[(a)]
-    \item If $(\sigma,\tau)=(j_1 i_1 j_2 i_2 ... j_{n-1} i_{n-1} w i_{n} w', \ i_2 j_1 i_3 j_2 ... i_{n}j_{n-1}w'') $, and $j_n$ is the leftmost element of $J\ssm \{j_1,...,j_{n-1}\}$ in $\tau$, then either $w = j_n$, or it matches a smaller pattern.
-    \item If $(\sigma,\tau)=(j_1 i_1 j_2 i_2 ... j_{n-1} i_{n-1} w'', \ i_2 j_1 i_3 j_2 ... i_{n-1}j_{n-2} w j_{n-1} w'')$, and $i_n$ is the leftmost element of ${I\ssm \{i_1,...,i_{n-1}\}}$ in $\sigma$, then either $w = i_n$, or it matches a smaller pattern.
+\item If $(\sigma,\tau)=(j_1 i_1 j_2 i_2 \dots j_{n-1} i_{n-1} w i_{n} w', \ i_2 j_1 i_3 j_2 \dots i_{n}j_{n-1}w'') $, and $j_n$ is the leftmost element of $J\ssm \{j_1, \dots, j_{n-1}\}$ in $\tau$, then either $w = j_n$, or it matches a smaller pattern.
+\item If $(\sigma,\tau)=(j_1 i_1 j_2 i_2 \dots j_{n-1} i_{n-1} w'', \ i_2 j_1 i_3 j_2 \dots i_{n-1}j_{n-2} w j_{n-1} w'')$, and $i_n$ is the leftmost element of ${I\ssm \{i_1, \dots, i_{n-1}\}}$ in $\sigma$, then either $w = i_n$, or it matches a smaller pattern.
 \end{enumerate}
 We prove $(a)$, the proof of $(b)$ proceeds similarly. 
-Let $j_n$ be the leftmost element of $J\ssm \{j_1,...,j_{n-1} \}$ in $\tau$.
+Let $j_n$ be the leftmost element of $J\ssm \{j_1, \dots, j_{n-1} \}$ in $\tau$.
 If $w\neq j_n$, then either (i) $w$ consists of multiple elements of $J$ including $j_n$, or (ii) $j_n$ comes after $i_n$ in $\sigma$.
 Now consider the pair $(I',J') \eqdef (I\ssm \{i_n\}, J \ssm \{j_n\})$.
-As was the case for the proof that $i_1=1$, we have that $I'$ dominates $J'$ in $\tau$.
+As was the case for the proof that $i_1=1$, we have $I'$ dominates $J'$ in $\tau$.
 To prove that $J'$ dominates $I'$ in $\sigma$, we split by the cases.
 In case (i), we may apply condition $(2)$ of \cref{lem:Coherent Domination}.
 In case (ii), either $i_n$ comes before~$j_n$, in which case we meet condition $(1)$ of \cref{lem:Coherent Domination}, or $j_n$ comes before $i_n$.
-In this last situation, we have that condition $(2)$ of \cref{lem:Coherent Domination} holds as $i_n$ is the leftmost element of~${I\ssm \{i_1,...,i_{n-1}\}}$ in $\sigma$.
+In this last situation, we have condition $(2)$ of \cref{lem:Coherent Domination} holds as $i_n$ is the leftmost element of~${I\ssm \{i_1, \dots, i_{n-1}\}}$ in $\sigma$.
 Thus, if $w \neq j_n$, by the inductive hypothesis, we match a smaller pattern.
 
 Finally, using statements (a) and (b) above, we can inductively generate $(\sigma,\tau)$, determining $j_1$ via $(a)$, then $i_2$ via $(b)$, then $j_2$ via $(a)$ and so on.
@@ -2959,6 +2959,7 @@ We start by the following definition.
 \begin{definition}
 \label{def:strong-complementary-pairs}
 A \defn{strong complementary pair} (or~\defn{$\SCP$} for short) is a pair $(\sigma,\tau)$ of ordered partitions of $[n]$ where $\sigma$ is obtained from a permutation of $[n]$ by merging the adjacent elements which are decreasing, and $\tau$ is obtained from the same permutation by merging the adjacent elements which are increasing.
+\vincent{Please be consistent: use either the abbreviation SCP everywhere, or the words strong complementary partition everywhere.}
 \end{definition}
 
 We denote by $\SCP(n)$ the set of $\SCP$s of $[n]$, which is in bijection with the set of permutations of $[n]$.
@@ -2994,19 +2995,20 @@ Observe that the permutation can be read off the intersection graph of the SCP b
 \end{example}
 
 \begin{notation}
-	For a $(2,n)$-partition tree $(\sigma,\tau)$, we denote by $\sigma_{i,j}$ (\resp $\tau_{i,j}$) the unique oriented path between blocks $\sigma_{i}$ and $\sigma_j$ (\resp $\tau_{i}$ and $\tau_j$).
-\end{notation}
+For a $(2,n)$-partition tree $(\sigma,\tau)$, we denote by $\sigma_{i,j}$ (\resp $\tau_{i,j}$) the unique oriented path between blocks $\sigma_{i}$ and $\sigma_j$ (\resp $\tau_{i}$ and $\tau_j$).
 Note that we make a slight abuse in notation, as the path $\sigma_{i,j}$ also depends on $\tau$.
+\end{notation}
+
 We can immediately characterize the paths between adjacent blocks in $\SCP$s.
 
 \begin{proposition} 
 \label{lem:SCP-path-desc}
-For any strong complementary pair $(\sigma,\tau)$, we have that
+For any strong complementary pair $(\sigma,\tau)$, we have
 \begin{enumerate}
-	\item $ \sigma_{i,i+1} = ( \min \sigma_i, \max \sigma_{i+1} )$ and $\min \sigma_i< \max \sigma_{i+1}$, and
-	\item $  \tau_{i,i+1} =  ( \max \tau_i, \min \tau_{i+1} )$ and $\min \tau_{i+1}< \max \tau_{i}$.
+\item $ \sigma_{i,i+1} = ( \min \sigma_i, \max \sigma_{i+1} )$ and $\min \sigma_i< \max \sigma_{i+1}$, and
+\item $  \tau_{i,i+1} =  ( \max \tau_i, \min \tau_{i+1} )$ and $\min \tau_{i+1}< \max \tau_{i}$.
 \end{enumerate}
-As a consequence, all strong complementary pairs are in both $\LAD$ and $\SUD$, and constitute precisely the set of facets $(\sigma,\tau)$ such that $\max_{\b{v}}(\sigma) = \min_{\b{v}}(\tau)$.
+As a consequence, all strong complementary pairs are in both $\LAD$ and $\SUD$, and constitute precisely the set of facets $(\sigma,\tau)$ of these diagonals such that $\max_{\b{v}}(\sigma) = \min_{\b{v}}(\tau)$.
 \end{proposition}
 \begin{proof}
 First, the path description of $(\sigma,\tau)$ is a straightforward observation. 
@@ -3029,24 +3031,24 @@ We introduce two other descriptions, the $1$-shift and $m$-shift $\SU$ diagonals
 
 \begin{definition}
 \label{def:subset shifts}
-Let $\sigma=\sigma_1|\dots|\sigma_k$ be an ordered partition, and let~$M \subsetneq \sigma_{i}$ be a non-empty subset of the block $\sigma_i$.
+Let $\sigma=\sigma_1| \cdots |\sigma_k$ be an ordered partition, and let~$M \subsetneq \sigma_{i}$ be a non-empty subset of the block $\sigma_i$.
 For $m\geq 1$, the \defn{right $m$-shift} moves $m$ blocks to the right the subset $M$, \ie
 \begin{align*}
-	R_M(\sigma) \eqdef \sigma_1 | \dots | \sigma_i \ssm M | \dots | \sigma_{i+m} \cup M | \dots | \sigma_k
+R_M(\sigma) \eqdef \sigma_1 | \cdots | \sigma_i \ssm M | \cdots | \sigma_{i+m} \cup M | \cdots | \sigma_k
 \end{align*}
 while the \defn{left $m$-shift} moves $m$ blocks to the left the subset $M$, \ie
 \begin{align*}
-	L_M(\sigma) \eqdef \sigma_1 | \dots | \sigma_{i-m} \cup M | \dots | \sigma_{i} \ssm M | \dots | \sigma_k .
+L_M(\sigma) \eqdef \sigma_1 | \cdots | \sigma_{i-m} \cup M | \cdots | \sigma_{i} \ssm M | \cdots | \sigma_k .
 \end{align*}
 \end{definition}
 
 \begin{definition}
 \label{def:movable-subsets}
-Let $\sigma$ denote either one of the two ordered partitions of $[n]$ in a ordered $(2,n)$-partition tree, and let $M \subsetneq \sigma_i$.
+Let $\sigma$ denote either one of the two ordered partitions of $[n]$ in a ordered \mbox{$(2,n)$-partition} tree, and let $M \subsetneq \sigma_i$.
 The right $m$-shift $R_M$ (\resp the left $m$-shift $L_M$) is 
 \begin{enumerate}
-	\item \defn{block-admissible} if $\min \sigma_i \notin M$ and $\min M > \max \sigma_{i+m}$ (\resp $\min M > \max \sigma_{i-m}$),
-	\item \defn{path-admissible} if $\min M > \max \sigma_{i,i+m}$ (\resp $\min M > \max \sigma_{i,i-m}$).
+\item \defn{block-admissible} if $\min \sigma_i \notin M$ and $\min M > \max \sigma_{i+m}$ (\resp $\min M > \max \sigma_{i-m}$),
+\item \defn{path-admissible} if $\min M > \max \sigma_{i,i+m}$ (\resp $\min M > \max \sigma_{i,i-m}$).
 \end{enumerate}
 \end{definition}
 
@@ -3110,11 +3112,11 @@ and show that specific sequences generate the same diagonal.
 
 \begin{definition}
 \label{def:SU-admissible}
-Let $\sigma$ denote either one of the two ordered partitions of $[n]$ in an ordered $(2,n)$-partition tree, and let~$\b{M} = (M_1,\dots,M_p)$ with $M_1 \subsetneq \sigma_{i_1}, \dots, M_p \subsetneq \sigma_{i_p}$ for some~$p \ge 1$.
+Let $\sigma$ denote either one of the two ordered partitions of $[n]$ in an ordered \mbox{$(2,n)$-parti}\-tion tree, and let~$\b{M} = (M_1,\dots,M_p)$ with $M_1 \subsetneq \sigma_{i_1}, \dots, M_p \subsetneq \sigma_{i_p}$ for some~$p \ge 1$.
 Then the sequence of right shifts~$R_\mathbf{M}(\sigma) \eqdef R_{M_p} \dots R_{M_1}(\sigma)$ is 
 \begin{enumerate}
-	\item \defn{block-admissible} if we have $1\leq i_1 < i_2 < \dots < i_p \leq k-1$, and each $R_{M_j}$ is a block-admissible $1$-shift,
-	\item \defn{path-admissible} if each $R_{M_j}$ is a path-admissible $m_j$-shift, for some $m_j \geq 1$.
+\item \defn{block-admissible} if we have $1\leq i_1 < i_2 < \dots < i_p \leq k-1$, and each $R_{M_j}$ is a block-admissible $1$-shift,
+\item \defn{path-admissible} if each $R_{M_j}$ is a path-admissible $m_j$-shift, for some $m_j \geq 1$.
 \end{enumerate}
 Admissible sequences of left shifts are defined similarly and are denoted by $L_\mathbf{M}(\tau)$.
 \end{definition}
@@ -3131,8 +3133,8 @@ where the unions are taken over all strong complementary partitions $(\sigma, \t
 \end{definition}
 
 \begin{remark}
-	Observe that the left (\resp right) shifts acts on the right (\resp left) ordered partition.
-	In the analogous description for the $\LA$ diagonal $\LAD$ obtained at in \cref{subsec:shifts-under-iso}, left and right shifts act on the left and right ordered partitions, respectively.
+Observe that the left (\resp right) shifts acts on the right (\resp left) ordered partition.
+In the analogous description for the $\LA$ diagonal $\LAD$ obtained at in \cref{subsec:shifts-under-iso}, left and right shifts act on the left and right ordered partitions, respectively.
 \end{remark}
 
 %%%%%%%%%%%%%%%
@@ -3145,23 +3147,23 @@ We start by analyzing the $1$-shift $\SU$ diagonal, which is given by exactly th
 \label{prop:SU-preserves-max}
 Block-admissible sequences of $1$-shifts, defining the original $\SU$ diagonal, conserve 
 \begin{enumerate}
-	\item the maximal element of any path between two blocks of the same ordered partition,
-	\item the direction in which this element is traversed. 
+\item the maximal element of any path between two blocks of the same ordered partition,
+\item the direction in which this element is traversed. 
 \end{enumerate}
-In particular, for a pair of ordered partitions $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$ obtained via a block-admissible sequence of $1$-shifts from a strong complementary pair~$(\sigma,\tau)$, we have that
+In particular, for a pair of ordered partitions $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$ obtained via a block-admissible sequence of $1$-shifts from a strong complementary pair~$(\sigma,\tau)$, we have
 \begin{align}
-	\label{eq:max-1}
-	\max R_{\mathbf{M}}(\sigma)_{i,j} = \max \sigma_{i,j} \text{ and } \max L_{\mathbf{N}}(\tau)_{i,j} = \max \tau_{i,j}
+\label{eq:max-1}
+\max R_{\mathbf{M}}(\sigma)_{i,j} = \max \sigma_{i,j} \text{ and } \max L_{\mathbf{N}}(\tau)_{i,j} = \max \tau_{i,j}
 \end{align}
-and consequently that
+and consequently
 \begin{align}
-	\label{eq:max-2}
-	\max R_{\mathbf{M}}(\sigma)_{i,i+1} = \max \sigma_{i+1} \text{ and } \max L_{\mathbf{N}}(\tau)_{i,i+1} = \max \tau_{i}  .
+\label{eq:max-2}
+\max R_{\mathbf{M}}(\sigma)_{i,i+1} = \max \sigma_{i+1} \text{ and } \max L_{\mathbf{N}}(\tau)_{i,i+1} = \max \tau_{i}  .
 \end{align}
 \end{proposition}
 
 \begin{remark}
-	Note that in \cref{eq:max-1}, the maxima $\max \sigma_{i,j}$ and $\max \tau_{i,j}$ are maxima of \emph{paths}, while in \cref{eq:max-2} the maxima $\max \sigma_{i+1}$ and $\max \tau_{i}$ are maxima of \emph{blocks}.
+Note that in \cref{eq:max-1}, the maxima $\max \sigma_{i,j}$ and $\max \tau_{i,j}$ are maxima of \emph{paths}, while in \cref{eq:max-2} the maxima $\max \sigma_{i+1}$ and $\max \tau_{i}$ are maxima of \emph{blocks}.
 \end{remark}
 
 \begin{proof}
@@ -3173,8 +3175,8 @@ By the inductive hypothesis, we know that $\max R_{\mathbf{M}}(\sigma)_{k,k+1}= 
 As $R_{M_k}$ is an admissible operator, we know two things: firstly that $\min M_k > \max R_{\mathbf{M}}(\sigma)_{k+1}$, and secondly that $\max \sigma_{k+1} = \max R_{\mathbf{M}}(\sigma)_{k+1}$, as $k$ is greater than the maximal index used by $\mathbf{M}$.
 So combining these, we know that
 \begin{align}
-	\label{eq:shift-subset-dominates}
-	\min M_k > \max R_{\mathbf{M}}(\sigma)_{k+1} = \max \sigma_{k+1} = \max R_{\mathbf{M}}(\sigma)_{k,k+1} . 
+\label{eq:shift-subset-dominates}
+\min M_k > \max R_{\mathbf{M}}(\sigma)_{k+1} = \max \sigma_{k+1} = \max R_{\mathbf{M}}(\sigma)_{k,k+1} . 
 \end{align}
 A key consequence of this inequality is that the intersection graph of $(R_{M_k}R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$ is a bipartite tree conditional on $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$ being a bipartite tree: the shift will not disconnect the graph as none of the shifted elements are in the path $R_{\mathbf{M}}(\sigma)_{k,k+1}$. 
 So, it is legitimate to speak of unique paths between blocks. 
@@ -3222,12 +3224,12 @@ For the case (2b) it follows from the observation that the number of steps of $\
 \label{cor:SU-1-shift-preserves-max}
 Path-admissible sequences of $1$-shifts, defining the $1$-shift $\SU$ diagonal, conserve 
 \begin{enumerate}
-	\item the maximal element of any path between two blocks of the same ordered partition,
-	\item the direction in which this element is traversed. 
+\item the maximal element of any path between two blocks of the same ordered partition,
+\item the direction in which this element is traversed. 
 \end{enumerate}
 In particular, if a pair of ordered partitions $(\sigma',\tau')$ is generated from a strong complementary pair~$(\sigma,\tau)$ by path-admissible $1$-shifts, then we have
 \begin{align*}
-	\max \sigma'_{i,i+1} = \max \sigma_{i+1} \text{ and } \max \tau'_{i,i+1} = \max \tau_{i} .
+\max \sigma'_{i,i+1} = \max \sigma_{i+1} \text{ and } \max \tau'_{i,i+1} = \max \tau_{i} .
 \end{align*}
 \end{corollary}
 
@@ -3236,11 +3238,11 @@ By the definition of path-admissible $1$-shifts (\cref{def:SU-admissible}), the 
 As such, can run the proof of \cref{prop:SU-preserves-max} \emph{mutatis mutandis}.
 \end{proof}
 
-We are how in position to show that the $1$-shift and $m$-shift descriptions are equivalent. 
+We are now in position to show that the $1$-shift and $m$-shift descriptions are equivalent. 
 
 \begin{proposition}
-	\label{prop:iso-1-to-m-shift}
-	The $1$-shift and $m$-shift $\SU$ diagonals coincide.
+\label{prop:iso-1-to-m-shift}
+The $1$-shift and $m$-shift $\SU$ diagonals coincide.
 \end{proposition}
 
 \begin{proof}
@@ -3248,9 +3250,9 @@ It is clear that any path-admissible sequence of $1$-shifts is a path-admissible
 For the reverse inclusion, we need to show that any $m$-shift can be re-expressed as a path-admissible sequence of $1$-shifts. 
 We proceed by induction.
 For the case $m=1$, there is nothing to prove.
-Let $(\sigma,\tau)$ be a pair of ordered partitions in the $m$-shift diagonal. 
-Suppose now that for an element $\rho \in \sigma_i$, the right $m$-shift $R_\rho$ is path-admissible, \ie $\rho > \max \sigma_{i,i+m}$.
-Since $\sigma_{i,i+m}=\sigma_{i,i+1}\sigma_{i+1,i+m}$ we have that $\max \sigma_{i,i+m}\geq \max \sigma_{i,i+1}$, which means that the $1$-shift $R_\rho$ is path-admissible.
+Let~$(\sigma,\tau)$ be a pair of ordered partitions in the $m$-shift diagonal. 
+Suppose now that for an element~$\rho \in \sigma_i$, the right $m$-shift $R_\rho$ is path-admissible, \ie $\rho > \max \sigma_{i,i+m}$.
+Since~$\sigma_{i,i+m}=\sigma_{i,i+1}\sigma_{i+1,i+m}$ we have $\max \sigma_{i,i+m}\geq \max \sigma_{i,i+1}$, which means that the $1$-shift~$R_\rho$ is path-admissible.
 According to \cref{cor:SU-1-shift-preserves-max}, $1$-shifts conserve the maximal element of paths between adjacent blocks, and its directions.
 Consequently, the following $(m-1)$-shift $R_\rho$ is path-admissible, and we can thus apply the induction hypothesis. 
 \end{proof}
@@ -3261,8 +3263,8 @@ This isomorphism provides us with the following analogue of \cref{cor:SU-1-shift
 \label{cor:SU-shift-preserves-max}
 Path-admissible sequences of $m$-shifts, defining the $m$-shift $\SU$ diagonal, conserve 
 \begin{enumerate}
-	\item the maximal element of any path between two blocks of the same ordered partition,
-	\item the direction in which this element is traversed. 
+\item the maximal element of any path between two blocks of the same ordered partition,
+\item the direction in which this element is traversed. 
 \end{enumerate}
 %In particular, if a pair of ordered partitions $(\sigma',\tau')$ is generated from a strong complementary pair~$(\sigma,\tau)$ by path-admissible $m$-shifts, then we have
 %\begin{align*}
@@ -3281,23 +3283,22 @@ The original and $m$-shift $\SU$ diagonals coincide.
 \begin{proof}
 Since $m$-shift and $1$-shift diagonals are equivalent (\cref{prop:iso-1-to-m-shift}), it suffices to show that the $1$-shift and original $\SU$ diagonals coincide. 
 We analyze the right shift operator, the case of the left shift is similar. 
-First, we observe that any block-admissible right shift $R_{M}(\sigma)$, for $M\subsetneq\sigma_k$, can be decomposed into a series of singleton right $1$-shifts; since $\min M > \max \sigma_{k,k+1}$ by the proof of \cref{prop:SU-preserves-max}, we can shift the elements of $M$ to the right, one after the other (in any order!).
+First, we observe that any block-admissible right shift $R_{M}(\sigma)$, for~$M\subsetneq\sigma_k$, can be decomposed into a series of singleton right $1$-shifts; since $\min M > \max \sigma_{k,k+1}$ by the proof of \cref{prop:SU-preserves-max}, we can shift the elements of $M$ to the right, one after the other (in any order!).
 This shows that any facet of the original $\SU$ diagonal is also a facet in the $1$-shift $\SU$ diagonal.
 
 For the reverse inclusion, we proceed by induction. 
 We are required to show that if we apply a right $1$-shift to $(R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$, say $(R_{\rho}R_{\mathbf{M}}(\sigma),L_{\mathbf{N}}(\tau))$, then this can be re-expressed as a well-defined subset shift operation $(R_{\mathbf{M'}}(\sigma),L_{\mathbf{N}}(\tau))$. 
-Suppose that prior to the $1$-shift, the element $\rho$ lives in block $l$, then we must have
+Suppose that prior to the $1$-shift, the element $\rho$ lives in block $\ell$, then we must have
 \begin{align*}
-	1 \leq i_1 < \dots < i_j \leq l < i_{j+1} <\dots< i_p \leq k-1
+1 \leq i_1 < \dots < i_j \leq \ell < i_{j+1} <\dots< i_p \leq k-1
 \end{align*}
 for some $j$. 
-If $i_j < l$, then we have $R_{\rho}R_{\mathbf{M}}(\sigma) = R_{M_{p}}\dots R_{\{\rho\}}R_{M_{j}}\dots R_{M_{1}}(\sigma)$, and we are done.
-Otherwise, if $i_j = l$, we set $M'_{j} \eqdef M_{j} \cup \{\rho \}$. 
-It is clear that we have $R_{\rho}R_{\mathbf{M}}(\sigma) = R_{M_{p}}\dots R_{M'_{j}}\dots R_{M_{1}}(\sigma)$, however, we need to check that $R_{M'_{j}}$ is block-admissible. 
-That is, we need to check that $\min M_{j}' > \max (R_{M_{j-1}}\dots R_{M_{1}}(\sigma))_{i_j+1}$.
+If $i_j < \ell$, then we have $R_{\rho}R_{\mathbf{M}}(\sigma) = R_{M_{p}}\dots R_{\{\rho\}}R_{M_{j}}\dots R_{M_{1}}(\sigma)$, and we are done.
+Otherwise, if $i_j = \ell$, we set $M'_{j} \eqdef M_{j} \cup \{\rho \}$. 
+It is clear that ${R_{\rho}R_{\mathbf{M}}(\sigma) = R_{M_{p}}\dots R_{M'_{j}}\dots R_{M_{1}}(\sigma)}$, however, we need to check that $R_{M'_{j}}$ is block-admissible, \ie that $\min M_{j}' > \max (R_{M_{j-1}}\dots R_{M_{1}}(\sigma))_{i_j+1}$.
 If we have~$\rho > \min M_{j}$, then we are done since in this case $\min M_{j}'=\min M_{j}$ and $R_{M_{j}}$ is block-admissible.
-Otherwise, we have that $\rho=\min M_{j}'$. 
-Since by definition block-admissible shift operators do not move the minimal element of a block, we have that $\rho > \min R_{\mathbf{M}}(\sigma)_{i_j}= \min (R_{M_{j-1}}\dots R_{M_{1}}(\sigma))_{i_j}$.
+Otherwise, we have $\rho=\min M_{j}'$. 
+Since by definition block-admissible shift operators do not move the minimal element of a block, we have $\rho > \min R_{\mathbf{M}}(\sigma)_{i_j}= \min (R_{M_{j-1}}\dots R_{M_{1}}(\sigma))_{i_j}$.
 Then, by induction, \cref{prop:SU-preserves-max} shows that $\rho>\max \sigma_{i_j+1} = \max (R_{M_{j-1}}\dots R_{M_{1}}(\sigma))_{i_j + 1}$, where the equality follows as $i_1<\dots<i_j$. 
 This proves that $R_{M'_{j}}$ is block-admissible, completing the inductive proof.
 \end{proof}
@@ -3318,13 +3319,12 @@ We define $(i,j)$ to be an \defn{inversion of a pair of ordered partitions} $(\s
 \end{definition}
 
 \begin{remark}
-Our definition of an inversion of an ordered partition specializes to the classical definition of an inversion.
-It is similar to existing definitions, 
+Our definition of an inversion of an ordered partition specializes to the classical definition of an inversion of permutations.
 \end{remark}
 
 \begin{proposition}
 \label{p:crossings}
-The set of inversions of a facet of the geometric $\SU$ diagonal facet is in bijection with its set of edge crossings. 
+The set of inversions of a facet of the geometric $\SU$ diagonal is in bijection with its set of edge crossings. 
 Moreover, under this bijection strong complementary pairs correspond to facets with no crossings.
 \end{proposition}
 
@@ -3336,7 +3336,9 @@ As explained above, from a partition one obtains a strong complementary pair, wh
 In the other way around, given a strong complementary pair, one can read-off the partition in the associated tree, which has no crossings, by a vertical down-slice of edges, see \cref{ex:strong-complementary}.
 \end{proof}
 
+\begin{definition}
 We say that an edge crossing is an \defn{adjacent crossing} if the two crossing elements are in adjacent blocks of the partition tree (\ie they are of the form $\sigma_i|\sigma_{i+1}$ or $\tau_i|\tau_{i+1}$).
+\end{definition}
 
 \begin{lemma}
 \label{lem:adjacent-crossing}
@@ -3352,8 +3354,8 @@ If $\sigma_i$ and $\sigma_j$ are not adjacent, then the ``triangle" produced by 
 \begin{example}
 For $(\sigma,\tau) = 13|24|57|6 \times 3|17|456|2$, the right ordered $(2,n)$-tree from \cref{ex:1-shift example},
 \begin{itemize}
-    \item $\sigma$ has inversions $I_\sigma = \{(1,3),(2,3),(2,4),(5,6),(5,7),(6,7)\}$, and
-    \item $\tau$ has inversions $I_\tau = \{(1,3), (2,3), (2,4), (2,5), (2,6), (2,7), (4,7), (5,7), (6,7)\}$.
+\item $\sigma$ has inversions $I_\sigma = \{(1,3),(2,3),(2,4),(5,6),(5,7),(6,7)\}$, and
+\item $\tau$ has inversions $I_\tau = \{(1,3), (2,3), (2,4), (2,5), (2,6), (2,7), (4,7), (5,7), (6,7)\}$.
 \end{itemize}
 Consequently, $(\sigma,\tau)$ has inversions $I = I_\tau \ssm I_\sigma = \{(2,5), (2,6), (2,7), (4,7)\}$, and these are precisely the crossings of the ordered $(2,n)$-tree.
 \end{example}
@@ -3380,7 +3382,7 @@ Dually, applying inverse $m$-shifts strictly decreases the number of inversions.
 \begin{proof}
 We consider a right path-admissible shift $R_\rho$ for the primary statement, the left shift and dual result proceeds similarly. 
 By \cref{cor:SU-shift-preserves-max}, the maxima of paths between consecutive vertices in $(R_{\rho}(\sigma),\tau)$ are the same as the ones in $(\sigma,\tau)$, and are moreover traversed in the same direction.
-Thus, all maxima of paths in $(R_{\rho}(\sigma),\tau)$ are traversed from right to left, and hence by \cref{thm:facet-ordering}, we have that $(R_{\rho}(\sigma),\tau)$ is in the geometric $\SU$ diagonal, which proves Point (1).
+Thus, all maxima of paths in $(R_{\rho}(\sigma),\tau)$ are traversed from right to left, and hence by \cref{thm:facet-ordering}, we have $(R_{\rho}(\sigma),\tau)$ is in the geometric $\SU$ diagonal, which proves Point (1).
 For Point (2), the $(I,J)$ conditions for $\card{I} = \card{J} = 1$ imply that $\rho$ must appear before $\min \sigma_i$ in $\tau$ (\cref{thm:IJ-description}).
 Therefor, the $m$-shift creates a new crossing between these two edges.
 \end{proof}
@@ -3513,7 +3515,7 @@ Then we may apply the following inverse $m$-shift operator.
 \end{center}
 
 There remains to be treated Case $(2.b.ii)$.
-We consider the path $\sigma_{i,i+1} \eqdef (i_1,j_1,i_2,...,i_{k},\rho)$ to be of length $2k$, $k>1$. 
+We consider the path $\sigma_{i,i+1} \eqdef (i_1,j_1,i_2,\dots,i_{k},\rho)$ to be of length $2k$, $k>1$. 
 We denote by $\tau_j$ the block of $\tau$ containing the maximal step $\rho$ of this path, which by hypothesis is the last block of $\tau$. 
 Let $\sigma_{i-n}$ be the last block of $\sigma$ which is attained by the path $\sigma_{i,i+1}$ before the block $\sigma_{i+1}$. 
 We must have $n>1$, since $\rho$ is the last step and $\sigma_i|\sigma_{i+1}$ are adjacent blocks.
@@ -3553,9 +3555,9 @@ The situation can be pictured as on the left.
 \node (7) at  (1.1, -1.5) {$i_k$};
 \end{tikzpicture}
 \end{center}
-Now let $\rho' \eqdef \max\sigma_{i,i-n}$ be the maximum of the path $\sigma_{i,i-n}=(i_1,j_1,i_2,...,i_{k-1},j_{k-1})$, and let~$\tau_{j-m}$, $m\geq 1$ be the block of $\tau$ containing $\rho'$.
+Now let $\rho' \eqdef \max\sigma_{i,i-n}$ be the maximum of the path $\sigma_{i,i-n}=(i_1,j_1,i_2,\dots,i_{k-1},j_{k-1})$, and let~$\tau_{j-m}$, $m\geq 1$ be the block of $\tau$ containing $\rho'$.
 We want to show that an inverse left $m$-shift can bring $\rho'$ back to $\tau_j$, \ie we need $\rho' > \max \tau_{j-m,j}$.
-As $\rho'\eqdef \max \sigma_{i,i-n}$, and apart from the step $i_k$ we have that $\tau_{j-m,j}\subset \sigma_{i,i-n}$, we just need to show that $\rho' > i_k$.
+As $\rho'\eqdef \max \sigma_{i,i-n}$, and apart from the step $i_k$ we have $\tau_{j-m,j}\subset \sigma_{i,i-n}$, we just need to show that $\rho' > i_k$.
 To see that this is indeed the case, it suffices to look at the last steps $$\tau_l \overset{j_{k-1}}{\longrightarrow} \sigma_{i-n} \overset{i_{k}}{\longrightarrow} \tau_j \overset{\rho}{\longrightarrow} \sigma_{i+1}$$ of the path $\sigma_{i,i+1}$. 
 By the definition of the geometric $\SU$ diagonal, the fact that $\tau_l < \tau_j$ implies that $j_{k-1} > i_k$, and thus that $\rho' > i_k$, which finishes the proof. 
 \end{proof}
@@ -3720,8 +3722,8 @@ Firstly, the morphism $r \times r$ exchanges $\max$ and $\min$, which yields the
 Let $\sigma$ denote either one of the two ordered partitions of $[n]$ in a $(2,n)$-partition tree, and let $M \subsetneq \sigma_i$.
 The right $m$-shift $R_{M}$ (\resp the left $m$-shift $L_{M}$) is 
 \begin{enumerate}
-	\item \defn{block-admissible} if $\max \sigma_i \notin M$ and $\max M < \min \sigma_{i+m}$ (\resp $\max M < \min \sigma_{i-m}$),
-	\item \defn{path-admissible} if $\max M< \min \sigma_{i,i+m}$ (\resp $\max M < \min \sigma_{i,i-m}$).
+\item \defn{block-admissible} if $\max \sigma_i \notin M$ and $\max M < \min \sigma_{i+m}$ (\resp $\max M < \min \sigma_{i-m}$),
+\item \defn{path-admissible} if $\max M< \min \sigma_{i,i+m}$ (\resp $\max M < \min \sigma_{i,i-m}$).
 \end{enumerate}
 \end{definition}
 
@@ -3745,20 +3747,21 @@ We now formally verify that the isomorphism $t(r\times r)$ relates these shift d
 Let $(\sigma,\tau) \in \LAD$.
 For each type of $\LA$ shift, let $\b{M},\b{N}$ be admissible sequences of this type, then 
 \begin{align*}
-	t(r,r)(L_\mathbf{N}(\sigma), R_\mathbf{M}(\tau)) = (R_{r\mathbf{M}}(r\tau), L_{r\mathbf{N}}(r\sigma))
+t(r,r)(L_\mathbf{N}(\sigma), R_\mathbf{M}(\tau)) = (R_{r\mathbf{M}}(r\tau), L_{r\mathbf{N}}(r\sigma))
 \end{align*}
-where $r\mathbf{M} \eqdef (rM_{1},...,rM_{p})$ and $r\mathbf{N}$ (defined similarly) are admissible sequences of $\SU$ shifts of the same type.
+where $r\mathbf{M} \eqdef (rM_{1},\dots,rM_{p})$ and $r\mathbf{N}$ (defined similarly) are admissible sequences of $\SU$ shifts of the same type.
 \end{proposition}
+
 \begin{proof}
 As reversing the elements then shifting them is the same as shifting the elements then reversing them,
 it is clear that the equality holds if $r\mathbf{M},r\mathbf{N}$ are admissible sequences of $\SU$ shifts.
 As such, we must simply verify the admissibility, and given the equivalence of the various shift definitions, we just do this for path-admissibility of $1$-shifts.
 Consider a right shift $R_{M}$, for $M \in \sigma_i$, which is path-admissible in the $\LA$ sense (\cref{def:LA-admissible}). 
-Then, we have that $\max M < \min \sigma_{i,i+1}$ which implies that $\min r M > \max r \sigma_{i,i+1}$, and thus the right shift $R_{rM}$ is path-admissible in the $\SU$ sense (\cref{def:SU-admissible}).
+Then, we have $\max M < \min \sigma_{i,i+1}$ which implies that $\min r M > \max r \sigma_{i,i+1}$, and thus the right shift $R_{rM}$ is path-admissible in the $\SU$ sense (\cref{def:SU-admissible}).
 Here, $rM \in r\sigma_i$ is interpreted as being in a block of the right partition ($\tau$ in the notation of the definition).
-So, if $\mathbf{M} = (M_{i_1},...,M_{i_p})$, define $r(\mathbf{M}) \eqdef (rM_{1},...,rM_{p})$, and from the prior it is clear this is a path-admissible sequence of $\SU$ shifts, finishing the proof.
+So, if $\mathbf{M} = (M_{i_1},\dots,M_{i_p})$, define $r(\mathbf{M}) \eqdef (rM_{1},\dots,rM_{p})$, and from the prior it is clear this is a path-admissible sequence of $\SU$ shifts, finishing the proof.
 \end{proof}
-Thus, given $t(r\times r)$ is an isomorphism of the geometric diagonals (\cref{rem:Alternate Isomorphism}), and the geometric $\SU$ diagonal coincides with the shift $\SU$ diagonals (\cref{subsec:SU-shifts}), it is immediate that
+Thus, given $t(r\times r)$ is an isomorphism of the geometric diagonals (\cref{rem:Alternate Isomorphism}), and the geometric $\SU$ diagonal coincides with the shift $\SU$ diagonals (\cref{subsec:SU-shifts}), we immediately obtain the following statement.
 \begin{proposition}
 The geometric $\LA$ diagonal and all shift $\LA$ diagonals coincide.
 \end{proposition}
@@ -3980,8 +3983,8 @@ where we have aligned each element, of each diagonal, vertically with its dual e
 \subsection{Shift lattice structure}
 \label{sec:Shift-lattice}
 
-In this section, we show that the $1$-shifts of the operadic diagonals $\LAD$ and $\SUD$, define a lattice structure on the set of facets.
-More precisely, we show each $\SCP$ is the minimal element of a lattice isomorphic to a product of chains, where the partial order is given by shifts, or equivalently inversions.
+In this section, we show that the $1$-shifts of the operadic diagonals~$\LAD$ and $\SUD$, define a lattice structure on the set of facets.
+More precisely, we show that each $\SCP$ is the minimal element of a lattice isomorphic to a product of chains, where the partial order is given by shifts, or equivalently inversions.
 One initial consequence is that given the bijection between SCPs and permutations, and our prior enumeration of the facets of the diagonal, this produces two new statistics on permutations.
 In addition, later in \cref{sec:Cubical}, we will use the lattice structure to relate the cubical and shift definitions of the $\SUD$ diagonal.
 
@@ -3991,7 +3994,7 @@ Prior to defining the lattice structure, we produce two useful lemmas for charac
 Let $v$ be a permutation of $[n]$, and $(\sigma,\tau)$ the SCP corresponding to $v$.
 For $\rho \in [n]$, we define the $\LA$ \defn{left height} and \defn{right height} of $\rho$ to be 
 \begin{align*}
-    l_v(\rho) \eqdef \max (\{0\}\cup \{m>0: L_{\rho}(\sigma) \text{ is a path admissible $\LA$ $m$-shift} \})\\
+    \ell_v(\rho) \eqdef \max (\{0\}\cup \{m>0: L_{\rho}(\sigma) \text{ is a path admissible $\LA$ $m$-shift} \})\\
     r_v(\rho) \eqdef \max (\{0\}\cup \{m>0: R_{\rho}(\tau) \text{ is a path admissible $\LA$ $m$-shift} \})
 \end{align*}
 The left and right heights for the $\SU$ diagonal are defined similarly. 
@@ -4002,14 +4005,13 @@ The height of an element $\rho$ in a $\SCP$ can be explicitly calculated as foll
 \begin{lemma}
 \label{prop:maximal m-shift formulae}
 Let $(\sigma,\tau)$ be the SCP corresponding to $v$.
-Then, the right $\LA$ height $r_v(\rho)$ (\resp the left $\LA$ height $l_v(\rho)$) of $\rho \in [n]$ is given by the number of consecutive blocks of $\sigma$ ($\tau$) to the right (\resp left) of the one containing $\rho$ whose minima are larger than $\rho$.
+Then, the right $\LA$ height $r_v(\rho)$ (\resp the left $\LA$ height $\ell_v(\rho)$) of $\rho \in [n]$ is given by the number of consecutive blocks of $\sigma$ (\resp of~$\tau$) to the right (\resp left) of the one containing $\rho$ whose minima are larger than $\rho$.
 The $\SU$ heights are obtained similarly by considering blocks whose maxima are smaller than $\rho$. 
 \end{lemma}
 
-
 \begin{proof}
 We consider the right $\SU$ height, the other cases are similar. 
-As $\sigma$ is a part of a $\SCP$, we have that $\max \sigma_{k,k+1} = \max \sigma_{k+1}$ for all $k\geq 1$. 
+As $\sigma$ is a part of a $\SCP$, we have $\max \sigma_{k,k+1} = \max \sigma_{k+1}$ for all $k\geq 1$. 
 Moreover, from the equivalence between $1$-shifts and $m$-shifts (\cref{prop:iso-1-to-m-shift}), there exists an $m$-shift of $\rho$ from $\sigma_i$ if and only if there exists a sequence of $m$ consecutive $1$-shifts, each satisfying $\rho > \max \sigma_{j,j+1}=\max \sigma_{j+1}$.
 Thus, these iterated $1$-shifts will be path-admissible until the first failure at $j=r_v(\rho)+1$.
 \end{proof}
@@ -4034,7 +4036,7 @@ We now define our lattices.
 
 \begin{definition}
 \label{def:shift-lattice}
-For each permutation $v$ of $[n]$, let $T_v^\LA$ (\resp $T_v^\SU$) be the set of ordered $(2,n)$-partition trees, resulting from applying all $\LA$ ($\SU$) shifts to the SCP $(\sigma,\tau)$.
+For each permutation $v$ of $[n]$, let $T_v^\LA$ (\resp $T_v^\SU$) be the set of ordered \mbox{$(2,n)$-parti}\-tion trees, resulting from applying all $\LA$ ($\SU$) shifts to the SCP $(\sigma,\tau)$.
 We define the \defn{shift lattices}, also denoted $T_v^\LA$ ($T_v^\SU$), to be these sets partially ordered by the inclusion of their inversions sets. 
 \end{definition}
 
@@ -4046,18 +4048,18 @@ The following proof makes both these interpretations clear.
 \label{prop:shift lattice}
 The shift lattices are indeed lattices, and are isomorphic to products of chains.
 \begin{align*}
-T_v^\LA \cong \prod_{\rho \in [n]} [0,l_v(\rho)] \times \prod_{\rho \in [n]} [0,r_v(\rho)] \ , 
+T_v^\LA \cong \prod_{\rho \in [n]} [0,\ell_v(\rho)] \times \prod_{\rho \in [n]} [0,r_v(\rho)]
 \quad \text{ and } \quad
-T_v^\SU \cong \prod_{\rho \in [n]} [0,r_v(\rho)] \times \prod_{\rho \in [n]} [0,l_v(\rho)] .
+T_v^\SU \cong \prod_{\rho \in [n]} [0,r_v(\rho)] \times \prod_{\rho \in [n]} [0,\ell_v(\rho)] .
 \end{align*}
-where $[0,k]$ is the chain lattice $0<1<...<k$, for $k\geq 0$.
+where $[0,k]$ is the chain lattice $0<1<\dots<k$, for $k\geq 0$.
 \end{proposition}
 
 \begin{proof}
-We define $L_\rho^m$ (\resp $R_\rho^m$) to be a left (right) $m$-shift of $\rho$ for $m>0$, and the identity for $m=0$.
-By the commutativity of $m$-shift operators (\cref{lem:m-shifts commute}), and the existence of unique heights for each element (\cref{prop:maximal m-shift formulae}), every element of $T_v^\LA$ admits a unique shift description $(L^{l_n}_{n}...L^{l_1}_{1}\sigma,
-R^{r_n}_{n}\cdots R^{r_{1}}_{1}\tau)$, where $0\leq l_\rho\leq l_v(\rho)$ and $0\leq r_\rho\leq r_v(\rho)$.
-Thus, we identify each element with the pair of tuples $(l_1,\ldots,l_n)\times (r_1,\ldots,r_n)$.
+We define $L_\rho^m$ (\resp $R_\rho^m$) to be a left (right) $m$-shift of $\rho$ for $m>0$, and the identity for~$m=0$.
+By the commutativity of $m$-shift operators (\cref{lem:m-shifts commute}), and the existence of unique heights for each element (\cref{prop:maximal m-shift formulae}), every element of $T_v^\LA$ admits a unique shift description $(L^{\ell_n}_{n} \dots L^{\ell_1}_{1}\sigma,
+R^{r_n}_{n}\cdots R^{r_{1}}_{1}\tau)$, where $0\leq \ell_\rho\leq \ell_v(\rho)$ and $0\leq r_\rho\leq r_v(\rho)$.
+Thus, we identify each element with the pair of tuples $(\ell_1,\ldots,\ell_n)\times (r_1,\ldots,r_n)$.
 As shifts strictly increase the number of crossings, and inverse shifts strictly decrease the number of crossings (\cref{lem:IJ-closed-under-shifts}), this identification is an isomorphism of lattices.
 \end{proof}
 
@@ -4066,7 +4068,7 @@ The joins and meets of any two elements are also thus given by isomorphism to th
 For instance, in the case of meets,
 {\small
 \begin{align*}
-	(l_1,\ldots,l_n,r_1,\ldots,r_n)\land (l'_1,\ldots,l'_n,r'_1,\ldots,r'_n) &= (\min\{l_1,1'_1\},\ldots,\min\{l_n,l'_n\},\min\{r_1,r'_1\},\ldots,\min\{r_n,r'_n\})
+	(\ell_1,\ldots,\ell_n,r_1,\ldots,r_n)\land (l'_1,\ldots,l'_n,r'_1,\ldots,r'_n) &= (\min\{\ell_1,1'_1\},\ldots,\min\{\ell_n,l'_n\},\min\{r_1,r'_1\},\ldots,\min\{r_n,r'_n\})
 \end{align*}
 }
 The Hasse diagram of the lattice corresponds to singleton $1$-shifts, and we can step backwards in the diagram by applying their inverse (\cref{rem:inverses}).
@@ -4077,21 +4079,21 @@ As a consequence of \cref{prop:shift lattice}, the facets of the operadic diagon
 However, any lattice $L$ on permutations (such as the weak order), will induce a lattice on the facets.
 For every $v \in L$, we can substitute the lattice $T_v^\LA$ (or $T_v^\SU$) into the permutation $v$.
 In particular, every element which was covered by $v$ is now covered by the minimal element of $T_v^\LA$, and every element which was covering $v$ now covers the maximal element of $T_v^\LA$.
-
 \end{remark}
 
-
 Given our previously obtained formulae for the number of elements in the diagonal (\cref{subsec:enumerationDiagonalPermutahedra}), and the results of this section, we obtain the following statistics on permutations.
+
 \begin{corollary}
 Using the heights of either diagonal,
 \begin{align*}
-    2(n+1)^{n-2} = \sum_{v \in \mathbb{S}_n} \prod_{\rho \in [n]} (l_v(\rho)+1)(r_v(\rho)+1)
+2(n+1)^{n-2} = \sum_{v \in \mathbb{S}_n} \prod_{\rho \in [n]} (\ell_v(\rho)+1)(r_v(\rho)+1)
 \end{align*}
 Moreover, denoting by $\mathbb{S}_n^{k_1} \subseteq \mathbb{S}_n$ the set of permutations with $k_1$ ascending runs, and consequently $k_2 = n-1-k_1$ descending runs, we have 
 \begin{align*}
-	n \binom{n-1}{k_1} (n-k_1)^{k_1-1} (n-k_2)^{k_2-1} = \sum_{v \in \mathbb{S}_n^{k_1}} \prod_{\rho \in [n]} (l_v(\rho)+1)(r_v(\rho)+1)
+n \binom{n-1}{k_1} (n-k_1)^{k_1-1} (n-k_2)^{k_2-1} = \sum_{v \in \mathbb{S}_n^{k_1}} \prod_{\rho \in [n]} (\ell_v(\rho)+1)(r_v(\rho)+1).
 \end{align*}
 \end{corollary}
+
 \begin{proof}
 This follows directly from \cref{coro:enumerationDiagonalPermutahedra}, with the observation that shifts conserve the number of blocks, and hence the dimensions of the faces.
 \end{proof}
@@ -4106,46 +4108,47 @@ We previously saw that $\SCP$s and permutations are in bijection (\cref{def:stro
 There is also a third equivalent way to encode this data, the \defn{step matrices} of \cite[Def. 6]{SaneblidzeUmble}.
 Given a permutation, one defines its associated step matrix by starting in the bottom left corner, writing increasing sequences vertically and decreasing sequences horizontally one after the other, leaving all other entries $0$.
 See \cref{fig:step-matrix}.
+
 \begin{figure}[h!]
-\begin{center}
-\raisebox{3em}{$6|5|2|4|7|1|3$}
-$\quad \quad$
-\begin{tikzpicture}[scale=.7]  
-\node[anchor=east] (1) at (-1.5, -1) {$256$};
-\node[anchor=east] (2) at (-1.5, -2) {$4$};
-\node[anchor=east] (3) at (-1.5, -3) {$17$};
-\node[anchor=east] (4) at (-1.5, -4) {$3$};
-%
-\node[anchor=west] (5) at (1.5, -1) {$6$};
-\node[anchor=west] (6) at (1.5, -2) {$5$};
-\node[anchor=west] (7) at (1.5, -3) {$247$};
-\node[anchor=west] (8) at (1.5, -4) {$13$};
-%
-\draw[thick] (1.east) -- (5.west);
-\draw[thick] (1.east) -- (6.west); 
-\draw[thick] (1.east) -- (7.west); 
-\draw[thick] (2.east) -- (7.west); 
-\draw[thick] (3.east) -- (7.west); 
-\draw[thick] (3.east) -- (8.west); 
-\draw[thick] (4.east) -- (8.west);
-\end{tikzpicture}
-$\quad \quad$
-\raisebox{3em}{
-$
-\begin{blockarray}{ccccc}
-  & \sigma_1 & \sigma_2 & \sigma_3 & \sigma_4  \\
-\begin{block}{c[cccc]}
-\tau_4 &   &   & 1 & 3 \\
-\tau_3 & 2 & 4 & 7  &   \\
-\tau_2 & 5 &   &   &   \\
-\tau_1 & 6 &   &   &   \\
-\end{block}
-\end{blockarray}
-$
-}
-\end{center}
-\caption{A permutation, its associated $\SCP$, and their step matrix.}
-\label{fig:step-matrix}
+	\begin{center}
+	\raisebox{3em}{$6|5|2|4|7|1|3$}
+	$\quad \quad$
+	\begin{tikzpicture}[scale=.7]  
+	\node[anchor=east] (1) at (-1.5, -1) {$256$};
+	\node[anchor=east] (2) at (-1.5, -2) {$4$};
+	\node[anchor=east] (3) at (-1.5, -3) {$17$};
+	\node[anchor=east] (4) at (-1.5, -4) {$3$};
+	%
+	\node[anchor=west] (5) at (1.5, -1) {$6$};
+	\node[anchor=west] (6) at (1.5, -2) {$5$};
+	\node[anchor=west] (7) at (1.5, -3) {$247$};
+	\node[anchor=west] (8) at (1.5, -4) {$13$};
+	%
+	\draw[thick] (1.east) -- (5.west);
+	\draw[thick] (1.east) -- (6.west); 
+	\draw[thick] (1.east) -- (7.west); 
+	\draw[thick] (2.east) -- (7.west); 
+	\draw[thick] (3.east) -- (7.west); 
+	\draw[thick] (3.east) -- (8.west); 
+	\draw[thick] (4.east) -- (8.west);
+	\end{tikzpicture}
+	$\quad \quad$
+	\raisebox{3em}{
+	$
+	\begin{blockarray}{ccccc}
+	  & \sigma_1 & \sigma_2 & \sigma_3 & \sigma_4  \\
+	\begin{block}{c[cccc]}
+	\tau_4 &   &   & 1 & 3 \\
+	\tau_3 & 2 & 4 & 7  &   \\
+	\tau_2 & 5 &   &   &   \\
+	\tau_1 & 6 &   &   &   \\
+	\end{block}
+	\end{blockarray}
+	$
+	}
+	\end{center}
+	\caption{A permutation, its associated $\SCP$, and their step matrix.}
+	\label{fig:step-matrix}
 \end{figure}
 
 Given a matrix $A$ whose only non-zero entries are the elements $[n]$, let $\sigma_i(A)$ denote the non-zero entries of the $i$\ordinal{} column, and $\tau_j(A)$ the non-zero entries of the $(l-j+1)$\ordinalst{} row, see the labelling in \cref{fig:step-matrix}.
@@ -4157,6 +4160,7 @@ Recall from \cref{def:movable-subsets}, that a right $\SU$ $1$-shift $R_M$ is \d
 \begin{proposition}
 Admissible sequences of matrix shift operators are well-defined.
 \end{proposition}
+
 \begin{proof}
 We verify the claim that the admissible sequences of matrix shift operators never replace non-zero elements.
 It is straightforward to show that this is true when a shift operator is applied to a $\SCP$ $(\sigma,\tau)$.
@@ -4172,7 +4176,8 @@ Consequently, they are in bijection with the facets of the $\SU$ diagonal.
 The translation of these results for the $\LA$ diagonal is clear.
 One can use, the isomorphism $t(r\times r)$ as in the following example. 
 
-\begin{example}\label{ex:matrix shifts}
+\begin{example}
+\label{ex:matrix shifts}
 The first row of the following diagram contains a sequence of admissible $\SU$ subset shifts applied to the matrix encoding of the SCP $256|4|17|3\times 6|5|147|13$. 
 The second row is the image of these shifts under the isomorphism $t(r\times r)$.
 \begin{center}
@@ -4250,28 +4255,27 @@ Note that the shifts of this example are also isomorphic to those of \cref{ex:sh
 \subsection{Cubical description}
 \label{sec:Cubical}
 
-In this section, we recall the cubical definition of the $\SU$ diagonal from \cite{SaneblidzeUmble-comparingDiagonals} and explicitly relate it to their shift description, using a new proof that exploits the lattice description of the diagonal (\cref{sec:Shift-lattice}).
-We define an analogous encoding the permutahedron as a subdivision of the cube, and transfer the cubical formulae to the $\LA$ diagonal via isomorphism.
-
+In this section, we recall the cubical definition of the $\SU$ diagonal from~\cite{SaneblidzeUmble-comparingDiagonals} and explicitly relate it to their shift description, using a new proof that exploits the lattice description of the diagonal (\cref{sec:Shift-lattice}).
+We define an analogous encoding of the permutahedron as a subdivision of the cube, and transfer the cubical formulae to the $\LA$ diagonal via isomorphism.
 
 \subsubsection{The Cubical Diagonal}
 We define inductively a subdivision $\divcube{n-1}$ of the $(n-1)$-dimensional cube  which is combinatorially isomorphic to the permutahedron $\Perm$.
 
 \begin{construction}
 \label{constr:cubicPermutahedron1}
-Let $\divcube{0}$ be the $0$-cube (a point), trivially subdivided by the sole element $1$ of $\Perm[1]$.
-Then, assuming we have constructed $\divcube{n-1}$, we construct $\divcube{n}$ by weaving the element $n$ through the ordered partition defining every face $\sigma = \sigma_1|...|\sigma_k \in \Perm[n]$, using an interval description.
+Let $\divcube{0}$ be the $0$-cube (a point), trivially subdivided by the sole element $1$ of~$\Perm[1]$.
+Then, assuming we have constructed $\divcube{n-1}$, we construct $\divcube{n}$ by weaving the element~$n$ through the ordered partition defining every face $\sigma = \sigma_1| \cdots |\sigma_k \in \Perm[n]$, using an interval description.
 For $0<j<k$ we define
-$n_j \eqdef \card{\sigma_{k-j+1}\cup...\cup \sigma_k}$, $I_j \eqdef [1 - \frac{1}{2^{n_j}}, 1 - \frac{1}{2^{n_{j+1}}}]$, and boundary cases $I_0\eqdef [0,1 - \frac{1}{2^{n_1}}]$, $I_k\eqdef [1 - \frac{1}{2^{n_k}},1]$.
-This defines a partition of the interval $[0,1]$, which we denote $I \eqdef I_0 \cup ... \cup I_k$.
+$n_j \eqdef \card{\sigma_{k-j+1}\cup\dots\cup \sigma_k}$, $I_j \eqdef [1 - \frac{1}{2^{n_j}}, 1 - \frac{1}{2^{n_{j+1}}}]$, and boundary cases $I_0\eqdef [0,1 - \frac{1}{2^{n_1}}]$, $I_k\eqdef [1 - \frac{1}{2^{n_k}},1]$.
+This defines a partition of the interval $[0,1]$, which we denote $I \eqdef I_0 \cup \dots \cup I_k$.
 The weaving of $n$ through $\sigma$ is then defined as follows,
 \begin{align} \label{eq:SU cube inductive def}
 	\sigma \times I \mapsto 
 	\begin{cases}
-		\sigma_1|...|\sigma_k| n, & \text{if } I = [0, 0], \\
-		\sigma_1|...|\sigma_j \cup n|...|\sigma_k, & \text{if } I = I_j, \\
-		\sigma_1|...|\sigma_j|n|\sigma_{j+1}|...|\sigma_k, & \text{if } I = I_j \cap I_{j+1}, \\
-		n|\sigma_1|...|\sigma_k, & \text{if } I = [1, 1].
+		\sigma_1| \cdots |\sigma_k| n, & \text{if } I = [0, 0], \\
+		\sigma_1| \cdots |\sigma_j \cup n| \cdots |\sigma_k, & \text{if } I = I_j, \\
+		\sigma_1| \cdots |\sigma_j|n|\sigma_{j+1}| \cdots |\sigma_k, & \text{if } I = I_j \cap I_{j+1}, \\
+		n|\sigma_1| \cdots |\sigma_k, & \text{if } I = [1, 1].
 	\end{cases}
 \end{align}
 \end{construction}
@@ -4327,8 +4331,9 @@ An important observation is the following.
 
 \begin{lemma}
 \label{lem:k-subdiv cubes have max/min k faces}
-A $k$-subdivision cube has unique maximal and minimal vertices under the weak order.
+A $k$-subdivision cube has unique maximal and minimal vertices in weak order.
 \end{lemma}
+
 Indeed, if a $k$-subdivision cube had multiple maximal/minimal vertices, then it could not be a union of $k$-faces in the shape of a $k$-cube.
 We can thus define the unique \defn{maximal (\resp minimal) $k$-face of a $k$-subdivision cube} to be the unique $k$-face adjacent to the maximal (\resp minimal) vertex.
 
@@ -4378,6 +4383,7 @@ The \defn{sandglass} of $F$ at $v$ is the set $\subdivpairsev(F)$ of all pairs $
 If $F$ is the maximal face of $\Perm$, then we denote the sandglass of $F$ simply by $\subdivpairsv$.
 The \defn{maximal pair} of the sandglass $\maxsubdivpairsev(F)$ (\resp $\maxsubdivpairsv$) is the unique maximal pair of $\subdivpairsev(F)$ (\resp $\subdivpairsev$) with respect to inclusion.
 \end{definition}
+
 We note that the uniqueness of the maximal pair is a corollary of \cref{lem:Unique maximal subdivcubes}.
 
 \begin{example}
@@ -4385,18 +4391,18 @@ We note that the uniqueness of the maximal pair is a corollary of \cref{lem:Uniq
 We clarify the previous section with examples that are visually verifiable from the diagram of $\divcube{3}$ of \cref{fig:sandglass1}.
 The sets of faces 
 \begin{align*}
-	\{1234\},\quad \{1|234\},\quad \{1|234, 14|23\},\quad \{1|3|24,1|34|2\}
+\{1234\},\quad \{1|234\},\quad \{1|234, 14|23\},\quad \{1|3|24,1|34|2\}
 \end{align*}
 are all subdivision cubes of the face $F = \Perm[4]$.
 Note, that $\{1|3|24,1|34|2\}$ is also a $1$-subdivision cube of the face $1|234$.
 In contrast, the sets of faces
 \begin{align*}
-	\{134|2, 14|23\},\quad \{1|234, 134|2, 14|23\}, \quad \{1|2|34,1|23|4\}
+\{134|2, 14|23\},\quad \{1|234, 134|2, 14|23\}, \quad \{1|2|34,1|23|4\}
 \end{align*}
 are not subdivision cubes of $F$.
 For $v = \blue{\mathbf{4|3|1|2}}$, the only $1$-subdivision cube with minimal vertex $v$ is $4|3|12$, and the three $2$-subdivision cubes with maximal vertex $v$ are
 \begin{align*}
-	\{134|2\}, \quad \{13|24, 134|2\}, \quad \{ 1|234, 13|24, 14|23, 134|2\}.
+\{134|2\}, \quad \{13|24, 134|2\}, \quad \{ 1|234, 13|24, 14|23, 134|2\}.
 \end{align*}
 This defines the sandglass $\subdivpairsv$, whose maximal pair of subvision cubes is $\maxsubdivpairsv=\{ 1|234, 13|24, 14|23, 134|2\} \times \{4|3|12\}$.
 Let us observe that the $\SCP$ corresponding to $v$ is $(\sigma,\tau) = (\blue{\mathbf{134|2}},\blue{\mathbf{4|3|12}} )$.
@@ -4426,11 +4432,12 @@ In the next section, we will show that $\maxsubdivpairsv$ is generated by all sh
 
 \subsubsection{The Cubical-Shift Equivalence}
 
-We now specialise the results of the prior section to subdivision cubes of the maximal face of $\divcube{n}$, and we recover the $\SU$ shift lattice structure identified in \cref{sec:Shift-lattice}.
+We now specialize the results of the prior section to subdivision cubes of the maximal face of $\divcube{n}$, and we recover the $\SU$ shift lattice structure identified in \cref{sec:Shift-lattice}.
 Here again, we consider the original definition of the $\SU$ diagonal.
 Our first observation relating subdivision cubes to shifts is the following. 
 
-\begin{proposition}\label{prop:ev properties}
+\begin{proposition}
+\label{prop:ev properties}
 Let $v$ be a vertex of $\Perm$.
 The set of pairs of subdivision cubes in the sandglass $\subdivpairsv$ of $v$ satisfies the following properties
 \begin{enumerate}
@@ -4439,6 +4446,7 @@ The set of pairs of subdivision cubes in the sandglass $\subdivpairsv$ of $v$ sa
 	\item For all pairs $(C^v,C_v) \in \subdivpairsv$, the unique maximal $k_1$-face of $C^v$ is $\sigma$, and the unique minimal $k_2$-face of $C_v$ is $\tau$.
 \end{enumerate}
 \end{proposition}
+
 \begin{proof}
 Strong complementary partitions correspond to those pairs of faces $(F,G)$ of the permutahedron such that the maximal vertex of $F$ is the minimal vertex of $G$ (\cref{def:strong-complementary-pairs}).
 That is to say, $(\sigma,\tau)$ is the unique pair of faces of the permutahedron that meet at vertex $v$.
@@ -4448,8 +4456,9 @@ Consequently, not only must $(1)$ be true, but every pair of subdivision cubes $
 \begin{lemma}
 Let $(\sigma,\tau)$ be a strong complementary pair. 
 Let $C$ be a maximal $k$-subdivision cube with maximal (\resp minimal) $k$-face $\sigma$ (\resp $\tau$).
-Then, we have $C = \bigcup_{\mathbf{M}} R_\mathbf{M}(\sigma)$ (\resp $C=\bigcup_{\mathbf{N}} L_\mathbf{N}(\tau)$), where $\mathbf{M}$ (\resp $\mathbf{N}$) are all admissible sequence of $\SU$ shifts.
+Then, we have $C = \bigcup_{\mathbf{M}} R_\mathbf{M}(\sigma)$ (\resp ${C=\bigcup_{\mathbf{N}} L_\mathbf{N}(\tau)}$), where $\mathbf{M}$ (\resp $\mathbf{N}$) are all admissible sequence of $\SU$ shifts.
 \end{lemma}
+
 \begin{proof}
 Compared to \cref{lem:Unique maximal subdivcubes}, we now have the additional assumption that $C$ is a $k$-subdivision cube of the maximal face of $\Perm$.
 The benefit of this assumption, is that the maximal face just corresponds to the $(n-1)$ cube $[0,1]^{n-1}$, and is not a more generic $m$-cube subspace. 
@@ -4465,14 +4474,14 @@ We know that the line $L$, with maximal $1$-face $\sigma_L$ satisfies $L=\bigcup
 Let $\rho'$ be an element shifted in $C$, then its maximal right shift height in $C$ is the same as its maximal right shift height in $L\times C$.
 This follows from the inductive description of $\divcube{n-1}$ (\cref{eq:SU cube inductive def}).
 In particular, every $k$-face in $C$ has $\rho$ in a singleton block, and as $\rho$ is larger than all other elements it blocks all other shifts.
-If $\rho$ is in the $i$th block of $\sigma_C$, then $\sigma$ is obtained from $\sigma_C$ by merging the $i$\ordinal{} and $(i+1)$\ordinalst{} blocks.
+If $\rho$ is in the $i$th block of $\sigma_C$, then $\sigma$ is obtained from~$\sigma_C$ by merging the $i$\ordinal{} and $(i+1)$\ordinalst{} blocks.
 It is thus straightforward to see that the maximal right shifts $r_{\rho'}$ are conserved, when moving from $C$ to $C\times L$.
 
-Finally, we know from the inductive description of $\divcube{n-1}$ (\cref{eq:SU cube inductive def}), and the proof of \cref{lem:Unique maximal subdivcubes}, that to construct the $(k+1)$-faces of $L\times C$ we weave $\rho$ through the $k$-faces of $C$ (stepping through the interval $[1-\frac{1}{2^{n-v_\rho}},1-\frac{1}{2^{n-v'_\rho}}]$).
+Finally, we know from the inductive description of $\divcube{n-1}$ (\cref{eq:SU cube inductive def}), and the proof of \cref{lem:Unique maximal subdivcubes}, that to construct the $(k+1)$-faces of $L\times C$ we weave $\rho$ through the $k$-faces of~$C$ (stepping through the interval $[1-\frac{1}{2^{n-v_\rho}},1-\frac{1}{2^{n-v'_\rho}}]$).
 Every $k$-face in $C$ has $\rho$ in a fixed singleton set (specified by $1-\frac{1}{2^{n-v_\rho}}$), and every $k$-face on the opposite side of $C\times L$ has $\rho$ in another fixed singleton set (specified by $1-\frac{1}{2^{n-v'_\rho}}$).
 Given \cref{eq:SU cube inductive def}, this final singleton block is either the last block, or is followed by a block containing an element larger than $\rho$.
 If we translate this observation back to the $(k+1)$-faces that are adjacent to the boundaries of the interval, then this corresponds to an equivalent calculation of $r_\rho$ for $\sigma$.
-This thus proves that $L\times C = \bigcup_{i=0}^{r_\rho}\bigcup_{\mathbf{M}}R^i_\rho R_\mathbf{M}(\sigma) = \bigcup_{\mathbf{M'}}R_\mathbf{M'}(\sigma)$, where $M'$ must be the set of admissible sequence of right shifts of $\sigma$, given the lattice description of the diagonal \cref{prop:shift lattice}.
+This thus proves that~${L\times C = \bigcup_{i=0}^{r_\rho}\bigcup_{\mathbf{M}}R^i_\rho R_\mathbf{M}(\sigma) = \bigcup_{\mathbf{M'}}R_\mathbf{M'}(\sigma)}$, where $M'$ must be the set of admissible sequence of right shifts of $\sigma$, given the lattice description of the diagonal \cref{prop:shift lattice}.
 \end{proof}
 
 Applying this lemma to pairs of maximal subdivision cubes yields the following equivalent description of the $\SU$ diagonal.
@@ -4481,12 +4490,12 @@ Applying this lemma to pairs of maximal subdivision cubes yields the following e
 \label{prop:SU-cubical}
 For $v$ be a vertex of $\Perm$ with associated $\SCP$ $(\sigma,\tau)$, we have
 \begin{align*}
-	\maxsubdivpairsv = \bigcup_{\mathbf{M},\mathbf{N}} R_\mathbf{M}(\sigma) \times L_{\mathbf{N}}(\tau)
+\maxsubdivpairsv = \bigcup_{\mathbf{M},\mathbf{N}} R_\mathbf{M}(\sigma) \times L_{\mathbf{N}}(\tau)
 \end{align*}
 where the union is taken over all admissible sequences of $SU$ shifts $\mathbf{M},\mathbf{N}$.
 Thus, the facets of the $\SU$ diagonal are given by
 \begin{align*}
-	\SUD([n]) = \bigcup_{v \in \Perm} \maxsubdivpairsv \ ,
+\SUD([n]) = \bigcup_{v \in \Perm} \maxsubdivpairsv,
 \end{align*}
 where the union is taken over all vertices $v$ of the permutahedron $\Perm$. 
 \end{corollary}
@@ -4498,26 +4507,27 @@ We first define inductively a subdivision $\divcube{n-1}^{\LA}$ of the $(n-1)$-d
 
 \begin{construction}
 \label{constr:cubicPermutahedron2}
-Let $\divcube{0}^{\LA}$ be the $0$-cube (a point), trivially subdivided by the sole element $1$ of $\Perm[1]$.
-Then, assuming we have constructed $\divcube{n-1}^{\LA}$, we construct $\divcube{n}^{\LA}$ by weaving $1$ through every face of $\sigma = \sigma_1|...|\sigma_k \in \Perm[n]$, using an interval description.
+Let $\divcube{0}^{\LA}$ be the $0$-cube (a point), trivially subdivided by the sole element $1$ of~$\Perm[1]$.
+Then, assuming we have constructed $\divcube{n-1}^{\LA}$, we construct $\divcube{n}^{\LA}$ by weaving $1$ through every face of $\sigma = \sigma_1| \cdots |\sigma_k \in \Perm[n]$, using an interval description.
 For $0<j<k$ we define
-$n_j \eqdef \card{\sigma_{k-j+1}\cup...\cup \sigma_k}$, $I_j \eqdef [1 - \frac{1}{2^{n_j}}, 1 - \frac{1}{2^{n_{j+1}}}]$, and boundary cases $I_0\eqdef [0,1 - \frac{1}{2^{n_1}}]$, $I_k\eqdef [1 - \frac{1}{2^{n_k}},1]$.
-This defines a partition of the interval $[0,1]$, which we denote $I \eqdef I_0 \cup ... \cup I_k$.
+$n_j \eqdef \card{\sigma_{k-j+1}\cup\dots\cup \sigma_k}$, $I_j \eqdef [1 - \frac{1}{2^{n_j}}, 1 - \frac{1}{2^{n_{j+1}}}]$, and boundary cases $I_0\eqdef [0,1 - \frac{1}{2^{n_1}}]$, ${I_k\eqdef [1 - \frac{1}{2^{n_k}},1]}$.
+This defines a partition of the interval $[0,1]$, which we denote $I \eqdef I_0 \cup \dots \cup I_k$.
 The weaving of $1$ through $\sigma$ is then defined as follows,
 \begin{align}
 \label{eq:In LA inductive def}
 	\sigma \times I \mapsto 
 	\begin{cases}
-		\sigma'_1|...|\sigma'_k| 1, & \text{if } I = [0, 0], \\
-		\sigma'_1|...|\sigma'_j \cup 1|...|\sigma'_k, & \text{if } I = I_j, \\
-		\sigma'_1|...|\sigma'_j|1|\sigma'_{j+1}|...|\sigma'_k, & \text{if } I = I_j \cap I_{j+1}, \\
-		1|\sigma'_1|...|\sigma'_k, & \text{if } I = [1, 1],
+		\sigma'_1| \cdots |\sigma'_k| 1, & \text{if } I = [0, 0], \\
+		\sigma'_1| \cdots |\sigma'_j \cup 1| \cdots |\sigma'_k, & \text{if } I = I_j, \\
+		\sigma'_1| \cdots |\sigma'_j|1|\sigma'_{j+1}| \cdots |\sigma'_k, & \text{if } I = I_j \cap I_{j+1}, \\
+		1|\sigma'_1| \cdots |\sigma'_k, & \text{if } I = [1, 1],
 	\end{cases}
 \end{align}
 where~$\sigma'_i = \{x+1:x\in \sigma_i\}$.
 \end{construction}
 
-\cref{fig:cubicPermutahedron2} illustrates the first few generations of $\divcube{n}^{\LA}$, indicating in bold, the embedding $\divcube{n-1}^{\LA}\hookrightarrow \divcube{n}^{\LA}$ that occurs when $I = [0, 0]$.
+\cref{fig:cubicPermutahedron2} illustrates the first few generations of $\divcube{n}^{\LA}$.
+We have indicated in bold the embedding ${\divcube{n-1}^{\LA}\hookrightarrow \divcube{n}^{\LA}}$ that occurs when $I = [0, 0]$.
 
 \begin{figure}
 	\begin{center}
@@ -4554,15 +4564,18 @@ where~$\sigma'_i = \{x+1:x\in \sigma_i\}$.
 
 The appropriate base definitions for the $\LA$ diagonal of $k$-subdivision cubes (\ref{def:Subdivisions}), sandglasses of subdivision cubes ${\subdivpairsv}$ (\ref{def:sandglass}), and maximal pairs of subdivision cubes $\maxsubdivpairsv$ are all the same as in the $\SU$ case.
 We relate these definitions to those in the $\SU$ case with the following result.
-\begin{proposition}\label{prop:r is a k-subdiv cube isomorphism}
-Let $r:P\to P$ be the face poset isomorphism of the permutahedra which acts on $A_1|...|A_k$, by replacing each block $A_j$ by the block $r(A_j)\eqdef\set{n-i+1}{i \in A_j}$.
+
+\begin{proposition}
+\label{prop:r is a k-subdiv cube isomorphism}
+Let $r:P\to P$ be the face poset isomorphism of the permutahedra which acts on~$A_1| \cdots |A_k$, by replacing each block $A_j$ by the block $r(A_j)\eqdef\set{n-i+1}{i \in A_j}$.
 Then the induced map $r:\divcube{n}^{\SU}\to \divcube{n}^{\LA}$,
 \begin{enumerate}
-	\item is a face poset isomorphism,
-	\item conserves the dimensions of each face in $[0,1]^{n}$,
-	\item is a $k$-subdivision cube isomorphism.
+\item is a face poset isomorphism,
+\item conserves the dimensions of each face in $[0,1]^{n}$,
+\item is a $k$-subdivision cube isomorphism.
 \end{enumerate}
 \end{proposition}
+
 \begin{proof}
 The first property is immediate, as $r:P\to P$ is a face poset isomorphism.
 The second may be shown inductively.
@@ -4613,24 +4626,25 @@ As the example suggests, we have the following cubical description of the $\LA$ 
 \label{prop:LA-cubical}
 For $v$ be a vertex of $\Perm$ with associated $\SCP$ $(\sigma,\tau)$, we have
 \begin{align*}
-	\maxsubdivpairsv = \bigcup_{\mathbf{M},\mathbf{N}} L_\mathbf{M}(\sigma) \times R_{\mathbf{N}}(\tau)
+\maxsubdivpairsv = \bigcup_{\mathbf{M},\mathbf{N}} L_\mathbf{M}(\sigma) \times R_{\mathbf{N}}(\tau)
 \end{align*}
 where the union is taken over all the admissible sequences of $\LA$ shifts $\mathbf{M},\mathbf{N}$.
 Thus, the facets of the $\LA$ diagonal are given by 
 \begin{align*}
-	\LAD([n]) = \bigcup_{v \in P_n} \maxsubdivpairsv \ , 
+\LAD([n]) = \bigcup_{v \in P_n} \maxsubdivpairsv , 
 \end{align*}
 where the union is taken over all vertices $v$ of the permutahedron $\Perm$. 
 \end{proposition}
+
 \begin{proof}
 This follows as a result of $r:\divcube{n}^{\SU}\to \divcube{n}^{\LA}$ being a $k$-subdivision cube isomorphism (\cref{prop:r is a k-subdiv cube isomorphism}), $t(r\times r):\LAD\to \SUD$ being an isomorphism of diagonals (\cref{rem:Alternate Isomorphism}), and the commutativity of the square 
 \begin{center}
 \begin{tikzcd}
 \SCP \arrow[r,"t(r\times r)",leftrightarrow] \arrow[d,leftrightarrow] & \SCP \arrow[d,leftrightarrow]\\
-\mathbb{S}_n \arrow[r,"r"',leftrightarrow] & \mathbb{S}_n \ ,
+\mathbb{S}_n \arrow[r,"r"',leftrightarrow] & \mathbb{S}_n ,
 \end{tikzcd}
 \end{center}
-where the vertical arrows are the defining bijection between SCPs and permutations (\cref{def:strong-complementary-pairs}).
+where the vertical arrows are the bijection between SCPs and permutations (\cref{def:strong-complementary-pairs}).
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -4663,31 +4677,31 @@ Since the operahedra are generalized permutahedra~\cite[Coro.~2.16]{LaplanteAnfo
 Every face of an operahedron is isomorphic to a product of lower-dimensional operahedra, via an isomorphism $\Theta$ which generalizes the one above, see Point (5) of~\cite[Prop.~2.3]{LaplanteAnfossi}.
 
 \begin{definition}
-	An \emph{operadic diagonal} for the operahedra is a choice of diagonal $\triangle_t$ for each operahedron~$P_t$, such that $\triangle \eqdef \{\triangle_t\}$ commutes with the map $\Theta$, \ie it satisfies~\cite[Prop.~4.14]{LaplanteAnfossi}.
+An \emph{operadic diagonal} for the operahedra is a choice of diagonal $\triangle_t$ for each operahedron~$P_t$, such that $\triangle \eqdef \{\triangle_t\}$ commutes with the map $\Theta$, \ie it satisfies~\cite[Prop.~4.14]{LaplanteAnfossi}.
 \end{definition}
 
 \begin{theorem}[Operadic structures on the operahedra] 
-	\label{thm:operahedra}
+\label{thm:operahedra}
 There are exactly 
 \begin{enumerate}
-	\item two operadic diagonals of the Loday operahedra, given by the $\LA$ and $\SU$ diagonals, therefore exactly
-	\item two colored topological cellular operad structures on the Loday operahedra, and incidentally exactly
-	\item two universal tensor products of homotopy operads,
+\item two operadic diagonals of the Loday operahedra, given by the $\LA$ and $\SU$ diagonals, therefore exactly
+\item two colored topological cellular operad structures on the Loday operahedra, and incidentally exactly
+\item two universal tensor products of homotopy operads,
 \end{enumerate}
 which agree with the generalized Tamari order on fully nested trees. 
 \end{theorem}
 
 \begin{proof}
-	Let us first examine Point (1).
-	By \cref{thm:unique-operadic}, we know that if one of the two choices $\LAD$ or $\SUD$ is made on an operahedron $P_t$, one has to make the same choice on every lower-dimensional operahedron appearing in the decomposition $P_{t_1} \times \cdots \times P_{t_k} \cong F \subset P_t$ of a face $F$ of $P_t$. 
-	Now suppose that one makes two distinct choices for two operahedra $P_t$ and $P_{t'}$.
-	It is easy to find a bigger tree $t''$ of which both $t$ and $t'$ are subtrees.
-	Therefore, $P_t$ and $P_{t'}$ appear as facets of $P_{t''}$ and by the preceding remark, any choice of diagonal for $P_{t''}$ will then contradict our initial two choices. 
-	Thus, these had to be the same from the start, which concludes the proof. 
+Let us first examine Point (1).
+By \cref{thm:unique-operadic}, we know that if one of the two choices $\LAD$ or $\SUD$ is made on an operahedron $P_t$, one has to make the same choice on every lower-dimensional operahedron appearing in the decomposition $P_{t_1} \times \cdots \times P_{t_k} \cong F \subset P_t$ of a face $F$ of~$P_t$. 
+Now suppose that one makes two distinct choices for two operahedra $P_t$ and $P_{t'}$.
+It is easy to find a bigger tree $t''$ of which both $t$ and $t'$ are subtrees.
+Therefore, $P_t$ and $P_{t'}$ appear as facets of $P_{t''}$ and by the preceding remark, any choice of diagonal for $P_{t''}$ will then contradict our initial two choices. 
+Thus, these had to be the same from the start, which concludes the proof. 
 
-	Point (2) then follows from fact that a choice of diagonal for the Loday realizations of the operahedra \emph{forces} a unique topological cellular colored operad structure on them, see~\cite[Thm.~4.18]{LaplanteAnfossi}.
-	Since universal tensor products of homotopy operads are induced by a colored operad structure on the operahedra~\cite[Coro.~4.24]{LaplanteAnfossi}, we obtain Point~(3).
-	Finally, since only vectors with strictly descreasing coordinates induce the generalized Tamari order on the skeleton of the operahedra~\cite[Prop.~3.11]{LaplanteAnfossi}, we get the last part of the statement. 
+Point (2) then follows from fact that a choice of diagonal for the Loday realizations of the operahedra \emph{forces} a unique topological cellular colored operad structure on them, see~\cite[Thm.~4.18]{LaplanteAnfossi}.
+Since universal tensor products of homotopy operads are induced by a colored operad structure on the operahedra~\cite[Coro.~4.24]{LaplanteAnfossi}, we obtain Point~(3).
+Finally, since only vectors with strictly descreasing coordinates induce the generalized Tamari order on the skeleton of the operahedra~\cite[Prop.~3.11]{LaplanteAnfossi}, we get the last part of the statement. 
 \end{proof}
 
 This answers a question raised in~\cite[Rem.~3.14]{LaplanteAnfossi}.
@@ -4701,12 +4715,12 @@ However, it is not immediately clear to the authors how to follow strategy of~\c
 \end{remark}
 
 \begin{example}
-	The Loday associahedra correspond to the Loday operahedra associated with linear trees~\cite[Sect. 2.2]{LaplanteAnfossi}, and define a suboperad.
-	The restriction of the two operad structures of \cref{thm:operahedra} coincide in this case, and both the $\LA$ and $\SU$ diagonals induce the \emph{magical formula} of~\cite{MarklShnider, MasudaThomasTonksVallette, SaneblidzeUmble-comparingDiagonals} defining a universal tensor product of $\Ainf$-algebras. 
+The Loday associahedra correspond to the Loday operahedra associated with linear trees~\cite[Sect. 2.2]{LaplanteAnfossi}, and define a suboperad.
+The restriction of the two operad structures of \cref{thm:operahedra} coincide in this case, and both the $\LA$ and $\SU$ diagonals induce the \emph{magical formula} of~\cite{MarklShnider, MasudaThomasTonksVallette, SaneblidzeUmble-comparingDiagonals} defining a universal tensor product of $\Ainf$-algebras. 
 \end{example}
 
 \begin{example}
-	The restriction of \cref{thm:operahedra} to the permutahedra associated with $2$-leveled trees gives two distinct universal tensor products of homotopy associative \emph{permutads}, as studied in~\cite{LodayRonco-permutads,Markl}.
+The restriction of \cref{thm:operahedra} to the permutahedra associated with $2$-leveled trees gives two distinct universal tensor products of homotopy associative \emph{permutads}, as studied in~\cite{LodayRonco-permutads,Markl}.
 \end{example}
 
 We shall see now that the two operad structures on the operahedra are related to one another in the strongest possible sense: they are isomorphic as topological cellular colored operads.
@@ -4728,7 +4742,7 @@ Recall that the topological cellular operad structure on the operahedra~\cite[De
 P_t .
 \end{tikzcd}
 }}  \]
-Here, the map $\tr$ is the \emph{unique} topological cellular map which commutes with the diagonal~$\LAD$~\cite[Prop.~7]{MasudaThomasTonksVallette}. 
+Here, the map $\tr$ is the \emph{unique} topological cellular map which commutes with the diagonal~$\LAD$, see~\cite[Prop.~7]{MasudaThomasTonksVallette}. 
 This partial composition $\circ_i^\LA$ is an isomorphism in the category $\PolySub$~\cite[Def.~4.13]{LaplanteAnfossi} between the product $P_{t'}\times P_{t''}$ and the facet $t' \circ_i^\LA t''$ of~$P_t$.
 Using the $\SU$ diagonal $\SUD$, one can define similarly a topological operad structure via the same formula, but with a different transition map $\tr$, which commutes with $\SUD$.
 
@@ -4753,42 +4767,45 @@ The same holds when taking the~$\circ_i^\SU$ operations instead of the $\circ_i^
 \end{construction}
 
 \begin{theorem}
-	\label{thm:top-iso}
-	The map $\Psi \eqdef \{\Psi_t\}$ is an isomorphism of topological cellular symmetric colored operad between the $\LA$ and $\SU$ operad structures on the operahedra, in the category $\PolySub$.
+\label{thm:top-iso}
+The map $\Psi \eqdef \{\Psi_t\}$ is an isomorphism of topological cellular symmetric colored operad between the $\LA$ and $\SU$ operad structures on the operahedra, in the category $\PolySub$.
 \end{theorem}
 
 \begin{proof}
-	By definition, we have that $\Psi$ is an isomorphism in the category $\PolySub$. 
-	It remains to show that it preserves the operad structures, \ie that the following diagram commutes
-	\[
-	\vcenter{\hbox{
-	\begin{tikzcd}[column sep=2.2cm, row sep=1.3cm]
-	P_{t'}\times P_{t''}
-	\arrow[r,  "\circ_i^\LA"] 
-	\arrow[d,  "\Psi_{t'}\times\Psi_{t''}"']
-	& P_{t} \arrow[d,  "\Psi_t"] \\
-	P_{t'}\times P_{t''}  
-	\arrow[r,  "\circ_i^\SU"']
-	& P_{t}
-	\end{tikzcd}
-	}}\]
-	For two interior points $(x,y) \in \mathring P_{t'}\times \mathring P_{t''}$, the diagram clearly commutes by definition, since $\Psi_{t'}$ and~$\Psi_{t''}$ are the identity in that case. 
-	If $x$ is in a face $F=((\cdots((t_1 \circ_{i_1} t_2) \circ_{i_2} t_3) \cdots )\circ_{i_k} t_{k+1})$ of the boundary of~$P_{t'}$, then the lower composite is equal to $\circ_i^\SU (\circ_{i_1}^\SU \circ_{i_2}^\SU \cdots \circ_{i_k}^\SU \times \id)(\circ_{i_1}^\LA \circ_{i_2}^\LA \cdots \circ_{i_k}^\LA \times \id)^{-1}$, and so is the upper composite since $\Psi_t$ starts with the inverse $(\circ_i^\LA)^{-1}$ and the decomposition of~$F$ into $P_{t_1} \times \cdots \times P_{t_{k+1}} \times P_{t''}$ is unique.
-	The case when $y$ is in the boundary of $P_{t''}$ is similar.  
-	Finally, the compatibility of $\Psi$ with units and the symmetric group actions are straightfoward to check, see~\cite[Def.~4.17 \& Thm.~4.18]{LaplanteAnfossi}.
+By definition, we have that $\Psi$ is an isomorphism in the category $\PolySub$. 
+It remains to show that it preserves the operad structures, \ie that the following diagram commutes
+\[
+\vcenter{\hbox{
+\begin{tikzcd}[column sep=2.2cm, row sep=1.3cm]
+P_{t'}\times P_{t''}
+\arrow[r,  "\circ_i^\LA"] 
+\arrow[d,  "\Psi_{t'}\times\Psi_{t''}"']
+& P_{t} \arrow[d,  "\Psi_t"] \\
+P_{t'}\times P_{t''}  
+\arrow[r,  "\circ_i^\SU"']
+& P_{t}
+\end{tikzcd}
+}}\]
+For two interior points $(x,y) \in \mathring P_{t'}\times \mathring P_{t''}$, the diagram clearly commutes by definition, since $\Psi_{t'}$ and~$\Psi_{t''}$ are the identity in that case. 
+If $x$ is in a face $F=((\cdots((t_1 \circ_{i_1} t_2) \circ_{i_2} t_3) \cdots )\circ_{i_k} t_{k+1})$ of the boundary of~$P_{t'}$, then the lower composite is equal to $\circ_i^\SU (\circ_{i_1}^\SU \circ_{i_2}^\SU \cdots \circ_{i_k}^\SU \times \id)(\circ_{i_1}^\LA \circ_{i_2}^\LA \cdots \circ_{i_k}^\LA \times \id)^{-1}$, and so is the upper composite since $\Psi_t$ starts with the inverse $(\circ_i^\LA)^{-1}$ and the decomposition of~$F$ into $P_{t_1} \times \cdots \times P_{t_{k+1}} \times P_{t''}$ is unique.
+The case when $y$ is in the boundary of $P_{t''}$ is similar.  
+Finally, the compatibility of $\Psi$ with units and the symmetric group actions are straightfoward to check, see~\cite[Def.~4.17 \& Thm.~4.18]{LaplanteAnfossi}.
 \end{proof}
 
 \begin{remark}
-	\cref{const:top-iso} and \cref{thm:top-iso} do not depend on a specific choice of operadic diagonal.
-	In this case, however, we do not loose any generality by using specifically the $\LA$ and $\SU$ operad structures. 
+\cref{const:top-iso} and \cref{thm:top-iso} do not depend on a specific choice of operadic diagonal.
+In this case, however, we do not loose any generality by using specifically the $\LA$ and $\SU$ operad structures. 
 \end{remark}
 
 \begin{example}
-	\label{ex:iso-not-Hopf}
+\label{ex:iso-not-Hopf}
 Note that $\Psi$ is \emph{not} a morphism of ``Hopf" operads, \ie it does not commute with the respective diagonals $\LAD$ and $\SUD$. 
 Consider the two square faces $F \eqdef 12|34$ and $G \eqdef 24|13$ of the $3$-dimensional permutahedron $\Perm[4]$, and choose a point $\b z \in (\mathring F + \mathring G)/2$.
-Then, $\LAD(z)$ and $\SUD(z)$ are two different pair of points on the $1$-skeleton of $\Perm[4]$. 
-Since $\circ_i^\LA$ and $\circ_i^\SU$ are the identity both on the interior of $\Perm[4]$ (by \cref{const:top-iso}) and on the $1$-skeleton of $\Perm[4]$ (see the proof of~\cite[Prop. 7]{MasudaThomasTonksVallette}), we directly obtain that $\LAD(z)=(\Psi \times \Psi)\LAD(z) \neq \SUD \Psi(z)=\SUD(z)$. 
+Then, $\LAD(z)$ and~$\SUD(z)$ are two different pair of points on the $1$-skeleton of $\Perm[4]$. 
+Since $\circ_i^\LA$ and $\circ_i^\SU$ are the identity both on the interior of $\Perm[4]$ (by \cref{const:top-iso}) and on the $1$-skeleton of $\Perm[4]$ (see the proof of~\cite[Prop. 7]{MasudaThomasTonksVallette}), we directly obtain that
+\[
+{\LAD(z)=(\Psi \times \Psi)\LAD(z) \neq \SUD \Psi(z)=\SUD(z)}.
+\] 
 \end{example}
 
 %%%%%%%%%%%%%%%
@@ -4814,7 +4831,7 @@ Actually, this $\infty$-morphism is even an isomorphism whose first component is
 \end{proof}
 
 \begin{remark}
-	None of the two diagonals $\LAD$ or $\SUD$ is cocommutative, or coassociative, as is the special case of $\Ainf$-algebras \cite[Thm. 13]{MarklShnider}. 
+None of the two diagonals $\LAD$ or $\SUD$ is cocommutative, or coassociative, as is the special case of $\Ainf$-algebras \cite[Thm. 13]{MarklShnider}. 
 \end{remark}
 
 Note that restricting to linear trees, the two tensor products of $\Ainf$-algebras induced by the $\LA$ and $\SU$ diagonals coincide (and are thus strictly isomorphic).
@@ -4822,12 +4839,12 @@ Restricting to $2$-leveled trees, we obtain two tensor product of homotopy assoc
 For the operahedra in general, such a bijection does not exist, as the following computations show. 
 
 Let $\PT_n$ be the set of planar trees with $n$ internal edges, which are labelled by $[n]$ using the infix order.
-Recall that a \defn{nest} of $t \in \PT_n$ is a subset of internal edges which induce a subtree, and a \defn{nesting} of $t$ is a family of nests which are either included in one another, or disjoint \cite[Def. 2.1 \& 2.22]{LaplanteAnfossi}.
+Recall that a \defn{nest} of $t \in \PT_n$ is a subset of internal edges which induce a subtree, and a \defn{nesting} of $t$ is a family of nests which are either included in one another, or disjoint \cite[Def.~2.1 \& 2.22]{LaplanteAnfossi}.
 
 \begin{definition}
 \label{def:valid}
-Let $\sigma=\sigma_1|...|\sigma_k$ be an ordered partition of $[n]$. 
-We say that $\sigma$ is \defn{valid} for $t \in \PT_n$, if the subsets of internal edges $\{\sigma_1, \sigma_1 \cup \sigma_2,...,\bigcup_{i \in [k]} \sigma_i\}$ form a nesting of $t$.
+Let $\sigma=\sigma_1| \cdots |\sigma_k$ be an ordered partition of $[n]$. 
+We say that $\sigma$ is \defn{valid} for~$t \in \PT_n$, if the subsets of internal edges $\{\sigma_1, \sigma_1 \cup \sigma_2,\dots,\bigcup_{i \in [k]} \sigma_i\}$ form a nesting of $t$.
 We say that a pair of ordered partitions is \defn{valid} for $t$, if the two ordered partitions are.
 For $t \in \PT_n$, we define $\LAD_t$ (\resp $\SUD_t$) to be the elements of $\LAD$ ($\SUD$) which are valid nests of $t$.
 \end{definition}
@@ -5245,12 +5262,12 @@ It is possible to resolve this breakdown in symmetry by using alternate labellin
 \begin{remark}
 Observe that $\sigma$ is a valid nesting for $t$ if, and only if $r\sigma$ is a valid nesting for $rt$, where $rt$ is the relabelling of $t$ with minimal edge label sent to maximal and so on.
 Consequently, $(\sigma,\tau)$ is a valid nesting for $t$ if, and only if $t(r\times r)(\sigma,\tau)$ is a valid nesting for $rt$.
-Therefore, for $t \in PT_n$ in $\card{\LAD_t} = \card{\SUD_{rt}}$ and $\card{\SUD_t} = \card{\LAD_{rt}}$.
+Therefore, for~$t \in PT_n$ in $\card{\LAD_t} = \card{\SUD_{rt}}$ and $\card{\SUD_t} = \card{\LAD_{rt}}$.
 \end{remark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\cleardoublepage
+\clearpage
 \bibliographystyle{alpha}
 \bibliography{diagonalsPermutahedra}
 \label{sec:biblio}
