@@ -286,7 +286,7 @@ Finally, we use the preceding results to show that there are precisely two isomo
 \section*{Introduction} 
 \label{s:introduction}
 
-The purpose of this article is to study \emph{cellular diagonals on the permutahedra}, which are cellular maps homotopic to the usual \emph{thin diagonal} $\triangle : P \to P \times P,~ x \mapsto (x,x)$ (\cref{def:thinDiagonal,def:cellularDiagonal}).
+The purpose of this article is to study \emph{cellular diagonals} on the \emph{permutahedra}, which are cellular maps homotopic to the usual \emph{thin diagonal} $\triangle : P \to P \times P,~ x \mapsto (x,x)$ (\cref{def:thinDiagonal,def:cellularDiagonal}).
 Such diagonals, and in particular coherent families that we call \emph{operadic diagonals} (\cref{def:operadicDiagonal}), are of interest in algebraic geometry and topology: via the theory of Fulton--Sturmfels~\cite{FultonSturmfels}, they give explicit formulas for the cup product on Losev--Manin toric varieties~\cite{LosevManin}; they define universal tensor products of homotopy operads, and in particular universal tensor products of homotopy associative permutads (shuffle algebras)~\cite{LaplanteAnfossi}; they define a coproduct on permutahedral sets, which are models of two-fold loop spaces~\cite{SaneblidzeUmble}, and their study is needed to pursue the work of Baues aiming at defining explicit combinatorial models for higher iterated loop spaces~\cite{Baues}; using the canonical projections to the multiplihedra and the associahedra, they define universal tensor product of $\Ainf$-algebras and $\Ainf$-morphisms~\cite{LaplanteAnfossiMazuir}.
 
 %L'idée de cohérence opéradique
@@ -298,19 +298,19 @@ The Alexander--Whitney diagonal for simplices~\cite{EilenbergMacLane}, and the S
 These two diagonals are also needed in the study of iterated loop spaces~\cite{Baues}.
 Diagonals of the freehedra and associahedra are of interest in the study of the homology of fibered spaces~\cite{Saneblidze-freeLoopFibration,SaneblidzeRivera, Proute}. 
 In another direction, cellular diagonals allow one to define universal tensor products in homotopical algebra. 
-The seminal case of the associahedra has a rich history: the first algebraic diagonal was found by S.~Saneblidze and R.~Umble~\cite{SaneblidzeUmble}, followed by a second one by M.~Markl and S.~Shnider~\cite{MarklShnider}, which was conjectured to coincide with the first one. 
-This has recently been shown to hold~\cite{SaneblidzeUmble-comparingDiagonals}, while a topological enhancement of the ``magical formula'' of~\cite{MarklShnider} was provided by N.~Masuda, H.~Thomas, A.~Tonks and B.~Vallette~\cite{MasudaThomasTonksVallette}.
+The seminal case of the \emph{associahedra} has a rich history: the first algebraic diagonal was found by S.~Saneblidze and R.~Umble~\cite{SaneblidzeUmble}, followed by a second one by M.~Markl and S.~Shnider~\cite{MarklShnider}, which was conjectured to coincide with the first one. 
+This has recently been shown to hold~\cite{SaneblidzeUmble-comparingDiagonals}, while a topological enhancement of the \emph{magical formula} of~\cite{MarklShnider} was provided by N.~Masuda, H.~Thomas, A.~Tonks and B.~Vallette~\cite{MasudaThomasTonksVallette}.
 
 In~\cite{MasudaThomasTonksVallette}, the authors re-introduced the powerful technique of Fulton--Sturmfels~\cite{FultonSturmfels}, which came from the theory of fiber polytopes of~\cite{BilleraSturmfels}, to define a topological cellular diagonal of the associahedra.
 We shall call such a diagonal a \emph{geometric diagonal} (\cref{def:geometricDiagonal}).
 There are two remarkable features of this diagonal (or more precisely this family of diagonals, one for the Loday associahedron in each dimension).
 First, it respects the operadic structure of the associahedra (in fact, forces a unique topological cellular operad structure on them!), that is, the fact that each face of an associahedron is isomorphic to a product of lower-dimensional associahedra.
 Second, it satisfies the \emph{magical formula} of J.-L. Loday: the faces in the image of the diagonal are given by the pairs of faces which are comparable under the Tamari order (see \cref{sec:cellularDiagonals,rem:magicalFormula} for a precise statement). 
-This magical formula for the associahedra lead recently to new enumerative results for Tamari intervals~\cite{BostanChyzakPilaud}.
+This magical formula for the associahedra recently lead to new enumerative results for Tamari intervals~\cite{BostanChyzakPilaud}.
 
 Building on~\cite{MasudaThomasTonksVallette}, a general theory of geometric diagonals was developed in~\cite{LaplanteAnfossi}.
 In particular, a combinatorial formula describing the image of the diagonal of any polytope was given~\cite[Thm.~1.26]{LaplanteAnfossi}.
-The topological operad structure of~\cite{MasudaThomasTonksVallette} on the associahedra was generalized to the family of operahedra, which comprise the family of permutahedra, and encodes the notion of homotopy operad.
+The topological operad structure of~\cite{MasudaThomasTonksVallette} on the associahedra was generalized to the family of \emph{operahedra}, which comprise the family of permutahedra, and encodes the notion of homotopy operad.
 Cellular diagonals of the operahedra do \emph{not} satisfy the magical formula, and the combinatorial difficulty of describing their image is what prompted the development of the theory in~\cite{LaplanteAnfossi}.
 In fact, there is an interesting dichotomy between the families of polytopes which satisfy the magical formula (simplices, cubes, freehedra, associahedra) and those who do not (permutahedra, multiplihedra, operahedra).
 %\begin{figure}[h!]
@@ -327,10 +327,10 @@ In fact, there is an interesting dichotomy between the families of polytopes whi
 %\end{center}
 %\end{figure}
 
-Since the operahedra are generalized permutahedra~\cite{Postnikov}, their operadc diagonals are completely determined by the by the operadic diagonals of permutahedra (see~\cite[Sect.~1.6]{LaplanteAnfossi}), which is the purpose of study of the present paper.
+Since the operahedra are \emph{generalized permutahedra}~\cite{Postnikov}, their operadc diagonals are completely determined by the by the operadic diagonals of permutahedra (see~\cite[Sect.~1.6]{LaplanteAnfossi}), which is the purpose of study of the present paper.
 
-The first cellular diagonal of the permutahedra was obtained at the algebraic level by S.~Saneblidze and R.~Umble~\cite{SaneblidzeUmble}.
-We shall call this diagonal the \emph{original $\SU$ diagonal} in the rest of the paper. 
+The first cellular diagonal of the permutahedra was obtained at the algebraic level by S.~Sanebli\-dze and R.~Umble~\cite{SaneblidzeUmble}.
+We shall call this diagonal the \emph{original $\SU$ diagonal}. 
 The first topological cellular diagonal of the permutahedra was defined in~\cite{LaplanteAnfossi}, we shall call it the \emph{geometric $\LA$ diagonal}.
 Both of these families of diagonals are \emph{operadic}, \ie they respect the product structure on the faces of permutahedra (this property is called ``comultiplicativity" in~\cite{SaneblidzeUmble}).
 More precisely, the algebraic structure encoded by the permutahedra is that of homotopy associative permutad~\cite{LodayRonco-permutads,Markl}.
@@ -343,6 +343,7 @@ Our current work brings a completely combinatorially explicit description of the
 The first part of the paper derives enumerative results for the iterations of any geometric diagonal of the permutahedra. 
 According to the Fulton--Sturmfels formula~\cite{FultonSturmfels}, this amounts to the study of hyperplane arrangements made of generically translated copies of the braid arrangement.
 The second part studies in depth the combinatorics of operadic diagonals of the permutahedra, providing in particular a topological enhancement of the original $\SU$ diagonal, while the third part derives consequences of this combinatorial study in the field of homotopical algebra.
+We now proceed to introduce separately each part in more detail.
 
 %%%%%%%%%%%%%%%
 
@@ -367,7 +368,7 @@ where~$\b{F} \le \b{G}$ ranges over all intervals of the $(\ell,n)$-partition fo
 \end{theorem*}
 
 This formula is not particularly easy to handle, but it turns out to simplify to very elegant formulas for the number of vertices, regions, and bounded regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
-Namely, using an alternative combinatorial description of the $(\ell,n)$-partition forests in terms of $(\ell, n)$-rainbow forests and a colored analogue of the classical Pr\"ufer code, we first obtain the number of vertices of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
+Namely, using an alternative combinatorial description of the $(\ell,n)$-partition forests in terms of $(\ell, n)$-rainbow forests and a colored analogue of the classical Pr\"ufer code for permutations, we first obtain the number of vertices of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
 
 \begin{theorem*}[\cref{thm:verticesMultiBraidArrangement}]
 The number of vertices of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is
@@ -376,12 +377,12 @@ f_0(\multiBraidArrangement) = \ell \big( (\ell-1) n + 1 \big)^{n-2}.
 \]
 \end{theorem*}
 
-This result can even be refined according to the dimension of the flats of the different copies used to obtain the vertices of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
+This result can even be refined according to the dimension of the flats of the different copies intersected to obtain the vertices of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
 
 \begin{theorem*}[\cref{thm:verticesRefinedMultiBraidArrangement}]
-For any~$k_1, \dots, k_\ell$ such that~$0 \le k_i \le n-1$ for~$i \in [\ell]$ and~${\sum_{i=1}^\ell k_i = n-1}$, the number of vertices~$v$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ such that the smallest flat of the $i$\ordinal{} copy of~$\braidArrangement$ containing~$v$ has dimension~$n-k_i-1$ is given by
+For any~$k_1, \dots, k_\ell$ such that~$0 \le k_i \le n-1$ for~$i \in [\ell]$ and~${\sum_{i \in [\ell]} k_i = n-1}$, the number of vertices~$v$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ such that the smallest flat of the $i$\ordinal{} copy of~$\braidArrangement$ containing~$v$ has dimension~$n-k_i-1$ is given by
 \[
-n^{\ell-1} \binom{n-1}{k_1, \dots, k_\ell} \prod_{i=1}^\ell (n-k_i)^{k_i-1}.
+n^{\ell-1} \binom{n-1}{k_1, \dots, k_\ell} \prod_{i \in [\ell]} (n-k_i)^{k_i-1}.
 \]
 \end{theorem*}
 
@@ -396,17 +397,17 @@ The characteristic polynomial~$\charPol[\multiBraidArrangement]$ of the $(\ell,n
 where~$\displaystyle F_{\ell,m} \eqdef \frac{1}{(\ell-1)m+1} \binom{\ell m}{m}$ is the Fuss-Catalan number.
 \end{theorem*}
 
-Evaluating the characteristic polynomial at~$y = -1$ and~$y = 1$ respectively, we obtain by Zaslavsky's theory the numbers of regions and bounded regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
+Evaluating the characteristic polynomial at~$y = -1$ and~$y = 1$ respectively, we obtain by T.~Zaslavsky's theory the numbers of regions and bounded regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
 
 \begin{theorem*}[\cref{thm:regionsMultiBraidArrangement}]
 The numbers of regions and of bounded regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ are given by
 \begin{align*}
 f_{n-1}(\multiBraidArrangement) 
-& = n! \, [z^n] \exp \Bigg( \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m} \Bigg) \\
+& = n! \, [z^n] \exp \Bigg( \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m} \Bigg), \\
 \text{and}\qquad
 b_{n-1}(\multiBraidArrangement)
 %& = - n! \, [z^n] \exp \Bigg( - \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m} \Bigg) 
-& = (n-1)! \, [z^{n-1}] \exp \bigg( (\ell-1) \sum_{m \ge 1} F_{\ell,m} \, z^m \bigg).
+& = (n-1)! \, [z^{n-1}] \exp \bigg( (\ell-1) \sum_{m \ge 1} F_{\ell,m} \, z^m \bigg),
 \end{align*}
 where~$\displaystyle F_{\ell,m} \eqdef \frac{1}{(\ell-1)m+1} \binom{\ell m}{m}$ is the Fuss-Catalan number.
 \end{theorem*}
@@ -436,17 +437,18 @@ The following is a consequence of a general geometrical result, that holds for a
 A pair of ordered partitions $(\sigma,\tau)$ forming a partition tree is a facet of the $\LA$ (\resp $\SU$) geometric diagonal if and only if the minimum (\resp maximum) of every directed path between two consecutive blocks of $\sigma$ or $\tau$ is oriented from $\sigma$ to $\tau$, that is from left to right (\resp from $\tau$ to $\sigma$, that is from right to left).
 \end{theorem*}
 
+\pagebreak
 Vertices of operadic diagonals are pairs of permutations, and form a strict subset of intervals of the weak order. 
 They admit an analogous description in terms of pattern-avoidance. 
 
 \begin{theorem*}[\cref{thm:patterns}]
-A pair of permutations of $[n]$ is in the $\LA$ (\resp $\SU$) diagonal if and only if for any~$k\geq 1$ and for any $I=\{i_1,\dots,i_k\},J=\{j_1,\dots,j_k\} \subset [k]$ such that $i_1=1$ (\resp $j_k=2k$) it avoids the patterns 
+A pair of permutations of $[n]$ is a vertex of the $\LA$ (\resp $\SU$) diagonal if and only if for any~$k\geq 1$ and for any $I=\{i_1,\dots,i_k\},J=\{j_1,\dots,j_k\} \subset [k]$ such that $i_1=1$ (\resp $j_k=2k$) it avoids the patterns 
 \begin{align}
 	(j_1 i_1 j_2 i_2 \cdots j_k i_k,\ i_2 j_1 i_3 j_2 \cdots i_k j_{k-1} i_1 j_k), \tag{LA} \\
 	\text{ \resp } (j_1 i_1 j_2 i_2 \cdots j_k i_k, \ i_1 j_k i_2 j_1 \cdots i_{k-1} j_{k-2}i_k j_{k-1}), \tag{SU}
 \end{align}
-For each $k$, there are $\binom{2k-1}{k-1,k}(k-1)!k!$ such patterns, which are $(21,12)$ for $k=1$, and the following for $k=2$
-\begin{enumerate}
+For each $k \ge 1$, there are $\binom{2k-1}{k-1,k}(k-1)!k!$ such patterns, which are $(21,12)$ for $k=1$, and the following for $k=2$
+\begin{itemize}
 	\item $\LA$ avoids 
 	$(3142,2314), (4132,2413),
 	(2143,3214), (4123,3412),
@@ -455,7 +457,7 @@ For each $k$, there are $\binom{2k-1}{k-1,k}(k-1)!k!$ such patterns, which are $
 	$(1243,2431),(1342,3421),
 	(2143,1432),(2341,3412),
 	(3142,1423),(3241,2413)$.
-\end{enumerate}
+\end{itemize}
 \end{theorem*}
 
 In \cref{sec:shifts}, we introduce \emph{shifts} that can be performed on the facets of operadic diagonals.
@@ -467,7 +469,7 @@ The original and geometric $\SU$ diagonals coincide.
 
 The proof of this result, quite technical, procedes by showing the equivalence between $4$ different descriptions of the diagonal: the original, $1$-shift, $m$-shift and geometric $\SU$ diagonals (\cref{subsec:topological-SU}).
 This brings a positive answer to~\cite[Rem.~2.19]{LaplanteAnfossi}, showing that the original $\SU$ diagonal can indeed be recovered from a choice of chambers in the fundamental hyperplane arrangement of the permutahedron. 
-Our count of facets also agrees with the one made in~\cite{VejdemoJohansson}.
+Our formulas for the number of facets also agrees with the experimental count made in~\cite{VejdemoJohansson}.
 
 Moreover, it provides a new proof that all known diagonals on the associahedra coincide~\cite{SaneblidzeUmble-comparingDiagonals}.
 Indeed, since the family of vectors inducing the geometric $\SU$ diagonal all have strictly decreasing coordinates, the diagonal induced on the associahedron is given by the magical formula~\cite[Thm.~2]{MasudaThomasTonksVallette}, see also~\cite[Prop.~3.8]{LaplanteAnfossi}.
@@ -500,9 +502,10 @@ Indeed, this resolution is encoded by the dual subdivision of the permutahedron,
 
 %%%%%%%%%%%%%%%
 
+\pagebreak
 \subsection*{\cref{part:higherAlgebraicStructures}. Higher algebraic structures}
 
-In this third, shorter part we derive some higher algebaic consequences of the preceding results. 
+In this shorter third part of the paper, we derive some higher algebaic consequences of the preceding results. 
 These higher algebraic considerations were the original motivation for the present study.
 They concern the \emph{operahedra}, a family of polytopes indexed by planar trees, which encode (non-symmetric non-unital) homotopy operads \cite{LaplanteAnfossi}.
 These admit realizations ``\`a la Loday", which generalize the Loday realizations of the associahedra. 
@@ -531,9 +534,9 @@ Moreover, the pairs of faces in the image of the two operadic diagonals are in g
 
 \section*{Aknowledgements}
 
-GLA is grateful to Hugh Thomas for raising the question to count the facets of the $\LA$ diagonal and for preliminary discussions during a visit at the LACIM in the summer of 2021 where the project started, and the Max Planck Insitute for Mathematics in Bonn where part of this work was carried out.
+GLA is grateful to Hugh Thomas for raising the question to count the facets of the $\LA$ diagonal and for preliminary discussions during a visit at the LACIM in the summer of 2021 where the project started, and to the Max Planck Insitute for Mathematics in Bonn where part of this work was carried out.
 We are grateful to Sylvie Corteel for pointing out the relevance of the dual perspective for the purpose of counting.
-VP is grateful to the organizers (Karim Adiprasito, Alexey Glazyrin, Isabella Novic, and Igor Pak) of the workshop ``Combinatorics and Geometry of Convex Polyhedra'' held at the Simons Center for Geometry and Physics in March 2023 for the opportunity to present a preliminary version of our enumerative results, and to  Pavel Galashin for asking about the characteristic polynomial of the multi braid arrangement during this presentation.
+VP is grateful to the organizers (Karim Adiprasito, Alexey Glazyrin, Isabella Novic, and Igor Pak) of the workshop ``Combinatorics and Geometry of Convex Polyhedra'' held at the Simons Center for Geometry and Physics in March 2023 for the opportunity to present a preliminary version of our enumerative results, and to  Pavel Galashin for asking about the characteristic polynomial of the multiple braid arrangement during this presentation.
 We thank Samson Saneblidze and Ron Umble for useful correspondence.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -551,7 +554,7 @@ Finally in \cref{sec:facePoset}, we describe their face posets in terms of order
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Recollection on hyperplane arrangements and the braid arrangement}
+\section{Recollection on hyperplane arrangements and braid arrangements}
 \label{sec:arrangements}
 
 %%%%%%%%%%%%%%%
@@ -992,7 +995,7 @@ where $\hat{1}$ denotes the maximal element in $\partitionPoset[\#G_i]$ and $\pi
 The result follows since~$\weirdPol[\#G_i] = \sum_{\pi_i \in \partitionPoset[\#G_i]}  \mu_{\partitionPoset[\#G_i]}(\pi_i,\hat{1}) \, x^{\#\pi_i-1}$.
 %Hence, we obtain
 %\[
-%\mobPol[\multiBraidArrangement] = \sum_{G \in \forestPoset} y^{n-\ell n - 1 + \sum_{i=1}^\ell \#G_i} x^{(n-1)(1-\ell)} \prod_{i \in [\ell]} \weirdPol[\#G_i].
+%\mobPol[\multiBraidArrangement] = \sum_{G \in \forestPoset} y^{n-\ell n - 1 + \sum_{i \in [\ell]} \#G_i} x^{(n-1)(1-\ell)} \prod_{i \in [\ell]} \weirdPol[\#G_i].
 %\qedhere
 %\]
 \end{proof}
@@ -1481,16 +1484,16 @@ Similar ideas were used in~\cite{Lewis}.
 
 \begin{theorem}
 \label{thm:verticesRefinedMultiBraidArrangement}
-For any~$k_1, \dots, k_\ell$ such that~$0 \le k_i \le n-1$ for~$i \in [\ell]$ and~${\sum_{i=1}^\ell k_i = n-1}$, the number of vertices~$v$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ such that the smallest flat of the $i$\ordinal{} copy of~$\braidArrangement$ containing~$v$ has dimension~$n-k_i-1$ is given by
+For any~$k_1, \dots, k_\ell$ such that~$0 \le k_i \le n-1$ for~$i \in [\ell]$ and~${\sum_{i \in [\ell]} k_i = n-1}$, the number of vertices~$v$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ such that the smallest flat of the $i$\ordinal{} copy of~$\braidArrangement$ containing~$v$ has dimension~$n-k_i-1$ is given by
 \[
-n^{\ell-1} \binom{n-1}{k_1, \dots, k_\ell} \prod_{i=1}^\ell (n-k_i)^{k_i-1}.
+n^{\ell-1} \binom{n-1}{k_1, \dots, k_\ell} \prod_{i \in [\ell]} (n-k_i)^{k_i-1}.
 \]
 \end{theorem}
 
 \begin{proof}
 By \cref{prop:flatPosetMultiBraidArrangement,prop:bijectionForests}, we just need to count the labeled $(\ell,n)$-rainbow trees with~$k_i$ nodes colored by~$i$.
 Forgetting the labels, the $(\ell,n)$-rainbow trees with~$k_i$ nodes colored by~$i$ are precisely the spanning trees of the complete multipartite graph~$K_{k_1, \dots, k_\ell, 1}$ (where the last~$1$ stands for the uncolored root).
-Using a Pr\"ufer code similar to that of the proof of \cref{thm:verticesMultiBraidArrangement}, R.~Lewis proved in~\cite{Lewis} that the latter are counted by~${n^{\ell-1} \prod_{i=1}^\ell (n-k_i)^{k_i-1}}$.
+Using a Pr\"ufer code similar to that of the proof of \cref{thm:verticesMultiBraidArrangement}, R.~Lewis proved in~\cite{Lewis} that the latter are counted by~${n^{\ell-1} \prod_{i \in [\ell]} (n-k_i)^{k_i-1}}$.
 Finally, the possible labelings are counted by the multinomial coefficient~$\binom{n-1}{k_1, \dots, k_\ell}$.
 \end{proof}
 
@@ -1593,11 +1596,11 @@ From the characteristic polynomial of~$\multiBraidArrangement$ and \cref{rem:cha
 The numbers of regions and of bounded regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ are given by
 \begin{align*}
 f_{n-1}(\multiBraidArrangement) 
-& = n! \, [z^n] \exp \Bigg( \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m} \Bigg) \\
+& = n! \, [z^n] \exp \Bigg( \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m} \Bigg), \\
 \text{and}\qquad
 b_{n-1}(\multiBraidArrangement)
 %& = - n! \, [z^n] \exp \Bigg( - \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m} \Bigg) 
-& = (n-1)! \, [z^{n-1}] \exp \bigg( (\ell-1) \sum_{m \ge 1} F_{\ell,m} \, z^m \bigg).
+& = (n-1)! \, [z^{n-1}] \exp \bigg( (\ell-1) \sum_{m \ge 1} F_{\ell,m} \, z^m \bigg),
 \end{align*}
 where~$\displaystyle F_{\ell,m} \eqdef \frac{1}{(\ell-1)m+1} \binom{\ell m}{m}$ is the Fuss-Catalan number.
 \end{theorem}
@@ -2607,8 +2610,8 @@ Specializing \cref{prop:PFtoOPF1}, we now explain how to order these pairs of pa
 
 \begin{theorem}
 \label{thm:facet-ordering}
-Let $(\sigma,\tau)$ be two ordered partitions of $[n]$ whose underlying intersection graph is a $(2,n)$-partition tree.
-We have~$(\sigma,\tau) \in \LAD$ (\resp $\SUD$) if and only if the minimum (\resp maximum) of every directed path between two consecutive blocks of $\sigma$ or $\tau$ is oriented from $\sigma$ to $\tau$, that is from left to right (\resp from $\tau$ to $\sigma$, that is from right to left).
+Let $(\sigma,\tau)$ be a pair of ordered partitions of $[n]$ whose underlying intersection graph is a $(2,n)$-partition tree.
+The pair~$(\sigma,\tau)$ is a facet of the $\LA$ (\resp $\SU$) diagonal if and only if the minimum (\resp maximum) of every directed path between two consecutive blocks of $\sigma$ or $\tau$ is oriented from $\sigma$ to $\tau$, that is from left to right (\resp from $\tau$ to $\sigma$, that is from right to left).
 \end{theorem}
 
 \begin{proof}
@@ -2761,7 +2764,7 @@ The pairs of permutations $(\sigma,\tau)$ avoiding the patterns $(21,12)$ are pr
 
 \begin{theorem}
 \label{thm:patterns}
-A pair of permutations of $[n]$ is in the $\LA$ (\resp $\SU$) diagonal if and only if for any~$k\geq 1$ and for any $(I,J) \in \LA(k)$ (\resp $\SU(k)$) of size $|I|=|J|=k$ it avoids the patterns 
+A pair of permutations of $[n]$ is a vertex of the $\LA$ (\resp $\SU$) diagonal if and only if for any~$k\geq 1$ and for any $(I,J) \in \LA(k)$ (\resp $\SU(k)$) of size $|I|=|J|=k$ it avoids the patterns 
 \begin{align}
 	(j_1 i_1 j_2 i_2 \cdots j_k i_k,\ i_2 j_1 i_3 j_2 \cdots i_k j_{k-1} i_1 j_k), \tag{LA} \label{eq:pattern} \\
 	\text{ \resp } (j_1 i_1 j_2 i_2 \cdots j_k i_k, \ i_1 j_k i_2 j_1 \cdots i_{k-1} j_{k-2}i_k j_{k-1}), \tag{SU}
@@ -2771,9 +2774,9 @@ where $I=\{i_1,\dots,i_k\}$, $J=\{j_1,\dots,j_k\}$ and $i_1=1$ (\resp $j_k=2k$).
 
 \begin{example}\label{exm:intervalsWeakOrderNotDiagonals}
 \enlargethispage{.5cm}
-For each $k$, there are $\binom{2k-1}{k-1,k}(k-1)!k!$ avoided standardised patterns.
-For $k=1$, both diagonals avoid $(21,12)$, so the vertices are intervals of the weak order.
-For $k=2$, 
+For each $k \ge 1$, there are $\binom{2k-1}{k-1,k}(k-1)!k!$ avoided standardised patterns.
+For~$k=1$, both diagonals avoid $(21,12)$, so the vertices are intervals of the weak order.
+For~$k=2$, 
 \begin{itemize}
     \item $\LA$ avoids 
     $(3142,2314), (4132,2413),
@@ -4057,11 +4060,11 @@ Given our previously obtained formulae for the number of elements in the diagona
 \begin{corollary}
 Using the heights of either diagonal,
 \begin{align*}
-    2(n+1)^{n-2} = \sum_{v \in \mathbb{S}_n} \prod_{\rho=1}^n (l_v(\rho)+1)(r_v(\rho)+1)
+    2(n+1)^{n-2} = \sum_{v \in \mathbb{S}_n} \prod_{\rho \in [n]} (l_v(\rho)+1)(r_v(\rho)+1)
 \end{align*}
 Moreover, denoting by $\mathbb{S}_n^{k_1} \subseteq \mathbb{S}_n$ the set of permutations with $k_1$ ascending runs, and consequently $k_2 = n-1-k_1$ descending runs, we have 
 \begin{align*}
-	n \binom{n-1}{k_1} (n-k_1)^{k_1-1} (n-k_2)^{k_2-1} = \sum_{v \in \mathbb{S}_n^{k_1}} \prod_{\rho=1}^n (l_v(\rho)+1)(r_v(\rho)+1)
+	n \binom{n-1}{k_1} (n-k_1)^{k_1-1} (n-k_2)^{k_2-1} = \sum_{v \in \mathbb{S}_n^{k_1}} \prod_{\rho \in [n]} (l_v(\rho)+1)(r_v(\rho)+1)
 \end{align*}
 \end{corollary}
 \begin{proof}
@@ -4799,7 +4802,7 @@ Recall that a \defn{nest} of $t \in \PT_n$ is a subset of internal edges which i
 \begin{definition}
 \label{def:valid}
 Let $\sigma=\sigma_1|...|\sigma_k$ be an ordered partition of $[n]$. 
-We say that $\sigma$ is \defn{valid} for $t \in \PT_n$, if the subsets of internal edges $\{\sigma_1, \sigma_1 \cup \sigma_2,...,\bigcup_{i=1}^k \sigma_i\}$ form a nesting of $t$.
+We say that $\sigma$ is \defn{valid} for $t \in \PT_n$, if the subsets of internal edges $\{\sigma_1, \sigma_1 \cup \sigma_2,...,\bigcup_{i \in [k]} \sigma_i\}$ form a nesting of $t$.
 We say that a pair of ordered partitions is \defn{valid} for $t$, if the two ordered partitions are.
 For $t \in \PT_n$, we define $\LAD_t$ (\resp $\SUD_t$) to be the elements of $\LAD$ ($\SUD$) which are valid nests of $t$.
 \end{definition}
