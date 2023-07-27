@@ -148,7 +148,7 @@
 \newcommandx{\partitionPoset}[1][1 = n]{\b{\Pi}_{#1}} % partition poset
 \newcommandx{\forestPoset}[2][1 = n, 2 = \ell]{\b{\Phi}_{#1}^{#2}} % partition forest poset
 \newcommandx{\rainbowForests}[2][1 = n, 2 = \ell]{\b{\Psi}_{#1}^{#2}} % rainbow forests
-\newcommandx{\rainbowTrees}[2][1 = n, 2 = \ell]{\mathsf{RT}_{#1}^{#2}} % rainbow trees
+\newcommandx{\rainbowTrees}[2][1 = n, 2 = \ell]{\b{\rm{T}}_{#1}^{#2}} % rainbow trees
 \newcommandx{\Perm}[1][1 = n]{\mathsf{Perm}(#1)} % permutahedron
 \makeatletter
 \def\rightharpoonupfill@{\arrowfill@\relbar\relbar\rightharpoonup}
@@ -403,7 +403,7 @@ Evaluating the characteristic polynomial at~$y = -1$ and~$y = 1$ respectively, w
 The numbers of regions and of bounded regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ are given by
 \begin{align*}
 f_{n-1}(\multiBraidArrangement) 
-& = n! \, [z^n] \exp \Bigg( \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m} \Bigg), \\
+& = n! \, [z^n] \exp \Bigg( \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m} \Bigg) \\
 \text{and}\qquad
 b_{n-1}(\multiBraidArrangement)
 %& = - n! \, [z^n] \exp \Bigg( - \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m} \Bigg) 
@@ -415,7 +415,7 @@ where~$\displaystyle F_{\ell,m} \eqdef \frac{1}{(\ell-1)m+1} \binom{\ell m}{m}$ 
 Finally, \cref{sec:facePoset} is dedicated to the combinatorial description of the face poset of~$\multiBraidArrangement$.
 We observe that the faces of~$\multiBraidArrangement$ are in bijection with certain ordered $(\ell,n)$-partition forests, defined as $\ell$-tuples of ordered partitions of~$[n]$ whose underlying unordered partitions form an (unordered) $(\ell,n)$-partition forest (\cref{def:orderedPartitionForest}).
 Here, which ordered $(\ell,n)$-partition forests actually appear as faces of~$\multiBraidArrangement$ depends on the choice of the translations of the different copies.
-We provide a combinatorial description of the possible orderings of a $(\ell,n)$-partition forest compatible with some given translations in terms of certain paths in the forest (\cref{prop:PFtoOPF1,prop:PFtoOPF2}), and a combinatorial characterization of the ordered partition forests which appear for some given translations in terms of the circuits of a certain oriented graph (\cref{prop:characterizationOPFs}).
+We provide a combinatorial description of the possible orderings of an $(\ell,n)$-partition forest compatible with some given translations in terms of certain paths in the forest (\cref{prop:PFtoOPF1,prop:PFtoOPF2}), and a combinatorial characterization of the ordered partition forests which appear for some given translations in terms of the circuits of a certain oriented graph (\cref{prop:characterizationOPFs}).
 
 %%%%%%%%%%%%%%%
 
@@ -708,7 +708,7 @@ See \cref{fig:facePosetBraidArrangement3,fig:intersectionPosetBraidArrangement3,
 
 \begin{definition}
 Fix~$n \ge 1$ and denote by~$\HH$ the hyperplane of~$\R^n$ defined by~$\sum_{s \in [n]} x_s = 0$.
-The \defn{braid arrangement}~$\braidArrangement$ is the arrangement of the hyperplanes~$\set{\b{x} \in \HH}{x_s = x_t}$ for all~$1 \le s < t \le n$.
+The \defn{braid arrangement}~$\braidArrangement$ is the arrangement of the hyperplanes~$\set{\b{x} \in \HH}{x_s = x_t}$ for all~${1 \le s < t \le n}$.
 \end{definition}
 
 \begin{remark}
@@ -870,7 +870,7 @@ We have therefore decided to restrict our attention to the $(\ell,n)$-braid arra
 \section{Flat poset and enumeration of~$\multiBraidArrangement$}
 \label{sec:flatPoset}
 
-In this section, we describe the flat poset of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ in terms of $(\ell,n)$-partition forests and derive explicit formulas for its $f$-vector.
+In this section, we describe the flat poset of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ in terms of \mbox{$(\ell,n)$-partition} forests and derive explicit formulas for its $f$-vector.
 Remarkably, the flat poset (and thus the M\"obius, $f$- and $b$- polynomials) of~$\multiBraidArrangement$ is independent of the translation vectors as long as they are generic.
 
 %%%%%%%%%%%%%%%
@@ -882,20 +882,25 @@ We first introduce the main characters of this section, which will describe the 
 
 \begin{definition}
 \label{def:partitionForests}
-The \defn{intersection hypergraph} of a $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of set partitions of~$[n]$ is the $\ell$-regular $\ell$-partite hypergraph on all parts of all the partitions~$F_i$ for~${i \in [\ell]}$, with an hyperedge connecting the parts containing~$j$  for each~$j \in [n]$.
-A \defn{$(\ell,n)$-partition forest} (\resp \defn{$(\ell,n)$-partition tree}) is a $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of set partitions of~$[n]$ whose intersection hypergraph is a hyperforest (\resp hypertree).
-The \defn{dimension} of~$\b{F}$ is~$\smash{{\dim(\b{F}) \eqdef n - 1 - \ell n + \sum_{i \in [\ell]} \#F_i}}$.
+The \defn{intersection hypergraph} of an $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of set partitions of~$[n]$ is the $\ell$-regular $\ell$-partite hypergraph on all parts of all the partitions~$F_i$ for~${i \in [\ell]}$, with an hyperedge connecting the parts containing~$j$  for each~$j \in [n]$.
+\end{definition}
+
+\begin{definition}
+\label{def:partitionForests}
+An \defn{$(\ell,n)$-partition forest} (\resp \defn{$(\ell,n)$-partition tree}) is an $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of set partitions of~$[n]$ whose intersection hypergraph is a hyperforest (\resp hypertree).
 See \cref{fig:forests}.
+The \defn{dimension} of~$\b{F}$ is~$\smash{{\dim(\b{F}) \eqdef n - 1 - \ell n + \sum_{i \in [\ell]} \#F_i}}$.
 The \defn{$(\ell,n)$-partition forest poset} is the poset~$\forestPoset$ on $(\ell,n)$-partition forests ordered by componentwise refinement.
-In other words, $\forestPoset$ is the lower set of the $\ell$\ordinal{} Cartesian power of the partition poset~$\partitionPoset$ induced by $(\ell,n)$-partition forests.
-Note that the maximal elements of~$\forestPoset$ are the $(\ell, n)$-partition trees.
 %
 \begin{figure}[b]
 	\centerline{\includegraphics[scale=.9]{forests}}
-	\caption{Some $(3,6)$-partition forests (top) with their intersection hypergraphs (middle) and the corresponding labeled $(3,6)$-rainbow forests (bottom). The last two are trees. The order of the colors is red, green, blue.}
+	\caption{Some $(3,6)$-partition forests (top) with their intersection hypergraphs (middle) and the corresponding labeled $(3,6)$-rainbow forests (bottom). The last two are trees. The order of the colors in the bottom pictures is red, green, blue.}
 	\label{fig:forests}
 \end{figure}
 \end{definition}
+
+In other words, $\forestPoset$ is the lower set of the $\ell$\ordinal{} Cartesian power of the partition poset~$\partitionPoset$ induced by $(\ell,n)$-partition forests.
+Note that the maximal elements of~$\forestPoset$ are the $(\ell, n)$-partition trees.
 
 The following statement is illustrated in \cref{fig:intersectionPosetMultiBraidArrangement32}.
 %
@@ -912,9 +917,9 @@ The flat poset~$\flatPoset[\multiBraidArrangement]$ of the $(\ell,n)$-braid arra
 
 \begin{proof}
 Consider the hyperplanes~$\set{\b{x} \in \HH}{x_s - x_t = A_{i,s,t}}$ described in \cref{def:multiBraidArrangementPrecise}.
-For each~${i \in [\ell]}$, each set partition~$\pi$ of~$[n]$ corresponds to a $(\#\pi)$-dimensional flat
+In view of our discussion in \cref{subsec:braidArrangement}, observe that, for each~${i \in [\ell]}$, each set partition~$\pi$ of~$[n]$ corresponds to a $(\#\pi)$-dimensional flat
 \[
-\Psi_i(\pi) \eqdef \set{\b{x} \in \HH}{x_s - x_t = A_{i,s,t} \text{ for all $s,t$ in the same part of $F_i$} }
+\Psi_i(\pi) \eqdef \set{\b{x} \in \HH}{x_s - x_t = A_{i,s,t} \text{ for all $s,t$ in the same part of $\pi$} }
 \]
 of the $i$\ordinal{} copy of the braid arrangement~$\braidArrangement$.
 The flats of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ are thus all of the form
@@ -933,7 +938,7 @@ Finally, notice that the codimension of the flat~$\Psi(\b{F})$ is the sum of the
 \subsection{M\"obius polynomial}
 \label{subsec:MobiusPolynomialMultiBraidArrangement}
 
-We thus derive the M\"obius polynomial of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ by \cref{def:MobiusPolynomial,prop:flatPosetMultiBraidArrangement}.
+We now derive from \cref{def:MobiusPolynomial,prop:flatPosetMultiBraidArrangement} the M\"obius polynomial of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
 
 \begin{theorem}
 \label{thm:MobiusPolynomialMultiBraidArrangement}
@@ -975,19 +980,16 @@ introduced at the end of \cref{subsec:braidArrangement}, the M\"obius polynomial
 
 \pagebreak
 \begin{proposition} 
+\label{prop:alternativeFormulaMobiusPolynomialMultiBraidArrangement}
 The M\"obius polynomial of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is given by
 \[
-\mobPol[\multiBraidArrangement] = x^{(n-1)(1-\ell)} \sum_{G \in \forestPoset} y^{n-1-\ell n+\sum_{i \in [\ell]} \#G_i}  \prod_{i \in [\ell]} \weirdPol[\#G_i]
-\]
-In terms of rainbow forests, this rewrites as
-\[
-\mobPol[\multiBraidArrangement] = x^{(n-1)(1-\ell)} \sum_{G \in \rainbowForests} y^{n-1+\#E(G)}  \prod_{i \in [\ell]} \weirdPol[n-\#E(G,i)]
+\mobPol[\multiBraidArrangement] = x^{(n-1)(1-\ell)} \sum_{G \in \forestPoset} y^{n-1-\ell n+\sum_{i \in [\ell]} \#G_i}  \prod_{i \in [\ell]} \weirdPol[\#G_i].
 \]
 \end{proposition}
 
 \begin{proof}
 As already mentioned, the $(\ell,n)$-partition forest poset~$\forestPoset$ is a lower set of the $\ell$\ordinal{} Cartesian power of the partition poset~$\partitionPoset$.
-In other words, given a $(\ell,n)$-partition forest $\b{G} \eqdef (G_1, \dots, G_\ell)$, any $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of partitions satisfying~$F_i \le_{\partitionPoset[n]} G_i$ for all~$i \in [\ell]$ is a $(\ell,n)$-partition forest.
+In other words, given an $(\ell,n)$-partition forest $\b{G} \eqdef (G_1, \dots, G_\ell)$, any $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of partitions satisfying~$F_i \le_{\partitionPoset[n]} G_i$ for all~$i \in [\ell]$ is an $(\ell,n)$-partition forest.
 Hence, we obtain from \cref{thm:MobiusPolynomialMultiBraidArrangement} that
 \begin{align*}
 \mobPol[\multiBraidArrangement]
@@ -1002,41 +1004,6 @@ The result follows since~$\weirdPol[\#G_i] = \sum_{\pi_i \in \partitionPoset[\#G
 %\qedhere
 %\]
 \end{proof}
-
-%\begin{proof}
-%We have
-%\begin{align*}
-%\mobPol[\multiBraidArrangement]
-%& = \sum_{F \leq G} \mu_{\flatPoset}(F,G) \, x^{\dim(F)} \, y^{\dim(G)}, \\
-% &=\sum_{G \in \rainbowForests} y^{n-1-\ell-\#E(G)} \sum_{F \in \rainbowForests, F \leq G } \mu_{\forestPoset}(F,G) \, x^{n-1-\ell-\#E(F)}, \\
-% &=\sum_{G \in \forestPoset} y^{n-1-\ell n+\sum_{i=1}^\ell \#G_i} \sum_{F \in \forestPoset, F \leq G } \mu_{\forestPoset}(F,G) \, x^{n-1-\ell n+\sum_{i=1}^\ell \#F_i},
-%\end{align*}
-%where $E(G)$ (\resp $E(G,i)$) denotes the set of edges (\resp of edges of color $i$) in $G$ which satisfies $n-\#E(G,i) =  \#G_i$.
-%
-%Observe that for~$\b{F} \eqdef (F_1, \dots, F_\ell)$ and~$\b{G} \eqdef (G_1, \dots, G_\ell)$ in~$\forestPoset$, we have
-%\[
-%[\b{F}, \b{G}] = \prod_{i \in [\ell]} [F_i, G_i],
-%\]
-%where $[F_i, G_i]$ is an interval of $\partitionPoset[n]$. Morover, given a $(\ell,n)$-partition forest $\b{G}\eqdef (G_1, \dots, G_\ell)$, any n-tuples of partition $(F_1, \dots, F_\ell)$ satisfying for any $1\leq i \leq \ell$ $F_i \leq_{\partitionPoset[n]} G_i $ is a $(\ell,n)$-partition forest as its intersection hypergraph is a subforest of the intersection hypergraph of $G$. 
-%Recall moreover that the M\"obius function is multiplicative.
-%
-%Hence, we obtain that
-%\begin{align*}
-%\mobPol[\multiBraidArrangement] &=\sum_{G \in \forestPoset} y^{n-\ell n - 1 + \sum_{i=1}^\ell \#G_i} \prod_{i=1}^{\ell} \sum_{F_i \leq_{\partitionPoset[n]} G_i } \mu_{\partitionPoset[n]}(F_i,G_i) \, x^{n-\ell n - 1 + \sum_{i=1}^\ell \#F_i}, \\
-% &=\sum_{G \in \forestPoset} y^{n-\ell n - 1 + \sum_{i=1}^\ell \#G_i} x^{(n-1)(1-\ell)} \prod_{i=1}^{\ell} \sum_{\pi_i \in \partitionPoset[\#G_i]}  \mu_{\partitionPoset[\#G_i]}(\pi_i,\hat{1}) \, x^{\#\pi_i-1}, 
-%\end{align*}
-%where $\hat{1}$ denotes the maximal element in $\partitionPoset[\#G_i]$ and $\pi_i$ is obtained from $F_i$ by merging elements in the same part of $G_i$.
-%
-%Finally, we get:
-%\[
-%\mobPol[\multiBraidArrangement]=\sum_{G \in \forestPoset} y^{n-\ell n - 1 + \sum_{i=1}^\ell \#G_i} x^{(n-1)(1-\ell)} \prod_{i=1}^{\ell} P_{\#G_i}(x).
-%\qedhere
-%\]
-%\end{proof}
-
-\begin{remark}
-To further simplify this expression, we would need to count the number of rainbow forests with a prescribed number of colored edges, however this number does not admit a  known multiplicative formula, up to our knowledge. When there is only one color, the corresponding sequence (counting non colored forests on $n$ nodes and $k$ edges, rooted in the minimal label of each connected component) is \OEIS{A138464}.
-\end{remark}
 
 From \cref{thm:Zaslavsky,thm:MobiusPolynomialMultiBraidArrangement}, we thus obtain the face numbers and bounded face numbers of~$\multiBraidArrangement$, whose first few values are gathered in \cref{table:fvectorMultiBraidArrangements}.
 
@@ -1125,7 +1092,7 @@ From \cref{thm:Zaslavsky,thm:MobiusPolynomialMultiBraidArrangement}, we thus obt
 %	\label{table:fvectorMultiBraidArrangements}
 %\end{table}
 
-\begin{table}[b]
+\begin{table}[t]
 	\centerline{\scalebox{.8}{
 		\begin{tabular}{c@{\hspace{.7cm}}c@{\hspace{.7cm}}c@{\hspace{.7cm}}c}
 			$\ell = 1$ & $\ell = 2$ & $\ell = 3$ & $\ell = 4$
@@ -1244,7 +1211,7 @@ Observe that the $(\ell,3)$-partition forests are all of the form
 \quad\text{or}\quad
 \b{K}^p \eqdef P^p R P^{\ell-p-1}. % \text{ for } p \le \ell-1.
 \end{gather*}
-(where we write a tuple of partitions of~$[3]$ as a word on~$\{P, Q_1, Q_2, Q_3, R\}$, and $p$ and $q$ are such that the total length is~$\ell$).
+(where we write a tuple of partitions of~$[3]$ as a word on~$\{P, Q_1, Q_2, Q_3, R\}$). %, and $p$ and $q$ are such that the total length is~$\ell$).
 %\begin{gather*}
 %\b{F} \eqdef (\underbrace{P, \dots, P}_\ell), \\
 %\b{G}_i^p \eqdef (\underbrace{P, \dots, P}_p, Q_i, \underbrace{P, \dots, P}_{\ell-p-1}) \text{ for } p \le \ell-1 \text{ and } i \in [3],
@@ -1279,17 +1246,17 @@ In order to obtain more explicit formulas for the number of vertices and regions
 
 \begin{definition}
 \label{def:rainbowForest}
-A \defn{$\ell$-rainbow coloring} of a rooted plane forest~$F$ is an assignment of colors of~$[\ell]$ to the non-root nodes of~$F$ such that
+An \defn{$\ell$-rainbow coloring} of a rooted plane forest~$F$ is an assignment of colors of~$[\ell]$ to the non-root nodes of~$F$ such that
 \begin{enumerate}[(i)]
 \item there is no monochromatic edge,
 \item the colors of siblings are increasing from left to right.
 \end{enumerate}
 We denote by~$\|F\|$ the number of nodes of~$F$ and by~$\#F$ the number of trees of the forest~$F$ (\ie its number of connected components).
-A \defn{$(\ell,n)$-rainbow forest} (\resp \defn{tree}) is a \mbox{$\ell$-rainbow} colored forest (\resp tree) with $\|F\| = n$ nodes.
+An \defn{$(\ell,n)$-rainbow forest} (\resp \defn{tree}) is an \mbox{$\ell$-rainbow} colored forest (\resp tree) with $\|F\| = n$ nodes.
 We denote by~$\rainbowForests$ (\resp $\rainbowTrees$) the set of $(\ell,n)$-rainbow forests (\resp trees), and set~$\rainbowForests[][\ell] \eqdef \bigsqcup_n \rainbowForests$ (\resp $\rainbowTrees[][\ell] \eqdef \bigsqcup_n \rainbowTrees$).
 \end{definition}
 
-For instance, we have listed all $(2,4)$-rainbow trees in \cref{fig:rainbowTrees}\,(top).
+For instance, we have listed the $14$ $(2,4)$-rainbow trees in \cref{fig:rainbowTrees}\,(top).
 This figure actually illustrates the following statement.
 
 \begin{lemma}
@@ -1301,9 +1268,9 @@ The $(\ell,m)$-rainbow trees are counted by the \defn{Fuss-Catalan number}
 \end{lemma}
 
 \begin{proof}
-We can transform a $\ell$-rainbow tree~$R$ to a $\ell$-ary tree~$T$ as illustrated in \cref{fig:rainbowTrees}.
+We can transform an $\ell$-rainbow tree~$R$ to an $\ell$-ary tree~$T$ as illustrated in \cref{fig:rainbowTrees}.
 Namely, the parent of a node~$N$ in~$T$ is the previous sibling colored as~$N$ in~$R$ if it exists, and the parent of~$N$ in~$R$ otherwise.
-This classical map is a bijection from $\ell$-rainbow trees to a $\ell$-ary trees, which are counted by the Fuss-Catalan numbers~\cite{Klarner, HiltonPedersen}.
+This classical map is a bijection from $\ell$-rainbow trees to $\ell$-ary trees, which are counted by the Fuss-Catalan numbers~\cite{Klarner, HiltonPedersen}.
 %
 \begin{figure}
 	\centerline{\includegraphics[scale=.7]{rainbowTrees}}
@@ -1341,7 +1308,7 @@ F_\ell(z) = 1 + z \, F_\ell(z)^\ell.
 \end{table}
 
 \begin{definition}
-For a rainbow forest~$F$, we define
+For an $(\ell,n)$-rainbow forest~$F$, we define
 \[
 \omega(F) \eqdef \prod_{i \in [\ell]} \prod_{N \in F} \#C_i(N)! ,
 \]
@@ -1350,7 +1317,7 @@ where~$N$ ranges over all nodes of~$F$ and~$C_i(N)$ denotes the children of~$N$ 
 
 \begin{definition}
 \label{def:labelingRainbowForest}
-A \defn{labeling} of a $(\ell,n)$-rainbow forest~$F$ is a bijective map between from the nodes of~$F$ to~$[n]$ such that
+A \defn{labeling} of an $(\ell,n)$-rainbow forest~$F$ is a bijective map from the nodes of~$F$ to~$[n]$ such that
 \begin{enumerate}[(i)]
 \item the label of each root is minimal in its tree,
 \item the labels of siblings with the same color are increasing from left to right.
@@ -1359,7 +1326,7 @@ A \defn{labeling} of a $(\ell,n)$-rainbow forest~$F$ is a bijective map between 
 
 \begin{lemma}
 \label{lem:labelingRainbowForest}
-The number~$\lambda(F)$ of labelings of a $(\ell,n)$-rainbow forest~$F$ is given by
+The number~$\lambda(F)$ of labelings of an $(\ell,n)$-rainbow forest~$F$ is given by
 \[
 \lambda(F) = \frac{n!}{\omega(F) \prod\limits_{T \in F} \|T\|} .
 \]
@@ -1382,10 +1349,10 @@ There is a bijection from $(\ell,n)$-partition forests to labeled $(\ell,n)$-rai
 \end{proposition}
 
 \begin{proof}
-From a labeled $(\ell,n)$-rainbow forest~$F$, we construct a $(\ell,n)$-partition forest~$\b{F} \eqdef (F_1, \dots, F_\ell)$ whose $i$\ordinal{} partition~$F_i$ has a part~$\{N\} \cup C_i(N)$ for each node~$N$ of~$F$ not colored~$i$.
+From a labeled $(\ell,n)$-rainbow forest~$F$, we construct an $(\ell,n)$-partition forest~$\b{F} \eqdef (F_1, \dots, F_\ell)$ whose $i$\ordinal{} partition~$F_i$ has a part~$\{N\} \cup C_i(N)$ for each node~$N$ of~$F$ not colored~$i$.
 Condition~(i) of \cref{def:rainbowForest} ensures that each $F_i$ is indeed a partition.
 
-Conversely, start from a $(\ell,n)$-partition forest~$\b{F} \eqdef (F_1, \dots, F_i)$.
+Conversely, start from an $(\ell,n)$-partition forest~$\b{F} \eqdef (F_1, \dots, F_i)$.
 Consider the colored clique graph~$K_{\b{F}}$ on~$[n]$ obtained by replacing each part in~$F_i$ by a clique of edges colored by~$i$.
 For each~$1 < j \le n$, there is a unique shortest path in~$K_{\b{F}}$ from the vertex~$j$ to the smallest vertex in the connected component of~$j$.
 Define the parent~$p$ of~$j$ to be the next vertex along this path, and color the node~$j$ by the color of the edge between~$j$ and~$p$.
@@ -1399,7 +1366,7 @@ Finally, observe that
 \end{gather*}
 \end{proof}
 
-We finally transport via this bijection the partial order of the flat lattice on rainbow forests.
+We now transport via this bijection the partial order of the flat lattice on rainbow forests.
 
 \begin{proposition}
 In the flat poset~$\flatPoset[\multiBraidArrangement]$ labeled by rainbow forests using~\cref{prop:flatPosetMultiBraidArrangement,prop:bijectionForests}, a rainbow forest~$F$ covers a rainbow forest~$G$ if and only $G$ can be obtained from $F$ by:
@@ -1429,6 +1396,20 @@ Moreover, as $b$ is an other connected components, the corresponding two parts a
 Finally, a part is just a corolla so the merging corresponds to building a corolla with $a$, $b$ and their children of color $c$.
 \end{proof}
 
+We finally recast \cref{prop:alternativeFormulaMobiusPolynomialMultiBraidArrangement} in terms of rainbow forests.
+
+\begin{proposition} 
+The M\"obius polynomial of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is given by
+\[
+\mobPol[\multiBraidArrangement] = x^{(n-1)(1-\ell)} \sum_{G \in \rainbowForests} y^{n-1+\#E(G)}  \prod_{i \in [\ell]} \weirdPol[n-\#E(G,i)].
+\]
+\end{proposition}
+
+\begin{remark}
+To further simplify this expression, we would need to count the number of rainbow forests with a prescribed number of colored edges.
+However this number does not admit a  known multiplicative formula, up to our knowledge. When there is only one color, the corresponding sequence (counting non colored forests on $n$ nodes and $k$ edges, rooted in the minimal label of each connected component) is \OEIS{A138464}.
+\end{remark}
+
 %%%%%%%%%%%%%%%
 
 \subsection{Enumeration of vertices of $\multiBraidArrangement$}
@@ -1449,11 +1430,11 @@ The first few values are gathered in \cref{table:verticesMultiBraidArrangement}.
 		$5$ & $1$ & $432$ & $3993$ & $16384$ & $46305$ & $105456$ & $208537$ & $373248$ \\ % & $620289$ \\
 		$6$ & $1$ & $4802$ & $85683$ & $521284$ & $1953125$ & $5541126$ & $13119127$ & $27350408$ \\ % & $51883209$ \\
 		$7$ & $1$ & $65536$ & $2278125$ & $20614528$ & $102555745$ & $362797056$ & $1029059101$ & $2500000000$ \\ % & $5415228513$ \\
-		$8$ & $1$ & $1062882$ & $72412707$ & $976562500$ & $6457339845$ & $28500625446$ & $96889010407$ & $274371577992$ \\ % & $678770015625$ \\
+		$8$ & $1$ & $1062882$ & $72412707$ & $976562500$ & $6457339845$ & $28500625446$ & $96889010407$ & $274371577992$ % \\ & $678770015625$ \\
 %		$9$ & $1$ & $20000000$ & $2681615217$ & $53971714048$ & $474659385665$ & $2614905943296$ & $10657046640625$ & $35184372088832$ & $99426586671873$
 		\end{tabular}
 	}}
-	\vspace{.3cm}
+%	\vspace{.3cm}
 	\caption{The numbers $f_0(\multiBraidArrangement) = \ell \big( (\ell-1) n + 1 \big)^{n-2}$ of vertices of~$\multiBraidArrangement$ for~$\ell,n \in [8]$.}
 	\label{table:verticesMultiBraidArrangement}
 \end{table}
@@ -1485,6 +1466,8 @@ such words.
 Similar ideas were used in~\cite{Lewis}.
 \end{proof}
 
+We can can refine the formula of \cref{thm:verticesMultiBraidArrangement} according to the dimension of the flats of the different copies intersected to obtain the vertices of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
+
 \begin{theorem}
 \label{thm:verticesRefinedMultiBraidArrangement}
 For any~$k_1, \dots, k_\ell$ such that~$0 \le k_i \le n-1$ for~$i \in [\ell]$ and~${\sum_{i \in [\ell]} k_i = n-1}$, the number of vertices~$v$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ such that the smallest flat of the $i$\ordinal{} copy of~$\braidArrangement$ containing~$v$ has dimension~$n-k_i-1$ is given by
@@ -1505,6 +1488,7 @@ Finally, the possible labelings are counted by the multinomial coefficient~$\bin
 \subsection{Enumeration of regions and bounded regions of $\multiBraidArrangement$}
 \label{subsec:regionsMultiBraidArrangement}
 
+\enlargethispage{.2cm}
 We finally use the labeled $(\ell,n)$-rainbow forests of \cref{subsec:rainbowForests} to derive more explicit formulas for the number of regions and bounded regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
 The first few values are gathered in \cref{table:regionsMultiBraidArrangement,table:boundedRegionsMultiBraidArrangement}.
 We first compute the characteristic polynomial of~$\multiBraidArrangement$.
@@ -1522,7 +1506,7 @@ We first compute the characteristic polynomial of~$\multiBraidArrangement$.
 			$5$ & $120$ & $1809$ & $9328$ & $29937$ & $73896$ & $154465$ & $287904$ & $493473$ \\ % & $793432$ \\
 			$6$ & $720$ & $28399$ & $241888$ & $1085157$ & $3442816$ & $8795635$ & $19376064$ & $38323753$ \\ % & $69841072$ \\
 			$7$ & $5040$ & $550297$ & $7806832$ & $49075065$ & $200320816$ & $625812385$ & $1629858672$ & $3720648337$ \\ % & $7686190000$ \\
-			$8$ & $40320$ & $12732873$ & $302346112$ & $2666534049$ & $14010892416$ & $53536186825$ & $164859458688$ & $434390214657$ \\ % & $1017282905344$ \\
+			$8$ & $40320$ & $12732873$ & $302346112$ & $2666534049$ & $14010892416$ & $53536186825$ & $164859458688$ & $434390214657$ % \\ & $1017282905344$ \\
 %			$9$ & $362880$ & $343231361$ & $13682809216$ & $169423639713$ & $1146173002496$ & $5357227099105$ & $19506923076096$ & $59328538244801$ & $157507267166848$
 		\end{tabular}
 	}}
@@ -1545,7 +1529,7 @@ We first compute the characteristic polynomial of~$\multiBraidArrangement$.
 			$5$ & $0$ & $529$ & $4528$ & $17937$ & $49696$ & $111745$ & $219024$ & $389473$ \\ % & $644032$ \\
 			$6$ & $0$ & $8501$ & $120272$ & $663363$ & $2354624$ & $6455225$ & $14926176$ & $30583847$ \\ % & $57255488$ \\
 			$7$ & $0$ & $169021$ & $3968704$ & $30533409$ & $138995776$ & $464913325$ & $1268796096$ & $2996735329$ \\ % & $6353133184$ \\
-			$8$ & $0$ & $4010455$ & $156745472$ & $1684352799$ & $9841053184$ & $40179437975$ & $129465630720$ & $352560518527$ \\ % & $846588258944$ \\
+			$8$ & $0$ & $4010455$ & $156745472$ & $1684352799$ & $9841053184$ & $40179437975$ & $129465630720$ & $352560518527$ % \\ & $846588258944$ \\
 %			$9$ & $0$ & $110676833$ & $7216242688$ & $108413745057$ & $813420601856$ & $4055310777025$ & $15431698810368$ & $48461340225473$ & $131823966149632$
 		\end{tabular}
 	}}
@@ -1599,7 +1583,7 @@ From the characteristic polynomial of~$\multiBraidArrangement$ and \cref{rem:cha
 The numbers of regions and of bounded regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ are given by
 \begin{align*}
 f_{n-1}(\multiBraidArrangement) 
-& = n! \, [z^n] \exp \Bigg( \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m} \Bigg), \\
+& = n! \, [z^n] \exp \Bigg( \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m} \Bigg) \\
 \text{and}\qquad
 b_{n-1}(\multiBraidArrangement)
 %& = - n! \, [z^n] \exp \Bigg( - \sum_{m \ge 1} \frac{F_{\ell,m} \, z^m}{m} \Bigg) 
@@ -1693,7 +1677,7 @@ We now introduce the combinatorial objects that will be used to encode the faces
 
 \begin{definition}
 \label{def:orderedPartitionForest}
-An \defn{ordered $(\ell,n)$-partition forest} (\resp \defn{tree}) is an $\ell$-tuple~$\order{\b{F}} \eqdef (\order{F_1}, \dots, \order{F_\ell})$ of ordered set partitions of~$[n]$ such that the corresponding $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of unordered set partitions of~$[n]$ forms a $(\ell,n)$-partition forest (\resp tree)
+An \defn{ordered $(\ell,n)$-partition forest} (\resp \defn{tree}) is an $\ell$-tuple~$\order{\b{F}} \eqdef (\order{F_1}, \dots, \order{F_\ell})$ of ordered set partitions of~$[n]$ such that the corresponding $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of unordered set partitions of~$[n]$ forms an $(\ell,n)$-partition forest (\resp tree)
 The \defn{ordered $(\ell,n)$-partition forest poset} is the poset~$\orderedForestPoset$ on ordered $(\ell,n)$-partition forests ordered by componentwise refinement.
 In other words, $\orderedForestPoset$ is the subposet of the $\ell$\ordinal{} Cartesian power of the ordered partition poset~$\orderedPartitionPoset$ induced by ordered $(\ell,n)$-partition forests.
 Note that the maximal elements of~$\orderedForestPoset$ are the ordered $(\ell, n)$-partition trees.
@@ -4295,7 +4279,7 @@ The cubical formula for the diagonal is constructed through maximal pairings of 
 
 \begin{definition} 
 \label{def:Subdivisions}
-Let $F$ be a $\ell$-face of the permutahedron $\Perm$.
+Let $F$ be an $\ell$-face of the permutahedron $\Perm$.
 For $k\leq \ell$, a \defn{$k$-subdivision cube of $F$} is union of $k$-faces of $F$ whose underlying set is a $k$-cube.
 \end{definition}
 
