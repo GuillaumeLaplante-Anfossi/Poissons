@@ -2301,7 +2301,9 @@ Hence, by Cayley's formula for spanning trees of~$K_{n+1}$, we obtain that the n
 \section{Operadic diagonals}
 \label{sec:operadicDiagonals}
 
-This section is devoted to the combinatorics of two specific diagonals of the permutahedra, which are shown to be the only operadic diagonals of the permutahedra.
+This section is devoted to the combinatorics of two specific diagonals of the permutahedra, the $\LA$ and $\SU$ diagonals (\cref{subsec:LASUdiagonal}).
+We show that these are the only two diagonals which respect the product structure on the faces of the permutahedra (\cref{subsec:operadicProperty}), and that they are isomorphic (\cref{subsec:isos-LA-SU}). 
+Finally, we describe their facets by a simple combinatorial rule (\cref{subsec:facets-operadic-diags}), and their vertices as pattern-avoiding pairs of permutations (\cref{subsec:vertices-operadic-diags}). 
 
 %%%%%%%%%%%%%%%
 
@@ -2873,13 +2875,17 @@ However, as $j_k$ must be dominated by an element of $I$, this forces $w = i_1$ 
 \section{Shift lattice}
 \label{sec:shifts}
 
-In this section we show that the geometric $\SU$ diagonal $\SUD$ is a topological enhancement of the original Saneblidze-Umble diagonal~\cite{SaneblidzeUmble}.
-This study leads to a natural lattice structure on the set of facets of operadic diagonals, and to alternative combinatorial descriptions such as a matrix and a cubical representations. 
+In this section we show that the geometric $\SU$ diagonal $\SUD$ is a topological enhancement of the original Saneblidze-Umble diagonal~\cite{SaneblidzeUmble} (\cref{subsec:topological-SU}).
+In order to prove this result, we define different types of shifts that can be performed on the facets of the $\SU$ diagonal, and give several new equivalent definitions of it. 
+These descriptions are directly translated to the $\LA$ diagonal via isomorphism (\cref{subsec:shifts-under-iso}).
+Moreover, we observe that the shifts define a natural lattice structure on the set of facets of operadic diagonals, that we call the \emph{shift lattice} (\cref{sec:Shift-lattice}).
+Finally, we present the alternative matrix (\cref{subsec:matrix}) and cubical (\cref{sec:Cubical}) descriptions of the $\SU$ diagonal from \cite{SaneblidzeUmble,SaneblidzeUmble-comparingDiagonals}, provide proofs of their equivalence with the other descriptions, and give their $\LA$ counterparts. 
 Throughout this Section, we borrow notation from~\cite{SaneblidzeUmble-comparingDiagonals}.
 
 %%%%%%%%%%%%%%%
 
 \subsection{Topological enhancement of the original $\SU$ diagonal}
+\label{subsec:topological-SU}
 
 In this section, we prove that the geometric $\SU$ diagonal $\SUD$ agrees at the cellular level with the original Saneblidze-Umble diagonal defined in~\cite{SaneblidzeUmble}.
 The proof is technical and proceeds in several steps: we introduce two additional combinatorial descriptions of the diagonal, that we call the $1$-shift and $m$-shift $\SU$ diagonals, and show the sequence of equivalences
@@ -4567,11 +4573,17 @@ where the vertical arrows are the defining bijection between SCPs and permutatio
 
 \section{Higher tensor products}
 
-\Guillaume{Courte intro de section}
+In this Section we derive some higher algebaic consequences of the results obtained in \cref{part:diagonalsPermutahedra}.
+We first prove that there are exactly two topological operad structures on the family of operahedra which are compatible with the generalized Tamari order, and thus two geometric universal tensor products of (non-symmetric non-unital) homotopy operads (\cref{subsec:top-operadic-structures}).
+Then, we show that these topological operad structures are isomorphic (\cref{subsec:iso-top-operads}).
+However, note this isomorphism does not commute with the diagonal maps (\cref{ex:iso-not-Hopf}).
+Finally, we show that contrary to the case of permutahedra, the faces of the $\LA$ and $\SU$ diagonals of the operahedra are in general not in bijection (\cref{subsec:tensor-products}).
+However, from a homotopical point of view the two tensor products of homotopy operads that they define are $\infty$-isomorphic (\cref{thm:infinity-iso}). 
 
 %%%%%%%%%%%%%%%
 
 \subsection{Topological operadic structures on the operahedra}
+\label{subsec:top-operadic-structures}
 
 The permutahedra are part of a more general family of polytopes called Loday realizations of the \emph{operahedra}~\cite[Def.~2.9]{LaplanteAnfossi} which encodes the notion of homotopy operad~\cite[Def.~4.11]{LaplanteAnfossi} (we consider here only \emph{non-symmetric non-unital} homotopy operads).
 For every planar tree $t$, there is a corresponding polytope $P_t$ whose codimension $k$ faces are in bijection with nestings of $t$ with $k$ non-trivial nests.
@@ -4630,6 +4642,7 @@ We shall see now that the two operad structures on the operahedra are related to
 %%%%%%%%%%%%%%%
 
 \subsection{Relating operadic structures} 
+\label{subsec:iso-top-operads}
 
 Recall that the topological cellular operad structure on the operahedra~\cite[Def.~4.17]{LaplanteAnfossi} is given by a family of partial composition maps 
 \[
@@ -4714,6 +4727,7 @@ Recall that a homotopy operad $\mathcal{P}$ is a family of vector spaces $\{\mat
 One can consider the category of homotopy operads with strict morphisms, that is morphisms of the underlying vector spaces which commute strictly with all the higher operations $\mu_t$, or with their $\infty$-morphisms, made of a tower of homotopies controlling the lack of commutativity of their first component \cite[Sec. 10.5.2]{LodayVallette}.
 
 \begin{theorem}
+\label{thm:infinity-iso}
 For any pair of homotopy operads $\mathcal{P},\mathcal{Q}$, the two tensor products~$\mathcal{P} \otimes_\LA \mathcal{Q}$ and~$\mathcal{P}~\otimes_\SU~\mathcal{Q}$ defined by the $\LA$ and $\SU$ diagonals are not isomorphic in the category of homotopy operads and strict morphisms.
 However, they are isomorphic in the category of homotopy operads and their $\infty$-morphisms.
 \end{theorem}
