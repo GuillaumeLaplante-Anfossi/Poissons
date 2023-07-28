@@ -4176,7 +4176,7 @@ Given a matrix $A$ whose only non-zero entries are the elements $[n]$, let $\sig
 With this identification, the definitions of the shift operators can be translated directly:
 the right shift operator $R_{M}$ shifts the elements of a subset $M \subset \sigma_i(A)$ one column to the right, or one row up, replacing only elements of value $0$, and leaving $0$ elements in their wake, while the left shift operator $L_{M}$ shifts the elements of $M$ to the left, or down one row.
 The fact that the shifts avoid collisions with other elements is a consequence of their admissibility.
-Recall from \cref{def:movable-subsets}, that a right $\SU$ $1$-shift $R_M$ is \defn{block-admissible} if $\min \sigma_i \notin M$ and $\min M > \max \sigma_{i+1}$ (\resp $\min M > \max \sigma_{i-1}$), and that admissible sequence of right shifts proceed in increasing order \cref{def:SU-admissible}.
+Recall from \cref{def:movable-subsets}, that a right $\SU$ $1$-shift $R_M$ is \defn{block-admissible} if $\min \sigma_i \notin M$ and $\min M > \max \sigma_{i+1}$, and that admissible sequence of right shifts proceed in increasing order \cref{def:SU-admissible}.
 
 \begin{proposition}
 Admissible sequences of matrix shift operators are well-defined.
@@ -4395,7 +4395,7 @@ We now define our maximal pairing of subdivision cubes.
 \begin{definition} 
 \label{def:sandglass}
 Let $F$ be a face of $\Perm$, and let $v$ be a vertex of $F$. 
-The \defn{sandglass} of $F$ at $v$ is the set $\subdivpairsev(F)$ of all pairs $(C^v,C_v)$ of $(k_1,k_2)$-subdivision cubes of $F$ such that
+The \defn{sandglass}\Kurt{Maybe hourglass instead?} of $F$ at $v$ is the set $\subdivpairsev(F)$ of all pairs $(C^v,C_v)$ of $(k_1,k_2)$-subdivision cubes of $F$ such that
 \begin{enumerate}
 	\item $C^v$ has maximal vertex $v$,
 	\item $C_v$ has minimal vertex $v$, and
