@@ -4176,7 +4176,7 @@ Given a matrix $A$ whose only non-zero entries are the elements $[n]$, let $\sig
 With this identification, the definitions of the shift operators can be translated directly:
 the right shift operator $R_{M}$ shifts the elements of a subset $M \subset \sigma_i(A)$ one column to the right, or one row up, replacing only elements of value $0$, and leaving $0$ elements in their wake, while the left shift operator $L_{M}$ shifts the elements of $M$ to the left, or down one row.
 The fact that the shifts avoid collisions with other elements is a consequence of their admissibility.
-Recall from \cref{def:movable-subsets}, that a right $\SU$ $1$-shift $R_M$ is \defn{block-admissible} if $\min \sigma_i \notin M$ and $\min M > \max \sigma_{i+1}$, and that admissible sequence of right shifts proceed in increasing order \cref{def:SU-admissible}.
+Recall from \cref{def:movable-subsets}, that a right $\SU$ $1$-shift $R_M$ is \defn{block-admissible} if $\min \sigma_i \notin M$ and $\min M > \max \sigma_{i+1}$, and that admissible sequence of right shifts proceed in increasing order (\cref{def:SU-admissible}).
 
 \begin{proposition}
 Admissible sequences of matrix shift operators are well-defined.
@@ -4502,7 +4502,7 @@ Finally, we know from the inductive description of $\divcube{n-1}$ (\cref{eq:SU 
 Every $k$-face in $C$ has $\rho$ in a fixed singleton set (specified by $1-\frac{1}{2^{n-v_\rho}}$), and every $k$-face on the opposite side of $C\times L$ has $\rho$ in another fixed singleton set (specified by $1-\frac{1}{2^{n-v'_\rho}}$).
 Given \cref{eq:SU cube inductive def}, this final singleton block is either the last block, or is followed by a block containing an element larger than $\rho$.
 If we translate this observation back to the $(k+1)$-faces that are adjacent to the boundaries of the interval, then this corresponds to an equivalent calculation of $r_\rho$ for $\sigma$.
-This thus proves that~${L\times C = \bigcup_{i=0}^{r_\rho}\bigcup_{\mathbf{M}}R^i_\rho R_\mathbf{M}(\sigma) = \bigcup_{\mathbf{M'}}R_\mathbf{M'}(\sigma)}$, where $M'$ must be the set of admissible sequence of right shifts of $\sigma$, given the lattice description of the diagonal \cref{prop:shift lattice}.
+This thus proves that~${L\times C = \bigcup_{i=0}^{r_\rho}\bigcup_{\mathbf{M}}R^i_\rho R_\mathbf{M}(\sigma) = \bigcup_{\mathbf{M'}}R_\mathbf{M'}(\sigma)}$, where $M'$ must be the set of admissible sequence of right shifts of $\sigma$, given the lattice description of the diagonal (\cref{prop:shift lattice}).
 \end{proof}
 
 Applying this lemma to pairs of maximal subdivision cubes yields the following equivalent description of the $\SU$ diagonal.
@@ -4916,7 +4916,6 @@ This was checked via code and the first few counterexamples for $n=5$ are displa
 \label{ex:SU-LA-operahedra}
 We present in \cref{fig:trees} the $24$ planar trees with $5$ internal edges for which ${\card{\LAD_t} \neq \card{\SUD_t}}$.
 Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\cref{table:enumerationDiagonalPermutahedra1}), the number of facets in the permutahedron diagonals.
-We display each tree $t$ with the counts $(\card{\LAD_t},\card{\SUD_t})$ above it, and arrange them symmetrically to help emphasize notable missing elements.
 
 \begin{figure}[p]
 	\begin{tabular}{cccccc}
@@ -5254,7 +5253,7 @@ We display each tree $t$ with the counts $(\card{\LAD_t},\card{\SUD_t})$ above i
 		\node(1) at (0,0.5) {$(154,157)$};
 		\end{tikzpicture}}
 	\end{tabular}
-	\caption{The $24$ planar trees with $5$ internal edges for which $\card{\LAD_t} \neq \card{\SUD_t}$.}
+	\caption{The $24$ planar trees with $5$ internal edges for which $\card{\LAD_t} \neq \card{\SUD_t}$, with $(\card{\LAD_t},\card{\SUD_t})$ displayed above each tree.}
 	\label{fig:trees}
 \end{figure}
 \end{example}
