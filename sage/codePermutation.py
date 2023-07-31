@@ -75,6 +75,35 @@ def testGuillaume(p1,p2,I,J):
             return False
     return True
     
+# fonction qui teste si deux partttions ordonénes sont dans la diagonale
+def testDiag(p1,p2,I,J):
+    nbImJp1=0 # différence du nombre d'éléments de J et du nombre d'éléments de I vus dans p1 à l'instant t
+    nbJmIp2=0 # différence du nombre d'éléments de I et du nombre d'éléments de J vus dans p2 à l'instant t
+    for i in range(len(p1)):
+        for j in p1[i]:
+            if j in I:
+                nbImJp1 += 1 
+            elif j in J:
+                nbImJp1 += -1
+        if nbImJp1>0:
+            return True
+    for i in range(len(p2)):
+        for k in p2[i]:
+            if k in J:
+                nbJmIp2 += 1 
+            elif k in I:
+                nbJmIp2 += -1
+        if nbJmIp2>0:
+            return True
+    return False
+    
+# test direct de partitions ordonnées
+def test(p1,p2):
+    for [I,J] in vv: 
+        if not(testDiag(p1,p2,I,J)):
+            return False
+    return True
+    
 ## fonction qui vérifie le critère poisson sur toutes les permutations
 ## affiche toutes les paires de permutations comparables pour l'ordre faible, mais pas dans la diagonale
 #vv : liste des (I,J)

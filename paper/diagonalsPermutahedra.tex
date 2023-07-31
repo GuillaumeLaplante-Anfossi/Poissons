@@ -27,6 +27,7 @@
 \definecolor{darkblue}{rgb}{0,0,0.7} % darkblue color
 \definecolor{green}{RGB}{57,181,74} % green color
 \definecolor{violet}{RGB}{147,39,143} % violet color
+
 \newcommand{\red}{\color{red}} % red command
 \newcommand{\blue}{\color{blue}} % blue command
 \newcommand{\orange}{\color{orange}} % orange command
@@ -331,7 +332,7 @@ In fact, there is an interesting dichotomy between the families of polytopes whi
 %\end{center}
 %\end{figure}
 
-Since the operahedra are \emph{generalized permutahedra}~\cite{Postnikov}, their operadc diagonals are completely determined by the operadic diagonals of permutahedra (see~\cite[Sect.~1.6]{LaplanteAnfossi}), which is the purpose of study of the present paper.
+Since the operahedra are \emph{generalized permutahedra}~\cite{Postnikov}, their operadic diagonals are completely determined by the operadic diagonals of permutahedra (see~\cite[Sect.~1.6]{LaplanteAnfossi}), which is the purpose of study of the present paper.
 
 The first cellular diagonal of the permutahedra was obtained at the algebraic level by S.~Sanebli\-dze and R.~Umble~\cite{SaneblidzeUmble}.
 We shall call this diagonal the \emph{original $\SU$ diagonal}. 
@@ -1370,18 +1371,28 @@ Finally, observe that
 \end{gather*}
 \end{proof}
 
-We now transport via this bijection the partial order of the flat lattice on rainbow forests.
+We now transport via this bijection the partial order of the flat lattice on rainbow forests. Before stating the proposition, we introduce the following notations: the set of vertices of colored $c$ in a rainbow forest $F$ is denoted by $V_c(F)$. Moreover, given a vertex $a$ in $F$, the root of the connected component containing $a$ is denoted by $\operatorname{Root(a)}$ and the set of children of $a$ is denoted by $\operatorname{Child}(a)$.
 
-\begin{proposition}
+\begin{proposition}\label{prop:CoverRelRF}
 In the flat poset~$\flatPoset[\multiBraidArrangement]$ labeled by rainbow forests using~\cref{prop:flatPosetMultiBraidArrangement,prop:bijectionForests}, a rainbow forest~$F$ covers a rainbow forest~$G$ if and only $G$ can be obtained from $F$ by:
-\begin{itemize}
+\begin{enumerate}
 \item choosing a color $c$,
-\item choosing two vertices $a$ and $b$ not colored in $c$ in two connected components $A$ and $B$, with the convention that the root of $A$ is smaller than the root of $B$,
-\item removing edges between $b$ and its children $C_b$ of color $c$ and recursively ``pushing'' the color of $b$ to its parent until the root of $B$ is colored: we get a forest whose roots are $C_b$ and $b$, colored in $c$,
-\item grafting $b$ and all the nodes in $C_b$ on $a$.
-\end{itemize}
+\item choosing two vertices $a$ and $b$ in $V(F) \setminus V_c(F)$, with $\operatorname{Root}(a)<\operatorname{Root}(b)$,
+\item recursively ``pushing'' the color of $b$ to its parent until b is not colored and $\operatorname{Root}(b)$ is colored,
+\item coloring $b$ in $c$,
+\item removing edges $(b,e)$ for $e$ in $ \operatorname{Child}(b) \cap V_c(F)$,
+\item adding edges $(a,b)$ and $(a,e)$ for $e$ in $ \operatorname{Child}(b) \cap V_c(F)$.
+\end{enumerate}
 \vincent{This is really difficult to follow. We can improve the presentation. Maybe add a picture. To discuss with Bérénice.}
+\BDO{I added a picture and tried to simplify the steps : how is it ?}
 \end{proposition}
+
+\begin{example}
+We illustrate Proposition \ref{prop:CoverRelRF} on Figure \ref{fig:CoverRelRF} for the rainbow forest $F$ as represented below, choosing $c$ to be green, $a$ to be $5$ and $b$ to be $6$.
+\begin{center}
+\includegraphics[scale=1]{RFF}
+\end{center}
+\end{example}
 
 \begin{proof}
 Let us first remark that the graph obtained by these operations is indeed a rainbow forest.
@@ -1396,9 +1407,15 @@ By choosing two vertices in different connected components of the rainbow forest
 The last point that has to be explained is the link between the condition on the color of~$a$ and~$b$ and merging two parts in the same partition.
 If one of the two nodes, say $a$ for instance is of color~$c$, then it belongs to the same part of $\pi$ as its parent $z$.
 The merging is the same if we choose~$z$ which is not colored $c$.
-Moreover, as $b$ is an other connected components, the corresponding two parts are distinct in $\pi$.
+Moreover, as $b$ is in a different connected component, the corresponding two parts are distinct in $\pi$.
 Finally, a part is just a corolla so the merging corresponds to building a corolla with $a$, $b$ and their children of color $c$.
 \end{proof}
+
+\begin{figure}
+	\centerline{\includegraphics[scale=.7]{CoverRelRFFig}}
+	\caption{A covering relation for a given $F$, a given color $c$  (green) and two chosen vertices in $F$ ($5$ and $6$).}
+	\label{fig:CoverRelRF}
+\end{figure}
 
 We finally recast \cref{prop:alternativeFormulaMobiusPolynomialMultiBraidArrangement} in terms of rainbow forests.
 
