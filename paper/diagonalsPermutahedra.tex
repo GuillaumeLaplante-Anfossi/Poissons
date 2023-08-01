@@ -995,7 +995,7 @@ The M\"obius polynomial of the $(\ell,n)$-braid arrangement~$\multiBraidArrangem
 \begin{proof}
 As already mentioned, the $(\ell,n)$-partition forest poset~$\forestPoset$ is a lower set of the $\ell$\ordinal{} Cartesian power of the partition poset~$\partitionPoset$.
 In other words, given a $(\ell,n)$-partition forest $\b{G} \eqdef (G_1, \dots, G_\ell)$, any $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of partitions satisfying~$F_i \le_{\partitionPoset[n]} G_i$ for all~$i \in [\ell]$ is a $(\ell,n)$-partition forest.
-Hence, we obtain from \cref{thm:MobiusPolynomialMultiBraidArrangement} that
+Hence, we obtain from \cref{def:MobiusPolynomial,prop:flatPosetMultiBraidArrangement} that
 \begin{align*}
 \mobPol[\multiBraidArrangement]
 & = \sum_{G \in \forestPoset} y^{n-\ell n - 1 + \sum_{i \in [\ell]} \card{G_i}} \prod_{i \in [\ell]} \sum_{F_i \leq_{\partitionPoset[n]} G_i } \mu_{\partitionPoset[n]}(F_i,G_i) \, x^{n-\ell n - 1 + \sum_{i \in [\ell]} \card{F_i}}, \\
@@ -4693,7 +4693,7 @@ where the vertical arrows are the bijection between SCPs and permutations (\cref
 \part{Higher algebraic structures}
 \label{part:higherAlgebraicStructures}
 
-In this third part, we derive some higher algebaic consequences of the results obtained in \cref{part:diagonalsPermutahedra}.
+In this third part, we derive some higher algebraic consequences of the results obtained in \cref{part:diagonalsPermutahedra}.
 We first prove that there are exactly two topological operad structures on the family of operahedra which are compatible with the generalized Tamari order, and thus two geometric universal tensor products of (non-symmetric non-unital) homotopy operads (\cref{subsec:top-operadic-structures}).
 Then, we show that these topological operad structures are isomorphic (\cref{subsec:iso-top-operads}).
 However, note this isomorphism does not commute with the diagonal maps (\cref{ex:iso-not-Hopf}).
