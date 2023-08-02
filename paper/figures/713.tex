@@ -1,0 +1,27 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning, fit, shapes, arrows}
+
+
+
+\pgfdeclarelayer{bg}    % declare background layer
+\pgfsetlayers{bg,main}  % set the order of the layers (main is the standard layer)
+
+\input{hedge.tex}
+
+\begin{document}
+\begin{tikzpicture}[every node/.style={draw, circle, inner sep=1pt}, grow=up]
+\node(0) {0}
+   child{node(1){1}}
+   child{node(2){2}
+       child{node(3){3}
+       child{node(4){4}}
+       }}
+   child{node(5){5}};
+% \begin{pgfonlayer}{bg}    % select the background layer
+\hedge[red]{0,2,1}{0.2cm}
+\hedge[blue]{0,2,3,1}{0.3cm}
+\hedge[green]{0,5,4,1}{0.4cm}
+%\end{pgfonlayer}
+\end{tikzpicture}
+\end{document}
