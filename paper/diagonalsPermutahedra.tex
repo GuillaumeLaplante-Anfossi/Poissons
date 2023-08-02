@@ -131,6 +131,7 @@
 \renewcommand{\topfraction}{1} % possibility to have one page of pictures
 \renewcommand{\bottomfraction}{1} % possibility to have one page of pictures
 \newcommand{\imagetop}[1]{\vtop{\null\hbox{#1}}} % image aligned top
+\newcommand{\imagebot}[1]{\vbox{\hbox{#1}\null}} % image aligned bot
 \newcommand{\OEIS}[1]{\cite[{\rm \href{http://oeis.org/#1}{\texttt{#1}}}]{OEIS}}
 
 %Hyperplane arrangements
@@ -193,6 +194,50 @@
 \newcommand{\maxsubdivpairsev}{M_v}
 \newcommand{\subdivpairsv}{S_v}
 \newcommand{\maxsubdivpairsv}{M_v}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% from https://tex.stackexchange.com/questions/356564/macro-for-rounded-polygon-around-some-nodes
+%% answer of bitt.j
+%Necessary for the mypoly command%
+\usepackage{tkz-euclide}
+\usepackage{xstring}
+
+%------------------------%
+%---The mypoly command---%
+%------------------------%
+
+%--Getting the last Element of a list--%
+\def\splicelist#1{
+\StrCount{#1}{,}[\numofelem]
+\ifnum\numofelem>0\relax
+     \StrBehind[\numofelem]{#1}{,}[\mylast]%
+\else
+    \let\mylast#1%
+\fi
+}
+
+%--The mypoly macro--%
+%How to use:
+%\myroundpoly[decorative commands]{list of names of nodes}{distance}
+%list of names has to be given in clockwise order
+\newcommand{\hedge}[3][very thick,color=black]{
+%Get the last element
+\splicelist{#2}
+%Calculate the auxiliary coordinates for the arcs
+\foreach \vertex [remember=\vertex as \succvertex
+    (initially \mylast)] in {#2}{
+    \coordinate (\succvertex-next) at ($(\succvertex)!#3!90:(\vertex)$);
+    \coordinate (\vertex-previous) at ($(\vertex)!#3!-90:(\succvertex)$);
+    \draw[#1] (\succvertex-next) --  (\vertex-previous);
+}
+%Draw the arcs
+\foreach \vertex in {#2}{
+    \tkzDrawArc[#1](\vertex,\vertex-next)(\vertex-previous)
+}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -4888,33 +4933,80 @@ We say that a pair of ordered partitions is \defn{valid} for $t$, if the two ord
 For $t \in \PT_n$, we define $\LAD_t$ (\resp $\SUD_t$) to be the elements of $\LAD$ ($\SUD$) which are valid nests of $t$.
 \end{definition}
 
+
 \begin{example}\label{ex:Validity example}
-Consider the following planar tree with $5$ internal edges.
-We label each internal edge in infix order by labelling the vertex directly below it.
+For the following planar tree, we label each internal edge in infix order by labelling the vertex directly above it, and illustrate the nestings $\{ \{1,2\},\{1,2,3\}, \{1,2,3,4,5\} \}$ and $\{ \{2\},\{2,5\}, \{1,2,3,4,5\} \}$.
 \begin{center}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.9cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
-\Tree 
-[.\node{0};
-    [.\node{1};]
-    [.\node{2};
-        [.\node{3};
-            [.\node{4};]
-        ]
-    ]
-    [.\node{5};]
+\begin{tikzpicture}[yscale=-1, every node/.style={draw, very thick, circle, inner sep=1pt}, edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]
 ]
+\node(0) {0}
+   child{node(1){1}}
+   child{node(2){2}
+       child{node(3){3}
+       child{node(4){4}}
+       }}
+   child{node(5){5}};
+% \begin{pgfonlayer}{bg}    % select the background layer
+\hedge[red, very thick]{0,2,1}{0.3cm}
+\hedge[blue, very thick]{0,2,3,1}{0.4cm}
+\hedge[green, very thick]{0,5,4,1}{0.5cm}
+%\end{pgfonlayer}
+\end{tikzpicture}
+\begin{tikzpicture}[yscale=-1, every node/.style={draw, very thick, circle, inner sep=1pt}, edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]
+]
+\node(0) {0}
+   child{node(1){1}}
+   child{node(2){2}
+       child{node(3){3}
+       child{node(4){4}}
+       }}
+   child{node(5){5}};
+% \begin{pgfonlayer}{bg}    % select the background layer
+\hedge[red, very thick]{0,2}{0.3cm}
+\hedge[blue, very thick]{0,5,2}{0.4cm}
+\hedge[green, very thick]{0,5,4,1}{0.5cm}
+%\end{pgfonlayer}
 \end{tikzpicture}
 \end{center}
-For this tree, the ordered partitions,
-\begin{itemize}
-    \item $12|3|45, 2|35|14, 25|13|4, 25|4|13, 3|12|45$ are all valid. 
-    \item $12|45|3, 35|1|24$ are both invalid. 
-\end{itemize}
-Consequently,
-\begin{itemize}
-    \item $12|3|45 \times 2|35|14 \in \LAD$ and $12|3|45 \times 25|13|4 \in \SUD$ are both valid.
-    \item $\mathbf{\red{12|45|3}} \times 25|4|13 \in \LAD$ and $3|12|45 \times \mathbf{\red{35|1|24}} \in \SUD$ are both invalid.
-\end{itemize}
+These two nestings show that the ordered partition $12|3|45 \times 2|35|14\in \LAD$ is valid for this tree.
+As a counter example, neither  
+$\{ \{1,2\},\{1,2,4,5\}, \{1,2,3,4,5\} \}$ nor $\{ \{3,5\},\{2,3,5\}, \{1,2,3,4,5\} \}$ are nestings of this tree.
+
+\begin{center}
+\begin{tikzpicture}[yscale=-1, every node/.style={draw, very thick, circle, inner sep=1pt}, edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]
+]
+\node(0) {0}
+   child{node(1){1}}
+   child{node(2){2}
+       child{node(3){3}
+       child{node(4){4}}
+       }}
+   child{node(5){5}};
+% \begin{pgfonlayer}{bg}    % select the background layer
+\hedge[red, very thick]{2,1,0}{0.3cm}
+\hedge[blue, very thick]{5,1,0}{0.4cm}
+\hedge[blue, very thick]{4,3}{0.4cm}
+\hedge[green, very thick]{0,5,4,1}{0.5cm}
+%\end{pgfonlayer}
+\end{tikzpicture}
+\begin{tikzpicture}[yscale=-1, every node/.style={draw, very thick, circle, inner sep=1pt}, edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]
+]
+\node(0) {0}
+   child{node(1){1}}
+   child{node(2){2}
+       child{node(3){3}
+       child{node(4){4}}
+       }}
+   child{node(5){5}};
+% \begin{pgfonlayer}{bg}    % select the background layer
+\hedge[red, very thick]{2,3}{0.3cm}
+\hedge[red, very thick]{0,5}{0.3cm}
+\hedge[blue, very thick]{0,5,3}{0.4cm}
+\hedge[green, very thick]{0,5,4,1}{0.5cm}
+%\end{pgfonlayer}
+\end{tikzpicture}
+\end{center}
+Consequently,  $\mathbf{\red{12|45|3}} \times 25|4|13 \in \LAD$ and $3|12|45 \times \mathbf{\red{35|2|14}} \in \SUD$ are both invalid.
 
 \end{example}
 
@@ -4937,7 +5029,7 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 
 \begin{figure}[p]
 	\begin{tabular}{cccccc}
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
 		[.\node{};
 		    [.\node{};
@@ -4950,7 +5042,7 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 		\node(1) at (0,0.5) {$(266,263)$};
 		\end{tikzpicture}}
 		&
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
 		[.\node{};
 		    [.\node{};]
@@ -4963,7 +5055,7 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 		\node(1) at (0,0.5) {$(256,254)$};
 		\end{tikzpicture}}
 		&
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
 		[.\node{};
 		    [.\node{};]
@@ -4976,7 +5068,7 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 		\node(1) at (0,0.5) {$(255,254)$};
 		\end{tikzpicture}}
 		&
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
 		[.\node{};
 		    [.\node{};]
@@ -4989,7 +5081,7 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 		\node(1) at (0,0.5) {$(263,266)$};
 		\end{tikzpicture}}
 		&
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
 		[.\node{};
 		    [.\node{};
@@ -5002,7 +5094,7 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 		\node(1) at (0,0.5) {$(214,216)$};
 		\end{tikzpicture}}
 		&
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
 		[.\node{};
 		    [.\node{};
@@ -5015,8 +5107,8 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 		]
 		\node(1) at (0,0.5) {$(162,161)$};
 		\end{tikzpicture}}
-		\\[2.5cm]
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\\
+		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
 		[.\node{};
 		    [.\node{};]
@@ -5029,7 +5121,7 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 		\node(1) at (0,0.5) {$(212,213)$};
 		\end{tikzpicture}}
 		&	
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
 		[.\node{};
 		    [.\node{};]
@@ -5043,7 +5135,7 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 		\node(1) at (0,0.5) {$(129,127)$};
 		\end{tikzpicture}}
             &
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
 		[.\node{};
 		    [.\node{};]
@@ -5057,7 +5149,7 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 		\node(1) at (0,0.5) {$(160,161)$};
 		\end{tikzpicture}}
 		&
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
 		[.\node{};
 		    [.\node{};  
@@ -5071,7 +5163,7 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 		\node(1) at (0,0.5) {$(142,141)$};
 		\end{tikzpicture}}
 		&
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
 		[.\node{};
 		    [.\node{};  
@@ -5085,7 +5177,7 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 		\node(1) at (0,0.5) {$(141,144)$};
 		\end{tikzpicture}}
 		&
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
 		[.\node{};
 		    [.\node{};  
@@ -5099,8 +5191,8 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 		]
 		\node(1) at (0,0.5) {$(91,92)$};
 		\end{tikzpicture}}
-		\\[3.2cm]
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\\
+		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
 		[.\node{}; 
 		    [.\node{};  
@@ -5114,7 +5206,7 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 		\node(1) at (0,0.5) {$(155,152)$};
 		\end{tikzpicture}}
             &
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
 		[.\node{}; 
 		    [.\node{};  
@@ -5129,7 +5221,7 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 		\node(1) at (0,0.5) {$(98,97)$};
 		\end{tikzpicture}}
 		&
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
 		[.\node{}; 
 		    [.\node{};]
@@ -5142,7 +5234,7 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 		\node(1) at (0,0.5) {$(266,263)$};
 		\end{tikzpicture}}
 		&  
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
 		[.\node{}; 
 		    [.\node{};]
@@ -5156,7 +5248,7 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 		\node(1) at (0,0.5) {$(157,154)$};
 		\end{tikzpicture}}
 		&
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
 		[.\node{}; 
 		    [.\node{};
@@ -5170,7 +5262,7 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 		\node(1) at (0,0.5) {$(256,255)$};
 		\end{tikzpicture}}
 		&
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
 		[.\node{}; 
 		    [.\node{};
@@ -5183,8 +5275,8 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 		]
 		\node(1) at (0,0.5) {$(255,254)$};
 		\end{tikzpicture}}
-		\\[3.2cm]
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\\
+		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
 		[.\node{}; 
 		    [.\node{};
@@ -5198,7 +5290,7 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 		\node(1) at (0,0.5) {$(263,266)$};
 		\end{tikzpicture}}
 		&
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
 		[.\node{}; 
 		    [.\node{};
@@ -5212,7 +5304,7 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 		\node(1) at (0,0.5) {$(212,213)$};
 		\end{tikzpicture}}  
 		&
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
 		[.\node{}; 
 		    [.\node{};
@@ -5227,7 +5319,7 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 		\node(1) at (0,0.5) {$(129,127)$};
 		\end{tikzpicture}}
 		&
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
 		[.\node{}; 
 		    [.\node{}; 
@@ -5242,7 +5334,7 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 		\node(1) at (0,0.5) {$(160,161)$};
 		\end{tikzpicture}}
 		&
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
 		[.\node{}; 
 		    [.\node{}; 
@@ -5256,7 +5348,7 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 		\node(1) at (0,0.5) {$(266,263)$};
 		\end{tikzpicture}}
 		&
-		\imagetop{\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
 		[.\node{}; 
 		    [.\node{}; 
@@ -5271,7 +5363,7 @@ Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\
 		\node(1) at (0,0.5) {$(154,157)$};
 		\end{tikzpicture}}
 	\end{tabular}
-	\caption{The $24$ planar trees with $5$ internal edges for which $\card{\LAD_t} \neq \card{\SUD_t}$, with $(\card{\LAD_t},\card{\SUD_t})$ displayed above each tree.}
+	\caption{The $24$ planar trees with $5$ internal edges for which $\card{\LAD_t} \neq \card{\SUD_t}$, with $(\card{\LAD_t},\card{\SUD_t})$ displayed below each tree.}
 	\label{fig:trees}
 \end{figure}
 \end{example}
@@ -5280,7 +5372,8 @@ We note that one sufficient condition for a tree $t$ to satisfy $\card{\LAD_t} =
 This includes trees such as the linear tree and
 
 \begin{center}
-\begin{tikzpicture}[every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent/.style={very thick, draw}]
+\begin{tikzpicture}[yscale=-1, every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]
+]
 \Tree 
 [.\node{};
 [.\node{};
