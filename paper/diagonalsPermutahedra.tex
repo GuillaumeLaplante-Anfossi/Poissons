@@ -308,14 +308,14 @@ We provide a systematic enumerative and combinatorial study of geometric cellula
 
 In the first part of the paper, we study the combinatorics of certain hyperplane arrangements obtained as the union of $\ell$ generically translated copies of the classical braid arrangement.
 Based on Zaslavsky's theory, we derive enumerative results on the faces of these arrangements involving combinatorial objects named partition forests and rainbow forests.
-This yields in particular nice formulas for the number of regions and bounded regions of these arrangements in terms of exponentials of generating functions of Fuss-Catalan numbers.
+This yields in particular nice formulas for the number of regions and bounded regions in terms of exponentials of generating functions of Fuss-Catalan numbers.
 By duality, the specialization of these results to the case $\ell = 2$ gives the enumeration of any geometric diagonal of the permutahedron.
 
 In the second part of the paper, we study diagonals which respect the operadic structure on the family of permutahedra.
 We show that there are exactly two such diagonals, which are moreover isomorphic.
 We describe their facets by a simple rule on paths in partition trees, and their vertices as pattern-avoiding pairs of permutations.
 We show that one of these diagonals is a topological enhancement of the Sanbeblidze--Umble diagonal, and unravel a natural lattice structure on their sets of facets.
-Finally, we use the preceding results to show that there are precisely two isomorphic topological cellular operad structures on the family of operahedra, and exactly two infinity-isomorphic universal tensor products of homotopy operads.
+Finally, we use the preceding results to show that there are precisely two isomorphic topological cellular operad structures on the family of operahedra, and exactly two infinity-isomorphic geometric universal tensor products of homotopy operads.
 \end{abstract}
 
 \vspace*{-1.2cm}
@@ -337,16 +337,15 @@ Finally, we use the preceding results to show that there are precisely two isomo
 \label{s:introduction}
 
 The purpose of this article is to study \emph{cellular diagonals} on the \emph{permutahedra}, which are cellular maps homotopic to the usual \emph{thin diagonal} $\triangle : P \to P \times P,~ x \mapsto (x,x)$ (\cref{def:thinDiagonal,def:cellularDiagonal}).
-Such diagonals, and in particular coherent families that we call \emph{operadic diagonals} (\cref{def:operadicDiagonal}), are of interest in algebraic geometry and topology: via the theory of Fulton--Sturmfels~\cite{FultonSturmfels}, they give explicit formulas for the cup product on Losev--Manin toric varieties~\cite{LosevManin}; they define universal tensor products of homotopy operads, and in particular universal tensor products of homotopy associative permutads (shuffle algebras)~\cite{LaplanteAnfossi}; they define a coproduct on permutahedral sets, which are models of two-fold loop spaces~\cite{SaneblidzeUmble}, and their study is needed to pursue the work of Baues aiming at defining explicit combinatorial models for higher iterated loop spaces~\cite{Baues}; using the canonical projections to the multiplihedra and the associahedra, they define universal tensor product of $\Ainf$-algebras and $\Ainf$-morphisms~\cite{LaplanteAnfossiMazuir}.
+Such diagonals, and in particular coherent families that we call \emph{operadic diagonals} (\cref{def:operadicDiagonal}), are of interest in algebraic geometry and topology: via the theory of Fulton--Sturmfels~\cite{FultonSturmfels}, they give explicit formulas for the cup product on Losev--Manin toric varieties~\cite{LosevManin}; they define universal tensor products of homotopy associative permutative (shuffle) algebras~\cite{LodayRonco-permutads,Markl}; they define a coproduct on permutahedral sets, which are models of two-fold loop spaces~\cite{SaneblidzeUmble}, and their study is needed to pursue the work of H. J. Baues aiming at defining explicit combinatorial models for higher iterated loop spaces~\cite{Baues}; using the canonical projections to the operahedra, associahedra and multiplihedra, they define universal tensor products of homotopy operads, $\Ainf$-algebras and $\Ainf$-morphisms, respectively~\cite{LaplanteAnfossi,LaplanteAnfossiMazuir}.
 
 %L'idée de cohérence opéradique
 %L'idée de l'importance en topologie algébrique
 
 
-Cellular diagonals for coherent families of polytopes are a fundamental object in algebraic topology. 
+Cellular diagonals for face-coherent families of polytopes are a fundamental object in algebraic topology. 
 The Alexander--Whitney diagonal for simplices~\cite{EilenbergMacLane}, and the Serre map for cubes~\cite{Serre}, allow one to define the cup product in singular simplicial and cubical cohomology. 
-These two diagonals are also needed in the study of iterated loop spaces~\cite{Baues}.
-Diagonals of the freehedra and associahedra are of interest in the study of the homology of fibered spaces~\cite{Saneblidze-freeLoopFibration,SaneblidzeRivera, Proute}. 
+These two diagonals are also needed in the study of iterated loop spaces~\cite{Baues}, while other diagonals are needed in the study of the homology of fibered spaces~\cite{Saneblidze-freeLoopFibration,SaneblidzeRivera, Proute}. 
 In another direction, cellular diagonals allow one to define universal tensor products in homotopical algebra. 
 The seminal case of the \emph{associahedra} has a rich history: the first algebraic diagonal was found by S.~Saneblidze and R.~Umble~\cite{SaneblidzeUmble}, followed by a second one by M.~Markl and S.~Shnider~\cite{MarklShnider}, which was conjectured to coincide with the first one. 
 This has recently been shown to hold~\cite{SaneblidzeUmble-comparingDiagonals}, while a topological enhancement of the \emph{magical formula} of~\cite{MarklShnider} was provided by N.~Masuda, H.~Thomas, A.~Tonks and B.~Vallette~\cite{MasudaThomasTonksVallette}.
@@ -383,7 +382,7 @@ The first cellular diagonal of the permutahedra was obtained at the algebraic le
 We shall call this diagonal the \emph{original $\SU$ diagonal}. 
 The first topological cellular diagonal of the permutahedra was defined in~\cite{LaplanteAnfossi}, we shall call it the \emph{geometric $\LA$ diagonal}.
 Both of these families of diagonals are \emph{operadic}, \ie they respect the product structure on the faces of permutahedra (this property is called ``comultiplicativity" in~\cite{SaneblidzeUmble}).
-More precisely, the algebraic structure encoded by the permutahedra is that of homotopy associative permutad~\cite{LodayRonco-permutads,Markl}.
+More precisely, the algebraic structure encoded by the permutahedra is that of homotopy associative permutative algebra~\cite{LodayRonco-permutads,Markl}.
 
 The toric varieties associated with the permutahedra are called Losev--Manin varieties, introduced in~\cite{LosevManin}.
 At this level, the operadic structure is that of a reconnectad~\cite{DotsenkoKeilthyLyskov}. 
@@ -391,7 +390,7 @@ The cohomology ring structure was studied by A.~Losev and Y.~Manin, and quite ex
 Our current work brings a completely combinatorially explicit description of the cup product; it would be interesting to know if this new description can lead to new results, or how it can be used to recover existing ones.
 
 The first part of the paper derives enumerative results for the iterations of any geometric diagonal of the permutahedra. 
-According to the Fulton--Sturmfels formula~\cite{FultonSturmfels}, this amounts to the study of hyperplane arrangements made of generically translated copies of the braid arrangement.
+According to the Fulton--Sturmfels formula~\cite{FultonSturmfels} (see \cref{prop:diagonalCommonRefinement} and \cref{rem:Fulton--Sturmfels}), this amounts to the study of hyperplane arrangements made of generically translated copies of the braid arrangement.
 The second part studies in depth the combinatorics of operadic diagonals of the permutahedra, providing in particular a topological enhancement of the original $\SU$ diagonal, while the third part derives consequences of this combinatorial study in the field of homotopical algebra.
 We now proceed to introduce separately each part in more detail.
 
@@ -401,11 +400,11 @@ We now proceed to introduce separately each part in more detail.
 
 As the dual of the permutahedron~$\Perm$ is the classical braid arrangement~$\braidArrangement$, the dual of a diagonal of the permutahedron~$\Perm$ is a hyperplane arrangement~$\multiBraidArrangement[n][2]$ made of $2$ generically translated copies of the braid arrangement~$\braidArrangement$.
 In the first part of the paper, we therefore study the combinatorics of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$, defined as the union of $\ell$ generically translated copies of the braid arrangement~$\braidArrangement$ (\cref{def:multiBraidArrangement}).
-We are mainly interested in the~$\ell = 2$ case for the enumeration of the faces of the diagonals of the permutahedron~$\Perm$, but the general $\ell$ case is not much harder and should algebraically correspond to the enumeration of the faces of cellular $\ell$-gonals of the permutahedron~$\Perm$.
+We are mainly interested in the~$\ell = 2$ case for the enumeration of the faces of the diagonals of the permutahedron~$\Perm$, but the general $\ell$ case is not much harder and corresponds algebraically to the enumeration of the faces of cellular $\ell$-gonals of the permutahedron~$\Perm$.
 %We observe that the flats of~$\multiBraidArrangement$ are in bijection with forests of partitions and that the faces of~$\multiBraidArrangement$ are in bijection with certain forests of ordered partitions.
 
 \cref{sec:flatPoset} is dedicated to the combinatorial description of the flat poset of~$\multiBraidArrangement$ and its enumerative consequences.
-We first observe that the flats of~$\multiBraidArrangement$ are in bijection with $(\ell,n)$-partition forests, defined as $\ell$-tuples of (unordered) partitions of~$[n]$ whose intersection hypergraph is a hyperforest (\cref{def:partitionForests}).
+We first observe that the flats of~$\multiBraidArrangement$ are in bijection with \emph{$(\ell,n)$-partition forests}, defined as $\ell$-tuples of (unordered) partitions of~$[n]$ whose intersection hypergraph is a hyperforest (\cref{def:partitionForests}).
 As this description is independent of the translations of the different copies (as long as these translations are generic), we obtain by T.~Zaslavsky's theory that the number of \mbox{$k$-dimensional} faces and of bounded faces of~$\multiBraidArrangement$ only depends on~$k$, $\ell$, and~$n$. % (and not on the specific translation vectors choosen to construct~$\multiBraidArrangement$).
 In fact, we obtain the following formula for the M\"obius polynomial of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ in terms of pairs of $(\ell,n)$-partition forests.
 
@@ -414,7 +413,7 @@ The M\"obius polynomial of the $(\ell,n)$-braid arrangement~$\multiBraidArrangem
 \[
 \mobPol[\multiBraidArrangement] = x^{n-1-\ell n} y^{n-1-\ell n} \sum_{\b{F} \le \b{G}} \prod_{i \in [\ell]} x^{\card{F_i}} y^{\card{G_i}} \prod_{p \in G_i} (-1)^{\card{F_i[p]}-1} (\card{F_i[p]}-1)! \; ,
 \]
-where~$\b{F} \le \b{G}$ ranges over all intervals of the $(\ell,n)$-partition forest poset~$\forestPoset$, and~$F_i[p]$ denotes the restriction of the partition~$F_i$ to the part~$p$ of~$G_i$.
+where~$\b{F} \le \b{G}$ ranges over all intervals of the $(\ell,n)$-partition forest poset, and~$F_i[p]$ denotes the restriction of the partition~$F_i$ to the part~$p$ of~$G_i$.
 \end{theorem*}
 
 This formula is not particularly easy to handle, but it turns out to simplify to very elegant formulas for the number of vertices, regions, and bounded regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
@@ -463,7 +462,7 @@ where~$\displaystyle F_{\ell,m} \eqdef \frac{1}{(\ell-1)m+1} \binom{\ell m}{m}$ 
 \end{theorem*}
 
 Finally, \cref{sec:facePoset} is dedicated to the combinatorial description of the face poset of~$\multiBraidArrangement$.
-We observe that the faces of~$\multiBraidArrangement$ are in bijection with certain ordered $(\ell,n)$-partition forests, defined as $\ell$-tuples of ordered partitions of~$[n]$ whose underlying unordered partitions form an (unordered) $(\ell,n)$-partition forest (\cref{def:orderedPartitionForest}).
+We observe that the faces of~$\multiBraidArrangement$ are in bijection with certain \emph{ordered} $(\ell,n)$-partition forests, defined as $\ell$-tuples of ordered partitions of~$[n]$ whose underlying unordered partitions form an (unordered) $(\ell,n)$-partition forest (\cref{def:orderedPartitionForest}).
 Here, which ordered $(\ell,n)$-partition forests actually appear as faces of~$\multiBraidArrangement$ depends on the choice of the translations of the different copies.
 We provide a combinatorial description of the possible orderings of an $(\ell,n)$-partition forest compatible with some given translations in terms of certain paths in the forest (\cref{prop:PFtoOPF1,prop:PFtoOPF2}), and a combinatorial characterization of the ordered partition forests which appear for some given translations in terms of the circuits of a certain oriented graph (\cref{prop:characterizationOPFs}).
 
@@ -477,14 +476,14 @@ These are families of diagonals of the permutahedra which are compatible with th
 
 \begin{theorem*}[\cref{thm:unique-operadic,thm:bijection-operadic-diagonals}]
 There are exactly four operadic geometric diagonals of the permutahedra, the geometric $\LA$ and $\SU$ diagonals and their opposites, and only the first two respect the weak order on permutations.
-Moreover, there are poset isomorphisms between their cellular images.
+Moreover, their cellular images are isomorphic as posets.
 \end{theorem*}
 
-It turns out that their facets and vertices admit elegant combinatorial descriptions. 
+It turns out that the facets and vertices of operadic diagonals admit elegant combinatorial descriptions. 
 The following is a consequence of a general geometrical result, that holds for any diagonal (\cref{prop:PFtoOPF1}).
 
 \begin{theorem*}[\cref{thm:facet-ordering}]
-A pair of ordered partitions $(\sigma,\tau)$ forming a partition tree is a facet of the $\LA$ (\resp $\SU$) geometric diagonal if and only if the minimum (\resp maximum) of every directed path between two consecutive blocks of $\sigma$ or $\tau$ is oriented from $\sigma$ to $\tau$, that is from left to right (\resp from $\tau$ to $\sigma$, that is from right to left).
+A pair of ordered partitions $(\sigma,\tau)$ forming a partition tree is a facet of the $\LA$ (\resp $\SU$) geometric diagonal if and only if the minimum (\resp maximum) of every directed path between two consecutive blocks of $\sigma$ or $\tau$ is oriented from $\sigma$ to $\tau$ (\resp from $\tau$ to $\sigma$).
 \end{theorem*}
 
 \pagebreak
@@ -518,9 +517,8 @@ The original and geometric $\SU$ diagonals coincide.
 \end{theorem*}
 
 The proof of this result, quite technical, proceeds by showing the equivalence between $4$ different descriptions of the diagonal: the original, $1$-shift, $m$-shift and geometric $\SU$ diagonals (\cref{subsec:topological-SU}).
-This brings a positive answer to~\cite[Rem.~2.19]{LaplanteAnfossi}, showing that the original $\SU$ diagonal can indeed be recovered from a choice of chambers in the fundamental hyperplane arrangement of the permutahedron. 
+This brings a positive answer to~\cite[Rem.~2.19]{LaplanteAnfossi}, showing that the original $\SU$ diagonal can be recovered from a choice of chambers in the fundamental hyperplane arrangement of the permutahedron. 
 Our formulas for the number of facets also agrees with the experimental count made in~\cite{VejdemoJohansson}.
-
 Moreover, it provides a new proof that all known diagonals on the associahedra coincide~\cite{SaneblidzeUmble-comparingDiagonals}.
 Indeed, since the family of vectors inducing the geometric $\SU$ diagonal all have strictly decreasing coordinates, the diagonal induced on the associahedron is given by the magical formula~\cite[Thm.~2]{MasudaThomasTonksVallette}, see also~\cite[Prop.~3.8]{LaplanteAnfossi}.
 
@@ -537,35 +535,35 @@ The above theorem also allows us to translate the different combinatorial descri
 	$1$-shifts & \cref{def:classical-SU} & \cref{def:classical-LA} \\
 	$m$-shifts & \cref{def:classical-SU} & \cref{def:classical-LA} \\
 	Lattice & \cref{def:shift-lattice} & \cref{def:shift-lattice} \\
-	Matrix & \cite{SaneblidzeUmble} & \cref{subsec:matrix} \\
-	Cubical & \cite{SaneblidzeUmble} & \cref{prop:LA-cubical}
+	Cubical & \cite{SaneblidzeUmble} & \cref{prop:LA-cubical} \\
+	Matrix & \cite{SaneblidzeUmble} & \cref{subsec:matrix} 
 	\end{tabular}
 	\end{center}
 \end{figure}
 
-Moreover, in \cref{sec:Shift-lattice}, we show that the facets of operadic diagonals admit a natural lattice structure that we call the \emph{shift lattice}.
-This lattice is a product of cubical lattices, indexed by the permutations of $[n]$.
+In \cref{sec:Shift-lattice}, we show that the facets of operadic diagonals are disjoint unions of lattices, that we call the \emph{shift lattices}.
+These lattices are product of chains, and are indexed by the permutations of $[n]$.
+Their defining partial order generalizes the weak order on permutations, \Guillaume{and is related to the facial order...?}
 
-Finally, we present the alternative matrix (\cref{subsec:matrix}) and cubical (\cref{sec:Cubical}) descriptions of the $\SU$ diagonal from \cite{SaneblidzeUmble,SaneblidzeUmble-comparingDiagonals}, providing proofs of their equivalence with the other descriptions, and giving their $\LA$ counterparts. 
+Finally, we present the alternative cubical (\cref{sec:Cubical}) and matrix (\cref{subsec:matrix}) descriptions of the $\SU$ diagonal from \cite{SaneblidzeUmble,SaneblidzeUmble-comparingDiagonals}, providing proofs of their equivalence with the other descriptions, and giving their $\LA$ counterparts. 
 The existence of this cubical description, based on a subdvision of the cube combinatorially isomorphic to the permutahedron, finds its conceptual root in the bar-cobar resolution of the associative permutad. 
-Indeed, this resolution is encoded by the dual subdivision of the permutahedron, which is cubical since $\Perm$ is a simple polytope, and a diagonal can be obtained from the classical Serre diagonal via retraction, see \cite{MarklShnider} and \cite[Sec. 5.1]{LaplanteAnfossiMazuir} for the case of the associahedra.
+Indeed, this resolution is encoded by the dual subdivision of the permutahedron, which is cubical since $\Perm$ is a simple polytope, and a diagonal can be obtained from the classical Serre diagonal via retraction, in the same fashion as for the associahedra, see \cite{MarklShnider} and \cite[Sec. 5.1]{LaplanteAnfossiMazuir}.
 
 %%%%%%%%%%%%%%%
 
 \pagebreak
 \subsection*{\cref{part:higherAlgebraicStructures}. Higher algebraic structures}
 
-In this shorter third part of the paper, we derive some higher algebraic consequences of the preceding results. 
-These higher algebraic considerations were the original motivation for the present study.
+In this shorter third part of the paper, we derive some higher algebraic consequences of the preceding results, which were the original motivation for the present study.
 They concern the \emph{operahedra}, a family of polytopes indexed by planar trees, which encode (non-symmetric non-unital) homotopy operads \cite{LaplanteAnfossi}.
 These admit realizations ``\`a la Loday", which generalize the Loday realizations of the associahedra. 
-The faces of an operahedron are in bijection with nestings, or parenthesization, of the corresponding planar tree. 
+The faces of an operahedron are in bijection with \emph{nestings}, or parenthesization, of the corresponding planar tree. 
 
 \begin{theorem*}[\cref{thm:operahedra,thm:top-iso,thm:infinity-iso}] 
 There are exactly 
 \begin{enumerate}
 	\item two geometric operadic diagonals of the Loday operahedra, given by the $\LA$ and $\SU$ diagonals, 
-	\item two geometric colored topological cellular operad structures on the Loday operahedra, and
+	\item two geometric topological cellular colored operad structures on the Loday operahedra, and
 	\item two geometric universal tensor products of homotopy operads,
 \end{enumerate}
 which agree with the generalized Tamari order on fully nested trees. 
@@ -575,9 +573,9 @@ Moreover, the two topological operad structures are isomorphic, and the two tens
 Here, by the adjective ``geometric", we mean diagonal, operad and tensor product structures which are obtained geometrically on the polytopes via the Fulton--Sturmfelds method. 
 By ``universal", we mean a formula for the tensor product which applies to \emph{any} pair of homotopy operads.
 
-As the associahedra and the permutahedra are part of the family of operahedra, we get analogous results for $\Ainf$-algebras and homotopy associative permutads. 
+As the associahedra and the permutahedra are part of the family of operahedra, we get analogous results for $\Ainf$-algebras and homotopy associative permutative algebras. 
 
-However, the isomorphism of topological operads, which takes place in the category of polytopes $\PolySub$ (for which the morphisms are \emph{not} affine maps, see \cite[Def. 4.13]{LaplanteAnfossi}) does \emph{not} commute with the diagonal maps (\cref{ex:iso-not-Hopf}).
+However, the isomorphism of topological operads takes place a category of polytopes $\PolySub$ for which the morphisms are \emph{not} affine maps, see \cite[Def. 4.13]{LaplanteAnfossi}, and does \emph{not} commute with the diagonal maps (\cref{ex:iso-not-Hopf}).
 Moreover, the pairs of faces in the image of the two operadic diagonals are in general not in bijection (see \cref{ex:SU-LA-operahedra}), yielding different (but $\infty$-isomorphic) tensor products of homotopy operads.  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2085,6 +2083,7 @@ Polytopes of greater complexity such as the multiplihedra~\cite{LaplanteAnfossiM
 \end{remark}
 
 \begin{remark}
+\label{rem:Fulton--Sturmfels}
 This is in fact precisely the content of the \emph{Fulton--Sturmfels formula} for the intersection product on toric varieties~\cite[Thm.~4.2]{FultonSturmfels}, where the definition of cellular diagonals as tight coherent sections first appeared.
 \end{remark}
 
@@ -4209,7 +4208,7 @@ Given a $(n-k)$-dimensional face $\sigma = \sigma_1| \cdots |\sigma_k$ of the $(
 	\end{cases}
 \end{equation*}
 Let $\divcube{0}$ be the $0$-dimensional cube (a point), trivially subdivided by the sole element $1$ of~$\Perm[1]$.
-Then, assuming we have constructed the subdivision of the $(n-1)$-cube $\divcube{n-1}$, we construct $\divcube{n}$ as the subdivision of the polytopal complex $\divcube{n-1} \times [0,1]$ given, for each face $\sigma$ of $\divcube{n-1}$, by the polytopal complex $\sigma \times I_\sigma$. 
+Then, assuming we have constructed the subdivision $\divcube{n-1}$ of the $(n-1)$-cube, we construct $\divcube{n}$ as the subdivision of $\divcube{n-1} \times [0,1]$ given, for each face $\sigma$ of $\divcube{n-1}$, by the polytopal complex $\sigma \times I_\sigma$. 
 We label the faces $\sigma \times I$ of the subdivided rectangles $\sigma \times I_\sigma$ by the following rule
 \begin{align} \label{eq:SU cube inductive def}
 	\sigma \times I \eqdef
@@ -4220,7 +4219,7 @@ We label the faces $\sigma \times I$ of the subdivided rectangles $\sigma \times
 		\sigma_1| \cdots |\sigma_j \cup \{n+1\}| \cdots |\sigma_k & \text{if } I = I_j \text{ with }  1\leq j \leq k.
 	\end{cases}
 \end{align}
-We obtain a subdivision $\divcube{n}$ of the $n$-dimensional cube isomorphic to the $n$-dimensional permutahedron $\Perm[n+1]$.
+We obtain a subdivision $\divcube{n}$ of the $n$-cube isomorphic to the permutahedron $\Perm[n+1]$.
 \end{construction}
 
 \cref{fig:cubicPermutahedron1} illustrates this subdivision for the first few dimensions.
