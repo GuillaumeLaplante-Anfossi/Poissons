@@ -1416,7 +1416,16 @@ Finally, observe that
 \end{gather*}
 \end{proof}
 
-We now transport via this bijection the partial order of the flat lattice on rainbow forests. Before stating the proposition, we introduce the following notations: the set of vertices of colored $c$ in a rainbow forest $F$ is denoted by $V_c(F)$. Moreover, given a vertex $a$ in $F$, the root of the connected component containing $a$ is denoted by $\operatorname{Root(a)}$ and the set of children of $a$ is denoted by $\operatorname{Child}(a)$.
+We now transport via this bijection the partial order of the flat lattice on rainbow forests.
+The set of vertices colored $c$ in a rainbow forest $F$ is denoted by $V_c(F)$.
+Moreover, given a vertex $a$ in $F$, the root of the connected component containing $a$ is denoted by $\operatorname{Root}(a)$ and the set of children of $a$ is denoted by $\operatorname{Child}(a)$.
+The following statement is illustrated in \cref{fig:CoverRelRF}, choosing $c$ to be green, $a$ to be $5$ and $b$ to be $6$.
+
+\begin{figure}
+	\centerline{\includegraphics[scale=1]{CoverRelRFFig}}
+	\caption{A covering relation for a given $F$, a given color $c$  (green) and two chosen vertices in $F$ ($5$ and $6$).}
+	\label{fig:CoverRelRF}
+\end{figure}
 
 \begin{proposition}\label{prop:CoverRelRF}
 In the flat poset~$\flatPoset[\multiBraidArrangement]$ labeled by rainbow forests using~\cref{prop:flatPosetMultiBraidArrangement,prop:bijectionForests}, a rainbow forest~$F$ covers a rainbow forest~$G$ if and only $G$ can be obtained from $F$ by:
@@ -1432,12 +1441,12 @@ In the flat poset~$\flatPoset[\multiBraidArrangement]$ labeled by rainbow forest
 \BDO{I added a picture and tried to simplify the steps : how is it ?}
 \end{proposition}
 
-\begin{example}
-We illustrate Proposition \ref{prop:CoverRelRF} on Figure \ref{fig:CoverRelRF} for the rainbow forest $F$ as represented below, choosing $c$ to be green, $a$ to be $5$ and $b$ to be $6$.
-\begin{center}
-\includegraphics[scale=1]{RFF}
-\end{center}
-\end{example}
+%\begin{example}
+%We illustrate Proposition \ref{prop:CoverRelRF} on Figure \ref{fig:CoverRelRF} for the rainbow forest $F$ as represented below, choosing $c$ to be green, $a$ to be $5$ and $b$ to be $6$.
+%\begin{center}
+%\includegraphics[scale=1]{RFF}
+%\end{center}
+%\end{example}
 
 \begin{proof}
 Let us first remark that the graph obtained by these operations is indeed a rainbow forest.
@@ -1455,12 +1464,6 @@ The merging is the same if we choose~$z$ which is not colored $c$.
 Moreover, as $b$ is in a different connected component, the corresponding two parts are distinct in $\pi$.
 Finally, a part is just a corolla so the merging corresponds to building a corolla with $a$, $b$ and their children of color $c$.
 \end{proof}
-
-\begin{figure}
-	\centerline{\includegraphics[scale=.7]{CoverRelRFFig}}
-	\caption{A covering relation for a given $F$, a given color $c$  (green) and two chosen vertices in $F$ ($5$ and $6$).}
-	\label{fig:CoverRelRF}
-\end{figure}
 
 We finally recast \cref{prop:alternativeFormulaMobiusPolynomialMultiBraidArrangement} in terms of rainbow forests.
 
@@ -1956,6 +1959,7 @@ For $\b{z}$ a point of $P$, we denote by $\rho_{\b{z}} P \eqdef 2\b{z}-P$ the re
 
 A vector is \defn{generic with respect to~$P$} if it does not belong to the union of the hyperplanes of the fundamental hyperplane arrangement~$\mathcal{H}_P$.
 In particular, such a vector is not perpendicular to any edge of $P$, and we denote by~$\min_{\b{v}}(P)$ (\resp $\max_{\b{v}}(P)$) the unique vertex of~$P$ which minimizes (\resp maximizes) the scalar product with~$\b{v}$. 
+Note that the datum of a polytope~$P$ together with a vector~$\b{v}$ generic with respect to~$P$ was called \defn{positively oriented polytope} in~\cite{MasudaThomasTonksVallette,LaplanteAnfossi,LaplanteAnfossiMazuir}.
 
 \pagebreak
 
@@ -1977,7 +1981,6 @@ A \defn{geometric diagonal} of a polytope~$P$ is a diagonal of the form~$\triang
 \end{definition}
 
 Note that the geometric diagonal~$\triangle_{(P,\b{v})}$ only depends on the region of~$\mathcal{H}_P$ containing~$\b{v}$, see~\cite[Prop.~1.23]{LaplanteAnfossi}.
-As of terminology, note that the datum of a polytope together with a generic vector was called \emph{positively oriented polytope} in \cite{MasudaThomasTonksVallette,LaplanteAnfossi,LaplanteAnfossiMazuir}.
 
 \begin{figure}[p]
 	\centerline{\scalebox{1.25}{
@@ -4458,7 +4461,9 @@ We now define our maximal pairing of subdivision cubes.
 \begin{definition} 
 \label{def:sandglass}
 Let $F$ be a face of $\Perm$, and let $v$ be a vertex of $F$. 
-The \defn{sandglass}\Kurt{Maybe hourglass instead?} of $F$ at $v$ is the set $\subdivpairsev(F)$ of all pairs $(C^v,C_v)$ of $(k_1,k_2)$-subdivision cubes of $F$ such that
+The \defn{sandglass} of $F$ at $v$ is the set $\subdivpairsev(F)$ of all pairs $(C^v,C_v)$ of $(k_1,k_2)$-subdivision cubes of $F$ such that
+\Kurt{Maybe hourglass instead?}
+\vincent{We hesitated between sandglass and hourglass and decided for the former because it fits the notation~$\subdivpairsev(F)$. But fill free to change to hourglass (and maybe adapt the notation as well?)}
 \begin{enumerate}
 	\item $C^v$ has maximal vertex $v$,
 	\item $C_v$ has minimal vertex $v$, and
@@ -5027,7 +5032,7 @@ This was checked via code and the first few counterexamples for $n=5$ are displa
 We present in \cref{fig:trees} the $24$ planar trees with $5$ internal edges for which ${\card{\LAD_t} \neq \card{\SUD_t}}$.
 Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\cref{table:enumerationDiagonalPermutahedra1}), the number of facets in the permutahedron diagonals.
 
-\begin{figure}[p]
+\begin{figure}[h]
 	\begin{tabular}{cccccc}
 		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 		\Tree 
