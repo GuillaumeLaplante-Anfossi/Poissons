@@ -852,6 +852,7 @@ for $0<k<n$.
 \subsection{The $(\ell,n)$-braid arrrangement}
 \label{subsec:multiBraidArrangement}
 
+\enlargethispage{.7cm}
 We now focus on the following specific hyperplane arrangements, illustrated in \cref{fig:multiBraidArrangements}.
 We still denote by~$\HH$ the hyperplane of~$\R^n$ defined by~$\sum_{s \in [n]} x_s = 0$.
 
@@ -873,18 +874,44 @@ We still denote by~$\HH$ the hyperplane of~$\R^n$ defined by~$\sum_{s \in [n]} x
 	\label{fig:multiBraidArrangements}
 \end{figure}
 
-\begin{definition}
-\label{def:multiBraidArrangement}
-The \defn{$(\ell,n)$-braid arrangement}~$\multiBraidArrangement$ is the arrangement in~$\HH$ obtained as the union of $\ell$ generically translated copies of the braid arrangement~$\braidArrangement$.
-\end{definition}
-
-This definition is slightly misleading, as the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ a priori depends on the (generic) translation vectors chosen for each copy.
-We will see that many combinatorial aspects of~$\multiBraidArrangement$ are in fact independent of the translation vectors, in particular the flat poset and thus the $f$-vector of~$\multiBraidArrangement$.
-However, the combinatorial description of the face poset of~$\multiBraidArrangement$ will depend on the translation vectors, so that we introduce the following more precise notation recording the translations.
+%\begin{definition}
+%\label{def:multiBraidArrangement}
+%The \defn{$(\ell,n)$-braid arrangement}~$\multiBraidArrangement$ is the arrangement in~$\HH$ obtained as the union of $\ell$ generically translated copies of the braid arrangement~$\braidArrangement$ (that is, the $\b{a}$-braid arrangement for some generic matrix~$\b{a} \in M_{\ell,n-1}(\R)$).
+%\end{definition}
+%
+%This definition is slightly misleading, as the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ a priori depends on the (generic) translation vectors chosen for each copy.
+%We will see that many combinatorial aspects of~$\multiBraidArrangement$, in particular its flat poset and thus its M\"obius, $f$- and $b$-polynomials, are in fact independent of the translation vectors as long as they are generic.
+%However, the combinatorial description of the face poset of~$\multiBraidArrangement$ will depend on the translation vectors, so that we introduce the following more precise notation recording the translations.
+%
+%\begin{definition}
+%A matrix~$\b{a} \eqdef (a_{i,j}) \in M_{\ell,n-1}(\R)$ is \defn{generic} if any linear dependence among its coefficients~$\sum_{i,j} \lambda_{i,j} \, a_{i,j} = 0$ splits into $\ell$ linear dependences~$\sum_j \lambda_{i,j} \, a_{i,j} = 0$ for~$i \in [\ell]$.
+%\end{definition}
+%
+%\begin{definition}
+%\label{def:multiBraidArrangementPrecise}
+%For any integers~$\ell,n \geq 1$, and any matrix~$\b{a} \eqdef (a_{i,j}) \in M_{\ell,n-1}(\R)$, the \defn{$\b{a}$-braid arrangement}~$\multiBraidArrangement(\b{a})$ is the arrangement of hyperplanes~$\set{\b{x} \in \HH}{x_s - x_t = A_{i,s,t}}$ for all~${1 \le s < t \le n}$ and~$i \in [\ell]$, where $A_{i,s,t} \eqdef \smash{\sum_{s \le j < t} a_{i,j}}$.
+%\end{definition}
 
 \begin{definition}
 \label{def:multiBraidArrangementPrecise}
-For any integers~$\ell,n \geq 1$, and a generic matrix~$\b{a} \eqdef (a_{i,j}) \in M_{\ell,n-1}(\R)$ of~$\R^n$, the \defn{$\b{a}$-braid arrangement}~$\multiBraidArrangement(\b{a})$ is the arrangement of hyperplanes~$\set{\b{x} \in \HH}{x_s - x_t = A_{i,s,t}}$ for all~$1 \le s < t \le n$ and~$i \in [\ell]$, where $A_{i,s,t} \eqdef \smash{\sum_{s \le j < t} a_{i,j}}$.
+For any integers~$\ell,n \geq 1$, and any matrix~$\b{a} \eqdef (a_{i,j}) \in M_{\ell,n-1}(\R)$, the \defn{$\b{a}$-braid arrangement}~$\multiBraidArrangement(\b{a})$ is the arrangement of hyperplanes~$\set{\b{x} \in \HH}{x_s - x_t = A_{i,s,t}}$ for all~${1 \le s < t \le n}$ and~$i \in [\ell]$, where $A_{i,s,t} \eqdef \smash{\sum_{s \le j < t} a_{i,j}}$.
+\end{definition}
+
+In other words, the $\b{a}$-braid arrangement~$\multiBraidArrangement(\b{a})$ is the union of~$\ell$ copies of the braid arrangement~$\braidArrangement$ translated according to the matrix~$\b{a}$.
+Of course, the $\b{a}$-braid arrangement~$\multiBraidArrangement(\b{a})$ highly depends on~$\b{a}$.
+In this paper, we are interested in the case where~$\b{a}$ is generic in the following sense.
+
+\begin{definition}
+%A matrix~$\b{a} \eqdef (a_{i,j}) \in M_{\ell,n-1}(\R)$ is \defn{generic} if any linear dependence among its coefficients~$\sum_{i,j} \lambda_{i,j} \, a_{i,j} = 0$ splits into $\ell$ linear dependences~$\sum_j \lambda_{i,j} \, a_{i,j} = 0$ for~$i \in [\ell]$.
+A matrix~$\b{a} \eqdef (a_{i,j}) \in M_{\ell,n-1}(\R)$ is \defn{generic} if for any~$i_1, \dots, i_k \in [\ell]$ and distinct $r_1, \dots, r_k \in [n]$, the equality~$\sum_{j \in [k]} A_{i_j, r_{j-1}, r_j} = 0$ implies~$i_1 = \dots = i_k$ (with the notation~$A_{i,s,t} \eqdef \smash{\sum_{s \le j < t} a_{i,j}}$ and the convention~$r_0 = r_k$).
+\end{definition}
+
+We will see that many combinatorial aspects of~$\multiBraidArrangement(\b{a})$, in particular its flat poset and thus its M\"obius, $f$- and $b$-polynomials, are in fact independent of the matrix~$\b{a}$ as long as it is generic.
+We therefore consider the following definition.
+
+\begin{definition}
+\label{def:multiBraidArrangement}
+The \defn{$(\ell,n)$-braid arrangement}~$\multiBraidArrangement$ is the arrangement in~$\HH$ obtained as the union of $\ell$ generically translated copies of the braid arrangement~$\braidArrangement$ (that is, any $\b{a}$-braid arrangement for some generic matrix~$\b{a} \in M_{\ell,n-1}(\R)$).
 \end{definition}
 
 %\begin{remark}
@@ -895,8 +922,8 @@ For any integers~$\ell,n \geq 1$, and a generic matrix~$\b{a} \eqdef (a_{i,j}) \
 The objective of \cref{part:multiBraidArrangements} is to explore the combinatorics of these multiple braid arrangements.
 We have split our presentation into two sections:
 \begin{itemize}
-\item In \cref{sec:flatPoset}, we describe the flat poset~$\flatPoset[\multiBraidArrangement]$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ in terms of $(\ell,n)$-partition forests (\cref{subsec:partitionForests}) and labeled $(\ell,n)$-rainbow forests (\cref{subsec:rainbowForests}), which enables us to derive its M\"obius, $f$- and $b$- polynomials (\cref{subsec:MobiusPolynomialMultiBraidArrangement}), from which we extract interesting formulas for the number of vertices (\cref{subsec:verticesMultiBraidArrangement}) and regions (\cref{subsec:regionsMultiBraidArrangement}). Note that all these results are independent of the translation vectors.
-\item In \cref{sec:facePoset}, we describe the face poset~$\facePoset[\multiBraidArrangement(\b{a})]$ of the $\b{a}$-braid  arrangement~$\multiBraidArrangement(\b{a})$ in terms of ordered $(\ell,n)$-partition forests (\cref{subsec:orderedPartitionForests}). In contrast to the flat poset, this description of the face poset depends on the translation vectors. For a given choice of translation matrix~$\b{a}$, we describe in particular the ordered $(\ell,n)$-partitions forests with a given underlying (unordered) $(\ell,n)$-partition forest (\cref{subsec:PFtoOPF}). We then give a criterion to decide whether a given ordered $(\ell,n)$-partition forest corresponds to a face of~$\multiBraidArrangement(\b{a})$ (\cref{subsec:criterionOPF}).
+\item In \cref{sec:flatPoset}, we describe the flat poset~$\flatPoset[\multiBraidArrangement]$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ in terms of $(\ell,n)$-partition forests (\cref{subsec:partitionForests}) and labeled $(\ell,n)$-rainbow forests (\cref{subsec:rainbowForests}), which enables us to derive its M\"obius, $f$- and $b$- polynomials (\cref{subsec:MobiusPolynomialMultiBraidArrangement}), from which we extract interesting formulas for the number of vertices (\cref{subsec:verticesMultiBraidArrangement}) and regions (\cref{subsec:regionsMultiBraidArrangement}). Note that all these results are independent of the translation matrix.
+\item In \cref{sec:facePoset}, we describe the face poset~$\facePoset[\multiBraidArrangement(\b{a})]$ of the $\b{a}$-braid  arrangement~$\multiBraidArrangement(\b{a})$ in terms of ordered $(\ell,n)$-partition forests (\cref{subsec:orderedPartitionForests}). In contrast to the flat poset, this description of the face poset depends on the translation matrix~$\b{a}$. For a given choice of~$\b{a}$, we describe in particular the ordered $(\ell,n)$-partitions forests with a given underlying (unordered) $(\ell,n)$-partition forest (\cref{subsec:PFtoOPF}). We then give a criterion to decide whether a given ordered $(\ell,n)$-partition forest corresponds to a face of~$\multiBraidArrangement(\b{a})$ (\cref{subsec:criterionOPF}).
 \end{itemize}
 
 \begin{remark}
@@ -966,7 +993,8 @@ The flat poset~$\flatPoset[\multiBraidArrangement]$ of the $(\ell,n)$-braid arra
 \end{proposition}
 
 \begin{proof}
-Consider the hyperplanes~$\set{\b{x} \in \HH}{x_s - x_t = A_{i,s,t}}$ described in \cref{def:multiBraidArrangementPrecise}.
+Consider that~$\multiBraidArrangement$ is the $\b{a}$-braid arrangement~$\multiBraidArrangement(\b{a})$ for some generic matrix~$\b{a}$.
+%Consider the hyperplanes~$\set{\b{x} \in \HH}{x_s - x_t = A_{i,s,t}}$ described in \cref{def:multiBraidArrangementPrecise}.
 In view of our discussion in \cref{subsec:braidArrangement}, observe that, for each~${i \in [\ell]}$, each set partition~$\pi$ of~$[n]$ corresponds to a $(\card{\pi})$-dimensional flat
 \[
 \Psi_i(\pi) \eqdef \set{\b{x} \in \HH}{x_s - x_t = A_{i,s,t} \text{ for all $s,t$ in the same part of $\pi$} }
@@ -977,7 +1005,7 @@ The flats of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ are thus 
 \Psi(\b{F}) \eqdef \bigcap_{i \in [\ell]} \Psi_i(F_i)
 \]
 for certain $\ell$-tuples~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of set partitions of~$[n]$.
-Since the parameters~$A_{i,s,t}$ are generic, $\Psi(\b{F})$ is non-empty if and only if the intersection hypergraph of~$\b{F}$ is acyclic.
+Since the matrix~$\b{a}$ is generic, $\Psi(\b{F})$ is non-empty if and only if the intersection hypergraph of~$\b{F}$ is acyclic.
 Moreover, $\Psi(\b{F})$ is included in~$\Psi(\b{G})$ if and only if~$\b{F}$ refines~$\b{G}$ componentwise.
 Hence, the flat poset of~$\multiBraidArrangement$ is isomorphic to the $(\ell,n)$-partition forest poset.
 Finally, notice that the codimension of the flat~$\Psi(\b{F})$ is the sum of the codimensions of the flats~$\Psi_i(F_i)$ for~$i \in [\ell]$, so that~$\dim(\b{F}) \eqdef n - 1 - \ell n + \sum_{i \in [\ell]} \card{F_i} $ is indeed the dimension of the flat~$\Psi(\b{F})$.
@@ -1439,6 +1467,7 @@ In the flat poset~$\flatPoset[\multiBraidArrangement]$ labeled by rainbow forest
 \end{enumerate}
 \vincent{This is really difficult to follow. We can improve the presentation. Maybe add a picture. To discuss with Bérénice.}
 \BDO{I added a picture and tried to simplify the steps : how is it ?}
+\vincent{I would like to keep this proposition, but I still believe that the phrasing is too vague. What does recursively pushing really means? I understand on the example, but it is not precise enough.}
 \end{proposition}
 
 %\begin{example}
@@ -2177,7 +2206,8 @@ The inclusion poset on the faces in the image of the diagonal~$\triangle_{(\Perm
 
 \begin{remark}
 \label{rem:translationMatrix}
-To be more precise, the diagonal~$\triangle_{(\Perm, \b{v})}$ corresponds to the $\b{a}$-braid arrangement~$\multiBraidArrangement[2][n](\b{a})$ where the translation matrix~$\b{a}$ from \cref{def:multiBraidArrangementPrecise} has two rows, with first row~$\b{a}_{1,j} = 0$ and second row~$\b{a}_{2,j} = v_j-v_{j+1}$ for all~$j \in [n-1]$.
+To be more precise, the diagonal~$\triangle_{(\Perm, \b{v})}$ is dual to the $\b{a}$-braid arrangement~$\multiBraidArrangement[2][n](\b{a})$ where the translation matrix~$\b{a}$ has two rows, with first row~${\b{a}_{1,j} = 0}$ and second row~$\b{a}_{2,j} = v_j-v_{j+1}$ for all~$j \in [n-1]$.
+Since~$\b{v}$ is generic with respect to~$\Perm$, we have~$\sum_{i \in I} v_i \ne \sum_{j \in J} v_j$ for all~$(I,J) \in \Un(n)$, so that~$\b{a}$ is indeed generic.
 \end{remark}
 
 \begin{remark}
