@@ -1924,7 +1924,7 @@ Our choices just limit the amount of oriented cycles in~$D_{\order{\pi}}$.
 \label{part:diagonalsPermutahedra}
 
 In this second part, we study the combinatorics of the diagonals of the permutahedra.
-In \cref{sec:cellularDiagonals}, we first recall the definition and some known facts about diagonals of polytopes (\cref{subsec:cellularDiagonalsPolytopes}), which we immediately specialize to the classical permutahedron (\cref{sec:cellularDiagonalsPermutahedra}), and connect to \cref{part:multiBraidArrangements} to derive enumerative statements on the diagonals of permutahedra (\cref{subsec:enumerationDiagonalPermutahedra}).
+In \cref{sec:cellularDiagonals}, we first recall the definition and some known facts about cellular diagonals of polytopes (\cref{subsec:cellularDiagonalsPolytopes}), which we immediately specialize to the classical permutahedron (\cref{sec:cellularDiagonalsPermutahedra}), and connect to \cref{part:multiBraidArrangements} to derive enumerative statements on the diagonals of permutahedra (\cref{subsec:enumerationDiagonalPermutahedra}).
 In \cref{sec:operadicDiagonals}, we consider two particular diagonals, the $\LA$ and $\SU$ diagonals (\cref{subsec:LASUdiagonal}), we show that these are the only two operadic diagonals which induce the weak order (\cref{subsec:operadicProperty}), and that they are isomorphic (\cref{subsec:isos-LA-SU}). 
 Using results from \cref{sec:facePoset,sec:cellularDiagonals}, we then characterize their facets in terms of paths in $(2,n)$-partition trees (\cref{subsec:facets-operadic-diags}), and their vertices as pattern-avoiding pairs of permutations (\cref{subsec:vertices-operadic-diags}).
 Finally, in \cref{sec:shifts}, we show that the geometric $\SU$ diagonal $\SUD$ is a topological enhancement of the original Saneblidze-Umble diagonal~\cite{SaneblidzeUmble} (\cref{subsec:topological-SU}).
@@ -1982,7 +1982,8 @@ For $\b{z}$ a point of $P$, we denote by $\rho_{\b{z}} P \eqdef 2\b{z}-P$ the re
 		\includegraphics[scale=.44]{HypCube.png} \hspace{-.3cm}
 		\includegraphics[scale=.38]{HypPermuto.png}
 	}
-	\caption{The fundamental hyperplane arrangements of the $3$-dimensional simplex (left), cube (middle), and permutahedron (right). The hyperplanes which are perpendicular to edges of the polytope~$P$ are colored in yellow, while those which are not perpendicular to  edges of the polytope $P$, but only to edges of some intersection $P\cap \rho_z P$ are colored in blue. Left and rightmost illustrations from~\cite[Fig.~12]{LaplanteAnfossi}.}
+	\caption{The fundamental hyperplane arrangements of the $3$-dimensional simplex (left), cube (middle), and permutahedron (right). The hyperplanes perpendicular 
+	to edges of some intersection $P\cap \rho_z P$, which are \emph{not} edges of the polytope~$P$, are colored in blue. Left and rightmost illustrations from~\cite[Fig.~12]{LaplanteAnfossi}.}
 	\label{fig:examplesHyperplanes}
 \end{figure}
 
@@ -1995,7 +1996,7 @@ Note that the datum of a polytope~$P$ together with a vector~$\b{v}$ generic wit
 \begin{theorem}
 \label{thm:diagonal}
 For any vector $\b{v} \in \R^d$ generic with respect to $P$, the tight coherent section~$\triangle_{(P,\b{v})}$ of the projection $P \times P \to P, (\b{x}, \b{y}) \mapsto (\b{x}+\b{y})/2$ selected by the vector~$(-\b{v}, \b{v})$ defines a cellular diagonal of~$P$.
-More precisely, $\triangle_{(P,\b{v})}$ is given by the explicit formula
+More precisely, $\triangle_{(P,\b{v})}$ is given by the formula
 \begin{align*}
 	\begin{array}{rlcl}
 		\triangle_{(P,\b{v})}\ : & P & \to & P\times P \\
@@ -2030,7 +2031,7 @@ Note that the geometric diagonal~$\triangle_{(P,\b{v})}$ only depends on the reg
 		\includegraphics[scale=.6]{diagonalSquarre4}
 	\end{tabular}
 	}}
-	\caption{The diagonals of the segment (top), the triangle (middle) and the square (bottom). For each of them, we have represented the thin diagonal of~$P$ (left, in blue) and the cellular diagonal of~$P$ (middle left, in red) both in~$P \times P$, and the polytopal subdivision of~$P$ (middle right) and the common refinement of the two copies of the normal fan of~$P$ (right) both in~$P$.}
+	\caption{Cellular diagonals of the segment (top), the triangle (middle) and the square (bottom). For each of them, we have represented the thin diagonal of~$P$ (left, in blue), a cellular diagonal of~$P$ (middle left, in red) both in~$P \times P$, the associated polytopal subdivision of~$P$ (middle right) and the common refinement of the two copies of the normal fan of~$P$ (right) both in~$P$.}
 	\label{fig:examplesDiagonals1}
 \end{figure}
 
@@ -2083,7 +2084,7 @@ Finally, the following statement relates the image of the diagonal~$\triangle_{(
 
 \begin{proposition}[{\cite[Prop. 1.17]{LaplanteAnfossi}}]
 \label{prop:magicalFormula}
-For any polytope $P$ and any generic vector $\b{v}$,
+For any polytope $P$ and any generic vector $\b{v}$, we have
 \begin{equation}
 \label{eq:magique}
 \Ima\triangle_{(P, \b{v})} \quad \subseteq \bigcup_{\substack{F,G \text{ faces of } P \\ \max_{\b{v}}(F) \, \le \, \min_{\b{v}}(G)}} F \times G .
@@ -2145,6 +2146,7 @@ The \defn{permutahedron}~$\Perm$ is the polytope in~$\R^n$ defined equivalently 
 \item the intersection of the hyperplane~$\smash{\bigset{\b{x} \in \R^n}{\sum_{i \in I} x_i = \binom{n+1}{2}}}$ with the affine halfspaces $\smash{\bigset{\b{x} \in \R^n}{\sum_{i \in I} x_i \ge \binom{\card{I}+1}{2}}}$ for all~${\varnothing \ne I \subsetneq [n]}$, see~\cite{Rado}.
 \end{itemize}
 The normal fan of the permutahedron~$\Perm$ is the fan defined by the braid arrangement~$\braidArrangement$.
+\Guillaume{A word on the relation to $\mathbb{H}$ used in Part I}
 In particular, the faces of~$\Perm$ correspond to the ordered partitions of~$[n]$.
 Moreover, when oriented in a generic direction, the skeleton of the permutahedron~$\Perm$ is isomorphic to the Hasse diagram of the classical weak order on permutations of~$[n]$.
 % when oriented in the direction~${\b{\omega} \eqdef (n,\dots,1) - (1,\dots,n) = \sum_{i \in [n]} (n+1-2i) \, \b{e}_i}$
