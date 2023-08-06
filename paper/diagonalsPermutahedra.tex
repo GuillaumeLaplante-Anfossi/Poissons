@@ -3433,7 +3433,57 @@ We define $(i,j)$ to be an \defn{inversion of a pair of ordered partitions} $(\s
 \end{definition}
 
 \begin{remark}
-Our definition of an inversion of an ordered partition specializes to the classical definition of an inversion of permutations.
+We can define a partial order on ordered partitions by saying $\sigma\leq\tau$ if the inversion set of $\sigma$ is a subset of the inversion set of $\tau$.
+This partial order refines into the weak facial order of the permutahedra, introduced in \cite{palacios2004weak}, and shown to be a lattice in \cite{dermenjian2018facial}.
+Later in \cref{sec:Shift-lattice}, we will show that every SCP and all its admissible sequences of left and right shifts is a sub-lattice of either partial order.
+For now, we illustrate the weak facial order for $\mathsf{Perm}(3)$ as a refinement of the defined inversion order, grouping elements with the same inversion sets.
+\begin{center}
+\begin{tikzpicture}
+\node (1) at (-1.5, -1) {$3|12$};
+\node (2) at (-2.5, -2) {$3|1|2$};
+\node (3) at (-2.5, -3) {$13|2$};
+\node (4) at (-2.5, -4) {$1|3|2$};
+\node (5) at (-1.5, -5) {$1|23$};
+%
+\node (6) at (1.5, -1) {$23|1$};
+\node (7) at (2.5, -2) {$2|3|1$};
+\node (8) at (2.5, -3) {$2|13$};
+\node (9) at (2.5, -4) {$2|1|3$};
+\node (10) at (1.5, -5) {$12|3$};
+%
+\node (11) at (0, 0) {$3|2|1$};
+\node (12) at (0, -3) {$123$};
+\node (13) at (0, -6) {$1|2|3$};
+%
+\draw[thick] (1) -- (2); 
+\draw[thick] (2) -- (3); 
+\draw[thick] (3) -- (4); 
+\draw[thick] (4) -- (5);
+%
+\draw[thick] (6) -- (7); 
+\draw[thick] (7) -- (8); 
+\draw[thick] (8) -- (9); 
+\draw[thick] (9) -- (10);
+%
+\draw[thick] (1) -- (11);
+\draw[thick] (6) -- (11);
+%
+\draw[thick] (1) -- (12);
+\draw[thick] (5) -- (12);
+\draw[thick] (6) -- (12);
+\draw[thick] (10) -- (12);
+%
+\draw[thick] (5) -- (13);
+\draw[thick] (10) -- (13);
+%
+\hedge[green, very thick]{1,11,6,12}{0.45cm}
+\hedge[green, very thick]{2,3}{0.45cm}
+\hedge[green, very thick]{4,5}{0.45cm}
+\hedge[green, very thick]{7,8}{0.45cm}
+\hedge[green, very thick]{9,10}{0.45cm}
+\end{tikzpicture}
+\end{center}
+
 \end{remark}
 
 \begin{proposition}
@@ -4187,6 +4237,46 @@ For instance, in the case of meets,
 }
 The Hasse diagram of the lattice corresponds to singleton $1$-shifts, and we can step backwards in the diagram by applying their inverse (\cref{rem:inverses}).
 For a clear example of the Hasse diagram, we direct the reader back to \cref{ex:shift translation by theta}.
+
+\begin{definition}[Lemma 22 of \cite{palacios2004weak}]
+Let $\sigma = \sigma_1|...|\sigma_k$ denote an ordered partition.
+Then the weak facial order lattice of the permutahedra is the transitive closure of the following relations,
+\begin{enumerate}
+    \item $\max \sigma_i < \min \sigma_{i+1} \implies \sigma < \sigma_1|...|\sigma_i \sqcup \sigma_{i+1}|...|\sigma_k$
+    \item $\min \sigma_i > \max \sigma_{i+1} \implies \sigma > \sigma_1|...|\sigma_i \sqcup \sigma_{i+1}|...|\sigma_k$
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}
+The Weak facial order is a refinement of the inversion order.
+\end{proposition}
+\begin{proof}
+This is clear as the inversion table used by the weak facial order (Example 3.6 of \cite{dermenjian2018facial}) is a refinement of our notion of an inversion.
+In particular, their notion of an inversion distinguishes when two elements are in the same block.
+\end{proof}
+
+
+\begin{lemma}
+Shifts of either diagonal respect the weak facial order.
+\end{lemma}
+\Kurt{Doing something silly here, might be false...}
+\begin{proof}
+If $R_\rho$ is a well-defined $1$ shift of $(\sigma,\tau) \in \LAD$, then
+\begin{align*}
+    \tau_1|...|\tau_k &< \tau_1|...|\tau_i\setminus \rho| \rho|\tau_{i+1}|...|\tau_k &(2) \\
+    &< \tau_1|...|\tau_i\setminus \rho|\tau_{i+1}|...|\tau_k &(1) 
+\end{align*}
+where $(2)$ applies as $\rho < \min \tau_{i,i+1}\leq \min \tau_i\setminus \rho$, and $(1)$ applies as $\rho< \min \tau_{i,i+1} \leq \min \tau_{i+1}$.\Kurt{Both false what is a counter example?}
+i.e. we know that $\tau < R_\rho(\tau)$ by stepping through the facet of $P_n$ between these two faces.
+We can similarly show that for a well-defined $\LA$ left shift that $L\sigma < \sigma$.
+The proof for the $\SU$ diagonal for once proceeds differently.
+f $R\rho$ is a well-defined $1$ shift of $(\sigma,\tau) \in \SU$, then 
+\begin{align*}
+        \sigma_1|...|\sigma_k &< \sigma_1|...|\sigma_{i-1} \sqcup \sigma_{i}|...|\sigma_k &(1) \\
+        &< \sigma_1|...|\sigma_{i-1}\sqcup \rho| \sigma_{i}\setminus \rho|...|\sigma_k &(2)
+\end{align*}
+where $(1)$ applies as $\rho \leq \max \sigma_{i-1}$...
+\end{proof}
 
 \begin{remark}
 As a consequence of \cref{prop:shift lattice}, the facets of the operadic diagonal are a disjoint union of lattices.
