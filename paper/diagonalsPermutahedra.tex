@@ -2448,7 +2448,7 @@ Hence, by Cayley's formula for spanning trees of~$K_{n+1}$, we obtain that the n
 \section{Operadic diagonals}
 \label{sec:operadicDiagonals}
 
-This section is devoted to the combinatorics of two specific diagonals of the permutahedra, the $\LA$ and $\SU$ diagonals, which are shown to be the only operadic diagonals of the permutahedra.
+This section is devoted to the combinatorics of two specific diagonals of the permutahedra, the $\LA$ and $\SU$ diagonals, which are shown to be the only operadic geometric diagonals of the permutahedra.
 
 %%%%%%%%%%%%%%%
 
@@ -2462,7 +2462,7 @@ As we consider in this section diagonals for all permutahedra, we now consider f
 An \defn{ordering} of $\Un \eqdef \{\Un(n)\}_{n \ge 1}$ is a family~$\Or \eqdef \{\Or(n)\}_{n \ge 1}$ where~$\Or(n)$ is an ordering of~$\Un(n)$ for each~$n \ge 1$.
 \end{definition}
 
-In this section, we consider in particular the following two orderings and their corresponding diagonals.
+We will be focusing on the following two orderings and their corresponding diagonals.
 
 \begin{definition}
 The \defn{$\LA$} and~\defn{$\SU$ orderings} are defined by
@@ -2481,13 +2481,13 @@ The \defn{$\LA$ diagonal} $\LAD$ (\resp \defn{$\SU$ diagonal} $\SUD$) of the per
 for all~$(I,J) \in \LA(n)$ (\resp $(I,J) \in \SU(n)$).
 \end{definition}
 
-Note that the $\LA$ and $\SU$ diagonals coincide up to dimension $2$ (but differ in dimension~$\ge 3$).
-They are illustrated in dimension~$2$ in \cref{fig:LUSAdiagonals}.
-%Their faces for the $2$-dimensional permutahedron are illustrated on the first page of this article.  
+First note that this definition makes sense, since vectors $\b{v}=(v_1,\ldots,v_n)$ such that $\Or(\b{v})$ is the $\LA$ or $\SU$ order do exist: take for instance $v_i\eqdef 2^{-i+1}$ for $\LAD$ and $v_i \eqdef 2^n - 2^{i-1}$ for $\SUD$.
+Second, note that the $\LA$ and $\SU$ diagonals coincide up to dimension $2$, but differ in dimension~$\ge 3$.
+The dimension~$2$ version is illustrated in \cref{fig:LUSAdiagonals}, with the faces labeled by ordered $(2,3)$-partition trees.
 
 \begin{figure}
 	\centerline{\includegraphics[scale=.85]{diagonalPermutahedron3}}
-	\caption{The $\LA$ (and~$SU$) diagonal of~$\Perm[3]$ with faces labeled by ordered $(2,3)$-partition forests. (See also \cref{fig:B23a} for the dual hyperplane arrangement.)}
+	\caption{The $\LA$ (and~$\SU$) diagonal of~$\Perm[3]$ with faces labeled by ordered $(2,3)$-partition forests. (See also \cref{fig:B23a} for the dual hyperplane arrangement.)}
 	\label{fig:LUSAdiagonals}
 \end{figure}
 
@@ -2517,11 +2517,11 @@ This facet is isomorphic to the Cartesian product
 \[
 (\Perm[p] +q \one_{[p]}) \times \Perm[q]
 \]
-of lower dimensional permutahedra (where the first factor is translated by~$q \one_{[p]} \eqdef q \sum_{i \in [p]} \b{e}_i$), via the permutation of coordinates
+of lower dimensional permutahedra, where the first factor is translated by~$q \one_{[p]} \eqdef q \sum_{i \in [p]} \b{e}_i$, via the permutation of coordinates
 \begin{equation*}
 	\begin{matrix}
 		\Theta & : & \R^{p} \times \R^{q} & \overset{\cong}{\longrightarrow} & \R^{n} \\
-		 & & (x_1,\ldots,x_p) \times (x_{p+1}, \ldots, x_{n})  & \longmapsto & (x_{\sigma^{-1}(1)},\ldots,x_{\sigma^{-1}(n)})
+		 & & (x_1,\ldots,x_p) \times (x_{p+1}, \ldots, x_{n})  & \longmapsto & (x_{\sigma^{-1}(1)},\ldots,x_{\sigma^{-1}(n)}) \ , 
 	\end{matrix}
 \end{equation*}
 where $\sigma$ is the $(p,q)$-shuffle defined by $\sigma(i) \eqdef a_i$ for~$i \in [p]$, and $\sigma(p+j)\eqdef b_j$ for~$j \in [q]$.
@@ -2529,7 +2529,7 @@ Note that this map is a particular instance of the eponym map introduced in Poin
 
 \begin{definition}
 \label{def:operadicDiagonal}
-A family of diagonals $\triangle \eqdef \{\triangle_n : \Perm \to \Perm \times \Perm\}_{n\geq 1}$ of the permutahedra is \defn{operadic} if for every face $A_1 | \ldots | A_k$ of the permutahedron $\Perm[\card{A_1}+\cdots + \card{A_k}]$, the map $\Theta$ induces a topological cellular isomorphism
+A family of geometric diagonals $\triangle \eqdef \{\triangle_n : \Perm \to \Perm \times \Perm\}_{n\geq 1}$ of the permutahedra is \defn{operadic} if for every face $A_1 | \ldots | A_k$ of the permutahedron $\Perm[\card{A_1}+\cdots + \card{A_k}]$, the map $\Theta$ induces a topological cellular isomorphism
 \[
 \triangle_{\card{A_1}} \times \ldots \times \triangle_{\card{A_k}} \cong \triangle_{\card{A_1} + \ldots + \card{A_k}} .
 \]
@@ -2642,11 +2642,11 @@ Thus, the only possible operadic choice of ordering for $\{I_{\ell+1},J_{\ell+1}
 
 \begin{example} 
 \label{ex:Non-coherent order contradiction}
-To illustrate our proof of \cref{prop:operadicOrdering}, suppose that the $\LA$ ordering holds for pairs of order $1$ and $2$, but is reversed for pairs of order $3$, \ie
+To illustrate our proof of \cref{prop:operadicOrdering}, consider an operadic ordering $\Or$ for which the $\LA$ ordering holds for pairs of order $1$ and $2$, but is reversed for pairs of order $3$, \ie
 \begin{align*}
 (\{1\}, \{2\}) \in \Or, \quad (\{1,4\}, \{2,3\}) \in \Or, \text{ and } (\{2, 3, 4\}, \{1, 5, 6 \}) \in \Or.
 \end{align*}
-Then $\{I'_4,J'_4\}=\{\{1, 3, 7, 8\}, \{2, 4, 5, 6\}\}$ admits two different orientations.
+Then, the pair $\{I'_4,J'_4\}=\{\{1, 3, 7, 8\}, \{2, 4, 5, 6\}\}$ admits two different orientations.
 In particular, 
 \begin{align*}
 (\{ 4, 5, 6 \} , \{1, 7, 8\}) \in \Or \text{ and } (\{2\}, \{3\}) \in \Or & \Longrightarrow (\{2, 4, 5, 6\}, \{1, 3, 7, 8\} ) \in \Or \ \text{and} \\
@@ -2735,7 +2735,7 @@ Specializing \cref{prop:PFtoOPF1}, we now explain how to order these pairs of pa
 \begin{theorem}
 \label{thm:facet-ordering}
 Let $(\sigma,\tau)$ be a pair of ordered partitions of $[n]$ whose underlying intersection graph is a $(2,n)$-partition tree.
-The pair~$(\sigma,\tau)$ is a facet of the $\LA$ (\resp $\SU$) diagonal if and only if the minimum (\resp maximum) of every directed path between two consecutive blocks of $\sigma$ or $\tau$ is oriented from $\sigma$ to $\tau$, that is from left to right (\resp from $\tau$ to $\sigma$, that is from right to left).
+The pair~$(\sigma,\tau)$ is a facet of the $\LA$ (\resp $\SU$) diagonal if and only if the minimum (\resp maximum) of every directed path between two consecutive blocks of $\sigma$ or $\tau$ is oriented from $\sigma$ to $\tau$ (\resp from $\tau$ to $\sigma$).
 \end{theorem}
 
 \begin{proof}
@@ -2750,6 +2750,9 @@ According to \cref{prop:PFtoOPF1}, the order between $A$ and $B$ is determined b
 Thus, the order between $A$ and $B$ is determined by the sign of $\sum_{i \in I} v_i - \sum_{j \in J} v_j$, which according to the definition of $\LAD$ is positive whenever $\min(I\cup J) \in I$. 
 Thus, the pair $(\sigma,\tau) \in \LAD$ if and only if the minimum of every directed path between two consecutive blocks of $\sigma$ or $\tau$ is oriented from $\sigma$ to $\tau$. 
 \end{proof}
+
+In the rest of the paper, we shall represent ordered $(2,n)$-partition trees $(\sigma,\tau)$ of facets by drawing $\sigma$ on the left, and $\tau$ on the right, with their blocks from top to bottom. 
+The conditions ``oriented from $\sigma$ to $\tau$" in the preceding Theorem then reads as ``oriented from left to right", an expression we shall adopt from now on. 
 
 \begin{example}
 \label{ex:ECbijection}
@@ -2796,7 +2799,7 @@ Note that ordered partitions should be read from top to bottom.
 		\draw[thick] (57.west) -- (7.east);
 	\end{tikzpicture}
 \end{center}
-In the $\LA$ facet (left), we have $7 < 234$, since in the path between the two vertices $7 \xrightarrow{7} 57 \xrightarrow{5} 15 \xrightarrow{1} 13 \xrightarrow{3} 234$, the minima $1$ oriented from left to right. 
+In the $\LA$ facet (left), we have $7 < 234$, since in the path between the two vertices $7 \xrightarrow{7} 57 \xrightarrow{5} 15 \xrightarrow{1} 13 \xrightarrow{3} 234$, the minimum $1$ is oriented from left to right. 
 In this case, we have $(I,J)=(\{1,7\},\{3,5\})$.
 Similarly, the path $57 \xrightarrow{5} 15 \xrightarrow{1} 13 \xrightarrow{3} 234 \xrightarrow{4} 46$ imposes that $57 < 46$, for $(I,J)=(\{1,4\},\{3,5\})$.
 \end{example}
@@ -2868,7 +2871,7 @@ We first need the following Lemma, which follows directly from the definition of
 \label{lem:Coherent Domination}
 Let $\sigma$ be an ordered partition of $[n]$ and let $I,J \subseteq [n]$ be such that $I$ dominates $J$ in~$\sigma$. 
 For an element $i$ in $I$ or $J$, we denote by $\sigma^{-1}(i)$ the index of the block containing it in $\sigma$. 
-Then, for any $i \in I,j \in J$, we have $I\ssm i$ dominates $J\ssm j$ in $\sigma$ if and only if either
+Then, for any $i \in I,j \in J$, we have $I\ssm i$ dominates $J\ssm j$ in $\sigma$ if and only if
 \begin{enumerate}
 \item either~$\sigma^{-1}(j) < \sigma^{-1}(i)$ (meaning that $j$ comes strictly before $i$ in $\sigma$),
 \item or for all $k$ between $\sigma^{-1}(i)$ and $\sigma^{-1}(j)$, the first $k$ blocks of $\sigma$ contain strictly more elements of $I$ than of $J$.
@@ -2991,11 +2994,9 @@ Now suppose that for all $(I,J)$ of size $\card{I} = \card{J} \le m-1$, we have 
 
 We need to show that this is still true for the pairs $(I,J)$ of size $\card{I} = \card{J} = m$.
 Firstly, we need only consider standardized $I,J$ conditions, and pairs of permutations of $[2m]$.
-Why?
-If we define $(\sigma',\tau') \eqdef \std(\sigma \cap (I\cup J),\tau \cap (I\cup J))$, and $(I',J')\eqdef\std(I',J')$, 
+Indeed, if we define $(\sigma',\tau') \eqdef \std(\sigma \cap (I\cup J),\tau \cap (I\cup J))$, and $(I',J')\eqdef\std(I',J')$, 
 then if $(\sigma,\tau)$ satisfies the $(I,J)$ domination condition, this implies $(\sigma',\tau')$ satisfies $(I',J')$.
-Conversely, if $(\sigma',\tau')$ has a pattern, then this implies $(\sigma,\tau)$ has the same pattern.
-Which yields the indicated simplification.
+Conversely, if $(\sigma',\tau')$ has a pattern, then this implies $(\sigma,\tau)$ has the same pattern, which yields the indicated simplification.
 
 Let $(\sigma,\tau)$ be such a pair of permutations.
 Suppose the leftmost element $i_1$ of $I$ in $\sigma$ is not $1$, and let us write $j_1$ for the leftmost element of $J$ in $\tau$.
@@ -3007,7 +3008,7 @@ So, we assume the leftmost element of $I$ in $\sigma$ is $i_1=1$, and for $n\geq
 \item If $(\sigma,\tau)=(j_1 i_1 j_2 i_2 \dots j_{n-1} i_{n-1} w i_{n} w', \ i_2 j_1 i_3 j_2 \dots i_{n}j_{n-1}w'') $, and $j_n$ is the leftmost element of $J\ssm \{j_1, \dots, j_{n-1}\}$ in $\tau$, then either $w = j_n$, or it matches a smaller pattern.
 \item If $(\sigma,\tau)=(j_1 i_1 j_2 i_2 \dots j_{n-1} i_{n-1} w'', \ i_2 j_1 i_3 j_2 \dots i_{n-1}j_{n-2} w j_{n-1} w'')$, and $i_n$ is the leftmost element of ${I\ssm \{i_1, \dots, i_{n-1}\}}$ in $\sigma$, then either $w = i_n$, or it matches a smaller pattern.
 \end{enumerate}
-We prove $(a)$, the proof of $(b)$ proceeds similarly. 
+We prove (a), the proof of (b) proceeds similarly. 
 Let $j_n$ be the leftmost element of $J\ssm \{j_1, \dots, j_{n-1} \}$ in $\tau$.
 If $w\neq j_n$, then either (i) $w$ consists of multiple elements of $J$ including $j_n$, or (ii) $j_n$ comes after $i_n$ in $\sigma$.
 Now consider the pair $(I',J') \eqdef (I\ssm \{i_n\}, J \ssm \{j_n\})$.
@@ -3018,7 +3019,7 @@ In case (ii), either $i_n$ comes before~$j_n$, in which case we meet condition $
 In this last situation, we have condition $(2)$ of \cref{lem:Coherent Domination} holds as $i_n$ is the leftmost element of~${I\ssm \{i_1, \dots, i_{n-1}\}}$ in $\sigma$.
 Thus, if $w \neq j_n$, by the inductive hypothesis, we match a smaller pattern.
 
-Finally, using statements (a) and (b) above, we can inductively generate $(\sigma,\tau)$, determining $j_1$ via $(a)$, then $i_2$ via $(b)$, then $j_2$ via $(a)$ and so on.
+Finally, using statements (a) and (b) above, we can inductively generate $(\sigma,\tau)$, determining $j_1$ via (a), then $i_2$ via (b), then $j_2$ via (a), and so on.
 This inductive process fully generates $\sigma$, and places all elements of $\tau$ except $i_1$, yielding $\tau=i_2 j_1 i_3 j_2 \cdots i_k j_{k-1} w j_k w''$.
 However, as $j_k$ must be dominated by an element of $I$, this forces $w = i_1$ and $w'' =\varnothing$, completing the proof.
 \end{proof}
