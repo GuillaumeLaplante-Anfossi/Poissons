@@ -313,7 +313,9 @@ In the second part of the paper, we study diagonals which respect the operadic s
 We show that there are exactly two such diagonals, which are moreover isomorphic.
 We describe their facets by a simple rule on paths in partition trees, and their vertices as pattern-avoiding pairs of permutations.
 We show that one of these diagonals is a topological enhancement of the Sanbeblidze--Umble diagonal, and unravel a natural lattice structure on their sets of facets.
+%\Guillaume{Mention link to facial weak order?}
 Finally, we use the preceding results to show that there are precisely two isomorphic topological cellular operad structures on the family of operahedra, and exactly two infinity-isomorphic geometric universal tensor products of homotopy operads.
+%\Guillaume{Add results multiplihedra}
 \end{abstract}
 
 \vspace*{-1.2cm}
@@ -335,7 +337,7 @@ Finally, we use the preceding results to show that there are precisely two isomo
 \label{s:introduction}
 
 The purpose of this article is to study \emph{cellular diagonals} on the \emph{permutahedra}, which are cellular maps homotopic to the usual \emph{thin diagonal} $\triangle : P \to P \times P,~ x \mapsto (x,x)$ (\cref{def:thinDiagonal,def:cellularDiagonal}).
-Such diagonals, and in particular coherent families that we call \emph{operadic diagonals} (\cref{def:operadicDiagonal}), are of interest in algebraic geometry and topology: via the theory of Fulton--Sturmfels~\cite{FultonSturmfels}, they give explicit formulas for the cup product on Losev--Manin toric varieties~\cite{LosevManin}; they define universal tensor products of homotopy associative permutative (shuffle) algebras~\cite{LodayRonco-permutads,Markl}; they define a coproduct on permutahedral sets, which are models of two-fold loop spaces~\cite{SaneblidzeUmble}, and their study is needed to pursue the work of H. J. Baues aiming at defining explicit combinatorial models for higher iterated loop spaces~\cite{Baues}; using the canonical projections to the operahedra, associahedra and multiplihedra, they define universal tensor products of homotopy operads, $\Ainf$-algebras and $\Ainf$-morphisms, respectively~\cite{LaplanteAnfossi,LaplanteAnfossiMazuir}.
+Such diagonals, and in particular coherent families that we call \emph{operadic diagonals} (\cref{def:operadicDiagonal}), are of interest in algebraic geometry and topology: via the theory of Fulton--Sturmfels~\cite{FultonSturmfels}, they give explicit formulas for the cup product on Losev--Manin toric varieties~\cite{LosevManin}; they define universal tensor products of permutadic $\Ainf$-algebras~\cite{LodayRonco-permutads,Markl}; they define a coproduct on permutahedral sets, which are models of two-fold loop spaces~\cite{SaneblidzeUmble}, and their study is needed to pursue the work of H. J. Baues aiming at defining explicit combinatorial models for higher iterated loop spaces~\cite{Baues}; using the canonical projections to the operahedra, associahedra and multiplihedra, they define universal tensor products of homotopy operads, $\Ainf$-algebras and $\Ainf$-morphisms, respectively~\cite{LaplanteAnfossi,LaplanteAnfossiMazuir}.
 
 %L'idée de cohérence opéradique
 %L'idée de l'importance en topologie algébrique
@@ -380,7 +382,7 @@ The first cellular diagonal of the permutahedra was obtained at the algebraic le
 We shall call this diagonal the \emph{original $\SU$ diagonal}. 
 The first topological cellular diagonal of the permutahedra was defined in~\cite{LaplanteAnfossi}, we shall call it the \emph{geometric $\LA$ diagonal}.
 Both of these families of diagonals are \emph{operadic}, \ie they respect the product structure on the faces of permutahedra (this property is called ``comultiplicativity" in~\cite{SaneblidzeUmble}).
-More precisely, the algebraic structure encoded by the permutahedra is that of homotopy associative permutative algebra~\cite{LodayRonco-permutads,Markl}.
+More precisely, the algebraic structure encoded by the permutahedra is that of permutadic $\Ainf$-algebra~\cite{LodayRonco-permutads,Markl}.
 
 The toric varieties associated with the permutahedra are called Losev--Manin varieties, introduced in~\cite{LosevManin}.
 At this level, the operadic structure is that of a reconnectad~\cite{DotsenkoKeilthyLyskov}. 
@@ -541,7 +543,7 @@ The above theorem also allows us to translate the different combinatorial descri
 
 In \cref{sec:Shift-lattice}, we show that the facets of operadic diagonals are disjoint unions of lattices, that we call the \emph{shift lattices}.
 These lattices are product of chains, and are indexed by the permutations of $[n]$.
-Their defining partial order generalizes the weak order on permutations, \Guillaume{and is related to the facial order...?}
+Their defining partial order generalizes the weak order on permutations \Guillaume{Add relation to facial weak order}
 
 Finally, we present the alternative cubical (\cref{sec:Cubical}) and matrix (\cref{subsec:matrix}) descriptions of the $\SU$ diagonal from \cite{SaneblidzeUmble,SaneblidzeUmble-comparingDiagonals}, providing proofs of their equivalence with the other descriptions, and giving their $\LA$ counterparts. 
 The existence of this cubical description, based on a subdvision of the cube combinatorially isomorphic to the permutahedron, finds its conceptual root in the bar-cobar resolution of the associative permutad. 
@@ -551,6 +553,8 @@ Indeed, this resolution is encoded by the dual subdivision of the permutahedron,
 
 \pagebreak
 \subsection*{\cref{part:higherAlgebraicStructures}. Higher algebraic structures}
+
+\Guillaume{Add results multiplihedra}
 
 In this shorter third part of the paper, we derive some higher algebraic consequences of the preceding results, which were the original motivation for the present study.
 They concern the \emph{operahedra}, a family of polytopes indexed by planar trees, which encode (non-symmetric non-unital) homotopy operads \cite{LaplanteAnfossi}.
@@ -571,9 +575,9 @@ Moreover, the two topological operad structures are isomorphic, and the two tens
 Here, by the adjective ``geometric", we mean diagonal, operad and tensor product structures which are obtained geometrically on the polytopes via the Fulton--Sturmfelds method. 
 By ``universal", we mean a formula for the tensor product which applies to \emph{any} pair of homotopy operads.
 
-As the associahedra and the permutahedra are part of the family of operahedra, we get analogous results for $\Ainf$-algebras and homotopy associative permutative algebras. 
+As the associahedra and the permutahedra are part of the family of operahedra, we get analogous results for $\Ainf$-algebras and permutadic $\Ainf$-algebras. 
 
-However, the isomorphism of topological operads takes place a category of polytopes $\PolySub$ for which the morphisms are \emph{not} affine maps, see \cite[Def. 4.13]{LaplanteAnfossi}, and does \emph{not} commute with the diagonal maps (\cref{ex:iso-not-Hopf}).
+However, the isomorphism of topological operads takes place in a category of polytopes $\PolySub$ for which the morphisms are \emph{not} affine maps \cite[Def. 4.13]{LaplanteAnfossi}, and does \emph{not} commute with the diagonal maps (\cref{ex:iso-not-Hopf}).
 Moreover, the pairs of faces in the image of the two operadic diagonals are in general not in bijection (see \cref{ex:SU-LA-operahedra}), yielding different (but $\infty$-isomorphic) tensor products of homotopy operads.  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -595,8 +599,8 @@ We thank Samson Saneblidze and Ron Umble for useful correspondence.
 In this first part, we study the combinatorics of hyperplane arrangements obtained as unions of generically translated copies of the braid arrangement.
 %Specializing to two copies, we derive enumerative results on the diagonals of the permutahedra.
 In \cref{sec:arrangements}, we first recall some classical facts on the enumeration of hyperplane arrangements (\cref{subsec:arrangements}), present the classical braid arrangement (\cref{subsec:braidArrangement}), and define our multiple braid arrangements (\cref{subsec:multiBraidArrangement}).
-Then in \cref{sec:flatPoset}, we describe their flat posets in terms of partition forests (\cref{subsec:partitionForests}) and rainbow forests (\cref{subsec:rainbowForests}), from which we obtain their M\"obius polynomial (\cref{subsec:MobiusPolynomialMultiBraidArrangement}), and some surprising formulas for their numbers of vertices (\cref{subsec:verticesMultiBraidArrangement}) and regions (\cref{subsec:regionsMultiBraidArrangement}).
-Finally, in \cref{sec:facePoset}, we describe their face posets in terms of ordered partition forests (\cref{subsec:orderedPartitionForests}), and explore some combinatorial criteria to describe the ordered partition forests that appear as faces for a given multiple braid arrangement (\cref{subsec:PFtoOPF,subsec:criterionOPF}).
+Then in \cref{sec:flatPoset}, we describe their flat posets in terms of partition forests (\cref{subsec:partitionForests}) and rainbow forests (\cref{subsec:rainbowForests}), from which we derive their M\"obius polynomials (\cref{subsec:MobiusPolynomialMultiBraidArrangement}), and some surprising formulas for their numbers of vertices (\cref{subsec:verticesMultiBraidArrangement}) and regions (\cref{subsec:regionsMultiBraidArrangement}).
+Finally, in \cref{sec:facePoset}, we describe their face posets in terms of ordered partition forests (\cref{subsec:orderedPartitionForests}), and explore some combinatorial criteria to describe the ordered partition forests that appear as faces of a given multiple braid arrangement (\cref{subsec:PFtoOPF,subsec:criterionOPF}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -611,7 +615,7 @@ Finally, in \cref{sec:facePoset}, we describe their face posets in terms of orde
 We first briefly recall classical results on the combinatorics of affine hyperplane arrangements, in particular the enumerative connection between their intersection posets and their face lattices due to T.~Zaslavsky~\cite{Zaslavsky}.
 
 \begin{definition}
-A (finite affine real) \defn{hyperplane arrangement} is a finite set~$\arrangement$ of affine hyperplanes in~$\R^d$.
+A finite affine real \defn{hyperplane arrangement} is a finite set~$\arrangement$ of affine hyperplanes in~$\R^d$.
 \end{definition}
 
 \begin{definition}
@@ -629,7 +633,7 @@ where~$f_k(\arrangement)$ denotes the number of $k$-dimensional faces of~$\arran
 
 \begin{definition}
 A \defn{flat} of~$\arrangement$ is a non-empty affine subspace of~$\R^d$ that can be obtained as the intersection of some hyperplanes of~$\arrangement$.
-The \defn{flat poset} of~$\arrangement$ is poset~$\flatPoset$ of flats of~$\arrangement$ ordered by reverse inclusion.
+The \defn{flat poset} of~$\arrangement$ is the poset~$\flatPoset$ of flats of~$\arrangement$ ordered by reverse inclusion.
 \end{definition}
 
 \begin{definition}
@@ -654,7 +658,7 @@ for all~$F < H$ in~$\flatPoset$.
 \end{definition}
 
 \begin{remark}
-Our definition of the M\"obius polynomial slightly differs from that of~\cite{Zaslavsky} as we use the dimension of~$F$ instead of its codimension, in order for the next statement to be slightly simpler.
+Our definition of the M\"obius polynomial slightly differs from that of~\cite{Zaslavsky} as we use the dimension of~$F$ instead of its codimension, in order to simplify slightly the following statement.
 \end{remark}
 
 \begin{theorem}[{\cite[Thm.~A]{Zaslavsky}}]
@@ -690,14 +694,14 @@ The $f$-polynomial, the $b$-polynomial, and the M\"obius polynomial of the hyper
 %
 For the arrangement~$\arrangement$ of $5$ hyperplanes of \cref{fig:arrangement}, we have
 \[
-\mobPol = x^2y^2 - 5x^2y + 6x^2 + 5xy - 10x + 4 ,
+\mobPol = x^2y^2 - 5x^2y + 6x^2 + 5xy - 10x + 4 \ ,
 \]
 so that
-\begin{align*}
-\fPol & = \mobPol[\arrangement][-x][-1] = 12 \, x^2 + 15 \, x + 4 \\
-\text{and}\qquad
-\bPol & = \mobPol[\arrangement][-x][1] = 2 \, x^2 + 5 \, x + 4 .
-\end{align*}
+\[
+\fPol = \mobPol[\arrangement][-x][-1] = 12 \, x^2 + 15 \, x + 4 
+\qquad \text{and}\qquad
+\bPol = \mobPol[\arrangement][-x][1] = 2 \, x^2 + 5 \, x + 4 \ .
+\]
 \end{example}
 
 \begin{remark}
@@ -767,29 +771,29 @@ Working in~$\R^n$ would change vertices to rays, and would multiply all M\"obius
 The combinatorics of the braid arrangement~$\braidArrangement$ is well-known.
 The descriptions of its face and flat posets involve both ordered and unordered set partitions.
 To avoid confusions, we will always mark with an arrow the ordered structures (ordered set partitions, ordered partition forests, etc.).
-Hence, $\pi$ denotes an unordered set partition (the order is irrelevant, neither inside each part, nor between two distinct part), while~$\order{\pi}$ denotes an ordered set partition (the order inside each part is irrelevant, but the order between distinct parts is relevant).
+Hence, the letter $\pi$ denotes an unordered set partition (the order is irrelevant, neither inside each part, nor between two distinct parts), while~$\order{\pi}$ denotes an ordered set partition (the order inside each part is irrelevant, but the order between distinct parts is relevant).
 
 The braid arrangement~$\braidArrangement$ has a $k$-dimensional face
 \[
 \Phi(\order{\pi}) \eqdef \set{\b{x} \in \R^n}{x_s \le x_t \text{ for all $s,t$ such that the part of~$s$ is weakly before the part of~$t$ in $\order{\pi}$}}
 \]
-for each ordered set partition~$\order{\pi}$ of~$[n]$ into~$k+1$ parts (or equivalently, for each surjection from~$[n]$ to~$[k+1]$).
-The face poset~$\facePoset[\braidArrangement]$ is thus (isomorphic to) the refinement poset~$\orderedPartitionPoset$ on ordered set partitions (where an ordered partition~$\order{\pi}$ is smaller than an ordered partition~$\order{\omega}$ if each part of~$\order{\pi}$ is the union of an interval of consecutive parts in~$\order{\omega}$).
+for each ordered set partition~$\order{\pi}$ of~$[n]$ into~$k+1$ parts, or equivalently, for each surjection from~$[n]$ to~$[k+1]$.
+The face poset~$\facePoset[\braidArrangement]$ is thus isomorphic to the refinement poset~$\orderedPartitionPoset$ on ordered set partitions, where an ordered partition~$\order{\pi}$ is smaller than an ordered partition~$\order{\omega}$ if each part of~$\order{\pi}$ is the union of an interval of consecutive parts in~$\order{\omega}$.
 In particular, it has a single vertex corresponding to the ordered partition~$[n]$, $2^n-2$ rays corresponding to the proper nonempty subsets of~$[n]$ (ordered partitions of~$[n]$ into~$2$ parts), and $n!$ regions corresponding to the permutations of~$[n]$ (ordered partitions of~$[n]$ into~$n$ parts).
-For instance, \cref{fig:facePosetBraidArrangement3} illustrates the face poset of the braid arrangement~$\braidArrangement[3]$.
+As an example, \cref{fig:facePosetBraidArrangement3} illustrates the face poset of the braid arrangement~$\braidArrangement[3]$.
 
 The braid arrangement~$\braidArrangement$ has a $k$-dimensional~flat
 \[
 \Psi(\pi) \eqdef \set{\b{x} \in \R^n}{x_s = x_t \text{ for all  $s, t$ which belong to the same part of~$\pi$}}
 \]
-for each (unordered) set partition~$\pi$ of~$[n]$ into $k+1$ parts.
-The flat poset~$\flatPoset[\braidArrangement]$ is thus (isomorphic to) the refinement poset~$\partitionPoset$ on set partitions of~$[n]$ (where a partition~$\pi$ is smaller than a partition~$\omega$ if each part of~$\pi$ is contained in a part of~$\omega$).
+for each unordered set partition~$\pi$ of~$[n]$ into $k+1$ parts.
+The flat poset~$\flatPoset[\braidArrangement]$ is thus isomorphic to the refinement poset~$\partitionPoset$ on set partitions of~$[n]$, where a partition~$\pi$ is smaller than a partition~$\omega$ if each part of~$\pi$ is contained in a part of~$\omega$.
 For instance, \cref{fig:intersectionPosetBraidArrangement3,fig:intersectionPosetBraidArrangement4} illustrate the flat posets of the braid arrangements~$\braidArrangement[3]$ and~$\braidArrangement[4]$.
-(Note that the refinement in~$\orderedPartitionPoset$ and in~$\partitionPoset$ is in opposite direction.)
+Note that the refinement in~$\orderedPartitionPoset$ and in~$\partitionPoset$ are in opposite direction.
 
-The M\"obius function of~$\partitionPoset$ is given by
+The M\"obius function of the set partitions poset~$\partitionPoset$ is given by
 \[
-\mu_{\partitionPoset}(\pi, \omega) = \prod_{p \in \omega} (-1)^{\card{\pi[p]}-1}(\card{\pi[p]}-1)! ,
+\mu_{\partitionPoset}(\pi, \omega) = \prod_{p \in \omega} (-1)^{\card{\pi[p]}-1}(\card{\pi[p]}-1)! \ ,
 \]
 where~$\pi[p]$ denotes the restriction of the partition~$\pi$ to the part~$p$ of the partition~$\omega$, and $\card{\pi[p]}$ denotes its number of parts.
 See for instance~\cite{Birkhoff, Rota}.
@@ -797,7 +801,7 @@ The M\"obius polynomial of the braid arrangement~$\braidArrangement$ is given by
 \[
 \mobPol[\braidArrangement] = \sum_{k \in [n]} x^{k-1} S(n,k) \prod_{i \in [k-1]} (y-i) ,
 \]
-where~$S(n,k)$ denotes the Stirling number of second kind \OEIS{A008277}, \ie the number of set partitions of~$[n]$ into~$k$ parts.
+where~$S(n,k)$ denotes the Stirling number of the second kind \OEIS{A008277}, \ie the number of set partitions of~$[n]$ into~$k$ parts.
 For instance
 \begin{align*}
 \mobPol[{\braidArrangement[1]}] & = 1 \\
