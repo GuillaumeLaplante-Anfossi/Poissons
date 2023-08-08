@@ -190,7 +190,7 @@
 \newcommand{\divcube}[1]{\Box_{#1}}
 \newcommand{\subdivcubeofe}{C_e}
 \newcommand{\subdivcubeofouter}{C}
-\newcommand{\subdivpairsv}{\raisebox{0.065cm}{\rotatebox[origin=c]{90}{$\bowtie$}}_v}
+\newcommand{\hour}{\raisebox{0.065cm}{\rotatebox[origin=c]{90}{$\bowtie$}}_v}
 \newcommand{\maxsubdivpairsv}{M_v}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -4161,9 +4161,6 @@ We illustrate the facial weak order for $\Perm[3]$ as a refinement of the weak i
 \end{center}
 \end{example}
 
-
-
-
 \begin{lemma}\label{lem:SCPs are intervals of facial weak order}
 Let $(\sigma,\tau)$ be the SCP corresponding to the permutation $v$, then $\sigma<v<\tau$ under the facial weak order.
 \end{lemma}
@@ -4193,22 +4190,42 @@ This follows as \Kurt{Clear, but think of something concise.}
 So given this result and \cref{thm:patterns} (which shows that vertices are intervals in the weak order, and hence the facial weak order), it is suspected that all faces of the $\LA$ and $\SU$ diagonals are intervals of the facial weak order. 
 \Kurt{Do we care enough to look? Any quick ideas?}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Shift lattice structure}
 \label{sec:Shift-lattice}
 
-In this section, we show that the $1$-shifts of the operadic diagonals~$\LAD$ and $\SUD$, define a lattice structure on the set of facets.
+In this section, we show that the $1$-shifts of the operadic diagonals~$\LAD$ and $\SUD$, define the covering relations of a lattice structure on the set of facets.
 More precisely, we show that each $\SCP$ is the minimal element of a lattice isomorphic to a product of chains, where the partial order is given by shifts, or equivalently inversions.
 One initial consequence is that given the bijection between SCPs and permutations, and our prior enumeration of the facets of the diagonal, this produces two new statistics on permutations.
 In addition, later in \cref{sec:Cubical}, we will use the lattice structure to relate the cubical and shift definitions of the $\SUD$ diagonal.
 
-Prior to defining the lattice structure, we produce two useful lemmas for characterizing it.
+\begin{definition}
+\label{def:shift-lattice}
+For each permutation $v$ of $[n]$ with associated $\SCP$ $(\sigma,\tau)$, the \defn{shift lattice} $\hour^\LA$ (\resp $\hour^\SU$) is the set of facets of the $\LA$ (\resp $\SU$) diagonal partially ordered by the inclusion of their inversions sets. 
+\end{definition}
+
+Cover relations are given by singleton $1$-shifts, see \cref{subsec:inversions}.
+As such, an alternative definition is $(\sigma,\tau)\leq (\sigma',\tau')$ if there exists a sequence of path-admissible $\LA$ (\resp $\SU$) shifts turning $(\sigma,\tau)$ into $(\sigma',\tau')$.
+We now aim at proving in \cref{prop:shift lattice}, that these posets are indeed lattices.
+
+\begin{lemma}
+\label{lem:m-shifts commute}
+The $m$-shift operators defining the facets of an operadic diagonal commute. 
+That is, whenever the successive composition of two $m_1$, $m_2$-shifts is defined on a facet of the $\LA$ or $\SU$ diagonal, the reverse order of composition is also defined, and the two yield the same facet. 
+\end{lemma}
+\begin{proof}
+A $\SUD$ (\resp $\LAD$) $m$-shift is defined when $\rho$ is greater (\resp smaller) than the maximal (\resp minimal) element of the connecting path.
+Combining \cref{cor:SU-1-shift-preserves-max} and \cref{prop:iso-1-to-m-shift}, we know $m$-shifts conserve the maximal (minimal) elements of paths and their directions.
+As such, we can commute any two shift operators.
+\end{proof}
 
 \begin{definition}
 Let $v$ be a permutation of $[n]$, and $(\sigma,\tau)$ the SCP corresponding to $v$.
 For $\rho \in [n]$, we define the $\LA$ \defn{left height} and \defn{right height} of $\rho$ to be 
 \begin{align*}
-    \ell_v(\rho) \eqdef \max (\{0\}\cup \{m>0: L_{\rho}(\sigma) \text{ is a path admissible $\LA$ $m$-shift} \})\\
-    r_v(\rho) \eqdef \max (\{0\}\cup \{m>0: R_{\rho}(\tau) \text{ is a path admissible $\LA$ $m$-shift} \})
+	\ell_v(\rho) \eqdef \max (\{0\}\cup \{m>0: L_{\rho}(\sigma) \text{ is a path admissible $\LA$ $m$-shift} \})\\
+	r_v(\rho) \eqdef \max (\{0\}\cup \{m>0: R_{\rho}(\tau) \text{ is a path admissible $\LA$ $m$-shift} \})
 \end{align*}
 The left and right heights for the $\SU$ diagonal are defined similarly. 
 \end{definition}
@@ -4217,7 +4234,7 @@ The height of an element $\rho$ in a $\SCP$ can be explicitly calculated as foll
 
 \begin{lemma}
 \label{prop:maximal m-shift formulae}
-Let $(\sigma,\tau)$ be the SCP corresponding to $v$.
+Let $(\sigma,\tau)$ be the $\SCP$ corresponding to $v$.
 Then, the right $\LA$ height $r_v(\rho)$ (\resp the left $\LA$ height $\ell_v(\rho)$) of $\rho \in [n]$ is given by the number of consecutive blocks of $\sigma$ (\resp of~$\tau$) to the right (\resp left) of the one containing $\rho$ whose minima are larger than $\rho$.
 The $\SU$ heights are obtained similarly by considering blocks whose maxima are smaller than $\rho$. 
 \end{lemma}
@@ -4234,36 +4251,13 @@ The height calculations can also be reformulated directly in terms of the permut
 For instance, for the $\SU$ diagonal $r_v(\rho)$ is the number of consecutive descending runs, to the right of the descending run containing $\rho$, whose maximal element is smaller than $\rho$.
 \end{remark}
 
-\begin{lemma}
-\label{lem:m-shifts commute}
-The $m$-shift operators defining the facets of an operadic diagonal ($\LA$ or $\SU$) commute. 
-That is, whenever the successive composition of two (right or left) $m_1$, $m_2$-shifts is defined on a facet of the $\LA$ or $\SU$ diagonal, the reverse order of composition is also defined, and the two yield the same facet. 
-\end{lemma}
-\begin{proof}
-A $\SUD$ (\resp $\LAD$) $m$-shift is defined when $\rho$ is greater (\resp smaller) than the maximal (\resp minimal) element of the connecting path.
-Combining \cref{cor:SU-1-shift-preserves-max} and \cref{prop:iso-1-to-m-shift}, we know $m$-shifts conserve the maximal (minimal) elements of paths and their directions.
-As such, we can commute any two shift operators.
-\end{proof}
-
-We now define our lattices.
-
-\begin{definition}
-\label{def:shift-lattice}
-For each permutation $v$ of $[n]$, let $T_v^\LA$ (\resp $T_v^\SU$) be the set of ordered \mbox{$(2,n)$-parti}\-tion trees, resulting from applying all $\LA$ ($\SU$) shifts to the SCP $(\sigma,\tau)$.
-We define the \defn{shift lattices}, also denoted $T_v^\LA$ ($T_v^\SU$), to be these sets partially ordered by the inclusion of their inversions sets. 
-\end{definition}
-
-The partial order can also be defined in terms of crossings, given inversions are in bijection with crossings (\cref{subsec:inversions}).
-Alternatively, it can be directly defined by shifts, \ie $(\sigma,\tau)\leq (\sigma',\tau')$ if there exists a sequence of admissible path shifts that turns $(\sigma,\tau)$ into $(\sigma',\tau')$.
-The following proof makes both these interpretations clear.
-
 \begin{proposition} 
 \label{prop:shift lattice}
-The shift lattices are indeed lattices, and are isomorphic to products of chains.
+The shift lattices are indeed lattices, and are isomorphic to the products of chains
 \begin{align*}
-T_v^\LA \cong \prod_{\rho \in [n]} [0,\ell_v(\rho)] \times \prod_{\rho \in [n]} [0,r_v(\rho)]
+\hour^\LA \cong \prod_{\rho \in [n]} [0,\ell_v(\rho)] \times \prod_{\rho \in [n]} [0,r_v(\rho)]
 \quad \text{ and } \quad
-T_v^\SU \cong \prod_{\rho \in [n]} [0,r_v(\rho)] \times \prod_{\rho \in [n]} [0,\ell_v(\rho)] .
+\hour^\SU \cong \prod_{\rho \in [n]} [0,r_v(\rho)] \times \prod_{\rho \in [n]} [0,\ell_v(\rho)] \ ,
 \end{align*}
 where $[0,k]$ is the chain lattice $0<1<\dots<k$, for $k\geq 0$.
 \end{proposition}
@@ -4276,7 +4270,7 @@ Thus, we identify each element with the pair of tuples $(\ell_1,\ldots,\ell_n)\t
 As shifts strictly increase the number of crossings, and inverse shifts strictly decrease the number of crossings (\cref{lem:IJ-closed-under-shifts}), this identification is an isomorphism of lattices.
 \end{proof}
 
-Note that the maximal element of $T_v$ (for either diagonal) is given by shifting each element of $(\sigma,\tau)$ by its maximal shift.
+Note that the maximal element of $\hour$ (for either diagonal) is given by shifting each element of $(\sigma,\tau)$ by its maximal shift.
 The joins and meets of any two elements are also thus given by isomorphism to the product of chains.
 For instance, in the case of meets,
 {\small
@@ -4287,16 +4281,16 @@ For instance, in the case of meets,
 The Hasse diagram of the lattice corresponds to singleton $1$-shifts, and we can step backwards in the diagram by applying their inverse (\cref{rem:inverses}).
 For a clear example of the Hasse diagram, we direct the reader back to \cref{ex:shift translation by theta}.
 
-Given that in \cite{dermenjian2018facial} it was shown that the facial weak order is a lattice, it is natural to wonder if the identified lattice structure arises as a sub-lattice of the facial weak order.
+Given that in \cite{dermenjian2018facial} it was shown that the facial weak order is a lattice, it is natural to wonder if the shift lattices arise as sub-lattices of the facial weak order.
 
 \begin{proposition}
-The shift lattices are not sub-lattices of the facial weak order.
+The shift lattices are not sub-lattices of the product of the facial weak order with itself.
 \end{proposition}
 
 \begin{proof}
-We provide a counter example for the $\LA$ diagonal that illustrates the identified lattice structure is not compatible with the facial weak order.
+We provide a counter example for the $\LA$ diagonal that illustrates the shift lattice is not compatible with the facial weak order.
 Similar counter examples can be produced for the $\SU$ diagonal.
-Consider the sequence of path admissible $\LA$ right $1$-shifts.
+Consider the sequence of path-admissible $\LA$ right $1$-shifts
 \begin{center}
 \begin{tikzpicture}[scale=.6]  
 \node[anchor=east] (1) at (-1.5, -1) {$1$};
@@ -4338,17 +4332,17 @@ Consider the sequence of path admissible $\LA$ right $1$-shifts.
 \draw[thick] (2.east) -- (5.west);
 \draw[thick] (3.east) -- (4.west);
 \draw[thick] (3.east) -- (5.west);
-\end{tikzpicture}
+\end{tikzpicture} \ .
 \end{center}
 The final right shift does not respect the facial weak order as $14|23$ and $4|123$ are incomparable.
 \end{proof}
 We note that as the weak inversion order respects shifts (e.g. $14|23 < 4|123$), it is the additional information in the refinement of the facial weak order, over the weak inversion order (\cref{sec:facial-weak-order}), that is breaking the lattice structure.
 
 \begin{remark}
-As a consequence of \cref{prop:shift lattice}, the facets of the operadic diagonal are a disjoint union of lattices.
-However, any lattice $L$ on permutations (such as the weak order), will induce a lattice on the facets.
-For every $v \in L$, we can substitute the lattice $T_v^\LA$ (or $T_v^\SU$) into the permutation $v$.
-In particular, every element which was covered by $v$ is now covered by the minimal element of $T_v^\LA$, and every element which was covering $v$ now covers the maximal element of $T_v^\LA$.
+As a consequence of \cref{prop:shift lattice}, the facets of the operadic diagonals are disjoint unions of lattices.
+However, any lattice $L$ on permutations (such as the weak order)induces a lattice on the facets as follows.
+For every $v \in L$, we can substitute the lattice $\hour^\LA$ (or $\hour^\SU$) into the permutation $v$.
+In particular, every element which was covered by $v$ is now covered by the minimal element of $\hour^\LA$, and every element which was covering $v$ now covers the maximal element of $\hour^\LA$.
 \end{remark}
 
 Given our previously obtained formulae for the number of elements in the diagonal (\cref{subsec:enumerationDiagonalPermutahedra}), and the results of this section, we obtain the following statistics on permutations.
@@ -4500,14 +4494,14 @@ We now define our maximal pairing of subdivision cubes.
 \begin{definition} 
 \label{def:hourglass}
 Let $F$ be a face of $\Perm$, and let $v$ be a vertex of $F$. 
-The \defn{hourglass} of $F$ at $v$ is the set $\subdivpairsv(F)$ of all pairs $(C^v,C_v)$ of $(k_1,k_2)$-subdivision cubes of $F$ such that
+The \defn{hourglass} of $F$ at $v$ is the set $\hour(F)$ of all pairs $(C^v,C_v)$ of $(k_1,k_2)$-subdivision cubes of $F$ such that
 \begin{enumerate}
 	\item $C^v$ has maximal vertex $v$,
 	\item $C_v$ has minimal vertex $v$, and
 	\item $k_1+k_2 = \dim F$.
 \end{enumerate}
-If $F$ is the maximal face of $\Perm$, then we denote the hourglass of $F$ simply by $\subdivpairsv$.
-The \defn{maximal pair} of the hourglass $\maxsubdivpairsv(F)$ (\resp $\maxsubdivpairsv$) is the unique maximal pair of $\subdivpairsv(F)$ (\resp $\subdivpairsv$) with respect to inclusion.
+If $F$ is the maximal face of $\Perm$, then we denote the hourglass of $F$ simply by $\hour$.
+The \defn{maximal pair} of the hourglass $\maxsubdivpairsv(F)$ (\resp $\maxsubdivpairsv$) is the unique maximal pair of $\hour(F)$ (\resp $\hour$) with respect to inclusion.
 \end{definition}
 
 We note that the uniqueness of the maximal pair is a corollary of \cref{lem:Unique maximal subdivcubes}.
@@ -4530,7 +4524,7 @@ For $v = \blue{\mathbf{4|3|1|2}}$, the only $1$-subdivision cube with minimal ve
 \begin{align*}
 \{134|2\}, \quad \{13|24, 134|2\}, \quad \{ 1|234, 13|24, 14|23, 134|2\}.
 \end{align*}
-This defines the hourglass $\subdivpairsv$, whose maximal pair of subdivision cubes is $\maxsubdivpairsv=\{ 1|234, 13|24, 14|23, 134|2\} \times \{4|3|12\}$.
+This defines the hourglass $\hour$, whose maximal pair of subdivision cubes is $\maxsubdivpairsv=\{ 1|234, 13|24, 14|23, 134|2\} \times \{4|3|12\}$.
 Let us observe that the $\SCP$ corresponding to $v$ is $(\sigma,\tau) = (\blue{\mathbf{134|2}},\blue{\mathbf{4|3|12}} )$.
 The ordered partition $\sigma$ admits three distinct rights shifts, $\red{\mathbf{13|24}}$, $\red{\mathbf{14|23}}$, $\red{\mathbf{1|234}}$, and $\tau$ admits no left shifts.
 In the next section, we will show that $\maxsubdivpairsv$ is generated by all shifts of the $\SCP$ corresponding to $v$.
@@ -4550,7 +4544,7 @@ In the next section, we will show that $\maxsubdivpairsv$ is generated by all sh
 	\end{tikzcd}
 	}
 	\end{center}
-	\caption{The hourglass~$\subdivpairsv(F)$ of $F = \Perm[4]$ at~$v = \blue{\mathbf{4|3|1|2}}$.}
+	\caption{The hourglass~$\hour(F)$ of $F = \Perm[4]$ at~$v = \blue{\mathbf{4|3|1|2}}$.}
 	\label{fig:hourglass1}
 \end{figure}
 %
@@ -4565,18 +4559,18 @@ Our first observation relating subdivision cubes to shifts is the following.
 \begin{proposition}
 \label{prop:ev properties}
 Let $v$ be a vertex of $\Perm$.
-The set of pairs of subdivision cubes in the hourglass $\subdivpairsv$ of $v$ satisfies the following properties
+The set of pairs of subdivision cubes in the hourglass $\hour$ of $v$ satisfies the following properties
 \begin{enumerate}
-	\item The $\SCP$ $(\sigma,\tau)$ corresponding to $v$ is in $\subdivpairsv$,
-	\item All pairs in $\subdivpairsv$ have the same pair of dimensions $(k_1,k_2)$,
-	\item For all pairs $(C^v,C_v) \in \subdivpairsv$, the unique maximal $k_1$-face of $C^v$ is $\sigma$, and the unique minimal $k_2$-face of $C_v$ is $\tau$.
+	\item The $\SCP$ $(\sigma,\tau)$ corresponding to $v$ is in $\hour$,
+	\item All pairs in $\hour$ have the same pair of dimensions $(k_1,k_2)$,
+	\item For all pairs $(C^v,C_v) \in \hour$, the unique maximal $k_1$-face of $C^v$ is $\sigma$, and the unique minimal $k_2$-face of $C_v$ is $\tau$.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
 Strong complementary partitions correspond to those pairs of faces $(F,G)$ of the permutahedron such that the maximal vertex of $F$ is the minimal vertex of $G$ (\cref{def:strong-complementary-pairs}).
 That is to say, $(\sigma,\tau)$ is the unique pair of faces of the permutahedron that meet at vertex $v$.
-Consequently, not only must $(1)$ be true, but every pair of subdivision cubes $(C^v,C_v) \in \subdivpairsv$ must have $\sigma$ as its maximal $k_1$-face, and $\tau$ as its minimal $k_2$-face, giving $(2)$ and $(3)$.
+Consequently, not only must $(1)$ be true, but every pair of subdivision cubes $(C^v,C_v) \in \hour$ must have $\sigma$ as its maximal $k_1$-face, and $\tau$ as its minimal $k_2$-face, giving $(2)$ and $(3)$.
 \end{proof}
 
 \begin{lemma}
@@ -4688,7 +4682,7 @@ We have indicated in bold the embedding ${\divcube{n-1}^{\LA}\hookrightarrow \di
 	\label{fig:cubicPermutahedron2}
 \end{figure}
 
-The appropriate base definitions for the $\LA$ diagonal of $k$-subdivision cubes (\ref{def:Subdivisions}), hourglasses of subdivision cubes ${\subdivpairsv}$ (\ref{def:hourglass}), and maximal pairs of subdivision cubes $\maxsubdivpairsv$ are all the same as in the $\SU$ case.
+The appropriate base definitions for the $\LA$ diagonal of $k$-subdivision cubes (\ref{def:Subdivisions}), hourglasses of subdivision cubes ${\hour}$ (\ref{def:hourglass}), and maximal pairs of subdivision cubes $\maxsubdivpairsv$ are all the same as in the $\SU$ case.
 We relate these definitions to those in the $\SU$ case with the following result.
 
 \begin{proposition}
