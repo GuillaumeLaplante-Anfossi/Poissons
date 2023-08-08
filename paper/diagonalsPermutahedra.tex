@@ -3434,13 +3434,13 @@ In the other way around, given a $\SCP$, one can read-off the partition in the a
 \end{proof}
 
 \begin{example}
-	For $(\sigma,\tau) = 13|24|57|6 \times 3|17|456|2$, the right ordered $(2,n)$-tree from \cref{ex:1-shift example},
-	\begin{itemize}
-	\item $\sigma$ has inversions $I_\sigma = \{(1,3),(2,3),(2,4),(5,6),(5,7),(6,7)\}$, and
-	\item $\tau$ has inversions $I_\tau = \{(1,3), (2,3), (2,4), (2,5), (2,6), (2,7), (4,7), (5,7), (6,7)\}$.
-	\end{itemize}
-	Consequently, $(\sigma,\tau)$ has inversions $I = I_\tau \ssm I_\sigma = \{(2,5), (2,6), (2,7), (4,7)\}$, and these are precisely the crossings of the ordered $(2,n)$-partition tree.
-	\end{example}
+For $(\sigma,\tau) = 13|24|57|6 \times 3|17|456|2$, the right ordered $(2,n)$-tree from \cref{ex:1-shift example},
+\begin{itemize}
+\item $\sigma$ has inversions $I_{\leq}(\sigma) = \{(1,3),(2,3),(2,4),(5,6),(5,7),(6,7)\}$, and
+\item $\tau$ has inversions $I_{<}(\tau) = \{(1,3), (2,3), (2,4), (2,5), (2,6), (2,7), (4,7), (5,7), (6,7)\}$.
+\end{itemize}
+Consequently, $(\sigma,\tau)$ has inversions $I = I_{<}(\tau) \ssm I_{\leq}(\sigma) = \{(2,5), (2,6), (2,7), (4,7)\}$, and these are precisely the crossings of the ordered $(2,n)$-tree.
+\end{example}
 
 \begin{definition}
 We say that an edge crossing is an \defn{adjacent crossing} if the two crossing elements are in adjacent blocks of the partition tree (\ie they in blocks of the form $\sigma_i|\sigma_{i+1}$ or $\tau_i|\tau_{i+1}$).
@@ -3875,7 +3875,7 @@ We now explore in example how the isomorphism $t(r\times r)$ translates the shif
 
 \begin{example} 
 	\label{ex:shift translation by theta}
-The isomorphism $t(r\times r)$ sends the $\SCP$ $(\sigma,\tau)  \eqdef  (5|17|4|236,57|146|3|2)$ to the $\SCP$ $(\sigma',\tau')  \eqdef  (13|247|5|6,3|17|4|156)$. 
+The isomorphism $t(r\times r)$ sends the $\SCP$ $(\sigma,\tau)  \eqdef  (5|17|4|236,57|146|3|2)$ to the $\SCP$ $(\sigma',\tau')  \eqdef  (13|247|5|6,3|17|4|256)$. 
 The corresponding $(2,n)$-partition trees present a clear symmetry
 \begin{center}
 \begin{tikzpicture}[scale=.7]  
