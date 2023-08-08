@@ -3666,7 +3666,7 @@ By the definition of the geometric $\SU$ diagonal, the fact that $\tau_l < \tau_
 \label{ex:proof-inverse-shift}
 Here are examples of each of the cases in the proof of \cref{lem:inverse-to-SCP}. 
 We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading the diagrams from top-left to bottom-right. 
-
+\Guillaume{Can we align and space these drawings a bit better?}
 \begin{center}
 \begin{tikzpicture}[scale=.6,xscale=0.8]  
 \node[anchor=east] (1) at (-1.5, -1) {$1$};
@@ -3833,18 +3833,18 @@ Which provides an analogue of \cref{def:classical-SU} for the $\LA$ diagonal.
 
 \begin{definition}
 \label{def:classical-LA}
-The facets of the shift $\LA$ diagonals are defined by the formula
+The facets of the \defn{subset shift, $1$-shift and $m$-shift $\LA$ diagonals} are given by the formula
 \begin{align*}
 \LAD([n]) = \bigcup_{(\sigma,\tau)} \bigcup_{\mathbf{M}, \mathbf{N}} L_\mathbf{M}(\sigma)\times R_\mathbf{N}(\tau)
 \end{align*}
-where the unions are taken over all $\SCP$s $(\sigma, \tau)$ of $[n]$, and over all block-admissible sequences of subset $1$-shifts $\b{M},\b{N}$ (\resp over all path-admissible sequences of singleton $m_j$-shifts, for various $m_j \ge 1$).
+where the unions are taken over all $\SCP$s $(\sigma, \tau)$ of $[n]$, and respecitvely over all block-admissible sequences of subset $1$-shifts $\b{M},\b{N}$, over all path-admissible sequences of singleton $1$-shifts, and over all path-admissible sequences of singleton $m_j$-shifts, for various $m_j \ge 1$.
 \end{definition}
 
 We now formally verify that the isomorphism $t(r\times r)$ relates these shift definitions as claimed.
 
 \begin{proposition} 
 \label{prop:trr is an isomorphism of shifts}
-Let $(\sigma,\tau) \in \LAD$.
+Let $(\sigma,\tau)$ be a facet of $\LAD$.
 For each type of $\LA$ shift, let $\b{M},\b{N}$ be admissible sequences of this type, then 
 \begin{align*}
 t(r,r)(L_\mathbf{N}(\sigma), R_\mathbf{M}(\tau)) = (R_{r\mathbf{M}}(r\tau), L_{r\mathbf{N}}(r\sigma))
@@ -3868,7 +3868,7 @@ The geometric $\LA$ diagonal and all shift $\LA$ diagonals coincide.
 
 \begin{remark}
 The isomorphism $rs\times rs:\LAD \to \SUD$, identified in \cref{thm:bijection-operadic-diagonals}, also sends shifts operators to shift operators, but it sends left shift operators to right shift operators and vice versa.
-The $\LA^{op}$ and $\SU^{op}$ diagonals also admit obvious dual shift descriptions.
+The $\LA^{\op}$ and $\SU^{\op}$ diagonals also admit obvious dual shift descriptions.
 \end{remark}
 
 We now explore in example how the isomorphism $t(r\times r)$ translates the shift operators.
@@ -3922,7 +3922,7 @@ The corresponding $(2,n)$-partition trees present a clear symmetry
 \end{center}
 We now illustrate all possible path admissible $\LA$ $1$-shifts of $(\sigma,\tau)$ and all possible path admissible $\SU$ $1$-shifts of $(\sigma',\tau')$. 
 We first display how the $\LA$ left shifts act on $\sigma$, and the $\SU$ left shifts act on $\tau'$.
-The $LA$ shifts have been drawn so that the leftmost arrow shifts the smallest element, and the $SU$ shifts have been drawn so that the leftmost arrow shifts the largest element.
+The $\LA$ shifts have been drawn so that the leftmost arrow shifts the smallest element, and the $\SU$ shifts have been drawn so that the leftmost arrow shifts the largest element.
 As such, the face poset isomorphism $t(r\times r)$ directly translates one diagram to the other.
 The specific element being shifted can be inferred by the source and target of the arrow.
 \begin{center}
@@ -3937,6 +3937,7 @@ The specific element being shifted can be inferred by the source and target of t
 5|17|234|6  \arrow[dl]\\
 &15|7|234|6 
 \end{tikzcd}
+\qquad
 \begin{tikzcd}
 & 3|17|4|256 \arrow[ld] \arrow[d] \arrow[rd]\\
 37|1|4|256 \arrow[rd] \arrow[d]&
@@ -3949,19 +3950,19 @@ The specific element being shifted can be inferred by the source and target of t
 \end{tikzcd}
 }
 \end{center}
-We now illustrate all the possible $\LAD$ right shifts acting on $\tau$
+We now illustrate all the possible $\LA$ right shifts acting on $\tau$
 \begin{center}
 \begin{tikzcd}
 \sigma \times 57|146|3|2 \arrow[r,"\rho=1"] & \sigma \times 57|46|13|2 \arrow[r,"\rho=1"] & \sigma \times 57|46|3|12
 \end{tikzcd}
 \end{center}
-and all possible $\SUD$ right shifts acting on $\sigma'$
+and all possible $\SU$ right shifts acting on $\sigma'$
 \begin{center}
 \begin{tikzcd}
 13|247|5|6 \times \tau' \arrow[r,"\rho=7"] & 13|24|57|6 \arrow[r,"\rho=7"] \times \tau' & 13|24|5|67 \times \tau' .
 \end{tikzcd}
 \end{center}
-No other shifts are possible; observe for instance that we cannot perform the $\LAD$ left shift $15|7|234|6 \times 57|46|13|2 \xrightarrow{\rho=2} 15|27|34|6 \times 57|46|13|2$ as the minimal path connecting $234$ and $7$ contains $1$, which is smaller than $2$ (see \cref{ex:ECbijection}).
+No other shifts are possible; observe for instance that we cannot perform the $\LA$ left shift $15|7|234|6 \times 57|46|13|2 \xrightarrow{\rho=2} 15|27|34|6 \times 57|46|13|2$ as the minimal path connecting $234$ and $7$ contains $1$, which is smaller than $2$ (see \cref{ex:ECbijection}).
 We shall see in \cref{sec:Shift-lattice}, that these diagrams are the Hasse diagrams of lattices.
 \end{example}
 
@@ -3981,7 +3982,7 @@ In particular, the two center faces of the subdivided hexagon of \cref{fig:LUSAd
 \draw[thick] (2.east) -- (5.west);
 \end{tikzpicture}
 \quad
-\raisebox{1.3em}{$\xrightarrow{R^{SU}_{3}}$}
+\raisebox{1.3em}{$\xrightarrow{R^{\SU}_{3}}$}
 \quad
 \begin{tikzpicture}[scale=.6,xscale=0.6]  
 \node[anchor=east] (1) at (-1.5, -1) {$1$};
@@ -4007,7 +4008,7 @@ In particular, the two center faces of the subdivided hexagon of \cref{fig:LUSAd
 \draw[thick] (1.east) -- (5.west);
 \end{tikzpicture}
 \quad
-\raisebox{1.3em}{$\xrightarrow{L^{SU}_{3}}$}
+\raisebox{1.3em}{$\xrightarrow{L^{\SU}_{3}}$}
 \quad
 \begin{tikzpicture}[scale=.6,xscale=0.6]  
 \node[anchor=east] (1) at (-1.5, -1) {$12$};
@@ -4035,7 +4036,7 @@ and
 \draw[thick] (2.east) -- (5.west);
 \end{tikzpicture}
 \quad
-\raisebox{1.3em}{$\xrightarrow{R^{LA}_{1}}$}
+\raisebox{1.3em}{$\xrightarrow{R^{\LA}_{1}}$}
 \quad
 \begin{tikzpicture}[scale=.6,xscale=0.6]  
 \node[anchor=east] (1) at (-1.5, -1) {$1$};
@@ -4061,7 +4062,7 @@ and
 \draw[thick] (2.east) -- (5.west);
 \end{tikzpicture}
 \quad
-\raisebox{1.3em}{$\xrightarrow{L^{LA}_{1}}$}
+\raisebox{1.3em}{$\xrightarrow{L^{\LA}_{1}}$}
 \quad
 \begin{tikzpicture}[scale=.6,xscale=0.6]  
 \node[anchor=east] (1) at (-1.5, -1) {$12$};
@@ -4080,17 +4081,19 @@ where we have aligned each element, of each diagonal, vertically with its dual e
 
 %%%%%%%%%%%%%%%
 
-\subsection{The Weak Facial Order}\label{sec:Weah Facial Order}
+\subsection{The facial weak order}
+\label{sec:facial-weak-order}
 
-The weak facial order of the the permutahedra, introduced in \cite{palacios2004weak}, generalizes the weak order on permutations to all ordered partitions.
-In this section we recall a definition of the weak facial order, and characterize facets of both the $\LA$ and $\SU$ diagonal as intervals in this order.
+The facial weak order is a lattice strucure on the faces of the permutahedra, which generalizes the weak order on permutations to all ordered partitions.
+It was introduced in \cite{palacios2004weak}.
+In this section we recall a definition of the facial weak order, and characterize facets of both the $\LA$ and $\SU$ diagonal as intervals in this order.
 
 \begin{definition}[Lemma 22 of \cite{palacios2004weak}]
-Let $\sigma = \sigma_1|...|\sigma_k$ denote an ordered partition.
-Then the weak facial order lattice of the permutahedra is the transitive closure of the following relations,
+Let $\sigma = \sigma_1|\cdots|\sigma_k$ denote an ordered partition.
+The facial weak order lattice of the permutahedra is the transitive closure of the following relations,
 \begin{align}
-    \max \sigma_i < \min \sigma_{i+1} &\implies \sigma < \sigma_1|...|\sigma_i \sqcup \sigma_{i+1}|...|\sigma_k  \label{eq:Weak Facial 1}\\
-    \min \sigma_i > \max \sigma_{i+1} &\implies \sigma > \sigma_1|...|\sigma_i \sqcup \sigma_{i+1}|...|\sigma_k \label{eq:Weak Facial 2}
+    \max \sigma_i < \min \sigma_{i+1} &\implies \sigma < \sigma_1|\cdots|\sigma_i \sqcup \sigma_{i+1}|\cdots|\sigma_k  \label{eq:Weak Facial 1}\\
+    \min \sigma_i > \max \sigma_{i+1} &\implies \sigma > \sigma_1|\cdots|\sigma_i \sqcup \sigma_{i+1}|\cdots|\sigma_k \label{eq:Weak Facial 2}
 \end{align}
 \end{definition}
 
@@ -4100,16 +4103,16 @@ We say $\sigma<\tau$ if $I_{\leq}(\sigma)<I_{\leq}(\tau)$.
 \end{definition}
 
 \begin{proposition}
-The weak facial order is a refinement\Kurt{check correct term} of the inversion order.
+The facial weak order is a refinement\Kurt{check correct term} of the inversion order.
 \end{proposition}
 \begin{proof}
-This is clear as the inversion table used by the weak facial order (Example 3.6 of \cite{dermenjian2018facial}) is a refinement of our notion of an inversion.
+This is clear as the inversion table used by the facial weak order (Example 3.6 of \cite{dermenjian2018facial}) is a refinement of our notion of an inversion.
 In particular, their notion of an inversion distinguishes when two elements are in the same block.
 \end{proof}
 
 
 \begin{example}
-We illustrate the weak facial order for $\Perm[3]$ as a refinement of the weak inversion order, grouping elements with the same weak inversion sets.
+We illustrate the facial weak order for $\Perm[3]$ as a refinement of the weak inversion order, grouping elements with the same weak inversion sets.
 \begin{center}
 \begin{tikzpicture}
 \node (1) at (-1.5, -1) {$3|12$};
@@ -4161,8 +4164,8 @@ We illustrate the weak facial order for $\Perm[3]$ as a refinement of the weak i
 
 
 
-\begin{lemma}\label{lem:SCPs are intervals of weak facial order}
-Let $(\sigma,\tau)$ be the SCP corresponding to the permutation $v$, then $\sigma<v<\tau$ under the weak facial order.
+\begin{lemma}\label{lem:SCPs are intervals of facial weak order}
+Let $(\sigma,\tau)$ be the SCP corresponding to the permutation $v$, then $\sigma<v<\tau$ under the facial weak order.
 \end{lemma}
 \begin{proof}
 Firstly $\sigma<v$, as repeated applications of \cref{eq:Weak Facial 2} shows that a block of elements is smaller than those same elements arranged in decreasing order.
@@ -4172,22 +4175,22 @@ To ground this in \cref{ex:shift translation by theta}, $13|247|5|6 < 3|1|7|4|2|
 
 More generally,
 \begin{proposition}
-Facets $(\sigma,\tau)$ of the $\LA$ and $\SU$ diagonal correspond to intervals $[\sigma,\tau]$ of the weak facial order.
+Facets $(\sigma,\tau)$ of the $\LA$ and $\SU$ diagonal correspond to intervals $[\sigma,\tau]$ of the facial weak order.
 \end{proposition}
 \begin{proof}\
 We proceed by induction.
 Let $(\sigma,\tau) \in \SUD$ be a facet generated by shifts of the SCP corresponding to the permutation $v$, and suppose that $\sigma < v < \tau$.
-Given \cref{lem:SCPs are intervals of weak facial order}, we have a base case for induction.
+Given \cref{lem:SCPs are intervals of facial weak order}, we have a base case for induction.
 We then prove that if $R_\rho \tau$ is an admissible right shift of $\rho$, then $\sigma < v < R_\rho \tau$.
 As the analogous results for left shifts and $\LA$ shifts proceed similarly, this yields the result.
 
 Let $v'$ be the permutation resulting from writing out the blocks of $R_\rho \tau$ in increasing order, then $v<v'<R_\rho \tau$.
 The second equality follows as in the prior proof.
-To prove the first equality, we show that $I_<(v)\subset I_<(v')$ (as the the weak facial order on permutations is the weak order).
+To prove the first equality, we show that $I_<(v)\subset I_<(v')$ (as the the facial weak order on permutations is the weak order).
 This follows as \Kurt{Clear, but think of something concise.}
 \end{proof}
 
-So given this result and \cref{thm:patterns} (which shows that vertices are intervals in the weak order, and hence the weak facial order), it is suspected that all faces of the $\LA$ and $\SU$ diagonals are intervals of the weak facial order. 
+So given this result and \cref{thm:patterns} (which shows that vertices are intervals in the weak order, and hence the facial weak order), it is suspected that all faces of the $\LA$ and $\SU$ diagonals are intervals of the facial weak order. 
 \Kurt{Do we care enough to look? Any quick ideas?}
 
 \subsection{Shift lattice structure}
@@ -4284,14 +4287,14 @@ For instance, in the case of meets,
 The Hasse diagram of the lattice corresponds to singleton $1$-shifts, and we can step backwards in the diagram by applying their inverse (\cref{rem:inverses}).
 For a clear example of the Hasse diagram, we direct the reader back to \cref{ex:shift translation by theta}.
 
-Given that in \cite{dermenjian2018facial} it was shown that the weak facial order is a lattice, it is natural to wonder if the identified lattice structure arises as a sub-lattice of the weak facial order.
+Given that in \cite{dermenjian2018facial} it was shown that the facial weak order is a lattice, it is natural to wonder if the identified lattice structure arises as a sub-lattice of the facial weak order.
 
 \begin{proposition}
-The shift lattices are not sub-lattices of the weak facial order.
+The shift lattices are not sub-lattices of the facial weak order.
 \end{proposition}
 
 \begin{proof}
-We provide a counter example for the $\LA$ diagonal that illustrates the identified lattice structure is not compatible with the weak facial order.
+We provide a counter example for the $\LA$ diagonal that illustrates the identified lattice structure is not compatible with the facial weak order.
 Similar counter examples can be produced for the $\SU$ diagonal.
 Consider the sequence of path admissible $\LA$ right $1$-shifts.
 \begin{center}
@@ -4337,9 +4340,9 @@ Consider the sequence of path admissible $\LA$ right $1$-shifts.
 \draw[thick] (3.east) -- (5.west);
 \end{tikzpicture}
 \end{center}
-The final right shift does not respect the weak facial order as $14|23$ and $4|123$ are incomparable.
+The final right shift does not respect the facial weak order as $14|23$ and $4|123$ are incomparable.
 \end{proof}
-We note that as the weak inversion order respects shifts (e.g. $14|23 < 4|123$), it is the additional information in the refinement of the weak facial order, over the weak inversion order (\cref{sec:Weah Facial Order}), that is breaking the lattice structure.
+We note that as the weak inversion order respects shifts (e.g. $14|23 < 4|123$), it is the additional information in the refinement of the facial weak order, over the weak inversion order (\cref{sec:facial-weak-order}), that is breaking the lattice structure.
 
 \begin{remark}
 As a consequence of \cref{prop:shift lattice}, the facets of the operadic diagonal are a disjoint union of lattices.
@@ -4611,7 +4614,7 @@ Applying this lemma to pairs of maximal subdivision cubes yields the following e
 
 \begin{corollary}[{\cite[Form.~(1)~\&~(3)]{SaneblidzeUmble-comparingDiagonals}}]
 \label{prop:SU-cubical}
-For $v$ be a vertex of $\Perm$ with associated $\SCP$ $(\sigma,\tau)$, we have
+For $v$ a vertex of $\Perm$ with associated $\SCP$ $(\sigma,\tau)$, we have
 \begin{align*}
 \maxsubdivpairsv = \bigcup_{\mathbf{M},\mathbf{N}} R_\mathbf{M}(\sigma) \times L_{\mathbf{N}}(\tau)
 \end{align*}
