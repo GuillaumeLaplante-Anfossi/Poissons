@@ -4097,6 +4097,8 @@ The facial weak order lattice of the permutahedra is the transitive closure of t
 \end{align}
 \end{definition}
 
+Recall from \cref{subsec:inversions} the poset structure on the faces of the permutahedra given by inclusion sets of weak inversions. 
+
 \begin{definition}
 We define a partial order on the set of ordered partitions through weak inversions.
 We say $\sigma<\tau$ if $I_{\leq}(\sigma)<I_{\leq}(\tau)$. 
@@ -4197,7 +4199,7 @@ So given this result and \cref{thm:patterns} (which shows that vertices are inte
 
 In this section, we show that the $1$-shifts of the operadic diagonals~$\LAD$ and $\SUD$, define the covering relations of a lattice structure on the set of facets.
 More precisely, we show that each $\SCP$ is the minimal element of a lattice isomorphic to a product of chains, where the partial order is given by shifts, or equivalently inversions.
-One initial consequence is that given the bijection between SCPs and permutations, and our prior enumeration of the facets of the diagonal, this produces two new statistics on permutations.
+Given the bijection between $\SCP$s and permutations, and our prior enumeration of the facets of the diagonal, this produces two new statistics on permutations.
 In addition, later in \cref{sec:Cubical}, we will use the lattice structure to relate the cubical and shift definitions of the $\SUD$ diagonal.
 
 \begin{definition}
@@ -4224,8 +4226,8 @@ As such, we can commute any two shift operators.
 Let $v$ be a permutation of $[n]$, and $(\sigma,\tau)$ the SCP corresponding to $v$.
 For $\rho \in [n]$, we define the $\LA$ \defn{left height} and \defn{right height} of $\rho$ to be 
 \begin{align*}
-	\ell_v(\rho) \eqdef \max (\{0\}\cup \{m>0: L_{\rho}(\sigma) \text{ is a path admissible $\LA$ $m$-shift} \})\\
-	r_v(\rho) \eqdef \max (\{0\}\cup \{m>0: R_{\rho}(\tau) \text{ is a path admissible $\LA$ $m$-shift} \})
+	\ell_v(\rho) \eqdef \max (\{0\}\cup \{m>0: L_{\rho}(\sigma) \text{ is a path admissible $\LA$ $m$-shift} \}) \ , \\
+	r_v(\rho) \eqdef \max (\{0\}\cup \{m>0: R_{\rho}(\tau) \text{ is a path admissible $\LA$ $m$-shift} \}) \ .
 \end{align*}
 The left and right heights for the $\SU$ diagonal are defined similarly. 
 \end{definition}
@@ -4234,15 +4236,15 @@ The height of an element $\rho$ in a $\SCP$ can be explicitly calculated as foll
 
 \begin{lemma}
 \label{prop:maximal m-shift formulae}
-Let $(\sigma,\tau)$ be the $\SCP$ corresponding to $v$.
+Let $(\sigma,\tau)$ be the $\SCP$ corresponding to a permutation $v$.
 Then, the right $\LA$ height $r_v(\rho)$ (\resp the left $\LA$ height $\ell_v(\rho)$) of $\rho \in [n]$ is given by the number of consecutive blocks of $\sigma$ (\resp of~$\tau$) to the right (\resp left) of the one containing $\rho$ whose minima are larger than $\rho$.
 The $\SU$ heights are obtained similarly by considering blocks whose maxima are smaller than $\rho$. 
 \end{lemma}
 
 \begin{proof}
 We consider the right $\SU$ height, the other cases are similar. 
-As $\sigma$ is a part of a $\SCP$, we have $\max \sigma_{k,k+1} = \max \sigma_{k+1}$ for all $k\geq 1$. 
-Moreover, from the equivalence between $1$-shifts and $m$-shifts (\cref{prop:iso-1-to-m-shift}), there exists a $m$-shift of $\rho$ from $\sigma_i$ if and only if there exists a sequence of $m$ consecutive $1$-shifts, each satisfying $\rho > \max \sigma_{j,j+1}=\max \sigma_{j+1}$.
+As $(\sigma,\tau)$ is a $\SCP$, we have $\max \sigma_{k,k+1} = \max \sigma_{k+1}$ for all $k\geq 1$. 
+Moreover, from the equivalence between $1$-shifts and $m$-shifts (\cref{prop:iso-1-to-m-shift}), there exists a $m$-shift of $\rho$ from $\sigma_i$ to $\sigma_{i+m}$ if and only if there exists a sequence of $m$ consecutive $1$-shifts, each satisfying $\rho > \max \sigma_{j,j+1}=\max \sigma_{j+1}$.
 Thus, these iterated $1$-shifts will be path-admissible until the first failure at $j=r_v(\rho)+1$.
 \end{proof}
 
@@ -4263,11 +4265,11 @@ where $[0,k]$ is the chain lattice $0<1<\dots<k$, for $k\geq 0$.
 \end{proposition}
 
 \begin{proof}
-We define $L_\rho^m$ (\resp $R_\rho^m$) to be a left (right) $m$-shift of $\rho$ for $m>0$, and the identity for~$m=0$.
-By the commutativity of $m$-shift operators (\cref{lem:m-shifts commute}), and the existence of unique heights for each element (\cref{prop:maximal m-shift formulae}), every element of $T_v^\LA$ admits a unique shift description $(L^{\ell_n}_{n} \dots L^{\ell_1}_{1}\sigma,
-R^{r_n}_{n}\cdots R^{r_{1}}_{1}\tau)$, where $0\leq \ell_\rho\leq \ell_v(\rho)$ and $0\leq r_\rho\leq r_v(\rho)$.
-Thus, we identify each element with the pair of tuples $(\ell_1,\ldots,\ell_n)\times (r_1,\ldots,r_n)$.
-As shifts strictly increase the number of crossings, and inverse shifts strictly decrease the number of crossings (\cref{lem:IJ-closed-under-shifts}), this identification is an isomorphism of lattices.
+We denote by $L_\rho^m$ (\resp $R_\rho^m$) a left (right) $m$-shift of $\rho$ for $m>0$, and we let it be the identity if~$m=0$.
+By the commutativity of $m$-shift operators (\cref{lem:m-shifts commute}), and the existence of unique heights for each element (\cref{prop:maximal m-shift formulae}), every element of $\hour^\LA$ admits a unique shift description $(L^{\ell_n}_{n} \dots L^{\ell_1}_{1}(\sigma),
+R^{r_n}_{n}\cdots R^{r_{1}}_{1}(\tau))$, where $0\leq \ell_\rho\leq \ell_v(\rho)$ and $0\leq r_\rho\leq r_v(\rho)$.
+Thus, we identify it with the pair of tuples $(\ell_1,\ldots,\ell_n)\times (r_1,\ldots,r_n)$.
+As shifts strictly increase the number of inversions, and inverse shifts strictly decrease them (\cref{lem:IJ-closed-under-shifts}), this identification is an isomorphism of lattices.
 \end{proof}
 
 Note that the maximal element of $\hour$ (for either diagonal) is given by shifting each element of $(\sigma,\tau)$ by its maximal shift.
