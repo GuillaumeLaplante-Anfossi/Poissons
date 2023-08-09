@@ -3650,7 +3650,7 @@ Here are examples of each of the cases in the proof of \cref{lem:inverse-to-SCP}
 We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading the diagrams from top-left to bottom-right. 
 \Guillaume{Can we align and space these drawings a bit better?}
 \begin{center}
-\begin{tikzpicture}[scale=.6,xscale=0.8]  
+\begin{tikzpicture}[xscale=.6,yscale=0.9]  
 \node[anchor=east] (1) at (-1.5, -1) {$1$};
 \node[anchor=east] (2) at (-1.5, -2) {$23$};
 %
@@ -3661,10 +3661,8 @@ We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading
 \draw[thick] (2.east) -- (5.west);
 \draw[thick] (2.east) -- (4.west);
 \end{tikzpicture}
-\quad
 \raisebox{1.3em}{$\xrightarrow{R^{-1}_{3}}$}
-\quad
-\begin{tikzpicture}[scale=.6,xscale=0.8]  
+\begin{tikzpicture}[xscale=.6,yscale=0.9]  
 \node[anchor=east] (1) at (-1.5, -1) {$13$};
 \node[anchor=east] (2) at (-1.5, -2) {$2$};
 %
@@ -3676,7 +3674,7 @@ We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading
 \draw[thick] (2.east) -- (5.west);
 \end{tikzpicture}
 ,
-\begin{tikzpicture}[scale=.6,xscale=0.8] 
+\begin{tikzpicture}[xscale=.6,yscale=0.9] 
 \node[anchor=east] (1) at (-1.5, -1) {$1$};
 \node[anchor=east] (2) at (-1.5, -2) {$2$};
 \node[anchor=east] (3) at (-1.5, -3) {$34$};
@@ -3689,10 +3687,8 @@ We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading
 \draw[thick] (3.east) -- (4.west);
 \draw[thick] (3.east) -- (5.west);
 \end{tikzpicture}
-\quad
 \raisebox{2.15em}{$\xrightarrow{R^{-1}_{4}}$}
-\quad
-\begin{tikzpicture}[scale=.6,xscale=0.8]  
+\begin{tikzpicture}[xscale=.6,yscale=0.9]   
 \node[anchor=east] (1) at (-1.5, -1) {$1$};
 \node[anchor=east] (2) at (-1.5, -2) {$24$};
 \node[anchor=east] (3) at (-1.5, -3) {$3$};
@@ -3707,7 +3703,7 @@ We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading
 \end{tikzpicture}
 \end{center}
 \begin{center}
-\begin{tikzpicture}[scale=.6,xscale=0.8]    
+\begin{tikzpicture}[xscale=.6,yscale=0.9]     
 \node[anchor=east] (1) at (-1.5, -1) {$13$};
 \node[anchor=east] (2) at (-1.5, -2) {$2$};
 \node[anchor=east] (3) at (-1.5, -3) {$4$};
@@ -3720,10 +3716,8 @@ We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading
 \draw[thick] (2.east) -- (5.west); 
 \draw[thick] (3.east) -- (4.west);
 \end{tikzpicture}
-\quad
 \raisebox{2.15em}{$\xrightarrow{L^{-1}_{4}}$}
-\quad
-\begin{tikzpicture}[scale=.6,xscale=0.8]    
+\begin{tikzpicture}[xscale=.6,yscale=0.9]     
 \node[anchor=east] (1) at (-1.5, -1) {$13$};
 \node[anchor=east] (2) at (-1.5, -2) {$2$};
 \node[anchor=east] (3) at (-1.5, -3) {$4$};
@@ -3737,7 +3731,7 @@ We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading
 \draw[thick] (3.east) -- (5.west);
 \end{tikzpicture}
 ,
-\begin{tikzpicture}[scale=.6,xscale=0.8]   
+\begin{tikzpicture}[xscale=.6,yscale=0.9]    
 \node[anchor=east] (1) at (-1.5, -1) {$12$};
 \node[anchor=east] (2) at (-1.5, -2) {$3$};
 \node[anchor=east] (3) at (-1.5, -3) {$4$};
@@ -3750,10 +3744,8 @@ We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading
 \draw[thick] (2.east) -- (4.west);
 \draw[thick] (3.east) -- (5.west);
 \end{tikzpicture}
-\quad
 \raisebox{2.15em}{$\xrightarrow{L^{-1}_{3}}$}
-\quad
-\begin{tikzpicture}[scale=.6,xscale=0.8]    
+\begin{tikzpicture}[xscale=.6,yscale=0.9]     
 \node[anchor=east] (1) at (-1.5, -1) {$12$};
 \node[anchor=east] (2) at (-1.5, -2) {$3$};
 \node[anchor=east] (3) at (-1.5, -3) {$4$};
@@ -4156,7 +4148,7 @@ This is not the case, as the following example illustrates
 \begin{example}\label{ex: Inversion and lattice counter example}
 \Kurt{TODO: Lattice and illustration of inversion sets.}
 \begin{center}
-\begin{tikzpicture}[scale=.6]  
+\begin{tikzpicture}[xscale=.6,yscale=0.9]   
 \node[anchor=east] (1) at (-1.5, -1) {$1$};
 \node[anchor=east] (2) at (-1.5, -2) {$2$};
 \node[anchor=east] (3) at (-1.5, -3) {$34$};
@@ -4170,7 +4162,7 @@ This is not the case, as the following example illustrates
 \draw[thick] (3.east) -- (5.west);
 \end{tikzpicture}
 \raisebox{2.15em}{$\xrightarrow{R_{2}}$}
-\begin{tikzpicture}[scale=.6]  
+\begin{tikzpicture}[xscale=.6,yscale=0.9]   
 \node[anchor=east] (1) at (-1.5, -1) {$1$};
 \node[anchor=east] (2) at (-1.5, -2) {$2$};
 \node[anchor=east] (3) at (-1.5, -3) {$34$};
@@ -4184,7 +4176,7 @@ This is not the case, as the following example illustrates
 \draw[thick] (3.east) -- (5.west);
 \end{tikzpicture}
 \raisebox{2.15em}{$\xrightarrow{R_{1}}$}
-\begin{tikzpicture}[scale=.6]  
+\begin{tikzpicture}[xscale=.6,yscale=0.9]   
 \node[anchor=east] (1) at (-1.5, -1) {$1$};
 \node[anchor=east] (2) at (-1.5, -2) {$2$};
 \node[anchor=east] (3) at (-1.5, -3) {$34$};
