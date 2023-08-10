@@ -3022,6 +3022,84 @@ This inductive process fully generates $\sigma$, and places all elements of $\ta
 However, as $j_k$ must be dominated by an element of $I$, this forces $w = i_1$ and $w'' =\varnothing$, completing the proof.
 \end{proof}
 
+\subsection{Relation to the facial weak order}
+\label{sec:facial-weak-order}
+
+The facial weak order is a lattice structure on the faces of the permutahedra, which generalizes the weak order on permutations to all ordered partitions.
+It was introduced in \cite{palacios2004weak}, and shown to be a lattice in \cite{dermenjian2018facial}.
+In this section, we recall a definition of the facial weak order, and use the vertex characterization of the preceding section to show all faces of the  $\LA$ and $\SU$ diagonal are intervals of this order.
+
+\begin{definition}[Lemma 22 of \cite{palacios2004weak}]
+Let $\sigma = \sigma_1|\cdots|\sigma_k$ denote an ordered partition.
+The facial weak order lattice of the permutahedra is the transitive closure of the following relations,
+\begin{align}
+    \max \sigma_i < \min \sigma_{i+1} &\implies \sigma < \sigma_1|\cdots|\sigma_i \sqcup \sigma_{i+1}|\cdots|\sigma_k  \label{eq:facial weak 1}\\
+    \min \sigma_i > \max \sigma_{i+1} &\implies \sigma > \sigma_1|\cdots|\sigma_i \sqcup \sigma_{i+1}|\cdots|\sigma_k \label{eq:facial weak 2}
+\end{align}
+\end{definition}
+The facial weak order recovers the weak order on permutations as illustrated in \cref{fig:Hasse diagram Perm3}.
+\begin{figure}
+\begin{tikzpicture}
+\node (1) at (-1.5, -1) {$3|12$};
+\node (2) at (-2.5, -2) {$3|1|2$};
+\node (3) at (-2.5, -3) {$13|2$};
+\node (4) at (-2.5, -4) {$1|3|2$};
+\node (5) at (-1.5, -5) {$1|23$};
+%
+\node (6) at (1.5, -1) {$23|1$};
+\node (7) at (2.5, -2) {$2|3|1$};
+\node (8) at (2.5, -3) {$2|13$};
+\node (9) at (2.5, -4) {$2|1|3$};
+\node (10) at (1.5, -5) {$12|3$};
+%
+\node (11) at (0, 0) {$3|2|1$};
+\node (12) at (0, -3) {$123$};
+\node (13) at (0, -6) {$1|2|3$};
+%
+\draw[thick] (1) -- (2); 
+\draw[thick] (2) -- (3); 
+\draw[thick] (3) -- (4); 
+\draw[thick] (4) -- (5);
+%
+\draw[thick] (6) -- (7); 
+\draw[thick] (7) -- (8); 
+\draw[thick] (8) -- (9); 
+\draw[thick] (9) -- (10);
+%
+\draw[thick] (1) -- (11);
+\draw[thick] (6) -- (11);
+%
+\draw[thick] (1) -- (12);
+\draw[thick] (5) -- (12);
+\draw[thick] (6) -- (12);
+\draw[thick] (10) -- (12);
+%
+\draw[thick] (5) -- (13);
+\draw[thick] (10) -- (13);
+\end{tikzpicture}
+\caption{The Hasse diagram of the facial weak order for $\Perm[3]$.}
+\label{fig:Hasse diagram Perm3}
+\end{figure}
+
+\begin{proposition}
+If $(\sigma,\tau)\in \LAD$, or $(\sigma,\tau)\in \SUD$, then $\sigma \leq \tau$ under the facial weak order.
+\end{proposition}
+\begin{proof}
+By \cref{prop:magicalFormula}, the faces $(\sigma,\tau)$ satisfy $\max_{\mathbf{v}} \sigma \leq \min_{\mathbf{v}} \tau$ under the weak order.
+Thus, if we can show that $\sigma\leq \max_{\mathbf{v}} \sigma$ and $\min_{\mathbf{v}} \tau \leq \tau$ under the facial weak order, then the result immediately follows.
+If $\sigma$ is a face of the permutahedra, then under both the $\LA$, and $\SU$ orientation vectors, the vertex $\max_{\mathbf{v}} \sigma$ is given by writing out each block of $\sigma$ in decreasing order, and the vertex $\min_{\mathbf{v}} \sigma$ is given by writing out each  block of $\sigma$ in increasing order.
+Then under the facial weak order
+$\sigma \leq \max_{\mathbf{v}} \sigma$, as repeated applications of \cref{eq:facial weak 2} shows that a block of elements is smaller than those same elements arranged in decreasing order.
+Similarly $\min_{\mathbf{v}} \sigma \leq \sigma$, as repeated applications of \cref{eq:facial weak 1} shows that a sequence of increasing elements is smaller than those same elements in a block. 
+\end{proof}
+
+\begin{example}
+The facet $13|24|57|6 \times 3|17|456|2 \in \SUD$, satisfies the inequality through the vertices
+\begin{align*}
+    13|24|57|6 <  3|1|4|2|7|5|6 <  3|1|7|4|5|6|2 <  3|17|456|2 \ .
+\end{align*}
+\end{example}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
@@ -4308,97 +4386,6 @@ n \binom{n-1}{k_1} (n-k_1)^{k_1-1} (n-k_2)^{k_2-1} = \sum_{v \in \mathbb{S}_n^{k
 \begin{proof}
 This follows directly from \cref{coro:enumerationDiagonalPermutahedra}, with the observation that shifts conserve the number of blocks, and hence the dimensions of the faces.
 \end{proof}
-
-%%%%%%%%%%%%%%%
-
-
-
-\subsection{Relation to the facial weak order}
-\label{sec:facial-weak-order}
-
-The facial weak order is a lattice structure on the faces of the permutahedra, which generalizes the weak order on permutations to all ordered partitions.
-It was introduced in \cite{palacios2004weak}, and shown to be a lattice in \cite{dermenjian2018facial}.
-In this section we recall a definition of the facial weak order, and characterize facets of both the $\LA$ and $\SU$ diagonal as intervals in this order.
-
-\begin{definition}[Lemma 22 of \cite{palacios2004weak}]
-Let $\sigma = \sigma_1|\cdots|\sigma_k$ denote an ordered partition.
-The facial weak order lattice of the permutahedra is the transitive closure of the following relations,
-\begin{align}
-    \max \sigma_i < \min \sigma_{i+1} &\implies \sigma < \sigma_1|\cdots|\sigma_i \sqcup \sigma_{i+1}|\cdots|\sigma_k  \label{eq:facial weak 1}\\
-    \min \sigma_i > \max \sigma_{i+1} &\implies \sigma > \sigma_1|\cdots|\sigma_i \sqcup \sigma_{i+1}|\cdots|\sigma_k \label{eq:facial weak 2}
-\end{align}
-\end{definition}
-The weak facial order recovers the weak order on permutations as illustrated in \cref{fig:Hasse diagram Perm3}.
-\begin{figure}
-\begin{tikzpicture}
-\node (1) at (-1.5, -1) {$3|12$};
-\node (2) at (-2.5, -2) {$3|1|2$};
-\node (3) at (-2.5, -3) {$13|2$};
-\node (4) at (-2.5, -4) {$1|3|2$};
-\node (5) at (-1.5, -5) {$1|23$};
-%
-\node (6) at (1.5, -1) {$23|1$};
-\node (7) at (2.5, -2) {$2|3|1$};
-\node (8) at (2.5, -3) {$2|13$};
-\node (9) at (2.5, -4) {$2|1|3$};
-\node (10) at (1.5, -5) {$12|3$};
-%
-\node (11) at (0, 0) {$3|2|1$};
-\node (12) at (0, -3) {$123$};
-\node (13) at (0, -6) {$1|2|3$};
-%
-\draw[thick] (1) -- (2); 
-\draw[thick] (2) -- (3); 
-\draw[thick] (3) -- (4); 
-\draw[thick] (4) -- (5);
-%
-\draw[thick] (6) -- (7); 
-\draw[thick] (7) -- (8); 
-\draw[thick] (8) -- (9); 
-\draw[thick] (9) -- (10);
-%
-\draw[thick] (1) -- (11);
-\draw[thick] (6) -- (11);
-%
-\draw[thick] (1) -- (12);
-\draw[thick] (5) -- (12);
-\draw[thick] (6) -- (12);
-\draw[thick] (10) -- (12);
-%
-\draw[thick] (5) -- (13);
-\draw[thick] (10) -- (13);
-\end{tikzpicture}
-\caption{The Hasse diagram of the facial weak order for $\Perm[3]$.}
-\label{fig:Hasse diagram Perm3}
-\end{figure}
-
-\begin{proposition}
-Let $(\sigma,\tau)\in \hour^\LA$ or $(\sigma,\tau)\in \hour^\SU$,
-then $\sigma \leq v \leq \tau$ under the facial weak order.
-\end{proposition}
-\begin{proof}
-Let $\sigma$ be a face of the permutahedra, and let $\sigma^*$ (\resp $\sigma_*)$ denote the unique maximal (minimal) vertex of $\sigma$, under the weak order.
-This vertex is constructed by writing out each block of $\sigma$ in decreasing (increasing) order.
-It is clear that under the facial weak order
-$\sigma<\sigma^*$, as repeated applications of \cref{eq:facial weak 2} shows that a block of elements is smaller than those same elements arranged in decreasing order.
-Similarly $\sigma_*<\sigma$, as repeated applications of \cref{eq:facial weak 1} shows that a sequence of increasing elements is smaller than those same elements in a block. 
-Then it is clear from the construction of $\hour^{\LA}$ (and $\hour^{\SU}$) (in \cref{sec:Cubical}) that for $(\sigma,\tau)\in \hour^{\LA}$ (or $\in \hour^{\SU}$), $\sigma \leq \sigma^* \leq v \leq \tau_* \leq \tau$, as every vertex in the left (right) maximal subdivision cube is smaller (greater) than $v$ under the weak order.
-\end{proof}
-
-\begin{example}
-In the context of \cref{ex:subdivision cubes}, $1|234\times 4|3|12 \in \hour^{\SU}$, for $v=4|3|1|2$, and 
-\begin{align*}
-    1|234 \leq  1|4|3|2 \leq  4|3|1|2 \leq  4|3|1|2 \leq  4|3|12 \ .
-\end{align*}
-\end{example}
-
-\begin{corollary}
-Facets of the $\LA$ and $\SU$ diagonal correspond to intervals of the facial weak order.
-\end{corollary}
-
-So given this result and \cref{thm:patterns} (which shows that vertices are intervals in the weak order, and hence the facial weak order), it is suspected that all faces of the $\LA$ and $\SU$ diagonals are intervals of the facial weak order. 
-\Kurt{Do we care enough to look? Any quick ideas?}
-
 
 %%%%%%%%%%%%%%%
 
