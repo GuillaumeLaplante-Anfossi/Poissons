@@ -3405,7 +3405,7 @@ This proves that $R_{M'_{j}}$ is block-admissible, completing the inductive proo
 Our next goal is to prove the equivalence between the $m$-shift and geometric $\SU$ diagonals (\cref{prop:iso-shift-IJ-diagonals}).
 As a tool for this proof, we now study \emph{inversions}, or crossings in the partition trees of the geometric $\SU$ diagonal.
 
-\begin{definition}
+\begin{definition}\label{def:inverions}
 Let $\sigma$ be an ordered partition.
 \begin{itemize}
     \item The \defn{inversions} of an ordered partition are $I(\sigma):= \{(i,j): i<j \land \sigma^{-1}(j)<\sigma^{-1}(i) \}$.
@@ -3430,7 +3430,7 @@ By definition (\cref{def:strong-complementary-pairs}), from a partition one obta
 In the other way around, given a $\SCP$, one can read-off the partition in the associated tree, which has no crossings, by a vertical down-slice of edges (\cref{ex:strong-complementary}).
 \end{proof}
 
-See \cref{ex: Inversion and lattice counter example} for an illustration of this bijection.
+See \cref{fig: Inversion and lattice counter example} for an example of this bijection.
 
 \begin{definition}
 We say that an edge crossing is an \defn{adjacent crossing} if the two crossing elements are in adjacent blocks of the partition tree (\ie they in blocks of the form $\sigma_i|\sigma_{i+1}$ or $\tau_i|\tau_{i+1}$).
@@ -4140,57 +4140,147 @@ For instance, in the case of meets,
 	(\ell_1,\ldots,\ell_n,r_1,\ldots,r_n)\land (l'_1,\ldots,l'_n,r'_1,\ldots,r'_n) &= (\min\{\ell_1,1'_1\},\ldots,\min\{\ell_n,l'_n\},\min\{r_1,r'_1\},\ldots,\min\{r_n,r'_n\})
 \end{align*}
 }
-The Hasse diagram of the lattice corresponds to singleton $1$-shifts, and we can step backwards in the diagram by applying their inverse (\cref{rem:inverses}).
-For a clear example of the Hasse diagram, we direct the reader back to \cref{ex:shift translation by theta}.
+The cover relations of the lattice corresponds to singleton $1$-shifts, and for a clear examples of the Hasse diagram, we direct the reader to \cref{ex:shift translation by theta}, and \cref{fig: Inversion and lattice counter example}.
+We note that \cref{fig: Inversion and lattice counter example} also illustrates that there is no general relation between the shift lattice structure and inversions sets.
+In particular, the shift lattices are not sub-lattices of the facial weak order (discussed in \cref{sec:facial-weak-order}), as $24|13$ and $234|1$ are incomparable.
 
-It is natural to wonder if the lattice structure admits an alternate characterisation in terms of inversion sets.
-This is not the case, as the following example illustrates
-\begin{example}\label{ex: Inversion and lattice counter example}
-\Kurt{TODO: Lattice and illustration of inversion sets.}
-\begin{center}
-\begin{tikzpicture}[xscale=.6,yscale=0.9]   
-\node[anchor=east] (1) at (-1.5, -1) {$1$};
-\node[anchor=east] (2) at (-1.5, -2) {$2$};
-\node[anchor=east] (3) at (-1.5, -3) {$34$};
+\begin{figure}
+{\footnotesize
+\begin{tikzcd}[column sep=tiny]
+&
+\begin{tikzpicture}[xscale=.4,yscale=0.7]   
+\node[anchor=east] (1) at (-1.5, -1) {$12$};
+\node[anchor=east] (2) at (-1.5, -2) {$3$};
+\node[anchor=east] (3) at (-1.5, -3) {$4$};
 %
-\node[anchor=west](4) at (1.5, -1) {$124$};
-\node[anchor=west](5) at (1.5, -2) {$3$};
+\node[anchor=west](4) at (1.5, -1) {$234$};
+\node[anchor=west](5) at (1.5, -2) {$1$};
 %
-\draw[thick] (1.east) -- (4.west); 
+\draw[thick] (1.east) -- (4.west);
+\draw[thick] (1.east) -- (5.west);
 \draw[thick] (2.east) -- (4.west);
 \draw[thick] (3.east) -- (4.west);
+\end{tikzpicture}
+\begin{tikzpicture}[xscale=.4,yscale=0.7] 
+\node[anchor=east, circle, draw=black, thick] (1) at (-1, -1) {$1$};
+\node[anchor=east, circle, draw=black, thick] (2) at (-1, -3) {$2$};
+\node[anchor=west, circle, draw=black, thick] (3) at (1, -1) {$3$};
+\node[anchor=west, circle, draw=black, thick]  (4) at (1, -3) {$4$};
+%
+\draw[thick, green] (1) -- (3);
+\draw[thick, green] (1) -- (4); 
+\draw[thick, green] (2) -- (3); 
+\draw[thick, green] (2) -- (4); 
+\draw[thick, green] (3) -- (4); 
+%
+\draw[ultra thick, blue, dotted] (1) -- (2);
+\draw[ultra thick, blue, dotted] (1) -- (3);
+\draw[ultra thick, blue, dotted] (1) -- (4);
+\end{tikzpicture}
+\\
+\begin{tikzpicture}[xscale=.4,yscale=0.7]   
+\node[anchor=east] (1) at (-1.5, -1) {$12$};
+\node[anchor=east] (2) at (-1.5, -2) {$3$};
+\node[anchor=east] (3) at (-1.5, -3) {$4$};
+%
+\node[anchor=west](4) at (1.5, -1) {$23$};
+\node[anchor=west](5) at (1.5, -2) {$14$};
+%
+\draw[thick] (1.east) -- (4.west);
+\draw[thick] (1.east) -- (5.west);
+\draw[thick] (2.east) -- (4.west);
 \draw[thick] (3.east) -- (5.west);
 \end{tikzpicture}
-\raisebox{2.15em}{$\xrightarrow{R_{2}}$}
-\begin{tikzpicture}[xscale=.6,yscale=0.9]   
-\node[anchor=east] (1) at (-1.5, -1) {$1$};
-\node[anchor=east] (2) at (-1.5, -2) {$2$};
-\node[anchor=east] (3) at (-1.5, -3) {$34$};
+\begin{tikzpicture}[xscale=.4,yscale=0.7] 
+\node[anchor=east, circle, draw=black, thick] (1) at (-1, -1) {$1$};
+\node[anchor=east, circle, draw=black, thick] (2) at (-1, -3) {$2$};
+\node[anchor=west, circle, draw=black, thick] (3) at (1, -1) {$3$};
+\node[anchor=west, circle, draw=black, thick]  (4) at (1, -3) {$4$};
 %
-\node[anchor=west](4) at (1.5, -1) {$14$};
-\node[anchor=west](5) at (1.5, -2) {$23$};
+\draw[thick, green] (1) -- (3);
+\draw[thick, green] (1) -- (4); 
+\draw[thick, green] (2) -- (3); 
+\draw[thick, green] (2) -- (4); 
+\draw[thick, green] (3) -- (4); 
 %
-\draw[thick] (1.east) -- (4.west); 
+\draw[ultra thick, blue, dotted] (1) -- (2);
+\draw[ultra thick, blue, dotted] (1) -- (3);
+\end{tikzpicture} 
+\arrow[ur]
+&
+&
+\begin{tikzpicture}[xscale=.4,yscale=0.7]  
+\node[anchor=east] (1) at (-1.5, -1) {$12$};
+\node[anchor=east] (2) at (-1.5, -2) {$3$};
+\node[anchor=east] (3) at (-1.5, -3) {$4$};
+%
+\node[anchor=west](4) at (1.5, -1) {$24$};
+\node[anchor=west](5) at (1.5, -2) {$13$};
+%
+\draw[thick] (1.east) -- (4.west);
+\draw[thick] (1.east) -- (5.west);
 \draw[thick] (2.east) -- (5.west);
 \draw[thick] (3.east) -- (4.west);
+\end{tikzpicture}
+\begin{tikzpicture}[xscale=.4,yscale=0.7] 
+\node[anchor=east, circle, draw=black, thick] (1) at (-1, -1) {$1$};
+\node[anchor=east, circle, draw=black, thick] (2) at (-1, -3) {$2$};
+\node[anchor=west, circle, draw=black, thick] (3) at (1, -1) {$3$};
+\node[anchor=west, circle, draw=black, thick]  (4) at (1, -3) {$4$};
+%
+\draw[thick, green] (1) -- (3);
+\draw[thick, green] (1) -- (4); 
+\draw[thick, green] (2) -- (3); 
+\draw[thick, green] (2) -- (4); 
+\draw[thick, green] (3) -- (4); 
+%
+\draw[ultra thick, blue, dotted] (1) -- (2);
+\draw[ultra thick, blue, dotted] (1) -- (4);
+\draw[ultra thick, blue, dotted] (3) -- (4);
+\end{tikzpicture} 
+\arrow[ul]
+\\
+&
+\begin{tikzpicture}[xscale=.4,yscale=0.7]  
+\node[anchor=east] (1) at (-1.5, -1) {$12$};
+\node[anchor=east] (2) at (-1.5, -2) {$3$};
+\node[anchor=east] (3) at (-1.5, -3) {$4$};
+%
+\node[anchor=west](4) at (1.5, -1) {$2$};
+\node[anchor=west](5) at (1.5, -2) {$134$};
+%
+\draw[thick] (1.east) -- (4.west);
+\draw[thick] (1.east) -- (5.west);
+\draw[thick] (2.east) -- (5.west);
 \draw[thick] (3.east) -- (5.west);
 \end{tikzpicture}
-\raisebox{2.15em}{$\xrightarrow{R_{1}}$}
-\begin{tikzpicture}[xscale=.6,yscale=0.9]   
-\node[anchor=east] (1) at (-1.5, -1) {$1$};
-\node[anchor=east] (2) at (-1.5, -2) {$2$};
-\node[anchor=east] (3) at (-1.5, -3) {$34$};
+\begin{tikzpicture}[xscale=.4,yscale=0.7] 
+\node[anchor=east, circle, draw=black, thick] (1) at (-1, -1) {$1$};
+\node[anchor=east, circle, draw=black, thick] (2) at (-1, -3) {$2$};
+\node[anchor=west, circle, draw=black, thick] (3) at (1, -1) {$3$};
+\node[anchor=west, circle, draw=black, thick]  (4) at (1, -3) {$4$};
 %
-\node[anchor=west](4) at (1.5, -1) {$4$};
-\node[anchor=west](5) at (1.5, -2) {$123$};
+\draw[thick, green] (1) -- (3);
+\draw[thick, green] (1) -- (4); 
+\draw[thick, green] (2) -- (3); 
+\draw[thick, green] (2) -- (4); 
+\draw[thick, green] (3) -- (4); 
 %
-\draw[thick] (1.east) -- (5.west); 
-\draw[thick] (2.east) -- (5.west);
-\draw[thick] (3.east) -- (4.west);
-\draw[thick] (3.east) -- (5.west);
-\end{tikzpicture} \ .
-\end{center}
+\draw[ultra thick, blue, dotted] (1) -- (2);
+\end{tikzpicture} 
+\arrow[ur]
+\arrow[ul]
+\end{tikzcd}
+}
+\caption{The shift lattice $\hour^\SU$ for $v=4|3|1|2$.
+Each facet is drawn next to a graph encoding its inversions (\cref{def:inverions}).
+If $(i,j) \in J(\sigma)$, then a green edge connects $(i,j)$, and if $(i,j) \in I(\tau)$, then a blue dotted edge connects $(i,j)$.
+Consequently, $I((\sigma,\tau))$ is encoded by the presence of both edges, and also the crossings, by \cref{p:crossings}.
+}
+\label{fig: Inversion and lattice counter example}
+\end{figure}
 
+\begin{example}
 This example illustrates that the shift lattices is not directly related to inclusions of inversions sets.
 For instance, it can be shown that the right shift of $1$ from $14|23$ to $4|123$, does not respect the facial weak order (discussed in \cref{sec:facial-weak-order}), as these ordered partitions are incomparable.
 \end{example}
@@ -4238,11 +4328,8 @@ The facial weak order lattice of the permutahedra is the transitive closure of t
     \min \sigma_i > \max \sigma_{i+1} &\implies \sigma > \sigma_1|\cdots|\sigma_i \sqcup \sigma_{i+1}|\cdots|\sigma_k \label{eq:facial weak 2}
 \end{align}
 \end{definition}
-We stress that the weak facial order recovers the weak order on permutations as should be apparent in the following example.
-
-\begin{example}
-We illustrate the Hasse diagram of the facial weak order for $\Perm[3]$.
-\begin{center}
+The weak facial order recovers the weak order on permutations as illustrated in \cref{fig:Hasse diagram Perm3}.
+\begin{figure}
 \begin{tikzpicture}
 \node (1) at (-1.5, -1) {$3|12$};
 \node (2) at (-2.5, -2) {$3|1|2$};
@@ -4281,15 +4368,16 @@ We illustrate the Hasse diagram of the facial weak order for $\Perm[3]$.
 \draw[thick] (5) -- (13);
 \draw[thick] (10) -- (13);
 \end{tikzpicture}
-\end{center}
-\end{example}
+\caption{The Hasse diagram of the facial weak order for $\Perm[3]$.}
+\label{fig:Hasse diagram Perm3}
+\end{figure}
 
 \begin{proposition}
 Let $(\sigma,\tau)\in \hour^\LA$ or $(\sigma,\tau)\in \hour^\SU$,
 then $\sigma \leq v \leq \tau$ under the facial weak order.
 \end{proposition}
 \begin{proof}
-Let $\sigma$ be a face of the permutahedra, and let $\sigma^*$ (\resp $\sigma_*)$ denote the unique maximal (minimal) vertex of a face of the permutahedra, under the weak order.
+Let $\sigma$ be a face of the permutahedra, and let $\sigma^*$ (\resp $\sigma_*)$ denote the unique maximal (minimal) vertex of $\sigma$, under the weak order.
 This vertex is constructed by writing out each block of $\sigma$ in decreasing (increasing) order.
 It is clear that under the facial weak order
 $\sigma<\sigma^*$, as repeated applications of \cref{eq:facial weak 2} shows that a block of elements is smaller than those same elements arranged in decreasing order.
@@ -4298,7 +4386,7 @@ Then it is clear from the construction of $\hour^{\LA}$ (and $\hour^{\SU}$) (in 
 \end{proof}
 
 \begin{example}
-In the context of \cref{ex:subdivision cubes}, $1|234\times 4|3|12 \in \hour$, for $v=4|3|1|2$, and 
+In the context of \cref{ex:subdivision cubes}, $1|234\times 4|3|12 \in \hour^{\SU}$, for $v=4|3|1|2$, and 
 \begin{align*}
     1|234 \leq  1|4|3|2 \leq  4|3|1|2 \leq  4|3|1|2 \leq  4|3|12 \ .
 \end{align*}
