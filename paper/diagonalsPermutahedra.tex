@@ -4345,9 +4345,9 @@ In particular, the shift lattices are not sub-lattices of the facial weak order 
 \draw[thick, green] (3) -- (4); 
 %
 \draw[ultra thick, blue, dotted] (1) -- (2);
-\end{tikzpicture} 
-\arrow[ur]
-\arrow[ul]
+\end{tikzpicture}
+\arrow[ul, to path= (\tikztostart.210) -- (\tikztotarget.south)]
+\arrow[ur, to path= (\tikztostart.330) -- (\tikztotarget.south)]
 \end{tikzcd}
 }
 \caption{The shift lattice $\hour^\SU$ for $v=4|3|1|2$.
@@ -4358,14 +4358,9 @@ Consequently, $I((\sigma,\tau))$ is encoded by the presence of both edges, and a
 \label{fig: Inversion and lattice counter example}
 \end{figure}
 
-\begin{example}
-This example illustrates that the shift lattices is not directly related to inclusions of inversions sets.
-For instance, it can be shown that the right shift of $1$ from $14|23$ to $4|123$, does not respect the facial weak order (discussed in \cref{sec:facial-weak-order}), as these ordered partitions are incomparable.
-\end{example}
-
 \begin{remark}
 As a consequence of \cref{prop:shift lattice}, the facets of the operadic diagonals are disjoint unions of lattices.
-However, any lattice $L$ on permutations (such as the weak order)induces a lattice on the facets as follows.
+However, any lattice $L$ on permutations (such as the weak order) induces a lattice on the facets as follows.
 For every $v \in L$, we can substitute the lattice $\hour^\LA$ (or $\hour^\SU$) into the permutation $v$.
 In particular, every element which was covered by $v$ is now covered by the minimal element of $\hour^\LA$, and every element which was covering $v$ now covers the maximal element of $\hour^\LA$.
 \end{remark}
@@ -4488,7 +4483,7 @@ A $k$-subdivision cube has a unique maximal (\resp minimal) vertex with respect 
 \end{proof}
 
 \begin{definition}
-	The \defn{maximal (\resp minimal) $k$-face} of a $k$-subdivision cube with respect to the weak order, is the unique $k$-face in the subdivision cube which contains the maximal (\resp minimal) vertex.
+	The \defn{maximal (\resp minimal) $k$-face} of a $k$-subdivision cube, with respect to the weak order, is the unique $k$-face in the subdivision cube which contains the maximal (\resp minimal) vertex.
 \end{definition}
 
 \begin{lemma}
@@ -4497,11 +4492,11 @@ For any $k$-dimensional face $\sigma$ of the cubical permutahedron $\divcube{n}$
 \end{lemma}
 
 \begin{proof}
-We first prove the result for $1$-subdivision cubes, \ie lines, and then proceed by induction on the dimension.
 We only treat the case for the maximal $k$-face $\sigma$, the minimal face proceeds similarly.
+We first prove the result for $1$-subdivision cubes, \ie lines, and then proceed by induction on the dimension.
 Let $\sigma$ be an edge of $\divcube{n}$, and let $v$ be its maximal vertex.
 Let $\rho \in [n+1]\ssm\{1\}$ be the element shifted by this edge (\cref{rem:coordinates}).
-Shifing this element to the right as far as possible ($\rho$ will be shifted all the way to the right, or be blocked by a larger element), we get the desired $1$-subdivision line.
+Shifting this element to the right as far as possible ($\rho$ will be shifted all the way to the right, or be blocked by a larger element), we get the desired $1$-subdivision line.
 
 Suppose that the statement holds up to dimension $k$, and let $\sigma$ be a $(k+1)$-face of $\divcube{n}$, with maximal vertex $v$.
 Consider the $k+1$ elements of $[n]$, which correspond to dimensions spanned by $\sigma$ (\cref{rem:coordinates}), and let $\rho$ be the largest such element.
