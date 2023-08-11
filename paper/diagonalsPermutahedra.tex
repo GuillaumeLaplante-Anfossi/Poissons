@@ -4392,7 +4392,7 @@ In this section, we recall the cubical definition of the $\SU$ diagonal from~\ci
 We define an analogous encoding of the permutahedron as a subdivision of the cube, and transfer the cubical formulae to the $\LA$ diagonal via isomorphism.
 
 \subsubsection{The cubical $\SU$ diagonal}
-We define inductively a subdivision $\divcube{n-1}$ of the $(n-1)$-dimensional cube  which is combinatorially isomorphic to the permutahedron $\Perm$.
+We define inductively a subdivision $\divcube{n-1}^\SU$ of the $(n-1)$-dimensional cube  which is combinatorially isomorphic to the permutahedron $\Perm$.
 
 \begin{construction}
 \label{constr:cubicPermutahedron1}
@@ -4405,8 +4405,8 @@ Given a $(n-k)$-dimensional face $\sigma = \sigma_1| \cdots |\sigma_k$ of the $(
 		\left[1 - 2^{-n_{j-1}},1\right] & \text{ if } j=k .
 	\end{cases}
 \end{equation*}
-Let $\divcube{0}$ be the $0$-dimensional cube (a point), trivially subdivided by the sole element $1$ of~$\Perm[1]$.
-Then, assuming we have constructed the subdivision $\divcube{n-1}$ of the $(n-1)$-cube, we construct $\divcube{n}$ as the subdivision of $\divcube{n-1} \times [0,1]$ given, for each face $\sigma$ of $\divcube{n-1}$, by the polytopal complex $\sigma \times I_\sigma$. 
+Let $\divcube{0}^\SU$ be the $0$-dimensional cube (a point), trivially subdivided by the sole element $1$ of~$\Perm[1]$.
+Then, assuming we have constructed the subdivision $\divcube{n-1}^\SU$ of the $(n-1)$-cube, we construct $\divcube{n}^\SU$ as the subdivision of $\divcube{n-1}^\SU \times [0,1]$ given, for each face $\sigma$ of $\divcube{n-1}^\SU$, by the polytopal complex $\sigma \times I_\sigma$. 
 We label the faces $\sigma \times I$ of the subdivided rectangular prism $\sigma \times I_\sigma$ by the following rule
 \begin{align} \label{eq:sub}
 	\sigma \times I \eqdef
@@ -4418,12 +4418,12 @@ We label the faces $\sigma \times I$ of the subdivided rectangular prism $\sigma
 	\end{cases} 
 	\tag{I}
 \end{align}
-We obtain a subdivision $\divcube{n}$ of the $n$-cube isomorphic to the permutahedron $\Perm[n+1]$.
+We obtain a subdivision $\divcube{n}^\SU$ of the $n$-cube isomorphic to the permutahedron $\Perm[n+1]$.
 \end{construction}
 
 \cref{fig:cubicPermutahedron1} illustrates this subdivision for the first few dimensions.
-We indicate, in bold, the embedding $\divcube{n-1}\hookrightarrow \divcube{n}$ induced by the natural embedding $\R^{n-1} \hookrightarrow \R^n$.
-Only the vertices of $\divcube{3}$ are labelled, but its edges, facets and outer face are all identified with the expected elements of $\Perm[4]$.
+We indicate, in bold, the embedding $\divcube{n-1}^\SU\hookrightarrow \divcube{n}^\SU$ induced by the natural embedding $\R^{n-1} \hookrightarrow \R^n$.
+Only the vertices of $\divcube{3}^\SU$ are labelled, but its edges, facets and outer face are all identified with the expected elements of $\Perm[4]$.
 \begin{figure}[h!]
 	\begin{center}
 	{\small
@@ -4453,23 +4453,23 @@ Only the vertices of $\divcube{3}$ are labelled, but its edges, facets and outer
 	\end{tikzcd}
 	}
 	\end{center}
-	\caption{Cubical realizations $\divcube{1},\divcube{2}$ and $\divcube{3}$ of the permutahedra~$\Perm[2]$, $\Perm[3]$ and $\Perm[4]$, respectively, from \cref{constr:cubicPermutahedron1}.}
+	\caption{Cubical realizations $\divcube{1}^\SU,\divcube{2}^\SU$ and $\divcube{3}^\SU$ of the permutahedra~$\Perm[2]$, $\Perm[3]$ and $\Perm[4]$, respectively, from \cref{constr:cubicPermutahedron1}.}
 	\label{fig:cubicPermutahedron1}
 \end{figure}
 
 \begin{remark}
 	\label{rem:coordinates}
-	A consequence of the construction is that each edge of $\divcube{n}$ is parallel to one of the canonical basis vectors $e_i$ of $\R^n$, and corresponds to shifting the element $i+1$ of $[n+1]\ssm \{1\}$.
+	A consequence of the construction is that each edge of $\divcube{n}^\SU$ is parallel to one of the canonical basis vectors $e_i$ of $\R^n$, and corresponds to shifting the element $i+1$ of $[n+1]\ssm \{1\}$.
 \end{remark}
 
-The cubical formula for the diagonal is constructed through maximal pairings of $k$-subdivision cubes of $\divcube{n}$, which we now define, and prove the existence of.
+The cubical formula for the diagonal is constructed through maximal pairings of $k$-subdivision cubes of $\divcube{n}^\SU$, which we now define, and prove the existence of.
 
 \begin{definition} 
 \label{def:Subdivisions}
-For $k\geq 0$, a \defn{$k$-subdivision cube} of $\divcube{n}$ is a union of $k$-faces of $\divcube{n}$ whose underlying set is a $k$-dimensional rectangular prism.
+For $k\geq 0$, a \defn{$k$-subdivision cube} of $\divcube{n}^\SU$ is a union of $k$-faces of $\divcube{n}^\SU$ whose underlying set is a $k$-dimensional rectangular prism.
 \end{definition}
 
-Every $k$-face of $\divcube{n}$ is a $k$-subdivision cube; other examples are provided in \cref{ex:subdivision cubes}.
+Every $k$-face of $\divcube{n}^\SU$ is a $k$-subdivision cube; other examples are provided in \cref{ex:subdivision cubes}.
 An important observation is the following. 
 
 \begin{lemma}
@@ -4478,8 +4478,8 @@ A $k$-subdivision cube has a unique maximal (\resp minimal) vertex with respect 
 \end{lemma}
 
 \begin{proof}
-	By construction, the edges of $\divcube{n}$ are parallel to the basis vectors of $\R^n$ (\cref{rem:coordinates}), and correspond to inversions on permutations. 
-	Moreover, the vector $\b{v}\eqdef(1,\ldots,1)$ induces the weak order on the vertices of $\divcube{n}$.  
+	By construction, the edges of $\divcube{n}^\SU$ are parallel to the basis vectors of $\R^n$ (\cref{rem:coordinates}), and correspond to inversions on permutations. 
+	Moreover, the vector $\b{v}\eqdef(1,\ldots,1)$ induces the weak order on the vertices of $\divcube{n}^\SU$.  
 	Since each $k$-subdivision cube is a rectangular prism whose edges are not perpendicular to $\b{v}$, the scalar product with $\b{v}$ is maximized (\resp minimized) at a unique vertex. 
 \end{proof}
 
@@ -4489,22 +4489,22 @@ A $k$-subdivision cube has a unique maximal (\resp minimal) vertex with respect 
 
 \begin{construction}
 \label{const:unique-sub-cube}
-For a $k$-dimensional face $\sigma$ of the cubical permutahedron $\divcube{n}$, we construct the unique maximal $k$-subdivision cube, with respect to inclusion, whose maximal (\resp minimal) $k$-face with respect to the weak order is $\sigma$.
+For a $k$-dimensional face $\sigma$ of the cubical permutahedron $\divcube{n}^\SU$, we construct the unique maximal $k$-subdivision cube, with respect to inclusion, whose maximal (\resp minimal) $k$-face with respect to the weak order is $\sigma$.
 \end{construction}
 
 We only treat the case for the maximal $k$-face $\sigma$, the minimal face proceeds similarly.
 We build the maximal subdivision cubes inductively.  
-Let $\sigma$ be an edge of $\divcube{n}$, and let $v$ be its maximal vertex.
+Let $\sigma$ be an edge of $\divcube{n}^\SU$, and let $v$ be its maximal vertex.
 Let $\rho \in [n+1]\ssm\{1\}$ be the element shifted by this edge (\cref{rem:coordinates}).
 Shifting this element to the right as far as possible ($\rho$ will be shifted all the way to the right, or be blocked by a larger element), we get the desired $1$-subdivision line.
 
-Suppose that we have constructed maximal subdivision cubes up to dimension $k$, and let $\sigma$ be a $(k+1)$-face of $\divcube{n}$, with maximal vertex $v$.
+Suppose that we have constructed maximal subdivision cubes up to dimension $k$, and let $\sigma$ be a $(k+1)$-face of $\divcube{n}^\SU$, with maximal vertex $v$.
 Consider the $k+1$ elements of $[n]$, which correspond to dimensions spanned by $\sigma$ (\cref{rem:coordinates}), and let $\rho$ be the largest such element.
 Let $\sigma_L$ be the $1$-face, with maximal vertex~$v$, whose only non-trivial dimension corresponds to~$\rho$.
 From the initial step above, there is a unique maximal $1$-subdivision line $L$ with maximal $1$-face~$\sigma_L$.
 Let $\sigma_C$ be the $k$-face, with maximal vertex $v$, spanned by the complement of $\rho$ in $[n+1] \ssm \{1\}$. 
 By induction, there is a maximal $k$-subdivision cube $C$ with maximal $k$-face $\sigma_C$. 
-Then, it is clear that the product $L\times C$ defines a $(k+1)$-subdivision cube of $\divcube{n}$, with maximal vertex~$v$. 
+Then, it is clear that the product $L\times C$ defines a $(k+1)$-subdivision cube of $\divcube{n}^\SU$, with maximal vertex~$v$. 
 Indeed, as $\rho$ is the maximal element corresponding to dimensions of $L\times C$, the faces of $L\times C$ are the $(k+1)$-dimensional rectangular prisms resulting from shifting $\rho$ through the $k$-faces of $C$, as in \cref{eq:sub}.
 
 Finally, $L\times C$ is maximal under inclusion.
@@ -4513,7 +4513,7 @@ This finishes the construction.
 
 \begin{definition} 
 \label{def:hourglass}
-For a vertex $v$ of $\divcube{n}$, the \defn{hourglass} of $\divcube{n}$ at $v$ is the maximal pair of subdivision cubes $\hour$, with respect to inclusion, within the set of all pairs $(C,C')$ of subdivision cubes such that $C$ has maximal vertex $v$, $C'$ has minimal vertex $v$, and $\dim C +\dim C' = n$.
+For a vertex $v$ of $\divcube{n}^\SU$, the \defn{hourglass} of $\divcube{n}^\SU$ at $v$ is the maximal pair of subdivision cubes $\hour^\SU$, with respect to inclusion, within the set of all pairs $(C,C')$ of subdivision cubes such that $C$ has maximal vertex $v$, $C'$ has minimal vertex $v$, and $\dim C +\dim C' = n$.
 \end{definition}
 
 \begin{figure}[h!]
@@ -4531,7 +4531,7 @@ For a vertex $v$ of $\divcube{n}$, the \defn{hourglass} of $\divcube{n}$ at $v$ 
 	\end{tikzcd}
 	}
 	\end{center}
-	\caption{The hourglass~$\hour$ of $\divcube{3}$ at~$v = \blue{\mathbf{4|3|1|2}}$.}
+	\caption{The hourglass~$\hour^\SU$ of $\divcube{3}^\SU$ at~$v = \blue{\mathbf{4|3|1|2}}$.}
 	\label{fig:hourglass1}
 \end{figure}
 
@@ -4541,20 +4541,20 @@ The following examples are pictured in \cref{fig:hourglass1}.
 \label{ex:subdivision cubes}
 The sets of faces~$\{1234\}$, $\{1|234\}$, $\{1|234, 14|23\}$, and $\{1|3|24,1|34|2\}$ are all subdivision cubes of $\divcube{3}$.
 In contrast, the sets of faces $\{134|2, 14|23\}$, $\{1|234, 134|2, 14|23\}$, and $\{1|2|34,1|23|4\}$
-are not subdivision cubes of $\divcube{3}$.
+are not subdivision cubes of $\divcube{3}^\SU$.
 For $v = \blue{\mathbf{4|3|1|2}}$, the only $1$-subdivision cube with minimal vertex $v$ is $4|3|12$, and the three $2$-subdivision cubes with maximal vertex $v$ are $\{134|2\}$, $\{13|24, 134|2\}$, $\{ 1|234, 13|24, 14|23, 134|2\}$.
-This defines the hourglass $\hour=\{ 1|234, 13|24, 14|23, 134|2\} \times \{4|3|12\}$ of $\divcube{3}$ at $v$.
+This defines the hourglass $\hour^\SU=\{ 1|234, 13|24, 14|23, 134|2\} \times \{4|3|12\}$ of $\divcube{3}^\SU$ at $v$.
 
 Let us observe that the $\SCP$ corresponding to $v$ is $(\sigma,\tau) \eqdef (\blue{\mathbf{134|2}},\blue{\mathbf{4|3|12}} )$.
 The ordered partition $\sigma$ admits three distinct rights shifts, $\red{\mathbf{13|24}}$, $\red{\mathbf{14|23}}$, $\red{\mathbf{1|234}}$, and $\tau$ admits no left shifts.
-\cref{thm:cubical-SU} shows that $\hour$ is generated by all shifts of the $\SCP$ corresponding to $v$.
+\cref{thm:cubical-SU} shows that $\hour^\SU$ is generated by all shifts of the $\SCP$ corresponding to $v$.
 \end{example}
 
 \begin{theorem}
 	\label{thm:cubical-SU}
-	Let $v$ be a vertex of the cubical permutahedron $\divcube{n}$, and let $(\sigma,\tau)$ be its associated~$\SCP$. 
+	Let $v$ be a vertex of the cubical permutahedron $\divcube{n}^\SU$, and let $(\sigma,\tau)$ be its associated~$\SCP$. 
 	Then, we have 
-	\[ \hour = \bigcup_{\b{M},\b{N}}R_{\b{M}}(\sigma) \times L_{\b{N}}(\tau) \ , \]
+	\[ \hour^\SU = \bigcup_{\b{M},\b{N}}R_{\b{M}}(\sigma) \times L_{\b{N}}(\tau) \ , \]
 where the union is taken over all block-admissible sequences of $\SU$ shifts $\b{M},\b{N}$.
 \end{theorem}
 
@@ -4562,13 +4562,13 @@ where the union is taken over all block-admissible sequences of $\SU$ shifts $\b
 We prove the result inductively from lines, and consider the case of $\sigma$, $\tau$ proceeds similarly.
 Combining \cref{const:unique-sub-cube} with \cref{prop:maximal m-shift formulae}, we have that if $L$ is a maximal $1$-subdivision cube with maximal $1$-face $\sigma$, then its faces are generated by the right $1$-shifts $R_\rho^i$, for $i$ between $0$ and its maximal right height~$r_\rho$ (\cref{def:heights}).
 
-Now consider the unique maximal $(k+1)$-subdivision cube of $\divcube{n}$ with maximal $(k+1)$-face~$\sigma$.
+Now consider the unique maximal $(k+1)$-subdivision cube of $\divcube{n}^\SU$ with maximal $(k+1)$-face~$\sigma$.
 By \cref{const:unique-sub-cube}, this subdivision cube is given by the product $L\times C$ of a line corresponding to the maximal element $\rho$ being shifted, and a $k$-cube $C$ corresponding to all other elements.
 By induction hypothesis, both the line $L$ and the cube $C$ are generated by all block-admissible right shifts from their unique maximal faces $\sigma_L$ and $\sigma_C$.
 Moreover, if $\rho$ is in the $i$th block of $\sigma_C$, then $\sigma$ is obtained from~$\sigma_C$ by merging the $i$\ordinal{} and $(i+1)$\ordinalst{} blocks.
 
 On the one hand, the right height of any element being shifted in $C$ is the same as its right height in $L\times C$.
-This follows from the inductive description of $\divcube{n}$ (\cref{eq:sub}): every $k$-face in $C$ has $\rho$ in a singleton block, and as $\rho$ is larger than all other elements it blocks all other shifts.
+This follows from the inductive description of $\divcube{n}^\SU$ (\cref{eq:sub}): every $k$-face in $C$ has $\rho$ in a singleton block, and as $\rho$ is larger than all other elements it blocks all other shifts.
 
 On the other hand, we know from \cref{const:unique-sub-cube} that the $(k+1)$-faces of $L\times C$ are obtained by weaving $\rho$ through the $k$-faces of~$C$.
 Indeed, every $k$-face in $C$ has $\rho$ in a fixed singleton set, and every $k$-face on the opposite side of $L\times C$ has $\rho$ in another fixed singleton set; given \cref{eq:sub}, this final singleton block in any $k$-face of $C$ is either the last block, or is followed by a block containing an element larger than $\rho$.
