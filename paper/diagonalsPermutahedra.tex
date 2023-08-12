@@ -290,7 +290,7 @@ VP was partially supported by the French ANR grant CHARMS (ANR-19-CE40-0017) and
 \author[G. Laplante-Anfossi]{Guillaume Laplante-Anfossi}
 \address[Guillaume Laplante-Anfossi]{School of Mathematics and Statistics, The University of Melbourne, Victoria, Australia}
 \email{guillaume.laplanteanfossi@unimelb.edu.au}
-\urladdr{\url{https://www.math.univ-paris13.fr/~laplante-anfossi/}}
+\urladdr{\url{https://guillaumelaplante-anfossi.github.io/}}
 
 \author[V. Pilaud]{Vincent Pilaud}
 \address[Vincent Pilaud]{CNRS \& LIX, \'Ecole Polytechnique, Palaiseau, France}
@@ -318,8 +318,7 @@ In the second part of the paper, we study diagonals which respect the operadic s
 We show that there are exactly two such diagonals, which are moreover isomorphic.
 We describe their facets by a simple rule on paths in partition trees, and their vertices as pattern-avoiding pairs of permutations.
 We show that one of these diagonals is a topological enhancement of the Sanbeblidze--Umble diagonal, and unravel a natural lattice structure on their sets of facets.
-%\Guillaume{Mention link to facial weak order?}
-Finally, we use the preceding results to show that there are precisely two isomorphic topological cellular operad structures on the family of operahedra, and exactly two infinity-isomorphic geometric universal tensor products of homotopy operads.
+Finally, we use the preceding results to show that there are precisely two isomorphic topological cellular operadic structures on the family of operahedra and multiplihedra, and exactly two infinity-isomorphic geometric universal tensor products of homotopy operads and A-infinity morphisms.
 %\Guillaume{Add results multiplihedra}
 \end{abstract}
 
@@ -535,7 +534,7 @@ The above theorem also allows us to translate the different combinatorial descri
 
 In \cref{sec:Shift-lattice}, we show that the facets of operadic diagonals are disjoint unions of lattices, that we call the \emph{shift lattices}.
 These lattices are product of chains, and are indexed by the permutations of $[n]$.
-Their defining partial order generalizes the weak order on permutations \Guillaume{Add relation to facial weak order}
+Moreover, while the pairs of facets of operadic are intervals of the facial weak order (\cref{sec:facial-weak-order}), the shift lattices are not sub-lattices of this order's product (see \cref{fig: Inversion and lattice counter example}). 
 
 Finally, we present the alternative cubical (\cref{sec:Cubical}) and matrix (\cref{subsec:matrix}) descriptions of the $\SU$ diagonal from \cite{SaneblidzeUmble,SaneblidzeUmble-comparingDiagonals}, providing proofs of their equivalence with the other descriptions, and giving their $\LA$ counterparts. 
 The existence of this cubical description, based on a subdvision of the cube combinatorially isomorphic to the permutahedron, finds its conceptual root in the bar-cobar resolution of the associative permutad. 
@@ -546,12 +545,11 @@ Indeed, this resolution is encoded by the dual subdivision of the permutahedron,
 \pagebreak
 \subsection*{\cref{part:higherAlgebraicStructures}. Higher algebraic structures}
 
-\Guillaume{Add results multiplihedra}
-
 In this shorter third part of the paper, we derive some higher algebraic consequences of the preceding results, which were the original motivation for the present study.
-They concern the \emph{operahedra}, a family of polytopes indexed by planar trees, which encode (non-symmetric non-unital) homotopy operads \cite{LaplanteAnfossi}.
-These admit realizations ``\`a la Loday", which generalize the Loday realizations of the associahedra. 
-The faces of an operahedron are in bijection with \emph{nestings}, or parenthesization, of the corresponding planar tree. 
+They concern the \emph{operahedra}, a family of polytopes indexed by planar trees, which encode (non-symmetric non-unital) homotopy operads \cite{LaplanteAnfossi}, and the \emph{multiplihedra}, a family of polytopes indexed by $2$-colored nested linear trees, which encode $\Ainf$-morphisms \cite{LaplanteAnfossiMazuir}.
+Both of these admit realizations ``\`a la Loday", which generalize the Loday realizations of the associahedra. 
+The faces of an operahedron are in bijection with \emph{nestings}, or parenthesization, of the corresponding planar tree, while the faces of a multiplihedron are in bijection with $2$-colored nestings of the corresponding linear tree. 
+The main results concerning the operahedra are summarized as follows. 
 
 \begin{theorem*}[\cref{thm:operahedra,thm:top-iso,thm:infinity-iso}] 
 There are exactly 
@@ -564,13 +562,25 @@ which agree with the generalized Tamari order on fully nested trees.
 Moreover, the two topological operad structures are isomorphic, and the two tensor products are not strictly isomorphic, but are related by an $\infty$-isotopy. 
 \end{theorem*}
 
-Here, by the adjective ``geometric", we mean diagonal, operad and tensor product structures which are obtained geometrically on the polytopes via the Fulton--Sturmfelds method. 
-By ``universal", we mean a formula for the tensor product which applies to \emph{any} pair of homotopy operads.
-
 As the associahedra and the permutahedra are part of the family of operahedra, we get analogous results for $\Ainf$-algebras and permutadic $\Ainf$-algebras. 
+The main results concerning the multiplihedra are summarized as follows. 
 
-However, the isomorphism of topological operads takes place in a category of polytopes $\PolySub$ for which the morphisms are \emph{not} affine maps \cite[Def. 4.13]{LaplanteAnfossi}, and does \emph{not} commute with the diagonal maps (\cref{ex:iso-not-Hopf}).
-Moreover, the pairs of faces in the image of the two operadic diagonals are in general not in bijection (see \cref{ex:SU-LA-operahedra}), yielding different (but $\infty$-isomorphic) tensor products of homotopy operads.  
+\begin{theorem*}[{\cref{thm:multiplihedra,thm:top-iso-2,thm:infinity-iso-2}}]
+	There are exactly 
+	\begin{enumerate}
+	\item two geometric operadic diagonals of the Forcey--Loday multiplihedra, given by the $\LA$ and $\SU$ diagonals, therefore exactly
+	\item two geometric topological cellular colored operad structures (over the Loday associahedra) on the Forcey--Loday multiplihedra, and incidentally exactly
+	\item two compatible geometric universal tensor products of $\Ainf$-algebras and $\Ainf$-morphisms,
+	\end{enumerate}
+	which agree with the Tamari-type order on atomic $2$-colored nested linear trees. 
+	Moreover, the two topological operadic bimodule structures are isomorphic, and the two tensor products are not strictly isomorphic, but are related by an $\infty$-isotopy. 
+\end{theorem*}
+
+Here, by the adjective ``geometric", we mean diagonal, operadic structure and tensor product which are obtained geometrically on the polytopes via the Fulton--Sturmfelds method. 
+By ``universal", we mean formulas for the tensor products which applies to \emph{any} pair of homotopy operads or $\Ainf$-morphisms.
+
+However, the isomorphisms of topological operads (\resp operadic bimodules) takes place in a category of polytopes $\PolySub$ for which the morphisms are \emph{not} affine maps \cite[Def. 4.13]{LaplanteAnfossi}, and it does \emph{not} commute with the diagonal maps (\cref{ex:iso-not-Hopf,ex:iso-not-Hopf-2}).
+Moreover, the pairs of faces in the image of the two operadic diagonals are in general not in bijection (see \cref{ex:operahedra-LA-SU,ex:multiplihedra-LA-SU}), yielding different (but $\infty$-isomorphic) tensor products of homotopy operads (\resp $\Ainf$-morphisms).  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -4127,7 +4137,7 @@ where we have aligned each element, of each diagonal, vertically with its dual e
 
 %%%%%%%%%%%%%%%
 
-\subsection{Shift lattice structure}
+\subsection{Shift lattices}
 \label{sec:Shift-lattice}
 
 In this section, we show that the $1$-shifts of the operadic diagonals~$\LAD$ and $\SUD$, define the covering relations of a lattice structure on the set of facets.
@@ -4363,6 +4373,7 @@ In particular, every element which was covered by $v$ is now covered by the mini
 Given our previously obtained formulae for the number of elements in the diagonal (\cref{subsec:enumerationDiagonalPermutahedra}), and the results of this section, we obtain the following statistics on permutations.
 
 \begin{corollary}
+	\label{cor:statistics-lattice}
 Using the heights of either diagonal,
 \begin{align*}
 2(n+1)^{n-2} = \sum_{v \in \mathbb{S}_n} \prod_{\rho \in [n]} (\ell_v(\rho)+1)(r_v(\rho)+1)
@@ -4789,11 +4800,13 @@ One can use the isomorphism $t(r\times r)$ as in the following example.
 
 \begin{example}
 \label{ex:matrix shifts}
-The first row of the following diagram contains a sequence of admissible $\SU$ subset shifts applied to the matrix encoding of the SCP $256|4|17|3\times 6|5|147|13$. 
+The first row of \cref{fig:matrix-shifts} contains a sequence of admissible $\SU$ subset shifts applied to the matrix encoding of the SCP $256|4|17|3\times 6|5|147|13$. 
 The second row is the image of these shifts under the isomorphism $t(r\times r)$.
-Note that the shifts of this example are also isomorphic to those of \cref{ex:shift translation by theta}, under the isomorphism  $(rs\times rs)$.
-\begin{center}
-{\footnotesize
+Note that the shifts of this example are also isomorphic to those of \cref{ex:shift translation by theta}, under the isomorphism $(rs\times rs)$.
+\end{example}
+
+\begin{figure}[h!]
+	{\footnotesize
 \begin{tikzcd}[column sep = 0.5cm]
 \begin{bmatrix}
   &   & 1 & 3 \\
@@ -4858,8 +4871,13 @@ Note that the shifts of this example are also isomorphic to those of \cref{ex:sh
 \end{bmatrix}
 \end{tikzcd}
 }
-\end{center}
-\end{example}
+\caption{Matrix shifts under the isomorphism $t(r \times r)$ between the $\LA$ and $\SU$ diagonals.}
+\label{fig:matrix-shifts}
+\end{figure}
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -4870,12 +4888,11 @@ Note that the shifts of this example are also isomorphic to those of \cref{ex:sh
 \label{part:higherAlgebraicStructures}
 
 In this third part, we derive some higher algebraic consequences of the results obtained in \cref{part:diagonalsPermutahedra}.
-We first prove that there are exactly two topological operad structures on the family of operahedra which are compatible with the generalized Tamari order, and thus two geometric universal tensor products of (non-symmetric non-unital) homotopy operads (\cref{subsec:top-operadic-structures}).
+We first prove in \cref{subsec:top-operadic-structures} that there are exactly two topological operad structures on the family of operahedra (\resp multiplihedra) which are compatible with the generalized Tamari order, and thus two geometric universal tensor products of (non-symmetric non-unital) homotopy operads (\resp $\Ainf$-morphisms).
 Then, we show that these topological operad structures are isomorphic (\cref{subsec:iso-top-operads}).
-However, note this isomorphism does not commute with the diagonal maps (\cref{ex:iso-not-Hopf}).
-Finally, we show that contrary to the case of permutahedra, the faces of the $\LA$ and $\SU$ diagonals of the operahedra are in general not in bijection (\cref{subsec:tensor-products}).
-However, from a homotopical point of view, the two tensor products of homotopy operads that they define are $\infty$-isomorphic (\cref{thm:infinity-iso}). 
-\Guillaume{TBW}
+However, these isomorphisms do not commute with the diagonal maps (\cref{ex:iso-not-Hopf,ex:iso-not-Hopf-2}).
+Finally, we show that contrary to the case of permutahedra, the faces of the $\LA$ and $\SU$ diagonals of the operahedra (\resp multiplihedra) are in general not in bijection (\cref{subsec:tensor-products}).
+However, from a homotopical point of view, the two tensor products of homotopy operads (\resp $\Ainf$-morphims) that they define are $\infty$-isomorphic (\cref{thm:infinity-iso,thm:infinity-iso-2}). 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -4892,8 +4909,45 @@ For every planar tree $t$, there is a corresponding operahedron $P_t$ whose codi
 
 \begin{definition}[{\cite[Def.~2.1 \& 2.22]{LaplanteAnfossi}}]
 	A \defn{nest} of $t \in \PT_n$ is a subset of internal edges which induce a subtree, and a \defn{nesting} of $t$ is a family of nests which are either included in one another, or disjoint.
-	See \cref{ex:Validity example}.
+	See \cref{fig:nestings}.
 \end{definition}
+
+\begin{figure}[h!]
+\begin{tikzpicture}[yscale=-1, every node/.style={draw, very thick, circle, inner sep=1pt}, edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]
+]
+\node(0) {0}
+	child{node(1){1}}
+	child{node(2){2}
+		child{node(3){3}
+		child{node(4){4}}
+		}}
+	child{node(5){5}};
+% \begin{pgfonlayer}{bg}    % select the background layer
+\hedge[red, very thick]{0,2,1}{0.3cm}
+\hedge[blue, very thick]{0,2,3,1}{0.4cm}
+\hedge[green, very thick]{0,5,4,1}{0.5cm}
+%\end{pgfonlayer}
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}[yscale=-1, every node/.style={draw, very thick, circle, inner sep=1pt}, edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]
+	]
+	\node(0) {0}
+		child{node(1){1}}
+		child{node(2){2}
+			child{node(3){3}
+			child{node(4){4}}
+			}}
+		child{node(5){5}};
+	% \begin{pgfonlayer}{bg}    % select the background layer
+	\hedge[red, very thick]{2,3}{0.3cm}
+	\hedge[red, very thick]{0,5}{0.3cm}
+	\hedge[blue, very thick]{0,5,3}{0.4cm}
+	\hedge[green, very thick]{0,5,4,1}{0.5cm}
+	%\end{pgfonlayer}
+\end{tikzpicture}
+\caption{Two nestings of a tree with $5$ internal edges.}
+\label{fig:nestings}
+\end{figure}
 
 Since the operahedra are generalized permutahedra~\cite[Coro.~2.16]{LaplanteAnfossi}, a choice of diagonal for the permuthedra induces a choice of diagonal for every operahedron~\cite[Coro.~1.31]{LaplanteAnfossi}.
 Every face of an operahedron is isomorphic to a product of lower-dimensional operahedra, via an isomorphism~$\Theta$ which generalizes the one from \cref{subsec:operadicProperty}, see Point (5) of~\cite[Prop.~2.3]{LaplanteAnfossi}.
@@ -4959,7 +5013,7 @@ Every face of a Forcey--Loday multiplihedron is isomorphic to a product of a Lod
 \end{definition}
 
 An operadic diagonal endows the Loday associahedra with a topological operad structure \cite[Thm.~1]{MasudaThomasTonksVallette}, and the Forcey--Loday multiplihedra with a topological operadic bimodule structure over the operad of Loday associahedra \cite[Thm.~1]{LaplanteAnfossiMazuir}.
-Via the functor of cellular chains, it defines universal tensor products of $\Ainf$-algebras and $\Ainf$-morphisms \cite[Prop. 4.15 \& 4.18]{LaplanteAnfossiMazuir}.
+Via the functor of cellular chains, it defines universal tensor products of $\Ainf$-algebras and $\Ainf$-morphisms \cite[Sec.~4.2.1]{LaplanteAnfossiMazuir}.
 Here again, by \emph{universal} we mean a formula that applies uniformly to any pair of $\Ainf$-algebras or $\Ainf$-morphisms.
 We shall call such geometrically defined operadic structures and tensor products \emph{geometric}. 
 
@@ -5024,6 +5078,7 @@ P_t .
 }}  \]
 Here, the map $\tr$ is the \emph{unique} topological cellular map which commutes with the diagonal~$\LAD$, see~\cite[Prop.~7]{MasudaThomasTonksVallette}. 
 This partial composition $\circ_i^\LA$ is an isomorphism in the category $\PolySub$~\cite[Def.~4.13]{LaplanteAnfossi} between the product $P_{t'}\times P_{t''}$ and the facet $t' \circ_i t''$ of~$P_t$.
+At the level of trees, the composition operation $\circ_i$ is given by \emph{substitution} \cite[Fig.~14]{LaplanteAnfossi}.
 Using the $\SU$ diagonal $\SUD$, one can define similarly a topological operad structure via the same formula, but with a different transition map $\tr$, which commutes with $\SUD$.
 
 Recall that a face $F$ of $P_t$ is represented by a nested tree $(t,\mathcal{N})$, which can be written uniquely as a sequence of substitution of trivially nested trees 
@@ -5117,11 +5172,13 @@ Recall that the topological cellular operadic bimodule structure on the Forcey--
 \]
 Here, the map $\tr$ is the \emph{unique} topological cellular map which commutes with the diagonal $\LAD$, see \cite[Prop. 7]{MasudaThomasTonksVallette}. 
 These action-composition maps $\circ_{p+1}^\LA$ and $\gamma_{i_1,\ldots,i_k}^\LA$ are isomorphisms in the category $\PolySub$ \cite[Sec.~2.1]{LaplanteAnfossiMazuir} between the products $\J_{p+1+r}\times \K_q$ and $\K_{k}\times \J_{i_1} \times \cdots \times \J_{i_k}$, and corresponding facets of $\J_n$ and $\J_{i_1 + \cdots + i_k}$, respectively.
-Using the $\SU$ diagonal $\LAD$, one defines similarly a topological operadic bimodule structure via the same formula, but with a different transition map $\tr$, which commutes with $\SUD$.
+Using the $\SU$ diagonal $\SUD$, one defines similarly a topological operadic bimodule structure via the same formula, but with a different transition map $\tr$, which commutes with $\SUD$.
 
-Recall that a face of $\J_n$ is represented by a $2$-colored nested tree $(t,\mathcal{N})$, which can be written uniquely as a sequence of substitution of trivially nested $2$-colored trees $(t,\mathcal{N})=((\cdots((t_1\circ_{i_1} t_2) \circ_{i_2} t_3) \cdots )\circ_{i_k} t_{k+1})$.
-Here we use the left-levelwise order on nestings \cite[Def. 4.12]{LaplanteAnfossiMazuir}, and the bijection between $2$-colored trees and $2$-colored nested linear trees from \cite[Lemma~3.4, Fig.~6]{LaplanteAnfossiMazuir} to translate the tree grafting operations $\circ_{p+1}$ and $\gamma_{i_1,\ldots,i_k}$ into $2$-colored nested tree substitution $\circ_{i_j}$.
-Note that any choice of $\circ_i$ substitutions yield the same $2$-colored nested tree, since these form an operadic bimodule.
+There is a bijection between $2$-colored planar trees and $2$-colored nested linear trees \cite[Lem.~3.4 \& Fig.~6]{LaplanteAnfossiMazuir}, which translate grafting of planar trees into substitution at a vertex of nested linear trees.
+The indices of the $\circ_{p+1}$ and $\gamma_{i_1,\ldots,i_k}$ operations above refer to grafting. 
+Equivalently, a face of $\J_n$ is represented by a $2$-colored nested tree $(t,\mathcal{N})$, which can be written uniquely as a sequence of substitution of trivially nested $2$-colored trees $(t,\mathcal{N})=((\cdots((t_1\circ_{i_1} t_2) \circ_{i_2} t_3) \cdots )\circ_{i_k} t_{k+1})$.
+Here we use the left-levelwise order on nestings \cite[Def. 4.12]{LaplanteAnfossiMazuir}, and translate tree grafting operations $\circ_{p+1}$ and $\gamma_{i_1,\ldots,i_k}$ into nested tree substitution $\circ_{i_j}$.
+Note that any choice of substitutions yield the same $2$-colored nested tree, since these form an operadic bimodule.
 
 At the geometric level, we have an isomorphism $((\cdots((\circ_{i_1}^\LA) \circ_{i_2}^\LA) \cdots) \circ_{i_k}^\LA)$ between a uniquely determined product of lower dimensional associahedra and multiplihedra, and the face $(t,\mathcal{N})$.
 Note that any choice of $\circ_i^\LA$ operations (\ie the $\circ_{p+1}^\LA$ and $\gamma_{i_1,\ldots,i_k}^\LA$ action-composition operations) yield the same isomorphism, since they form an operadic bimodule \cite[Thm.~1]{LaplanteAnfossiMazuir}.
@@ -5164,11 +5221,11 @@ The map $\Psi \eqdef \{\Psi_n\}$ is an isomorphism of topological cellular opera
 \subsection{Tensor products}
 \label{subsec:tensor-products}
 Recall that a homotopy operad $\mathcal{P}$ is a family of vector spaces $\{\mathcal{P}(n)\}_{n \geq 1}$ together with a family of operations $\{\mu_t\}$ indexed by planar trees $t$ \cite[Def. 4.11]{LaplanteAnfossi}.
-One can consider the category of homotopy operads with strict morphisms, that is morphisms of the underlying vector spaces which commute strictly with all the higher operations $\mu_t$, or with their $\infty$-morphisms, made of a tower of homotopies controlling the lack of commutativity of their first component \cite[Sec. 10.5.2]{LodayVallette}.
+One can consider the category of homotopy operads with strict morphisms, that is morphisms of the underlying vector spaces which commute strictly with all the higher operations $\mu_t$, or with their $\infty$-morphisms, made of a tower of homotopies controlling the lack of commutativity of their first component with the higher operations \cite[Sec. 10.5.2]{LodayVallette}.
 
 \begin{theorem}
 \label{thm:infinity-iso}
-For any pair of homotopy operads $\mathcal{P},\mathcal{Q}$, the two universal tensor products defined by the $\LA$ and $\SU$ diagonals are not isomorphic in the category of homotopy operads and strict morphisms.
+For any pair of homotopy operads, the two universal tensor products defined by the $\LA$ and $\SU$ diagonals are not isomorphic in the category of homotopy operads and strict morphisms.
 However, they are isomorphic in the category of homotopy operads and their $\infty$-morphisms.
 \end{theorem}
 
@@ -5177,7 +5234,7 @@ Since the two morphisms of topological operads $\LAD$ and $\SUD$ do not have the
 However, they are both homotopic to the usual thin diagonal.
 Recall that homotopy operads are algebras over the colored operad $\mathcal{O}_\infty$, which is the minimal model of the operad $\mathcal{O}$ encoding (non-symmetric non-unital) operads \cite[Prop. 4.9]{LaplanteAnfossi}. 
 Using the universal property of the minimal model $\mathcal{O}_\infty$, one can show that the algebraic diagonals $\LAD,\SUD : \mathcal{O}_\infty \to \mathcal{O}_\infty \otimes \mathcal{O}_\infty$ are homotopic, in the sense of \cite[Sec. 3.10]{MarklShniderStasheff}, see \cite[Prop. 3.136]{MarklShniderStasheff}.
-Then, by \cite[Cor.~2]{DotsenkoShadrinVallette} there is an $\infty$-isotopy, that is an $\infty$-isomorphism whose first component is the identity, between the two homotopy operad structures on the tensor product $\mathcal{P} \otimes \mathcal{Q}$.
+Then, by \cite[Cor.~2]{DotsenkoShadrinVallette} there is an $\infty$-isotopy, that is an $\infty$-isomorphism whose first component is the identity, between the two homotopy operad structures on the tensor product.
 \end{proof}
 
 \begin{remark}
@@ -5186,7 +5243,360 @@ None of the two diagonals $\LAD$ or $\SUD$ is cocommutative, or coassociative, a
 
 Note that restricting to linear trees, the two tensor products of $\Ainf$-algebras induced by the $\LA$ and $\SU$ diagonals coincide (and are thus strictly isomorphic).
 Restricting to $2$-leveled trees, we obtain two tensor product of permutadic $\Ainf$-algebras whose terms are in bijection.
-For the operahedra in general, such a bijection does not exist, as \cref{prop:operahedra-LA-SU} demonstrates. 
+For the operahedra in general, such a bijection does not exist, as the following example demonstrates. 
+
+\begin{example}
+\label{ex:operahedra-LA-SU}
+The $\LA$ and $\SU$ diagonals of the operahedra associated with trees that have less than $4$ internal edges have the same number of facets. 
+However, there are 24 planar trees with $5$ internal edges, such that the number of facets of the $\LA$ and $\SU$ diagonals are distinct, displayed in \cref{fig:trees}.
+To compute these numbers, we first computed the facets of the $\LA$ and $\SU$ diagonals of the permutahedra, and then used the projection from the permutahedra to the operahedra described in \cite[Prop. 3.20]{LaplanteAnfossi}.
+\end{example}
+
+\begin{figure}[h!]
+\begin{tabular}{cccccc}
+	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
+	\Tree 
+	[.\node{};
+		[.\node{};
+			[.\node{};]
+		]
+		[.\node{};]
+		[.\node{};]
+		[.\node{};]
+	]
+	\node(1) at (0,0.5) {$(266,263)$};
+	\end{tikzpicture}}
+	&
+	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
+	\Tree 
+	[.\node{};
+		[.\node{};]
+		[.\node{};
+			[.\node{};]
+		]
+		[.\node{};]
+		[.\node{};]
+	]
+	\node(1) at (0,0.5) {$(256,254)$};
+	\end{tikzpicture}}
+	&
+	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
+	\Tree 
+	[.\node{};
+		[.\node{};]
+		[.\node{};]
+		[.\node{};
+			[.\node{};]
+		]
+		[.\node{};]
+	]
+	\node(1) at (0,0.5) {$(255,254)$};
+	\end{tikzpicture}}
+	&
+	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
+	\Tree 
+	[.\node{};
+		[.\node{};]
+		[.\node{};]
+		[.\node{};]
+		[.\node{};
+			[.\node{};]
+		]
+	]
+	\node(1) at (0,0.5) {$(263,266)$};
+	\end{tikzpicture}}
+	&
+	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
+	\Tree 
+	[.\node{};
+		[.\node{};
+			[.\node{};]
+				[.\node{};]
+		]
+		[.\node{};]
+		[.\node{};]
+	]
+	\node(1) at (0,0.5) {$(214,216)$};
+	\end{tikzpicture}}
+	&
+	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
+	\Tree 
+	[.\node{};
+		[.\node{};
+			[.\node{};]
+		]
+		[.\node{};
+			[.\node{};]
+		]
+		[.\node{};]
+	]
+	\node(1) at (0,0.5) {$(162,161)$};
+	\end{tikzpicture}}
+	\\
+	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
+	\Tree 
+	[.\node{};
+		[.\node{};]
+		[.\node{};
+			[.\node{};]
+			[.\node{};]
+		]
+		[.\node{};]
+	]
+	\node(1) at (0,0.5) {$(212,213)$};
+	\end{tikzpicture}}
+	&	
+	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
+	\Tree 
+	[.\node{};
+		[.\node{};]
+		[.\node{};
+			[.\node{};
+				[.\node{};]
+			]
+		]
+		[.\node{};]
+	]
+	\node(1) at (0,0.5) {$(129,127)$};
+	\end{tikzpicture}}
+		&
+	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
+	\Tree 
+	[.\node{};
+		[.\node{};]
+		[.\node{};
+			[.\node{};]
+		]
+		[.\node{};
+			[.\node{};]
+		]
+	]
+	\node(1) at (0,0.5) {$(160,161)$};
+	\end{tikzpicture}}
+	&
+	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
+	\Tree 
+	[.\node{};
+		[.\node{};  
+			[.\node{};  
+				[.\node{};]
+			]
+			[.\node{};] 
+		]
+		[.\node{};]
+	]
+	\node(1) at (0,0.5) {$(142,141)$};
+	\end{tikzpicture}}
+	&
+	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
+	\Tree 
+	[.\node{};
+		[.\node{};  
+			[.\node{};]
+			[.\node{};] 
+		]
+		[.\node{};  
+			[.\node{};] 
+		]
+	]
+	\node(1) at (0,0.5) {$(141,144)$};
+	\end{tikzpicture}}
+	&
+	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
+	\Tree 
+	[.\node{};
+		[.\node{};  
+			[.\node{};  
+				[.\node{};] 
+			]
+		]
+		[.\node{};  
+			[.\node{};] 
+		]
+	]
+	\node(1) at (0,0.5) {$(91,92)$};
+	\end{tikzpicture}}
+	\\
+	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
+	\Tree 
+	[.\node{}; 
+		[.\node{};  
+			[.\node{};] 
+		]
+		[.\node{};  
+			[.\node{};]
+			[.\node{};] 
+		]
+	]
+	\node(1) at (0,0.5) {$(155,152)$};
+	\end{tikzpicture}}
+		&
+	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
+	\Tree 
+	[.\node{}; 
+		[.\node{};  
+			[.\node{};] 
+		]
+		[.\node{};  
+			[.\node{};  
+				[.\node{};] 
+			]
+		]
+	]
+	\node(1) at (0,0.5) {$(98,97)$};
+	\end{tikzpicture}}
+	&
+	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
+	\Tree 
+	[.\node{}; 
+		[.\node{};]
+		[.\node{};
+			[.\node{};]
+			[.\node{};]
+			[.\node{};]
+		]
+	]
+	\node(1) at (0,0.5) {$(266,263)$};
+	\end{tikzpicture}}
+	&  
+	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
+	\Tree 
+	[.\node{}; 
+		[.\node{};]
+		[.\node{};
+			[.\node{};  
+				[.\node{};] 
+			]
+			[.\node{};]
+		]
+	]
+	\node(1) at (0,0.5) {$(157,154)$};
+	\end{tikzpicture}}
+	&
+	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
+	\Tree 
+	[.\node{}; 
+		[.\node{};
+			[.\node{};
+				[.\node{};]
+			]
+			[.\node{};]
+			[.\node{};]
+		]
+	]
+	\node(1) at (0,0.5) {$(256,255)$};
+	\end{tikzpicture}}
+	&
+	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
+	\Tree 
+	[.\node{}; 
+		[.\node{};
+			[.\node{};]
+			[.\node{};
+				[.\node{};]
+			]
+			[.\node{};]
+		]
+	]
+	\node(1) at (0,0.5) {$(255,254)$};
+	\end{tikzpicture}}
+	\\
+	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
+	\Tree 
+	[.\node{}; 
+		[.\node{};
+			[.\node{};]
+			[.\node{};]
+			[.\node{};
+				[.\node{};]
+			] 
+		]
+	]
+	\node(1) at (0,0.5) {$(263,266)$};
+	\end{tikzpicture}}
+	&
+	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
+	\Tree 
+	[.\node{}; 
+		[.\node{};
+			[.\node{}; 
+				[.\node{};]
+				[.\node{};]
+			] 
+			[.\node{};]
+		]
+	]
+	\node(1) at (0,0.5) {$(212,213)$};
+	\end{tikzpicture}}  
+	&
+	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
+	\Tree 
+	[.\node{}; 
+		[.\node{};
+			[.\node{}; 
+				[.\node{}; 
+					[.\node{}; ]
+				]
+			] 
+			[.\node{};]
+		]
+	]
+	\node(1) at (0,0.5) {$(129,127)$};
+	\end{tikzpicture}}
+	&
+	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
+	\Tree 
+	[.\node{}; 
+		[.\node{}; 
+			[.\node{};  
+				[.\node{};] 
+			]
+			[.\node{};  
+				[.\node{};] 
+			]
+		]
+	]
+	\node(1) at (0,0.5) {$(160,161)$};
+	\end{tikzpicture}}
+	&
+	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
+	\Tree 
+	[.\node{}; 
+		[.\node{}; 
+			[.\node{};
+				[.\node{};]
+				[.\node{};]
+				[.\node{};] 
+			]
+		]
+	]
+	\node(1) at (0,0.5) {$(266,263)$};
+	\end{tikzpicture}}
+	&
+	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
+	\Tree 
+	[.\node{}; 
+		[.\node{}; 
+			[.\node{};
+				[.\node{};  
+					[.\node{};] 
+				]
+				[.\node{};]
+			]
+		]
+	]
+	\node(1) at (0,0.5) {$(154,157)$};
+	\end{tikzpicture}}
+\end{tabular}
+\caption{The $24$ planar trees $t$ with $5$ internal edges for which the number of facets in the $\LA$ diagonal (left) and the $\SU$ diagonal (right) differ.}
+\label{fig:trees}
+\end{figure}
+
+\begin{remark}
+The lack of symmetry in the trees in \cref{fig:trees} arises from the lack of symmetry inherent in the infix order, and in how the $\LA$ and $\SU$ diagonal treat maximal and minimal elements.
+A sufficient condition for the diagonals of a tree $t$ to have the same number of facets to satisfy that $N$ is a nesting of $t$ if and only if $rN$ is a nesting of $t$.
+For a tree satisfying this condition, relabelling its edges via the function $r : [n]\to [n]$ defined by $r(i)\eqdef n-i+1$ exchanges the number of facets between the $\LA$ and $\SU$ diagonals.
+\end{remark}
 
 We have an analogous result for universal tensor products of $\Ainf$-morphisms. 
 Let $\Ainf^2$ denote the $2$-colored operad whose algebras are pairs of $\Ainf$-algebras together with an $\Ainf$-morphism between them \cite[Sec.~4.4.1]{LaplanteAnfossiMazuir}.
@@ -5194,7 +5604,7 @@ The datum of a diagonal of the operad $\Ainf$ encoding $\Ainf$-algebras and a di
 
 \begin{theorem}
 	\label{thm:infinity-iso-2}
-	For any pair of $\Ainf$-morphims $F_1,F_2$, the two universal tensor products defined by the $\LA$ and $\SU$ diagonals are not isomorphic in the category of $\Ainf^2$-algebras and strict morphisms.
+	For any pair of $\Ainf$-morphims, the two universal tensor products defined by the $\LA$ and $\SU$ diagonals are not isomorphic in the category of $\Ainf^2$-algebras and strict morphisms.
 	However, they are isomorphic in the category of $\Ainf^2$-algebras and their $\infty$-morphisms.
 \end{theorem}
 
@@ -5203,511 +5613,22 @@ The datum of a diagonal of the operad $\Ainf$ encoding $\Ainf$-algebras and a di
 	However, they are both homotopic to the usual thin diagonal.
 	Recall that the operad $\Ainf^2$ is the minimal model of the operad $\mathrm{As}^2$, whose algebras are pairs of associative algebras together with a morphism between them \cite[Prop.~4.9]{LaplanteAnfossi}. 
 	Using the universal property of the minimal model $\Ainf^2$, one can show that the algebraic diagonals $\LAD,\SUD : \Ainf^2 \to \Ainf^2 \otimes \Ainf^2$ are homotopic, in the sense of \cite[Sec.~3.10]{MarklShniderStasheff}.
-	Then, by \cite[Cor.~2]{DotsenkoShadrinVallette} there is an $\infty$-isotopy, that is an $\infty$-isomorphism whose first component is the identity, between the two $\Ainf$-morphisms~$F_1 \otimes_\LA F_2$ and~$F_1\otimes_\SU F_2$.
+	Then, by \cite[Cor.~2]{DotsenkoShadrinVallette} there is an $\infty$-isotopy, that is an $\infty$-isomorphism whose first component is the identity, between the two tensor products of $\Ainf$-morphisms.
 \end{proof}
-
-
-We now compute the number of facets in the $\LA$ and $\SU$ diagonals for some operahedra.
-
-\begin{definition}
-\label{def:valid}
-Let $\sigma=\sigma_1| \cdots |\sigma_k$ be an ordered partition of $[n]$. 
-We say that $\sigma$ is \defn{valid} for~$t \in \PT_n$, if the subsets of internal edges $\{\sigma_1, \sigma_1 \cup \sigma_2,\dots,\bigcup_{i \in [k]} \sigma_i\}$ form a nesting of $t$.
-We say that a pair of ordered partitions is \defn{valid} for $t$, if the two ordered partitions are.
-For $t \in \PT_n$, we denote by $\LAD_t$ (\resp $\SUD_t$) the set of facets of $\LAD$ (\resp $\SUD$) which are valid nests of $t$.
-\end{definition}
-
-
-\begin{example}
-\label{ex:Validity example}
-For the following planar tree, we label each internal edge in infix order by labelling the vertex directly above it, and illustrate the nestings $\{ \{1,2\},\{1,2,3\}, \{1,2,3,4,5\} \}$ and $\{ \{2\},\{2,5\}, \{1,2,3,4,5\} \}$.
-\begin{center}
-\begin{tikzpicture}[yscale=-1, every node/.style={draw, very thick, circle, inner sep=1pt}, edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]
-]
-\node(0) {0}
-   child{node(1){1}}
-   child{node(2){2}
-       child{node(3){3}
-       child{node(4){4}}
-       }}
-   child{node(5){5}};
-% \begin{pgfonlayer}{bg}    % select the background layer
-\hedge[red, very thick]{0,2,1}{0.3cm}
-\hedge[blue, very thick]{0,2,3,1}{0.4cm}
-\hedge[green, very thick]{0,5,4,1}{0.5cm}
-%\end{pgfonlayer}
-\end{tikzpicture}
-\begin{tikzpicture}[yscale=-1, every node/.style={draw, very thick, circle, inner sep=1pt}, edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]
-]
-\node(0) {0}
-   child{node(1){1}}
-   child{node(2){2}
-       child{node(3){3}
-       child{node(4){4}}
-       }}
-   child{node(5){5}};
-% \begin{pgfonlayer}{bg}    % select the background layer
-\hedge[red, very thick]{0,2}{0.3cm}
-\hedge[blue, very thick]{0,5,2}{0.4cm}
-\hedge[green, very thick]{0,5,4,1}{0.5cm}
-%\end{pgfonlayer}
-\end{tikzpicture}
-\end{center}
-These two nestings show that the ordered partition $12|3|45 \times 2|35|14\in \LAD$ is valid for this tree.
-As a counter example, neither  
-$\{ \{1,2\},\{1,2,4,5\}, \{1,2,3,4,5\} \}$ nor $\{ \{3,5\},\{2,3,5\}, \{1,2,3,4,5\} \}$ are nestings of this tree.
-
-\begin{center}
-\begin{tikzpicture}[yscale=-1, every node/.style={draw, very thick, circle, inner sep=1pt}, edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]
-]
-\node(0) {0}
-   child{node(1){1}}
-   child{node(2){2}
-       child{node(3){3}
-       child{node(4){4}}
-       }}
-   child{node(5){5}};
-% \begin{pgfonlayer}{bg}    % select the background layer
-\hedge[red, very thick]{2,1,0}{0.3cm}
-\hedge[blue, very thick]{5,1,0}{0.4cm}
-\hedge[blue, very thick]{4,3}{0.4cm}
-\hedge[green, very thick]{0,5,4,1}{0.5cm}
-%\end{pgfonlayer}
-\end{tikzpicture}
-\begin{tikzpicture}[yscale=-1, every node/.style={draw, very thick, circle, inner sep=1pt}, edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]
-]
-\node(0) {0}
-   child{node(1){1}}
-   child{node(2){2}
-       child{node(3){3}
-       child{node(4){4}}
-       }}
-   child{node(5){5}};
-% \begin{pgfonlayer}{bg}    % select the background layer
-\hedge[red, very thick]{2,3}{0.3cm}
-\hedge[red, very thick]{0,5}{0.3cm}
-\hedge[blue, very thick]{0,5,3}{0.4cm}
-\hedge[green, very thick]{0,5,4,1}{0.5cm}
-%\end{pgfonlayer}
-\end{tikzpicture}
-\end{center}
-Consequently,  $\mathbf{\red{12|45|3}} \times 25|4|13 \in \LAD$ and $3|12|45 \times \mathbf{\red{35|2|14}} \in \SUD$ are both invalid.
-\end{example}
-
-\begin{proposition}
-	\label{prop:operahedra-LA-SU}
-The $\LA$ and $\SU$ diagonals of the operahedra associated with trees that have less than $4$ internal edges have the same number of facets. 
-However, there are 24 planar trees with $5$ internal edges, such that the number of facets of the $\LA$ and $\SU$ diagonals are distinct. 
-\end{proposition}
-
-\begin{proof}
-As shown in \cite[Sec. 1.6]{LaplanteAnfossi}, diagonals of the permutahedra induce diagonals of the operahedra. 
-\cref{def:valid} above is borrowed from \cite[Prop. 3.20]{LaplanteAnfossi}.
-Thus, the statement is equivalent to the following: for any $n\leq 4$, and for every tree $t\in \PT_n$, we have $\card{\LAD_t} = \card{\SUD_t}$, while for $n=5$, there are 24 trees $t \in \PT_5$, such that $\card{\LAD_t} \neq \card{\SUD_t}$.
-This was computed via code, see \cref{ex:SU-LA-operahedra}.
-\end{proof}
-
-\Guillaume{Code available on the author's website?}
 
 \begin{remark}
-	It seems likely that for every $n\geq 6$, there are trees with $n$ internal edges for which the diagonals do not have the same number of facets. 
+	As studied in \cite[Sec.~4.4]{LaplanteAnfossiMazuir}, the above tensor products of $\Ainf$-morphisms are not coassociative, nor cocommutative. 
+	Moreover, there \emph{does not exist} a universal tensor product of $\Ainf$-morphisms which is compatible with composition \cite[Prop.~4.23]{LaplanteAnfossiMazuir}.
 \end{remark}
 
 \begin{example}
-\label{ex:SU-LA-operahedra}
-We present in \cref{fig:trees} the $24$ planar trees with $5$ internal edges for which ${\card{\LAD_t} \neq \card{\SUD_t}}$.
-Note that $\card{\LAD_t},\card{\SUD_t} \leq \card{\LAD_5}=\card{\SUD_5}=432 $ (\cref{table:enumerationDiagonalPermutahedra1}), the number of facets in the permutahedron diagonals.
-
-\begin{figure}[h]
-	\begin{tabular}{cccccc}
-		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
-		\Tree 
-		[.\node{};
-		    [.\node{};
-		        [.\node{};]
-		    ]
-		    [.\node{};]
-		    [.\node{};]
-		    [.\node{};]
-		]
-		\node(1) at (0,0.5) {$(266,263)$};
-		\end{tikzpicture}}
-		&
-		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
-		\Tree 
-		[.\node{};
-		    [.\node{};]
-		    [.\node{};
-		        [.\node{};]
-		    ]
-		    [.\node{};]
-		    [.\node{};]
-		]
-		\node(1) at (0,0.5) {$(256,254)$};
-		\end{tikzpicture}}
-		&
-		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
-		\Tree 
-		[.\node{};
-		    [.\node{};]
-		    [.\node{};]
-		    [.\node{};
-		        [.\node{};]
-		    ]
-		    [.\node{};]
-		]
-		\node(1) at (0,0.5) {$(255,254)$};
-		\end{tikzpicture}}
-		&
-		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
-		\Tree 
-		[.\node{};
-		    [.\node{};]
-		    [.\node{};]
-		    [.\node{};]
-		    [.\node{};
-		        [.\node{};]
-		    ]
-		]
-		\node(1) at (0,0.5) {$(263,266)$};
-		\end{tikzpicture}}
-		&
-		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
-		\Tree 
-		[.\node{};
-		    [.\node{};
-		        [.\node{};]
-		         [.\node{};]
-		    ]
-		    [.\node{};]
-		    [.\node{};]
-		]
-		\node(1) at (0,0.5) {$(214,216)$};
-		\end{tikzpicture}}
-		&
-		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
-		\Tree 
-		[.\node{};
-		    [.\node{};
-		        [.\node{};]
-		    ]
-		    [.\node{};
-		        [.\node{};]
-		    ]
-		    [.\node{};]
-		]
-		\node(1) at (0,0.5) {$(162,161)$};
-		\end{tikzpicture}}
-		\\
-		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
-		\Tree 
-		[.\node{};
-		    [.\node{};]
-		    [.\node{};
-		        [.\node{};]
-		        [.\node{};]
-		    ]
-		    [.\node{};]
-		]
-		\node(1) at (0,0.5) {$(212,213)$};
-		\end{tikzpicture}}
-		&	
-		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
-		\Tree 
-		[.\node{};
-		    [.\node{};]
-		    [.\node{};
-		        [.\node{};
-		            [.\node{};]
-		        ]
-		    ]
-		    [.\node{};]
-		]
-		\node(1) at (0,0.5) {$(129,127)$};
-		\end{tikzpicture}}
-            &
-		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
-		\Tree 
-		[.\node{};
-		    [.\node{};]
-		    [.\node{};
-		        [.\node{};]
-		    ]
-		    [.\node{};
-		        [.\node{};]
-		    ]
-		]
-		\node(1) at (0,0.5) {$(160,161)$};
-		\end{tikzpicture}}
-		&
-		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
-		\Tree 
-		[.\node{};
-		    [.\node{};  
-		        [.\node{};  
-		            [.\node{};]
-		        ]
-		        [.\node{};] 
-		    ]
-		    [.\node{};]
-		]
-		\node(1) at (0,0.5) {$(142,141)$};
-		\end{tikzpicture}}
-		&
-		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
-		\Tree 
-		[.\node{};
-		    [.\node{};  
-		        [.\node{};]
-		        [.\node{};] 
-		    ]
-		    [.\node{};  
-		        [.\node{};] 
-		    ]
-		]
-		\node(1) at (0,0.5) {$(141,144)$};
-		\end{tikzpicture}}
-		&
-		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
-		\Tree 
-		[.\node{};
-		    [.\node{};  
-		        [.\node{};  
-		            [.\node{};] 
-		        ]
-		    ]
-		    [.\node{};  
-		        [.\node{};] 
-		    ]
-		]
-		\node(1) at (0,0.5) {$(91,92)$};
-		\end{tikzpicture}}
-		\\
-		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
-		\Tree 
-		[.\node{}; 
-		    [.\node{};  
-		        [.\node{};] 
-		    ]
-		    [.\node{};  
-		        [.\node{};]
-		        [.\node{};] 
-		    ]
-		]
-		\node(1) at (0,0.5) {$(155,152)$};
-		\end{tikzpicture}}
-            &
-		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
-		\Tree 
-		[.\node{}; 
-		    [.\node{};  
-		        [.\node{};] 
-		    ]
-		    [.\node{};  
-		        [.\node{};  
-		            [.\node{};] 
-		        ]
-		    ]
-		]
-		\node(1) at (0,0.5) {$(98,97)$};
-		\end{tikzpicture}}
-		&
-		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
-		\Tree 
-		[.\node{}; 
-		    [.\node{};]
-		    [.\node{};
-		        [.\node{};]
-		        [.\node{};]
-		        [.\node{};]
-		    ]
-		]
-		\node(1) at (0,0.5) {$(266,263)$};
-		\end{tikzpicture}}
-		&  
-		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
-		\Tree 
-		[.\node{}; 
-		    [.\node{};]
-		    [.\node{};
-		        [.\node{};  
-		            [.\node{};] 
-		        ]
-		        [.\node{};]
-		    ]
-		]
-		\node(1) at (0,0.5) {$(157,154)$};
-		\end{tikzpicture}}
-		&
-		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
-		\Tree 
-		[.\node{}; 
-		    [.\node{};
-		        [.\node{};
-		            [.\node{};]
-		        ]
-		        [.\node{};]
-		        [.\node{};]
-		    ]
-		]
-		\node(1) at (0,0.5) {$(256,255)$};
-		\end{tikzpicture}}
-		&
-		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
-		\Tree 
-		[.\node{}; 
-		    [.\node{};
-		        [.\node{};]
-		        [.\node{};
-		            [.\node{};]
-		        ]
-		        [.\node{};]
-		    ]
-		]
-		\node(1) at (0,0.5) {$(255,254)$};
-		\end{tikzpicture}}
-		\\
-		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
-		\Tree 
-		[.\node{}; 
-		    [.\node{};
-		        [.\node{};]
-		        [.\node{};]
-		        [.\node{};
-		            [.\node{};]
-		        ] 
-		    ]
-		]
-		\node(1) at (0,0.5) {$(263,266)$};
-		\end{tikzpicture}}
-		&
-		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
-		\Tree 
-		[.\node{}; 
-		    [.\node{};
-		        [.\node{}; 
-		            [.\node{};]
-		            [.\node{};]
-		        ] 
-		        [.\node{};]
-		    ]
-		]
-		\node(1) at (0,0.5) {$(212,213)$};
-		\end{tikzpicture}}  
-		&
-		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
-		\Tree 
-		[.\node{}; 
-		    [.\node{};
-		        [.\node{}; 
-		            [.\node{}; 
-		                [.\node{}; ]
-		            ]
-		        ] 
-		        [.\node{};]
-		    ]
-		]
-		\node(1) at (0,0.5) {$(129,127)$};
-		\end{tikzpicture}}
-		&
-		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
-		\Tree 
-		[.\node{}; 
-		    [.\node{}; 
-		        [.\node{};  
-		            [.\node{};] 
-		        ]
-		        [.\node{};  
-		            [.\node{};] 
-		        ]
-		    ]
-		]
-		\node(1) at (0,0.5) {$(160,161)$};
-		\end{tikzpicture}}
-		&
-		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
-		\Tree 
-		[.\node{}; 
-		    [.\node{}; 
-		        [.\node{};
-		            [.\node{};]
-		            [.\node{};]
-		            [.\node{};] 
-		        ]
-		    ]
-		]
-		\node(1) at (0,0.5) {$(266,263)$};
-		\end{tikzpicture}}
-		&
-		\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
-		\Tree 
-		[.\node{}; 
-		    [.\node{}; 
-		        [.\node{};
-		            [.\node{};  
-		                [.\node{};] 
-		            ]
-		            [.\node{};]
-		        ]
-		    ]
-		]
-		\node(1) at (0,0.5) {$(154,157)$};
-		\end{tikzpicture}}
-	\end{tabular}
-	\caption{The $24$ planar trees with $5$ internal edges for which $\card{\LAD_t} \neq \card{\SUD_t}$, with $(\card{\LAD_t},\card{\SUD_t})$ displayed below each tree.}
-	\label{fig:trees}
-\end{figure}
+	\label{ex:multiplihedra-LA-SU}
+	The $\LA$ and $\SU$ diagonals of the multiplihedra associated with trees that have less than $4$ edges have the same number of facets. 
+	However, for linear trees with $5$ and $6$ internal edges, the number of facets of the $\LA$ and $\SU$ diagonals differ, as displayed in \cref{table:multiplihedra}.
+	To compute these numbers, we first computed the facets of the $\LA$ and $\SU$ diagonals of the permutahedra, and then used the projection from the permutahedra to the multiplihedra described in the proof of \cite[Thm.~3.3.6]{Doker}.
 \end{example}
 
-We note that one sufficient condition for a tree $t$ to satisfy $\card{\LAD_t} = \card{\SUD_t}$ is, $N$ is a nesting of $t$ if, and only if, $rN$ is a nesting of $t$.
-This includes trees such as the linear tree and
-
-\begin{center}
-\begin{tikzpicture}[yscale=-1, every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]
-]
-\Tree 
-[.\node{};
-[.\node{};
-    [.\node{};]
-]
-[.\node{};]
-[.\node{};
-    [.\node{};]
-]
-]
-\end{tikzpicture}
-\end{center}
-
-The lack of symmetry in the trees in \cref{table:enumerationDiagonalPermutahedra1} (and $(\card{\LAD_t},\card{\SUD_t})$) arises from the lack of symmetry inherent in the infix order, and in how the $\LA$ and $\SU$ diagonal treat maximal and minimal elements.
-It is possible to resolve this breakdown in symmetry by using alternate labellings of trees.
-
-\begin{remark}
-Observe that $N$ is a nesting for $t$ if, and only if $rN$ is a nesting for $rt$, where $rt$ is the relabelling of $t$ with minimal edge label sent to maximal and so on.
-Consequently, $(\sigma,\tau)$ is a valid nesting for $t$ if, and only if $t(r\times r)(\sigma,\tau)$ is a valid nesting for $rt$.
-Therefore, for~$t \in PT_n$ in $\card{\LAD_t} = \card{\SUD_{rt}}$ and $\card{\SUD_t} = \card{\LAD_{rt}}$.
-\end{remark}
-
-We end by computing the number of facets in the $\LA$ and $\SU$ diagonals for some multiplihedra.
-
-\begin{definition}
-\label{def:valid-2}
-Let $\sigma=\sigma_1| \cdots |\sigma_k$ be an ordered partition of $[n]$. 
-We say that $\sigma$ is \defn{valid} for a $2$-colored linear tree $t \in \PT_n$ if... \Guillaume{TBC}
-\end{definition}
-
-We have a 
-
-\begin{proposition}
-	\label{prop:multiplihedra-LA-SU}
-	The $\LA$ and $\SU$ diagonals of the multiplihedra associated with linear trees that have less than $4$ internal edges have the same number of facets. 
-	However, for linear trees with $5$ and $6$ internal edges, the number of facets of the $\LA$ and $\SU$ diagonals differ. 
-\end{proposition}
-
-\begin{proof}
-	This result follows from computer experiments, which are tabulated in \cref{table:multiplihedra}.
-\end{proof}
-
-\begin{figure}[h!]
+\begin{figure}
 	\begin{center}
 	\begin{tabular}{c|c|c|c|c|c} 
 	Internal edges & $\LA$ diagonal & $\LA$ only & Shared & $\SU$ only & $\SU$ diagonal \\
@@ -5723,10 +5644,6 @@ We have a
 	\caption{Number of facets in the $\LA$ and $\SU$ diagonals of the multiplihedra, indexed by linear trees with $n$ internal edges.}
 	\label{table:multiplihedra}
 \end{figure}
-
-\begin{remark}
-	It seems likely that for every $n\geq 6$, the $\LA$ and $\SU$ diagonals of the multiplihedra associated to linear trees with $n$ internal edges have distinct numbers of facets. 
-\end{remark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
