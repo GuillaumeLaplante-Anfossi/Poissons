@@ -1,7 +1,8 @@
 \documentclass{amsart}
 
 \usepackage[T1]{fontenc}
-\usepackage{enumerate, amsmath, amsfonts, amssymb, amsthm, mathrsfs, wasysym, graphics, graphicx, xcolor, url, hyperref, hypcap, shuffle, xargs, multicol, overpic, pdflscape, multirow, hvfloat, minibox, accents, array, multido, xifthen, a4wide, ae, aecompl, blkarray, pifont, mathtools, etoolbox, dsfont, stmaryrd}
+\usepackage{enumerate, amsmath, amsfonts, amssymb, amsthm, mathrsfs, wasysym, graphics, graphicx, url, hyperref, hypcap, shuffle, xargs, multicol, overpic, pdflscape, multirow, hvfloat, minibox, accents, array, multido, xifthen, a4wide, ae, aecompl, blkarray, pifont, mathtools, etoolbox, dsfont, stmaryrd}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{marginnote}
 \hypersetup{colorlinks=true, citecolor=darkblue, linkcolor=darkblue}
 \usepackage[all]{xy}
@@ -114,6 +115,11 @@
 \DeclareMathOperator{\inv}{inv} % inversions
 \DeclareMathOperator{\Ima}{Im} %Image d'une fonction
 \DeclareMathOperator{\std}{std}
+
+%colored nested trees
+\newcommand{\bluea}[1]{\textcolor{MidnightBlue}{\boldsymbol{\left(\right.}} #1 \textcolor{MidnightBlue}{\boldsymbol{\left.\right)}}} 
+\newcommand{\reda}[1]{\textcolor{Red!60}{\boldsymbol{\left(\right.}} #1 \textcolor{Red!60}{\boldsymbol{\left.\right)}}} 
+\newcommand{\purplea}[1]{\textcolor{Purple!80}{\boldsymbol{\left[\right.}} #1 \textcolor{Purple!80}{\boldsymbol{\left.\right]}}} 
 
 % others
 \newcommand{\ie}{\textit{i.e.}~} % id est
@@ -4959,7 +4965,7 @@ The Loday associahedra are faces of the Forcey--Loday multiplihedra: they corres
 
 Forcey--Loday realizations of the multiplihedra are not generalized permutahedra, but they are projections of the Ardila--Doker realizations, which are \cite[Prop. 1.16]{LaplanteAnfossiMazuir}.
 A choice of diagonal for the permutahedra thus induces a choice of diagonal for every Ardila--Doker multiplihedron, and a subset of these choices (the ones which satisfy \cite[Prop. 2.7 \& 2.8]{LaplanteAnfossiMazuir}) further induce a choice of diagonal for the Forcey--Loday multiplihedra.
-Every face of a Forcey--Loday multiplihedron is isomorphic to a product of lower-dimensional Forcey--Loday multiplihedra and Loday associahedra, via an isomorphism $\Theta$ similar to the one from \cref{subsec:operadicProperty}, see Point (4) of \cite[Prop. 1.10]{LaplanteAnfossiMazuir}.
+Every face of a Forcey--Loday multiplihedron is isomorphic to a product of a Loday associahedron and possibly many lower-dimensional Forcey--Loday multiplihedra, via an isomorphism $\Theta$ similar to the one from \cref{subsec:operadicProperty}, see Point (4) of \cite[Prop. 1.10]{LaplanteAnfossiMazuir}.
 
 \begin{definition}
 	An \defn{operadic diagonal} for the multiplihedra is a choice of diagonal $\triangle_n$ for each multiplihedron $\J_n$, such that $\triangle \eqdef \{\triangle_n\}$ commutes with the map $\Theta$.
@@ -4978,7 +4984,7 @@ There are exactly
 \item two geometric topological cellular colored operad structures (over the Loday associahedra) on the Forcey--Loday multiplihedra, and incidentally exactly
 \item two compatible geometric universal tensor products of $\Ainf$-algebras and $\Ainf$-morphisms,
 \end{enumerate}
-which agree with the Tamari-type order on atomic $2$-colored nested planar trees. 
+which agree with the Tamari-type order on atomic $2$-colored nested linear trees. 
 \end{theorem}
 
 \begin{proof}
@@ -5030,12 +5036,12 @@ P_t .
 \end{tikzcd}
 }}  \]
 Here, the map $\tr$ is the \emph{unique} topological cellular map which commutes with the diagonal~$\LAD$, see~\cite[Prop.~7]{MasudaThomasTonksVallette}. 
-This partial composition $\circ_i^\LA$ is an isomorphism in the category $\PolySub$~\cite[Def.~4.13]{LaplanteAnfossi} between the product $P_{t'}\times P_{t''}$ and the facet $t' \circ_i^\LA t''$ of~$P_t$.
+This partial composition $\circ_i^\LA$ is an isomorphism in the category $\PolySub$~\cite[Def.~4.13]{LaplanteAnfossi} between the product $P_{t'}\times P_{t''}$ and the facet $t' \circ_i t''$ of~$P_t$.
 Using the $\SU$ diagonal $\SUD$, one can define similarly a topological operad structure via the same formula, but with a different transition map $\tr$, which commutes with $\SUD$.
 
 Recall that a face $F$ of $P_t$ is represented by a nested tree $(t,\mathcal{N})$, which can be written uniquely as a sequence of substitution of trivially nested trees 
 $(t,\mathcal{N})=((\cdots((t_1\circ_{i_1} t_2) \circ_{i_2} t_3) \cdots )\circ_{i_k} t_{k+1})$.
-Here we use the increasing order on nestings~\cite[Def. 4.5]{LaplanteAnfossi}, and observe that any choice of sequence of $\circ_i$ operations yield the same nested, since these form an operad~\cite[Def.~4.7]{LaplanteAnfossi}.
+Here we use the increasing order on nestings~\cite[Def. 4.5]{LaplanteAnfossi}, and observe that any choice of sequence of $\circ_i$ operations yield the same nested tree, since these form an operad~\cite[Def.~4.7]{LaplanteAnfossi}.
 At the geometric level, we have an isomorphism
 \[((\cdots((\circ_{i_1}^\LA) \circ_{i_2}^\LA) \cdots) \circ_{i_k}^\LA): P_{t_1} \times P_{t_2} \times \cdots \times P_{t_{k+1}} \overset{\cong}{\longrightarrow} F \subset P_t \]
 between a uniquely determined product of lower dimensional operahedra, and the face $F=(t,\mathcal{N})$ of~$P_t$.
@@ -5094,6 +5100,77 @@ Since $\circ_i^\LA$ and $\circ_i^\SU$ are the identity both on the interior of $
 {\LAD(z)=(\Psi \times \Psi)\LAD(z) \neq \SUD \Psi(z)=\SUD(z)}.
 \] 
 \end{example}
+
+Recall that the topological cellular operadic bimodule structure on the Forcey--Loday multiplihedra is given by a family of action-composition maps \cite[Def. 2.13]{LaplanteAnfossiMazuir}
+\[
+\vcenter{\hbox{
+\begin{tikzcd}[column sep = 16pt]
+\circ_{p+1}^\LA\ : \ \J_{p+1+r}\times \K_q
+\arrow[rr,  "\tr\times \id"]
+& & 
+\J_{(1,\ldots,q,\ldots,1)}\times \K_q 
+\arrow[rr,hookrightarrow, "\Theta_{p,q,r}"]
+&  &
+\J_{n}\ \ \text{and}
+\end{tikzcd}
+}}
+\]
+\[
+\vcenter{\hbox{
+\begin{tikzcd}[column sep = 16pt]
+\gamma_{i_1,\ldots,i_k}^\LA \ : \ \K_{k}\times \J_{i_1} \times \cdots \times \J_{i_k}
+\arrow[rr,  "\tr\times \id"]
+& &
+\K_{(i_1,\ldots,i_k)} \times \J_{i_1} \times \cdots \times \J_{i_k} 
+\arrow[rr,hookrightarrow, "\Theta^{i_1, \ldots , i_k}"]
+& &
+\J_{i_1+\cdots + i_k}\ .
+\end{tikzcd}
+}}
+\]
+Here, the map $\tr$ is the \emph{unique} topological cellular map which commutes with the diagonal $\LAD$, see \cite[Prop. 7]{MasudaThomasTonksVallette}. 
+These action-composition maps $\circ_{p+1}^\LA$ and $\gamma_{i_1,\ldots,i_k}^\LA$ are isomorphisms in the category $\PolySub$ \cite[Sec.~2.1]{LaplanteAnfossiMazuir} between the products $\J_{p+1+r}\times \K_q$ and $\K_{k}\times \J_{i_1} \times \cdots \times \J_{i_k}$, and corresponding facets of $\J_n$ and $\J_{i_1 + \cdots + i_k}$, respectively.
+Using the $\SU$ diagonal $\LAD$, one defines similarly a topological operadic bimodule structure via the same formula, but with a different transition map $\tr$, which commutes with $\SUD$.
+
+Recall that a face of $\J_n$ is represented by a $2$-colored nested tree $(t,\mathcal{N})$, which can be written uniquely as a sequence of substitution of trivially nested $2$-colored trees $(t,\mathcal{N})=((\cdots((t_1\circ_{i_1} t_2) \circ_{i_2} t_3) \cdots )\circ_{i_k} t_{k+1})$.
+Here we use the left-levelwise order on nestings \cite[Def. 4.12]{LaplanteAnfossiMazuir}, and the bijection between $2$-colored trees and $2$-colored nested linear trees from \cite[Lemma~3.4, Fig.~6]{LaplanteAnfossiMazuir} to translate the tree grafting operations $\circ_{p+1}$ and $\gamma_{i_1,\ldots,i_k}$ into $2$-colored nested tree substitution $\circ_{i_j}$.
+Note that any choice of $\circ_i$ substitutions yield the same $2$-colored nested tree, since these form an operadic bimodule.
+
+At the geometric level, we have an isomorphism $((\cdots((\circ_{i_1}^\LA) \circ_{i_2}^\LA) \cdots) \circ_{i_k}^\LA)$ between a uniquely determined product of lower dimensional associahedra and multiplihedra, and the face $(t,\mathcal{N})$.
+Note that any choice of $\circ_i^\LA$ operations yield the same isomorphism, since they form an operadic bimodule \cite[Thm.~1]{LaplanteAnfossiMazuir}.
+The same holds when taking the $\circ_i^\SU$ (\ie the $\circ_{p+1}^\SU$ and $\gamma_{i_1,\ldots,i_k}^\SU$ action-composition) operations instead.
+
+\begin{construction}
+	\label{const:top-iso-2}
+	For any Forcey--Loday multiplihedron $\J_n$, we define a map $\Psi_n : \J_n \to \J_n$ 
+	\begin{itemize}
+		\item on the interior of the top face by the identity $\id : \mathring \J_n \to \mathring \J_n$, and 
+		\item on the interior of the face $F=((\cdots((t_1 \circ_{i_1} t_2) \circ_{i_2} t_3) \cdots )\circ_{i_k} t_{k+1})$ of~$\J_n$ by the composition of the two isomorphisms
+		\[ 
+		((\cdots ((\circ_{i_1}^\SU) \circ_{i_2}^\SU) \cdots) \circ_{i_k}^\SU) \ ((\cdots((\circ_{i_1}^\LA) \circ_{i_2}^\LA) \cdots) \circ_{i_k}^\LA)^{-1}: F \to F . \] 
+	\end{itemize}
+\end{construction}
+
+\begin{theorem}
+\label{thm:top-iso-2}
+The map $\Psi \eqdef \{\Psi_n\}$ is an isomorphism of topological cellular operadic bimodule structure over the Loday associahedra between the $\LA$ and $\SU$ operadic bimodule structures on the Forcey--Loday multiplihedra, in the category $\PolySub$.
+\end{theorem}
+
+\begin{proof}
+	The proof is the same as the one of \cref{thm:top-iso}, with the multiplihedra $\circ_i^\LA$ and $\circ_i^\SU$ operations (that is, the action-composition maps $\circ_{p+1}^\LA$ and $\gamma_{i_1,\ldots,i_k}^\LA$, and $\circ_{p+1}^\SU$ and $\gamma_{i_1,\ldots,i_k}^\SU$) in place of the operahedra operations. 
+\end{proof}
+
+\begin{example}
+	\label{ex:iso-not-Hopf-2}
+	Note that $\Psi$ does not commute with the respective diagonals $\LAD$ and $\SUD$. 
+	Consider the two square faces $F \eqdef \purplea{\bluea{\bullet \bullet \bullet}\bullet}$ and $G \eqdef \reda{\purplea{\bullet\bluea{\bullet\bullet}}\bullet}$ of the $3$-dimensional Forcey--Loday multiplihedron $\J_4$, and choose a point $\b z \in (\mathring F + \mathring G)/2$.
+	Then, $\LAD(z)$ and~$\SUD(z)$ are two different pair of points on the $1$-skeleton of $\J_4$ (see \cite[Ex.~3.7 \& Fig.~9]{LaplanteAnfossiMazuir}). 
+	Since the $\LA$ and $\SU$ action-composition maps are the identity both on the interior of $\J_4$ (by \cref{const:top-iso-2}) and on the $1$-skeleton of $\J_4$ (see the proof of~\cite[Prop. 7]{MasudaThomasTonksVallette}), we directly obtain that
+	\[
+	{\LAD(z)=(\Psi \times \Psi)\LAD(z) \neq \SUD \Psi(z)=\SUD(z)}.
+	\] 
+\end{example}
+
 
 %%%%%%%%%%%%%%%
 
