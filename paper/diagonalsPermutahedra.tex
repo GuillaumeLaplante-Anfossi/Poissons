@@ -367,19 +367,6 @@ In particular, a combinatorial formula describing the image of the diagonal of a
 The topological operad structure of~\cite{MasudaThomasTonksVallette} on the associahedra was generalized to the family of \emph{operahedra}, which comprise the family of permutahedra, and encodes the notion of homotopy operad.
 Cellular diagonals of the operahedra do \emph{not} satisfy the magical formula, and the combinatorial difficulty of describing their image is what prompted the development of the theory in~\cite{LaplanteAnfossi}.
 In fact, there is an interesting dichotomy between the families of polytopes which satisfy the magical formula (simplices, cubes, freehedra, associahedra) and those who do not (permutahedra, multiplihedra, operahedra).
-%\begin{figure}[h!]
-%\begin{center}
-%\begin{tabular}{c|c}
-%\textbf{Magical formula} & \textbf{Non-magical formula} \\
-%\hline
-%%Simplices, Cubes, Freehedra, Associahedra & Multiplihedra, Operahedra, Permutahedra 
-%Simplices & Multiplihedra \\
-%Cubes & Operahedra \\
-%Freehedra & Permutahedra \\
-%Associahedra 
-%\end{tabular}
-%\end{center}
-%\end{figure}
 
 Since the operahedra are \emph{generalized permutahedra}~\cite{Postnikov}, their operadic diagonals are completely determined by the operadic diagonals of permutahedra (see~\cite[Sect.~1.6]{LaplanteAnfossi}), which is the purpose of study of the present paper.
 
@@ -5137,7 +5124,7 @@ Here we use the left-levelwise order on nestings \cite[Def. 4.12]{LaplanteAnfoss
 Note that any choice of $\circ_i$ substitutions yield the same $2$-colored nested tree, since these form an operadic bimodule.
 
 At the geometric level, we have an isomorphism $((\cdots((\circ_{i_1}^\LA) \circ_{i_2}^\LA) \cdots) \circ_{i_k}^\LA)$ between a uniquely determined product of lower dimensional associahedra and multiplihedra, and the face $(t,\mathcal{N})$.
-Note that any choice of $\circ_i^\LA$ operations yield the same isomorphism, since they form an operadic bimodule \cite[Thm.~1]{LaplanteAnfossiMazuir}.
+Note that any choice of $\circ_i^\LA$ operations (\ie the $\circ_{p+1}^\LA$ and $\gamma_{i_1,\ldots,i_k}^\LA$ action-composition operations) yield the same isomorphism, since they form an operadic bimodule \cite[Thm.~1]{LaplanteAnfossiMazuir}.
 The same holds when taking the $\circ_i^\SU$ (\ie the $\circ_{p+1}^\SU$ and $\gamma_{i_1,\ldots,i_k}^\SU$ action-composition) operations instead.
 
 \begin{construction}
@@ -5163,7 +5150,7 @@ The map $\Psi \eqdef \{\Psi_n\}$ is an isomorphism of topological cellular opera
 \begin{example}
 	\label{ex:iso-not-Hopf-2}
 	Note that $\Psi$ does not commute with the respective diagonals $\LAD$ and $\SUD$. 
-	Consider the two square faces $F \eqdef \purplea{\bluea{\bullet \bullet \bullet}\bullet}$ and $G \eqdef \reda{\purplea{\bullet\bluea{\bullet\bullet}}\bullet}$ of the $3$-dimensional Forcey--Loday multiplihedron $\J_4$, and choose a point $\b z \in (\mathring F + \mathring G)/2$.
+	Consider the two square faces $F \eqdef \purplea{\bluea{\bullet \bullet \bullet}\bullet}$ and $G \eqdef \reda{\bullet\purplea{\bullet\bullet}\bullet}$ of the $3$-dimensional Forcey--Loday multiplihedron $\J_4$, and choose a point $\b z \in (\mathring F + \mathring G)/2$.
 	Then, $\LAD(z)$ and~$\SUD(z)$ are two different pair of points on the $1$-skeleton of $\J_4$ (see \cite[Ex.~3.7 \& Fig.~9]{LaplanteAnfossiMazuir}). 
 	Since the $\LA$ and $\SU$ action-composition maps are the identity both on the interior of $\J_4$ (by \cref{const:top-iso-2}) and on the $1$-skeleton of $\J_4$ (see the proof of~\cite[Prop. 7]{MasudaThomasTonksVallette}), we directly obtain that
 	\[
@@ -5174,14 +5161,14 @@ The map $\Psi \eqdef \{\Psi_n\}$ is an isomorphism of topological cellular opera
 
 %%%%%%%%%%%%%%%
 
-\subsection{Tensor products of homotopy operads}
+\subsection{Tensor products}
 \label{subsec:tensor-products}
 Recall that a homotopy operad $\mathcal{P}$ is a family of vector spaces $\{\mathcal{P}(n)\}_{n \geq 1}$ together with a family of operations $\{\mu_t\}$ indexed by planar trees $t$ \cite[Def. 4.11]{LaplanteAnfossi}.
 One can consider the category of homotopy operads with strict morphisms, that is morphisms of the underlying vector spaces which commute strictly with all the higher operations $\mu_t$, or with their $\infty$-morphisms, made of a tower of homotopies controlling the lack of commutativity of their first component \cite[Sec. 10.5.2]{LodayVallette}.
 
 \begin{theorem}
 \label{thm:infinity-iso}
-For any pair of homotopy operads $\mathcal{P},\mathcal{Q}$, the two tensor products~$\mathcal{P} \otimes_\LA \mathcal{Q}$ and~$\mathcal{P}~\otimes_\SU~\mathcal{Q}$ defined by the $\LA$ and $\SU$ diagonals are not isomorphic in the category of homotopy operads and strict morphisms.
+For any pair of homotopy operads $\mathcal{P},\mathcal{Q}$, the two universal tensor products defined by the $\LA$ and $\SU$ diagonals are not isomorphic in the category of homotopy operads and strict morphisms.
 However, they are isomorphic in the category of homotopy operads and their $\infty$-morphisms.
 \end{theorem}
 
@@ -5189,9 +5176,8 @@ However, they are isomorphic in the category of homotopy operads and their $\inf
 Since the two morphisms of topological operads $\LAD$ and $\SUD$ do not have the same cellular image, the tensor products that they define are not strictly isomorphic.
 However, they are both homotopic to the usual thin diagonal.
 Recall that homotopy operads are algebras over the colored operad $\mathcal{O}_\infty$, which is the minimal model of the operad $\mathcal{O}$ encoding (non-symmetric non-unital) operads \cite[Prop. 4.9]{LaplanteAnfossi}. 
-Using the universal property of the minimal model $\mathcal{O}_\infty$, one can show that the algebraic diagonals $\LAD,\SUD : \mathcal{O}_\infty \to \mathcal{O}_\infty \otimes \mathcal{O}_\infty$ are homotopic, in the sense of \cite{MarklShniderStasheff}[Sec. 3.10], see \cite[Prop. 3.136]{MarklShniderStasheff}.
-Thus, there exists an $\infty$-morphism between the two homotopy operad structures on the tensor product $\mathcal{P} \otimes \mathcal{Q}$.
-Actually, this $\infty$-morphism is even an isomorphism whose first component is the identity, that is, an $\infty$-isotopy. 
+Using the universal property of the minimal model $\mathcal{O}_\infty$, one can show that the algebraic diagonals $\LAD,\SUD : \mathcal{O}_\infty \to \mathcal{O}_\infty \otimes \mathcal{O}_\infty$ are homotopic, in the sense of \cite[Sec. 3.10]{MarklShniderStasheff}, see \cite[Prop. 3.136]{MarklShniderStasheff}.
+Then, by \cite[Cor.~2]{DotsenkoShadrinVallette} there is an $\infty$-isotopy, that is an $\infty$-isomorphism whose first component is the identity, between the two homotopy operad structures on the tensor product $\mathcal{P} \otimes \mathcal{Q}$.
 \end{proof}
 
 \begin{remark}
@@ -5199,17 +5185,36 @@ None of the two diagonals $\LAD$ or $\SUD$ is cocommutative, or coassociative, a
 \end{remark}
 
 Note that restricting to linear trees, the two tensor products of $\Ainf$-algebras induced by the $\LA$ and $\SU$ diagonals coincide (and are thus strictly isomorphic).
-Restricting to $2$-leveled trees, we obtain two tensor product of homotopy associative permutads whose terms are in bijection.
-For the operahedra in general, such a bijection does not exist, as the following computations show. 
+Restricting to $2$-leveled trees, we obtain two tensor product of permutadic $\Ainf$-algebras whose terms are in bijection.
+For the operahedra in general, such a bijection does not exist, as \cref{prop:operahedra-LA-SU} demonstrates. 
+
+We have an analogous result for universal tensor products of $\Ainf$-morphisms. 
+Let $\Ainf^2$ denote the $2$-colored operad whose algebras are pairs of $\Ainf$-algebras together with an $\Ainf$-morphism between them \cite[Sec.~4.4.1]{LaplanteAnfossiMazuir}.
+The datum of a diagonal of the operad $\Ainf$ encoding $\Ainf$-algebras and a diagonal of the operadic bimodule $\mathrm{M}_\infty$ enconding $\Ainf$-morphisms is equivalent to the datum of a morphism of $2$-colored operads $\Ainf^2 \to \Ainf^2 \otimes \Ainf^2$. 
+
+\begin{theorem}
+	\label{thm:infinity-iso-2}
+	For any pair of $\Ainf$-morphims $F_1,F_2$, the two universal tensor products defined by the $\LA$ and $\SU$ diagonals are not isomorphic in the category of $\Ainf^2$-algebras and strict morphisms.
+	However, they are isomorphic in the category of $\Ainf^2$-algebras and their $\infty$-morphisms.
+\end{theorem}
+
+\begin{proof}
+	Since the two morphisms of topological operadic bimodules on the multiplihedra $\LAD$ and $\SUD$ do not have the same cellular image, the tensor products that they define are not strictly isomorphic.
+	However, they are both homotopic to the usual thin diagonal.
+	Recall that the operad $\Ainf^2$ is the minimal model of the operad $\mathrm{As}^2$, whose algebras are pairs of associative algebras together with a morphism between them \cite[Prop.~4.9]{LaplanteAnfossi}. 
+	Using the universal property of the minimal model $\Ainf^2$, one can show that the algebraic diagonals $\LAD,\SUD : \Ainf^2 \to \Ainf^2 \otimes \Ainf^2$ are homotopic, in the sense of \cite[Sec.~3.10]{MarklShniderStasheff}.
+	Then, by \cite[Cor.~2]{DotsenkoShadrinVallette} there is an $\infty$-isotopy, that is an $\infty$-isomorphism whose first component is the identity, between the two $\Ainf$-morphisms~$F_1 \otimes_\LA F_2$ and~$F_1\otimes_\SU F_2$.
+\end{proof}
 
 
+We now compute the number of facets in the $\LA$ and $\SU$ diagonals for some operahedra.
 
 \begin{definition}
 \label{def:valid}
 Let $\sigma=\sigma_1| \cdots |\sigma_k$ be an ordered partition of $[n]$. 
 We say that $\sigma$ is \defn{valid} for~$t \in \PT_n$, if the subsets of internal edges $\{\sigma_1, \sigma_1 \cup \sigma_2,\dots,\bigcup_{i \in [k]} \sigma_i\}$ form a nesting of $t$.
 We say that a pair of ordered partitions is \defn{valid} for $t$, if the two ordered partitions are.
-For $t \in \PT_n$, we define $\LAD_t$ (\resp $\SUD_t$) to be the elements of $\LAD$ ($\SUD$) which are valid nests of $t$.
+For $t \in \PT_n$, we denote by $\LAD_t$ (\resp $\SUD_t$) the set of facets of $\LAD$ (\resp $\SUD$) which are valid nests of $t$.
 \end{definition}
 
 
@@ -5290,16 +5295,23 @@ Consequently,  $\mathbf{\red{12|45|3}} \times 25|4|13 \in \LAD$ and $3|12|45 \ti
 \end{example}
 
 \begin{proposition}
+	\label{prop:operahedra-LA-SU}
 The $\LA$ and $\SU$ diagonals of the operahedra associated with trees that have less than $4$ internal edges have the same number of facets. 
-There exists $n>4$, and a tree $t \in \PT_n$, such that the number of facets of the $\LA$ and $\SU$ diagonals are distinct. 
+However, there are 24 planar trees with $5$ internal edges, such that the number of facets of the $\LA$ and $\SU$ diagonals are distinct. 
 \end{proposition}
 
 \begin{proof}
 As shown in \cite[Sec. 1.6]{LaplanteAnfossi}, diagonals of the permutahedra induce diagonals of the operahedra. 
 \cref{def:valid} above is borrowed from \cite[Prop. 3.20]{LaplanteAnfossi}.
-Thus, the statement is equivalent to the following: for $n\leq 4$, and for every tree $t\in \PT_n$, we have $\card{\LAD_t} = \card{\SUD_t}$; while for $n>4$, there exists $t \in \PT_n$, such that $\card{\LAD_t} \neq \card{\SUD_t}$.
-This was checked via code and the first few counterexamples for $n=5$ are displayed in \cref{ex:SU-LA-operahedra}.
+Thus, the statement is equivalent to the following: for any $n\leq 4$, and for every tree $t\in \PT_n$, we have $\card{\LAD_t} = \card{\SUD_t}$, while for $n=5$, there are 24 trees $t \in \PT_5$, such that $\card{\LAD_t} \neq \card{\SUD_t}$.
+This was computed via code, see \cref{ex:SU-LA-operahedra}.
 \end{proof}
+
+\Guillaume{Code available on the author's website?}
+
+\begin{remark}
+	It seems likely that for every $n\geq 6$, there are trees with $n$ internal edges for which the diagonals do not have the same number of facets. 
+\end{remark}
 
 \begin{example}
 \label{ex:SU-LA-operahedra}
@@ -5673,6 +5685,47 @@ It is possible to resolve this breakdown in symmetry by using alternate labellin
 Observe that $N$ is a nesting for $t$ if, and only if $rN$ is a nesting for $rt$, where $rt$ is the relabelling of $t$ with minimal edge label sent to maximal and so on.
 Consequently, $(\sigma,\tau)$ is a valid nesting for $t$ if, and only if $t(r\times r)(\sigma,\tau)$ is a valid nesting for $rt$.
 Therefore, for~$t \in PT_n$ in $\card{\LAD_t} = \card{\SUD_{rt}}$ and $\card{\SUD_t} = \card{\LAD_{rt}}$.
+\end{remark}
+
+We end by computing the number of facets in the $\LA$ and $\SU$ diagonals for some multiplihedra.
+
+\begin{definition}
+\label{def:valid-2}
+Let $\sigma=\sigma_1| \cdots |\sigma_k$ be an ordered partition of $[n]$. 
+We say that $\sigma$ is \defn{valid} for a $2$-colored linear tree $t \in \PT_n$ if... \Guillaume{TBC}
+\end{definition}
+
+We have a 
+
+\begin{proposition}
+	\label{prop:multiplihedra-LA-SU}
+	The $\LA$ and $\SU$ diagonals of the multiplihedra associated with linear trees that have less than $4$ internal edges have the same number of facets. 
+	However, for linear trees with $5$ and $6$ internal edges, the number of facets of the $\LA$ and $\SU$ diagonals differ. 
+\end{proposition}
+
+\begin{proof}
+	This result follows from computer experiments, which are tabulated in \cref{table:multiplihedra}.
+\end{proof}
+
+\begin{figure}[h!]
+	\begin{center}
+	\begin{tabular}{c|c|c|c|c|c} 
+	Internal edges & $\LA$ diagonal & $\LA$ only & Shared & $\SU$ only & $\SU$ diagonal \\
+	\hline
+	$n=1$ & 2 & 0 & 2 & 0 & 2 \\
+	$n=2$ & 8 & 0 & 8 & 0 & 8 \\
+	$n=3$ & 42 & 5 & 37 & 5 & 42 \\
+	$n=4$ & 254 & 72 & 182 & 72 & 254 \\
+	$n=5$ & 1678 & 759 & 919 & 757 & 1676 \\
+	$n=6$ & 11790 & 7076 & 4714 & 7024 & 11738 
+	\end{tabular}
+	\end{center}
+	\caption{Number of facets in the $\LA$ and $\SU$ diagonals of the multiplihedra, indexed by linear trees with $n$ internal edges.}
+	\label{table:multiplihedra}
+\end{figure}
+
+\begin{remark}
+	It seems likely that for every $n\geq 6$, the $\LA$ and $\SU$ diagonals of the multiplihedra associated to linear trees with $n$ internal edges have distinct numbers of facets. 
 \end{remark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
