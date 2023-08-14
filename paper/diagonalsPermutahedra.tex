@@ -4398,7 +4398,7 @@ Then we construct an analogous cubical definition of the $\LA$ diagonal, transfe
 
 \subsubsection{The cubical $\SU$ diagonal}
 
-We define inductively a subdivision $\divcube{n-1}^\SU$ of the $(n-1)$-dimensional cube  which is combinatorially isomorphic to the permutahedron $\Perm$.
+We define inductively a subdivision $\divcube{n-1}^\SU$ of the $(n-1)$-dimensional cube which is combinatorially isomorphic to the permutahedron $\Perm$ (\cref{prop:subdiv cube Combinatorially Isomorphic to perm}).
 
 \begin{construction}
 \label{constr:cubicPermutahedron1}
@@ -4424,7 +4424,7 @@ We label the faces $\sigma \times I$ of the subdivided rectangular prism $\sigma
 	\end{cases} 
 	\tag{I}
 \end{align}
-We obtain a subdivision $\divcube{n}^\SU$ of the $n$-cube isomorphic to the permutahedron $\Perm[n+1]$.
+This defines a subdivision $\divcube{n}^\SU$ of the $n$-cube.
 \end{construction}
 
 \cref{fig:cubicPermutahedron1} illustrates this subdivision for the first few dimensions.
@@ -4485,9 +4485,34 @@ A $k$-subdivision cube has a unique maximal (\resp minimal) vertex with respect 
 
 \begin{proof}
 	By construction, the edges of $\divcube{n}^\SU$ are parallel to the basis vectors of $\R^n$ (\cref{rem:coordinates}), and correspond to inversions on permutations. 
-	Moreover, the vector $\b{v}\eqdef(1,\ldots,1)$ induces the weak order on the vertices of $\divcube{n}^\SU$.  
+	Thus, the vector $\b{v}\eqdef(1,\ldots,1)$ induces the weak order on the vertices of $\divcube{n}^\SU$.  
 	Since each $k$-subdivision cube is a rectangular prism whose edges are not perpendicular to $\b{v}$, the scalar product with $\b{v}$ is maximized (\resp minimized) at a unique vertex. 
 \end{proof}
+
+We can use this lemma to prove,
+
+\begin{lemma}\label{lem:Theta as a product of cubes}
+The isomorphism of ordered partitions $\Theta:\sigma_1|...|\sigma_k \mapsto [|\sigma_1|] \times ... \times [|\sigma_k|]$, from \cref{subsec:operadicProperty}, manifests as a product of cubes.
+\end{lemma}
+\begin{proof}
+For a given face $\sigma=\sigma_1|...|\sigma_k \in \Perm[n+1]$, $\min_v(\sigma) = \min_v(|\sigma_1|)_{\sigma_1}|...|\min_v(|\sigma_k|)_{\sigma_k}$, and $\max_v(\sigma) = \max_v(|\sigma_1|)_{\sigma_1}|...|\max_v(|\sigma_k|)_{\sigma_k}$.
+Thus, as the unique minimal and maximal vertices of $\sigma$ have a product structure, it is clear that $\sigma$ is a product of cubes.
+\end{proof}
+
+\begin{proposition}\label{prop:subdiv cube Combinatorially Isomorphic to perm}
+The subdivision $\divcube{n}^\SU$ is combinatorially isomorphic to $\Perm[n+1]$. 
+\end{proposition}
+
+\begin{proof}
+Clearly the faces of $\Perm[n+1]$ and $\divcube{n}^\SU$ are in bijection, it just remains to show that their face posets are isomorphic.
+It is clear that under any suitable characterisation of the cover relations of each, that the outer face covers all ordered partitions with only two blocks.
+Given \cref{lem:Theta as a product of cubes}, the isomorphism $\Theta:A_1|...|A_k \mapsto [|A_1|] \times ... \times [|A_1|]$ then equates the remaining cover relations. \Kurt{Something like these two results seems cleanest...}
+%Thus we need to show that $\sigma$ covers a face $\sigma'$ in $\divcube{n}^\SU$ if, and only if, this holds in $\Perm[n+1]$.
+%By definition, $\sigma$ covers $\sigma'$ in $\Perm[n+1]$ if, and only if, $\sigma' = \sigma_1|...|\sigma_i^1|\sigma_i^2|...|\sigma_m$ where $\sigma_i = \sigma_i^1 \cup \sigma_i^2$.
+%The inductive construction of the cube implies $\sigma$ covers $\sigma'$ if, and only if, they correspond to the respective products of intervals $I'_1 \times ... \times I'_n$, $I_1 \times ... \times I_n$, where $I'_j \subseteq I_j \subseteq [0,1]$, and $Dim(I'_1 \times ... \times I'_n) +1 = Dim(I_1 \times ... \times I_n)$.
+
+\end{proof}
+
 
 \begin{definition}
 	The \defn{maximal (\resp minimal) $k$-face} of a $k$-subdivision cube, with respect to the weak order, is the unique $k$-face in the subdivision cube which contains the maximal (\resp minimal) vertex.
