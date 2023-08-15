@@ -4468,15 +4468,13 @@ Only the vertices of $\divcube{3}^\SU$ are labelled, but its edges, facets and o
 	A consequence of the construction is that each edge of $\divcube{n}^\SU$ is parallel to one of the canonical basis vectors $e_i$ of $\R^n$, and corresponds to shifting the element $i+1$ of $[n+1]\ssm \{1\}$.
 \end{remark}
 
-The cubical formula for the diagonal is constructed through maximal pairings of $k$-subdivision cubes of $\divcube{n}^\SU$, which we now define, and prove the existence of.
+We now unpack how certain properties of $\Perm$ have been encoded in the cubical structure of $\divcube{n}^\SU$.
+This will later allow us to construct a cubical formula for the diagonal through maximal pairings of $k$-subdivision cubes of $\divcube{n}^\SU$, which we now introduce.
 
 \begin{definition} 
 \label{def:Subdivisions}
 For $k\geq 0$, a \defn{$k$-subdivision cube} of $\divcube{n}^\SU$ is a union of $k$-faces of $\divcube{n}^\SU$ whose underlying set is a $k$-dimensional rectangular prism.
 \end{definition}
-
-Every $k$-face of $\divcube{n}^\SU$ is a $k$-subdivision cube; other examples are provided in \cref{ex:subdivision cubes}.
-An important observation is the following. 
 
 \begin{lemma}
 \label{lem:k-subdiv cubes have max/min k faces}
@@ -4489,14 +4487,20 @@ A $k$-subdivision cube has a unique maximal (\resp minimal) vertex with respect 
 	Since each $k$-subdivision cube is a rectangular prism whose edges are not perpendicular to $\b{v}$, the scalar product with $\b{v}$ is maximized (\resp minimized) at a unique vertex. 
 \end{proof}
 
-We can use this lemma to prove,
+An important example of a $k$-subdivision cubes are the $k$-faces of $\divcube{n}^\SU$ (other examples are provided in \cref{ex:subdivision cubes}).
+These $k$-faces have a particularly simple cubical structure.
 
 \begin{lemma}\label{lem:Theta as a product of cubes}
-The isomorphism of ordered partitions $\Theta:\sigma_1|...|\sigma_k \mapsto [|\sigma_1|] \times ... \times [|\sigma_k|]$, from \cref{subsec:operadicProperty}, manifests as a product of cubes.
+Every $k$-face of $\divcube{n}^\SU$ decomposes as a product of subdivision cubes.
 \end{lemma}
 \begin{proof}
-For a given face $\sigma=\sigma_1|...|\sigma_k \in \Perm[n+1]$, $\min_v(\sigma) = \min_v(|\sigma_1|)_{\sigma_1}|...|\min_v(|\sigma_k|)_{\sigma_k}$, and $\max_v(\sigma) = \max_v(|\sigma_1|)_{\sigma_1}|...|\max_v(|\sigma_k|)_{\sigma_k}$.
-Thus, as the unique minimal and maximal vertices of $\sigma$ have a product structure, it is clear that $\sigma$ is a product of cubes.
+For a given face $\sigma=\sigma_1|...|\sigma_l \in \Perm[n+1]$, $\min_{\mathbf{v}}(\sigma) = \min_{\mathbf{v}}(|\sigma_1|)_{\sigma_1}|...|\min_{\mathbf{v}}(|\sigma_l|)_{\sigma_l}$, and $\max_{\mathbf{v}}(\sigma) = \max_{\mathbf{v}}(|\sigma_1|)_{\sigma_1}|...|\max_{\mathbf{v}}(|\sigma_l|)_{\sigma_l}$.
+Thus $\sigma$ is given by either of the following products of $(|\sigma_i|-1)$-subdivision cubes,
+\begin{align*}
+    \sigma = \prod_{i=1}^l \text{$\min$}_{\mathbf{v}}(|\sigma_1|)_{\sigma_1}|...|\sigma_i|...|\text{$\min$}_{\mathbf{v}}(|\sigma_l|)_{\sigma_l}=\prod_{i=1}^l \text{$\max$}_{\mathbf{v}}(|\sigma_1|)_{\sigma_1}|...|\sigma_i|...|\text{$\max$}_{\mathbf{v}}(|\sigma_l|)_{\sigma_l}
+\end{align*}
+where we can infer from \cref{lem:k-subdiv cubes have max/min k faces}, that $\min_{\mathbf{v}}(|\sigma_j|)_{\sigma_j}$ (\resp $\max_{\mathbf{v}}(|\sigma_j|)_{\sigma_j}$) is the elements of $\sigma_j$ arranged in increasing (decreasing) order.
+The equality of $\sigma$ with the products can be inferred from inspecting their unique minimal and maximal vertices.
 \end{proof}
 
 \begin{proposition}\label{prop:subdiv cube Combinatorially Isomorphic to perm}
@@ -4504,13 +4508,9 @@ The subdivision $\divcube{n}^\SU$ is combinatorially isomorphic to $\Perm[n+1]$.
 \end{proposition}
 
 \begin{proof}
-Clearly the faces of $\Perm[n+1]$ and $\divcube{n}^\SU$ are in bijection, it just remains to show that their face posets are isomorphic.
-It is clear that under any suitable characterisation of the cover relations of each, that the outer face covers all ordered partitions with only two blocks.
-Given \cref{lem:Theta as a product of cubes}, the isomorphism $\Theta:A_1|...|A_k \mapsto [|A_1|] \times ... \times [|A_1|]$ then equates the remaining cover relations. \Kurt{Something like these two results seems cleanest...}
-%Thus we need to show that $\sigma$ covers a face $\sigma'$ in $\divcube{n}^\SU$ if, and only if, this holds in $\Perm[n+1]$.
-%By definition, $\sigma$ covers $\sigma'$ in $\Perm[n+1]$ if, and only if, $\sigma' = \sigma_1|...|\sigma_i^1|\sigma_i^2|...|\sigma_m$ where $\sigma_i = \sigma_i^1 \cup \sigma_i^2$.
-%The inductive construction of the cube implies $\sigma$ covers $\sigma'$ if, and only if, they correspond to the respective products of intervals $I'_1 \times ... \times I'_n$, $I_1 \times ... \times I_n$, where $I'_j \subseteq I_j \subseteq [0,1]$, and $Dim(I'_1 \times ... \times I'_n) +1 = Dim(I_1 \times ... \times I_n)$.
-
+As the faces of $\Perm[n+1]$ and $\divcube{n}^\SU$ are in bijection, it just remains to show that their face posets are isomorphic.
+Under any suitable characterization of the cover relations of each poset, it is clear that the outer face covers all ordered partitions with only two blocks.
+As every non-outer face of $\divcube{n}^\SU$ decomposes as a product of cubes (\cref{lem:Theta as a product of cubes}), and this decomposition is clearly compatible with the isomorphism $\Theta$ of $\Perm$ which relates $\sigma_1|...|\sigma_l {\cong} [|\sigma_1|]\times ...\times [|\sigma_l|]$ (\cref{sec:operadicDiagonals}), this establishes the equality of the remaining cover relations of $\divcube{n}^\SU$ and $\Perm$.
 \end{proof}
 
 
@@ -4674,6 +4674,7 @@ We have indicated in bold the embedding ${\divcube{n-1}^{\LA}\hookrightarrow \di
 \end{figure}
 
 The appropriate base definitions for the $\LA$ diagonal of $k$-subdivision cubes (\cref{def:Subdivisions}) and hourglasses ${\hour}$ (\cref{def:hourglass}) are the same as in the $\SU$ case.
+The proof that $\hour^\LA $ is indeed combinatorially isomorphic to $\Perm[n+1]$ proceeds similarly to \cref{prop:subdiv cube Combinatorially Isomorphic to perm}.
 
 Recall from \cref{subsec:isos-LA-SU} the face poset isomorphism of the permutahedra which acts on~$A_1| \cdots |A_k$, by replacing each block $A_j$ by the block $r(A_j)\eqdef\set{n-i+1}{i \in A_j}$.
 We have the analogue of \cref{thm:cubical-SU} for the $\LA$ diagonal. 
