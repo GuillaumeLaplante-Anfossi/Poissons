@@ -318,7 +318,8 @@ In the second part of the paper, we study diagonals which respect the operadic s
 We show that there are exactly two such diagonals, which are moreover isomorphic.
 We describe their facets by a simple rule on paths in partition trees, and their vertices as pattern-avoiding pairs of permutations.
 We show that one of these diagonals is a topological enhancement of the Sanbeblidze--Umble diagonal, and unravel a natural lattice structure on their sets of facets.
-Finally, we use the preceding results to show that there are precisely two isomorphic topological cellular operadic structures on the family of operahedra and multiplihedra, and exactly two infinity-isomorphic geometric universal tensor products of homotopy operads and A-infinity morphisms.
+
+In the third part of the paper, we use the preceding results to show that there are precisely two isomorphic topological cellular operadic structures on the family of operahedra and multiplihedra, and exactly two infinity-isomorphic geometric universal tensor products of homotopy operads and A-infinity morphisms.
 %\Guillaume{Add results multiplihedra}
 \end{abstract}
 
@@ -327,7 +328,7 @@ Finally, we use the preceding results to show that there are precisely two isomo
 
 %\enlargethispage{.2cm}
 \vspace*{-.4cm}
-\centerline{\includegraphics[scale=.75]{diagonalPermutahedron3}}
+\centerline{\includegraphics[scale=.7]{diagonalPermutahedron3}}
 \vspace*{-.2cm}
 
 \newpage
@@ -5280,7 +5281,49 @@ However, there are 24 planar trees with $5$ internal edges, such that the number
 To compute these numbers, we first computed the facets of the $\LA$ and $\SU$ diagonals of the permutahedra, and then used the projection from the permutahedra to the operahedra described in \cite[Prop. 3.20]{LaplanteAnfossi}.
 \end{example}
 
-\begin{figure}[h!]
+
+
+\begin{remark}
+The lack of symmetry in the trees in \cref{fig:trees} arises from the lack of symmetry inherent in the infix order, and in how the $\LA$ and $\SU$ diagonal treat maximal and minimal elements.
+A sufficient condition for the diagonals of a tree $t$ to have the same number of facets is to satisfy, $N$ is a nesting of $t$ if and only if $rN$ is a nesting of $t$.
+For a tree satisfying this condition, relabelling its edges via the function $r : [n]\to [n]$ defined by $r(i)\eqdef n-i+1$ exchanges the number of facets between the $\LA$ and $\SU$ diagonals.
+\end{remark}
+
+We have an analogous result for universal tensor products of $\Ainf$-morphisms. 
+Let $\Ainf^2$ denote the $2$-colored operad whose algebras are pairs of $\Ainf$-algebras together with an $\Ainf$-morphism between them \cite[Sec.~4.4.1]{LaplanteAnfossiMazuir}.
+The datum of a diagonal of the operad $\Ainf$ encoding $\Ainf$-algebras and a diagonal of the operadic bimodule $\mathrm{M}_\infty$ encoding $\Ainf$-morphisms is equivalent to the datum of a morphism of $2$-colored operads $\Ainf^2 \to \Ainf^2 \otimes \Ainf^2$. 
+
+\begin{theorem}
+	\label{thm:infinity-iso-2}
+	For any pair of $\Ainf$-morphisms, the two universal tensor products defined by the $\LA$ and $\SU$ diagonals are not isomorphic in the category of $\Ainf^2$-algebras and strict morphisms.
+	However, they are isomorphic in the category of $\Ainf^2$-algebras and their $\infty$-morphisms.
+\end{theorem}
+
+\begin{proof}
+	Since the two morphisms of topological operadic bimodules on the multiplihedra $\LAD$ and $\SUD$ do not have the same cellular image, the tensor products that they define are not strictly isomorphic.
+	However, they are both homotopic to the usual thin diagonal.
+	Recall that the operad $\Ainf^2$ is the minimal model of the operad $\mathrm{As}^2$, whose algebras are pairs of associative algebras together with a morphism between them \cite[Prop.~4.9]{LaplanteAnfossi}. 
+	Using the universal property of the minimal model $\Ainf^2$, one can show that the algebraic diagonals $\LAD,\SUD : \Ainf^2 \to \Ainf^2 \otimes \Ainf^2$ are homotopic, in the sense of \cite[Sec.~3.10]{MarklShniderStasheff}.
+	Then, by \cite[Cor.~2]{DotsenkoShadrinVallette} there is an $\infty$-isotopy, that is an $\infty$-isomorphism whose first component is the identity, between the two tensor products of $\Ainf$-morphisms.
+\end{proof}
+
+\begin{remark}
+	As studied in \cite[Sec.~4.4]{LaplanteAnfossiMazuir}, the above tensor products of $\Ainf$-morphisms are not coassociative, nor cocommutative. 
+	Moreover, there \emph{does not exist} a universal tensor product of $\Ainf$-morphisms which is compatible with composition \cite[Prop.~4.23]{LaplanteAnfossiMazuir}.
+\end{remark}
+
+\begin{example}
+	\label{ex:multiplihedra-LA-SU}
+	The $\LA$ and $\SU$ diagonals of the multiplihedra associated with trees that have less than $4$ edges have the same number of facets. 
+	However, for linear trees with $5$ and $6$ internal edges, the number of facets of the $\LA$ and $\SU$ diagonals differ, as displayed in \cref{table:multiplihedra}.
+	To compute these numbers, we first computed the facets of the $\LA$ and $\SU$ diagonals of the permutahedra, and then used the projection from the permutahedra to the multiplihedra described in the proof of \cite[Thm.~3.3.6]{Doker}.
+\end{example}
+
+\Guillaume{Revoir mise en page des figures}
+
+\newpage
+
+\begin{figure}[h]
 \begin{tabular}{cccccc}
 	\imagebot{\begin{tikzpicture}[yscale=-1,every tree node/.style={draw, very thick, circle, inner sep=0.08cm}, level distance=0.7cm,sibling distance=0.3cm, , edge from parent path={[very thick, draw] (\tikzparentnode) -- (\tikzchildnode)}]]
 	\Tree 
@@ -5620,43 +5663,7 @@ To compute these numbers, we first computed the facets of the $\LA$ and $\SU$ di
 \label{fig:trees}
 \end{figure}
 
-\begin{remark}
-The lack of symmetry in the trees in \cref{fig:trees} arises from the lack of symmetry inherent in the infix order, and in how the $\LA$ and $\SU$ diagonal treat maximal and minimal elements.
-A sufficient condition for the diagonals of a tree $t$ to have the same number of facets is to satisfy, $N$ is a nesting of $t$ if and only if $rN$ is a nesting of $t$.
-For a tree satisfying this condition, relabelling its edges via the function $r : [n]\to [n]$ defined by $r(i)\eqdef n-i+1$ exchanges the number of facets between the $\LA$ and $\SU$ diagonals.
-\end{remark}
-
-We have an analogous result for universal tensor products of $\Ainf$-morphisms. 
-Let $\Ainf^2$ denote the $2$-colored operad whose algebras are pairs of $\Ainf$-algebras together with an $\Ainf$-morphism between them \cite[Sec.~4.4.1]{LaplanteAnfossiMazuir}.
-The datum of a diagonal of the operad $\Ainf$ encoding $\Ainf$-algebras and a diagonal of the operadic bimodule $\mathrm{M}_\infty$ encoding $\Ainf$-morphisms is equivalent to the datum of a morphism of $2$-colored operads $\Ainf^2 \to \Ainf^2 \otimes \Ainf^2$. 
-
-\begin{theorem}
-	\label{thm:infinity-iso-2}
-	For any pair of $\Ainf$-morphisms, the two universal tensor products defined by the $\LA$ and $\SU$ diagonals are not isomorphic in the category of $\Ainf^2$-algebras and strict morphisms.
-	However, they are isomorphic in the category of $\Ainf^2$-algebras and their $\infty$-morphisms.
-\end{theorem}
-
-\begin{proof}
-	Since the two morphisms of topological operadic bimodules on the multiplihedra $\LAD$ and $\SUD$ do not have the same cellular image, the tensor products that they define are not strictly isomorphic.
-	However, they are both homotopic to the usual thin diagonal.
-	Recall that the operad $\Ainf^2$ is the minimal model of the operad $\mathrm{As}^2$, whose algebras are pairs of associative algebras together with a morphism between them \cite[Prop.~4.9]{LaplanteAnfossi}. 
-	Using the universal property of the minimal model $\Ainf^2$, one can show that the algebraic diagonals $\LAD,\SUD : \Ainf^2 \to \Ainf^2 \otimes \Ainf^2$ are homotopic, in the sense of \cite[Sec.~3.10]{MarklShniderStasheff}.
-	Then, by \cite[Cor.~2]{DotsenkoShadrinVallette} there is an $\infty$-isotopy, that is an $\infty$-isomorphism whose first component is the identity, between the two tensor products of $\Ainf$-morphisms.
-\end{proof}
-
-\begin{remark}
-	As studied in \cite[Sec.~4.4]{LaplanteAnfossiMazuir}, the above tensor products of $\Ainf$-morphisms are not coassociative, nor cocommutative. 
-	Moreover, there \emph{does not exist} a universal tensor product of $\Ainf$-morphisms which is compatible with composition \cite[Prop.~4.23]{LaplanteAnfossiMazuir}.
-\end{remark}
-
-\begin{example}
-	\label{ex:multiplihedra-LA-SU}
-	The $\LA$ and $\SU$ diagonals of the multiplihedra associated with trees that have less than $4$ edges have the same number of facets. 
-	However, for linear trees with $5$ and $6$ internal edges, the number of facets of the $\LA$ and $\SU$ diagonals differ, as displayed in \cref{table:multiplihedra}.
-	To compute these numbers, we first computed the facets of the $\LA$ and $\SU$ diagonals of the permutahedra, and then used the projection from the permutahedra to the multiplihedra described in the proof of \cite[Thm.~3.3.6]{Doker}.
-\end{example}
-
-\begin{figure}
+\begin{figure}[h]
 	\begin{center}
 	\begin{tabular}{c|c|c|c|c|c} 
 	Internal edges & $\LA$ diagonal & $\LA$ only & Shared & $\SU$ only & $\SU$ diagonal \\
