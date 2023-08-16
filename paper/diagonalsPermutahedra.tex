@@ -323,12 +323,12 @@ In the third part of the paper, we use the preceding results to show that there 
 %\Guillaume{Add results multiplihedra}
 \end{abstract}
 
-\vspace*{-1.2cm}
+\vspace*{-1.4cm}
 \maketitle
 
 %\enlargethispage{.2cm}
-\vspace*{-.4cm}
-\centerline{\includegraphics[scale=.7]{diagonalPermutahedron3}}
+\vspace*{-.6cm}
+\centerline{\includegraphics[scale=.75]{diagonalPermutahedron3}}
 \vspace*{-.2cm}
 
 \newpage
@@ -539,7 +539,7 @@ Moreover, while the pairs of facets of operadic are intervals of the facial weak
 
 Finally, we present the alternative cubical (\cref{sec:Cubical}) and matrix (\cref{subsec:matrix}) descriptions of the $\SU$ diagonal from \cite{SaneblidzeUmble,SaneblidzeUmble-comparingDiagonals}, providing proofs of their equivalence with the other descriptions, and giving their $\LA$ counterparts. 
 The existence of this cubical description, based on a subdivision of the cube combinatorially isomorphic to the permutahedron, finds its conceptual root in the bar-cobar resolution of the associative permutad. 
-Indeed, this resolution is encoded by the dual subdivision of the permutahedron, which is cubical since $\Perm$ is a simple polytope, and a diagonal can be obtained from the classical Serre diagonal via retraction, in the same fashion as for the associahedra, see \cite{MarklShnider,Loday} and \cite[Sec. 5.1]{LaplanteAnfossiMazuir}.
+Indeed, this resolution is encoded by the dual subdivision of the permutahedron, which is cubical since $\Perm$ is a simple polytope, and a diagonal can be obtained from the classical Serre diagonal via retraction, in the same fashion as for the associahedra, see \cite{MarklShnider, Loday-diagonal} and \cite[Sec. 5.1]{LaplanteAnfossiMazuir}.
 
 %%%%%%%%%%%%%%%
 
@@ -555,8 +555,8 @@ The main results concerning the operahedra are summarized as follows.
 \begin{theorem*}[\cref{thm:operahedra,thm:top-iso,thm:infinity-iso}] 
 There are exactly 
 \begin{enumerate}
-	\item two geometric operadic diagonals of the Loday operahedra, given by the $\LA$ and $\SU$ diagonals, 
-	\item two geometric topological cellular colored operad structures on the Loday operahedra, and
+	\item two geometric operadic diagonals of the Loday operahedra, the $\LA$ and $\SU$ diagonals, 
+	\item two geometric topological cellular colored operad structures on the Loday operahedra,
 	\item two geometric universal tensor products of homotopy operads,
 \end{enumerate}
 which agree with the generalized Tamari order on fully nested trees. 
@@ -569,8 +569,8 @@ The main results concerning the multiplihedra are summarized as follows.
 \begin{theorem*}[{\cref{thm:multiplihedra,thm:top-iso-2,thm:infinity-iso-2}}]
 	There are exactly 
 	\begin{enumerate}
-	\item two geometric operadic diagonals of the Forcey--Loday multiplihedra, given by the $\LA$ and $\SU$ diagonals, therefore exactly
-	\item two geometric topological cellular colored operad structures (over the Loday associahedra) on the Forcey--Loday multiplihedra, and incidentally exactly
+	\item two geometric operadic diagonals of the Forcey multiplihedra, the $\LA$ and $\SU$ diagonals,
+	\item two geometric topological cellular colored operad structures (over the Loday associahedra) on the Forcey multiplihedra,
 	\item two compatible geometric universal tensor products of $\Ainf$-algebras and $\Ainf$-morphisms,
 	\end{enumerate}
 	which agree with the Tamari-type order on atomic $2$-colored nested linear trees. 
@@ -767,8 +767,8 @@ The \defn{braid arrangement}~$\braidArrangement$ is the arrangement of the hyper
 \begin{remark}
 \label{rem:essential}
 Note that we have decided to work in the space~$\HH$ rather than in the space~$\R^n$.
-The advantage is that the braid arrangement~$\braidArrangement$ in~$\HH$ is essential, so that we can speak of its vertices.
-Working in~$\R^n$ would change vertices to rays, and would multiply all M\"obius polynomials by a factor~$xy$.
+The advantage is that the braid arrangement~$\braidArrangement$ in~$\HH$ is essential, so that we can speak of its rays.
+Working in~$\R^n$ would change rays to walls, and would multiply all M\"obius polynomials by a factor~$xy$.
 \end{remark}
 
 The combinatorics of the braid arrangement~$\braidArrangement$ is well-known.
@@ -2149,7 +2149,6 @@ The \defn{permutahedron}~$\Perm$ is the polytope in~$\R^n$ defined equivalently 
 \item the intersection of the hyperplane~$\smash{\bigset{\b{x} \in \R^n}{\sum_{i \in I} x_i = \binom{n+1}{2}}}$ with the affine halfspaces $\smash{\bigset{\b{x} \in \R^n}{\sum_{i \in I} x_i \ge \binom{\card{I}+1}{2}}}$ for all~${\varnothing \ne I \subsetneq [n]}$, see~\cite{Rado}.
 \end{itemize}
 The normal fan of the permutahedron~$\Perm$ is the fan defined by the braid arrangement~$\braidArrangement$.
-\Guillaume{A word on the relation to $\mathbb{H}$ used in Part I}
 In particular, the faces of~$\Perm$ correspond to the ordered partitions of~$[n]$.
 Moreover, when oriented in a generic direction, the skeleton of the permutahedron~$\Perm$ is isomorphic to the Hasse diagram of the classical weak order on permutations of~$[n]$.
 % when oriented in the direction~${\b{\omega} \eqdef (n,\dots,1) - (1,\dots,n) = \sum_{i \in [n]} (n+1-2i) \, \b{e}_i}$
@@ -3030,36 +3029,37 @@ However, as $j_k$ must be dominated by an element of $I$, this forces $w = i_1$ 
 \subsection{Relation to the facial weak order}
 \label{sec:facial-weak-order}
 
-The facial weak order is a lattice structure on the faces of the permutahedra, which generalizes the weak order on permutations to all ordered partitions.
-It was introduced in \cite{palacios2004weak}, and shown to be a lattice in \cite{dermenjian2018facial}.
-In this section, we recall a definition of the facial weak order, and use the vertex characterization of the preceding section to show all faces of the  $\LA$ and $\SU$ diagonal are intervals of this order.
+There is a natural lattice structure on all ordered partitions which extends the weak order on permutations.
+This lattice was introduced in~\cite{KrobLatapyNovelliPhanSchwer}, where it is called \emph{pseudo-permutahedron} and defined on packed words rather than ordered partitions.
+It was later generalized to arbitrary finite Coxeter groups in~\cite{PalaciosRonco, DermenjianHohlwegPilaud}, where it is called \emph{facial weak order} and expressed in more geometric terms.
+We now recall a definition of the facial weak order on ordered partitions, and use the vertex characterization of the preceding section to show all faces of the  $\LA$ and $\SU$ diagonal are intervals of this order.
 
-\begin{definition}[Lemma 22 of \cite{palacios2004weak}]
-Let $\sigma = \sigma_1|\cdots|\sigma_k$ denote an ordered partition.
-The facial weak order lattice of the permutahedra is the transitive closure of the following relations,
+\begin{definition}[\cite{KrobLatapyNovelliPhanSchwer,PalaciosRonco,DermenjianHohlwegPilaud}]
+The \defn{facial weak order} on ordered partitions is the transitive closure of the relations
 \begin{align}
-    \max \sigma_i < \min \sigma_{i+1} &\implies \sigma < \sigma_1|\cdots|\sigma_i \sqcup \sigma_{i+1}|\cdots|\sigma_k  \label{eq:facial weak 1}\\
-    \min \sigma_i > \max \sigma_{i+1} &\implies \sigma > \sigma_1|\cdots|\sigma_i \sqcup \sigma_{i+1}|\cdots|\sigma_k \label{eq:facial weak 2}
+    \sigma_1|\dots|\sigma_k < \sigma_1|\cdots|\sigma_i \sqcup \sigma_{i+1}|\cdots|\sigma_k \quad & \text{for any } \sigma_1|\dots|\sigma_k \text{ with } \max \sigma_i < \min \sigma_{i+1},  \label{eq:facial weak 1}\\
+    \sigma_1|\cdots|\sigma_i \sqcup \sigma_{i+1}|\cdots|\sigma_k < \sigma_1|\dots|\sigma_k \quad & \text{for any } \sigma_1|\dots|\sigma_k \text{ with } \min \sigma_i > \max \sigma_{i+1}. \label{eq:facial weak 2}
 \end{align}
 \end{definition}
+
 The facial weak order recovers the weak order on permutations as illustrated in \cref{fig:Hasse diagram Perm3}.
 \begin{figure}
-\begin{tikzpicture}
-\node (1) at (-1.5, -1) {$3|12$};
-\node (2) at (-2.5, -2) {$3|1|2$};
-\node (3) at (-2.5, -3) {$13|2$};
-\node (4) at (-2.5, -4) {$1|3|2$};
-\node (5) at (-1.5, -5) {$1|23$};
+\begin{tikzpicture}[xscale=1.3, yscale=1.5]
+\node (1) at (-1, -.5) {$3|12$};
+\node (2) at (-2, -1) {$3|1|2$};
+\node (3) at (-2, -2) {$13|2$};
+\node (4) at (-2, -3) {$1|3|2$};
+\node (5) at (-1, -3.5) {$1|23$};
 %
-\node (6) at (1.5, -1) {$23|1$};
-\node (7) at (2.5, -2) {$2|3|1$};
-\node (8) at (2.5, -3) {$2|13$};
-\node (9) at (2.5, -4) {$2|1|3$};
-\node (10) at (1.5, -5) {$12|3$};
+\node (6) at (1, -.5) {$23|1$};
+\node (7) at (2, -1) {$2|3|1$};
+\node (8) at (2, -2) {$2|13$};
+\node (9) at (2, -3) {$2|1|3$};
+\node (10) at (1, -3.5) {$12|3$};
 %
 \node (11) at (0, 0) {$3|2|1$};
-\node (12) at (0, -3) {$123$};
-\node (13) at (0, -6) {$1|2|3$};
+\node (12) at (0, -2) {$123$};
+\node (13) at (0, -4) {$1|2|3$};
 %
 \draw[thick] (1) -- (2); 
 \draw[thick] (2) -- (3); 
@@ -3089,6 +3089,7 @@ The facial weak order recovers the weak order on permutations as illustrated in 
 \begin{proposition}
 If $(\sigma,\tau)\in \LAD$, or $(\sigma,\tau)\in \SUD$, then $\sigma \leq \tau$ under the facial weak order.
 \end{proposition}
+
 \begin{proof}
 By \cref{prop:magicalFormula}, the faces $(\sigma,\tau)$ satisfy $\max_{\mathbf{v}} \sigma \leq \min_{\mathbf{v}} \tau$ under the weak order.
 Thus, if we can show that $\sigma\leq \max_{\mathbf{v}} \sigma$ and $\min_{\mathbf{v}} \tau \leq \tau$ under the facial weak order, then the result immediately follows.
@@ -4141,10 +4142,12 @@ where we have aligned each element, of each diagonal, vertically with its dual e
 \subsection{Shift lattices}
 \label{sec:Shift-lattice}
 
-In this section, we show that the $1$-shifts of the operadic diagonals~$\LAD$ and $\SUD$, define the covering relations of a lattice structure on the set of facets.
+In this section, we show that the $1$-shifts of the operadic diagonals~$\LAD$ and~$\SUD$, define the covering relations of a lattice structure on the set of facets.
 More precisely, we show that each $\SCP$ is the minimal element of a lattice isomorphic to a product of chains, where the partial order is given by shifts.
 Given the bijection between $\SCP$s and permutations, and our prior enumeration of the facets of the diagonal, this produces two new statistics on permutations.
 In addition, later in \cref{sec:Cubical}, we will use the lattice structure to relate the cubical and shift definitions of the $\SUD$ diagonal.
+
+\vincent{I would first define the shift poset as the transitive closure of the shift graph, and then explain that this poset has one connected component for each permutation, whose minimum is the corresponding SCP, and that each connected component is a lattice.}
 
 \begin{definition}
 \label{def:shift-lattice}
@@ -4219,11 +4222,9 @@ This is clearly an isomorphism of lattices.
 Note that the maximal element of $\hour$ (for either diagonal) is given by shifting each element of $(\sigma,\tau)$ by its maximal shift.
 The joins and meets of any two elements are also thus given by isomorphism to the product of chains.
 For instance, in the case of meets,
-{\small
-\begin{align*}
-	(\ell_1,\ldots,\ell_n,r_1,\ldots,r_n)\land (l'_1,\ldots,l'_n,r'_1,\ldots,r'_n) &= (\min\{\ell_1,1'_1\},\ldots,\min\{\ell_n,l'_n\},\min\{r_1,r'_1\},\ldots,\min\{r_n,r'_n\})
-\end{align*}
-}
+\begin{multline*}
+	(\ell_1,\ldots,\ell_n,r_1,\ldots,r_n)\land (\ell'_1,\ldots,\ell'_n,r'_1,\ldots,r'_n) = \\ (\min\{\ell_1,\ell'_1\},\ldots,\min\{\ell_n,\ell'_n\},\min\{r_1,r'_1\},\ldots,\min\{r_n,r'_n\})
+\end{multline*}
 The cover relations of the lattice corresponds to singleton $1$-shifts, and for a clear examples of the Hasse diagram, we direct the reader to \cref{ex:shift translation by theta}, and \cref{fig: Inversion and lattice counter example}.
 We note that \cref{fig: Inversion and lattice counter example} also illustrates that there is no general relation between the shift lattice structure and inversions sets.
 In particular, the shift lattices are not sub-lattices of the facial weak order (discussed in \cref{sec:facial-weak-order}), as $24|13$ and $234|1$ are incomparable.
@@ -4492,6 +4493,7 @@ An important example of a $k$-subdivision cubes are the $k$-faces of $\divcube{n
 These $k$-faces have a particularly simple cubical structure.
 
 \begin{lemma}\label{lem:Theta as a product of cubes}
+\vincent{careful: the notation for the cardinal of~$X$ is~$\card{X}$...}
 Every $k$-face of $\divcube{n}^\SU$ decomposes as a product of subdivision cubes.
 \end{lemma}
 \begin{proof}
@@ -4512,6 +4514,7 @@ The subdivision $\divcube{n}^\SU$ is combinatorially isomorphic to $\Perm[n+1]$.
 As the faces of $\Perm[n+1]$ and $\divcube{n}^\SU$ are in bijection, it just remains to show that their face posets are isomorphic.
 Under any suitable characterization of the cover relations of each poset, it is clear that the outer face covers all ordered partitions with only two blocks.
 As every non-outer face of $\divcube{n}^\SU$ decomposes as a product of cubes (\cref{lem:Theta as a product of cubes}), and this decomposition is clearly compatible with the isomorphism $\Theta$ of $\Perm$ which relates $\sigma_1|...|\sigma_l {\cong} [|\sigma_1|]\times ...\times [|\sigma_l|]$ (\cref{sec:operadicDiagonals}), this establishes the equality of the remaining cover relations of $\divcube{n}^\SU$ and $\Perm$.
+\vincent{careful: the notation for the cardinal of~$X$ is~$\card{X}$...}
 \end{proof}
 
 
@@ -4992,8 +4995,8 @@ Since such an operad structure and tensor product are induced by a geometric dia
 \label{thm:operahedra}
 There are exactly 
 \begin{enumerate}
-\item two geometric operadic diagonals of the Loday operahedra, given by the $\LA$ and $\SU$ diagonals, therefore exactly
-\item two geometric colored topological cellular operad structures on the Loday operahedra, and incidentally exactly
+\item two geometric operadic diagonals of the Loday operahedra, the $\LA$ and $\SU$ diagonals,
+\item two geometric colored topological cellular operad structures on the Loday operahedra,
 \item two geometric universal tensor products of homotopy operads,
 \end{enumerate}
 which agree with the generalized Tamari order on fully nested trees. 
@@ -5023,25 +5026,25 @@ The restriction of the two operad structures of \cref{thm:operahedra} coincide i
 The restriction of \cref{thm:operahedra} to the permutahedra associated with $2$-leveled trees gives two distinct universal tensor products of permutadic $\Ainf$-algebras, as studied in~\cite{LodayRonco-permutads,Markl}.
 \end{example}
 
-Two other important families of operadic polytopes are the \emph{Loday associahedra} and \emph{Forcey--Loday multiplihedra}, which encode respectively $\Ainf$-algebras and $\Ainf$-morphisms~\cite[Prop.~4.9]{LaplanteAnfossiMazuir}, as well as $\Ainf$-categories and $\Ainf$-functors~\cite[Sect.~4.3]{LaplanteAnfossiMazuir}.
-For every linear tree $t \in \PT_n$, there is a corresponding Loday associahedron $\K_n$, whose faces are in bijection with nestings of $t$, and a Forcey--Loday multiplihedron $\J_n$ whose faces are in bijection with $2$-colored nestings of $t$.
+Two other important families of operadic polytopes are the \emph{Loday associahedra} and \emph{Forcey multiplihedra}, which encode respectively $\Ainf$-algebras and $\Ainf$-morphisms~\cite[Prop.~4.9]{LaplanteAnfossiMazuir}, as well as $\Ainf$-categories and $\Ainf$-functors~\cite[Sect.~4.3]{LaplanteAnfossiMazuir}.
+For every linear tree $t \in \PT_n$, there is a corresponding Loday associahedron $\K_n$, whose faces are in bijection with nestings of $t$, and a Forcey multiplihedron $\J_n$ whose faces are in bijection with $2$-colored nestings of $t$.
 
 \begin{definition}[{\cite[Def. 3.2]{LaplanteAnfossiMazuir}}]\label{def:2-Colored Nesting}
 	A \defn{$2$-colored nesting} is a nesting where each nest $N$ is either blue, red, or blue and red (purple), and which satisfies that if $N$ is blue or purple (\resp red or purple), then all nests contained in $N$ are blue (\resp all nests that contain $N$ are red). 
  	See \cref{fig:nestings}.
 \end{definition}
 
-The Loday associahedra are faces of the Forcey--Loday multiplihedra: they correspond to $2$-colored nestings where all the nests are of the same color (either blue or red). 
+The Loday associahedra are faces of the Forcey multiplihedra: they correspond to $2$-colored nestings where all the nests are of the same color (either blue or red). 
 
-Forcey--Loday realizations of the multiplihedra are not generalized permutahedra, but they are projections of the Ardila--Doker realizations, which are \cite[Prop. 1.16]{LaplanteAnfossiMazuir}.
-A choice of diagonal for the permutahedra thus induces a choice of diagonal for every Ardila--Doker multiplihedron, and a subset of these choices (the ones which satisfy \cite[Prop. 2.7 \& 2.8]{LaplanteAnfossiMazuir}) further induce a choice of diagonal for the Forcey--Loday multiplihedra.
-Every face of a Forcey--Loday multiplihedron is isomorphic to a product of a Loday associahedron and possibly many lower-dimensional Forcey--Loday multiplihedra, via an isomorphism $\Theta$ similar to the one from \cref{subsec:operadicProperty}, see Point (4) of \cite[Prop. 1.10]{LaplanteAnfossiMazuir}.
+Forcey realizations of the multiplihedra are not generalized permutahedra, but they are projections of the Ardila--Doker realizations, which are \cite[Prop. 1.16]{LaplanteAnfossiMazuir}.
+A choice of diagonal for the permutahedra thus induces a choice of diagonal for every Ardila--Doker multiplihedron, and a subset of these choices (the ones which satisfy \cite[Prop. 2.7 \& 2.8]{LaplanteAnfossiMazuir}) further induce a choice of diagonal for the Forcey multiplihedra.
+Every face of a Forcey multiplihedron is isomorphic to a product of a Loday associahedron and possibly many lower-dimensional Forcey multiplihedra, via an isomorphism $\Theta$ similar to the one from \cref{subsec:operadicProperty}, see Point (4) of \cite[Prop. 1.10]{LaplanteAnfossiMazuir}.
 
 \begin{definition}
 	An \defn{operadic diagonal} for the multiplihedra is a choice of diagonal $\triangle_n$ for each multiplihedron $\J_n$, such that $\triangle \eqdef \{\triangle_n\}$ commutes with the map $\Theta$.
 \end{definition}
 
-An operadic diagonal endows the Loday associahedra with a topological operad structure \cite[Thm.~1]{MasudaThomasTonksVallette}, and the Forcey--Loday multiplihedra with a topological operadic bimodule structure over the operad of Loday associahedra \cite[Thm.~1]{LaplanteAnfossiMazuir}.
+An operadic diagonal endows the Loday associahedra with a topological operad structure \cite[Thm.~1]{MasudaThomasTonksVallette}, and the Forcey multiplihedra with a topological operadic bimodule structure over the operad of Loday associahedra \cite[Thm.~1]{LaplanteAnfossiMazuir}.
 Via the functor of cellular chains, it defines universal tensor products of $\Ainf$-algebras and $\Ainf$-morphisms \cite[Sec.~4.2.1]{LaplanteAnfossiMazuir}.
 Here again, by \emph{universal} we mean a formula that applies uniformly to any pair of $\Ainf$-algebras or $\Ainf$-morphisms.
 We shall call such geometrically defined operadic structures and tensor products \emph{geometric}. 
@@ -5050,8 +5053,8 @@ We shall call such geometrically defined operadic structures and tensor products
 \label{thm:multiplihedra}
 There are exactly 
 \begin{enumerate}
-\item two geometric operadic diagonals of the Forcey--Loday multiplihedra, given by the $\LA$ and $\SU$ diagonals, therefore exactly
-\item two geometric topological cellular colored operad structures (over the Loday associahedra) on the Forcey--Loday multiplihedra, and incidentally exactly
+\item two geometric operadic diagonals of the Forcey multiplihedra, the $\LA$ and $\SU$ diagonals,
+\item two geometric topological cellular colored operad structures (over the Loday associahedra) on the Forcey multiplihedra,
 \item two compatible geometric universal tensor products of $\Ainf$-algebras and $\Ainf$-morphisms,
 \end{enumerate}
 which agree with the Tamari-type order on atomic $2$-colored nested linear trees. 
@@ -5061,15 +5064,15 @@ which agree with the Tamari-type order on atomic $2$-colored nested linear trees
 Let us first examine Point (1).
 Consider the vectors $\b{v}_\LA \eqdef (1,2^{-1},2^{-2},\ldots,2^{-n+1})$ and $\b{v}_\SU \eqdef (2^n-1,2^{n}-2,2^n-2^2,\ldots,2^n-2^{n-1})$ in $\R^n$.
 As previously observed, they induce the $\LA$ and $\SU$ diagonals on the permutahedra (\cref{def:LA-and-SU}).
-One checks directly that both vectors satisfy \cite[Prop. 2.7 \& 2.8]{LaplanteAnfossiMazuir}, and thus define diagonals of the Forcey--Loday multiplihedron~$\J_n$ which agree with the Tamari-type order \cite[Prop. 2.10]{LaplanteAnfossiMazuir}.
-Moreover, these diagonals commute with the map $\Theta$ for the Forcey--Loday multiplihedra \cite[Prop. 2.14]{LaplanteAnfossiMazuir}; this is because after deleting the last coordinate of $\b{v}_\LA$ or $\b{v}_\SU$, and then applying $\Theta^{-1}$, we still have vectors which induce the $\LA$ or $\SU$ diagonal, respectively. 
+One checks directly that both vectors satisfy \cite[Prop. 2.7 \& 2.8]{LaplanteAnfossiMazuir}, and thus define diagonals of the Forcey multiplihedron~$\J_n$ which agree with the Tamari-type order \cite[Prop. 2.10]{LaplanteAnfossiMazuir}.
+Moreover, these diagonals commute with the map $\Theta$ for the Forcey multiplihedra \cite[Prop. 2.14]{LaplanteAnfossiMazuir}; this is because after deleting the last coordinate of $\b{v}_\LA$ or $\b{v}_\SU$, and then applying $\Theta^{-1}$, we still have vectors which induce the $\LA$ or $\SU$ diagonal, respectively. 
 
 By \cref{thm:unique-operadic}, we know that if one of the two choices $\LAD$ or $\SUD$ is made on a multiplihedron $\J_n$, one has to make the same choice on every lower-dimensional multiplihedra and associahedra appearing in the product decomposition of any face of~$\J_n$. 
 Now suppose that one makes two distinct choices for two multiplihedra $\J_n$ and $\J_{n'}$.
 It is easy to find a bigger multiplihedron $\J_{n''}$, for which $\J_n$ and $\J_{n'}$ appear in the product decomposition of a face of $\J_{n''}$ and by the preceding remark, any choice of diagonal for $\J_{n''}$ will then contradict our initial two choices. 
 Thus, these had to be the same from the start, which conclude the proof of Point (1). 
 
-Point (2) then follows from the fact that a choice of diagonal for the Loday associahedra and the Forcey--Loday multiplihedra \emph{forces} a unique topological cellular colored operad and operadic bimodule structure on them, see~\cite[Thm.~1]{MasudaThomasTonksVallette} and \cite[Thm.~1]{LaplanteAnfossiMazuir}.
+Point (2) then follows from the fact that a choice of diagonal for the Loday associahedra and the Forcey multiplihedra \emph{forces} a unique topological cellular colored operad and operadic bimodule structure on them, see~\cite[Thm.~1]{MasudaThomasTonksVallette} and \cite[Thm.~1]{LaplanteAnfossiMazuir}.
 Since a universal tensor products of $\Ainf$-algebras, and a compatible universal tensor products of $\Ainf$-morphisms are induced by an operad and operadic bimodule structures on the associahedra and multiplihedra respectively~\cite[Sec.~4.2.3]{LaplanteAnfossiMazuir}, we obtain Point~(3).
 Finally, since only vectors with strictly decreasing coordinates induce the Tamari-type order on the skeleton of the Loday multiplihedra~\cite[Prop. 2.10]{LaplanteAnfossiMazuir}, we get the last part of the statement. 
 \end{proof}
@@ -5172,7 +5175,7 @@ Since $\circ_i^\LA$ and $\circ_i^\SU$ are the identity both on the interior of $
 \] 
 \end{example}
 
-Recall that the topological cellular operadic bimodule structure on the Forcey--Loday multiplihedra is given by a family of action-composition maps \cite[Def. 2.13]{LaplanteAnfossiMazuir}
+Recall that the topological cellular operadic bimodule structure on the Forcey multiplihedra is given by a family of action-composition maps \cite[Def. 2.13]{LaplanteAnfossiMazuir}
 \[
 \vcenter{\hbox{
 \begin{tikzcd}[column sep = 16pt]
@@ -5215,7 +5218,7 @@ The same holds when taking the $\circ_i^\SU$ (\ie the $\circ_{p+1}^\SU$ and $\ga
 
 \begin{construction}
 	\label{const:top-iso-2}
-	For any Forcey--Loday multiplihedron $\J_n$, we define a map $\Psi_n : \J_n \to \J_n$ 
+	For any Forcey multiplihedron $\J_n$, we define a map $\Psi_n : \J_n \to \J_n$ 
 	\begin{itemize}
 		\item on the interior of the top face by the identity $\id : \mathring \J_n \to \mathring \J_n$, and 
 		\item on the interior of the face $F=((\cdots((t_1 \circ_{i_1} t_2) \circ_{i_2} t_3) \cdots )\circ_{i_k} t_{k+1})$ of~$\J_n$ by the composition of the two isomorphisms
@@ -5226,7 +5229,7 @@ The same holds when taking the $\circ_i^\SU$ (\ie the $\circ_{p+1}^\SU$ and $\ga
 
 \begin{theorem}
 \label{thm:top-iso-2}
-The map $\Psi \eqdef \{\Psi_n\}$ is an isomorphism of topological cellular operadic bimodule structure over the Loday associahedra between the $\LA$ and $\SU$ operadic bimodule structures on the Forcey--Loday multiplihedra, in the category $\PolySub$.
+The map $\Psi \eqdef \{\Psi_n\}$ is an isomorphism of topological cellular operadic bimodule structure over the Loday associahedra between the $\LA$ and $\SU$ operadic bimodule structures on the Forcey multiplihedra, in the category $\PolySub$.
 \end{theorem}
 
 \begin{proof}
@@ -5236,7 +5239,7 @@ The map $\Psi \eqdef \{\Psi_n\}$ is an isomorphism of topological cellular opera
 \begin{example}
 	\label{ex:iso-not-Hopf-2}
 	Note that $\Psi$ does not commute with the respective diagonals $\LAD$ and $\SUD$. 
-	Consider the two square faces $F \eqdef \purplea{\bluea{\bullet \bullet \bullet}\bullet}$ and $G \eqdef \reda{\bullet\purplea{\bullet\bullet}\bullet}$ of the $3$-dimensional Forcey--Loday multiplihedron $\J_4$, and choose a point $\b z \in (\mathring F + \mathring G)/2$.
+	Consider the two square faces $F \eqdef \purplea{\bluea{\bullet \bullet \bullet}\bullet}$ and $G \eqdef \reda{\bullet\purplea{\bullet\bullet}\bullet}$ of the $3$-dimensional Forcey multiplihedron $\J_4$, and choose a point $\b z \in (\mathring F + \mathring G)/2$.
 	Then, $\LAD(z)$ and~$\SUD(z)$ are two different pair of points on the $1$-skeleton of $\J_4$ (see \cite[Ex.~3.7 \& Fig.~9]{LaplanteAnfossiMazuir}). 
 	Since the $\LA$ and $\SU$ action-composition maps are the identity both on the interior of $\J_4$ (by \cref{const:top-iso-2}) and on the $1$-skeleton of $\J_4$ (see the proof of~\cite[Prop. 7]{MasudaThomasTonksVallette}), we directly obtain that
 	\[
