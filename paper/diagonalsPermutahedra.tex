@@ -526,7 +526,7 @@ The above theorem also allows us to translate the different combinatorial descri
 	Path extrema & \cref{thm:facet-ordering} & \cref{thm:facet-ordering} \\
 	$1$-shifts & \cref{def:classical-SU} & \cref{def:classical-LA} \\
 	$m$-shifts & \cref{def:classical-SU} & \cref{def:classical-LA} \\
-	Lattice & \cref{def:shift-lattice} & \cref{def:shift-lattice} \\
+	Lattice & \cref{prop:shift lattice} & \cref{prop:shift lattice} \\
 	Cubical & \cite{SaneblidzeUmble} & \cref{prop:LA-cubical} \\
 	Matrix & \cite{SaneblidzeUmble} & \cref{subsec:matrix} 
 	\end{tabular}
@@ -4147,14 +4147,22 @@ Given the bijection between $\SCP$s and permutations, and our prior enumeration 
 In addition, later in \cref{sec:Cubical}, we will use the lattice structure to relate the cubical and shift definitions of the $\SUD$ diagonal.
 
 \vincent{I would first define the shift poset as the transitive closure of the shift graph, and then explain that this poset has one connected component for each permutation, whose minimum is the corresponding SCP, and that each connected component is a lattice.}
+\Kurt{Better? Feel free to alter further.}
 
-\begin{definition}
-\label{def:shift-lattice}
-For each permutation $v$ of $[n]$, the \defn{shift lattice} $\hour^\LA$ (\resp $\hour^\SU$) is the set of all admissible $\LA$ $(\resp \SU)$ shifts of the associated $\SCP$ $(\sigma,\tau)$, partially ordered by shifts.
-That is to say, $(\sigma_1,\tau_1)\leq (\sigma_2,\tau_2)$ if there exists a sequence of path-admissible $\LA$ (\resp $\SU$) shifts turning $(\sigma_1,\tau_1)$ into $(\sigma_2,\tau_2)$.
+\begin{definition}\label{def:shift-lattice}
+The $\LA$ \defn{shift poset} is the transitive closure of the following relations.
+For all $(\sigma,\tau) \in \LAD$, 
+\begin{itemize}
+    \item If $L_{\rho}$ is a $\LA$ path-admissible $1$-shift of $(\sigma,\tau)$ then $ (\sigma,\tau) < (L_\rho \sigma,\tau)$.
+    \item If $R_{\rho}$ is a $\LA$ path-admissible $1$-shift of $(\sigma,\tau)$ then $ (\sigma,\tau) < (\sigma,R_\rho \tau)$.
+\end{itemize}
+The $\SU$ \defn{shift poset} is defined similarly.
+Then, for each permutation $v$ of $[n]$, we define the subposet \defn{$\hour^\LA$} (\resp \defn{$\hour^\SU$}) to be the set of all admissible $\LA$ $(\resp \SU)$ shifts of the associated $\SCP$ $(\sigma,\tau)$.
+
 \end{definition}
 
-We now aim at proving in \cref{prop:shift lattice}, that these posets are indeed lattices.
+Given the shift definitions of $\SUD$ and $\LAD$ (Definitions \ref{def:classical-SU}, \ref{def:classical-LA}), the subposets $\hour^\LA$ and $\hour^\SU$ are clearly connected components of their posets, with a unique minimal element corresponding to the $\SCP$.
+We now aim to prove they are also lattices (\cref{prop:shift lattice}).
 
 \begin{lemma}
 \label{lem:m-shifts commute}
@@ -4190,7 +4198,7 @@ The $\SU$ heights are obtained similarly by considering blocks whose maxima are 
 \begin{proof}
 We consider the right $\SU$ height, the other cases are similar. 
 As $(\sigma,\tau)$ is a $\SCP$, we have $\max \sigma_{k,k+1} = \max \sigma_{k+1}$ for all $k\geq 1$. 
-Moreover, from the equivalence between $1$-shifts and $m$-shifts (\cref{prop:iso-1-to-m-shift}), there exists a $m$-shift of $\rho$ from $\sigma_i$ to $\sigma_{i+m}$ if and only if there exists a sequence of $m$ consecutive $1$-shifts, each satisfying $\rho > \max \sigma_{j,j+1}=\max \sigma_{j+1}$.
+Moreover, from the equivalence between $1$-shifts and $m$-shifts (\cref{prop:iso-1-to-m-shift}), there exists a $m$-shift of $\rho$ from $\sigma_i$ to $\sigma_{i+m}$ if, and only if, there exists a sequence of $m$ consecutive $1$-shifts, each satisfying $\rho > \max \sigma_{j,j+1}=\max \sigma_{j+1}$.
 Thus, these iterated $1$-shifts will be path-admissible until the first failure at $j=r_v(\rho)+1$.
 \end{proof}
 
@@ -4201,7 +4209,7 @@ For instance, for the $\SU$ diagonal $r_v(\rho)$ is the number of consecutive de
 
 \begin{proposition} 
 \label{prop:shift lattice}
-The shift lattices are indeed lattices, and are isomorphic to the products of chains
+The subposets~$\hour^\LA$ and~$\hour^\SU$, are lattices isomorphic to products of chains
 \begin{align*}
 \hour^\LA \cong \prod_{\rho \in [n]} [0,\ell_v(\rho)] \times \prod_{\rho \in [n]} [0,r_v(\rho)]
 \quad \text{ and } \quad
@@ -4224,7 +4232,7 @@ For instance, in the case of meets,
 \begin{multline*}
 	(\ell_1,\ldots,\ell_n,r_1,\ldots,r_n)\land (\ell'_1,\ldots,\ell'_n,r'_1,\ldots,r'_n) = \\ (\min\{\ell_1,\ell'_1\},\ldots,\min\{\ell_n,\ell'_n\},\min\{r_1,r'_1\},\ldots,\min\{r_n,r'_n\})
 \end{multline*}
-The cover relations of the lattice corresponds to singleton $1$-shifts, and for a clear examples of the Hasse diagram, we direct the reader to \cref{ex:shift translation by theta}, and \cref{fig: Inversion and lattice counter example}.
+For clear examples of the Hasse diagrams corresponding to our lattices, we direct the reader to \cref{ex:shift translation by theta}, and \cref{fig: Inversion and lattice counter example}.
 We note that \cref{fig: Inversion and lattice counter example} also illustrates that there is no general relation between the shift lattice structure and inversions sets.
 In particular, the shift lattices are not sub-lattices of the facial weak order (discussed in \cref{sec:facial-weak-order}), as $24|13$ and $234|1$ are incomparable.
 
