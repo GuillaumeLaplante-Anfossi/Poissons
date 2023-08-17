@@ -3732,7 +3732,6 @@ By the definition of the geometric $\SU$ diagonal, the fact that $\tau_l < \tau_
 \label{ex:proof-inverse-shift}
 Here are examples of each of the cases in the proof of \cref{lem:inverse-to-SCP}. 
 We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading the diagrams from top-left to bottom-right. 
-\Guillaume{Can we align and space these drawings a bit better?}
 \begin{center}
 \begin{tikzpicture}[xscale=.6,yscale=0.9]  
 \node[anchor=east] (1) at (-1.5, -1) {$1$};
@@ -4493,17 +4492,15 @@ An important example of a $k$-subdivision cubes are the $k$-faces of $\divcube{n
 These $k$-faces have a particularly simple cubical structure.
 
 \begin{lemma}\label{lem:Theta as a product of cubes}
-\vincent{careful: the notation for the cardinal of~$X$ is~$\card{X}$...}
 Every $k$-face of $\divcube{n}^\SU$ decomposes as a product of subdivision cubes.
 \end{lemma}
 \begin{proof}
-For a given face $\sigma=\sigma_1|...|\sigma_l \in \Perm[n+1]$, $\min_{\mathbf{v}}(\sigma) = \min_{\mathbf{v}}(|\sigma_1|)_{\sigma_1}|...|\min_{\mathbf{v}}(|\sigma_l|)_{\sigma_l}$, and $\max_{\mathbf{v}}(\sigma) = \max_{\mathbf{v}}(|\sigma_1|)_{\sigma_1}|...|\max_{\mathbf{v}}(|\sigma_l|)_{\sigma_l}$.
-Thus $\sigma$ is given by either of the following products of $(|\sigma_i|-1)$-subdivision cubes,
+For a given face $\sigma=\sigma_1|...|\sigma_l \in \Perm[n+1]$, its minimal vertex under the weak order is given by $\min_{\mathbf{v}}(\sigma) = \min_{\mathbf{v}}([\card{\sigma_1}])_{\sigma_1}|...|\min_{\mathbf{v}}([\card{\sigma_l}])_{\sigma_l}$, and its maximal vertex is given by $\max_{\mathbf{v}}(\sigma) = \max_{\mathbf{v}}([\card{\sigma_1}])_{\sigma_1}|...|\max_{\mathbf{v}}([\card{\sigma_l}])_{\sigma_l}$.
+Where $\min_{\mathbf{v}}([\card{\sigma_j}])_{\sigma_j}$ (\resp $\max_{\mathbf{v}}([\card{\sigma_j}])_{\sigma_j}$) is the elements of $\sigma_j$, arranged in increasing (decreasing) order.
+By inspecting the unique minimal and maximal vertices, and applying \cref{lem:k-subdiv cubes have max/min k faces}, we can conclude that in $\divcube{n}^\SU$ the face $\sigma$ is equal to both of the following products of $(|\sigma_i|-1)$-subdivision cubes.
 \begin{align*}
-    \sigma = \prod_{i=1}^l \text{$\min$}_{\mathbf{v}}(|\sigma_1|)_{\sigma_1}|...|\sigma_i|...|\text{$\min$}_{\mathbf{v}}(|\sigma_l|)_{\sigma_l}=\prod_{i=1}^l \text{$\max$}_{\mathbf{v}}(|\sigma_1|)_{\sigma_1}|...|\sigma_i|...|\text{$\max$}_{\mathbf{v}}(|\sigma_l|)_{\sigma_l}
+    \sigma = \prod_{i=1}^l \text{$\min$}_{\mathbf{v}}([\card{\sigma_1}])_{\sigma_1}|...|\sigma_i|...|\text{$\min$}_{\mathbf{v}}([\card{\sigma_l}])_{\sigma_l}=\prod_{i=1}^l \text{$\max$}_{\mathbf{v}}([\card{\sigma_1}])_{\sigma_1}|...|\sigma_i|...|\text{$\max$}_{\mathbf{v}}([\card{\sigma_l}])_{\sigma_l}
 \end{align*}
-where we can infer from \cref{lem:k-subdiv cubes have max/min k faces}, that $\min_{\mathbf{v}}(|\sigma_j|)_{\sigma_j}$ (\resp $\max_{\mathbf{v}}(|\sigma_j|)_{\sigma_j}$) is the elements of $\sigma_j$ arranged in increasing (decreasing) order.
-The equality of $\sigma$ with the products can be inferred from inspecting their unique minimal and maximal vertices.
 \end{proof}
 
 \begin{proposition}\label{prop:subdiv cube Combinatorially Isomorphic to perm}
@@ -4513,8 +4510,7 @@ The subdivision $\divcube{n}^\SU$ is combinatorially isomorphic to $\Perm[n+1]$.
 \begin{proof}
 As the faces of $\Perm[n+1]$ and $\divcube{n}^\SU$ are in bijection, it just remains to show that their face posets are isomorphic.
 Under any suitable characterization of the cover relations of each poset, it is clear that the outer face covers all ordered partitions with only two blocks.
-As every non-outer face of $\divcube{n}^\SU$ decomposes as a product of cubes (\cref{lem:Theta as a product of cubes}), and this decomposition is clearly compatible with the isomorphism $\Theta$ of $\Perm$ which relates $\sigma_1|...|\sigma_l {\cong} [|\sigma_1|]\times ...\times [|\sigma_l|]$ (\cref{sec:operadicDiagonals}), this establishes the equality of the remaining cover relations of $\divcube{n}^\SU$ and $\Perm$.
-\vincent{careful: the notation for the cardinal of~$X$ is~$\card{X}$...}
+As every non-outer face of $\divcube{n}^\SU$ decomposes as a product of cubes (\cref{lem:Theta as a product of cubes}), and this decomposition is clearly compatible with the isomorphism $\Theta$ of $\Perm$ which relates $\sigma_1|...|\sigma_l {\cong} [\card{\sigma_1}]\times ...\times [\card{\sigma_l}]$ (\cref{sec:operadicDiagonals}), this establishes the equality of the remaining cover relations of $\divcube{n}^\SU$ and $\Perm$.
 \end{proof}
 
 
