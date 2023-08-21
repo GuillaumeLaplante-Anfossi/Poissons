@@ -283,10 +283,6 @@ VP was partially supported by the French ANR grant CHARMS (ANR-19-CE40-0017) and
 \email{berenice.delcroix-oger@umontpellier.fr}
 \urladdr{\url{https://oger.perso.math.cnrs.fr/}}
 
-\author[M. Josuat-Verg\`es]{Matthieu Josuat-Verg\`es}
-\address[Matthieu Josuat-Vergès]{}
-\email{}
-
 \author[G. Laplante-Anfossi]{Guillaume Laplante-Anfossi}
 \address[Guillaume Laplante-Anfossi]{School of Mathematics and Statistics, The University of Melbourne, Victoria, Australia}
 \email{guillaume.laplanteanfossi@unimelb.edu.au}
@@ -570,7 +566,7 @@ The main results concerning the multiplihedra are summarized as follows.
 	There are exactly 
 	\begin{enumerate}
 	\item two geometric operadic diagonals of the Forcey multiplihedra, the $\LA$ and $\SU$ diagonals,
-	\item two geometric topological cellular colored operad structures (over the Loday associahedra) on the Forcey multiplihedra,
+	\item two geometric topological cellular operadic bimodule structures (over the Loday associahedra) on the Forcey multiplihedra,
 	\item two compatible geometric universal tensor products of $\Ainf$-algebras and $\Ainf$-morphisms,
 	\end{enumerate}
 	which agree with the Tamari-type order on atomic $2$-colored nested linear trees. 
@@ -4149,19 +4145,15 @@ In addition, later in \cref{sec:Cubical}, we will use the lattice structure to r
 \vincent{I would first define the shift poset as the transitive closure of the shift graph, and then explain that this poset has one connected component for each permutation, whose minimum is the corresponding SCP, and that each connected component is a lattice.}
 \Kurt{Better? Feel free to alter further.}
 
-\begin{definition}\label{def:shift-lattice}
-The $\LA$ \defn{shift poset} is the transitive closure of the following relations.
-For all $(\sigma,\tau) \in \LAD$, 
-\begin{itemize}
-    \item If $L_{\rho}$ is a $\LA$ path-admissible $1$-shift of $(\sigma,\tau)$ then $ (\sigma,\tau) < (L_\rho \sigma,\tau)$.
-    \item If $R_{\rho}$ is a $\LA$ path-admissible $1$-shift of $(\sigma,\tau)$ then $ (\sigma,\tau) < (\sigma,R_\rho \tau)$.
-\end{itemize}
+\begin{definition}
+\label{def:shift-lattice}
+The $\LA$ \defn{shift poset} on the set of facets $(\sigma,\tau) \in \LAD$ defined by the transitive closure of the relations $ (\sigma,\tau) \prec (L_\rho \sigma,\tau)$ and $ (\sigma,\tau) \prec (\sigma,R_\rho \tau)$, for all $\LA$ path-admissible $1$-shifts $L_{\rho}$ and $R_\rho$. 
 The $\SU$ \defn{shift poset} is defined similarly.
-Then, for each permutation $v$ of $[n]$, we define the subposet \defn{$\hour^\LA$} (\resp \defn{$\hour^\SU$}) to be the set of all admissible $\LA$ $(\resp \SU)$ shifts of the associated $\SCP$ $(\sigma,\tau)$.
+Then, for each permutation $v$ of $[n]$, we define the subposet \defn{$\hour^\LA$} (\resp \defn{$\hour^\SU$}) to be the set of all admissible $\LA$ (\resp $\SU$) shifts of the associated $\SCP$.
 
 \end{definition}
 
-Given the shift definitions of $\SUD$ and $\LAD$ (Definitions \ref{def:classical-SU}, \ref{def:classical-LA}), the subposets $\hour^\LA$ and $\hour^\SU$ are clearly connected components of their posets, with a unique minimal element corresponding to the $\SCP$.
+Given the shift definitions of $\SUD$ and $\LAD$ (\cref{def:classical-SU,def:classical-LA}), the subposets $\hour^\LA$ and $\hour^\SU$ are clearly connected components of their posets, with a unique minimal element corresponding to the $\SCP$.
 We now aim to prove they are also lattices (\cref{prop:shift lattice}).
 
 \begin{lemma}
@@ -4476,6 +4468,17 @@ Only the vertices of $\divcube{3}^\SU$ are labelled, but its edges, facets and o
 	\label{rem:coordinates}
 	A consequence of the construction is that each edge of $\divcube{n}^\SU$ is parallel to one of the canonical basis vectors $e_i$ of $\R^n$, and corresponds to shifting the element $i+1$ of $[n+1]\ssm \{1\}$.
 \end{remark}
+
+\begin{proposition}
+	The polytopal complex $\divcube{n}^\SU$ is combinatorially isomorphic to the permutahedron $\Perm[n+1]$.
+\end{proposition}
+
+\begin{proof}
+	By construction it is clear that the faces of $\divcube{n}^\SU$ and $\Perm[n+1]$ are in bijection, and that this bijection preserves the dimension. 
+	It remains to show that this bijection is a poset isomorphism.
+	Let $\sigma_1 | \ldots | \sigma_i | \sigma_{i+1} | \ldots | \sigma_k \prec \sigma_1 | \ldots | \sigma_i \cup \sigma_{i+1} | \ldots | \sigma_k$ be a covering relation in the face poset of $\Perm[n+1]$.
+	\Guillaume{A COMPLETER}
+\end{proof}
 
 We now unpack how certain properties of $\Perm$ have been encoded in the cubical structure of $\divcube{n}^\SU$.
 This will later allow us to construct a cubical formula for the diagonal through maximal pairings of $k$-subdivision cubes of $\divcube{n}^\SU$, which we now introduce.
