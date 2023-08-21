@@ -4143,11 +4143,10 @@ Given the bijection between $\SCP$s and permutations, and our prior enumeration 
 In addition, later in \cref{sec:Cubical}, we will use the lattice structure to relate the cubical and shift definitions of the $\SUD$ diagonal.
 
 \vincent{I would first define the shift poset as the transitive closure of the shift graph, and then explain that this poset has one connected component for each permutation, whose minimum is the corresponding SCP, and that each connected component is a lattice.}
-\Kurt{Better? Feel free to alter further.}
 
 \begin{definition}
 \label{def:shift-lattice}
-The $\LA$ \defn{shift poset} on the set of facets $(\sigma,\tau) \in \LAD$ defined by the transitive closure of the relations $ (\sigma,\tau) \prec (L_\rho \sigma,\tau)$ and $ (\sigma,\tau) \prec (\sigma,R_\rho \tau)$, for all $\LA$ path-admissible $1$-shifts $L_{\rho}$ and $R_\rho$. 
+The $\LA$ \defn{shift poset} on the set of facets $(\sigma,\tau) \in \LAD$ is defined to be the transitive closure of the relations $ (\sigma,\tau) \prec (L_\rho \sigma,\tau)$ and $ (\sigma,\tau) \prec (\sigma,R_\rho \tau)$, for all $\LA$ path-admissible $1$-shifts $L_{\rho}$ and $R_\rho$. 
 The $\SU$ \defn{shift poset} is defined similarly.
 Then, for each permutation $v$ of $[n]$, we define the subposet \defn{$\hour^\LA$} (\resp \defn{$\hour^\SU$}) to be the set of all admissible $\LA$ (\resp $\SU$) shifts of the associated $\SCP$.
 
