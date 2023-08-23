@@ -1452,15 +1452,16 @@ We now transport via this bijection the partial order of the flat lattice on rai
 %The set of vertices colored $c$ in a rainbow forest $F$ is denoted by $V_c(F)$.
 For a node~$a$ of a forest~$F$, we denote by $\operatorname{Root}(a)$ the root of the tree of~$F$ containing~$a$.
 %Moreover, given a vertex $a$ in $F$, the root of the connected component containing $a$ is denoted by $\operatorname{Root}(a)$ and the set of children of $a$ is denoted by $\operatorname{Child}(a)$.
-The following statement is illustrated in \cref{fig:CoverRelRF}, choosing $c$ to be green, $a$ to be $5$ and $b$ to be $6$.
+The following statement is illustrated in \cref{fig:CoverRelRF}, choosing $c$ to be green, $a$ to be $5$ and $b$ to be $7$.
 
 \begin{figure}
 	\centerline{\includegraphics[scale=1]{CoverRelRFFig}}
-	\caption{A covering relation for a given $F$, a given color $c$  (green) and two chosen vertices in $F$ ($5$ and $6$).}
+	\caption{A covering relation described in \cref{prop:CoverRelRF}.}
 	\label{fig:CoverRelRF}
 \end{figure}
 
-\begin{proposition}\label{prop:CoverRelRF}
+\begin{proposition}
+\label{prop:CoverRelRF}
 In the flat poset~$\flatPoset[\multiBraidArrangement]$ labeled by rainbow forests using~\cref{prop:flatPosetMultiBraidArrangement,prop:bijectionForests}, a rainbow forest~$F$ is covered by a rainbow forest~$G$ if and only $G$ can be obtained from $F$ by:
 \begin{enumerate}
 \item choosing a color $c$, and two vertices $a$ and $b$ not colored with~$c$ and with~$\operatorname{Root}(a)<\operatorname{Root}(b)$,
