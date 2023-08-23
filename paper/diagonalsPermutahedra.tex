@@ -240,8 +240,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 % formating the part command
 \makeatletter
 \def\part{\@startsection{part}{1}%
@@ -314,13 +312,11 @@ We describe their facets by a simple rule on paths in partition trees, and their
 We show that one of these diagonals is a topological enhancement of the Sanbeblidze--Umble diagonal, and unravel a natural lattice structure on their sets of facets.
 
 In the third part of the paper, we use the preceding results to show that there are precisely two isomorphic topological cellular operadic structures on the families of operahedra and multiplihedra, and exactly two infinity-isomorphic geometric universal tensor products of homotopy operads and A-infinity morphisms.
-%\Guillaume{Add results multiplihedra}
 \end{abstract}
 
 \vspace*{-1.4cm}
 \maketitle
 
-%\enlargethispage{.2cm}
 \vspace*{-.6cm}
 \centerline{\includegraphics[scale=.75]{diagonalPermutahedron3}}
 \vspace*{-.2cm}
@@ -337,10 +333,6 @@ In the third part of the paper, we use the preceding results to show that there 
 
 The purpose of this article is to study \emph{cellular diagonals} on the \emph{permutahedra}, which are cellular maps homotopic to the usual \emph{thin diagonal} $\triangle : P \to P \times P,~ x \mapsto (x,x)$ (\cref{def:thinDiagonal,def:cellularDiagonal}).
 Such diagonals, and in particular coherent families that we call \emph{operadic diagonals} (\cref{def:operadicDiagonal}), are of interest in algebraic geometry and topology: via the theory of Fulton--Sturmfels~\cite{FultonSturmfels}, they give explicit formulas for the cup product on Losev--Manin toric varieties~\cite{LosevManin}; they define universal tensor products of permutadic $\Ainf$-algebras~\cite{LodayRonco-permutads,Markl}; they define a coproduct on permutahedral sets, which are models of two-fold loop spaces~\cite{SaneblidzeUmble}, and their study is needed to pursue the work of H. J. Baues aiming at defining explicit combinatorial models for higher iterated loop spaces~\cite{Baues}; using the canonical projections to the operahedra, associahedra and multiplihedra, they define universal tensor products of homotopy operads, $\Ainf$-algebras and $\Ainf$-morphisms, respectively~\cite{LaplanteAnfossi,LaplanteAnfossiMazuir}.
-
-%L'idée de cohérence opéradique
-%L'idée de l'importance en topologie algébrique
-
 
 Cellular diagonals for face-coherent families of polytopes are a fundamental object in algebraic topology. 
 The Alexander--Whitney diagonal for simplices~\cite{EilenbergMacLane}, and the Serre map for cubes~\cite{Serre}, allow one to define the cup product in singular simplicial and cubical cohomology. 
@@ -595,7 +587,6 @@ We thank Samson Saneblidze and Ron Umble for useful correspondence.
 \label{part:multiBraidArrangements}
 
 In this first part, we study the combinatorics of hyperplane arrangements obtained as unions of generically translated copies of the braid arrangement.
-%Specializing to two copies, we derive enumerative results on the diagonals of the permutahedra.
 In \cref{sec:arrangements}, we first recall some classical facts on the enumeration of hyperplane arrangements (\cref{subsec:arrangements}), present the classical braid arrangement (\cref{subsec:braidArrangement}), and define our multiple braid arrangements (\cref{subsec:multiBraidArrangement}).
 Then in \cref{sec:flatPoset}, we describe their flat posets in terms of partition forests (\cref{subsec:partitionForests}) and rainbow forests (\cref{subsec:rainbowForests}), from which we derive their M\"obius polynomials (\cref{subsec:MobiusPolynomialMultiBraidArrangement}), and some surprising formulas for their numbers of vertices (\cref{subsec:verticesMultiBraidArrangement}) and regions (\cref{subsec:regionsMultiBraidArrangement}).
 Finally, in \cref{sec:facePoset}, we describe their face posets in terms of ordered partition forests (\cref{subsec:orderedPartitionForests}), and explore some combinatorial criteria to describe the ordered partition forests that appear as faces of a given multiple braid arrangement (\cref{subsec:PFtoOPF,subsec:criterionOPF}).
@@ -636,12 +627,6 @@ The \defn{flat poset} of~$\arrangement$ is the poset~$\flatPoset$ of flats of~$\
 
 \begin{definition}
 \label{def:MobiusPolynomial}
-%The \defn{characteristic polynomial}~$\chi_{\arrangement}(y)$ and the \defn{M\"obius polynomial}~$\mu_{\arrangement}(x,y)$ are the polynomials respectively defined by
-%\[
-%\charPol \eqdef \sum_{G \in \flatPoset} \mu_{\flatPoset}(\R^d, G) \, y^{\dim(G)}
-%\quad\text{and}\quad
-%\mobPol \eqdef \sum_{F \le G \in \flatPoset} \mu_{\flatPoset}(F,G) \, x^{\dim(F)} \, y^{\dim(G)}
-%\]
 The \defn{M\"obius polynomial}~$\mu_{\arrangement}(x,y)$ of~$\arrangement$ is the polynomial defined by
 \[
 \mobPol \eqdef \sum_{F \le G} \mu_{\flatPoset}(F,G) \, x^{\dim(F)} \, y^{\dim(G)},
@@ -900,7 +885,6 @@ Of course, the $\b{a}$-braid arrangement~$\multiBraidArrangement(\b{a})$ highly 
 In this paper, we are interested in the case where~$\b{a}$ is generic in the following sense.
 
 \begin{definition}
-%A matrix~$\b{a} \eqdef (a_{i,j}) \in M_{\ell,n-1}(\R)$ is \defn{generic} if any linear dependence among its coefficients~$\sum_{i,j} \lambda_{i,j} \, a_{i,j} = 0$ splits into $\ell$ linear dependences~$\sum_j \lambda_{i,j} \, a_{i,j} = 0$ for~$i \in [\ell]$.
 A matrix~$\b{a} \eqdef (a_{i,j}) \in M_{\ell,n-1}(\R)$ is \defn{generic} if for any~$i_1, \dots, i_k \in [\ell]$ and distinct $r_1, \dots, r_k \in [n]$, the equality~$\sum_{j \in [k]} A_{i_j, r_{j-1}, r_j} = 0$ implies~$i_1 = \dots = i_k$ (with the notation~$A_{i,s,t} \eqdef \smash{\sum_{s \le j < t} a_{i,j}}$ and the convention~$r_0 = r_k$).
 \end{definition}
 
@@ -1443,9 +1427,7 @@ Finally, observe that
 \end{proof}
 
 We now transport via this bijection the partial order of the flat lattice on rainbow forests.
-%The set of vertices colored $c$ in a rainbow forest $F$ is denoted by $V_c(F)$.
 For a node~$a$ of a forest~$F$, we denote by $\operatorname{Root}(a)$ the root of the tree of~$F$ containing~$a$.
-%Moreover, given a vertex $a$ in $F$, the root of the connected component containing $a$ is denoted by $\operatorname{Root}(a)$ and the set of children of $a$ is denoted by $\operatorname{Child}(a)$.
 The following statement is illustrated in \cref{fig:CoverRelRF}, choosing $c$ to be green, $a$ to be $5$ and $b$ to be $7$.
 
 \begin{figure}
@@ -1465,13 +1447,6 @@ In the flat poset~$\flatPoset[\multiBraidArrangement]$ labeled by rainbow forest
 \item adding an edge~$(a,b)$ and replacing the edge~$(b,e)$ by an edge~$(a,e)$ for each child $e$ of~$b$ colored with~$c$.
 \end{enumerate}
 \end{proposition}
-
-%\begin{example}
-%We illustrate Proposition \ref{prop:CoverRelRF} on Figure \ref{fig:CoverRelRF} for the rainbow forest $F$ as represented below, choosing $c$ to be green, $a$ to be $5$ and $b$ to be $6$.
-%\begin{center}
-%\includegraphics[scale=1]{RFF}
-%\end{center}
-%\end{example}
 
 \begin{proof}
 Let us first remark that the graph obtained by these operations is indeed a rainbow forest.
@@ -1751,7 +1726,6 @@ W_\ell'(z)
 & = \ell \, F_\ell(z)^{\ell-1} \Big( F_\ell'(z) \big( 1 - (\ell-1) \, z \, F_\ell(z)^\ell \big) - F_\ell(z)^{\ell+1} \Big) \exp \big( \! - G_\ell(z) - (\ell-1) \, z \, G_\ell'(z) \big),
 \end{align*}
 which vanishes by~\eqref{eq:diff}.
-%\vincent{Can we make a bijective proof of the equality $U_\ell(z) = \frac{\partial}{\partial z} V_\ell(z)$?}
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1845,7 +1819,6 @@ For this, we need the following posets.
 Consider a $(\ell,n)$-partition forest~$\b{F}$ and denote by~$cc(\b{F})$ the connected components of~$\b{F}$.
 For each pair~$s,t \in [n]$ in distinct connected components of~$cc(\b{F})$, we define the chain~$<_{s,t}$ on the $\ell$ triples~$(i,s,t)$ for~$i \in [\ell]$ given by the order of the values~$A_{i,s,t}$.
 The \defn{inversion poset}~$\Inv(\b{F}, \b{a})$ is then the poset obtained by quotienting the disjoint union of the chains~$<_{s,t}$ (for all~$s,t \in [n]$ in distinct connected components of~$cc(\b{F})$) by the equivalence relation~$(i,s,t) \equiv (i,s',t')$ if~$s$ and~$s'$ belong to the same part of~$F_i$ and~$t$ and~$t'$ belong to the same part of~$F_i$.
-%Note that the map~$\phi: (i,s,t) \to (i,t,s)$ is an anti-isomorphism of the poset~$\Inv(\b{F}, \b{a})$.
 We say that a subset~$X$ of~$\Inv(\b{F}, \b{a})$ is antisymmetric if~$(i,s,t) \in X \iff (i,t,s) \notin X$.
 \end{definition}
 
@@ -2030,17 +2003,6 @@ Note that the geometric diagonal~$\triangle_{(P,\b{v})}$ only depends on the reg
 	\caption{Cellular diagonals of the segment (top), the triangle (middle) and the square (bottom). For each of them, we have represented the thin diagonal of~$P$ (left, in blue), a cellular diagonal of~$P$ (middle left, in red) both in~$P \times P$, the associated polytopal subdivision of~$P$ (middle right) and the common refinement of the two copies of the normal fan of~$P$ (right) both in~$P$.}
 	\label{fig:examplesDiagonals1}
 \end{figure}
-
-%\begin{figure}[h!]
-%	\includegraphics[scale=.9]{diagonalTriangle3}
-%	\quad
-%	\includegraphics[scale=.9]{diagonalTriangle4}
-%	\quad
-%	\includegraphics[scale=.9]{diagonalSquarre3}
-%	\includegraphics[scale=.9]{diagonalSquarre4}
-%	\caption{The thin (in blue) and cellular (in red) diagonals of the triangle and the square.}
-%	\label{fig:examplesDiagonals1}
-%\end{figure}
 
 \begin{figure}
 	\centerline{
@@ -4880,9 +4842,6 @@ The second row is the image of these shifts under the isomorphism $t(r\times r)$
 Note that the shifts of this example are also isomorphic to those of \cref{ex:shift translation by theta}, under the isomorphism $(rs\times rs)$.
 \end{example}
 
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -5220,7 +5179,6 @@ The map $\Psi \eqdef \{\Psi_n\}$ is an isomorphism of topological cellular opera
 	\] 
 \end{example}
 
-
 %%%%%%%%%%%%%%%
 
 \subsection{Tensor products}
@@ -5256,8 +5214,6 @@ The $\LA$ and $\SU$ diagonals of the operahedra associated with trees that have 
 However, there are 24 planar trees with $5$ internal edges, such that the number of facets of the $\LA$ and $\SU$ diagonals are distinct, displayed in \cref{fig:trees}.
 To compute these numbers, we first computed the facets of the $\LA$ and $\SU$ diagonals of the permutahedra, and then used the projection from the permutahedra to the operahedra described in \cite[Prop. 3.20]{LaplanteAnfossi}.
 \end{example}
-
-
 
 \begin{remark}
 The lack of symmetry in the trees in \cref{fig:trees} arises from the lack of symmetry inherent in the infix order, and in how the $\LA$ and $\SU$ diagonal treat maximal and minimal elements.
