@@ -587,6 +587,7 @@ Moreover, the pairs of faces in the image of the two operadic diagonals are in g
 
 \section*{Acknowledgements}
 
+We are indebted to Matthieu Josuat-Vergès for taking part of the premises of the research of this paper, in particular for 
 GLA is grateful to Hugh Thomas for raising the question to count the facets of the $\LA$ diagonal and for preliminary discussions during a visit at the LACIM in the summer of 2021 where the project started, and to the Max Planck Institute for Mathematics in Bonn where part of this work was carried out.
 We are grateful to Sylvie Corteel for pointing out the relevance of the dual perspective for the purpose of counting.
 VP is grateful to the organizers (Karim Adiprasito, Alexey Glazyrin, Isabella Novic, and Igor Pak) of the workshop ``Combinatorics and Geometry of Convex Polyhedra'' held at the Simons Center for Geometry and Physics in March 2023 for the opportunity to present a preliminary version of our enumerative results, and to  Pavel Galashin for asking about the characteristic polynomial of the multiple braid arrangement during this presentation.
@@ -1448,8 +1449,9 @@ Finally, observe that
 \end{proof}
 
 We now transport via this bijection the partial order of the flat lattice on rainbow forests.
-The set of vertices colored $c$ in a rainbow forest $F$ is denoted by $V_c(F)$.
-Moreover, given a vertex $a$ in $F$, the root of the connected component containing $a$ is denoted by $\operatorname{Root}(a)$ and the set of children of $a$ is denoted by $\operatorname{Child}(a)$.
+%The set of vertices colored $c$ in a rainbow forest $F$ is denoted by $V_c(F)$.
+For a node~$a$ of a forest~$F$, we denote by $\operatorname{Root}(a)$ the root of the tree of~$F$ containing~$a$.
+%Moreover, given a vertex $a$ in $F$, the root of the connected component containing $a$ is denoted by $\operatorname{Root}(a)$ and the set of children of $a$ is denoted by $\operatorname{Child}(a)$.
 The following statement is illustrated in \cref{fig:CoverRelRF}, choosing $c$ to be green, $a$ to be $5$ and $b$ to be $6$.
 
 \begin{figure}
@@ -1461,16 +1463,11 @@ The following statement is illustrated in \cref{fig:CoverRelRF}, choosing $c$ to
 \begin{proposition}\label{prop:CoverRelRF}
 In the flat poset~$\flatPoset[\multiBraidArrangement]$ labeled by rainbow forests using~\cref{prop:flatPosetMultiBraidArrangement,prop:bijectionForests}, a rainbow forest~$F$ is covered by a rainbow forest~$G$ if and only $G$ can be obtained from $F$ by:
 \begin{enumerate}
-\item choosing a color $c$,
-\item choosing two vertices $a$ and $b$ in $V(F) \setminus V_c(F)$, with $\operatorname{Root}(a)<\operatorname{Root}(b)$,
-\item recursively ``pushing'' the color of $b$ to its parent until b is not colored and $\operatorname{Root}(b)$ is colored,
-\item coloring $b$ in $c$,
-\item removing edges $(b,e)$ for $e$ in $ \operatorname{Child}(b) \cap V_c(F)$,
-\item adding edges $(a,b)$ and $(a,e)$ for $e$ in $ \operatorname{Child}(b) \cap V_c(F)$.
+\item choosing a color $c$, and two vertices $a$ and $b$ not colored with~$c$ and with~$\operatorname{Root}(a)<\operatorname{Root}(b)$,
+\item shifting the colors along the path from~$\operatorname{Root}(b)$ to~$b$, so that each node along this path is now colored by the former color of its child and~$b$ is not colored anymore,
+\item rerooting at~$b$ the tree containing~$b$ at~$b$, and coloring $b$ with~$c$,
+\item adding an edge~$(a,b)$ and replacing the edge~$(b,e)$ by an edge~$(a,e)$ for each child $e$ of~$b$ colored with~$c$.
 \end{enumerate}
-\vincent{This is really difficult to follow. We can improve the presentation. Maybe add a picture. To discuss with Bérénice.}
-\BDO{I added a picture and tried to simplify the steps : how is it ?}
-\vincent{I would like to keep this proposition, but I still believe that the phrasing is too vague. What does recursively pushing really means? I understand on the example, but it is not precise enough.}
 \end{proposition}
 
 %\begin{example}
