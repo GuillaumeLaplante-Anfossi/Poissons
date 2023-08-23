@@ -24,18 +24,18 @@
 
 \begin{document}
 \begin{tikzpicture}
-\node(1) {$F=$\begin{tikzpicture}[grow=up, inner sep=1pt,  outer sep=0pt, level distance=1cm, sibling distance=15pt, baseline=.9cm]
+\node(1) {$F=$\begin{tikzpicture}[grow=up, inner sep=1pt,  outer sep=0pt, level distance=1cm, sibling distance=15pt, baseline=1.4cm]
 \node[draw, circle] {$1$}
    child[thick]{node[circle, fill=bleu, fill opacity=0.4, text opacity=1, anchor=center] {$5$}
           child{node[circle, fill=vert, fill opacity=0.4, text opacity=1, anchor=center] {$3$}}
           child{node[circle, fill=red, fill opacity=0.4, text opacity=1, anchor=center] {$4$}}     
    };
 \end{tikzpicture}
-\begin{tikzpicture}[grow=up, inner sep=1pt, level distance=1cm, sibling distance=15pt,  outer sep=0pt, baseline=.9cm]
+\begin{tikzpicture}[grow=up, inner sep=1pt, level distance=1cm, sibling distance=15pt,  outer sep=0pt, baseline=1.4cm]
 \node[draw, circle] {$2$}
    child[thick]{node[circle, fill=bleu, fill opacity=0.4, text opacity=1, anchor=center] {$6$}
-          child{node[circle, fill=vert, fill opacity=0.4, text opacity=1, anchor=center] {$8$}}     
-          child{node[circle, fill=rouge, fill opacity=0.4, text opacity=1, anchor=center] {$7$}}     
+          child{node[circle, fill=rouge, fill opacity=0.4, text opacity=1, anchor=center] {$7$}
+                    child{node[circle, fill=vert, fill opacity=0.4, text opacity=1, anchor=center] {$8$}}}     
    }
    child[thick]{node[circle, fill=rouge, fill opacity=0.4, text opacity=1, anchor=center] {$9$}}
 ;
@@ -52,8 +52,8 @@
 \begin{tikzpicture}[grow=up, inner sep=1pt, level distance=1cm, sibling distance=15pt,  outer sep=0pt, baseline=.9cm]
 \node[circle, fill=bleu, fill opacity=0.4, text opacity=1] {$2$}
    child[thick]{node[circle, fill=rouge, fill opacity=0.4, text opacity=1, anchor=center] {$6$}
-          child{node[circle, fill=vert, fill opacity=0.4, text opacity=1, anchor=center] {$8$}}     
-          child{node[thin, draw, circle, text opacity=1, anchor=center] {$7$}}     
+          child{node[thin, draw, circle, text opacity=1, anchor=center] {$7$}
+                    child{node[circle, fill=vert, fill opacity=0.4, text opacity=1, anchor=center] {$8$}}}     
    }
    child[thick]{node[circle, fill=rouge, fill opacity=0.4, text opacity=1, anchor=center] {$9$}}
 ;
@@ -63,34 +63,34 @@
 \node[right=1cm of 2](3) {
 \begin{tikzpicture}[grow=up, inner sep=1pt,  outer sep=0pt, level distance=1cm, sibling distance=15pt, baseline=.9cm]
 \node[draw, circle] {$1$}
-   child[thick]{node[circle, fill=rouge, fill opacity=0.4, text opacity=1, anchor=center] {$5$}
-          child{node[circle, fill=bleu, fill opacity=0.4, text opacity=1, anchor=center] {$3$}}
-          child{node[circle, fill=vert, fill opacity=0.4, text opacity=1, anchor=center] {$4$}}     
+   child[thick]{node[circle, fill=bleu, fill opacity=0.4, text opacity=1, anchor=center] {$5$}
+          child{node[circle, fill=vert, fill opacity=0.4, text opacity=1, anchor=center] {$3$}}
+          child{node[circle, fill=red, fill opacity=0.4, text opacity=1, anchor=center] {$4$}}     
    };
 \end{tikzpicture}
 \begin{tikzpicture}[grow=up, inner sep=1pt, level distance=1cm, sibling distance=15pt,  outer sep=0pt, baseline=.9cm]
-\node[circle, fill=vert, fill opacity=0.4, text opacity=1, anchor=center] {$6$}
-   child[thick]{node[circle, fill=bleu, fill opacity=0.4, text opacity=1, anchor=center] {$2$}
-          child{node[circle, fill=rouge, fill opacity=0.4, text opacity=1, anchor=center] {$9$}}}
-   child[thick]{node[circle, fill=rouge, fill opacity=0.4, text opacity=1, anchor=center] {$7$}}
+\node[circle, fill=vert, fill opacity=0.4, text opacity=1, anchor=center] {$7$}
+   child[thick]{node[circle, fill=vert, fill opacity=0.4, text opacity=1, anchor=center] {$8$}}
+   child[thick]{node[circle, fill=rouge, fill opacity=0.4, text opacity=1, anchor=center] {$6$}
+          child{node[circle, fill=bleu, fill opacity=0.4, text opacity=1, anchor=center] {$2$}
+                    child{node[circle, fill=rouge, fill opacity=0.4, text opacity=1, anchor=center] {$9$}}     
+          }}
 ;
-\end{tikzpicture}
-\begin{tikzpicture}[grow=up, inner sep=1pt, level distance=1cm, sibling distance=20pt,  outer sep=0pt, baseline=.9cm]
-\node[circle, fill=vert, fill opacity=0.4, text opacity=1, anchor=center] {$8$};
 \end{tikzpicture}
 };
 \draw[->] (2) edge[->] node[above] {(3)} (3);
 \node[right=1cm of 3](4) {
-\begin{tikzpicture}[grow=up, inner sep=1pt,  outer sep=0pt, level distance=1cm, sibling distance=15pt, baseline=1.9cm]
+\begin{tikzpicture}[grow=up, inner sep=1pt,  outer sep=0pt, level distance=1cm, sibling distance=15pt, baseline=2.4cm]
 \node[draw, circle] {$1$}
-   child[thick]{node[circle, fill=rouge, fill opacity=0.4, text opacity=1, anchor=center] {$5$}
-          child{node[circle, fill=bleu, fill opacity=0.4, text opacity=1, anchor=center] {$3$}}
+   child[thick]{node[circle, fill=bleu, fill opacity=0.4, text opacity=1, anchor=center] {$5$}
           child{node[circle, fill=vert, fill opacity=0.4, text opacity=1, anchor=center] {$8$}}
-          child{node[circle, fill=vert, fill opacity=0.4, text opacity=1, anchor=center] {$6$}
-   child[thick]{node[circle, fill=bleu, fill opacity=0.4, text opacity=1, anchor=center] {$2$}
-          child{node[circle, fill=rouge, fill opacity=0.4, text opacity=1, anchor=center] {$9$}}}
-   child[thick]{node[circle, fill=rouge, fill opacity=0.4, text opacity=1, anchor=center] {$7$}}}
-          child{node[circle, fill=vert, fill opacity=0.4, text opacity=1, anchor=center] {$4$}}     
+          child{node[circle, fill=vert, fill opacity=0.4, text opacity=1, anchor=center] {$7$}
+             child[thick]{node[circle, fill=rouge, fill opacity=0.4, text opacity=1, anchor=center] {$6$}
+                child{node[circle, fill=bleu, fill opacity=0.4, text opacity=1, anchor=center] {$2$}
+                    child{node[circle, fill=rouge, fill opacity=0.4, text opacity=1, anchor=center] {$9$}}     
+          }}}
+          child{node[circle, fill=vert, fill opacity=0.4, text opacity=1, anchor=center] {$3$}}
+          child{node[circle, fill=red, fill opacity=0.4, text opacity=1, anchor=center] {$4$}}     
    };
 \end{tikzpicture} $=G$
 };
