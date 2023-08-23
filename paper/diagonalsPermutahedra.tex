@@ -37,12 +37,10 @@
 
 % marginal comments
 \usepackage{todonotes}
-\newcommand{\vincent}[1]{\todo[color=blue!30]{\rm #1 \\ \hfill --- V.}}
-\newcommand{\vincenti}[1]{\todo[color=blue!30, inline]{\rm #1 \\ \hfill --- V.}}
-\newcommand{\Guillaume}[1]{\todo[color=magenta!30]{\rm #1 \\ \hfill --- G.}}
-\newcommand{\Kurt}[1]{\todo[color=orange!30]{\rm #1 \\ \hfill --- K.}}
-\newcommand{\BDO}[1]{\todo[color=green!30]{\rm #1 \\ \hfill --- B.}}
-\newcommand{\BDOi}[1]{\todo[color=green!30, inline]{\rm #1 \\ \hfill --- B.}}
+%\newcommand{\vincent}[1]{\todo[color=blue!30]{\rm #1 \\ \hfill --- V.}}
+%\newcommand{\Guillaume}[1]{\todo[color=magenta!30]{\rm #1 \\ \hfill --- G.}}
+%\newcommand{\Kurt}[1]{\todo[color=orange!30]{\rm #1 \\ \hfill --- K.}}
+%\newcommand{\BDO}[1]{\todo[color=green!30]{\rm #1 \\ \hfill --- B.}}
 
 % theorems
 \newtheorem{theorem}{Theorem}[section]
@@ -577,13 +575,13 @@ Here, by the adjective ``geometric", we mean diagonal, operadic structure and te
 By ``universal", we mean formulas for the tensor products which apply to \emph{any} pair of homotopy operads or $\Ainf$-morphisms.
 
 However, the isomorphisms of topological operads (\resp operadic bimodules) takes place in a category of polytopes $\PolySub$ for which the morphisms are \emph{not} affine maps \cite[Def. 4.13]{LaplanteAnfossi}, and it does \emph{not} commute with the diagonal maps (\cref{ex:iso-not-Hopf,ex:iso-not-Hopf-2}).
-Moreover, the pairs of faces in the image of the two operadic diagonals are in general not in bijection (see \cref{ex:operahedra-LA-SU,ex:multiplihedra-LA-SU}), yielding different (but $\infty$-isomorphic) tensor products of homotopy operads (\resp $\Ainf$-morphisms).  
+Moreover, the pairs of faces in the image of the two operadic diagonals are in general not in bijection (see \cref{ex:operahedra-LA-SU,ex:multiplihedra-LA-SU}), yielding different (but $\infty$-isomorphic) tensor products of homotopy operads (\resp \mbox{$\Ainf$-morphisms}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section*{Acknowledgements}
 
-We are indebted to Matthieu Josuat-Vergès for taking part in the premises of this paper, in particular for conjecturing the case $\ell = 2$ of \cref{thm:verticesRefinedMultiBraidArrangement}, and for working on the proof of \cref{thm:patterns}.
+We are indebted to Matthieu Josuat-Vergès for taking part in the premises of this paper, in particular for conjecturing the case $\ell = 2$ of \cref{thm:verticesRefinedMultiBraidArrangement}, for working on the proof of \cref{thm:patterns}, and for implementing some sage code used during the project.
 GLA is grateful to Hugh Thomas for raising the question to count the facets of the $\LA$ diagonal and for preliminary discussions during a visit at the LACIM in the summer of 2021 where the project started, and to the Max Planck Institute for Mathematics in Bonn where part of this work was carried out.
 We are grateful to Sylvie Corteel for pointing out the relevance of the dual perspective for the purpose of counting.
 VP is grateful to the organizers (Karim Adiprasito, Alexey Glazyrin, Isabella Novic, and Igor Pak) of the workshop ``Combinatorics and Geometry of Convex Polyhedra'' held at the Simons Center for Geometry and Physics in March 2023 for the opportunity to present a preliminary version of our enumerative results, and to  Pavel Galashin for asking about the characteristic polynomial of the multiple braid arrangement during this presentation.
@@ -1452,6 +1450,7 @@ The following statement is illustrated in \cref{fig:CoverRelRF}, choosing $c$ to
 
 \begin{figure}
 	\centerline{\includegraphics[scale=1]{CoverRelRFFig}}
+	\vspace{-.3cm}
 	\caption{A covering relation described in \cref{prop:CoverRelRF}, choosing $c$ to be green, $a$ to be $5$ and $b$ to be $7$.}
 	\label{fig:CoverRelRF}
 \end{figure}
@@ -4139,8 +4138,6 @@ In this section, we show that the $1$-shifts of the operadic diagonals~$\LAD$ an
 More precisely, we show that each $\SCP$ is the minimal element of a lattice isomorphic to a product of chains, where the partial order is given by shifts.
 Given the bijection between $\SCP$s and permutations, and our prior enumeration of the facets of the diagonal, this produces two new statistics on permutations.
 In addition, later in \cref{sec:Cubical}, we will use the lattice structure to relate the cubical and shift definitions of the $\SUD$ diagonal.
-
-\vincent{I would first define the shift poset as the transitive closure of the shift graph, and then explain that this poset has one connected component for each permutation, whose minimum is the corresponding SCP, and that each connected component is a lattice.}
 
 \begin{definition}
 \label{def:shift-lattice}
