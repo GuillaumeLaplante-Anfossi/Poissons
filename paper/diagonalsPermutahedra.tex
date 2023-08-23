@@ -312,7 +312,6 @@ We describe their facets by a simple rule on paths in partition trees, and their
 We show that one of these diagonals is a topological enhancement of the Sanbeblidze--Umble diagonal, and unravel a natural lattice structure on their sets of facets.
 
 In the third part of the paper, we use the preceding results to show that there are precisely two isomorphic topological cellular operadic structures on the families of operahedra and multiplihedra, and exactly two infinity-isomorphic geometric universal tensor products of homotopy operads and A-infinity morphisms.
-
 \end{abstract}
 
 \vspace*{-1.4cm}
@@ -565,7 +564,7 @@ The main results concerning the multiplihedra are summarized as follows.
 \end{theorem*}
 
 Here, by the adjective ``geometric", we mean diagonal, operadic structure and tensor product which are obtained geometrically on the polytopes via the Fulton--Sturmfelds method. 
-By ``universal", we mean formulas for the tensor products which applies to \emph{any} pair of homotopy operads or $\Ainf$-morphisms.
+By ``universal", we mean formulas for the tensor products which apply to \emph{any} pair of homotopy operads or $\Ainf$-morphisms.
 
 However, the isomorphisms of topological operads (\resp operadic bimodules) takes place in a category of polytopes $\PolySub$ for which the morphisms are \emph{not} affine maps \cite[Def. 4.13]{LaplanteAnfossi}, and it does \emph{not} commute with the diagonal maps (\cref{ex:iso-not-Hopf,ex:iso-not-Hopf-2}).
 Moreover, the pairs of faces in the image of the two operadic diagonals are in general not in bijection (see \cref{ex:operahedra-LA-SU,ex:multiplihedra-LA-SU}), yielding different (but $\infty$-isomorphic) tensor products of homotopy operads (\resp \mbox{$\Ainf$-morphisms}).
@@ -574,7 +573,8 @@ Moreover, the pairs of faces in the image of the two operadic diagonals are in g
 
 \section*{Acknowledgements}
 
-We are indebted to Matthieu Josuat-Vergès for taking part in the premises of this paper, in particular for conjecturing the case $\ell = 2$ of \cref{thm:verticesRefinedMultiBraidArrangement}, for working on the proof of \cref{thm:patterns}, and for implementing some sage code used during the project. GLA is grateful to Hugh Thomas for raising the question to count the facets of the $\LA$ diagonal and for preliminary discussions during a visit at the LACIM in the summer of 2021 where the project started, and to the Max Planck Institute for Mathematics in Bonn where part of this work was carried out.
+We are indebted to Matthieu Josuat-Vergès for taking part in the premises of this paper, in particular for conjecturing the case $\ell = 2$ of \cref{thm:verticesRefinedMultiBraidArrangement}, for working on the proof of \cref{thm:patterns}, and for implementing some sage code used during the project.
+GLA is grateful to Hugh Thomas for raising the question to count the facets of the $\LA$ diagonal and for preliminary discussions during a visit at the LACIM in the summer of 2021 where the project started, and to the Max Planck Institute for Mathematics in Bonn where part of this work was carried out.
 We are grateful to Sylvie Corteel for pointing out the relevance of the dual perspective for the purpose of counting.
 VP is grateful to the organizers (Karim Adiprasito, Alexey Glazyrin, Isabella Novic, and Igor Pak) of the workshop ``Combinatorics and Geometry of Convex Polyhedra'' held at the Simons Center for Geometry and Physics in March 2023 for the opportunity to present a preliminary version of our enumerative results, and to  Pavel Galashin for asking about the characteristic polynomial of the multiple braid arrangement during this presentation.
 We thank Samson Saneblidze and Ron Umble for useful correspondence.
@@ -4108,7 +4108,7 @@ The $\SU$ \defn{shift poset} is defined similarly.
 Then, for each permutation $v$ of $[n]$, we define the subposet \defn{$\hour^\LA$} (\resp \defn{$\hour^\SU$}) to be the set of all admissible $\LA$ (\resp $\SU$) shifts of the associated~$\SCP$.
 \end{definition}
 
-Given the shift definitions of $\SUD$ and $\LAD$ (Definitions \ref{def:classical-SU}, \ref{def:classical-LA}), the subposets $\hour^\LA$ and $\hour^\SU$ are clearly connected components of their posets, with a unique minimal element corresponding to the $\SCP$.
+Given the shift definitions of $\SUD$ and $\LAD$ (\cref{def:classical-SU,def:classical-LA}), the subposets $\hour^\LA$ and $\hour^\SU$ are clearly connected components of their posets, with a unique minimal element corresponding to the $\SCP$.
 We now aim to prove they are also lattices (\cref{prop:shift lattice}).
 
 \begin{lemma}
@@ -4424,6 +4424,20 @@ Only the vertices of $\divcube{3}^\SU$ are labelled, but its edges, facets and o
 	A consequence of the construction is that each edge of $\divcube{n}^\SU$ is parallel to one of the canonical basis vectors $e_i$ of $\R^n$, and corresponds to shifting the element $i+1$ of $[n+1]\ssm \{1\}$.
 \end{remark}
 
+\begin{proposition}
+	\label{prop:subdiv cube Combinatorially Isomorphic to perm}
+	The polytopal complex $\divcube{n}^\SU$ is combinatorially isomorphic to the permutahedron $\Perm[n+1]$.
+\end{proposition}
+
+\begin{proof}
+	By construction it is clear that the faces of $\divcube{n}^\SU$ and $\Perm[n+1]$ are in bijection, and that this bijection preserves the dimension. 
+	It remains to show that this bijection is a poset isomorphism.
+	Let $\sigma_1 | \ldots | \sigma_i | \sigma_{i+1} | \ldots | \sigma_k \prec \sigma_1 | \ldots | \sigma_i \cup \sigma_{i+1} | \ldots | \sigma_k$ be a covering relation in the face poset of $\Perm[n+1]$.
+	We need to see that the corresponding faces $F,G$ of $\divcube{n}^\SU$ satisfy $F \prec G$. 
+	From \cref{eq:sub} this clearly holds for lines.
+	Since any face of $\divcube{n}^\SU$ is a product of lines, the result follows by induction on the dimension of the faces.
+\end{proof}
+
 We now unpack how certain properties of $\Perm$ have been encoded in the cubical structure of $\divcube{n}^\SU$.
 This will later allow us to construct a cubical formula for the diagonal through maximal pairings of $k$-subdivision cubes of $\divcube{n}^\SU$, which we now introduce.
 
@@ -4431,6 +4445,8 @@ This will later allow us to construct a cubical formula for the diagonal through
 \label{def:Subdivisions}
 For $k\geq 0$, a \defn{$k$-subdivision cube} of $\divcube{n}^\SU$ is a union of $k$-faces of $\divcube{n}^\SU$ whose underlying set is a $k$-dimensional rectangular prism.
 \end{definition}
+
+An important example of a $k$-subdivision cubes are the $k$-faces of $\divcube{n}^\SU$ (other examples are provided in \cref{ex:subdivision cubes}).
 
 \begin{lemma}
 \label{lem:k-subdiv cubes have max/min k faces}
@@ -4442,32 +4458,6 @@ A $k$-subdivision cube has a unique maximal (\resp minimal) vertex with respect 
 	Thus, the vector $\b{v}\eqdef(1,\ldots,1)$ induces the weak order on the vertices of $\divcube{n}^\SU$.  
 	Since each $k$-subdivision cube is a rectangular prism whose edges are not perpendicular to $\b{v}$, the scalar product with $\b{v}$ is maximized (\resp minimized) at a unique vertex. 
 \end{proof}
-
-An important example of a $k$-subdivision cubes are the $k$-faces of $\divcube{n}^\SU$ (other examples are provided in \cref{ex:subdivision cubes}).
-These $k$-faces have a particularly simple cubical structure.
-
-\begin{lemma}\label{lem:Theta as a product of cubes}
-Every $k$-face of $\divcube{n}^\SU$ decomposes as a product of subdivision cubes.
-\end{lemma}
-\begin{proof}
-For a given face $\sigma=\sigma_1|...|\sigma_l \in \Perm[n+1]$, its minimal vertex under the weak order is given by $\min_{\mathbf{v}}(\sigma) = \min_{\mathbf{v}}([\card{\sigma_1}])_{\sigma_1}|...|\min_{\mathbf{v}}([\card{\sigma_l}])_{\sigma_l}$, and its maximal vertex is given by $\max_{\mathbf{v}}(\sigma) = \max_{\mathbf{v}}([\card{\sigma_1}])_{\sigma_1}|...|\max_{\mathbf{v}}([\card{\sigma_l}])_{\sigma_l}$.
-Where $\min_{\mathbf{v}}([\card{\sigma_j}])_{\sigma_j}$ (\resp $\max_{\mathbf{v}}([\card{\sigma_j}])_{\sigma_j}$) is the elements of $\sigma_j$, arranged in increasing (decreasing) order.
-By inspecting the unique minimal and maximal vertices, and applying \cref{lem:k-subdiv cubes have max/min k faces}, we can conclude that in $\divcube{n}^\SU$ the face $\sigma$ is equal to both of the following products of $(|\sigma_i|-1)$-subdivision cubes.
-\begin{align*}
-    \sigma = \prod_{i=1}^l \text{$\min$}_{\mathbf{v}}([\card{\sigma_1}])_{\sigma_1}|...|\sigma_i|...|\text{$\min$}_{\mathbf{v}}([\card{\sigma_l}])_{\sigma_l}=\prod_{i=1}^l \text{$\max$}_{\mathbf{v}}([\card{\sigma_1}])_{\sigma_1}|...|\sigma_i|...|\text{$\max$}_{\mathbf{v}}([\card{\sigma_l}])_{\sigma_l}
-\end{align*}
-\end{proof}
-
-\begin{proposition}\label{prop:subdiv cube Combinatorially Isomorphic to perm}
-The subdivision $\divcube{n}^\SU$ is combinatorially isomorphic to $\Perm[n+1]$. 
-\end{proposition}
-
-\begin{proof}
-As the faces of $\Perm[n+1]$ and $\divcube{n}^\SU$ are in bijection, it just remains to show that their face posets are isomorphic.
-Under any suitable characterization of the cover relations of each poset, it is clear that the outer face covers all ordered partitions with only two blocks.
-As every non-outer face of $\divcube{n}^\SU$ decomposes as a product of cubes (\cref{lem:Theta as a product of cubes}), and this decomposition is clearly compatible with the isomorphism $\Theta$ of $\Perm$ which relates $\sigma_1|...|\sigma_l {\cong} [\card{\sigma_1}]\times ...\times [\card{\sigma_l}]$ (\cref{sec:operadicDiagonals}), this establishes the equality of the remaining cover relations of $\divcube{n}^\SU$ and $\Perm$.
-\end{proof}
-
 
 \begin{definition}
 	The \defn{maximal (\resp minimal) $k$-face} of a $k$-subdivision cube, with respect to the weak order, is the unique $k$-face in the subdivision cube which contains the maximal (\resp minimal) vertex.
@@ -4592,9 +4582,6 @@ where each block of $\sigma$ has been renumbered as $\sigma_i' \eqdef \{p+1 \ | 
 We obtain a subdivision $\divcube{n}^\LA$ of the $n$-cube isomorphic to the permutahedron $\Perm[n+1]$.
 \end{construction}
 
-\cref{fig:cubicPermutahedron2} illustrates $\divcube{n}^{\LA}$ in dimensions $1$ to $3$.
-We have indicated in bold the embedding ${\divcube{n-1}^{\LA}\hookrightarrow \divcube{n}^{\LA}}$ induced by the natural inclusions $\R^n \hookrightarrow \R^{n+1}$.
-
 \begin{figure}[h!]
 	\begin{center}
 	{\small
@@ -4628,6 +4615,9 @@ We have indicated in bold the embedding ${\divcube{n-1}^{\LA}\hookrightarrow \di
 	\label{fig:cubicPermutahedron2}
 \end{figure}
 
+\cref{fig:cubicPermutahedron2} illustrates $\divcube{n}^{\LA}$ in dimensions $1$ to $3$.
+We have indicated in bold the embedding ${\divcube{n-1}^{\LA}\hookrightarrow \divcube{n}^{\LA}}$ induced by the natural inclusions $\R^n \hookrightarrow \R^{n+1}$.
+
 The appropriate base definitions for the $\LA$ diagonal of $k$-subdivision cubes (\cref{def:Subdivisions}) and hourglasses ${\hour}$ (\cref{def:hourglass}) are the same as in the $\SU$ case.
 The proof that $\hour^\LA $ is indeed combinatorially isomorphic to $\Perm[n+1]$ proceeds similarly to \cref{prop:subdiv cube Combinatorially Isomorphic to perm}.
 
@@ -4656,13 +4646,6 @@ where the union is taken over all block-admissible sequences of $\LA$ shifts $\b
 	Thus, if we start from a $\SCP$ and consider its associated $\SU$ hourglass $\hour^\SU$, applying the subdivision cube isomorphism $r$ or applying the map $t(r \times r)$ both give the $\LA$ hourglass $\hour[r(v)]^\LA$.
 	Combining this with the fact that the map $t(r\times r):\LAD\to \SUD$ is an isomorphism between the $\LA$ and $\SU$ diagonal (\cref{rem:Alternate Isomorphism}) which preserves left and right shifts (\cref{prop:trr is an isomorphism of shifts}), we obtain the desired result. 
 \end{proof}
-
-\begin{example}
-Applying the isomorphism $r$ to \cref{ex:subdivision cubes} yields the illustration of \cref{fig:hourglass2}.
-As $r$ is an isomorphism of $k$-subdivision cubes, the maximal pair of $\SU$ subdivision cubes has been mapped to a maximal pair of $\LA$ subdivision cubes.
-Note that the maximal $\SU$ $2$-subdivision cube with maximal vertex $4|3|1|2$ was generated by $\SU$ right shifts.
-Its image under $r$ is the maximal $\LA$ $2$-subdivision cube with minimal vertex $1|2|4|3$, and it is generated by $\LA$ right shifts.
-\end{example}
 
 \begin{figure}[h!]
 	\centerline{
@@ -4696,11 +4679,12 @@ Its image under $r$ is the maximal $\LA$ $2$-subdivision cube with minimal verte
 	\label{fig:hourglass2}
 \end{figure}
 
-
-
-
-
-
+\begin{example}
+	Applying the isomorphism $r$ to \cref{ex:subdivision cubes} yields the illustration of \cref{fig:hourglass2}.
+	As $r$ is an isomorphism of $k$-subdivision cubes, the maximal pair of $\SU$ subdivision cubes has been mapped to a maximal pair of $\LA$ subdivision cubes.
+	Note that the maximal $\SU$ $2$-subdivision cube with maximal vertex $4|3|1|2$ was generated by $\SU$ right shifts.
+	Its image under $r$ is the maximal $\LA$ $2$-subdivision cube with minimal vertex $1|2|4|3$, and it is generated by $\LA$ right shifts.
+\end{example}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -4754,10 +4738,10 @@ See \cref{fig:step-matrix}.
 	\caption{A permutation, its associated $\SCP$, and their step matrix.}
 	\label{fig:step-matrix}
 \end{figure}
-
-Given a matrix $A$ whose only non-zero entries are the elements $[n]$, let $\sigma_i(A)$ denote the non-zero entries of the $i$\ordinal{} column, and $\tau_j(A)$ the non-zero entries of the $(r-j+1)$\ordinalst{} row, where $r$ is the number of rows of $A$.See the labelling in \cref{fig:step-matrix}.
+Given a matrix $A$ whose only non-zero entries are the elements $[n]$, let $\sigma_i(A)$ denote the non-zero entries of the $i$\ordinal{} column, and $\tau_j(A)$ the non-zero entries of the $(r-j+1)$\ordinalst{} row, where $r$ is the number of rows of $A$. See the labelling in \cref{fig:step-matrix}.
 With this identification, the definitions of the shift operators can be translated directly:
 the right shift operator $R_{M}$ shifts the elements of a subset $M \subset \sigma_i(A)$ one column to the right, or one row up, replacing only elements of value $0$, and leaving $0$ elements in their wake, while the left shift operator $L_{M}$ shifts the elements of $M$ to the left, or down one row.
+
 The fact that the shifts avoid collisions with other elements is a consequence of their admissibility.
 Recall from \cref{def:movable-subsets}, that a right $\SU$ $1$-shift $R_M$ is \defn{block-admissible} if $\min \sigma_i \notin M$ and $\min M > \max \sigma_{i+1}$, and that admissible sequence of right shifts proceed in increasing order (\cref{def:SU-admissible}).
 
@@ -4774,18 +4758,6 @@ Suppose that an admissible right shift $R_{M}$ is not well-defined, as it tries 
 Then, $n$ must have been placed into that column by a prior left shift operator $L_{N_j}$, and consequently $n>\min N_j > \max \tau_{j-1}> m$.
 However, $n\in \sigma_{i+1}$ so $\max \sigma_{i+1}>n>m>\min M_i $ implies that $M$ is not block-admissible, a contradiction.
 \end{proof}
-
-\defn{Configuration matrices} \cite[Def. 7]{SaneblidzeUmble} are the matrices corresponding to $\SCP$s and those generated by admissible sequences of shifts.
-Consequently, they are in bijection with the facets of the $\SU$ diagonal.
-The translation of these results for the $\LA$ diagonal is clear.
-One can use the isomorphism $t(r\times r)$ as in the following example. 
-
-\begin{example}
-\label{ex:matrix shifts}
-The first row of \cref{fig:matrix-shifts} contains a sequence of admissible $\SU$ subset shifts applied to the matrix encoding of the SCP $256|4|17|3\times 6|5|147|13$. 
-The second row is the image of these shifts under the isomorphism $t(r\times r)$.
-Note that the shifts of this example are also isomorphic to those of \cref{ex:shift translation by theta}, under the isomorphism $(rs\times rs)$.
-\end{example}
 
 \begin{figure}[h!]
 	{\footnotesize
@@ -4857,6 +4829,17 @@ Note that the shifts of this example are also isomorphic to those of \cref{ex:sh
 \label{fig:matrix-shifts}
 \end{figure}
 
+\defn{Configuration matrices} \cite[Def. 7]{SaneblidzeUmble} are the matrices corresponding to $\SCP$s and those generated by admissible sequences of shifts.
+Consequently, they are in bijection with the facets of the $\SU$ diagonal.
+The translation of these results for the $\LA$ diagonal is clear.
+One can use the isomorphism $t(r\times r)$ as in the following example. 
+
+\begin{example}
+\label{ex:matrix shifts}
+The first row of \cref{fig:matrix-shifts} contains a sequence of admissible $\SU$ subset shifts applied to the matrix encoding of the SCP $256|4|17|3\times 6|5|147|13$. 
+The second row is the image of these shifts under the isomorphism $t(r\times r)$.
+Note that the shifts of this example are also isomorphic to those of \cref{ex:shift translation by theta}, under the isomorphism $(rs\times rs)$.
+\end{example}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -5266,8 +5249,6 @@ The datum of a diagonal of the operad $\Ainf$ encoding $\Ainf$-algebras and a di
 	However, for linear trees with $5$ and $6$ internal edges, the number of facets of the $\LA$ and $\SU$ diagonals differ, as displayed in \cref{table:multiplihedra}.
 	To compute these numbers, we first computed the facets of the $\LA$ and $\SU$ diagonals of the permutahedra, and then used the projection from the permutahedra to the multiplihedra described in the proof of \cite[Thm.~3.3.6]{Doker}.
 \end{example}
-
-\newpage
 
 \begin{figure}[h]
 \begin{tabular}{cccccc}
