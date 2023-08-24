@@ -96,9 +96,9 @@ For the arrangement~$\arrangement$ of $5$ hyperplanes of \cref{fig:arrangement},
 \]
 so that
 \[
-\fPol = \mobPol[\arrangement][-x][-1] = 12 \, x^2 + 15 \, x + 4 
-\qquad \text{and}\qquad
-\bPol = \mobPol[\arrangement][-x][1] = 2 \, x^2 + 5 \, x + 4 .
+\fPol = 12 \, x^2 + 15 \, x + 4 
+\qquad\text{and}\qquad
+\bPol = 2 \, x^2 + 5 \, x + 4 .
 \]
 \end{example}
 
@@ -173,7 +173,7 @@ Hence, the letter $\pi$ denotes an unordered set partition (the order is irrelev
 
 The braid arrangement~$\braidArrangement$ has a $k$-dimensional face
 \[
-\Phi(\order{\pi}) \eqdef \set{\b{x} \in \R^n}{x_s \le x_t \text{ for all $s,t$ such that the part of~$s$ is weakly before the part of~$t$ in $\order{\pi}$}}
+\Phi(\order{\pi}) \eqdef \set{\b{x} \in \R^n}{\substack{\displaystyle x_s \le x_t \text{ for all $s,t$ such that the part of~$s$} \\[.1cm] \displaystyle \text{is weakly before the part of~$t$ in $\order{\pi}$}}}
 \]
 for each ordered set partition~$\order{\pi}$ of~$[n]$ into~$k+1$ parts, or equivalently, for each surjection from~$[n]$ to~$[k+1]$.
 The face poset~$\facePoset[\braidArrangement]$ is thus isomorphic to the refinement poset~$\orderedPartitionPoset$ on ordered set partitions, where an ordered partition~$\order{\pi}$ is smaller than an ordered partition~$\order{\omega}$ if each part of~$\order{\pi}$ is the union of an interval of consecutive parts in~$\order{\omega}$.
@@ -250,7 +250,6 @@ for $0<k<n$.
 \subsection{The $(\ell,n)$-braid arrrangement}
 \label{subsec:multiBraidArrangement}
 
-\enlargethispage{.7cm}
 We now focus on the following specific hyperplane arrangements, illustrated in \cref{fig:multiBraidArrangements}.
 We still denote by~$\HH$ the hyperplane of~$\R^n$ defined by~$\sum_{s \in [n]} x_s = 0$.
 
@@ -453,7 +452,6 @@ By using the polynomial
 \]
 introduced at the end of \cref{subsec:braidArrangement}, the M\"obius polynomial~$\mobPol[\multiBraidArrangement]$ can also be expressed as follows.
 
-\pagebreak
 \begin{proposition} 
 \label{prop:alternativeFormulaMobiusPolynomialMultiBraidArrangement}
 The M\"obius polynomial of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is given by
@@ -972,12 +970,11 @@ Finally, the possible labelings are counted by the multinomial coefficient~$\bin
 \subsection{Enumeration of regions and bounded regions of $\multiBraidArrangement$}
 \label{subsec:regionsMultiBraidArrangement}
 
-\enlargethispage{.2cm}
 We finally use the labeled $(\ell,n)$-rainbow forests of \cref{subsec:rainbowForests} to derive more explicit formulas for the number of regions and bounded regions of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
 The first few values are gathered in \cref{table:regionsMultiBraidArrangement,table:boundedRegionsMultiBraidArrangement}.
 We first compute the characteristic polynomial of~$\multiBraidArrangement$.
 
-\afterpage{
+%\afterpage{
 \begin{table}
 	\centerline{\scalebox{.8}{
 		\begin{tabular}[t]{c|cccccccc}
@@ -998,9 +995,9 @@ We first compute the characteristic polynomial of~$\multiBraidArrangement$.
 	\caption{The numbers $f_{n-1}(\multiBraidArrangement)$ of regions of~$\multiBraidArrangement$ for~$\ell,n \in [8]$.}
 	\label{table:regionsMultiBraidArrangement}
 \end{table}
-}
+%}
 
-\afterpage{
+%\afterpage{
 \begin{table}
 	\centerline{\scalebox{.8}{
 		\begin{tabular}[t]{c|cccccccc}
@@ -1021,7 +1018,7 @@ We first compute the characteristic polynomial of~$\multiBraidArrangement$.
 	\caption{The numbers $b_{n-1}(\multiBraidArrangement)$ of bounded regions of~$\multiBraidArrangement$ for~$\ell,n \in [8]$.}
 	\label{table:boundedRegionsMultiBraidArrangement}
 \end{table}
-}
+%}
 
 \begin{theorem}
 \label{thm:characteristicPolynomialMultiBraidArrangement}

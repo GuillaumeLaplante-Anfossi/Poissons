@@ -69,8 +69,6 @@ A vector is \defn{generic with respect to~$P$} if it does not belong to the unio
 In particular, such a vector is not perpendicular to any edge of $P$, and we denote by~$\min_{\b{v}}(P)$ (\resp $\max_{\b{v}}(P)$) the unique vertex of~$P$ which minimizes (\resp maximizes) the scalar product with~$\b{v}$. 
 Note that the datum of a polytope~$P$ together with a vector~$\b{v}$ generic with respect to~$P$ was called \defn{positively oriented polytope} in~\cite{MasudaThomasTonksVallette,LaplanteAnfossi,LaplanteAnfossiMazuir}.
 
-\pagebreak
-
 \begin{theorem}
 \label{thm:diagonal}
 For any vector $\b{v} \in \R^d$ generic with respect to $P$, the tight coherent section~$\triangle_{(P,\b{v})}$ of the projection $P \times P \to P, (\b{x}, \b{y}) \mapsto (\b{x}+\b{y})/2$ selected by the vector~$(-\b{v}, \b{v})$ defines a cellular diagonal of~$P$.
@@ -510,7 +508,6 @@ Hence, by Cayley's formula for spanning trees of~$K_{n+1}$, we obtain that the n
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\pagebreak
 \section{Operadic diagonals}
 \label{sec:operadicDiagonals}
 
@@ -751,7 +748,6 @@ The involution $t : P \times P \to P \times P$, sending $(x,y)$ to~$(y,x)$, take
 As we have already remarked in \cref{def:oppositeDiagonal}, this involution sends a geometric diagonal~$\triangle$ to its opposite~$\triangle^{\op}$.
 %As we have already remarked in \cref{subsec:LASUdiagonal}, in the case of the permutahedron it sends $\LAD$ to $(\LAD)^\op$ and $\SUD$ to $(\SUD)^\op$.
 
-\pagebreak
 \begin{theorem}
 \label{thm:bijection-operadic-diagonals}
 For the permutahedron~$\Perm$, the involutions $t$ and $rs \times rs$ are cellular isomorphisms between the four operadic diagonals, through the following commutative diagram
@@ -966,7 +962,6 @@ where $I=\{i_1,\dots,i_k\}$, $J=\{j_1,\dots,j_k\}$ and $i_1=1$ (\resp $j_k=2k$).
 \end{theorem}
 
 \begin{example}\label{exm:intervalsWeakOrderNotDiagonals}
-\enlargethispage{.5cm}
 For each $k \ge 1$, there are $\binom{2k-1}{k-1,k}(k-1)!k!$ avoided standardized patterns.
 For~$k=1$, both diagonals avoid $(21,12)$, so the vertices are intervals of the weak order.
 For~$k=2$, 
@@ -1172,7 +1167,6 @@ The facet $13|24|57|6 \times 3|17|456|2 \in \SUD$, satisfies the inequality thro
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newpage
 \section{Shift lattices}
 \label{sec:shifts}
 
@@ -1796,6 +1790,7 @@ By the definition of the geometric $\SU$ diagonal, the fact that $\tau_l < \tau_
 \label{ex:proof-inverse-shift}
 Here are examples of each of the cases in the proof of \cref{lem:inverse-to-SCP}. 
 We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading the diagrams from top-left to bottom-right. 
+\vincent{Need to fix that...}
 \begin{center}
 \begin{tikzpicture}[xscale=.6,yscale=0.9]  
 \node[anchor=east] (1) at (-1.5, -1) {$1$};
