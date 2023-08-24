@@ -1,0 +1,394 @@
+%-----------------------------------------------------------------------
+% Beginning of memo-l-template.tex
+%-----------------------------------------------------------------------
+%
+% This is a template file for AMS Memoirs for use with AMS-LaTeX 2.0.
+% Separate chapters should be included at the appropriate position.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{memo-l}
+
+%    For use when working on individual chapters
+%\includeonly{}
+
+%    Include referenced packages here.
+\usepackage[T1]{fontenc}
+\usepackage{enumerate, amsmath, amsfonts, amssymb, amsthm, mathrsfs, wasysym, graphics, graphicx, url, hyperref, hypcap, shuffle, xargs, multicol, overpic, pdflscape, multirow, hvfloat, minibox, accents, array, multido, xifthen, a4wide, ae, aecompl, blkarray, pifont, mathtools, etoolbox, dsfont, stmaryrd}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{marginnote}
+\hypersetup{colorlinks=true, citecolor=darkblue, linkcolor=darkblue}
+\usepackage[all]{xy}
+\usepackage[bottom]{footmisc}
+\usepackage{tikz, tikz-cd, tikz-qtree}
+\usetikzlibrary{trees, decorations, decorations.markings, shapes, arrows, matrix, calc, fit, intersections, patterns, angles, snakes}
+\usepackage[external]{forest}
+%\tikzexternalize
+\graphicspath{{figures/}{figures/nodes/}}
+\makeatletter\def\input@path{{figures/}}\makeatother
+\usepackage{caption}
+\captionsetup{width=\textwidth}
+\renewcommand{\topfraction}{1} % possibility to have one page of pictures
+\renewcommand{\bottomfraction}{1} % possibility to have one page of pictures
+\usepackage[noabbrev,capitalise]{cleveref}
+\usepackage[export]{adjustbox}
+\usepackage{ulem}\normalem
+\usepackage{xargs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% colors
+\definecolor{darkblue}{rgb}{0,0,0.7} % darkblue color
+\definecolor{green}{RGB}{57,181,74} % green color
+\definecolor{violet}{RGB}{147,39,143} % violet color
+
+\newcommand{\red}{\color{red}} % red command
+\newcommand{\blue}{\color{blue}} % blue command
+\newcommand{\orange}{\color{orange}} % orange command
+\newcommand{\green}{\color{green}} % green command
+\newcommand{\darkblue}{\color{darkblue}} % darkblue command
+
+% marginal comments
+\usepackage{todonotes}
+%\newcommand{\vincent}[1]{\todo[color=blue!30]{\rm #1 \\ \hfill --- V.}}
+%\newcommand{\Guillaume}[1]{\todo[color=magenta!30]{\rm #1 \\ \hfill --- G.}}
+%\newcommand{\Kurt}[1]{\todo[color=orange!30]{\rm #1 \\ \hfill --- K.}}
+%\newcommand{\BDO}[1]{\todo[color=green!30]{\rm #1 \\ \hfill --- B.}}
+
+% math special letters
+\newcommand{\R}{\mathbb{R}} % reals
+\newcommand{\N}{\mathbb{N}} % naturals
+\newcommand{\Z}{\mathbb{Z}} % integers
+\newcommand{\C}{\mathbb{C}} % complex
+\newcommand{\I}{\mathbb{I}} % set of integers
+\newcommand{\fA}{\mathfrak{A}} % alternating group
+\newcommand{\fB}{\mathfrak{S}^\textsc{b}} % signed symmetric group
+\newcommand{\cA}{\mathcal{A}} % algebra
+\newcommand{\cC}{\mathcal{C}} % collection
+\newcommand{\cS}{\mathcal{S}} % ground set
+\newcommand{\uR}{\underline{R}} % underline set
+\newcommand{\uS}{\underline{S}} % underline set
+\newcommand{\uT}{\underline{T}} % underline set
+\newcommand{\oS}{\overline{S}} % overline set
+\newcommand{\ucS}{\underline{\cS}} % underline ground set
+\renewcommand{\b}[1]{{\boldsymbol{#1}}} % bold letters
+\newcommand{\bb}[1]{\mathbb{#1}} % bb letters
+\newcommand{\f}[1]{\mathfrak{#1}} % frak letters
+\newcommand{\h}{\widehat} % hat letters
+\newcommand{\Un}{\mathrm{U}} % unordered IJ
+\newcommand{\Or}{\mathrm{O}} % ordered IJ
+\newcommand{\PT}{\mathrm{PT}} %planar trees
+\newcommand{\K}{\mathrm{K}} %associahedra
+\newcommand{\J}{\mathrm{J}} %multiplihedra
+
+% math commands
+\newcommand{\set}[2]{\left\{ #1 \;\middle|\; #2 \right\}} % set notation
+\newcommand{\bigset}[2]{\big\{ #1 \;\big|\; #2 \big\}} % big set notation
+\newcommand{\Bigset}[2]{\Big\{ #1 \;\Big|\; #2 \Big\}} % Big set notation
+\newcommand{\setangle}[2]{\left\langle #1 \;\middle|\; #2 \right\rangle} % set notation
+\newcommand{\ssm}{\smallsetminus} % small set minus
+\newcommand{\dotprod}[2]{\left\langle \, #1 \; \middle| \; #2 \, \right\rangle} % dot product
+\newcommand{\symdif}{\,\triangle\,} % symmetric difference
+\newcommand{\one}{\b{1}} % the all one vector
+\newcommand{\eqdef}{\mbox{\,\raisebox{0.2ex}{\scriptsize\ensuremath{\mathrm:}}\ensuremath{=}\,}} % :=
+\newcommand{\defeq}{\mbox{~\ensuremath{=}\raisebox{0.2ex}{\scriptsize\ensuremath{\mathrm:}} }} % =:
+\newcommand{\simplex}{\b{\triangle}} % simplex
+\renewcommand{\implies}{\Rightarrow} % imply sign
+\newcommand{\transpose}[1]{{#1}^t} % transpose matrix
+\renewcommand{\complement}[1]{\bar{#1}} % complement
+\newcommand{\card}[1]{\##1} % cardinality
+
+% operators
+\DeclareMathOperator{\conv}{conv} % convex hull
+\DeclareMathOperator{\vect}{vect} % linear span
+\DeclareMathOperator{\cone}{cone} % cone hull
+\DeclareMathOperator{\Inv}{Inv} % inversions
+\DeclareMathOperator{\inv}{inv} % inversions
+\DeclareMathOperator{\Ima}{Im} %Image d'une fonction
+\DeclareMathOperator{\std}{std}
+
+%colored nested trees
+\newcommand{\bluea}[1]{\textcolor{MidnightBlue}{\boldsymbol{\left(\right.}} #1 \textcolor{MidnightBlue}{\boldsymbol{\left.\right)}}} 
+\newcommand{\reda}[1]{\textcolor{Red!60}{\boldsymbol{\left(\right.}} #1 \textcolor{Red!60}{\boldsymbol{\left.\right)}}} 
+\newcommand{\purplea}[1]{\textcolor{Purple!80}{\boldsymbol{\left[\right.}} #1 \textcolor{Purple!80}{\boldsymbol{\left.\right]}}} 
+
+% others
+\newcommand{\ie}{\textit{i.e.}~} % id est
+\newcommand{\resp}{resp.~} % id est
+\newcommand{\eg}{\textit{e.g.}~} % exempli gratia
+\newcommand{\Eg}{\textit{E.g.}~} % exempli gratia
+\newcommand{\apriori}{\textit{a priori}} % a priori
+\newcommand{\viceversa}{\textit{vice versa}} % vice versa
+\newcommand{\versus}{\textit{vs.}~} % versus
+\newcommand{\aka}{\textit{a.k.a.}~} % also known as
+\newcommand{\perse}{\textit{per se}} % per se
+\newcommand{\ordinal}{\textsuperscript{th}} % th for ordinals
+\newcommand{\ordinalst}{\textsuperscript{st}} % st for ordinals
+\newcommand{\defn}[1]{\textsl{\darkblue #1}} % emphasis of a definition
+\newcommand{\para}[1]{\medskip\noindent\uline{#1.}} % paragraph
+\renewcommand{\topfraction}{1} % possibility to have one page of pictures
+\renewcommand{\bottomfraction}{1} % possibility to have one page of pictures
+\newcommand{\imagetop}[1]{\vtop{\null\hbox{#1}}} % image aligned top
+\newcommand{\imagebot}[1]{\vbox{\hbox{#1}\null}} % image aligned bot
+\newcommand{\OEIS}[1]{\cite[{\rm \href{http://oeis.org/#1}{\texttt{#1}}}]{OEIS}}
+
+%Hyperplane arrangements
+\renewcommand{\b}[1]{\boldsymbol{#1}} % bold
+\newcommandx{\arrangement}[1][1 = A]{\mathcal{#1}} % arrangement
+\newcommand{\HH}{\mathbb{H}} % hyperplane
+\newcommandx{\braidArrangement}[1][1 = n]{\arrangement[B]_{#1}} % braid arrangement
+\newcommandx{\multiBraidArrangement}[2][1 = n, 2 = \ell]{\arrangement[B]_{#1}^{#2}} % (l,n)-braid arrangement
+\newcommandx{\rank}[1][1 = \arrangement]{\operatorname{rk}(#1)} % rank
+\newcommandx{\facePoset}[1][1 = \arrangement]{\mathsf{Fa}(#1)} % face poset
+\newcommandx{\fPol}[2][1 = \arrangement, 2 = x]{\b{f}_{#1}(#2)} % face polynomial
+\newcommandx{\bPol}[2][1 = \arrangement, 2 = x]{\b{b}_{#1}(#2)} % bounded face polynomial
+\newcommandx{\flatPoset}[1][1 = \arrangement]{\mathsf{Fl}(#1)} % intersection poset
+\newcommandx{\charPol}[2][1 = \arrangement, 2 = y]{\b{\chi}_{#1}(#2)} % characteristic polynomial
+\newcommandx{\mobPol}[3][1 = \arrangement, 2 = x, 3 = y]{\b{\mu}_{#1}(#2, #3)} % Mobius polynomial
+\newcommandx{\weirdPol}[2][1 = \arrangement, 2 = x]{\b{\pi}_{#1}(#2)} % weird polynomial
+\newcommandx{\partitionPoset}[1][1 = n]{\b{\Pi}_{#1}} % partition poset
+\newcommandx{\forestPoset}[2][1 = n, 2 = \ell]{\b{\Phi}_{#1}^{#2}} % partition forest poset
+\newcommandx{\rainbowForests}[2][1 = n, 2 = \ell]{\b{\Psi}_{#1}^{#2}} % rainbow forests
+\newcommandx{\rainbowTrees}[2][1 = n, 2 = \ell]{\b{\rm{T}}_{#1}^{#2}} % rainbow trees
+\newcommandx{\Perm}[1][1 = n]{\mathsf{Perm}(#1)} % permutahedron
+\newcommandx{\Asso}[1][1 = n]{\mathsf{Asso}(#1)} % associahedron
+\newcommandx{\Cube}[1][1 = n]{\mathsf{Cube}(#1)} % cube
+\newcommandx{\Simplex}[1][1 = n]{\mathsf{Simplex}(#1)} % simplex
+\makeatletter
+\def\rightharpoonupfill@{\arrowfill@\relbar\relbar\rightharpoonup}
+\newcommand{\overrightharpoonup}{%
+\mathpalette{\overarrow@\rightharpoonupfill@}}
+\makeatother
+\newcommandx{\order}[1]{\smash{\overrightharpoonup{#1}}} % ordered
+\newcommandx{\orderedPartitionPoset}[1][1 = n]{\order{\b{\Pi}}_{#1}} % oriented partition poset
+\newcommandx{\orderedForestPoset}[2][1 = n, 2 = \ell]{\order{\b{\Phi}}_{#1}^{#2}} % oriented partition forest poset
+
+%Operadic diagonals
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\LA}{\mathrm{LA}}
+\newcommand{\SUD}{\triangle^{\mathrm{SU}}}
+\newcommand{\LAD}{\triangle^{\mathrm{LA}}}
+\newcommand{\SCP}{\mathrm{SCP}}
+\newcommand{\PolySub}{\mathsf{Poly}}
+\newcommand{\EC}{\mathcal{E}} %essential complimentary partitions
+\newcommand{\OP}{\triangle} %ordered partitions
+\newcommand{\BT}{\mathcal{B}} %bipartite trees
+\newcommand{\Ainf}{\ensuremath{\mathrm{A}_\infty}}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\id}{\mathrm{id}}
+
+%Shift operators
+%\vphantom{1} ensures sequential arrows aligned.
+\newcommand{\rightshift}[1]{\overrightarrow{\vphantom{1}{#1}}}
+\newcommand{\rightshiftk}[2]{\overrightarrow{\vphantom{1}{#1}}^{#2}}
+\newcommand{\leftshift}[1]{\overleftarrow{\vphantom{1}{#1}}}
+\newcommand{\leftshiftk}[2]{\overleftarrow{\vphantom{1}{#1}}^{#2}}
+%Subdiv cube defs
+\newcommand{\divcube}[1]{\Box_{#1}}
+\newcommandx{\hour}[1][1 = v]{\raisebox{0.065cm}{\rotatebox[origin=c]{90}{$\bowtie$}}_{#1}}
+\newcommand{\maxsubdivpairsv}{M_v}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% from https://tex.stackexchange.com/questions/356564/macro-for-rounded-polygon-around-some-nodes
+%% answer of bitt.j
+%Necessary for the mypoly command%
+\usepackage{tkz-euclide}
+\usepackage{xstring}
+
+%------------------------%
+%---The mypoly command---%
+%------------------------%
+
+%--Getting the last Element of a list--%
+\def\splicelist#1{
+\StrCount{#1}{,}[\numofelem]
+\ifnum\numofelem>0\relax
+     \StrBehind[\numofelem]{#1}{,}[\mylast]%
+\else
+    \let\mylast#1%
+\fi
+}
+
+%--The mypoly macro--%
+%How to use:
+%\myroundpoly[decorative commands]{list of names of nodes}{distance}
+%list of names has to be given in clockwise order
+\newcommand{\hedge}[3][very thick,color=black]{
+%Get the last element
+\splicelist{#2}
+%Calculate the auxiliary coordinates for the arcs
+\foreach \vertex [remember=\vertex as \succvertex
+    (initially \mylast)] in {#2}{
+    \coordinate (\succvertex-next) at ($(\succvertex)!#3!90:(\vertex)$);
+    \coordinate (\vertex-previous) at ($(\vertex)!#3!-90:(\succvertex)$);
+    \draw[#1] (\succvertex-next) --  (\vertex-previous);
+}
+%Draw the arcs
+\foreach \vertex in {#2}{
+    \tkzDrawArc[#1](\vertex,\vertex-next)(\vertex-previous)
+}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% formating the part command
+\makeatletter
+\def\part{\@startsection{part}{1}%
+\z@{.7\linespacing\@plus\linespacing}{.8\linespacing}%
+{\LARGE\sffamily\centering}}
+%\@addtoreset{section}{part}
+\makeatother
+\renewcommand{\thepart}{\Roman{part}}
+%\renewcommand{\thesection}{\arabic{part}.\arabic{section}}
+
+% formating the table of contents
+\setcounter{tocdepth}{2}
+\makeatletter
+\def\l@part{\@tocline{1}{8pt}{0pc}{}{}}
+\def\l@section{\@tocline{1}{4pt}{0pc}{}{}}
+\makeatother
+\let\oldtocpart=\tocpart
+\renewcommand{\tocpart}[2]{\sc\large\oldtocpart{#1}{#2}}
+\let\oldtocsection=\tocsection
+\renewcommand{\tocsection}[2]{\bf\oldtocsection{#1}{#2}}
+\let\oldtocsubsubsection=\tocsubsubsection
+\renewcommand{\tocsubsubsection}[2]{\quad\oldtocsubsubsection{#1}{#2}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% theorems
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{construction}[theorem]{Construction}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{assumption}[theorem]{Assumption}
+\crefname{notation}{Notation}{Notations}
+\crefname{problem}{Problem}{Problems}
+
+
+\numberwithin{section}{chapter}
+\numberwithin{equation}{chapter}
+
+%    For a single index; for multiple indexes, see the manual
+%    "AMS Author Handbook, Memoirs Class", included in the
+%    author package).
+\makeindex
+
+\begin{document}
+
+\frontmatter
+
+\title{Cellular diagonals of permutahedra}
+
+\thanks{
+BDO was partially supported by the French ANR grants ALCOHOL (ANR-19-CE40-0006), CARPLO (ANR-20-CE40-0007), HighAGT (ANR-20-CE40-0016) and S3 (ANR-20-CE48-0010). 
+GLA and KS were supported by the Australian Research Council Future Fellowship FT210100256. 
+KS was supported by an Australian Government Research Training Program (RTP) Scholarship.
+VP was partially supported by the French ANR grant CHARMS (ANR-19-CE40-0017) and by the French--Austrian project PAGCAP (ANR-21-CE48-0020 \& FWF I 5788).
+}
+
+\author[B. Delcroix-Oger]{B\'er\'enice Delcroix-Oger}
+\address[B\'{e}r\'{e}nice Delcroix-Oger]{Institut Montpelli\'erain Alexander Grothendieck, Universit\'e de Montpellier, France}
+\email{berenice.delcroix-oger@umontpellier.fr}
+\urladdr{\url{https://oger.perso.math.cnrs.fr/}}
+
+\author[G. Laplante-Anfossi]{Guillaume Laplante-Anfossi}
+\address[Guillaume Laplante-Anfossi]{School of Mathematics and Statistics, The University of Melbourne, Victoria, Australia}
+\email{guillaume.laplanteanfossi@unimelb.edu.au}
+\urladdr{\url{https://guillaumelaplante-anfossi.github.io/}}
+
+\author[V. Pilaud]{Vincent Pilaud}
+\address[Vincent Pilaud]{CNRS \& LIX, \'Ecole Polytechnique, Palaiseau, France}
+\email{vincent.pilaud@lix.polytechnique.fr}
+\urladdr{\url{http://www.lix.polytechnique.fr/~pilaud/}}
+
+\author[K. Stoeckl]{Kurt Stoeckl}
+\address[Kurt Stoeckl]{School of Mathematics and Statistics, The University of Melbourne, Victoria, Australia}
+\email{kstoeckl@student.unimelb.edu.au}
+\urladdr{\url{https://kstoeckl.github.io/}}
+
+
+%    \date is required; it is the date received by the editor.
+\date{}
+
+\subjclass[2020]{Primary }
+%    Recognition of the 2010 edition of the Mathematics Subject
+%    Classification requires a version of amsbook.cls from July 2009
+%    or later.  If "2010" is not recognized, please upgrade.
+
+\keywords{}
+
+%\dedicatory{Dedication text (use \\[2pt] for line break if necessary)}
+
+\begin{abstract}
+We provide a systematic enumerative and combinatorial study of geometric cellular diagonals on the permutahedra. 
+
+In the first part of the paper, we study the combinatorics of certain hyperplane arrangements obtained as the union of $\ell$ generically translated copies of the classical braid arrangement.
+Based on Zaslavsky's theory, we derive enumerative results on the faces of these arrangements involving combinatorial objects named partition forests and rainbow forests.
+This yields in particular nice formulas for the number of regions and bounded regions in terms of exponentials of generating functions of Fuss-Catalan numbers.
+By duality, the specialization of these results to the case $\ell = 2$ gives the enumeration of any geometric diagonal of the permutahedron.
+
+In the second part of the paper, we study diagonals which respect the operadic structure on the family of permutahedra.
+We show that there are exactly two such diagonals, which are moreover isomorphic.
+We describe their facets by a simple rule on paths in partition trees, and their vertices as pattern-avoiding pairs of permutations.
+We show that one of these diagonals is a topological enhancement of the Sanbeblidze--Umble diagonal, and unravel a natural lattice structure on their sets of facets.
+
+In the third part of the paper, we use the preceding results to show that there are precisely two isomorphic topological cellular operadic structures on the families of operahedra and multiplihedra, and exactly two infinity-isomorphic geometric universal tensor products of homotopy operads and A-infinity morphisms.
+
+\end{abstract}
+
+\vspace*{-1.4cm}
+\maketitle
+
+\vspace*{-.6cm}
+\centerline{\includegraphics[scale=.75]{diagonalPermutahedron3}}
+\vspace*{-.2cm}
+
+\newpage
+\enlargethispage{1cm}
+\tableofcontents
+
+
+
+%    Include unnumbered chapters (preface, acknowledgments, etc.) here.
+\include{intro}
+ \include{acknowledgements}
+
+\mainmatter
+%    Include main chapters here.
+\include{combinatorics}
+\include{diag}
+\include{higher}
+
+%\appendix
+%    Include appendix "chapters" here.
+%\include{}
+
+\backmatter
+%    Bibliography styles amsplain or author-year (using natbib) are
+%    also acceptable.
+\bibliographystyle{amsalpha}
+\bibliography{diagonalsPermutahedra}
+\label{sec:biblio}
+
+%    See note above about multiple indexes.
+%\printindex
+
+\end{document}
+
+%-----------------------------------------------------------------------
+% End of memo-l-template.tex
+%-----------------------------------------------------------------------

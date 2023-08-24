@@ -1,0 +1,213 @@
+%author : berenice delcroix-oger
+
+\documentclass[border=2pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning, fit, shapes, arrows, calc}
+
+\pgfdeclarelayer{bg}    % declare background layer
+\pgfsetlayers{bg,main}  % set the order of the layers (main is the standard layer)
+
+\newcommand{\coula}{0785F2}
+\newcommand{\coulb}{F29F05}
+\newcommand{\coulc}{F21313}
+\newcommand{\could}{E6F21F}
+
+
+
+\definecolor{part1}{HTML}{\coula}
+\definecolor{part2}{HTML}{\coulb}
+\definecolor{part3}{HTML}{\coulc}
+\definecolor{part4}{HTML}{\could}
+
+\begin{document}
+\begin{tikzpicture}
+\node (min) at (0,0){};
+\node[above left=1cm of min.north] (3) {
+\begin{tikzpicture}[scale=0.3]
+\coordinate (A) at (0:2);
+\coordinate (B) at (60:2);
+\coordinate (C) at (120:2);
+\coordinate (D) at (180:2);
+\coordinate (E) at (240:2);
+\coordinate (F) at (300:2);
+%\draw[blue, very thick]  (A)--(D);
+\draw[teal, very thick]  (B)--(E);
+%\draw[part4, very thick]  (C)--(F);
+\end{tikzpicture}};
+\node[above right=1cm of min.north] (4) {
+\begin{tikzpicture}[scale=0.3]
+\coordinate (A) at (0:2);
+\coordinate (B) at (60:2);
+\coordinate (C) at (120:2);
+\coordinate (D) at (180:2);
+\coordinate (E) at (240:2);
+\coordinate (F) at (300:2);
+\draw[white, very thick]  (B)--(E);
+\draw[white, very thick]  (C)--(F);
+\draw[red, very thick]  (A)--(D);
+\end{tikzpicture}};
+\node[left=0.5cm of 3] (2) {
+\begin{tikzpicture}[scale=0.3]
+\coordinate (A) at (0:2);
+\coordinate (B) at (60:2);
+\coordinate (C) at (120:2);
+\coordinate (D) at (180:2);
+\coordinate (E) at (240:2);
+\coordinate (F) at (300:2);
+\draw[white, very thick]  (A)--(D);
+\draw[white, very thick]  (B)--(E);
+\draw[green, very thick]  (C)--(F);
+\end{tikzpicture}};
+\node[left=0.5cm of 2] (1) {
+\begin{tikzpicture}[scale=0.3]
+\coordinate (A) at (0:2);
+\coordinate (B) at (60:2);
+\coordinate (C) at (120:2);
+\coordinate (D) at (180:2);
+\coordinate (E) at (240:2);
+\coordinate (F) at (300:2);
+\draw[white, very thick]  (B)--(E);
+\draw[white, very thick]  (C)--(F);
+\draw[blue, very thick]  (A)--(D);
+\end{tikzpicture}};
+\node[right=0.5cm of 4] (5) {
+\begin{tikzpicture}[scale=0.3]
+\coordinate (A) at (0:2);
+\coordinate (B) at (60:2);
+\coordinate (C) at (120:2);
+\coordinate (D) at (180:2);
+\coordinate (E) at (240:2);
+\coordinate (F) at (300:2);
+\draw[white, very thick]  (A)--(D);
+\draw[white, very thick]  (B)--(E);
+\draw[orange, very thick]  (C)--(F);
+\end{tikzpicture}};
+\node[right=0.5cm of 5] (6) {
+\begin{tikzpicture}[scale=0.3]
+\coordinate (A) at (0:2);
+\coordinate (B) at (60:2);
+\coordinate (C) at (120:2);
+\coordinate (D) at (180:2);
+\coordinate (E) at (240:2);
+\coordinate (F) at (300:2);
+\draw[white, very thick]  (A)--(D);
+\draw[white, very thick]  (C)--(F);
+\draw[magenta, very thick]  (B)--(E);
+\end{tikzpicture}};
+\node[above=2cm of 1] (15) {
+\begin{tikzpicture}[scale=0.3]
+\coordinate (A) at (0:2);
+\coordinate (B) at (60:2);
+\coordinate (C) at (120:2);
+\coordinate (D) at (180:2);
+\coordinate (E) at (240:2);
+\coordinate (F) at (300:2);
+\draw[blue, very thick]  (A)--(D);
+%\draw[part2, very thick]  (B)--(E);
+\draw[orange, very thick]  (C)--(F);
+\end{tikzpicture}};
+\node[left=0.5cm of 15] (123) {
+\begin{tikzpicture}[scale=0.3]
+\coordinate (A) at (0:2);
+\coordinate (B) at (60:2);
+\coordinate (C) at (120:2);
+\coordinate (D) at (180:2);
+\coordinate (E) at (240:2);
+\coordinate (F) at (300:2);
+\draw[blue, very thick]  (A)--(D);
+\draw[teal, very thick]  (B)--(E);
+\draw[green, very thick]  (C)--(F);
+\end{tikzpicture}
+};
+\node[right=0.5cm of 15] (26) {
+\begin{tikzpicture}[scale=0.3]
+\coordinate (A) at (0:2);
+\coordinate (B) at (60:2);
+\coordinate (C) at (120:2);
+\coordinate (D) at (180:2);
+\coordinate (E) at (240:2);
+\coordinate (F) at (300:2);
+%\draw[blue, very thick]  (A)--(D);
+\draw[magenta, very thick]  (B)--(E);
+\draw[green, very thick]  (C)--(F);
+\end{tikzpicture}};
+\node[right=0.5cm of 26] (34) {
+\begin{tikzpicture}[scale=0.3]
+\coordinate (A) at (0:2);
+\coordinate (B) at (60:2);
+\coordinate (C) at (120:2);
+\coordinate (D) at (180:2);
+\coordinate (E) at (240:2);
+\coordinate (F) at (300:2);
+\draw[red, very thick]  (A)--(D);
+\draw[teal, very thick]  (B)--(E);
+%\draw[part4, very thick]  (C)--(F);
+\end{tikzpicture}};
+\node[right=0.5cm of 34] (24) {
+\begin{tikzpicture}[scale=0.3]
+\coordinate (A) at (0:2);
+\coordinate (B) at (60:2);
+\coordinate (C) at (120:2);
+\coordinate (D) at (180:2);
+\coordinate (E) at (240:2);
+\coordinate (F) at (300:2);
+\draw[red, very thick]  (A)--(D);
+%\draw[part2, very thick]  (B)--(E);
+\draw[green, very thick]  (C)--(F);
+\end{tikzpicture}};
+\node[right=0.5cm of 24] (35) {
+\begin{tikzpicture}[scale=0.3]
+\coordinate (A) at (0:2);
+\coordinate (B) at (60:2);
+\coordinate (C) at (120:2);
+\coordinate (D) at (180:2);
+\coordinate (E) at (240:2);
+\coordinate (F) at (300:2);
+%\draw[blue, very thick]  (A)--(D);
+\draw[teal, very thick]  (B)--(E);
+\draw[orange, very thick]  (C)--(F);
+\end{tikzpicture}};
+\node[right=0.5cm of 35] (16) {
+\begin{tikzpicture}[scale=0.3]
+\coordinate (A) at (0:2);
+\coordinate (B) at (60:2);
+\coordinate (C) at (120:2);
+\coordinate (D) at (180:2);
+\coordinate (E) at (240:2);
+\coordinate (F) at (300:2);
+\draw[blue, very thick]  (A)--(D);
+\draw[magenta, very thick]  (B)--(E);
+%\draw[part4, very thick]  (C)--(F);
+\end{tikzpicture}};
+\node[right=0.5cm of 16] (456) {
+\begin{tikzpicture}[scale=0.3]
+\coordinate (A) at (0:2);
+\coordinate (B) at (60:2);
+\coordinate (C) at (120:2);
+\coordinate (D) at (180:2);
+\coordinate (E) at (240:2);
+\coordinate (F) at (300:2);
+\draw[red, very thick]  (A)--(D);
+\draw[magenta, very thick]  (B)--(E);
+\draw[orange, very thick]  (C)--(F);
+\end{tikzpicture}};
+\draw (min)--(1);
+\draw (min)--(2);
+\draw (min)--(3);
+\draw (min)--(4);
+\draw (min)--(5);
+\draw (min)--(6);
+\draw (123.south)--(1.north);
+\draw (123.south)--(2.north);
+\draw (123.south)--(3.north);
+\draw (456.south)--(4.north);
+\draw (456.south)--(5.north);
+\draw (456.south)--(6.north);
+\draw (2.north)--(26.south)--(6.north);
+\draw (2.north)--(24.south)--(4.north);
+\draw (1.north)--(15.south)--(5.north);
+\draw (1.north)--(16.south)--(6.north);
+\draw (3.north)--(34.south)--(4.north);
+\draw (3.north)--(35.south)--(5.north);
+\end{tikzpicture}
+\end{document}
