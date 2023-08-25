@@ -54,7 +54,7 @@ For $\b{z}$ a point of $P$, we denote by $\rho_{\b{z}} P \eqdef 2\b{z}-P$ the re
 	See \cref{fig:examplesHyperplanes}.
 \end{definition}
 
-\begin{figure}[p]
+\begin{figure}
 	\centerline{
 		\includegraphics[scale=.38]{HypSimplex.png} \hspace{-.6cm}
 		\includegraphics[scale=.44]{HypCube.png} \hspace{-.3cm}
@@ -88,7 +88,7 @@ A \defn{geometric diagonal} of a polytope~$P$ is a diagonal of the form~$\triang
 
 Note that the geometric diagonal~$\triangle_{(P,\b{v})}$ only depends on the region of~$\mathcal{H}_P$ containing~$\b{v}$, see~\cite[Prop.~1.23]{LaplanteAnfossi}.
 
-\begin{figure}[p]
+\begin{figure}
 	\centerline{\scalebox{1.25}{
 	\begin{tabular}{c@{\hspace{-.2cm}}c@{\hspace{-.2cm}}c@{\hspace{-.2cm}}c}
 		\includegraphics[scale=1.2]{diagonalSegment1} &
@@ -188,7 +188,7 @@ To conclude, we define the opposite of a geometric diagonal.
 
 \begin{definition}
 \label{def:oppositeDiagonal}
-The \defn{opposite} of the geometric diagonal~$\triangle \eqdef \triangle_{(P, \b{v})}$ for a vector~$\b{v} \in \R^d$ generic with respect to $P$ is the geometric diagonal~$\triangle^{\op} \eqdef \triangle_{(P, -\b{v})}$ for the vector~$-\b{v}$.
+The \defn{opposite} of the geometric diagonal~$\triangle \eqdef \triangle_{(P, \b{v})}$ for a vector~${\b{v} \in \R^d}$ generic with respect to $P$ is the geometric diagonal~$\triangle^{\op} \eqdef \triangle_{(P, -\b{v})}$ for the vector~$-\b{v}$.
 Observe that
 \[{
 F \times G \in \Ima \triangle} \qquad\iff\qquad G \times F \in \Ima \triangle^{\op}.
@@ -261,7 +261,7 @@ As the normal fan of the permutahedron~$\Perm$ is the fan defined by the braid a
 This connection is illustrated in \cref{fig:diagonalPermutahedron1}.
 %
 \begin{figure}
-	\centerline{\includegraphics[scale=.7]{diagonalPermutahedron1}}
+	\centerline{\includegraphics[scale=1]{diagonalPermutahedron1}}
 	\caption{The duality between the $(2,3)$-braid arrangement~$\multiBraidArrangement[3][2]$ (left) and the diagonal of the permutahedron~$\Perm[3]$ (right).}
 	\label{fig:diagonalPermutahedron1}
 \end{figure}
@@ -311,7 +311,7 @@ Observe that one can easily compute the full M\"obius polynomials of the $(2,n)$
 \mobPol[{\multiBraidArrangement[1][2]}] & = 1 , \\
 \mobPol[{\multiBraidArrangement[2][2]}] & = x y - 2 x + 2 , \\
 \mobPol[{\multiBraidArrangement[3][2]}] & = x^2 y^2 - 6 x^2 y + 10 x^2 + 6 x y - 18 x + 8 , \\
-\mobPol[{\multiBraidArrangement[4][2]}] & = x^3 y^3 - 12 x^3 y^2 + 52 x^3 y - 84 x^3 + 12 x^2 y^2 - 96 x^2 y + 216 x^2 + 44 x y - 182 x + 50 , \\
+\mobPol[{\multiBraidArrangement[4][2]}] & = x^3 y^3 - 12 x^3 y^2 + 52 x^3 y - 84 x^3 + 12 x^2 y^2 \\ & \quad - 96 x^2 y + 216 x^2 + 44 x y - 182 x + 50 , \\
 \mobPol[{\multiBraidArrangement[5][2]}] & = x^4 y^4 - 20 x^4 y^3 + 160 x^4 y^2 - 620 x^4 y + 1008 x^4 \\ & \quad+ 20 x^3 y^3 - 300 x^3 y^2 + 1640 x^3 y - 3360 x^3 \\ & \quad+ 140 x^2 y^2 - 1430 x^2 y + 4130 x^2 + 410 x y - 2210 x + 432 .
 \end{align*}
 %which can be encoded in matrices as
@@ -381,8 +381,8 @@ Observe that one can easily compute the full M\"obius polynomials of the $(2,n)$
 We now focus on the number of vertices, regions, and bounded regions of the $(2,n)$-braid arrangement~$\multiBraidArrangement[n][2]$, to obtain the number of facets, vertices, and internal vertices of the diagonal of the permutahedron~$\Perm$.
 The first few values are gathered in \cref{table:enumerationDiagonalPermutahedra1,table:enumerationDiagonalPermutahedra2}.
 
-\afterpage{
-\begin{table}
+%\afterpage{
+\begin{table}[b]
 	\centerline{\scalebox{1}{
 		\begin{tabular}[t]{c|ccccccccccc}
 			$n$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $\dots$ & OEIS \\
@@ -396,9 +396,9 @@ The first few values are gathered in \cref{table:enumerationDiagonalPermutahedra
 	\caption{The numbers of facets, vertices, and internal vertices of the diagonal of the permutahedron~$\Perm$ for~$n \in [9]$.}
 	\label{table:enumerationDiagonalPermutahedra1}
 \end{table}
-}
+%}
 
-\afterpage{
+%\afterpage{
 \begin{table}
 	\centerline{
 		\begin{tabular}{c@{\quad}c@{\quad}c@{\quad}c}
@@ -465,8 +465,9 @@ The first few values are gathered in \cref{table:enumerationDiagonalPermutahedra
 	\caption{Number of pairs of faces in the cellular image of the diagonal of the permutahedron~$\Perm$ for~$n \in [6]$.}
 	\label{table:enumerationDiagonalPermutahedra2}
 \end{table}
-}
+%}
 
+\pagebreak
 \begin{corollary}
 \label{coro:enumerationDiagonalPermutahedra}
 The diagonal of the permutahedron~$\Perm$ has 
@@ -491,13 +492,13 @@ Consider the intersection tree~$T$ of~$\b{F}$ with vertices labeled by the parts
 See \cref{fig:tree}.
 The result is a spanning tree of the complete graph~$K_{n+1}$ on~$\{0, \dots, n\}$ which must contain the edge~$(0,1)$ (because we have chosen the root to be the part of~$F_1$ containing~$1$).
 %
-\afterpage{
+%\afterpage{
 \begin{figure}
 	\centerline{\includegraphics[scale=.9]{tree}}
 	\caption{The bijection from rooted $(\ell,n)$-partition trees (left) to spanning trees of~$K_{n+1}$ containing the edge~$(0,1)$ (right).}
 	\label{fig:tree}
 \end{figure}
-}
+%}
 %
 Finally, by double counting the pairs~$(T,e)$ where $T$ is a spanning tree of~$K_{n+1}$ and $e$ is an edge of~$T$, we see that $n$ times the number of spanning trees of~$K_{n+1}$ equals $\binom{n+1}{2}$ times the number of spanning trees of~$K_{n+1}$ containing~$(0,1)$.
 Hence, by Cayley's formula for spanning trees of~$K_{n+1}$, we obtain that the number of $(2,n)$-partition trees~is
@@ -966,14 +967,14 @@ For each $k \ge 1$, there are $\binom{2k-1}{k-1,k}(k-1)!k!$ avoided standardized
 For~$k=1$, both diagonals avoid $(21,12)$, so the vertices are intervals of the weak order.
 For~$k=2$, 
 \begin{itemize}
-    \item $\LA$ avoids 
-    $(3142,2314), (4132,2413),
-    (2143,3214), (4123,3412),
-    (2134,4213), (3124,4312)$.
-    \item $\SU$ avoids 
-    $(1243,2431),(1342,3421),
-    (2143,1432),(2341,3412),
-    (3142,1423),(3241,2413)$.
+    \item $\LA$ avoids the patterns
+    $(3142,2314)$, $(4132,2413)$,
+    $(2143,3214)$, $(4123,3412)$,
+    $(2134,4213)$, $(3124,4312)$.
+    \item $\SU$ avoids the patterns
+    $(1243,2431)$, $(1342,3421)$,
+    $(2143,1432)$, $(2341,3412)$,
+    $(3142,1423)$, $(3241,2413)$.
 \end{itemize}
 As such, the vertices of $\LA$ and $\SU$ are a strict subset of all intervals of the weak order.
 Here is an illustration of the patterns avoided for $k=4$.
@@ -1351,11 +1352,11 @@ and show that specific sequences generate the same diagonal.
 
 \begin{definition}
 \label{def:SU-admissible}
-Let $\sigma$ denote either one of the two ordered partitions of $[n]$ in an ordered \mbox{$(2,n)$-parti}\-tion tree, and let~$\b{M} = (M_1,\dots,M_p)$ with $M_1 \subsetneq \sigma_{i_1}, \dots, M_p \subsetneq \sigma_{i_p}$ for some~$p \ge 1$.
+Let $\sigma$ denote either one of the two ordered partitions of $[n]$ in an ordered \mbox{$(2,n)$-parti}\-tion tree, and let~$\b{M} = (M_1,\dots,M_p)$ with ${M_1 \subsetneq \sigma_{i_1}, \dots, M_p \subsetneq \sigma_{i_p}}$ for some~$p \ge 1$.
 Then the sequence of right shifts~$R_\mathbf{M}(\sigma) \eqdef R_{M_p} \dots R_{M_1}(\sigma)$ is 
 \begin{enumerate}
 \item \defn{block-admissible} if we have $1\leq i_1 < i_2 < \dots < i_p \leq k-1$, and each $R_{M_j}$ is a block-admissible $1$-shift,
-\item \defn{path-admissible} if each $R_{M_j}$ is a path-admissible $m_j$-shift, for some $m_j \geq 1$.
+\item \defn{path-admissible} if each $R_{M_j}$ is a path-admissible $m_j$-shift, for some ${m_j \geq 1}$.
 \end{enumerate}
 Admissible sequences of left shifts are defined similarly and are denoted by $L_\mathbf{M}(\tau)$.
 \end{definition}
@@ -1500,7 +1501,7 @@ $\rho>\max \sigma_{i,i+m}\geq \max \sigma_{i,i+1}, \max R_\rho^{1}(\sigma)_{i+1,
 \draw[thick,->] (2) -- node[below] {$\gamma$} (4.west);
 \end{tikzpicture}
 \end{center}
-We define the oriented paths $\alpha \eqdef \sigma_{i,i+1}\setminus \sigma_{i+1,i+m}$, $\beta \eqdef \sigma_{i,i+1}\setminus \sigma_{i,i+m}$ and $\gamma \eqdef \sigma_{i,i+m}\setminus \sigma_{i,i+1}$, as illustrated above. 
+We define the oriented paths $\alpha \eqdef \sigma_{i,i+1}\ssm \sigma_{i+1,i+m}$, $\beta \eqdef \sigma_{i,i+1}\ssm \sigma_{i,i+m}$ and $\gamma \eqdef \sigma_{i,i+m}\ssm \sigma_{i,i+1}$, as illustrated above. 
 Suppose that $\beta$ is not empty, and moreover that $\max\sigma_{i+1,i+m}>\max\sigma_{i,i+m}$ or $\max \sigma_{i,i+1}> \max \sigma_{i,i+m}$.
 Then we must have that $\max \beta> \max \alpha, \max \gamma$.
 However, $\max\beta$ cannot be the maximum of both $\sigma_{i,i+1}$ and $\sigma_{i+1,i+m}$.
@@ -1790,7 +1791,7 @@ By the definition of the geometric $\SU$ diagonal, the fact that $\tau_l < \tau_
 \label{ex:proof-inverse-shift}
 Here are examples of each of the cases in the proof of \cref{lem:inverse-to-SCP}. 
 We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading the diagrams from top-left to bottom-right. 
-\vincent{Need to fix that...}
+
 \begin{center}
 \begin{tikzpicture}[xscale=.6,yscale=0.9]  
 \node[anchor=east] (1) at (-1.5, -1) {$1$};
@@ -1815,7 +1816,8 @@ We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading
 \draw[thick] (1.east) -- (5.west);
 \draw[thick] (2.east) -- (5.west);
 \end{tikzpicture}
-,
+
+\vspace{.5cm}
 \begin{tikzpicture}[xscale=.6,yscale=0.9] 
 \node[anchor=east] (1) at (-1.5, -1) {$1$};
 \node[anchor=east] (2) at (-1.5, -2) {$2$};
@@ -1843,8 +1845,8 @@ We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading
 \draw[thick] (2.east) -- (5.west);
 \draw[thick] (3.east) -- (5.west);
 \end{tikzpicture}
-\end{center}
-\begin{center}
+
+\vspace{.5cm}
 \begin{tikzpicture}[xscale=.6,yscale=0.9]     
 \node[anchor=east] (1) at (-1.5, -1) {$13$};
 \node[anchor=east] (2) at (-1.5, -2) {$2$};
@@ -1872,7 +1874,8 @@ We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading
 \draw[thick] (2.east) -- (5.west); 
 \draw[thick] (3.east) -- (5.west);
 \end{tikzpicture}
-,
+
+\vspace{.5cm}
 \begin{tikzpicture}[xscale=.6,yscale=0.9]    
 \node[anchor=east] (1) at (-1.5, -1) {$12$};
 \node[anchor=east] (2) at (-1.5, -2) {$3$};
@@ -1901,6 +1904,7 @@ We display cases $(1)$, $(2.a)$, $(2.b.i)$ and, $(2.b.ii)$ respectively, reading
 \draw[thick] (3.east) -- (5.west);
 \end{tikzpicture}
 \end{center}
+
 Note that, as we have chosen minimal illustrative examples, each inverse $m$-shift is an inverse $1$-shift, and after each shift we obtain a $\SCP$. 
 This is not typically the case.
 \end{example}
@@ -2041,31 +2045,34 @@ We first display how the $\LA$ left shifts act on $\sigma$, and the $\SU$ left s
 The $\LA$ shifts have been drawn so that the leftmost arrow shifts the smallest element, and the $\SU$ shifts have been drawn so that the leftmost arrow shifts the largest element.
 As such, the face poset isomorphism $t(r\times r)$ directly translates one diagram to the other.
 The specific element being shifted can be inferred by the source and target of the arrow.
-\begin{center}
-{\small
-\begin{tikzcd}
-& 5|17|4|236 \arrow[ld] \arrow[d] \arrow[rd]\\
-15|7|4|236 \arrow[rd] \arrow[d]&
-5|17|24|36  \arrow[dl] \arrow[rd]&
+
+\vspace{.5cm}
+\centerline{
+\begin{tikzcd}[ampersand replacement=\&]
+\& 5|17|4|236 \arrow[ld] \arrow[d] \arrow[rd]\\
+15|7|4|236 \arrow[rd] \arrow[d]\&
+5|17|24|36  \arrow[dl] \arrow[rd]\&
 5|17|34|26 \arrow[d] \arrow[dl]\\
-15|7|24|36 \arrow[dr]&
-15|7|34|26  \arrow[d]&
+15|7|24|36 \arrow[dr]\&
+15|7|34|26  \arrow[d]\&
 5|17|234|6  \arrow[dl]\\
-&15|7|234|6 
+\&15|7|234|6 
 \end{tikzcd}
-\qquad
-\begin{tikzcd}
-& 3|17|4|256 \arrow[ld] \arrow[d] \arrow[rd]\\
-37|1|4|256 \arrow[rd] \arrow[d]&
-3|17|46|25  \arrow[dl] \arrow[rd]&
+\qquad\qquad
+\begin{tikzcd}[ampersand replacement=\&]
+\& 3|17|4|256 \arrow[ld] \arrow[d] \arrow[rd]\\
+37|1|4|256 \arrow[rd] \arrow[d]\&
+3|17|46|25  \arrow[dl] \arrow[rd]\&
 3|17|44|26 \arrow[d] \arrow[dl]\\
-37|1|46|25 \arrow[dr]&
-36|17|44|26  \arrow[d]&
+37|1|46|25 \arrow[dr]\&
+36|17|44|26  \arrow[d]\&
 3|17|456|2  \arrow[dl]\\
-&37|1|456|2
+\&37|1|456|2
 \end{tikzcd}
 }
-\end{center}
+
+\vspace{.5cm}
+\noindent
 We now illustrate all the possible $\LA$ right shifts acting on $\tau$
 \begin{center}
 \begin{tikzcd}
@@ -2111,7 +2118,8 @@ In particular, the two center faces of the subdivided hexagon of \cref{fig:LUSAd
 \draw[thick] (2.east) -- (5.west);
 \draw[thick] (2.east) -- (4.west);
 \end{tikzpicture}
-\qquad \qquad
+
+\vspace{.5cm}
 \begin{tikzpicture}[scale=.6,xscale=0.6]  
 \node[anchor=east] (1) at (-1.5, -1) {$12$};
 \node[anchor=east] (2) at (-1.5, -2) {$3$};
@@ -2165,7 +2173,8 @@ and
 \draw[thick] (2.east) -- (4.west);
 \draw[thick] (2.east) -- (5.west);
 \end{tikzpicture}
-\qquad \qquad
+
+\vspace{.5cm}
 \begin{tikzpicture}[scale=.6,xscale=0.6]  
 \node[anchor=east] (1) at (-1.5, -1) {$2$};
 \node[anchor=east] (2) at (-1.5, -2) {$13$};
@@ -2493,34 +2502,34 @@ We indicate, in bold, the embedding $\divcube{n-1}^\SU\hookrightarrow \divcube{n
 Only the vertices of~$\divcube{3}^\SU$ are labelled, but its edges, facets and outer face are all identified with the expected elements of $\Perm[4]$.
 %
 \begin{figure}[h!]
-	\begin{center}
+	\centerline{
 	{\small
-	\begin{tikzcd}[sep=0.3cm]
-	\mathbf{1|2} \arrow[r,dash, "12"] & 2|1
+	\begin{tikzcd}[sep=0.3cm,ampersand replacement=\&]
+	\mathbf{1|2} \arrow[r,dash, "12"] \& 2|1
 	\end{tikzcd}
 	}
 	$\hookrightarrow$
 	{\small
-	\begin{tikzcd}[column sep=0.3cm]
-	3|1|2 \arrow[r,dash, "3|12"] \arrow[d,dash, "13|2"]& 3|2|1 \arrow[d,dash, "13|2"]\\
-	1|3|2 \arrow[d,dash, "1|23"] & 2|3|1 \arrow[d,dash, "2|13"]\\
-	\mathbf{1|2|3} \arrow[r,dash,thick, "12|3"] & \mathbf{2|1|3}
+	\begin{tikzcd}[column sep=0.3cm,ampersand replacement=\&]
+	3|1|2 \arrow[r,dash, "3|12"] \arrow[d,dash, "13|2"]\& 3|2|1 \arrow[d,dash, "13|2"]\\
+	1|3|2 \arrow[d,dash, "1|23"] \& 2|3|1 \arrow[d,dash, "2|13"]\\
+	\mathbf{1|2|3} \arrow[r,dash,thick, "12|3"] \& \mathbf{2|1|3}
 	\end{tikzcd}
 	}
 	$\hookrightarrow$
 	{\small
-	\begin{tikzcd}[sep=0.15cm,scale=0.8]
-	& 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] & & 4|2|3|1 \arrow [dd, dash,dotted] \arrow[rr,dash] & & 4|3|2|1 \arrow[dd,dash] \arrow[dl,dash]\\
-	4|1|2|3 \arrow [rr,dash] \arrow [dd,dash] & & 4|1|3|2 \arrow[rr,dash] \arrow[dd,dash] & & 4|3|1|2 \arrow[dd,dash]  & \\
-	& 2|4|1|3 \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 2|4|3|1  \arrow[dd,dash,dotted] & & 3|4|2|1 \arrow [dl,dash] \arrow[dd,dash]\\
-	1|4|2|3 \arrow [rr,dash] \arrow [dd,dash]& & 1|4|3|2  \arrow[dd,dash] & & 3|4|1|2 \arrow[dd,dash]\\
-	& 2|1|4|3 \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] & & 2|3|4|1 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] & & 3|2|4|1 \arrow[dd,dash] \\
-	1|2|4|3 \arrow [dd,dash] & & 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash] & & 3|1|4|2 \arrow[dd,dash] & \\
-	& \mathbf{2|1|3|4} \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] & & \mathbf{2|3|1|4} \arrow [rr,dash,dotted] & & \mathbf{3|2|1|4} \arrow [dl,dash] \\
-	\mathbf{1|2|3|4} \arrow [rr,dash] & & \mathbf{1|3|2|4} \arrow [rr,dash] & & \mathbf{3|1|2|4} \\
+	\begin{tikzcd}[sep=0.15cm,scale=0.8,ampersand replacement=\&]
+	\& 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] \& \& 4|2|3|1 \arrow [dd, dash,dotted] \arrow[rr,dash] \& \& 4|3|2|1 \arrow[dd,dash] \arrow[dl,dash]\\
+	4|1|2|3 \arrow [rr,dash] \arrow [dd,dash] \& \& 4|1|3|2 \arrow[rr,dash] \arrow[dd,dash] \& \& 4|3|1|2 \arrow[dd,dash]  \& \\
+	\& 2|4|1|3 \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  \& \& 2|4|3|1  \arrow[dd,dash,dotted] \& \& 3|4|2|1 \arrow [dl,dash] \arrow[dd,dash]\\
+	1|4|2|3 \arrow [rr,dash] \arrow [dd,dash]\& \& 1|4|3|2  \arrow[dd,dash] \& \& 3|4|1|2 \arrow[dd,dash]\\
+	\& 2|1|4|3 \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] \& \& 2|3|4|1 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] \& \& 3|2|4|1 \arrow[dd,dash] \\
+	1|2|4|3 \arrow [dd,dash] \& \& 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash] \& \& 3|1|4|2 \arrow[dd,dash] \& \\
+	\& \mathbf{2|1|3|4} \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] \& \& \mathbf{2|3|1|4} \arrow [rr,dash,dotted] \& \& \mathbf{3|2|1|4} \arrow [dl,dash] \\
+	\mathbf{1|2|3|4} \arrow [rr,dash] \& \& \mathbf{1|3|2|4} \arrow [rr,dash] \& \& \mathbf{3|1|2|4} \\
 	\end{tikzcd}
 	}
-	\end{center}
+	}
 	\caption{Cubical realizations $\divcube{1}^\SU,\divcube{2}^\SU$ and $\divcube{3}^\SU$ of the permutahedra~$\Perm[2]$, $\Perm[3]$ and $\Perm[4]$, respectively, from \cref{constr:cubicPermutahedron1}.}
 	\label{fig:cubicPermutahedron1}
 \end{figure}
@@ -2691,34 +2700,34 @@ We obtain a subdivision $\divcube{n}^\LA$ of the $n$-cube isomorphic to the perm
 \end{construction}
 
 \begin{figure}[h!]
-	\begin{center}
+	\centerline{
 	{\small
-	\begin{tikzcd}[sep=0.3cm]
-	\mathbf{2|1} \arrow[r,dash, "12"] & 1|2
+	\begin{tikzcd}[sep=0.3cm,ampersand replacement=\&]
+	\mathbf{2|1} \arrow[r,dash, "12"] \& 1|2
 	\end{tikzcd}
 	}
 	$\hookrightarrow$
 	{\small
-	\begin{tikzcd}[column sep=0.3cm]
-	1|3|2 \arrow[r,dash, "1|23"] \arrow[d,dash, "13|2"]& 1|2|3 \arrow[d,dash, "13|2"]\\
-	3|1|2 \arrow[d,dash, "3|12"] & 2|1|3 \arrow[d,dash, "2|13"]\\
-	\mathbf{3|2|1} \arrow[r,dash,thick, "23|1"] & \mathbf{2|3|1}
+	\begin{tikzcd}[column sep=0.3cm,ampersand replacement=\&]
+	1|3|2 \arrow[r,dash, "1|23"] \arrow[d,dash, "13|2"]\& 1|2|3 \arrow[d,dash, "13|2"]\\
+	3|1|2 \arrow[d,dash, "3|12"] \& 2|1|3 \arrow[d,dash, "2|13"]\\
+	\mathbf{3|2|1} \arrow[r,dash,thick, "23|1"] \& \mathbf{2|3|1}
 	\end{tikzcd}
 	}
 	$\hookrightarrow$
 	{\small
-	\begin{tikzcd}[sep=0.15cm,scale=0.8]
-	& 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] & & 1|3|2|4 \arrow [dd, dash,dotted] \arrow[rr,dash] & & 1|2|3|4 \arrow[dd,dash] \arrow[dl,dash]\\
-	1|4|3|2 \arrow [rr,dash] \arrow [dd,dash] & & 1|4|2|3 \arrow[rr,dash] \arrow[dd,dash] & & 1|2|4|3 \arrow[dd,dash]  & \\
-	& 3|1|4|2 \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  & & 3|1|2|4  \arrow[dd,dash,dotted] & & 2|1|3|4 \arrow [dl,dash] \arrow[dd,dash]\\
-	4|1|3|2 \arrow [rr,dash] \arrow [dd,dash]& & 4|1|2|3  \arrow[dd,dash] & & 2|1|4|3 \arrow[dd,dash]\\
-	& 3|4|1|2 \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] & & 3|2|1|4 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] & & 2|3|1|4 \arrow[dd,dash] \\
-	4|3|1|2 \arrow [dd,dash] & & 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash] & & 2|4|1|3 \arrow[dd,dash] & \\
-	& \mathbf{3|4|2|1} \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] & & \mathbf{3|2|4|1} \arrow [rr,dash,dotted] & & \mathbf{2|3|4|1} \arrow [dl,dash] \\
-	\mathbf{4|3|2|1} \arrow [rr,dash] & & \mathbf{4|2|3|1} \arrow [rr,dash] & & \mathbf{2|4|3|1} \\
+	\begin{tikzcd}[sep=0.15cm,scale=0.8,ampersand replacement=\&]
+	\& 1|3|4|2 \arrow[rr,dash] \arrow[dd,dash,dotted] \arrow[dl,dash] \& \& 1|3|2|4 \arrow [dd, dash,dotted] \arrow[rr,dash] \& \& 1|2|3|4 \arrow[dd,dash] \arrow[dl,dash]\\
+	1|4|3|2 \arrow [rr,dash] \arrow [dd,dash] \& \& 1|4|2|3 \arrow[rr,dash] \arrow[dd,dash] \& \& 1|2|4|3 \arrow[dd,dash]  \& \\
+	\& 3|1|4|2 \arrow [rr,dash,dotted] \arrow[dd,dash,dotted]  \& \& 3|1|2|4  \arrow[dd,dash,dotted] \& \& 2|1|3|4 \arrow [dl,dash] \arrow[dd,dash]\\
+	4|1|3|2 \arrow [rr,dash] \arrow [dd,dash]\& \& 4|1|2|3  \arrow[dd,dash] \& \& 2|1|4|3 \arrow[dd,dash]\\
+	\& 3|4|1|2 \arrow[dd,dash,dotted] \arrow[dl,dash,dotted] \& \& 3|2|1|4 \arrow [dd, dash,dotted] \arrow [rr, dash,dotted] \& \& 2|3|1|4 \arrow[dd,dash] \\
+	4|3|1|2 \arrow [dd,dash] \& \& 4|2|1|3 \arrow[rr,dash] \arrow[dd,dash] \& \& 2|4|1|3 \arrow[dd,dash] \& \\
+	\& \mathbf{3|4|2|1} \arrow [rr,dash,dotted] \arrow [dl,dash,dotted] \& \& \mathbf{3|2|4|1} \arrow [rr,dash,dotted] \& \& \mathbf{2|3|4|1} \arrow [dl,dash] \\
+	\mathbf{4|3|2|1} \arrow [rr,dash] \& \& \mathbf{4|2|3|1} \arrow [rr,dash] \& \& \mathbf{2|4|3|1} \\
 	\end{tikzcd}
 	}
-	\end{center}
+	}
 	\caption{Cubical realizations of the permutahedra~$\Perm[2]$, $\Perm[3]$ and $\Perm[4]$ from \cref{const:cubical-LA}.}
 	\label{fig:cubicPermutahedron2}
 \end{figure}

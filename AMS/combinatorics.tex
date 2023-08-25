@@ -131,8 +131,8 @@ See \cref{fig:facePosetBraidArrangement3,fig:intersectionPosetBraidArrangement3,
 %\end{figure}
 
 %\afterpage{
-\begin{figure}
-	\centerline{\includegraphics[scale=.6]{figures/facePosetBraidArrangement3}}
+\begin{figure}[b]
+	\centerline{\includegraphics[scale=.7]{figures/facePosetBraidArrangement3}}
 	\caption{The face poset~$\facePoset[{\braidArrangement[3]}]$ of the braid arrangement $\braidArrangement[3]$ (left), where faces are represented as cones (middle) or as ordered set partitions of~$[3]$ (right).}
 	\label{fig:facePosetBraidArrangement3}
 \end{figure}
@@ -140,7 +140,7 @@ See \cref{fig:facePosetBraidArrangement3,fig:intersectionPosetBraidArrangement3,
 
 %\afterpage{
 \begin{figure}
-	\centerline{\includegraphics[scale=.6]{figures/intersectionPosetBraidArrangement3}}
+	\centerline{\includegraphics[scale=.7]{figures/intersectionPosetBraidArrangement3}}
 	\caption{The flat poset~$\flatPoset[{\braidArrangement[3]}]$ of the braid arrangement $\braidArrangement[3]$, where flats are represented as intersections of hyperplanes (left) or as set partitions of~$[3]$ (right).}
 	\label{fig:intersectionPosetBraidArrangement3}
 \end{figure}
@@ -235,7 +235,7 @@ Distributing $(1-x)$ in the right hand side gives:
 \begin{gather*}
 (1-x) \sum_{k=1}^{n-1} (-1)^{k-1} \, k! \, S(n-1,k) \, x^{k-1} \\
 = \sum_{k=1}^{n-1} k! \, S(n-1,k) \, (-x)^{k-1} + \sum_{k=1}^{n-1} k! \, S(n-1,k) \, (-x)^{k} \\
-= \sum_{k=1}^{n-1} k! \, S(n-1,k) \, (-x)^{k-1} + \sum_{k=2}^{n} (k-1)! \, S(n-1,k-1) \, (-x)^{k-1} + (n-1)! \, S(n-1, n-1) \, (-x)^{n-1} \\
+= \sum_{k=1}^{n-1} k! \, S(n-1,k) \, (-x)^{k-1} \hspace{7cm} \\[-.3cm] + \sum_{k=2}^{n} (k-1)! \, S(n-1,k-1) \, (-x)^{k-1} \\[-.2cm] \hspace{7cm}+ (n-1)! \, S(n-1, n-1) \, (-x)^{n-1} \\
 = S(n-1,1) \, (-x)^0 + \sum_{k=2}^{n-1} (k-1)! \, \big( S(n-1,k-1) + k \, S(n-1,k) \big) \, (-x)^{k-1}.
 \end{gather*}
 The result thus follows from the inductive formula on Stirling numbers of the second kind
@@ -256,13 +256,13 @@ We still denote by~$\HH$ the hyperplane of~$\R^n$ defined by~$\sum_{s \in [n]} x
 \begin{figure}[t]
 	\centerline{
 	\begin{tabular}{c@{\hspace{.7cm}}c@{\hspace{.7cm}}c@{\hspace{.7cm}}c}
-		\includegraphics[scale=.4]{multiBraidArrangement1}
+		\includegraphics[scale=.5]{multiBraidArrangement1}
 		&
-		\includegraphics[scale=.4]{multiBraidArrangement2}
+		\includegraphics[scale=.5]{multiBraidArrangement2}
 		&
-		\includegraphics[scale=.4]{multiBraidArrangement3}
+		\includegraphics[scale=.5]{multiBraidArrangement3}
 		&
-		\includegraphics[scale=.4]{multiBraidArrangement4}
+		\includegraphics[scale=.5]{multiBraidArrangement4}
 		\\
 		$\ell = 1$ & $\ell = 2$ & $\ell = 3$ & $\ell = 4$
 	\end{tabular}
@@ -291,7 +291,7 @@ We still denote by~$\HH$ the hyperplane of~$\R^n$ defined by~$\sum_{s \in [n]} x
 
 \begin{definition}
 \label{def:multiBraidArrangementPrecise}
-For any integers~$\ell,n \geq 1$, and any matrix~$\b{a} \eqdef (a_{i,j}) \in M_{\ell,n-1}(\R)$, the \defn{$\b{a}$-braid arrangement}~$\multiBraidArrangement(\b{a})$ is the arrangement of hyperplanes~$\set{\b{x} \in \HH}{x_s - x_t = A_{i,s,t}}$ for all~${1 \le s < t \le n}$ and~$i \in [\ell]$, where $A_{i,s,t} \eqdef \smash{\sum_{s \le j < t} a_{i,j}}$.
+For any integers~$\ell,n \geq 1$, and any matrix~$\b{a} \eqdef (a_{i,j}) \in M_{\ell,n-1}(\R)$, the \defn{$\b{a}$-braid arrangement}~$\multiBraidArrangement(\b{a})$ is the arrangement of the hyperplanes \linebreak $\set{\b{x} \in \HH}{x_s - x_t = A_{i,s,t}}$ for~${1 \le s < t \le n}$ and~$i \in [\ell]$, where $A_{i,s,t} \eqdef \smash{\sum_{s \le j < t} a_{i,j}}$.
 \end{definition}
 
 In other words, the $\b{a}$-braid arrangement~$\multiBraidArrangement(\b{a})$ is the union of~$\ell$ copies of the braid arrangement~$\braidArrangement$ translated according to the matrix~$\b{a}$.
@@ -355,17 +355,17 @@ We first introduce the main characters of this section, which will describe the 
 
 \begin{definition}
 \label{def:intersectionHypergraph}
-The \defn{intersection hypergraph} of a $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of set partitions of~$[n]$ is the $\ell$-regular $\ell$-partite hypergraph on all parts of all the partitions~$F_i$ for~${i \in [\ell]}$, with a hyperedge connecting the parts containing~$j$  for each~$j \in [n]$.
+The \defn{intersection hypergraph} of a $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of set partitions of~$[n]$ is the $\ell$-regular $\ell$-partite hypergraph on all parts of all the partitions~$F_i$ for~${i \in [\ell]}$, with a hyperedge connecting the parts containing~$j$  for each~${j \in [n]}$.
 \end{definition}
 
 \begin{definition}
 \label{def:partitionForests}
-An \defn{$(\ell,n)$-partition forest} (\resp \defn{$(\ell,n)$-partition tree}) is a $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of set partitions of~$[n]$ whose intersection hypergraph is a hyperforest (\resp hypertree).
+An \defn{$(\ell,n)$-partition forest} (\resp \defn{tree}) is a $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of set partitions of~$[n]$ whose intersection hypergraph is a hyperforest (\resp hypertree).
 See \cref{fig:forests}.
 The \defn{dimension} of~$\b{F}$ is~$\smash{{\dim(\b{F}) \eqdef n - 1 - \ell n + \sum_{i \in [\ell]} \card{F_i}}}$.
 The \defn{$(\ell,n)$-partition forest poset} is the poset~$\forestPoset$ on $(\ell,n)$-partition forests ordered by componentwise refinement.
 %
-\begin{figure}[b]
+\begin{figure}
 	\centerline{\includegraphics[scale=.9]{forests}}
 	\caption{Some $(3,6)$-partition forests (top) with their intersection hypergraphs (middle) and the corresponding labeled $(3,6)$-rainbow forests (bottom). The last two are trees. The order of the colors in the bottom pictures is red, green, blue.}
 	\label{fig:forests}
@@ -409,6 +409,7 @@ Finally, notice that the codimension of the flat~$\Psi(\b{F})$ is the sum of the
 
 %%%%%%%%%%%%%%%
 
+\pagebreak
 \subsection{M\"obius polynomial}
 \label{subsec:MobiusPolynomialMultiBraidArrangement}
 
@@ -470,7 +471,7 @@ Hence, we obtain from \cref{def:MobiusPolynomial,prop:flatPosetMultiBraidArrange
 & = \sum_{G \in \forestPoset} y^{n-\ell n - 1 + \sum_{i \in [\ell]} \card{G_i}} x^{(n-1)(1-\ell)} \prod_{i \in [\ell]} \sum_{\pi_i \in \partitionPoset[\card{G_i}]}  \mu_{\partitionPoset[\card{G_i}]}(\pi_i,\hat{1}) \, x^{\card{\pi_i}-1}, 
 \end{align*}
 where $\hat{1}$ denotes the maximal element in $\partitionPoset[\card{G_i}]$ and $\pi_i$ is obtained from $F_i$ by merging elements in the same part of $G_i$.
-The result follows since~$\weirdPol[\card{G_i}] = \sum_{\pi_i \in \partitionPoset[\card{G_i}]}  \mu_{\partitionPoset[\card{G_i}]}(\pi_i,\hat{1}) \, x^{\card{\pi_i}-1}$.
+The result follows since \linebreak $\weirdPol[\card{G_i}] = \sum_{\pi_i \in \partitionPoset[\card{G_i}]}  \mu_{\partitionPoset[\card{G_i}]}(\pi_i,\hat{1}) \, x^{\card{\pi_i}-1}$.
 %Hence, we obtain
 %\[
 %\mobPol[\multiBraidArrangement] = \sum_{G \in \forestPoset} y^{n-\ell n - 1 + \sum_{i \in [\ell]} \card{G_i}} x^{(n-1)(1-\ell)} \prod_{i \in [\ell]} \weirdPol[\card{G_i}].
@@ -566,10 +567,10 @@ From \cref{thm:Zaslavsky,thm:MobiusPolynomialMultiBraidArrangement}, we thus obt
 %\end{table}
 
 \begin{table}[t]
-	\centerline{\scalebox{.8}{
-		\begin{tabular}{c@{\hspace{.7cm}}c@{\hspace{.7cm}}c@{\hspace{.7cm}}c}
-			$\ell = 1$ & $\ell = 2$ & $\ell = 3$ & $\ell = 4$
-			\\[.2cm]
+	\centerline{
+		\begin{tabular}{c@{\hspace{.7cm}}c@{\hspace{.7cm}}c@{\hspace{2cm}}}
+			$\ell = 1$
+			&
 			\begin{tabular}[t]{c|cccc|c}
 				$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
 				\hline
@@ -578,6 +579,17 @@ From \cref{thm:Zaslavsky,thm:MobiusPolynomialMultiBraidArrangement}, we thus obt
 				$3$ & $6$ & $6$ & $1$ && $13$ \\
 				$4$ & $24$ & $36$ & $14$ & $1$ & $75$
 			\end{tabular}
+			&
+			\begin{tabular}[t]{c|cccc|c}
+				$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+				\hline
+				$1$ & $1$ &&&& $1$ \\
+				$2$ & $0$ & $1$ &&& $1$ \\
+				$3$ & $0$ & $0$ & $1$ && $1$ \\
+				$4$ & $0$ & $0$ & $0$ & $1$ & $1$
+			\end{tabular}
+			\\[2.3cm]
+			$\ell = 2$
 			&
 			\begin{tabular}[t]{c|cccc|c}
 				$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
@@ -592,6 +604,17 @@ From \cref{thm:Zaslavsky,thm:MobiusPolynomialMultiBraidArrangement}, we thus obt
 				$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
 				\hline
 				$1$ & $1$ &&&& $1$ \\
+				$2$ & $1$ & $2$ &&& $3$ \\
+				$3$ & $5$ & $12$ & $8$ && $25$ \\
+				$4$ & $43$ & $132$ & $138$ & $50$ & $363$
+			\end{tabular}
+			\\[2.3cm]
+			$\ell = 3$
+			&
+			\begin{tabular}[t]{c|cccc|c}
+				$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+				\hline
+				$1$ & $1$ &&&& $1$ \\
 				$2$ & $4$ & $3$ &&& $7$ \\
 				$3$ & $34$ & $54$ & $21$ && $109$ \\
 				$4$ & $472$ & $1152$ & $924$ & $243$ & $2791$
@@ -601,36 +624,20 @@ From \cref{thm:Zaslavsky,thm:MobiusPolynomialMultiBraidArrangement}, we thus obt
 				$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
 				\hline
 				$1$ & $1$ &&&& $1$ \\
-				$2$ & $5$ & $4$ &&& $9$ \\
-				$3$ & $57$ & $96$ & $40$ && $193$ \\
-				$4$ & $1089$ & $2808$ & $2396$ & $676$ & $6969$
-			\end{tabular}
-			\\[2.3cm]
-			\begin{tabular}[t]{c|cccc|c}
-				$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
-				\hline
-				$1$ & $1$ &&&& $1$ \\
-				$2$ & $0$ & $1$ &&& $1$ \\
-				$3$ & $0$ & $0$ & $1$ && $1$ \\
-				$4$ & $0$ & $0$ & $0$ & $1$ & $1$
-			\end{tabular}
-			&
-			\begin{tabular}[t]{c|cccc|c}
-				$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
-				\hline
-				$1$ & $1$ &&&& $1$ \\
-				$2$ & $1$ & $2$ &&& $3$ \\
-				$3$ & $5$ & $12$ & $8$ && $25$ \\
-				$4$ & $43$ & $132$ & $138$ & $50$ & $363$
-			\end{tabular}
-			&
-			\begin{tabular}[t]{c|cccc|c}
-				$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
-				\hline
-				$1$ & $1$ &&&& $1$ \\
 				$2$ & $2$ & $3$ &&& $5$ \\
 				$3$ & $16$ & $36$ & $21$ && $73$ \\
 				$4$ & $224$ & $684$ & $702$ & $243$ & $1853$
+			\end{tabular}
+			\\[2.3cm]
+			$\ell = 4$
+			&
+			\begin{tabular}[t]{c|cccc|c}
+				$n \backslash k$ & $0$ & $1$ & $2$ & $3$ & $\Sigma$ \\
+				\hline
+				$1$ & $1$ &&&& $1$ \\
+				$2$ & $5$ & $4$ &&& $9$ \\
+				$3$ & $57$ & $96$ & $40$ && $193$ \\
+				$4$ & $1089$ & $2808$ & $2396$ & $676$ & $6969$
 			\end{tabular}
 			&
 			\begin{tabular}[t]{c|cccc|c}
@@ -642,9 +649,9 @@ From \cref{thm:Zaslavsky,thm:MobiusPolynomialMultiBraidArrangement}, we thus obt
 				$4$ & $639$ & $1944$ & $1980$ & $676$ & $5239$
 			\end{tabular}
 		\end{tabular}
-	}}
+	}
 %	\vspace{.3cm}
-	\caption{The face numbers (top) and the bounded face numbers (bottom) of the $(\ell,n)$-braid arrangements for~$\ell, n \in [4]$.}
+	\caption{The face numbers (left) and the bounded face numbers (right) of the $(\ell,n)$-braid arrangements for~$\ell, n \in [4]$.}
 	\label{table:fvectorMultiBraidArrangements}
 \end{table}
 
@@ -675,15 +682,15 @@ For~$n = 2$, we have
 The case~$n = 3$ is already more interesting.
 Consider the set partitions~$P \eqdef \big\{ \{1\}, \{2\}, \{3\} \big\}$, $Q_i \eqdef \big\{ \{i\}, [3] \ssm \{i\} \big\}$ for~$i \in [3]$, and~$R \eqdef \big\{ [3] \big\}$.
 Observe that the $(\ell,3)$-partition forests are all of the form
-\begin{gather*}
-\b{F} \eqdef P^\ell,
-\quad
-\b{G}_i^p \eqdef P^p Q_i P^{\ell-p-1}, % \text{ for } p \le \ell-1 \text{ and } i \in [3],
-\quad
-\b{H}_{i,j}^{p,q} \eqdef P^p Q_i P^{\ell-p-q-2} Q_j P^q \;\text{($i \ne j$)} % \text{ for } p + q \le \ell-2 \text{ and } i \ne j \in [3]
-\quad\text{or}\quad
-\b{K}^p \eqdef P^p R P^{\ell-p-1}. % \text{ for } p \le \ell-1.
-\end{gather*}
+\begin{align*}
+\b{F} & \eqdef P^\ell,
+\\
+\b{G}_i^p & \eqdef P^p Q_i P^{\ell-p-1}, % \text{ for } p \le \ell-1 \text{ and } i \in [3],
+\\
+\b{H}_{i,j}^{p,q} & \eqdef P^p Q_i P^{\ell-p-q-2} Q_j P^q \;\text{($i \ne j$)} % \text{ for } p + q \le \ell-2 \text{ and } i \ne j \in [3]
+\\\text{or}\qquad
+\b{K}^p & \eqdef P^p R P^{\ell-p-1}. % \text{ for } p \le \ell-1.
+\end{align*}
 (where we write a tuple of partitions of~$[3]$ as a word on~$\{P, Q_1, Q_2, Q_3, R\}$). %, and $p$ and $q$ are such that the total length is~$\ell$).
 %\begin{gather*}
 %\b{F} \eqdef (\underbrace{P, \dots, P}_\ell), \\
@@ -761,7 +768,7 @@ F_\ell(z) = 1 + z \, F_\ell(z)^\ell.
 \end{remark}
 
 \begin{table}
-	\centerline{\scalebox{.8}{
+	\centerline{%\scalebox{.8}{
 		\begin{tabular}[t]{c|ccccccccc}
 			$m \backslash \ell$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ \\
 			\hline
@@ -775,7 +782,7 @@ F_\ell(z) = 1 + z \, F_\ell(z)^\ell.
 			$8$ & $1$ & $1430$ & $43263$ & $420732$ & $2330445$ & $9203634$ & $28989675$ & $77652024$ & $184138713$ \\
 			$9$ & $1$ & $4862$ & $246675$ & $3362260$ & $23950355$ & $115607310$ & $430321633$ & $1329890705$ & $3573805950$
 		\end{tabular}
-	}}
+	}%}
 %	\vspace{.3cm}
 	\caption{The Fuss-Catalan numbers~$F_{\ell,m} = \frac{1}{(\ell-1)m+1} \binom{\ell m}{m}$ for~$\ell,m \in [9]$. See \OEIS{A062993}.}
 \end{table}
@@ -832,11 +839,11 @@ Define the parent~$p$ of~$j$ to be the next vertex along this path, and color th
 This defines a labeled $(\ell,n)$-rainbow forest~$F$.
 
 Finally, observe that
-\begin{gather*}
-\dim(\b{F}) = n - 1 - \ell n + \sum_{i \in [\ell]} \card{F_i} = \card{F}-1, \qquad\text{and} \\
-\mu_{\forestPoset}(\HH, \b{F}) = \prod\limits_{i \in [\ell]} \prod\limits_{p \in F_i} (-1)^{\card{p}-1} (\card{p}-1) = \prod\limits_{i \in [\ell]} \prod\limits_{N \in F} (-1)^{\card{C_i(N)}} \card{C_i(N)}! = (-1)^{n-\card{F}} \, \omega(F).
+\begin{align*}
+\dim(\b{F}) & = n - 1 - \ell n + \sum_{i \in [\ell]} \card{F_i} = \card{F}-1, \qquad\text{and} \\
+\mu_{\forestPoset}(\HH, \b{F}) & = \prod\limits_{i \in [\ell]} \prod\limits_{p \in F_i} (-1)^{\card{p}-1} (\card{p}-1) \\ & = \prod\limits_{i \in [\ell]} \prod\limits_{N \in F} (-1)^{\card{C_i(N)}} \card{C_i(N)}! = (-1)^{n-\card{F}} \, \omega(F).
 \qedhere
-\end{gather*}
+\end{align*}
 \end{proof}
 
 We now transport via this bijection the partial order of the flat lattice on rainbow forests.
@@ -854,7 +861,7 @@ The following statement is illustrated in \cref{fig:CoverRelRF}, choosing $c$ to
 \label{prop:CoverRelRF}
 In the flat poset~$\flatPoset[\multiBraidArrangement]$ labeled by rainbow forests using~\cref{prop:flatPosetMultiBraidArrangement,prop:bijectionForests}, a rainbow forest~$F$ is covered by a rainbow forest~$G$ if and only $G$ can be obtained from $F$ by:
 \begin{enumerate}
-\item choosing a color $c$, and two vertices $a$ and $b$ not colored with~$c$ and with~$\operatorname{Root}(a)<\operatorname{Root}(b)$,
+\item choosing a color $c$, and two vertices $a$ and $b$ not colored with~$c$ and with $\operatorname{Root}(a)<\operatorname{Root}(b)$,
 \item shifting the colors along the path from~$\operatorname{Root}(b)$ to~$b$, so that each node along this path is now colored by the former color of its child and~$b$ is not colored anymore,
 \item rerooting at~$b$ the tree containing~$b$ at~$b$, and coloring $b$ with~$c$,
 \item adding an edge~$(a,b)$ and replacing the edge~$(b,e)$ by an edge~$(a,e)$ for each child $e$ of~$b$ colored with~$c$.
@@ -901,7 +908,7 @@ We now use the labeled $(\ell,n)$-rainbow forests of \cref{subsec:rainbowForests
 The first few values are gathered in \cref{table:verticesMultiBraidArrangement}.
  
 \begin{table}
-	\centerline{\scalebox{.8}{
+	\centerline{%\scalebox{.8}{
 		\begin{tabular}[t]{c|cccccccc}
 			$n \backslash \ell$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ \\ % & $9$ \\
 			\hline
@@ -915,7 +922,7 @@ The first few values are gathered in \cref{table:verticesMultiBraidArrangement}.
 		$8$ & $1$ & $1062882$ & $72412707$ & $976562500$ & $6457339845$ & $28500625446$ & $96889010407$ & $274371577992$ % \\ & $678770015625$ \\
 %		$9$ & $1$ & $20000000$ & $2681615217$ & $53971714048$ & $474659385665$ & $2614905943296$ & $10657046640625$ & $35184372088832$ & $99426586671873$
 		\end{tabular}
-	}}
+	}%}
 %	\vspace{.3cm}
 	\caption{The numbers $f_0(\multiBraidArrangement) = \ell \big( (\ell-1) n + 1 \big)^{n-2}$ of vertices of~$\multiBraidArrangement$ for~$\ell,n \in [8]$.}
 	\label{table:verticesMultiBraidArrangement}
@@ -976,7 +983,7 @@ We first compute the characteristic polynomial of~$\multiBraidArrangement$.
 
 %\afterpage{
 \begin{table}
-	\centerline{\scalebox{.8}{
+	\centerline{%\scalebox{.8}{
 		\begin{tabular}[t]{c|cccccccc}
 			$n \backslash \ell$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ \\ % & $9$ \\
 			\hline
@@ -990,7 +997,7 @@ We first compute the characteristic polynomial of~$\multiBraidArrangement$.
 			$8$ & $40320$ & $12732873$ & $302346112$ & $2666534049$ & $14010892416$ & $53536186825$ & $164859458688$ & $434390214657$ % \\ & $1017282905344$ \\
 %			$9$ & $362880$ & $343231361$ & $13682809216$ & $169423639713$ & $1146173002496$ & $5357227099105$ & $19506923076096$ & $59328538244801$ & $157507267166848$
 		\end{tabular}
-	}}
+	}%}
 %	\vspace{.3cm}
 	\caption{The numbers $f_{n-1}(\multiBraidArrangement)$ of regions of~$\multiBraidArrangement$ for~$\ell,n \in [8]$.}
 	\label{table:regionsMultiBraidArrangement}
@@ -999,7 +1006,7 @@ We first compute the characteristic polynomial of~$\multiBraidArrangement$.
 
 %\afterpage{
 \begin{table}
-	\centerline{\scalebox{.8}{
+	\centerline{%\scalebox{.8}{
 		\begin{tabular}[t]{c|cccccccc}
 			$n \backslash \ell$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ \\ % & $9$ \\
 			\hline
@@ -1013,7 +1020,7 @@ We first compute the characteristic polynomial of~$\multiBraidArrangement$.
 			$8$ & $0$ & $4010455$ & $156745472$ & $1684352799$ & $9841053184$ & $40179437975$ & $129465630720$ & $352560518527$ % \\ & $846588258944$ \\
 %			$9$ & $0$ & $110676833$ & $7216242688$ & $108413745057$ & $813420601856$ & $4055310777025$ & $15431698810368$ & $48461340225473$ & $131823966149632$
 		\end{tabular}
-	}}
+	}%}
 %	\vspace{.3cm}
 	\caption{The numbers $b_{n-1}(\multiBraidArrangement)$ of bounded regions of~$\multiBraidArrangement$ for~$\ell,n \in [8]$.}
 	\label{table:boundedRegionsMultiBraidArrangement}
@@ -1179,19 +1186,23 @@ Moreover, the inclusion of faces of~$\multiBraidArrangement(\b{a})$ translates t
 Finally, by genericity, it is immediate that we obtain an upper set of this componentwise refinement order.
 \end{proof}
 
-\begin{figure}
-	\centerline{\includegraphics[scale=.9]{B23a}}
+\begin{figure}[p]
+	\vspace*{.5cm}
+	\centerline{\includegraphics[scale=1]{B23a}}
+	\vspace*{.5cm}
 	\caption{Labelings of the faces of the arrangement~$\multiBraidArrangement[3][2](\b{a})$ for~$\b{a} = \begin{bmatrix} 0 & 0 \\ -1 & -1 \end{bmatrix}$.}
 	\label{fig:B23a}
 \end{figure}
 
-\begin{figure}
-	\centerline{\includegraphics[scale=.9]{B23b}}
+\begin{figure}[p]
+	\vspace*{.5cm}
+	\centerline{\includegraphics[scale=1]{B23b}}
+	\vspace*{.5cm}
 	\caption{Labelings of the faces of the arrangement~$\multiBraidArrangement[3][2](\b{a})$ for~$\b{a} = \begin{bmatrix} 0 & 0 \\ 1 & -2 \end{bmatrix}$.}
 	\label{fig:B23b}
 \end{figure}
 
-We now fix a generic translation matrix~$\b{a} \eqdef (a_{i,j})$ and still denote by~$A_{i,s,t} \eqdef \smash{\sum_{s \le j < t} a_{i,j}}$ for all~$1 \le s < t \le n$ and~$i \in [\ell]$ (and often write~$A_{i,t,s}$ for~$-A_{i,s,t}$).
+We now fix a generic translation matrix~$\b{a} \eqdef (a_{i,j})$ and we still denote by $A_{i,s,t} \eqdef \smash{\sum_{s \le j < t} a_{i,j}}$ for all~$1 \le s < t \le n$ and~$i \in [\ell]$ (and often write~$A_{i,t,s}$ for~$-A_{i,s,t}$).
 The objective of this section is to describe
 \begin{itemize}
 \item the ordered $(\ell,n)$-partitions forests of the upper set~$\orderedForestPoset(\b{a})$ with a given underlying (unordered) $(\ell,n)$-partition forest (\cref{subsec:PFtoOPF}),
@@ -1211,7 +1222,7 @@ We first observe that the choice of~$\b{a}$ fixes the order of the parts in a co
 \label{prop:PFtoOPF1}
 Consider a $(\ell,n)$-partition forest~$\b{F} \eqdef (F_1, \dots, F_\ell)$, and two integers~$s,t \in [n]$ labeling two hyperedges in the same connected component of the intersection hypergraph of~$\b{F}$.
 Assume that the unique path from~$s$ to~$t$ in the hypergraph of~$\b{F}$ passes through the hyperedges labeled by~$s = r_0, \dots, r_q = t$ and through parts of the partitions~$F_{i_1}, \dots, F_{i_q}$.
-Then for any ordered $(\ell,n)$-partition forest~$\order{\b{F}} \eqdef (\order{F_1}, \dots, \order{F_\ell})$ of the upper set~$\orderedForestPoset(\b{a})$ with underlying $(\ell,n)$-partition forest~$\b{F}$ and any~$i \in [\ell]$, the order of~$s$ and~$t$ in~$\order{F}_i$ is given by the sign of~$A_{i,s,t} - \sum_{p \in [q]} A_{i_p, r_{p-1}, r_p}$.
+Then for any ordered $(\ell,n)$-partition forest~$\order{\b{F}} \eqdef (\order{F_1}, \dots, \order{F_\ell})$ of the upper set~$\orderedForestPoset(\b{a})$ with underlying $(\ell,n)$-partition forest~$\b{F}$ and any~$i \in [\ell]$, the order of~$s$ and~$t$ in~$\order{F}_i$ is given by the sign of ${A_{i,s,t} - \sum_{p \in [q]} A_{i_p, r_{p-1}, r_p}}$.
 \end{proposition}
 
 \begin{proof}
@@ -1221,7 +1232,7 @@ Hence, we obtain that
 \[
 x_s - x_t = \sum_{p \in [q]}  (x_{r_{p-1}} - x_{r_p}) = \sum_{p \in [q]} A_{i_p, r_{p-1}, r_p}.
 \]
-The order of~$s,t$ in~$\order{F}_i$ is given by the sign of~$A_{i,s,t} - (x_s - x_t)$, hence of~$A_{i,s,t} - \sum_{p \in [q]} A_{i_p, r_{p-1}, r_p}$.
+The order of~$s,t$ in~$\order{F}_i$ is given by the sign of~$A_{i,s,t} - (x_s - x_t)$, hence by the sign of ${A_{i,s,t} - \sum_{p \in [q]} A_{i_p, r_{p-1}, r_p}}$.
 \end{proof}
 
 We now describe the different ways to order the parts in distinct connected components of~$\b{F}$.

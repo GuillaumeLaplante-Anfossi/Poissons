@@ -1,7 +1,7 @@
 \chapter*{Introduction} 
 \label{s:introduction}
 
-The purpose of this article is to study \emph{cellular diagonals} on the \emph{permutahedra}, which are cellular maps homotopic to the usual \emph{thin diagonal} ${\triangle : P \to P \times P,}$ defined by~${x \mapsto (x,x)}$ (\cref{def:thinDiagonal,def:cellularDiagonal}).
+The purpose of this article is to study \emph{cellular diagonals} on the \emph{permutahedra}, which are cellular maps homotopic to the usual \emph{thin diagonal} ${\triangle : P \to P \times P}$ given by~${x \mapsto (x,x)}$ (\cref{def:thinDiagonal,def:cellularDiagonal}).
 Such diagonals, and in particular coherent families that we call \emph{operadic diagonals} (\cref{def:operadicDiagonal}), are of interest in algebraic geometry and topology: via the theory of Fulton--Sturmfels~\cite{FultonSturmfels}, they give explicit formulas for the cup product on Losev--Manin toric varieties~\cite{LosevManin}; they define universal tensor products of permutadic $\Ainf$-algebras~\cite{LodayRonco-permutads,Markl}; they define a coproduct on permutahedral sets, which are models of two-fold loop spaces~\cite{SaneblidzeUmble}, and their study is needed to pursue the work of H. J. Baues aiming at defining explicit combinatorial models for higher iterated loop spaces~\cite{Baues}; using the canonical projections to the operahedra, associahedra and multiplihedra, they define universal tensor products of homotopy operads, $\Ainf$-algebras and $\Ainf$-morphisms, respectively~\cite{LaplanteAnfossi,LaplanteAnfossiMazuir}.
 
 Cellular diagonals for face-coherent families of polytopes are a fundamental object in algebraic topology. 
@@ -77,7 +77,7 @@ f_0(\multiBraidArrangement) = \ell \big( (\ell-1) n + 1 \big)^{n-2}.
 This result can even be refined according to the dimension of the flats of the different copies intersected to obtain the vertices of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$.
 
 \begin{theorem*}[\cref{thm:verticesRefinedMultiBraidArrangement}]
-For any~$k_1, \dots, k_\ell$ such that~$0 \le k_i \le n-1$ for~$i \in [\ell]$ and~${\sum_{i \in [\ell]} k_i = n-1}$, the number of vertices~$v$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ such that the smallest flat of the $i$\ordinal{} copy of~$\braidArrangement$ containing~$v$ has dimension~$n-k_i-1$ is given by
+For any~$k_1, \dots, k_\ell$ such that~$0 \le k_i \le n-1$ for~${i \in [\ell]}$ and~${\sum_{i \in [\ell]} k_i = n-1}$, the number of vertices~$v$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ such that the smallest flat of the $i$\ordinal{} copy of~$\braidArrangement$ containing~$v$ has dimension~$n-k_i-1$ is given by
 \[
 n^{\ell-1} \binom{n-1}{k_1, \dots, k_\ell} \prod_{i \in [\ell]} (n-k_i)^{k_i-1}.
 \]
@@ -87,7 +87,7 @@ We then consider the regions of the $(\ell,n)$-braid arrangement~$\multiBraidArr
 We first obtain a very simple exponential formula for its characteristic polynomial.
 
 \begin{theorem*}[\cref{thm:characteristicPolynomialMultiBraidArrangement}]
-The characteristic polynomial~$\charPol[\multiBraidArrangement]$ of the $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is given~by
+The characteristic polynomial~$\charPol[\multiBraidArrangement]$ of the \linebreak $(\ell,n)$-braid arrangement~$\multiBraidArrangement$ is given~by
 \[
 \charPol[\multiBraidArrangement] = \frac{(-1)^n n!}{y} \, [z^n] \, \exp \bigg( - \sum_{m \ge 1} \frac{F_{\ell,m} \, y \, z^m}{m} \bigg) ,
 \]
@@ -145,14 +145,14 @@ A pair of permutations of $[n]$ is a vertex of the $\LA$ (\resp $\SU$) diagonal 
 \end{align}
 For each $k \ge 1$, there are $\binom{2k-1}{k-1,k}(k-1)!k!$ such patterns, which are $(21,12)$ for $k=1$, and the following for $k=2$
 \begin{itemize}
-	\item $\LA$ avoids 
-	$(3142,2314), (4132,2413),
-	(2143,3214), (4123,3412),
-	(2134,4213), (3124,4312)$,
-	\item $\SU$ avoids 
-	$(1243,2431),(1342,3421),
-	(2143,1432),(2341,3412),
-	(3142,1423),(3241,2413)$.
+	\item $\LA$ avoids the patterns
+	$(3142,2314)$, $(4132,2413)$,
+	$(2143,3214)$, $(4123,3412)$,
+	$(2134,4213)$, $(3124,4312)$,
+	\item $\SU$ avoids the patterns
+	$(1243,2431)$, $(1342,3421)$,
+	$(2143,1432)$, $(2341,3412)$,
+	$(3142,1423)$, $(3241,2413)$.
 \end{itemize}
 \end{theorem*}
 

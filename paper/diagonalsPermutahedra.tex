@@ -946,7 +946,7 @@ The \defn{intersection hypergraph} of a $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, 
 
 \begin{definition}
 \label{def:partitionForests}
-An \defn{$(\ell,n)$-partition forest} (\resp \defn{$(\ell,n)$-partition tree}) is a $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of set partitions of~$[n]$ whose intersection hypergraph is a hyperforest (\resp hypertree).
+An \defn{$(\ell,n)$-partition forest} (\resp \defn{tree}) is a $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of set partitions of~$[n]$ whose intersection hypergraph is a hyperforest (\resp hypertree).
 See \cref{fig:forests}.
 The \defn{dimension} of~$\b{F}$ is~$\smash{{\dim(\b{F}) \eqdef n - 1 - \ell n + \sum_{i \in [\ell]} \card{F_i}}}$.
 The \defn{$(\ell,n)$-partition forest poset} is the poset~$\forestPoset$ on $(\ell,n)$-partition forests ordered by componentwise refinement.
@@ -3397,7 +3397,7 @@ $\rho>\max \sigma_{i,i+m}\geq \max \sigma_{i,i+1}, \max R_\rho^{1}(\sigma)_{i+1,
 \draw[thick,->] (2) -- node[below] {$\gamma$} (4.west);
 \end{tikzpicture}
 \end{center}
-We define the oriented paths $\alpha \eqdef \sigma_{i,i+1}\setminus \sigma_{i+1,i+m}$, $\beta \eqdef \sigma_{i,i+1}\setminus \sigma_{i,i+m}$ and $\gamma \eqdef \sigma_{i,i+m}\setminus \sigma_{i,i+1}$, as illustrated above. 
+We define the oriented paths $\alpha \eqdef \sigma_{i,i+1}\ssm \sigma_{i+1,i+m}$, $\beta \eqdef \sigma_{i,i+1}\ssm \sigma_{i,i+m}$ and $\gamma \eqdef \sigma_{i,i+m}\ssm \sigma_{i,i+1}$, as illustrated above. 
 Suppose that $\beta$ is not empty, and moreover that $\max\sigma_{i+1,i+m}>\max\sigma_{i,i+m}$ or $\max \sigma_{i,i+1}> \max \sigma_{i,i+m}$.
 Then we must have that $\max \beta> \max \alpha, \max \gamma$.
 However, $\max\beta$ cannot be the maximum of both $\sigma_{i,i+1}$ and $\sigma_{i+1,i+m}$.
