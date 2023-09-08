@@ -471,7 +471,11 @@ Hence, we obtain from \cref{def:MobiusPolynomial,prop:flatPosetMultiBraidArrange
 & = \sum_{G \in \forestPoset} y^{n-\ell n - 1 + \sum_{i \in [\ell]} \card{G_i}} x^{(n-1)(1-\ell)} \prod_{i \in [\ell]} \sum_{\pi_i \in \partitionPoset[\card{G_i}]}  \mu_{\partitionPoset[\card{G_i}]}(\pi_i,\hat{1}) \, x^{\card{\pi_i}-1}, 
 \end{align*}
 where $\hat{1}$ denotes the maximal element in $\partitionPoset[\card{G_i}]$ and $\pi_i$ is obtained from $F_i$ by merging elements in the same part of $G_i$.
-The result follows since \linebreak $\weirdPol[\card{G_i}] = \sum_{\pi_i \in \partitionPoset[\card{G_i}]}  \mu_{\partitionPoset[\card{G_i}]}(\pi_i,\hat{1}) \, x^{\card{\pi_i}-1}$.
+The result follows since
+\[
+\weirdPol[\card{G_i}] = \sum_{\pi_i \in \partitionPoset[\card{G_i}]}  \mu_{\partitionPoset[\card{G_i}]}(\pi_i,\hat{1}) \, x^{\card{\pi_i}-1}.
+\qedhere
+\]
 %Hence, we obtain
 %\[
 %\mobPol[\multiBraidArrangement] = \sum_{G \in \forestPoset} y^{n-\ell n - 1 + \sum_{i \in [\ell]} \card{G_i}} x^{(n-1)(1-\ell)} \prod_{i \in [\ell]} \weirdPol[\card{G_i}].
@@ -680,7 +684,13 @@ For~$n = 2$, we have
 \bPol[{\multiBraidArrangement[2][\ell]}] = (\ell-1)x+\ell.
 \]
 The case~$n = 3$ is already more interesting.
-Consider the set partitions~$P \eqdef \big\{ \{1\}, \{2\}, \{3\} \big\}$, $Q_i \eqdef \big\{ \{i\}, [3] \ssm \{i\} \big\}$ for~$i \in [3]$, and~$R \eqdef \big\{ [3] \big\}$.
+Consider the set partitions
+\[
+P \eqdef \big\{ \{1\}, \{2\}, \{3\} \big\},
+\quad
+Q_i \eqdef \big\{ \{i\}, [3] \ssm \{i\} \big\} \text{\;\;for~$i \in [3]$},
+\quad\text{and}\quad R \eqdef \big\{ [3] \big\}.
+\]
 Observe that the $(\ell,3)$-partition forests are all of the form
 \begin{align*}
 \b{F} & \eqdef P^\ell,
@@ -848,7 +858,7 @@ Finally, observe that
 
 We now transport via this bijection the partial order of the flat lattice on rainbow forests.
 For a node~$a$ of a forest~$F$, we denote by $\operatorname{Root}(a)$ the root of the tree of~$F$ containing~$a$.
-The following statement is illustrated in \cref{fig:CoverRelRF}, choosing $c$ to be green, $a$ to be $5$ and $b$ to be $7$.
+The following statement is illustrated in \cref{fig:CoverRelRF}, choosing~$c$ to be green, $a$ to be $5$ and $b$ to be $7$.
 
 \begin{figure}
 	\centerline{\includegraphics[scale=1]{CoverRelRFFig}}
@@ -859,7 +869,7 @@ The following statement is illustrated in \cref{fig:CoverRelRF}, choosing $c$ to
 
 \begin{proposition}
 \label{prop:CoverRelRF}
-In the flat poset~$\flatPoset[\multiBraidArrangement]$ labeled by rainbow forests using~\cref{prop:flatPosetMultiBraidArrangement,prop:bijectionForests}, a rainbow forest~$F$ is covered by a rainbow forest~$G$ if and only $G$ can be obtained from $F$ by:
+In the flat poset~$\flatPoset[\multiBraidArrangement]$ labeled by rainbow forests using~\cref{prop:flatPosetMultiBraidArrangement,prop:bijectionForests}, a rainbow forest~$F$ is covered by a rainbow forest~$G$ if and only~$G$ can be obtained from $F$ by:
 \begin{enumerate}
 \item choosing a color $c$, and two vertices $a$ and $b$ not colored with~$c$ and with $\operatorname{Root}(a)<\operatorname{Root}(b)$,
 \item shifting the colors along the path from~$\operatorname{Root}(b)$ to~$b$, so that each node along this path is now colored by the former color of its child and~$b$ is not colored anymore,
@@ -874,7 +884,7 @@ First, we add an edge between two distinct connected components, so that the res
 Moreover, the condition on the color of $a$ and on the deletion of edges between $b$ and vertices of color $c$ ensures that we do not add an edge between two vertices of the same color.
 Note that the parent of $b$ inherits the color of $b$ which is not $c$.
 
-Let us recall that the cover relations in the flat poset~$\flatPoset[\multiBraidArrangement]$ are given in terms of $(\ell,n)$-partition forests by choosing a partition $\pi$ of the partition tuple (which corresponds directly to choosing a color), choosing two parts $\pi_a$ and $\pi_b$ in the partition $\pi$, and merging them, without creating a loop in the intersection hypergraph.
+Let us recall that the cover relations in the flat poset~$\flatPoset[\multiBraidArrangement]$ are given in terms of $(\ell,n)$-partition forests by choosing a partition $\pi$ of the partition tuple (which corresponds directly to choosing a color), choosing two parts $\pi_a$ and $\pi_b$ in the partition~$\pi$, and merging them, without creating a loop in the intersection hypergraph.
 
 By choosing two vertices in different connected components of the rainbow forest, we are sure that the intersection hypergraph obtained by adding an edge is still acyclic.
 
@@ -1164,7 +1174,7 @@ We now introduce the combinatorial objects that will be used to encode the faces
 
 \begin{definition}
 \label{def:orderedPartitionForest}
-An \defn{ordered $(\ell,n)$-partition forest} (\resp \defn{tree}) is an $\ell$-tuple~$\order{\b{F}} \eqdef (\order{F_1}, \dots, \order{F_\ell})$ of ordered set partitions of~$[n]$ such that the corresponding $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of unordered set partitions of~$[n]$ forms an $(\ell,n)$-partition forest (\resp tree).
+An \defn{ordered $(\ell,n)$-partition forest} (\resp \defn{tree}) is an $\ell$-tuple \linebreak $\order{\b{F}} \eqdef (\order{F_1}, \dots, \order{F_\ell})$ of ordered set partitions of~$[n]$ such that the corresponding \linebreak  $\ell$-tuple~$\b{F} \eqdef (F_1, \dots, F_\ell)$ of unordered set partitions of~$[n]$ forms an $(\ell,n)$-partition forest (\resp tree).
 The \defn{ordered $(\ell,n)$-partition forest poset} is the poset~$\orderedForestPoset$ on ordered $(\ell,n)$-partition forests ordered by componentwise refinement.
 In other words, $\orderedForestPoset$ is the subposet of the $\ell$\ordinal{} Cartesian power of the ordered partition poset~$\orderedPartitionPoset$ induced by ordered $(\ell,n)$-partition forests.
 Note that the maximal elements of~$\orderedForestPoset$ are the ordered $(\ell, n)$-partition trees.
@@ -1222,7 +1232,7 @@ We first observe that the choice of~$\b{a}$ fixes the order of the parts in a co
 \label{prop:PFtoOPF1}
 Consider a $(\ell,n)$-partition forest~$\b{F} \eqdef (F_1, \dots, F_\ell)$, and two integers~$s,t \in [n]$ labeling two hyperedges in the same connected component of the intersection hypergraph of~$\b{F}$.
 Assume that the unique path from~$s$ to~$t$ in the hypergraph of~$\b{F}$ passes through the hyperedges labeled by~$s = r_0, \dots, r_q = t$ and through parts of the partitions~$F_{i_1}, \dots, F_{i_q}$.
-Then for any ordered $(\ell,n)$-partition forest~$\order{\b{F}} \eqdef (\order{F_1}, \dots, \order{F_\ell})$ of the upper set~$\orderedForestPoset(\b{a})$ with underlying $(\ell,n)$-partition forest~$\b{F}$ and any~$i \in [\ell]$, the order of~$s$ and~$t$ in~$\order{F}_i$ is given by the sign of ${A_{i,s,t} - \sum_{p \in [q]} A_{i_p, r_{p-1}, r_p}}$.
+Then for any ordered $(\ell,n)$-partition forest~$\order{\b{F}} \eqdef (\order{F_1}, \dots, \order{F_\ell})$ of the upper set~$\orderedForestPoset(\b{a})$ with underlying $(\ell,n)$-partition \linebreak forest~$\b{F}$ and any~$i \in [\ell]$, the order of~$s$ and~$t$ in~$\order{F}_i$ is given by the sign \linebreak of~${A_{i,s,t} - \sum_{p \in [q]} A_{i_p, r_{p-1}, r_p}}$.
 \end{proposition}
 
 \begin{proof}

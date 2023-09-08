@@ -27,7 +27,7 @@ We now proceed to define thin, cellular, and geometric diagonals.
 
 \begin{definition} 
 \label{def:thinDiagonal}
-The \defn{thin diagonal} of a set $X$ is the map~$\delta : X \to X \times X$ defined by $\delta(x) \eqdef (x,x)$ for all $x \in X$.
+The \defn{thin diagonal} of a set $X$ is the map~$\delta : X \to X \times X$ defined \linebreak by $\delta(x) \eqdef (x,x)$ for all $x \in X$.
 See \cref{fig:examplesDiagonals1}\,(left).
 \end{definition}
 
@@ -50,7 +50,7 @@ The key idea is that any vector $\b{v}$ in generic position with respect to $P$ 
 For $\b{z}$ a point of $P$, we denote by $\rho_{\b{z}} P \eqdef 2\b{z}-P$ the reflection of $P$ with respect to the point~$\b{z}$.
 
 \begin{definition}
-	The \defn{fundamental hyperplane arrangement}~$\mathcal{H}_P$ of a polytope~$P \subset \R^d$ is the set of all linear hyperplanes of~$\R^d$ orthogonal to the edges of $P\cap \rho_{\b{z}} P$ for all $\b{z} \in P$. 
+	The \defn{fundamental hyperplane arrangement}~$\mathcal{H}_P$ of a polytope~$P \subset \R^d$ is the set of all linear hyperplanes of~$\R^d$ orthogonal to the edges of $P\cap \rho_{\b{z}} P$ for all~$\b{z} \in P$. 
 	See \cref{fig:examplesHyperplanes}.
 \end{definition}
 
@@ -126,13 +126,13 @@ Recall that the \defn{normal cone} of a face~$F$ of a polytope~$P$ in~$\R^d$ is 
 
 \begin{theorem}[{\cite[Thm.~1.26]{LaplanteAnfossi}}]
 \label{thm:universalFormula}
-Fix a vector $\b{v} \in \R^d$ generic with respect to $P$.
+Fix a vector $\b{v} \in \R^d$ generic with respect to~$P$.
 For each hyperplane~$H$ of the fundamental hyperplane arrangement~$\mathcal{H}_P$, denote by~$H^{\b{v}}$ the open half space defined by~$H$ and containing~$\b{v}$.
 The faces of~$P \times P$ in the image of the geometric diagonal~$\triangle_{(P,\b{v})}$ are the faces~$F \times G$ where~$F$ and~$G$ are faces of~$P$ such that either the normal cone of~$F$ intersects~$H^{-\b{v}}$ or the normal cone of~$G$ intersects~$H^{\b{v}}$, for each~$H \in \mathcal{H}_P$.
 \end{theorem}
 
 The image of $\triangle_{(P,\b{v})}$ is a union of pairs of faces $F \times G$ of the Cartesian product~$P \times P$.
-By drawing the polytopes~${(F+G)/2}$ for all pairs of faces $(F,G) \in \Ima \triangle_{(P,\b{v})}$, we can visualize~$\triangle_{(P,\b{v})}$ as a polytopal subdivision of $P$.
+By drawing the polytopes~${(F+G)/2}$ for all pairs of faces ${(F,G) \in \Ima \triangle_{(P,\b{v})}}$, we can visualize~$\triangle_{(P,\b{v})}$ as a polytopal subdivision of $P$.
 See \cref{fig:examplesDiagonals1}\,(middle right) and \cref{fig:examplesDiagonals2}.
 
 It turns out that the dual of this complex is just the common refinement of two translated copies of the normal fan of~$P$.
@@ -149,7 +149,7 @@ Finally, the following statement relates the image of the diagonal~$\triangle_{(
 
 \begin{proposition}[{\cite[Prop. 1.17]{LaplanteAnfossi}}]
 \label{prop:magicalFormula}
-For any polytope $P$ and any generic vector $\b{v}$, we have
+For any polytope $P$ and any generic vector~$\b{v}$, we have
 \begin{equation}
 \label{eq:magique}
 \Ima\triangle_{(P, \b{v})} \quad \subseteq \bigcup_{\substack{F,G \text{ faces of } P \\ \max_{\b{v}}(F) \, \le \, \min_{\b{v}}(G)}} F \times G .
@@ -545,7 +545,7 @@ The \defn{$\LA$ diagonal} $\LAD$ (\resp \defn{$\SU$ diagonal} $\SUD$) of the per
 for all~$(I,J) \in \LA(n)$ (\resp $(I,J) \in \SU(n)$).
 \end{definition}
 
-First note that this definition makes sense, since vectors $\b{v}=(v_1,\ldots,v_n)$ such that $\Or(\b{v})$ is the $\LA$ or $\SU$ order do exist: take for instance $v_i\eqdef 2^{-i+1}$ for $\LAD$ and $v_i \eqdef 2^n - 2^{i-1}$ for $\SUD$.
+First note that this definition makes sense, since vectors $\b{v}=(v_1,\ldots,v_n)$ such that $\Or(\b{v})$ is the $\LA$ or $\SU$ order do exist: take for instance $v_i\eqdef 2^{-i+1}$ for $\LAD$ and~$v_i \eqdef 2^n - 2^{i-1}$ for $\SUD$.
 Second, note that the $\LA$ and $\SU$ diagonals coincide up to dimension $2$, but differ in dimension~$\ge 3$.
 The former is illustrated in \cref{fig:LUSAdiagonals}, with the faces labeled by ordered $(2,3)$-partition forests.
 
@@ -564,7 +564,7 @@ A pair $(\sigma,\tau)$ of ordered partitions of $[n]$ is not a face of the $\LA$
 %\[
 %(\sigma,\tau) \notin \LAD \iff \text{there is } (I,J) \in \LA(n) \text{ such that } J \text{ dominates } I \text{ in } \sigma \text{ and } I \text{ dominates } J \text{ in } \tau.
 %\]
-The same holds for the $\SU$ diagonal by replacing $\LAD$ by $\SUD$ and $\LA(n)$ by $\SU(n)$.
+The same holds for the $\SU$ diagonal by replacing~$\LAD$ by $\SUD$ and $\LA(n)$ by $\SU(n)$.
 \end{theorem}
 
 %%%%%%%%%%%%%%%
@@ -588,12 +588,12 @@ of lower dimensional permutahedra, where the first factor is translated by~$q \o
 		 & & (x_1,\ldots,x_p) \times (x_{p+1}, \ldots, x_{n})  & \longmapsto & (x_{\sigma^{-1}(1)},\ldots,x_{\sigma^{-1}(n)}) \ , 
 	\end{matrix}
 \end{equation*}
-where $\sigma$ is the $(p,q)$-shuffle defined by $\sigma(i) \eqdef a_i$ for~$i \in [p]$, and $\sigma(p+j)\eqdef b_j$ for~$j \in [q]$.
+where $\sigma$ is the $(p,q)$-shuffle defined by $\sigma(i) \eqdef a_i$ for~$i \in [p]$, and $\sigma(p+j)\eqdef b_j$ for~${j \in [q]}$.
 Note that this map is a particular instance of the eponym map introduced in Point (5) of~\cite[Prop.~2.3]{LaplanteAnfossi}.
 
 \begin{definition}
 \label{def:operadicDiagonal}
-A family of geometric diagonals $\triangle \eqdef \{\triangle_n : \Perm \to \Perm \times \Perm\}_{n\geq 1}$ of the permutahedra is \defn{operadic} if for every face $A_1 | \ldots | A_k$ of the permutahedron $\Perm[\card{A_1}+\cdots + \card{A_k}]$, the map $\Theta$ induces a topological cellular isomorphism
+A family of geometric diagonals \[\triangle \eqdef \{\triangle_n : \Perm \to \Perm \times \Perm\}_{n\geq 1}\] of the permutahedra is \defn{operadic} if for every face $A_1 | \ldots | A_k$ of the permutahedron $\Perm[\card{A_1}+\cdots + \card{A_k}]$, the map $\Theta$ induces a topological cellular isomorphism
 \[
 \triangle_{\card{A_1}} \times \ldots \times \triangle_{\card{A_k}} \cong \triangle_{\card{A_1} + \ldots + \card{A_k}} .
 \]
@@ -611,7 +611,7 @@ The \defn{standardization} of a pair~$(I,J)$ of disjoint subsets of~$[n]$ is the
 More precisely, it is defined recursively by
 \begin{itemize}
 \item $\std(\varnothing, \varnothing) \eqdef (\varnothing, \varnothing)$, and
-\item if~$k \eqdef \card{I}+\card{J}$ and~$\ell \eqdef \max(I \cup J)$ belongs to~$I$ (resp. $J$), then~$\std(I,J) = (U \cup \{k\}, V)$ (resp. $\std(I,J) \! = \! (U, V \cup \{k\})$) where~$(U,V) \! = \! \std(I \ssm \{\ell\}, J)$ (resp. ${(U,V) \! = \! \std(I, J \ssm \{\ell\})}$).
+\item if~$k \eqdef \card{I}+\card{J}$ and~$\ell \eqdef \max(I \cup J)$ belongs to~$I$ (\resp $J$), then~$\std(I,J) = (U \cup \{k\}, V)$ (\resp $\std(I,J) \! = \! (U, V \cup \{k\})$) where~$(U,V) \! = \! \std(I \ssm \{\ell\}, J)$ (\resp ${(U,V) \! = \! \std(I, J \ssm \{\ell\})}$).
 \end{itemize}
 \end{definition}
 
@@ -685,12 +685,12 @@ The only operadic orderings of $\Un=\{\Un(n)\}_{n\geq 1}$ are the $\LA,\SU,\LA^{
 \end{proposition}
 
 \begin{proof}
-We build operadic orderings inductively, showing that the choices for $\Un(n)$, $n\leq 4$ determine higher ones. 
+We build operadic orderings inductively, showing that the choices for~$\Un(n)$, $n\leq 4$ determine higher ones. 
 We prove the statement for the $\LA$ order, the $\SU$ and opposite orders are similar. 
 First, we decide to order the unique pair of $\Un(2)$ as $(\{1\},\{2\})$.
 The operadic property then determines the orders of all the pairs of $\Un(3)$ and $\Un(4)$, except the pair $\{\{1,4\},\{2,3\}\}$, for which we choose the order $(\{1,4\},\{2,3\})$.
 Now, we claim that all the higher choices are forced by the operadic property, and lead to the $\LA$ diagonal. 
-Starting instead with the orders $(\{1\},\{2\})$ and $(\{2,3\},\{1,4\})$ would give the $\SU$ diagonal, and reversing the pairs would give the opposite orders. 
+Starting instead with the orders~$(\{1\},\{2\})$ and $(\{2,3\},\{1,4\})$ would give the $\SU$ diagonal, and reversing the pairs would give the opposite orders. 
 
 Let $\ell \geq 2$ and suppose that for all $k\leq \ell$, we have given the pair \[\{I_k,J_k\} \eqdef \{\{1,k+2,{k+3},\dots,{2k-1},2k\},\{2,3,\dots,k+1\}\}\] the $\LA$ ordering $(I_k,J_k)$.
 Then from \cref{lem:operadic-ordering}, we know that the only $\{I,J\}$ pair of order $\ell+1$ that will not decompose, and hence be specified by the already chosen conditions, is~$\{I_{\ell+1},J_{\ell+1}\}$.
@@ -723,7 +723,7 @@ Recall that a vector induces the weak order on the vertices of the standard perm
 
 \begin{theorem}
 \label{thm:unique-operadic}
-There are exactly four operadic geometric diagonals of the permutahedra, given by the $\LA$ and $\SU$ diagonals, and their opposites~$\LA^{\op}$ and $\SU^{\op}$. 
+There are exactly four operadic geometric diagonals of the permutahedra, given by the $\LA$ and $\SU$ diagonals, and their opposites~$\LA^{\op}$ and~$\SU^{\op}$. 
 The $\LA$ and $\SU$ diagonals are the only operadic geometric diagonals which induce the weak order on the vertices of the permutahedron.
 \end{theorem}
 
@@ -930,6 +930,8 @@ We are now interested in characterizing the vertices that occur in an operadic d
 These pairs form a strict subset of the weak order intervals. 
 We first need the following Lemma, which follows directly from the definition of domination (\cref{def:domination}).
 
+\pagebreak
+
 \begin{lemma}
 \label{lem:Coherent Domination}
 Let $\sigma$ be an ordered partition of $[n]$ and let $I,J \subseteq [n]$ be such that $I$ dominates $J$ in~$\sigma$. 
@@ -1097,8 +1099,8 @@ We now recall a definition of the facial weak order on ordered partitions, and u
 \begin{definition}[\cite{KrobLatapyNovelliPhanSchwer,PalaciosRonco,DermenjianHohlwegPilaud}]
 The \defn{facial weak order} on ordered partitions is the transitive closure of the relations
 \begin{align}
-    \sigma_1|\dots|\sigma_k < \sigma_1|\cdots|\sigma_i \sqcup \sigma_{i+1}|\cdots|\sigma_k \quad & \text{for any } \sigma_1|\dots|\sigma_k \text{ with } \max \sigma_i < \min \sigma_{i+1},  \label{eq:facial weak 1}\\
-    \sigma_1|\cdots|\sigma_i \sqcup \sigma_{i+1}|\cdots|\sigma_k < \sigma_1|\dots|\sigma_k \quad & \text{for any } \sigma_1|\dots|\sigma_k \text{ with } \min \sigma_i > \max \sigma_{i+1}. \label{eq:facial weak 2}
+    \sigma_1|\dots|\sigma_k \; < \; \sigma_1|\cdots|\sigma_i \sqcup \sigma_{i+1}|\cdots|\sigma_k \quad & \text{for any } \sigma_1|\dots|\sigma_k \text{ with } \max \sigma_i < \min \sigma_{i+1},  \label{eq:facial weak 1}\\
+    \sigma_1|\cdots|\sigma_i \sqcup \sigma_{i+1}|\cdots|\sigma_k \; < \; \sigma_1|\dots|\sigma_k \quad & \text{for any } \sigma_1|\dots|\sigma_k \text{ with } \min \sigma_i > \max \sigma_{i+1}. \label{eq:facial weak 2}
 \end{align}
 \end{definition}
 
